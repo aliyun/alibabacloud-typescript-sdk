@@ -236,14 +236,6 @@ export class AssociateWebCertRequest extends $tea.Model {
    */
   domain?: string;
   key?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-   * 
-   * @example
-   * default
-   */
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       cert: 'Cert',
@@ -253,7 +245,6 @@ export class AssociateWebCertRequest extends $tea.Model {
       certRegion: 'CertRegion',
       domain: 'Domain',
       key: 'Key',
-      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -266,7 +257,6 @@ export class AssociateWebCertRequest extends $tea.Model {
       certRegion: 'string',
       domain: 'string',
       key: 'string',
-      resourceGroupId: 'string',
     };
   }
 
@@ -2050,11 +2040,11 @@ export class CreateDomainResourceRequest extends $tea.Model {
    * @remarks
    * The address type of the origin server. Valid values:
    * 
-   * *   **0**: IP address
+   * *   **0**: IP address.
    * 
-   * *   **1**: domain name
+   * *   **1**: domain name.
    * 
-   *     This parameter is suitable for scenarios where another proxy service, such as Web Application Firewall (WAF), is deployed between the origin server and Anti-DDoS Pro or Anti-DDoS Premium. The address is the jump address of the proxy service, such as the CNAME address of WAF.
+   *     This parameter is suitable for scenarios in which another proxy service, such as Web Application Firewall (WAF), is deployed between the origin server and Anti-DDoS Proxy. The address is the redirection address of the proxy service, such as the CNAME of WAF.
    * 
    * This parameter is required.
    * 
@@ -2246,7 +2236,7 @@ export class CreatePortRequest extends $tea.Model {
   frontendPort?: string;
   /**
    * @remarks
-   * The type of the protocol. Valid values:
+   * The type of the forwarding protocol. Valid values:
    * 
    * *   **tcp**
    * *   **udp**
@@ -3744,7 +3734,7 @@ export class DeleteSceneDefensePolicyRequest extends $tea.Model {
 export class DeleteSceneDefensePolicyResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F65DF043-E0EB-4796-9467-23DDCDF92C1D
@@ -3754,8 +3744,8 @@ export class DeleteSceneDefensePolicyResponseBody extends $tea.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -7359,7 +7349,7 @@ export class DescribeDomainResourceRequest extends $tea.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -7367,9 +7357,7 @@ export class DescribeDomainResourceRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
-   * 
-   * This parameter is required.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -9153,7 +9141,7 @@ export class DescribeHealthCheckListResponseBody extends $tea.Model {
   healthCheckList?: DescribeHealthCheckListResponseBodyHealthCheckList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 83B4AF42-E8EE-4DC9-BD73-87B7733A36F9
@@ -10175,6 +10163,7 @@ export class DescribeL7RsPolicyResponseBody extends $tea.Model {
    * 9E7F6B2C-03F2-462F-9076-B782CF0DD502
    */
   requestId?: string;
+  rsAttrRwTimeoutMax?: number;
   /**
    * @remarks
    * The back-to-origin retry switch. Valid values:
@@ -10191,6 +10180,7 @@ export class DescribeL7RsPolicyResponseBody extends $tea.Model {
       attributes: 'Attributes',
       proxyMode: 'ProxyMode',
       requestId: 'RequestId',
+      rsAttrRwTimeoutMax: 'RsAttrRwTimeoutMax',
       upstreamRetry: 'UpstreamRetry',
     };
   }
@@ -10200,6 +10190,7 @@ export class DescribeL7RsPolicyResponseBody extends $tea.Model {
       attributes: { 'type': 'array', 'itemType': DescribeL7RsPolicyResponseBodyAttributes },
       proxyMode: 'string',
       requestId: 'string',
+      rsAttrRwTimeoutMax: 'number',
       upstreamRetry: 'number',
     };
   }
@@ -10837,7 +10828,7 @@ export class DescribeNetworkRulesRequest extends $tea.Model {
 export class DescribeNetworkRulesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details of a port forwarding rule.
+   * The details of the port forwarding rule.
    */
   networkRules?: DescribeNetworkRulesResponseBodyNetworkRules[];
   /**
@@ -11107,9 +11098,7 @@ export class DescribePortRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. For example, if you want to obtain results on the first page, set the value to **1**.
-   * 
-   * This parameter is required.
+   * The page number. For example, if you want to obtain results on the first page, set the value to **1**.
    * 
    * @example
    * 1
@@ -11117,9 +11106,7 @@ export class DescribePortRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
-   * 
-   * This parameter is required.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -15751,39 +15738,63 @@ export class DescribeWebReportTopIpResponse extends $tea.Model {
 
 export class DescribeWebRulesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The CNAME address to query.
+   * 
    * @example
    * kzmk7b8tt351****.aliyunddos1014****
    */
   cname?: string;
   /**
+   * @remarks
+   * The domain name of the website to query.
+   * 
+   * > The domain must have been configured with website business forwarding rules. You can call [DescribeDomains](~~DescribeDomains~~) to query all domains that have been configured with website business forwarding rules.
+   * 
    * @example
    * example.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The list of DDoS protection instance IDs to query.
+   * 
    * @example
    * ddoscoo-cn-mp91j1ao****
    */
   instanceIds?: string[];
   /**
+   * @remarks
+   * When paginating, set the page number of the current page. The default value is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
    * @remarks
-   * This parameter is required.
+   * When paginating, set the number of forwarding rules per page. The range of values is: 1~10.
    * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The query matching pattern. Values:
+   * - **fuzzy** (default): Indicates fuzzy query.
+   * - **exact**: Indicates exact query.
+   * 
    * @example
    * exact
    */
   queryDomainPattern?: string;
   /**
+   * @remarks
+   * The resource group ID of the DDoS protection instance in the resource management service.
+   * 
+   * Not setting this parameter indicates the default resource group.
+   * 
    * @example
    * rg-acfm2pz25js****
    */
@@ -15819,15 +15830,25 @@ export class DescribeWebRulesRequest extends $tea.Model {
 
 export class DescribeWebRulesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0F5B72DD-96F4-423A-B12B-A5151DD746B8
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of queried website business forwarding rules.
+   * 
    * @example
    * 1
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The configurations of the forwarding rule.
+   */
   webRules?: DescribeWebRulesResponseBodyWebRules[];
   static names(): { [key: string]: string } {
     return {
@@ -18397,9 +18418,34 @@ export class ModifyInstanceRemarkResponse extends $tea.Model {
 export class ModifyNetworkRuleAttributeRequest extends $tea.Model {
   /**
    * @remarks
-   * The session persistence settings of the port forwarding rule. This parameter is a JSON string. The string contains the following fields:
+   * The detailed settings of the port forwarding rule. This parameter is a JSON string and contains the following fields. The detailed settings of a TCP port forwarding rule contain the following fields.
    * 
-   * *   **PersistenceTimeout**: The timeout period of session persistence. This field is required and must be of the integer type. Valid values: **30** to **3600**. Unit: seconds. Default value: **0**. A value of 0 indicates that session persistence is disabled.
+   * *   **PersistenceTimeout**: the timeout period of session persistence. This field is required and of the integer type. Valid values: **30** to **3600**. Unit: seconds. Default value: **0**, which indicates that session persistence is disabled.
+   * *   **Synproxy**: specifies whether to enable the false source feature in the DDoS mitigation policy. This field is required and of the string type. Valid values: off and on.
+   * *   **NodataConn**: specifies whether to enable the empty connection feature in the DDoS mitigation policy. This field is required and of the string type. Valid values: off and on.
+   * *   **Sla**: the settings of the speed limit for destination feature. This field is required and of the struct type. For more information, see the following description about Sla.
+   * *   **Slimit**: the settings of the rate limit for source feature. This field is required and of the struct type. For more information, see the following description about Slimit.
+   * *   **PayloadLen**: the settings of the packet length limit feature. This field is required and of the struct type. For more information, see the following description about PayloadLen.
+   * 
+   * Sla contains the following fields:
+   * 
+   * *   **Cps**: the destination rate limit on new connections in the DDoS mitigation policy. This field is required and of the integer type. Valid values: 100 to 100000.
+   * *   **Maxconn**: the destination rate limit on concurrent connections in the DDoS mitigation policy. This field is required and of the integer type. Valid values: 1000 to 1000000.
+   * *   **CpsEnable**: specifies whether to enable Cps. This field is required and of the integer type. Valid values: 0 and 1. Default value: 1. The value 0 indicates that Cps is disabled, and the value 1 indicates that Cps is enabled.
+   * *   **MaxconnEnable**: specifies whether to enable Maxconn. This field is required and of the integer type. Valid values: 0 and 1. Default value: 1. The value 0 indicates that Maxconn is disabled, and the value 1 indicates that Maxconn is enabled.
+   * 
+   * Slimit contains the following fields:
+   * 
+   * *   **Cps**: the source rate limit on new connections in the DDoS mitigation policy. This field is required and of the integer type. Valid values: 1 to 50000.
+   * *   **Maxconn**: the source rate limit on concurrent connections in the DDoS mitigation policy. This field is required and of the integer type. Valid values: 1 to 50000.
+   * *   **CpsEnable**: specifies whether to enable Cps. This field is required and of the integer type. Valid values: 0 and 1. Default value: 1. The value 0 indicates that Cps is disabled, and the value 1 indicates that Cps is enabled.
+   * *   **MaxconnEnable**: specifies whether to enable Maxconn. This field is required and of the integer type. Valid values: 0 and 1. Default value: 1. The value 0 indicates that Maxconn is disabled, and the value 1 indicates that Maxconn is enabled.
+   * *   **CpsMode**: specifies whether to enable the source rate limit on new connections. This field is required and of the integer type. Valid values: 1 and 2. The value 1 indicates the source rate limit is enabled. The value 2 indicates that the system determines whether to enable the source rate limit.
+   * 
+   * PayloadLen contains the following fields:
+   * 
+   * *   **Min**: the minimum packet length in the DDoS mitigation policy. This field is required and of the integer type. Valid values: 0 to 2000.
+   * *   **Max**: the maximum packet length in the DDoS mitigation policy. This field is required and of the integer type. Valid values: 0 to 6000.
    * 
    * This parameter is required.
    * 
@@ -18468,7 +18514,7 @@ export class ModifyNetworkRuleAttributeRequest extends $tea.Model {
 export class ModifyNetworkRuleAttributeResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
@@ -18632,7 +18678,7 @@ export class ModifyPortRequest extends $tea.Model {
   frontendPort?: string;
   /**
    * @remarks
-   * The type of the protocol. Valid values:
+   * The type of the forwarding protocol. Valid values:
    * 
    * *   **tcp**
    * *   **udp**
@@ -18805,7 +18851,7 @@ export class ModifyPortAutoCcStatusRequest extends $tea.Model {
 export class ModifyPortAutoCcStatusResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
@@ -23586,7 +23632,7 @@ export class DescribeHealthCheckListResponseBodyHealthCheckListHealthCheck exten
    * @remarks
    * The domain name.
    * 
-   * > This parameter is returned only when the Layer 7 health check configuration is queried.
+   * >  This parameter is returned only when the Layer 7 health check configuration is queried.
    * 
    * @example
    * www.aliyun.com
@@ -23647,7 +23693,7 @@ export class DescribeHealthCheckListResponseBodyHealthCheckListHealthCheck exten
    * @remarks
    * The check path.
    * 
-   * > This parameter is returned only when the Layer 7 health check configuration is queried.
+   * >  This parameter is returned only when the Layer 7 health check configuration is queried.
    * 
    * @example
    * /abc
@@ -27236,6 +27282,13 @@ export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition exten
    * 192.0.XX.XX
    */
   content?: string;
+  /**
+   * @remarks
+   * The match content when the match method is Equals to One of Multiple Values.
+   * 
+   * @example
+   * ["2","3","ad"]
+   */
   contentList?: string;
   /**
    * @remarks
@@ -28279,16 +28332,31 @@ export class DescribeWebReportTopIpResponseBodyDataList extends $tea.Model {
 
 export class DescribeWebRulesResponseBodyWebRulesGmCert extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the SM certificate.
+   * 
    * @example
    * 725****
    */
   certId?: string;
   /**
+   * @remarks
+   * Indicates whether Enable SM Certificate-based Verification is turned on.
+   * 
+   * *   0: no
+   * *   1: yes
+   * 
    * @example
    * 1
    */
   gmEnable?: number;
   /**
+   * @remarks
+   * Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
+   * 
+   * *   0: no
+   * *   1: yes
+   * 
    * @example
    * 1
    */
@@ -28315,8 +28383,20 @@ export class DescribeWebRulesResponseBodyWebRulesGmCert extends $tea.Model {
 }
 
 export class DescribeWebRulesResponseBodyWebRulesProxyTypes extends $tea.Model {
+  /**
+   * @remarks
+   * The ports.
+   */
   proxyPorts?: string[];
   /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **http**
+   * *   **https**
+   * *   **websocket**
+   * *   **websockets**
+   * 
    * @example
    * https
    */
@@ -28342,11 +28422,20 @@ export class DescribeWebRulesResponseBodyWebRulesProxyTypes extends $tea.Model {
 
 export class DescribeWebRulesResponseBodyWebRulesRealServers extends $tea.Model {
   /**
+   * @remarks
+   * The address of the origin server.
+   * 
    * @example
    * 192.0.XX.XX
    */
   realServer?: string;
   /**
+   * @remarks
+   * The type of the origin server address. Valid values:
+   * 
+   * *   **0**: IP address
+   * *   **1**: domain name The domain name of the origin server is returned if you deploy proxies, such as Web Application Firewall (WAF), between the origin server and the instance. In this case, the address of the proxy, such as the CNAME provided by WAF, is returned.
+   * 
    * @example
    * 0
    */
@@ -28371,97 +28460,239 @@ export class DescribeWebRulesResponseBodyWebRulesRealServers extends $tea.Model 
 }
 
 export class DescribeWebRulesResponseBodyWebRules extends $tea.Model {
+  /**
+   * @remarks
+   * The IP addresses in the blacklist for the domain name.
+   */
   blackList?: string[];
   /**
+   * @remarks
+   * Indicates whether the Frequency Control policy is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   ccEnabled?: boolean;
   /**
+   * @remarks
+   * Indicates whether the Custom Rule switch of the Frequency Control policy is turned on. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * false
    */
   ccRuleEnabled?: boolean;
   /**
+   * @remarks
+   * The mode of the Frequency Control policy. Valid values:
+   * 
+   * *   **default**: the Normal mode
+   * *   **gf_under_attack**: the Emergency mode
+   * *   **gf_sos_verify**: the Strict mode
+   * *   **gf_sos_verify**: the Super Strict mode
+   * 
    * @example
    * default
    */
   ccTemplate?: string;
   /**
+   * @remarks
+   * The name of the SSL certificate.
+   * 
    * @example
    * testcert
    */
   certName?: string;
+  /**
+   * @remarks
+   * The region where the certificate is used. Valid values:
+   * 
+   * *   cn-hangzhou (default): the Chinese mainland
+   * *   ap-southeast-1: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
   certRegion?: string;
   /**
+   * @remarks
+   * The CNAME provided by the Anti-DDoS Pro or Anti-DDoS Premium instance to which the domain name is added.
+   * 
    * @example
    * kzmk7b8tt351****.aliyunddos1014****
    */
   cname?: string;
+  /**
+   * @remarks
+   * The custom cipher suites.
+   */
   customCiphers?: string[];
   /**
+   * @remarks
+   * The domain name of the website.
+   * 
    * @example
    * example.com
    */
   domain?: string;
+  /**
+   * @remarks
+   * The SM certificate settings.
+   */
   gmCert?: DescribeWebRulesResponseBodyWebRulesGmCert;
   /**
+   * @remarks
+   * Indicates whether Enable HTTP/2 is turned on. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   http2Enable?: boolean;
   /**
+   * @remarks
+   * Indicates whether Enable HTTPS Redirection was turned on. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   http2HttpsEnable?: boolean;
   /**
+   * @remarks
+   * Indicates whether Enable HTTP Redirection of Back-to-origin Requests is turned on. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   https2HttpEnable?: boolean;
   /**
+   * @remarks
+   * Indicates whether the Online Certificate Status Protocol (OCSP) feature is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * false
    */
   ocspEnabled?: boolean;
   /**
+   * @remarks
+   * The load balancing algorithm for back-to-origin traffic. Valid values:
+   * 
+   * *   **ip_hash**: the IP hash algorithm. This algorithm is used to redirect the requests from the same IP address to the same origin server.
+   * *   **rr**: the round-robin algorithm. This algorithm is used to redirect requests to origin servers in turn.
+   * *   **least_time**: the least response time algorithm. This algorithm is used to minimize the latency when requests are forwarded from Anti-DDoS Pro or Anti-DDoS Premium instances to origin servers based on the intelligent DNS resolution feature.
+   * 
    * @example
    * ip_hash
    */
   policyMode?: string;
   /**
+   * @remarks
+   * Indicates whether the forwarding rule is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   proxyEnabled?: boolean;
+  /**
+   * @remarks
+   * The details of the protocol type and port number.
+   */
   proxyTypes?: DescribeWebRulesResponseBodyWebRulesProxyTypes[];
   /**
+   * @remarks
+   * The reason why the domain name is invalid. Valid values:
+   * 
+   * *   **1**: No Content Provider (ICP) filing is completed for the domain name.
+   * *   **2**: The business for which you registered the domain name does not meet regulatory requirements.
+   * 
+   * If the two reasons are both involved, the value **2** is returned.
+   * 
    * @example
    * 1
    */
   punishReason?: number;
   /**
+   * @remarks
+   * Indicates whether the domain name is invalid. Valid values:
+   * 
+   * *   **true**: You can view the specific reasons from the **PunishReason** parameter.
+   * *   **false**
+   * 
    * @example
    * true
    */
   punishStatus?: boolean;
+  /**
+   * @remarks
+   * The details of the origin server address.
+   */
   realServers?: DescribeWebRulesResponseBodyWebRulesRealServers[];
   /**
+   * @remarks
+   * Indicates whether TLS 1.3 is supported. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * false
    */
   ssl13Enabled?: boolean;
   /**
+   * @remarks
+   * The type of the cipher suite. Valid values:
+   * 
+   * *   **default**: custom cipher suites
+   * *   **all**: all cipher suites, which contain strong and weak cipher suites
+   * *   **strong**: strong cipher suites
+   * 
    * @example
    * default
    */
   sslCiphers?: string;
   /**
+   * @remarks
+   * The version of the Transport Layer Security (TLS) protocol. Valid values:
+   * 
+   * *   **tls1.0**: TLS 1.0 or later
+   * *   **tls1.1**: TLS 1.1 or later
+   * *   **tls1.2**: TLS 1.2 or later
+   * 
    * @example
    * tls1.1
    */
   sslProtocols?: string;
+  /**
+   * @remarks
+   * The name of the certificate uploaded by the user to the certificate center.
+   * 
+   * @example
+   * test
+   */
+  userCertName?: string;
+  /**
+   * @remarks
+   * The IP addresses in the whitelist for the domain name.
+   */
   whiteList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -28488,6 +28719,7 @@ export class DescribeWebRulesResponseBodyWebRules extends $tea.Model {
       ssl13Enabled: 'Ssl13Enabled',
       sslCiphers: 'SslCiphers',
       sslProtocols: 'SslProtocols',
+      userCertName: 'UserCertName',
       whiteList: 'WhiteList',
     };
   }
@@ -28517,6 +28749,7 @@ export class DescribeWebRulesResponseBodyWebRules extends $tea.Model {
       ssl13Enabled: 'boolean',
       sslCiphers: 'string',
       sslProtocols: 'string',
+      userCertName: 'string',
       whiteList: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -28706,11 +28939,6 @@ export default class Client extends OpenApi {
    */
   async associateWebCertWithOptions(request: AssociateWebCertRequest, runtime: $Util.RuntimeOptions): Promise<AssociateWebCertResponse> {
     Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.cert)) {
       body["Cert"] = request.cert;
@@ -28741,7 +28969,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -35684,9 +35911,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
-   * *   0: no
-   * *   1: yes
+   * Query Configuration of Website Business Forwarding Rules.
+   * 
+   * @remarks
+   * This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
+   * Before calling this interface, you must have already called [CreateWebRule](~~CreateWebRule~~) to create website business forwarding rules.
+   * ### QPS Limit
+   * The per-user QPS limit for this interface is 50 times/second. Exceeding this limit will result in API calls being throttled, which may impact your business; please use it reasonably.
    * 
    * @param request - DescribeWebRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35741,9 +35972,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
-   * *   0: no
-   * *   1: yes
+   * Query Configuration of Website Business Forwarding Rules.
+   * 
+   * @remarks
+   * This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
+   * Before calling this interface, you must have already called [CreateWebRule](~~CreateWebRule~~) to create website business forwarding rules.
+   * ### QPS Limit
+   * The per-user QPS limit for this interface is 50 times/second. Exceeding this limit will result in API calls being throttled, which may impact your business; please use it reasonably.
    * 
    * @param request - DescribeWebRulesRequest
    * @returns DescribeWebRulesResponse
@@ -36986,7 +37221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the session persistence settings of a port forwarding rule.
+   * Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
    * 
    * @param request - ModifyNetworkRuleAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37029,7 +37264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the session persistence settings of a port forwarding rule.
+   * Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
    * 
    * @param request - ModifyNetworkRuleAttributeRequest
    * @returns ModifyNetworkRuleAttributeResponse
@@ -38014,7 +38249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the accurate access control rule of a website.
+   * Creates or modifies an accurate access control rule of a website.
    * 
    * @param request - ModifyWebPreciseAccessRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38057,7 +38292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the accurate access control rule of a website.
+   * Creates or modifies an accurate access control rule of a website.
    * 
    * @param request - ModifyWebPreciseAccessRuleRequest
    * @returns ModifyWebPreciseAccessRuleResponse
