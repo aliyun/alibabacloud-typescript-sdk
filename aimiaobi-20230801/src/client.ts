@@ -14593,6 +14593,7 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPo
 }
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesNews extends $tea.Model {
+  content?: string;
   /**
    * @example
    * 9957175DEDCF49C5ACF7A956B4FD67B2
@@ -14608,33 +14609,47 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPoin
    * https://www.example.com/aaa.png
    */
   imageUrls?: string[];
+  source?: string;
+  summary?: string;
   /**
    * @example
    * ["标签1","标签2"]
    */
   tags?: string[];
+  title?: string;
   /**
    * @example
    * 文章主题
    */
   topic?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
+      content: 'Content',
       docId: 'DocId',
       docUuid: 'DocUuid',
       imageUrls: 'ImageUrls',
+      source: 'Source',
+      summary: 'Summary',
       tags: 'Tags',
+      title: 'Title',
       topic: 'Topic',
+      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      content: 'string',
       docId: 'string',
       docUuid: 'string',
       imageUrls: { 'type': 'array', 'itemType': 'string' },
+      source: 'string',
+      summary: 'string',
       tags: { 'type': 'array', 'itemType': 'string' },
+      title: 'string',
       topic: 'string',
+      url: 'string',
     };
   }
 
