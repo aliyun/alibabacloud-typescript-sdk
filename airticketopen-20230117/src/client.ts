@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,13 +8,45 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue extends $tea.Model {
+  /**
+   * @example
+   * 22
+   */
   baggageAmount?: number;
+  /**
+   * @example
+   * 2
+   */
   baggageWeight?: number;
+  /**
+   * @example
+   * kg
+   */
   baggageWeightUnit?: string;
+  /**
+   * @example
+   * true
+   */
   isAllWeight?: boolean;
+  /**
+   * @example
+   * 1
+   */
   carryOnAmount?: number;
+  /**
+   * @example
+   * 2
+   */
   carryOnWeight?: number;
+  /**
+   * @example
+   * kg
+   */
   carryOnWeightUnit?: string;
+  /**
+   * @example
+   * true
+   */
   isAllCarryOnWeight?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -77,13 +108,45 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 }
 
 export class DataBaggageAllowanceMapValue extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   baggageAmount?: number;
+  /**
+   * @example
+   * 10
+   */
   baggageWeight?: number;
+  /**
+   * @example
+   * KG
+   */
   baggageWeightUnit?: string;
+  /**
+   * @example
+   * true
+   */
   isAllWeight?: boolean;
+  /**
+   * @example
+   * 1
+   */
   carryOnAmount?: number;
+  /**
+   * @example
+   * 5
+   */
   carryOnWeight?: number;
+  /**
+   * @example
+   * KG
+   */
   carryOnWeightUnit?: string;
+  /**
+   * @example
+   * true
+   */
   isAllCarryOnWeight?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -145,13 +208,45 @@ export class DataRefundChangeRuleMapValue extends $tea.Model {
 }
 
 export class DataSolutionSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   baggageAmount?: number;
+  /**
+   * @example
+   * 10
+   */
   baggageWeight?: number;
+  /**
+   * @example
+   * KG
+   */
   baggageWeightUnit?: string;
+  /**
+   * @example
+   * true
+   */
   isAllWeight?: boolean;
+  /**
+   * @example
+   * 1
+   */
   carryOnAmount?: number;
+  /**
+   * @example
+   * 5
+   */
   carryOnWeight?: number;
+  /**
+   * @example
+   * KG
+   */
   carryOnWeightUnit?: string;
+  /**
+   * @example
+   * true
+   */
   isAllCarryOnWeight?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -214,7 +309,20 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
 
 export class AccountFlowListHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -238,9 +346,31 @@ export class AccountFlowListHeaders extends $tea.Model {
 }
 
 export class AccountFlowListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   dayNum?: number;
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1677427200000
+   */
   utcBeginTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -266,12 +396,36 @@ export class AccountFlowListRequest extends $tea.Model {
 }
 
 export class AccountFlowListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: AccountFlowListResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -303,9 +457,9 @@ export class AccountFlowListResponseBody extends $tea.Model {
 }
 
 export class AccountFlowListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AccountFlowListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AccountFlowListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -329,7 +483,20 @@ export class AccountFlowListResponse extends $tea.Model {
 
 export class AncillarySuggestHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -353,6 +520,13 @@ export class AncillarySuggestHeaders extends $tea.Model {
 }
 
 export class AncillarySuggestRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
+   */
   solutionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -372,12 +546,36 @@ export class AncillarySuggestRequest extends $tea.Model {
 }
 
 export class AncillarySuggestResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: AncillarySuggestResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -409,9 +607,9 @@ export class AncillarySuggestResponseBody extends $tea.Model {
 }
 
 export class AncillarySuggestResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AncillarySuggestResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AncillarySuggestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -435,7 +633,20 @@ export class AncillarySuggestResponse extends $tea.Model {
 
 export class BookHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -459,10 +670,34 @@ export class BookHeaders extends $tea.Model {
 }
 
 export class BookRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   contact?: BookRequestContact;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * x091-2023-0220-j-0001
+   */
   outOrderNum?: string;
   passengerAncillaryPurchaseMapList?: BookRequestPassengerAncillaryPurchaseMapList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   passengerList?: BookRequestPassengerList[];
+  /**
+   * @remarks
+   * solution_id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
+   */
   solutionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -490,10 +725,34 @@ export class BookRequest extends $tea.Model {
 }
 
 export class BookShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   contactShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * x091-2023-0220-j-0001
+   */
   outOrderNum?: string;
   passengerAncillaryPurchaseMapListShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   passengerListShrink?: string;
+  /**
+   * @remarks
+   * solution_id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
+   */
   solutionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -521,12 +780,36 @@ export class BookShrinkRequest extends $tea.Model {
 }
 
 export class BookResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: BookResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: BookResponseBodyErrorData;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -558,9 +841,9 @@ export class BookResponseBody extends $tea.Model {
 }
 
 export class BookResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BookResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -584,7 +867,20 @@ export class BookResponse extends $tea.Model {
 
 export class CancelHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -608,6 +904,13 @@ export class CancelHeaders extends $tea.Model {
 }
 
 export class CancelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 496***2617111
+   */
   orderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -627,12 +930,36 @@ export class CancelRequest extends $tea.Model {
 }
 
 export class CancelResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: CancelResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -664,9 +991,9 @@ export class CancelResponseBody extends $tea.Model {
 }
 
 export class CancelResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -690,7 +1017,20 @@ export class CancelResponse extends $tea.Model {
 
 export class ChangeApplyHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -714,11 +1054,41 @@ export class ChangeApplyHeaders extends $tea.Model {
 }
 
 export class ChangeApplyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   changePassengerList?: ChangeApplyRequestChangePassengerList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   changedJourneys?: ChangeApplyRequestChangedJourneys[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   contact?: ChangeApplyRequestContact;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4988430***950
+   */
   orderNum?: number;
+  /**
+   * @example
+   * remark desc
+   */
   remark?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -748,11 +1118,41 @@ export class ChangeApplyRequest extends $tea.Model {
 }
 
 export class ChangeApplyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   changePassengerListShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   changedJourneysShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   contactShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4988430***950
+   */
   orderNum?: number;
+  /**
+   * @example
+   * remark desc
+   */
   remark?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -782,12 +1182,36 @@ export class ChangeApplyShrinkRequest extends $tea.Model {
 }
 
 export class ChangeApplyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: ChangeApplyResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -819,9 +1243,9 @@ export class ChangeApplyResponseBody extends $tea.Model {
 }
 
 export class ChangeApplyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeApplyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeApplyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -845,7 +1269,20 @@ export class ChangeApplyResponse extends $tea.Model {
 
 export class ChangeCancelHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -869,6 +1306,13 @@ export class ChangeCancelHeaders extends $tea.Model {
 }
 
 export class ChangeCancelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4988430***950
+   */
   changeOrderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -888,12 +1332,40 @@ export class ChangeCancelRequest extends $tea.Model {
 }
 
 export class ChangeCancelResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
+  /**
+   * @example
+   * null
+   */
   data?: any;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -925,9 +1397,9 @@ export class ChangeCancelResponseBody extends $tea.Model {
 }
 
 export class ChangeCancelResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeCancelResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeCancelResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -951,7 +1423,20 @@ export class ChangeCancelResponse extends $tea.Model {
 
 export class ChangeConfirmHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -975,6 +1460,13 @@ export class ChangeConfirmHeaders extends $tea.Model {
 }
 
 export class ChangeConfirmRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4988430***950
+   */
   changeOrderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -994,12 +1486,36 @@ export class ChangeConfirmRequest extends $tea.Model {
 }
 
 export class ChangeConfirmResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: ChangeConfirmResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1031,9 +1547,9 @@ export class ChangeConfirmResponseBody extends $tea.Model {
 }
 
 export class ChangeConfirmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeConfirmResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeConfirmResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1057,7 +1573,20 @@ export class ChangeConfirmResponse extends $tea.Model {
 
 export class ChangeDetailHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1081,6 +1610,13 @@ export class ChangeDetailHeaders extends $tea.Model {
 }
 
 export class ChangeDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4988430***950
+   */
   changeOrderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1100,12 +1636,36 @@ export class ChangeDetailRequest extends $tea.Model {
 }
 
 export class ChangeDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: ChangeDetailResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1137,9 +1697,9 @@ export class ChangeDetailResponseBody extends $tea.Model {
 }
 
 export class ChangeDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1163,7 +1723,20 @@ export class ChangeDetailResponse extends $tea.Model {
 
 export class ChangeDetailListOfBuyerHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1187,9 +1760,25 @@ export class ChangeDetailListOfBuyerHeaders extends $tea.Model {
 }
 
 export class ChangeDetailListOfBuyerRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1677415276000
+   */
   utcCreateBegin?: number;
+  /**
+   * @example
+   * 1677415279000
+   */
   utcCreateEnd?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1215,12 +1804,36 @@ export class ChangeDetailListOfBuyerRequest extends $tea.Model {
 }
 
 export class ChangeDetailListOfBuyerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: ChangeDetailListOfBuyerResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1252,9 +1865,9 @@ export class ChangeDetailListOfBuyerResponseBody extends $tea.Model {
 }
 
 export class ChangeDetailListOfBuyerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeDetailListOfBuyerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeDetailListOfBuyerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1278,7 +1891,20 @@ export class ChangeDetailListOfBuyerResponse extends $tea.Model {
 
 export class ChangeDetailListOfOrderNumHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1302,8 +1928,23 @@ export class ChangeDetailListOfOrderNumHeaders extends $tea.Model {
 }
 
 export class ChangeDetailListOfOrderNumRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4988430***700
+   */
   orderNum?: number;
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1327,12 +1968,36 @@ export class ChangeDetailListOfOrderNumRequest extends $tea.Model {
 }
 
 export class ChangeDetailListOfOrderNumResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: ChangeDetailListOfOrderNumResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1364,9 +2029,9 @@ export class ChangeDetailListOfOrderNumResponseBody extends $tea.Model {
 }
 
 export class ChangeDetailListOfOrderNumResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeDetailListOfOrderNumResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeDetailListOfOrderNumResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1390,7 +2055,20 @@ export class ChangeDetailListOfOrderNumResponse extends $tea.Model {
 
 export class EnrichHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1414,11 +2092,31 @@ export class EnrichHeaders extends $tea.Model {
 }
 
 export class EnrichRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   adults?: number;
+  /**
+   * @example
+   * ALL_CABIN
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * 1
+   */
   children?: number;
+  /**
+   * @example
+   * 1
+   */
   infants?: number;
   journeyParamList?: EnrichRequestJourneyParamList[];
+  /**
+   * @example
+   * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
+   */
   solutionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1448,11 +2146,31 @@ export class EnrichRequest extends $tea.Model {
 }
 
 export class EnrichShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   adults?: number;
+  /**
+   * @example
+   * ALL_CABIN
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * 1
+   */
   children?: number;
+  /**
+   * @example
+   * 1
+   */
   infants?: number;
   journeyParamListShrink?: string;
+  /**
+   * @example
+   * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
+   */
   solutionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1482,12 +2200,36 @@ export class EnrichShrinkRequest extends $tea.Model {
 }
 
 export class EnrichResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: EnrichResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1519,9 +2261,9 @@ export class EnrichResponseBody extends $tea.Model {
 }
 
 export class EnrichResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnrichResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnrichResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1545,7 +2287,20 @@ export class EnrichResponse extends $tea.Model {
 
 export class FileUploadHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1569,7 +2324,23 @@ export class FileUploadHeaders extends $tea.Model {
 }
 
 export class FileUploadRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0r2LSuIsHlxEoGZcnGe34U1njBOR83Q4HNSvMDGrDPK5J71VjcGdRIWz2x3+tFxvQaduwHB46Z9K
+   * dbIoDN8xPQ5PWlky8rKOPmAqSZfIRyPmAwvPvTJFwr8bRgHPPaq2VO8kHJ6jFIpJJ5I7Zqd1BjGS
+   * SR/kULQZHsDDd2zgA9RRTsEQF2OSxFFFx2P/2Q==
+   */
   fileContent?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 496***2617111
+   */
   orderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1591,12 +2362,36 @@ export class FileUploadRequest extends $tea.Model {
 }
 
 export class FileUploadResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: FileUploadResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1628,9 +2423,9 @@ export class FileUploadResponseBody extends $tea.Model {
 }
 
 export class FileUploadResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FileUploadResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FileUploadResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1654,7 +2449,20 @@ export class FileUploadResponse extends $tea.Model {
 
 export class FlightChangeOfOrderHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1678,6 +2486,13 @@ export class FlightChangeOfOrderHeaders extends $tea.Model {
 }
 
 export class FlightChangeOfOrderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4966***617111
+   */
   orderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1697,12 +2512,36 @@ export class FlightChangeOfOrderRequest extends $tea.Model {
 }
 
 export class FlightChangeOfOrderResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: FlightChangeOfOrderResponseBodyData[];
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1734,9 +2573,9 @@ export class FlightChangeOfOrderResponseBody extends $tea.Model {
 }
 
 export class FlightChangeOfOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FlightChangeOfOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FlightChangeOfOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1759,7 +2598,25 @@ export class FlightChangeOfOrderResponse extends $tea.Model {
 }
 
 export class GetTokenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * appKey
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fu1bltcu3400iurywuri
+   */
   appKey?: string;
+  /**
+   * @remarks
+   * appSecret
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ZzQ3MW1mb3E1ODAwI2ldUjYlWUdJn5YI
+   */
   appSecret?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1781,12 +2638,36 @@ export class GetTokenRequest extends $tea.Model {
 }
 
 export class GetTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: GetTokenResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1818,9 +2699,9 @@ export class GetTokenResponseBody extends $tea.Model {
 }
 
 export class GetTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1844,7 +2725,20 @@ export class GetTokenResponse extends $tea.Model {
 
 export class LuggageDirectHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1906,12 +2800,36 @@ export class LuggageDirectShrinkRequest extends $tea.Model {
 }
 
 export class LuggageDirectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: LuggageDirectResponseBodyData[];
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1943,9 +2861,9 @@ export class LuggageDirectResponseBody extends $tea.Model {
 }
 
 export class LuggageDirectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LuggageDirectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LuggageDirectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1969,7 +2887,20 @@ export class LuggageDirectResponse extends $tea.Model {
 
 export class OrderDetailHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1993,7 +2924,15 @@ export class OrderDetailHeaders extends $tea.Model {
 }
 
 export class OrderDetailRequest extends $tea.Model {
+  /**
+   * @example
+   * 4966***617111
+   */
   orderNum?: number;
+  /**
+   * @example
+   * x091-2023-0220-j-0001
+   */
   outOrderNum?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2015,12 +2954,36 @@ export class OrderDetailRequest extends $tea.Model {
 }
 
 export class OrderDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: OrderDetailResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2052,9 +3015,9 @@ export class OrderDetailResponseBody extends $tea.Model {
 }
 
 export class OrderDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OrderDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OrderDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2078,7 +3041,20 @@ export class OrderDetailResponse extends $tea.Model {
 
 export class OrderListHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2102,10 +3078,36 @@ export class OrderListHeaders extends $tea.Model {
 }
 
 export class OrderListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1677229006000
+   */
   bookTimeEnd?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1677229005000
+   */
   bookTimeStart?: number;
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 4
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2133,12 +3135,36 @@ export class OrderListRequest extends $tea.Model {
 }
 
 export class OrderListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: OrderListResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2170,9 +3196,9 @@ export class OrderListResponseBody extends $tea.Model {
 }
 
 export class OrderListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OrderListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OrderListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2196,7 +3222,20 @@ export class OrderListResponse extends $tea.Model {
 
 export class PricingHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2220,6 +3259,15 @@ export class PricingHeaders extends $tea.Model {
 }
 
 export class PricingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * solution_id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
+   */
   solutionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2239,12 +3287,36 @@ export class PricingRequest extends $tea.Model {
 }
 
 export class PricingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: PricingResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2276,9 +3348,9 @@ export class PricingResponseBody extends $tea.Model {
 }
 
 export class PricingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PricingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PricingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2302,7 +3374,20 @@ export class PricingResponse extends $tea.Model {
 
 export class RefundApplyHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2326,9 +3411,28 @@ export class RefundApplyHeaders extends $tea.Model {
 }
 
 export class RefundApplyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4966***617111
+   */
   orderNum?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   refundJourneys?: RefundApplyRequestRefundJourneys[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   refundPassengerList?: RefundApplyRequestRefundPassengerList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   refundType?: RefundApplyRequestRefundType;
   static names(): { [key: string]: string } {
     return {
@@ -2354,9 +3458,28 @@ export class RefundApplyRequest extends $tea.Model {
 }
 
 export class RefundApplyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4966***617111
+   */
   orderNum?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   refundJourneysShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   refundPassengerListShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   refundTypeShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2382,12 +3505,39 @@ export class RefundApplyShrinkRequest extends $tea.Model {
 }
 
 export class RefundApplyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 请求 RequestId
+   * 
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: RefundApplyResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2419,9 +3569,9 @@ export class RefundApplyResponseBody extends $tea.Model {
 }
 
 export class RefundApplyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefundApplyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefundApplyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2445,7 +3595,20 @@ export class RefundApplyResponse extends $tea.Model {
 
 export class RefundDetailHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2469,6 +3632,13 @@ export class RefundDetailHeaders extends $tea.Model {
 }
 
 export class RefundDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4966***617732
+   */
   refundOrderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2488,12 +3658,36 @@ export class RefundDetailRequest extends $tea.Model {
 }
 
 export class RefundDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: RefundDetailResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2525,9 +3719,9 @@ export class RefundDetailResponseBody extends $tea.Model {
 }
 
 export class RefundDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefundDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefundDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2551,7 +3745,20 @@ export class RefundDetailResponse extends $tea.Model {
 
 export class RefundDetailListHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2575,10 +3782,36 @@ export class RefundDetailListHeaders extends $tea.Model {
 }
 
 export class RefundDetailListRequest extends $tea.Model {
+  /**
+   * @example
+   * 49884*****950
+   */
   orderNum?: number;
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1677229002000
+   */
   refundCreateBeginTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1677229005000
+   */
   refundCreateEndTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2606,12 +3839,36 @@ export class RefundDetailListRequest extends $tea.Model {
 }
 
 export class RefundDetailListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: RefundDetailListResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2643,9 +3900,9 @@ export class RefundDetailListResponseBody extends $tea.Model {
 }
 
 export class RefundDetailListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefundDetailListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefundDetailListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2669,7 +3926,20 @@ export class RefundDetailListResponse extends $tea.Model {
 
 export class SearchHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2693,11 +3963,32 @@ export class SearchHeaders extends $tea.Model {
 }
 
 export class SearchRequest extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   adults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   airLegs?: SearchRequestAirLegs[];
+  /**
+   * @example
+   * ALL_CABIN
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * 1
+   */
   children?: number;
+  /**
+   * @example
+   * 1
+   */
   infants?: number;
+  searchControlOptions?: SearchRequestSearchControlOptions;
   static names(): { [key: string]: string } {
     return {
       adults: 'adults',
@@ -2705,6 +3996,7 @@ export class SearchRequest extends $tea.Model {
       cabinClass: 'cabin_class',
       children: 'children',
       infants: 'infants',
+      searchControlOptions: 'search_control_options',
     };
   }
 
@@ -2715,6 +4007,7 @@ export class SearchRequest extends $tea.Model {
       cabinClass: 'string',
       children: 'number',
       infants: 'number',
+      searchControlOptions: SearchRequestSearchControlOptions,
     };
   }
 
@@ -2724,11 +4017,32 @@ export class SearchRequest extends $tea.Model {
 }
 
 export class SearchShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   adults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   airLegsShrink?: string;
+  /**
+   * @example
+   * ALL_CABIN
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * 1
+   */
   children?: number;
+  /**
+   * @example
+   * 1
+   */
   infants?: number;
+  searchControlOptionsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       adults: 'adults',
@@ -2736,6 +4050,7 @@ export class SearchShrinkRequest extends $tea.Model {
       cabinClass: 'cabin_class',
       children: 'children',
       infants: 'infants',
+      searchControlOptionsShrink: 'search_control_options',
     };
   }
 
@@ -2746,6 +4061,7 @@ export class SearchShrinkRequest extends $tea.Model {
       cabinClass: 'string',
       children: 'number',
       infants: 'number',
+      searchControlOptionsShrink: 'string',
     };
   }
 
@@ -2755,12 +4071,36 @@ export class SearchShrinkRequest extends $tea.Model {
 }
 
 export class SearchResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2236993B-7BE7-5F92-B179-21FF08570165
+   */
   requestId?: string;
   data?: SearchResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2792,9 +4132,9 @@ export class SearchResponseBody extends $tea.Model {
 }
 
 export class SearchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2818,7 +4158,20 @@ export class SearchResponse extends $tea.Model {
 
 export class TicketingHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2842,6 +4195,13 @@ export class TicketingHeaders extends $tea.Model {
 }
 
 export class TicketingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 496***2617111
+   */
   orderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2861,12 +4221,36 @@ export class TicketingRequest extends $tea.Model {
 }
 
 export class TicketingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: TicketingResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2898,9 +4282,9 @@ export class TicketingResponseBody extends $tea.Model {
 }
 
 export class TicketingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TicketingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TicketingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2924,7 +4308,20 @@ export class TicketingResponse extends $tea.Model {
 
 export class TicketingCheckHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2948,6 +4345,13 @@ export class TicketingCheckHeaders extends $tea.Model {
 }
 
 export class TicketingCheckRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 496***2617111
+   */
   orderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2967,12 +4371,36 @@ export class TicketingCheckRequest extends $tea.Model {
 }
 
 export class TicketingCheckResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: TicketingCheckResponseBodyData;
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3004,9 +4432,9 @@ export class TicketingCheckResponseBody extends $tea.Model {
 }
 
 export class TicketingCheckResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TicketingCheckResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TicketingCheckResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3030,7 +4458,20 @@ export class TicketingCheckResponse extends $tea.Model {
 
 export class TransitVisaHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
   xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
   xAcsAirticketLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3092,12 +4533,36 @@ export class TransitVisaShrinkRequest extends $tea.Model {
 }
 
 export class TransitVisaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
   requestId?: string;
   data?: TransitVisaResponseBodyData[];
+  /**
+   * @example
+   * null
+   */
   errorCode?: string;
+  /**
+   * @example
+   * null
+   */
   errorData?: any;
+  /**
+   * @example
+   * null
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3129,9 +4594,9 @@ export class TransitVisaResponseBody extends $tea.Model {
 }
 
 export class TransitVisaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TransitVisaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransitVisaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3154,13 +4619,45 @@ export class TransitVisaResponse extends $tea.Model {
 }
 
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRuleAllUnusedList extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   type?: number;
+  /**
+   * @example
+   * hour
+   */
   timeUnit?: string;
+  /**
+   * @example
+   * 36
+   */
   ruleStartTime?: number;
+  /**
+   * @example
+   * 12
+   */
   ruleEndTime?: number;
+  /**
+   * @example
+   * true
+   */
   canRefund?: boolean;
+  /**
+   * @example
+   * 20
+   */
   refundFee?: number;
+  /**
+   * @example
+   * true
+   */
   canReturnAllTax?: boolean;
+  /**
+   * @example
+   * 20
+   */
   returnPartTaxFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3194,13 +4691,45 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 }
 
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRulePartUnusedList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   type?: number;
+  /**
+   * @example
+   * hour
+   */
   timeUnit?: string;
+  /**
+   * @example
+   * 36
+   */
   ruleStartTime?: number;
+  /**
+   * @example
+   * 12
+   */
   ruleEndTime?: number;
+  /**
+   * @example
+   * true
+   */
   canRefund?: boolean;
+  /**
+   * @example
+   * 20
+   */
   refundFee?: number;
+  /**
+   * @example
+   * 30
+   */
   canReturnAllTax?: boolean;
+  /**
+   * @example
+   * 20
+   */
   returnPartTaxFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3234,11 +4763,35 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 }
 
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleInUnusedList extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   type?: number;
+  /**
+   * @example
+   * hour
+   */
   timeUnit?: string;
+  /**
+   * @example
+   * 36
+   */
   ruleStartTime?: number;
+  /**
+   * @example
+   * 12
+   */
   ruleEndTime?: number;
+  /**
+   * @example
+   * true
+   */
   canChange?: boolean;
+  /**
+   * @example
+   * 20
+   */
   changeFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3268,11 +4821,35 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 }
 
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleOutUnusedList extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   type?: number;
+  /**
+   * @example
+   * hour
+   */
   timeUnit?: string;
+  /**
+   * @example
+   * 36
+   */
   ruleStartTime?: number;
+  /**
+   * @example
+   * 12
+   */
   ruleEndTime?: number;
+  /**
+   * @example
+   * true
+   */
   canChange?: boolean;
+  /**
+   * @example
+   * 10
+   */
   changeFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3302,13 +4879,45 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 }
 
 export class DataRefundChangeRuleMapValueRefundRuleAllUnusedList extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   type?: number;
+  /**
+   * @example
+   * hour
+   */
   timeUnit?: string;
+  /**
+   * @example
+   * 36
+   */
   ruleStartTime?: number;
+  /**
+   * @example
+   * 12
+   */
   ruleEndTime?: number;
+  /**
+   * @example
+   * true
+   */
   canRefund?: boolean;
+  /**
+   * @example
+   * 200
+   */
   refundFee?: number;
+  /**
+   * @example
+   * true
+   */
   canReturnAllTax?: boolean;
+  /**
+   * @example
+   * 100
+   */
   returnPartTaxFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3342,13 +4951,45 @@ export class DataRefundChangeRuleMapValueRefundRuleAllUnusedList extends $tea.Mo
 }
 
 export class DataRefundChangeRuleMapValueRefundRulePartUnusedList extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   type?: number;
+  /**
+   * @example
+   * hour
+   */
   timeUnit?: string;
+  /**
+   * @example
+   * 36
+   */
   ruleStartTime?: number;
+  /**
+   * @example
+   * 12
+   */
   ruleEndTime?: number;
+  /**
+   * @example
+   * true
+   */
   canRefund?: boolean;
+  /**
+   * @example
+   * 200
+   */
   refundFee?: number;
+  /**
+   * @example
+   * true
+   */
   canReturnAllTax?: boolean;
+  /**
+   * @example
+   * 100
+   */
   returnPartTaxFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3382,11 +5023,35 @@ export class DataRefundChangeRuleMapValueRefundRulePartUnusedList extends $tea.M
 }
 
 export class DataRefundChangeRuleMapValueChangeRuleInUnusedList extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   type?: number;
+  /**
+   * @example
+   * hour
+   */
   timeUnit?: string;
+  /**
+   * @example
+   * 36
+   */
   ruleStartTime?: number;
+  /**
+   * @example
+   * 12
+   */
   ruleEndTime?: number;
+  /**
+   * @example
+   * true
+   */
   canChange?: boolean;
+  /**
+   * @example
+   * 100
+   */
   changeFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3416,11 +5081,35 @@ export class DataRefundChangeRuleMapValueChangeRuleInUnusedList extends $tea.Mod
 }
 
 export class DataRefundChangeRuleMapValueChangeRuleOutUnusedList extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   type?: number;
+  /**
+   * @example
+   * hour
+   */
   timeUnit?: string;
+  /**
+   * @example
+   * 36
+   */
   ruleStartTime?: number;
+  /**
+   * @example
+   * 12
+   */
   ruleEndTime?: number;
+  /**
+   * @example
+   * true
+   */
   canChange?: boolean;
+  /**
+   * @example
+   * 100
+   */
   changeFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3450,13 +5139,45 @@ export class DataRefundChangeRuleMapValueChangeRuleOutUnusedList extends $tea.Mo
 }
 
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRuleAllUnusedList extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   type?: number;
+  /**
+   * @example
+   * hour
+   */
   timeUnit?: string;
+  /**
+   * @example
+   * 36
+   */
   ruleStartTime?: number;
+  /**
+   * @example
+   * 12
+   */
   ruleEndTime?: number;
+  /**
+   * @example
+   * true
+   */
   canRefund?: boolean;
+  /**
+   * @example
+   * 200
+   */
   refundFee?: number;
+  /**
+   * @example
+   * true
+   */
   canReturnAllTax?: boolean;
+  /**
+   * @example
+   * 100
+   */
   returnPartTaxFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3490,13 +5211,45 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
 }
 
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRulePartUnusedList extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   type?: number;
+  /**
+   * @example
+   * hour
+   */
   timeUnit?: string;
+  /**
+   * @example
+   * 36
+   */
   ruleStartTime?: number;
+  /**
+   * @example
+   * 12
+   */
   ruleEndTime?: number;
+  /**
+   * @example
+   * true
+   */
   canRefund?: boolean;
+  /**
+   * @example
+   * 200
+   */
   refundFee?: number;
+  /**
+   * @example
+   * true
+   */
   canReturnAllTax?: boolean;
+  /**
+   * @example
+   * 100
+   */
   returnPartTaxFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3530,11 +5283,35 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
 }
 
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleInUnusedList extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   type?: number;
+  /**
+   * @example
+   * hour
+   */
   timeUnit?: string;
+  /**
+   * @example
+   * 36
+   */
   ruleStartTime?: number;
+  /**
+   * @example
+   * 12
+   */
   ruleEndTime?: number;
+  /**
+   * @example
+   * true
+   */
   canChange?: boolean;
+  /**
+   * @example
+   * 100
+   */
   changeFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3564,11 +5341,35 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
 }
 
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleOutUnusedList extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   type?: number;
+  /**
+   * @example
+   * hour
+   */
   timeUnit?: string;
+  /**
+   * @example
+   * 36
+   */
   ruleStartTime?: number;
+  /**
+   * @example
+   * 12
+   */
   ruleEndTime?: number;
+  /**
+   * @example
+   * true
+   */
   canChange?: boolean;
+  /**
+   * @example
+   * 100
+   */
   changeFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3598,17 +5399,65 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
 }
 
 export class AccountFlowListResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 1000
+   */
   afterAvailableAmount?: number;
+  /**
+   * @example
+   * 1950.5
+   */
   beforeAvailableAmount?: number;
+  /**
+   * @example
+   * 49880***971
+   */
   changeOrderNum?: number;
+  /**
+   * @example
+   * 1627239841225842666
+   */
   flowId?: number;
+  /**
+   * @example
+   * 1676799185000
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 1676966530000
+   */
   gmtModified?: number;
+  /**
+   * @example
+   * 950.5
+   */
   opAmount?: number;
+  /**
+   * @example
+   * 2
+   */
   opType?: number;
+  /**
+   * @example
+   * 4988430***971
+   */
   orderNum?: number;
+  /**
+   * @example
+   * 1
+   */
   orderType?: number;
+  /**
+   * @example
+   * 4988430***971
+   */
   outOrderNum?: string;
+  /**
+   * @example
+   * 48430***971
+   */
   refundOrderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3650,9 +5499,25 @@ export class AccountFlowListResponseBodyDataList extends $tea.Model {
 }
 
 export class AccountFlowListResponseBodyDataPagination extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3700,10 +5565,45 @@ export class AccountFlowListResponseBodyData extends $tea.Model {
 }
 
 export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggageAncillary extends $tea.Model {
+  /**
+   * @remarks
+   * 行李件数 取值如：3、2、1、0、-2。 -2 表示计重
+   * 
+   * @example
+   * 0
+   */
   baggageAmount?: number;
+  /**
+   * @remarks
+   * 行李重量，0-50。isAllWeght=true 时，表示所有件数总重量。
+   * 
+   * @example
+   * 0
+   */
   baggageWeight?: number;
+  /**
+   * @remarks
+   * 行李重量单位
+   * 
+   * @example
+   * KG
+   */
   baggageWeightUnit?: string;
+  /**
+   * @remarks
+   * 是否所有行李重量
+   * 
+   * @example
+   * true
+   */
   isAllWeight?: boolean;
+  /**
+   * @remarks
+   * 总价
+   * 
+   * @example
+   * 10.0
+   */
   price?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3731,8 +5631,20 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggage
 }
 
 export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillary extends $tea.Model {
+  /**
+   * @example
+   * eJwz8DeySEo0NjQ01TU3TU
+   */
   ancillaryId?: string;
+  /**
+   * @example
+   * 4
+   */
   ancillaryType?: number;
+  /**
+   * @remarks
+   * 行李辅营详情
+   */
   baggageAncillary?: AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggageAncillary;
   static names(): { [key: string]: string } {
     return {
@@ -3779,6 +5691,10 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapList extends $tea.Mo
 
 export class AncillarySuggestResponseBodyData extends $tea.Model {
   segAncillaryMapList?: AncillarySuggestResponseBodyDataSegAncillaryMapList[];
+  /**
+   * @example
+   * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
+   */
   solutionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3800,10 +5716,30 @@ export class AncillarySuggestResponseBodyData extends $tea.Model {
 }
 
 export class BookRequestContact extends $tea.Model {
+  /**
+   * @example
+   * gao******@gmail.com
+   */
   email?: string;
+  /**
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * ZHANG
+   */
   lastName?: string;
+  /**
+   * @example
+   * 86
+   */
   mobileCountryCode?: string;
+  /**
+   * @example
+   * 183******96
+   */
   mobilePhoneNum?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3831,7 +5767,15 @@ export class BookRequestContact extends $tea.Model {
 }
 
 export class BookRequestPassengerAncillaryPurchaseMapListBookAncillaryReqItem extends $tea.Model {
+  /**
+   * @example
+   * MDY2NTAxLCJleHAiOjE2NxNzM3MDEsIm5ix
+   */
   ancillaryId?: string;
+  /**
+   * @example
+   * 4
+   */
   ancillaryType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3853,9 +5797,28 @@ export class BookRequestPassengerAncillaryPurchaseMapListBookAncillaryReqItem ex
 }
 
 export class BookRequestPassengerAncillaryPurchaseMapListPassengerListCredential extends $tea.Model {
+  /**
+   * @example
+   * CN
+   */
   certIssuePlace?: string;
+  /**
+   * @example
+   * E1***5673
+   */
   credentialNum?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   credentialType?: number;
+  /**
+   * @example
+   * 20290102
+   */
   expireDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3881,14 +5844,61 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerListCredential
 }
 
 export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $tea.Model {
+  /**
+   * @example
+   * 20020320
+   */
   birthday?: string;
   credential?: BookRequestPassengerAncillaryPurchaseMapListPassengerListCredential;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * 1
+   */
   gender?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ZHANG
+   */
   lastName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 86
+   */
   mobileCountryCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 182******92
+   */
   mobilePhoneNumber?: string;
+  /**
+   * @example
+   * CN
+   */
   nationality?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3946,9 +5956,28 @@ export class BookRequestPassengerAncillaryPurchaseMapList extends $tea.Model {
 }
 
 export class BookRequestPassengerListCredential extends $tea.Model {
+  /**
+   * @example
+   * CN
+   */
   certIssuePlace?: string;
+  /**
+   * @example
+   * E1***5674
+   */
   credentialNum?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   credentialType?: number;
+  /**
+   * @example
+   * 20290101
+   */
   expireDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3974,14 +6003,61 @@ export class BookRequestPassengerListCredential extends $tea.Model {
 }
 
 export class BookRequestPassengerList extends $tea.Model {
+  /**
+   * @example
+   * 20200320
+   */
   birthday?: string;
   credential?: BookRequestPassengerListCredential;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * 0
+   */
   gender?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ZHANG
+   */
   lastName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 86
+   */
   mobileCountryCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 183******95
+   */
   mobilePhoneNumber?: string;
+  /**
+   * @example
+   * CN
+   */
   nationality?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4017,6 +6093,10 @@ export class BookRequestPassengerList extends $tea.Model {
 }
 
 export class BookResponseBodyDataOrderList extends $tea.Model {
+  /**
+   * @example
+   * 4966***617111
+   */
   orderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4093,6 +6173,10 @@ export class BookResponseBodyErrorData extends $tea.Model {
 }
 
 export class CancelResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 496***2617111
+   */
   orderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4112,8 +6196,26 @@ export class CancelResponseBodyData extends $tea.Model {
 }
 
 export class ChangeApplyRequestChangePassengerList extends $tea.Model {
+  /**
+   * @example
+   * 411***********4411
+   */
   document?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ZHANG
+   */
   lastName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4137,17 +6239,77 @@ export class ChangeApplyRequestChangePassengerList extends $tea.Model {
 }
 
 export class ChangeApplyRequestChangedJourneysSegmentList extends $tea.Model {
+  /**
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * T1
+   */
   arriveTerminal?: string;
+  /**
+   * @example
+   * 1677232999000
+   */
   arriveTime?: number;
+  /**
+   * @example
+   * false
+   */
   codeShare?: boolean;
+  /**
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20230320
+   */
   departureDate?: string;
+  /**
+   * @example
+   * T2
+   */
   departureTerminal?: string;
+  /**
+   * @example
+   * 1677232998000
+   */
   departureTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * HO1295
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * HO1295
+   */
   operatingFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4208,8 +6370,20 @@ export class ChangeApplyRequestChangedJourneys extends $tea.Model {
 }
 
 export class ChangeApplyRequestContact extends $tea.Model {
+  /**
+   * @example
+   * gao******@gmail.com
+   */
   email?: string;
+  /**
+   * @example
+   * 86
+   */
   mobileCountryCode?: string;
+  /**
+   * @example
+   * 183*****92
+   */
   mobilePhoneNum?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4233,8 +6407,20 @@ export class ChangeApplyRequestContact extends $tea.Model {
 }
 
 export class ChangeApplyResponseBodyDataChangeOrdersPassengers extends $tea.Model {
+  /**
+   * @example
+   * 411***********4411
+   */
   document?: string;
+  /**
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * ZHANG
+   */
   lastName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4258,8 +6444,20 @@ export class ChangeApplyResponseBodyDataChangeOrdersPassengers extends $tea.Mode
 }
 
 export class ChangeApplyResponseBodyDataChangeOrders extends $tea.Model {
+  /**
+   * @example
+   * 49884*****950
+   */
   changeOrderNum?: number;
+  /**
+   * @example
+   * 0
+   */
   changeOrderStatus?: number;
+  /**
+   * @example
+   * desc reason
+   */
   failReason?: string;
   passengers?: ChangeApplyResponseBodyDataChangeOrdersPassengers[];
   static names(): { [key: string]: string } {
@@ -4287,6 +6485,10 @@ export class ChangeApplyResponseBodyDataChangeOrders extends $tea.Model {
 
 export class ChangeApplyResponseBodyData extends $tea.Model {
   changeOrders?: ChangeApplyResponseBodyDataChangeOrders[];
+  /**
+   * @example
+   * 4988430***950
+   */
   orderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4308,7 +6510,15 @@ export class ChangeApplyResponseBodyData extends $tea.Model {
 }
 
 export class ChangeConfirmResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 30
+   */
   payAmount?: number;
+  /**
+   * @example
+   * hkduendkd-2023-dj0
+   */
   transactionNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4330,8 +6540,20 @@ export class ChangeConfirmResponseBodyData extends $tea.Model {
 }
 
 export class ChangeDetailResponseBodyDataChangeFeeDetailsChangeFee extends $tea.Model {
+  /**
+   * @example
+   * 50
+   */
   serviceFee?: number;
+  /**
+   * @example
+   * 20
+   */
   taxFee?: number;
+  /**
+   * @example
+   * 30
+   */
   upgradeFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4355,8 +6577,20 @@ export class ChangeDetailResponseBodyDataChangeFeeDetailsChangeFee extends $tea.
 }
 
 export class ChangeDetailResponseBodyDataChangeFeeDetailsPassenger extends $tea.Model {
+  /**
+   * @example
+   * 411***********4411
+   */
   document?: string;
+  /**
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * ZHANG
+   */
   lastName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4402,8 +6636,20 @@ export class ChangeDetailResponseBodyDataChangeFeeDetails extends $tea.Model {
 }
 
 export class ChangeDetailResponseBodyDataChangePassengers extends $tea.Model {
+  /**
+   * @example
+   * 411***********4411
+   */
   document?: string;
+  /**
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * ZHANG
+   */
   lastName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4427,27 +6673,115 @@ export class ChangeDetailResponseBodyDataChangePassengers extends $tea.Model {
 }
 
 export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $tea.Model {
+  /**
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * T1
+   */
   arrivalTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 10:40:00
+   */
   arrivalTime?: string;
+  /**
+   * @example
+   * 7
+   */
   availability?: string;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * false
+   */
   codeShare?: boolean;
+  /**
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @example
+   * T2
+   */
   departureTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 07:55:00
+   */
   departureTime?: string;
+  /**
+   * @example
+   * 32Q
+   */
   equipType?: string;
+  /**
+   * @example
+   * 165
+   */
   flightDuration?: number;
+  /**
+   * @example
+   * HO
+   */
   marketingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * 1295
+   */
   marketingFlightNoInt?: number;
+  /**
+   * @example
+   * HO
+   */
   operatingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   operatingFlightNo?: string;
+  /**
+   * @example
+   * HO1295-PVG-MFM-20230310
+   */
   segmentId?: string;
+  /**
+   * @example
+   * SEL,HKG
+   */
   stopCityList?: string;
+  /**
+   * @example
+   * 0
+   */
   stopQuantity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4510,6 +6844,10 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $tea
 
 export class ChangeDetailResponseBodyDataChangedJourneys extends $tea.Model {
   segmentList?: ChangeDetailResponseBodyDataChangedJourneysSegmentList[];
+  /**
+   * @example
+   * 0
+   */
   transferCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4531,8 +6869,20 @@ export class ChangeDetailResponseBodyDataChangedJourneys extends $tea.Model {
 }
 
 export class ChangeDetailResponseBodyDataContact extends $tea.Model {
+  /**
+   * @example
+   * gao******@gmail.com
+   */
   email?: string;
+  /**
+   * @example
+   * 86
+   */
   mobileCountryCode?: string;
+  /**
+   * @example
+   * 183*****92
+   */
   mobilePhoneNum?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4556,27 +6906,115 @@ export class ChangeDetailResponseBodyDataContact extends $tea.Model {
 }
 
 export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $tea.Model {
+  /**
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * T1
+   */
   arrivalTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 10:40:00
+   */
   arrivalTime?: string;
+  /**
+   * @example
+   * 7
+   */
   availability?: string;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * false
+   */
   codeShare?: boolean;
+  /**
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @example
+   * T2
+   */
   departureTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 07:55:00
+   */
   departureTime?: string;
+  /**
+   * @example
+   * 32Q
+   */
   equipType?: string;
+  /**
+   * @example
+   * 165
+   */
   flightDuration?: number;
+  /**
+   * @example
+   * HO
+   */
   marketingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * 1295
+   */
   marketingFlightNoInt?: number;
+  /**
+   * @example
+   * HO
+   */
   operatingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   operatingFlightNo?: string;
+  /**
+   * @example
+   * HO1295-PVG-MFM-20230310
+   */
   segmentId?: string;
+  /**
+   * @example
+   * SEL,HKG
+   */
   stopCityList?: string;
+  /**
+   * @example
+   * 0
+   */
   stopQuantity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4639,6 +7077,10 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $tea.Mo
 
 export class ChangeDetailResponseBodyDataLastJourneys extends $tea.Model {
   segmentList?: ChangeDetailResponseBodyDataLastJourneysSegmentList[];
+  /**
+   * @example
+   * 0
+   */
   transferCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4660,27 +7102,115 @@ export class ChangeDetailResponseBodyDataLastJourneys extends $tea.Model {
 }
 
 export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $tea.Model {
+  /**
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * T1
+   */
   arrivalTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 10:40:00
+   */
   arrivalTime?: string;
+  /**
+   * @example
+   * 7
+   */
   availability?: string;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * false
+   */
   codeShare?: boolean;
+  /**
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @example
+   * T2
+   */
   departureTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 07:55:00
+   */
   departureTime?: string;
+  /**
+   * @example
+   * 32Q
+   */
   equipType?: string;
+  /**
+   * @example
+   * 165
+   */
   flightDuration?: number;
+  /**
+   * @example
+   * HO
+   */
   marketingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * 1295
+   */
   marketingFlightNoInt?: number;
+  /**
+   * @example
+   * HO
+   */
   operatingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   operatingFlightNo?: string;
+  /**
+   * @example
+   * HO1295-PVG-MFM-20230310
+   */
   segmentId?: string;
+  /**
+   * @example
+   * SEL,HKG
+   */
   stopCityList?: string;
+  /**
+   * @example
+   * 0
+   */
   stopQuantity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4743,6 +7273,10 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $te
 
 export class ChangeDetailResponseBodyDataOriginalJourneys extends $tea.Model {
   segmentList?: ChangeDetailResponseBodyDataOriginalJourneysSegmentList[];
+  /**
+   * @example
+   * 0
+   */
   transferCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4765,22 +7299,70 @@ export class ChangeDetailResponseBodyDataOriginalJourneys extends $tea.Model {
 
 export class ChangeDetailResponseBodyData extends $tea.Model {
   changeFeeDetails?: ChangeDetailResponseBodyDataChangeFeeDetails[];
+  /**
+   * @example
+   * 4988430***950
+   */
   changeOrderNum?: number;
   changePassengers?: ChangeDetailResponseBodyDataChangePassengers[];
+  /**
+   * @example
+   * 1
+   */
   changeReasonType?: number;
   changedJourneys?: ChangeDetailResponseBodyDataChangedJourneys[];
+  /**
+   * @example
+   * reason desc
+   */
   closeReason?: string;
+  /**
+   * @example
+   * 1677415244000
+   */
   closeUtcTime?: number;
   contact?: ChangeDetailResponseBodyDataContact;
+  /**
+   * @example
+   * 1677415276000
+   */
   createUtcTime?: number;
+  /**
+   * @example
+   * 1677415278000
+   */
   lastConfirmUtcTime?: number;
   lastJourneys?: ChangeDetailResponseBodyDataLastJourneys[];
+  /**
+   * @example
+   * 5988430***541
+   */
   orderNum?: number;
+  /**
+   * @example
+   * 2
+   */
   orderStatus?: number;
   originalJourneys?: ChangeDetailResponseBodyDataOriginalJourneys[];
+  /**
+   * @example
+   * 2
+   */
   payStatus?: number;
+  /**
+   * @example
+   * 1677415255000
+   */
   paySuccessUtcTime?: number;
+  /**
+   * @example
+   * 300
+   */
   totalAmount?: number;
+  /**
+   * @example
+   * hkduendkd-2023-dj0
+   */
   transactionNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4834,11 +7416,35 @@ export class ChangeDetailResponseBodyData extends $tea.Model {
 }
 
 export class ChangeDetailListOfBuyerResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 4988430***950
+   */
   changeOrderNum?: number;
+  /**
+   * @example
+   * 4988430***971
+   */
   orderNum?: number;
+  /**
+   * @example
+   * 2
+   */
   orderStatus?: number;
+  /**
+   * @example
+   * 2
+   */
   payStatus?: number;
+  /**
+   * @example
+   * hkduendkd-2023-dj0
+   */
   transactionNo?: string;
+  /**
+   * @example
+   * 1677415274000
+   */
   utcCreateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4868,9 +7474,25 @@ export class ChangeDetailListOfBuyerResponseBodyDataList extends $tea.Model {
 }
 
 export class ChangeDetailListOfBuyerResponseBodyDataPagination extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4918,8 +7540,20 @@ export class ChangeDetailListOfBuyerResponseBodyData extends $tea.Model {
 }
 
 export class ChangeDetailListOfOrderNumResponseBodyDataListChangeFeeDetailsChangeFee extends $tea.Model {
+  /**
+   * @example
+   * 50
+   */
   serviceFee?: number;
+  /**
+   * @example
+   * 20
+   */
   taxFee?: number;
+  /**
+   * @example
+   * 30
+   */
   upgradeFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4943,8 +7577,20 @@ export class ChangeDetailListOfOrderNumResponseBodyDataListChangeFeeDetailsChang
 }
 
 export class ChangeDetailListOfOrderNumResponseBodyDataListChangeFeeDetailsPassenger extends $tea.Model {
+  /**
+   * @example
+   * 411***********4411
+   */
   document?: string;
+  /**
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * ZHANG
+   */
   lastName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4990,8 +7636,20 @@ export class ChangeDetailListOfOrderNumResponseBodyDataListChangeFeeDetails exte
 }
 
 export class ChangeDetailListOfOrderNumResponseBodyDataListChangePassengers extends $tea.Model {
+  /**
+   * @example
+   * 411***********4411
+   */
   document?: string;
+  /**
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * ZHANG
+   */
   lastName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5015,27 +7673,115 @@ export class ChangeDetailListOfOrderNumResponseBodyDataListChangePassengers exte
 }
 
 export class ChangeDetailListOfOrderNumResponseBodyDataListChangedJourneysSegmentList extends $tea.Model {
+  /**
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * T1
+   */
   arrivalTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 10:40:00
+   */
   arrivalTime?: string;
+  /**
+   * @example
+   * 7
+   */
   availability?: string;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * false
+   */
   codeShare?: boolean;
+  /**
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @example
+   * T2
+   */
   departureTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 07:55:00
+   */
   departureTime?: string;
+  /**
+   * @example
+   * 32Q
+   */
   equipType?: string;
+  /**
+   * @example
+   * 165
+   */
   flightDuration?: number;
+  /**
+   * @example
+   * HO
+   */
   marketingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * 1295
+   */
   marketingFlightNoInt?: number;
+  /**
+   * @example
+   * HO
+   */
   operatingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   operatingFlightNo?: string;
+  /**
+   * @example
+   * HO1295-PVG-MFM-20230310
+   */
   segmentId?: string;
+  /**
+   * @example
+   * SEL,HKG
+   */
   stopCityList?: string;
+  /**
+   * @example
+   * 0
+   */
   stopQuantity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5098,6 +7844,10 @@ export class ChangeDetailListOfOrderNumResponseBodyDataListChangedJourneysSegmen
 
 export class ChangeDetailListOfOrderNumResponseBodyDataListChangedJourneys extends $tea.Model {
   segmentList?: ChangeDetailListOfOrderNumResponseBodyDataListChangedJourneysSegmentList[];
+  /**
+   * @example
+   * 0
+   */
   transferCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5119,8 +7869,20 @@ export class ChangeDetailListOfOrderNumResponseBodyDataListChangedJourneys exten
 }
 
 export class ChangeDetailListOfOrderNumResponseBodyDataListContact extends $tea.Model {
+  /**
+   * @example
+   * gao******@gmail.com
+   */
   email?: string;
+  /**
+   * @example
+   * 86
+   */
   mobileCountryCode?: string;
+  /**
+   * @example
+   * 183*****92
+   */
   mobilePhoneNum?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5144,27 +7906,115 @@ export class ChangeDetailListOfOrderNumResponseBodyDataListContact extends $tea.
 }
 
 export class ChangeDetailListOfOrderNumResponseBodyDataListLastJourneysSegmentList extends $tea.Model {
+  /**
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * T1
+   */
   arrivalTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 10:40:00
+   */
   arrivalTime?: string;
+  /**
+   * @example
+   * 7
+   */
   availability?: string;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * false
+   */
   codeShare?: boolean;
+  /**
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @example
+   * T2
+   */
   departureTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 07:55:00
+   */
   departureTime?: string;
+  /**
+   * @example
+   * 32Q
+   */
   equipType?: string;
+  /**
+   * @example
+   * 165
+   */
   flightDuration?: number;
+  /**
+   * @example
+   * HO
+   */
   marketingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * 1295
+   */
   marketingFlightNoInt?: number;
+  /**
+   * @example
+   * HO
+   */
   operatingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   operatingFlightNo?: string;
+  /**
+   * @example
+   * HO1295-PVG-MFM-20230310
+   */
   segmentId?: string;
+  /**
+   * @example
+   * SEL,HKG
+   */
   stopCityList?: string;
+  /**
+   * @example
+   * 0
+   */
   stopQuantity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5227,6 +8077,10 @@ export class ChangeDetailListOfOrderNumResponseBodyDataListLastJourneysSegmentLi
 
 export class ChangeDetailListOfOrderNumResponseBodyDataListLastJourneys extends $tea.Model {
   segmentList?: ChangeDetailListOfOrderNumResponseBodyDataListLastJourneysSegmentList[];
+  /**
+   * @example
+   * 0
+   */
   transferCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5248,27 +8102,115 @@ export class ChangeDetailListOfOrderNumResponseBodyDataListLastJourneys extends 
 }
 
 export class ChangeDetailListOfOrderNumResponseBodyDataListOriginalJourneysSegmentList extends $tea.Model {
+  /**
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * T1
+   */
   arrivalTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 10:40:00
+   */
   arrivalTime?: string;
+  /**
+   * @example
+   * 7
+   */
   availability?: string;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * false
+   */
   codeShare?: boolean;
+  /**
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @example
+   * T2
+   */
   departureTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 07:55:00
+   */
   departureTime?: string;
+  /**
+   * @example
+   * 32Q
+   */
   equipType?: string;
+  /**
+   * @example
+   * 165
+   */
   flightDuration?: number;
+  /**
+   * @example
+   * HO
+   */
   marketingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * 1295
+   */
   marketingFlightNoInt?: number;
+  /**
+   * @example
+   * HO
+   */
   operatingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   operatingFlightNo?: string;
+  /**
+   * @example
+   * HO1295-PVG-MFM-20230310
+   */
   segmentId?: string;
+  /**
+   * @example
+   * SEL,HKG
+   */
   stopCityList?: string;
+  /**
+   * @example
+   * 0
+   */
   stopQuantity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5331,6 +8273,10 @@ export class ChangeDetailListOfOrderNumResponseBodyDataListOriginalJourneysSegme
 
 export class ChangeDetailListOfOrderNumResponseBodyDataListOriginalJourneys extends $tea.Model {
   segmentList?: ChangeDetailListOfOrderNumResponseBodyDataListOriginalJourneysSegmentList[];
+  /**
+   * @example
+   * 0
+   */
   transferCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5353,22 +8299,70 @@ export class ChangeDetailListOfOrderNumResponseBodyDataListOriginalJourneys exte
 
 export class ChangeDetailListOfOrderNumResponseBodyDataList extends $tea.Model {
   changeFeeDetails?: ChangeDetailListOfOrderNumResponseBodyDataListChangeFeeDetails[];
+  /**
+   * @example
+   * 4988430***950
+   */
   changeOrderNum?: number;
   changePassengers?: ChangeDetailListOfOrderNumResponseBodyDataListChangePassengers[];
+  /**
+   * @example
+   * 1
+   */
   changeReasonType?: number;
   changedJourneys?: ChangeDetailListOfOrderNumResponseBodyDataListChangedJourneys[];
+  /**
+   * @example
+   * reason desc
+   */
   closeReason?: string;
+  /**
+   * @example
+   * 1677415244000
+   */
   closeUtcTime?: number;
   contact?: ChangeDetailListOfOrderNumResponseBodyDataListContact;
+  /**
+   * @example
+   * 1677415276000
+   */
   createUtcTime?: number;
+  /**
+   * @example
+   * 1677415278000
+   */
   lastConfirmUtcTime?: number;
   lastJourneys?: ChangeDetailListOfOrderNumResponseBodyDataListLastJourneys[];
+  /**
+   * @example
+   * 5988430***541
+   */
   orderNum?: number;
+  /**
+   * @example
+   * 2
+   */
   orderStatus?: number;
   originalJourneys?: ChangeDetailListOfOrderNumResponseBodyDataListOriginalJourneys[];
+  /**
+   * @example
+   * 2
+   */
   payStatus?: number;
+  /**
+   * @example
+   * 1677415255000
+   */
   paySuccessUtcTime?: number;
+  /**
+   * @example
+   * 300
+   */
   totalAmount?: number;
+  /**
+   * @example
+   * hkduendkd-2023-dj0
+   */
   transactionNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5422,9 +8416,25 @@ export class ChangeDetailListOfOrderNumResponseBodyDataList extends $tea.Model {
 }
 
 export class ChangeDetailListOfOrderNumResponseBodyDataPagination extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5472,13 +8482,57 @@ export class ChangeDetailListOfOrderNumResponseBodyData extends $tea.Model {
 }
 
 export class EnrichRequestJourneyParamListSegmentParamList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * E
+   */
   childCabin?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-03-10 07:55:00
+   */
   departureTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * HO1295
+   */
   marketingFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5512,9 +8566,34 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $tea.Model {
 }
 
 export class EnrichRequestJourneyParamList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20230310
+   */
   departureDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   segmentParamList?: EnrichRequestJourneyParamListSegmentParamList[];
   static names(): { [key: string]: string } {
     return {
@@ -5540,27 +8619,115 @@ export class EnrichRequestJourneyParamList extends $tea.Model {
 }
 
 export class EnrichResponseBodyDataSolutionListJourneyListSegmentList extends $tea.Model {
+  /**
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * null
+   */
   arrivalTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 10:40:00
+   */
   arrivalTime?: string;
+  /**
+   * @example
+   * 7
+   */
   availability?: string;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * false
+   */
   codeShare?: boolean;
+  /**
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @example
+   * T2
+   */
   departureTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 07:55:00
+   */
   departureTime?: string;
+  /**
+   * @example
+   * 32Q
+   */
   equipType?: string;
+  /**
+   * @example
+   * 165
+   */
   flightDuration?: number;
+  /**
+   * @example
+   * HO
+   */
   marketingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * 1295
+   */
   marketingFlightNoInt?: number;
+  /**
+   * @example
+   * HO
+   */
   operatingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   operatingFlightNo?: string;
+  /**
+   * @example
+   * HO1295-PVG-MFM-20230310
+   */
   segmentId?: string;
+  /**
+   * @example
+   * ""
+   */
   stopCityList?: string;
+  /**
+   * @example
+   * 0
+   */
   stopQuantity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5623,6 +8790,10 @@ export class EnrichResponseBodyDataSolutionListJourneyListSegmentList extends $t
 
 export class EnrichResponseBodyDataSolutionListJourneyList extends $tea.Model {
   segmentList?: EnrichResponseBodyDataSolutionListJourneyListSegmentList[];
+  /**
+   * @example
+   * 0
+   */
   transferCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5644,6 +8815,10 @@ export class EnrichResponseBodyDataSolutionListJourneyList extends $tea.Model {
 }
 
 export class EnrichResponseBodyDataSolutionListSegmentBaggageCheckInInfoList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   luggageDirectInfoType?: number;
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -5710,18 +8885,57 @@ export class EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingLis
 }
 
 export class EnrichResponseBodyDataSolutionList extends $tea.Model {
+  /**
+   * @example
+   * 500
+   */
   adultPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   adultTax?: number;
+  /**
+   * @example
+   * 100
+   */
   childPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   childTax?: number;
+  /**
+   * @example
+   * 500
+   */
   infantPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   infantTax?: number;
   journeyList?: EnrichResponseBodyDataSolutionListJourneyList[];
+  /**
+   * @example
+   * ""
+   */
   productTypeDescription?: string;
+  /**
+   * @example
+   * ""
+   */
   refundTicketCouponDescription?: string;
   segmentBaggageCheckInInfoList?: EnrichResponseBodyDataSolutionListSegmentBaggageCheckInInfoList[];
   segmentBaggageMappingList?: EnrichResponseBodyDataSolutionListSegmentBaggageMappingList[];
   segmentRefundChangeRuleMappingList?: EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList[];
+  /**
+   * @remarks
+   * solution_id
+   * 
+   * @example
+   * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
+   */
   solutionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5784,6 +8998,10 @@ export class EnrichResponseBodyData extends $tea.Model {
 }
 
 export class FileUploadResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * https://fliggy-flight-jinghang-bucket.oss-cn-zhangjiakou.aliyuncs.com/suez/flight_suez_9a634376****47.jpeg
+   */
   uploadedFileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5803,18 +9021,70 @@ export class FileUploadResponseBodyData extends $tea.Model {
 }
 
 export class FlightChangeOfOrderResponseBodyDataFlightChangeDetail extends $tea.Model {
+  /**
+   * @example
+   * 天气
+   */
   changeReason?: string;
+  /**
+   * @example
+   * 2023-02-01 10:01:00
+   */
   changeTime?: string;
+  /**
+   * @example
+   * 1
+   */
   changeType?: number;
+  /**
+   * @example
+   * MFM
+   */
   newArrivalAirport?: string;
+  /**
+   * @example
+   * 2023-02-01 15:01:00
+   */
   newArrivalTime?: string;
+  /**
+   * @example
+   * PVG
+   */
   newDepartureAirport?: string;
+  /**
+   * @example
+   * 2023-02-01 13:01:00
+   */
   newDepartureTime?: string;
+  /**
+   * @example
+   * HO1295
+   */
   newFlightNo?: string;
+  /**
+   * @example
+   * MFM
+   */
   oldArrivalAirport?: string;
+  /**
+   * @example
+   * 023-02-01 14:01:00
+   */
   oldArrivalTime?: string;
+  /**
+   * @example
+   * PVG
+   */
   oldDepartureAirport?: string;
+  /**
+   * @example
+   * 2023-02-01 12:01:00
+   */
   oldDepartureTime?: string;
+  /**
+   * @example
+   * HO1295
+   */
   oldFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5859,6 +9129,10 @@ export class FlightChangeOfOrderResponseBodyDataFlightChangeDetail extends $tea.
 
 export class FlightChangeOfOrderResponseBodyData extends $tea.Model {
   flightChangeDetail?: FlightChangeOfOrderResponseBodyDataFlightChangeDetail;
+  /**
+   * @example
+   * 4966***617111
+   */
   orderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5880,8 +9154,23 @@ export class FlightChangeOfOrderResponseBodyData extends $tea.Model {
 }
 
 export class GetTokenResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 7200
+   */
   expireTime?: number;
+  /**
+   * @example
+   * 1677055176
+   */
   generateTime?: number;
+  /**
+   * @remarks
+   * token
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiIyUlRjY0Ezc1puSndpYU11R1ctTkVRIiwiaWF0IjoxNjc3MTU1Njg3LCJleHAiOjE2NzcxNjI4ODcsIm5iZiI6MTY3NzE1NTYyN30.bd8qBedJ7R24NC8VpMtM4Ni5OR-Cc0utPiKSx8fjoj9taalt7zXBF8uIVTETw1N-Fx9reLflwVXrbDHky7ZKqlE5o_B5Bkx-crQKlJL-NzasEmNnuJNb5kmmbCy3mvIrQfo5Q5Y0ZaQ110pXK4qd1shRbklvuQXn8lPueJtNqo8VdIOAPGG_rPwOw2P767I0fyFHcome8FR4ST1UrwxeApNKMB_BkpCsUZLgpm9h9trhKbB-3qtk6UK1GKmfw6qlWpL3PQN7FAObNruS0r0CGh3Muc9PaGsuu8Xu5on21h9WmI7L0-jatZkS55p4PEerU56XpkwJfa35_hltKNTauu
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5905,17 +9194,86 @@ export class GetTokenResponseBodyData extends $tea.Model {
 }
 
 export class LuggageDirectRequestFlightSegmentParamList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SIN
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * T1
+   */
   arrivalTerminal?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1705285430445
+   */
   arrivalTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   codeShare?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * HGH
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * T1
+   */
   departureTerminal?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1705285430445
+   */
   departureTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CZ
+   */
   marketingAirline?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CZ616
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * CZ
+   */
   operatingAirline?: string;
+  /**
+   * @example
+   * SEL,HKG
+   */
   stopCityList?: string;
+  /**
+   * @example
+   * CZ
+   */
   ticketingAirline?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5957,7 +9315,15 @@ export class LuggageDirectRequestFlightSegmentParamList extends $tea.Model {
 }
 
 export class LuggageDirectResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * BJS
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 1
+   */
   directType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5979,10 +9345,26 @@ export class LuggageDirectResponseBodyData extends $tea.Model {
 }
 
 export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillaryBaggageAncillary extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   baggageAmount?: number;
+  /**
+   * @example
+   * 0
+   */
   baggageWeight?: number;
+  /**
+   * @example
+   * KG
+   */
   baggageWeightUnit?: string;
   isAllWeight?: boolean;
+  /**
+   * @example
+   * 10.0
+   */
   price?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6010,7 +9392,15 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillaryBaggageA
 }
 
 export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillary extends $tea.Model {
+  /**
+   * @example
+   * MDY2NTAxLCJleHAiOjE2NxNzM3MDEsIm5ix
+   */
   ancillaryId?: string;
+  /**
+   * @example
+   * 4
+   */
   ancillaryType?: number;
   baggageAncillary?: OrderDetailResponseBodyDataAncillaryItemDetailListAncillaryBaggageAncillary;
   static names(): { [key: string]: string } {
@@ -6035,9 +9425,25 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillary extends
 }
 
 export class OrderDetailResponseBodyDataAncillaryItemDetailListPassengerCredential extends $tea.Model {
+  /**
+   * @example
+   * CN
+   */
   certIssuePlace?: string;
+  /**
+   * @example
+   * E1***5674
+   */
   credentialNum?: string;
+  /**
+   * @example
+   * 1
+   */
   credentialType?: number;
+  /**
+   * @example
+   * 20290101
+   */
   expireDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6063,14 +9469,46 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassengerCredenti
 }
 
 export class OrderDetailResponseBodyDataAncillaryItemDetailListPassenger extends $tea.Model {
+  /**
+   * @example
+   * 20020301
+   */
   birthday?: string;
   credential?: OrderDetailResponseBodyDataAncillaryItemDetailListPassengerCredential;
+  /**
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * 0
+   */
   gender?: number;
+  /**
+   * @example
+   * ZHANG
+   */
   lastName?: string;
+  /**
+   * @example
+   * 86
+   */
   mobileCountryCode?: string;
+  /**
+   * @example
+   * 183******96
+   */
   mobilePhoneNumber?: string;
+  /**
+   * @example
+   * CN
+   */
   nationality?: string;
+  /**
+   * @example
+   * 0
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6131,7 +9569,15 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailList extends $tea.Mod
 }
 
 export class OrderDetailResponseBodyDataFlightItemDetailListFlightPrice extends $tea.Model {
+  /**
+   * @example
+   * 300
+   */
   sellPrice?: number;
+  /**
+   * @example
+   * 10
+   */
   tax?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6153,10 +9599,30 @@ export class OrderDetailResponseBodyDataFlightItemDetailListFlightPrice extends 
 }
 
 export class OrderDetailResponseBodyDataFlightItemDetailListFlightSegmentCabinRelation extends $tea.Model {
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * economy class
+   */
   cabinClassName?: string;
+  /**
+   * @example
+   * A
+   */
   cabinQuantity?: string;
+  /**
+   * @example
+   * HO1295-PVG-MFM-20230310
+   */
   segmentId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6184,9 +9650,25 @@ export class OrderDetailResponseBodyDataFlightItemDetailListFlightSegmentCabinRe
 }
 
 export class OrderDetailResponseBodyDataFlightItemDetailListPassengerCredential extends $tea.Model {
+  /**
+   * @example
+   * CN
+   */
   certIssuePlace?: string;
+  /**
+   * @example
+   * E1***5674
+   */
   credentialNum?: string;
+  /**
+   * @example
+   * 1
+   */
   credentialType?: number;
+  /**
+   * @example
+   * 20290101
+   */
   expireDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6212,14 +9694,46 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassengerCredential 
 }
 
 export class OrderDetailResponseBodyDataFlightItemDetailListPassenger extends $tea.Model {
+  /**
+   * @example
+   * 20020301
+   */
   birthday?: string;
   credential?: OrderDetailResponseBodyDataFlightItemDetailListPassengerCredential;
+  /**
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * 0
+   */
   gender?: number;
+  /**
+   * @example
+   * ZHANG
+   */
   lastName?: string;
+  /**
+   * @example
+   * 86
+   */
   mobileCountryCode?: string;
+  /**
+   * @example
+   * 183******96
+   */
   mobilePhoneNumber?: string;
+  /**
+   * @example
+   * CN
+   */
   nationality?: string;
+  /**
+   * @example
+   * 0
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6260,6 +9774,10 @@ export class OrderDetailResponseBodyDataFlightItemDetailList extends $tea.Model 
   flightPrice?: OrderDetailResponseBodyDataFlightItemDetailListFlightPrice;
   flightSegmentCabinRelation?: OrderDetailResponseBodyDataFlightItemDetailListFlightSegmentCabinRelation[];
   passenger?: OrderDetailResponseBodyDataFlightItemDetailListPassenger;
+  /**
+   * @example
+   * HO
+   */
   ticketAirLine?: string;
   ticketNos?: string[];
   static names(): { [key: string]: string } {
@@ -6292,9 +9810,25 @@ export class OrderDetailResponseBodyDataFlightItemDetailList extends $tea.Model 
 }
 
 export class OrderDetailResponseBodyDataPassengerListCredential extends $tea.Model {
+  /**
+   * @example
+   * CN
+   */
   certIssuePlace?: string;
+  /**
+   * @example
+   * E1***5674
+   */
   credentialNum?: string;
+  /**
+   * @example
+   * 1
+   */
   credentialType?: number;
+  /**
+   * @example
+   * 20290101
+   */
   expireDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6320,14 +9854,46 @@ export class OrderDetailResponseBodyDataPassengerListCredential extends $tea.Mod
 }
 
 export class OrderDetailResponseBodyDataPassengerList extends $tea.Model {
+  /**
+   * @example
+   * 20020301
+   */
   birthday?: string;
   credential?: OrderDetailResponseBodyDataPassengerListCredential;
+  /**
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * 0
+   */
   gender?: number;
+  /**
+   * @example
+   * ZHANG
+   */
   lastName?: string;
+  /**
+   * @example
+   * 86
+   */
   mobileCountryCode?: string;
+  /**
+   * @example
+   * 183******96
+   */
   mobilePhoneNumber?: string;
+  /**
+   * @example
+   * CN
+   */
   nationality?: string;
+  /**
+   * @example
+   * 0
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6363,27 +9929,115 @@ export class OrderDetailResponseBodyDataPassengerList extends $tea.Model {
 }
 
 export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $tea.Model {
+  /**
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * T1
+   */
   arrivalTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 10:40:00
+   */
   arrivalTime?: string;
+  /**
+   * @example
+   * 7
+   */
   availability?: string;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * false
+   */
   codeShare?: boolean;
+  /**
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @example
+   * T2
+   */
   departureTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 07:55:00
+   */
   departureTime?: string;
+  /**
+   * @example
+   * 32Q
+   */
   equipType?: string;
+  /**
+   * @example
+   * 165
+   */
   flightDuration?: number;
+  /**
+   * @example
+   * HO
+   */
   marketingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * 1295
+   */
   marketingFlightNoInt?: number;
+  /**
+   * @example
+   * HO
+   */
   operatingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   operatingFlightNo?: string;
+  /**
+   * @example
+   * HO1295-PVG-MFM-20230310
+   */
   segmentId?: string;
+  /**
+   * @example
+   * SEL,HKG
+   */
   stopCityList?: string;
+  /**
+   * @example
+   * 0
+   */
   stopQuantity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6446,6 +10100,10 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
 
 export class OrderDetailResponseBodyDataSolutionJourneyList extends $tea.Model {
   segmentList?: OrderDetailResponseBodyDataSolutionJourneyListSegmentList[];
+  /**
+   * @example
+   * 0
+   */
   transferCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6467,6 +10125,10 @@ export class OrderDetailResponseBodyDataSolutionJourneyList extends $tea.Model {
 }
 
 export class OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   luggageDirectInfoType?: number;
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -6533,18 +10195,57 @@ export class OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingLi
 }
 
 export class OrderDetailResponseBodyDataSolution extends $tea.Model {
+  /**
+   * @example
+   * 300
+   */
   adultPrice?: number;
+  /**
+   * @example
+   * 30
+   */
   adultTax?: number;
+  /**
+   * @example
+   * 200
+   */
   childPrice?: number;
+  /**
+   * @example
+   * 20
+   */
   childTax?: number;
+  /**
+   * @example
+   * 100
+   */
   infantPrice?: number;
+  /**
+   * @example
+   * 10
+   */
   infantTax?: number;
   journeyList?: OrderDetailResponseBodyDataSolutionJourneyList[];
+  /**
+   * @example
+   * description
+   */
   productTypeDescription?: string;
+  /**
+   * @example
+   * description
+   */
   refundTicketCouponDescription?: string;
   segmentBaggageCheckInInfoList?: OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList[];
   segmentBaggageMappingList?: OrderDetailResponseBodyDataSolutionSegmentBaggageMappingList[];
   segmentRefundChangeRuleMappingList?: OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingList[];
+  /**
+   * @remarks
+   * solution_id
+   * 
+   * @example
+   * eJwz8DeySEo0NjQ01TU3TUxxx
+   */
   solutionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6590,21 +10291,69 @@ export class OrderDetailResponseBodyDataSolution extends $tea.Model {
 export class OrderDetailResponseBodyData extends $tea.Model {
   ancillaryItemDetailList?: OrderDetailResponseBodyDataAncillaryItemDetailList[];
   baggageAllowanceMap?: { [key: string]: DataBaggageAllowanceMapValue };
+  /**
+   * @example
+   * 1677210784000
+   */
   bookTime?: number;
   flightItemDetailList?: OrderDetailResponseBodyDataFlightItemDetailList[];
+  /**
+   * @example
+   * 4966***617111
+   */
   orderNum?: number;
+  /**
+   * @example
+   * 4
+   */
   orderStatus?: number;
+  /**
+   * @example
+   * x091-2023-0220-j-0001
+   */
   outOrderNum?: string;
   passengerList?: OrderDetailResponseBodyDataPassengerList[];
+  /**
+   * @example
+   * 2
+   */
   payStatus?: number;
+  /**
+   * @example
+   * 1677210788000
+   */
   payTime?: number;
+  /**
+   * @example
+   * 10
+   */
   promotionPrice?: number;
+  /**
+   * @example
+   * 3000
+   */
   realPayPrice?: number;
   refundChangeRuleMap?: { [key: string]: DataRefundChangeRuleMapValue };
+  /**
+   * @example
+   * nick
+   */
   sessionNick?: string;
   solution?: OrderDetailResponseBodyDataSolution;
+  /**
+   * @example
+   * 1677210786000
+   */
   succeedTime?: number;
+  /**
+   * @example
+   * 3000
+   */
   totalPrice?: number;
+  /**
+   * @example
+   * hkduendkd-2023-dj0
+   */
   transactionNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6658,9 +10407,25 @@ export class OrderDetailResponseBodyData extends $tea.Model {
 }
 
 export class OrderListResponseBodyDataListPassengerListCredential extends $tea.Model {
+  /**
+   * @example
+   * CN
+   */
   certIssuePlace?: string;
+  /**
+   * @example
+   * E1***5674
+   */
   credentialNum?: string;
+  /**
+   * @example
+   * 1
+   */
   credentialType?: number;
+  /**
+   * @example
+   * 20290101
+   */
   expireDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6686,14 +10451,46 @@ export class OrderListResponseBodyDataListPassengerListCredential extends $tea.M
 }
 
 export class OrderListResponseBodyDataListPassengerList extends $tea.Model {
+  /**
+   * @example
+   * 20020301
+   */
   birthday?: string;
   credential?: OrderListResponseBodyDataListPassengerListCredential;
+  /**
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * 0
+   */
   gender?: number;
+  /**
+   * @example
+   * ZHANG
+   */
   lastName?: string;
+  /**
+   * @example
+   * 86
+   */
   mobileCountryCode?: string;
+  /**
+   * @example
+   * 183******96
+   */
   mobilePhoneNumber?: string;
+  /**
+   * @example
+   * CN
+   */
   nationality?: string;
+  /**
+   * @example
+   * 0
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6729,18 +10526,66 @@ export class OrderListResponseBodyDataListPassengerList extends $tea.Model {
 }
 
 export class OrderListResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 1677210784000
+   */
   bookTime?: number;
+  /**
+   * @example
+   * 4966***617111
+   */
   orderNum?: number;
+  /**
+   * @example
+   * 4
+   */
   orderStatus?: string;
+  /**
+   * @example
+   * x091-2023-0220-j-0001
+   */
   outOrderNum?: string;
   passengerList?: OrderListResponseBodyDataListPassengerList[];
+  /**
+   * @example
+   * 2
+   */
   payStatus?: string;
+  /**
+   * @example
+   * 1677210788000
+   */
   payTime?: number;
+  /**
+   * @example
+   * 10
+   */
   promotionPrice?: number;
+  /**
+   * @example
+   * 3000
+   */
   realPayPrice?: number;
+  /**
+   * @example
+   * nick
+   */
   sessionNick?: string;
+  /**
+   * @example
+   * 1677210786000
+   */
   succeedTime?: number;
+  /**
+   * @example
+   * 3000
+   */
   totalPrice?: number;
+  /**
+   * @example
+   * hkduendkd-2023-dj0
+   */
   transactionNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6784,9 +10629,25 @@ export class OrderListResponseBodyDataList extends $tea.Model {
 }
 
 export class OrderListResponseBodyDataPagination extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6834,11 +10695,35 @@ export class OrderListResponseBodyData extends $tea.Model {
 }
 
 export class PricingResponseBodyDataChangedPriceInfo extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   adultPrice?: number;
+  /**
+   * @example
+   * 10
+   */
   adultTax?: number;
+  /**
+   * @example
+   * 100
+   */
   childPrice?: number;
+  /**
+   * @example
+   * 10
+   */
   childTax?: number;
+  /**
+   * @example
+   * 100
+   */
   infantPrice?: number;
+  /**
+   * @example
+   * 10
+   */
   infantTax?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6868,11 +10753,53 @@ export class PricingResponseBodyDataChangedPriceInfo extends $tea.Model {
 }
 
 export class PricingResponseBodyDataOriginalPriceInfo extends $tea.Model {
+  /**
+   * @remarks
+   * 成人单价
+   * 
+   * @example
+   * 200
+   */
   adultPrice?: number;
+  /**
+   * @remarks
+   * 成人税
+   * 
+   * @example
+   * 20
+   */
   adultTax?: number;
+  /**
+   * @remarks
+   * 儿童单价
+   * 
+   * @example
+   * 200
+   */
   childPrice?: number;
+  /**
+   * @remarks
+   * 儿童税
+   * 
+   * @example
+   * 20
+   */
   childTax?: number;
+  /**
+   * @remarks
+   * 婴儿单价
+   * 
+   * @example
+   * 200
+   */
   infantPrice?: number;
+  /**
+   * @remarks
+   * 婴儿税
+   * 
+   * @example
+   * 20
+   */
   infantTax?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6902,27 +10829,115 @@ export class PricingResponseBodyDataOriginalPriceInfo extends $tea.Model {
 }
 
 export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $tea.Model {
+  /**
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * T1
+   */
   arrivalTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 10:40:00
+   */
   arrivalTime?: string;
+  /**
+   * @example
+   * 7
+   */
   availability?: string;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * ALL_CABIN
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * false
+   */
   codeShare?: boolean;
+  /**
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @example
+   * T2
+   */
   departureTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 07:55:00
+   */
   departureTime?: string;
+  /**
+   * @example
+   * 32Q
+   */
   equipType?: string;
+  /**
+   * @example
+   * 165
+   */
   flightDuration?: number;
+  /**
+   * @example
+   * HO
+   */
   marketingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * 1295
+   */
   marketingFlightNoInt?: number;
+  /**
+   * @example
+   * HO
+   */
   operatingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   operatingFlightNo?: string;
+  /**
+   * @example
+   * HO1295-PVG-MFM-20230310
+   */
   segmentId?: string;
+  /**
+   * @example
+   * ""
+   */
   stopCityList?: string;
+  /**
+   * @example
+   * 0
+   */
   stopQuantity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6985,6 +11000,10 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $tea.
 
 export class PricingResponseBodyDataSolutionJourneyList extends $tea.Model {
   segmentList?: PricingResponseBodyDataSolutionJourneyListSegmentList[];
+  /**
+   * @example
+   * 0
+   */
   transferCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7006,6 +11025,10 @@ export class PricingResponseBodyDataSolutionJourneyList extends $tea.Model {
 }
 
 export class PricingResponseBodyDataSolutionSegmentBaggageCheckInInfoList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   luggageDirectInfoType?: number;
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -7072,18 +11095,57 @@ export class PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList e
 }
 
 export class PricingResponseBodyDataSolution extends $tea.Model {
+  /**
+   * @example
+   * 300
+   */
   adultPrice?: number;
+  /**
+   * @example
+   * 30
+   */
   adultTax?: number;
+  /**
+   * @example
+   * 200
+   */
   childPrice?: number;
+  /**
+   * @example
+   * 20
+   */
   childTax?: number;
+  /**
+   * @example
+   * 200
+   */
   infantPrice?: number;
+  /**
+   * @example
+   * 10
+   */
   infantTax?: number;
   journeyList?: PricingResponseBodyDataSolutionJourneyList[];
+  /**
+   * @example
+   * description
+   */
   productTypeDescription?: string;
+  /**
+   * @example
+   * description
+   */
   refundTicketCouponDescription?: string;
   segmentBaggageCheckInInfoList?: PricingResponseBodyDataSolutionSegmentBaggageCheckInInfoList[];
   segmentBaggageMappingList?: PricingResponseBodyDataSolutionSegmentBaggageMappingList[];
   segmentRefundChangeRuleMappingList?: PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList[];
+  /**
+   * @remarks
+   * solution_id
+   * 
+   * @example
+   * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
+   */
   solutionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7128,9 +11190,21 @@ export class PricingResponseBodyDataSolution extends $tea.Model {
 
 export class PricingResponseBodyData extends $tea.Model {
   changedPriceInfo?: PricingResponseBodyDataChangedPriceInfo;
+  /**
+   * @example
+   * true
+   */
   isChanged?: boolean;
+  /**
+   * @remarks
+   * 变价之前价格信息 isChanged = true 时，才有值
+   */
   originalPriceInfo?: PricingResponseBodyDataOriginalPriceInfo;
   remainSeats?: string;
+  /**
+   * @remarks
+   * solution
+   */
   solution?: PricingResponseBodyDataSolution;
   static names(): { [key: string]: string } {
     return {
@@ -7158,9 +11232,37 @@ export class PricingResponseBodyData extends $tea.Model {
 }
 
 export class RefundApplyRequestRefundJourneysSegmentList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SHA
+   */
   departureCity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7186,6 +11288,10 @@ export class RefundApplyRequestRefundJourneysSegmentList extends $tea.Model {
 }
 
 export class RefundApplyRequestRefundJourneys extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   segmentList?: RefundApplyRequestRefundJourneysSegmentList[];
   static names(): { [key: string]: string } {
     return {
@@ -7205,8 +11311,26 @@ export class RefundApplyRequestRefundJourneys extends $tea.Model {
 }
 
 export class RefundApplyRequestRefundPassengerList extends $tea.Model {
+  /**
+   * @example
+   * 411***********4411
+   */
   document?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ZHANG
+   */
   lastName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7230,8 +11354,23 @@ export class RefundApplyRequestRefundPassengerList extends $tea.Model {
 }
 
 export class RefundApplyRequestRefundType extends $tea.Model {
+  /**
+   * @example
+   * [xxx,yyy]
+   */
   file?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   refundTypeId?: number;
+  /**
+   * @example
+   * remark desc
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7255,8 +11394,20 @@ export class RefundApplyRequestRefundType extends $tea.Model {
 }
 
 export class RefundApplyResponseBodyDataRefundResultsRefundPassengers extends $tea.Model {
+  /**
+   * @example
+   * 411***********4411
+   */
   document?: string;
+  /**
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * ZHANG
+   */
   lastName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7280,9 +11431,21 @@ export class RefundApplyResponseBodyDataRefundResultsRefundPassengers extends $t
 }
 
 export class RefundApplyResponseBodyDataRefundResults extends $tea.Model {
+  /**
+   * @example
+   * desc reason
+   */
   failReason?: string;
+  /**
+   * @example
+   * 4966***617202
+   */
   refundOrderNum?: number;
   refundPassengers?: RefundApplyResponseBodyDataRefundResultsRefundPassengers[];
+  /**
+   * @example
+   * 0
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7308,6 +11471,10 @@ export class RefundApplyResponseBodyDataRefundResults extends $tea.Model {
 }
 
 export class RefundApplyResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 4966***617111
+   */
   orderNum?: number;
   refundResults?: RefundApplyResponseBodyDataRefundResults[];
   static names(): { [key: string]: string } {
@@ -7330,8 +11497,20 @@ export class RefundApplyResponseBodyData extends $tea.Model {
 }
 
 export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetailsPassenger extends $tea.Model {
+  /**
+   * @example
+   * 411***********4411
+   */
   document?: string;
+  /**
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * ZHANG
+   */
   lastName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7355,7 +11534,15 @@ export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundD
 }
 
 export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetails extends $tea.Model {
+  /**
+   * @example
+   * 30
+   */
   changeOrderRefundFee?: number;
+  /**
+   * @example
+   * 30
+   */
   originalOrderRefundFee?: number;
   passenger?: RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetailsPassenger;
   static names(): { [key: string]: string } {
@@ -7380,7 +11567,15 @@ export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundD
 }
 
 export class RefundDetailResponseBodyDataMultiRefundDetails extends $tea.Model {
+  /**
+   * @example
+   * 498843***6950
+   */
   multiRefundOrderNum?: number;
+  /**
+   * @example
+   * 498843***6950
+   */
   multiRefundTransactionNo?: string;
   passengerMultiRefundDetails?: RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetails[];
   static names(): { [key: string]: string } {
@@ -7405,8 +11600,20 @@ export class RefundDetailResponseBodyDataMultiRefundDetails extends $tea.Model {
 }
 
 export class RefundDetailResponseBodyDataPassengerRefundDetailsPassenger extends $tea.Model {
+  /**
+   * @example
+   * 411***********4411
+   */
   document?: string;
+  /**
+   * @example
+   * SAN
+   */
   firstName?: string;
+  /**
+   * @example
+   * ZHANG
+   */
   lastName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7430,12 +11637,40 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsPassenger extends
 }
 
 export class RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee extends $tea.Model {
+  /**
+   * @example
+   * 30
+   */
   alreadyUsedTotalFee?: number;
+  /**
+   * @example
+   * 30
+   */
   modifyRefundToBuyerMoney?: number;
+  /**
+   * @example
+   * 30
+   */
   nonRefundableChangeServiceFee?: number;
+  /**
+   * @example
+   * 30
+   */
   nonRefundableChangeUpgradeFee?: number;
+  /**
+   * @example
+   * 30
+   */
   nonRefundableTaxFee?: number;
+  /**
+   * @example
+   * 30
+   */
   nonRefundableTicketFee?: number;
+  /**
+   * @example
+   * 30
+   */
   refundToBuyerMoney?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7489,27 +11724,115 @@ export class RefundDetailResponseBodyDataPassengerRefundDetails extends $tea.Mod
 }
 
 export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $tea.Model {
+  /**
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * T1
+   */
   arrivalTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 10:40:00
+   */
   arrivalTime?: string;
+  /**
+   * @example
+   * 7
+   */
   availability?: string;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * false
+   */
   codeShare?: boolean;
+  /**
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @example
+   * T2
+   */
   departureTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 07:55:00
+   */
   departureTime?: string;
+  /**
+   * @example
+   * 32Q
+   */
   equipType?: string;
+  /**
+   * @example
+   * 165
+   */
   flightDuration?: number;
+  /**
+   * @example
+   * HO
+   */
   marketingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * 1295
+   */
   marketingFlightNoInt?: number;
+  /**
+   * @example
+   * HO
+   */
   operatingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   operatingFlightNo?: string;
+  /**
+   * @example
+   * HO1295-PVG-MFM-20230310
+   */
   segmentId?: string;
+  /**
+   * @example
+   * SEL,HKG
+   */
   stopCityList?: string;
+  /**
+   * @example
+   * 0
+   */
   stopQuantity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7572,6 +11895,10 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $tea.
 
 export class RefundDetailResponseBodyDataRefundJourneys extends $tea.Model {
   segmentList?: RefundDetailResponseBodyDataRefundJourneysSegmentList[];
+  /**
+   * @example
+   * 0
+   */
   transferCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7593,19 +11920,63 @@ export class RefundDetailResponseBodyDataRefundJourneys extends $tea.Model {
 }
 
 export class RefundDetailResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   containMultiRefund?: boolean;
   multiRefundDetails?: RefundDetailResponseBodyDataMultiRefundDetails[];
+  /**
+   * @example
+   * 4966***617111
+   */
   orderNum?: number;
   passengerRefundDetails?: RefundDetailResponseBodyDataPassengerRefundDetails[];
+  /**
+   * @example
+   * 1677229005000
+   */
   paySuccessUtcTime?: number;
+  /**
+   * @example
+   * [zzz,yyy]
+   */
   refundAttachmentUrls?: string[];
   refundJourneys?: RefundDetailResponseBodyDataRefundJourneys[];
+  /**
+   * @example
+   * 4966***617654
+   */
   refundOrderNum?: number;
+  /**
+   * @example
+   * desc reason
+   */
   refundReason?: string;
+  /**
+   * @example
+   * 5
+   */
   refundType?: number;
+  /**
+   * @example
+   * refuse reason
+   */
   refuseReason?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 1677229005000
+   */
   transactionNo?: string;
+  /**
+   * @example
+   * 1677229002000
+   */
   utcCreateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7651,12 +12022,40 @@ export class RefundDetailResponseBodyData extends $tea.Model {
 }
 
 export class RefundDetailListResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   isMultiRefund?: boolean;
+  /**
+   * @example
+   * 49884*****2345
+   */
   orderNum?: number;
+  /**
+   * @example
+   * 49884*****950
+   */
   refundOrderNum?: number;
+  /**
+   * @example
+   * 1
+   */
   refundOrderStatus?: number;
+  /**
+   * @example
+   * 49884*****2387
+   */
   relatedRefundOrderNum?: string;
+  /**
+   * @example
+   * 49884**tde-95za
+   */
   transactionNo?: string;
+  /**
+   * @example
+   * 1677229002000
+   */
   utcCreateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7688,9 +12087,25 @@ export class RefundDetailListResponseBodyDataList extends $tea.Model {
 }
 
 export class RefundDetailListResponseBodyDataPagination extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7738,10 +12153,39 @@ export class RefundDetailListResponseBodyData extends $tea.Model {
 }
 
 export class SearchRequestAirLegs extends $tea.Model {
+  /**
+   * @example
+   * MFM
+   */
   arrivalAirportList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * PVG
+   */
   departureAirportList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20230310
+   */
   departureDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7768,28 +12212,138 @@ export class SearchRequestAirLegs extends $tea.Model {
   }
 }
 
+export class SearchRequestSearchControlOptions extends $tea.Model {
+  airlineExcludedList?: string[];
+  airlinePreferList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      airlineExcludedList: 'airline_excluded_list',
+      airlinePreferList: 'airline_prefer_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineExcludedList: { 'type': 'array', 'itemType': 'string' },
+      airlinePreferList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $tea.Model {
+  /**
+   * @example
+   * MFM
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * MFM
+   */
   arrivalCity?: string;
+  /**
+   * @example
+   * T1
+   */
   arrivalTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 10:40:00
+   */
   arrivalTime?: string;
+  /**
+   * @example
+   * 7
+   */
   availability?: string;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * false
+   */
   codeShare?: boolean;
+  /**
+   * @example
+   * PVG
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * SHA
+   */
   departureCity?: string;
+  /**
+   * @example
+   * T2
+   */
   departureTerminal?: string;
+  /**
+   * @example
+   * 2023-03-10 07:55:00
+   */
   departureTime?: string;
+  /**
+   * @example
+   * 32Q
+   */
   equipType?: string;
+  /**
+   * @example
+   * 165
+   */
   flightDuration?: number;
+  /**
+   * @example
+   * HO
+   */
   marketingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * 1259
+   */
   marketingFlightNoInt?: number;
+  /**
+   * @example
+   * HO
+   */
   operatingAirline?: string;
+  /**
+   * @example
+   * HO1295
+   */
   operatingFlightNo?: string;
+  /**
+   * @example
+   * HO1295-PVG-MFM-20230310
+   */
   segmentId?: string;
+  /**
+   * @example
+   * SEL,HKG
+   */
   stopCityList?: string;
+  /**
+   * @example
+   * 0
+   */
   stopQuantity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7852,6 +12406,10 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $t
 
 export class SearchResponseBodyDataSolutionListJourneyList extends $tea.Model {
   segmentList?: SearchResponseBodyDataSolutionListJourneyListSegmentList[];
+  /**
+   * @example
+   * 0
+   */
   transferCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7873,6 +12431,10 @@ export class SearchResponseBodyDataSolutionListJourneyList extends $tea.Model {
 }
 
 export class SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   luggageDirectInfoType?: number;
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -7939,18 +12501,57 @@ export class SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingLis
 }
 
 export class SearchResponseBodyDataSolutionList extends $tea.Model {
+  /**
+   * @example
+   * 600
+   */
   adultPrice?: number;
+  /**
+   * @example
+   * 11
+   */
   adultTax?: number;
+  /**
+   * @example
+   * 500
+   */
   childPrice?: number;
+  /**
+   * @example
+   * 10
+   */
   childTax?: number;
+  /**
+   * @example
+   * 400
+   */
   infantPrice?: number;
+  /**
+   * @example
+   * 9
+   */
   infantTax?: number;
   journeyList?: SearchResponseBodyDataSolutionListJourneyList[];
+  /**
+   * @example
+   * description
+   */
   productTypeDescription?: string;
+  /**
+   * @example
+   * description
+   */
   refundTicketCouponDescription?: string;
   segmentBaggageCheckInInfoList?: SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList[];
   segmentBaggageMappingList?: SearchResponseBodyDataSolutionListSegmentBaggageMappingList[];
   segmentRefundChangeRuleMappingList?: SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList[];
+  /**
+   * @remarks
+   * solution_id
+   * 
+   * @example
+   * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
+   */
   solutionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8013,7 +12614,15 @@ export class SearchResponseBodyData extends $tea.Model {
 }
 
 export class TicketingResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 496***2617111
+   */
   orderNum?: number;
+  /**
+   * @example
+   * hkduendkd-2023-dj0
+   */
   transactionNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8035,6 +12644,10 @@ export class TicketingResponseBodyData extends $tea.Model {
 }
 
 export class TicketingCheckResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 496***2617111
+   */
   orderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8054,17 +12667,86 @@ export class TicketingCheckResponseBodyData extends $tea.Model {
 }
 
 export class TransitVisaRequestFlightSegmentParamList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SIN
+   */
   arrivalAirport?: string;
+  /**
+   * @example
+   * T1
+   */
   arrivalTerminal?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1705285430445
+   */
   arrivalTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   codeShare?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * HGH
+   */
   departureAirport?: string;
+  /**
+   * @example
+   * T1
+   */
   departureTerminal?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1705285430445
+   */
   departureTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CZ
+   */
   marketingAirline?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CZ616
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * CZ
+   */
   operatingAirline?: string;
+  /**
+   * @example
+   * SEL,HKG
+   */
   stopCityList?: string;
+  /**
+   * @example
+   * CZ
+   */
   ticketingAirline?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8106,7 +12788,15 @@ export class TransitVisaRequestFlightSegmentParamList extends $tea.Model {
 }
 
 export class TransitVisaResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * HGH
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 1
+   */
   visaType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8150,6 +12840,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * 账号资金流水
+   * 
+   * @param request - AccountFlowListRequest
+   * @param headers - AccountFlowListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AccountFlowListResponse
+   */
   async accountFlowListWithOptions(request: AccountFlowListRequest, headers: AccountFlowListHeaders, runtime: $Util.RuntimeOptions): Promise<AccountFlowListResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8200,12 +12898,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AccountFlowListResponse>(await this.callApi(params, req, runtime), new AccountFlowListResponse({}));
   }
 
+  /**
+   * 账号资金流水
+   * 
+   * @param request - AccountFlowListRequest
+   * @returns AccountFlowListResponse
+   */
   async accountFlowList(request: AccountFlowListRequest): Promise<AccountFlowListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new AccountFlowListHeaders({ });
     return await this.accountFlowListWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 辅营-推荐
+   * 
+   * @param request - AncillarySuggestRequest
+   * @param headers - AncillarySuggestHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AncillarySuggestResponse
+   */
   async ancillarySuggestWithOptions(request: AncillarySuggestRequest, headers: AncillarySuggestHeaders, runtime: $Util.RuntimeOptions): Promise<AncillarySuggestResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8244,12 +12956,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AncillarySuggestResponse>(await this.callApi(params, req, runtime), new AncillarySuggestResponse({}));
   }
 
+  /**
+   * 辅营-推荐
+   * 
+   * @param request - AncillarySuggestRequest
+   * @returns AncillarySuggestResponse
+   */
   async ancillarySuggest(request: AncillarySuggestRequest): Promise<AncillarySuggestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new AncillarySuggestHeaders({ });
     return await this.ancillarySuggestWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 交易-预定
+   * 
+   * @param tmpReq - BookRequest
+   * @param headers - BookHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BookResponse
+   */
   async bookWithOptions(tmpReq: BookRequest, headers: BookHeaders, runtime: $Util.RuntimeOptions): Promise<BookResponse> {
     Util.validateModel(tmpReq);
     let request = new BookShrinkRequest({ });
@@ -8318,12 +13044,26 @@ export default class Client extends OpenApi {
     return $tea.cast<BookResponse>(await this.callApi(params, req, runtime), new BookResponse({}));
   }
 
+  /**
+   * 交易-预定
+   * 
+   * @param request - BookRequest
+   * @returns BookResponse
+   */
   async book(request: BookRequest): Promise<BookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new BookHeaders({ });
     return await this.bookWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 交易-未支付取消
+   * 
+   * @param request - CancelRequest
+   * @param headers - CancelHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelResponse
+   */
   async cancelWithOptions(request: CancelRequest, headers: CancelHeaders, runtime: $Util.RuntimeOptions): Promise<CancelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8362,12 +13102,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelResponse>(await this.callApi(params, req, runtime), new CancelResponse({}));
   }
 
+  /**
+   * 交易-未支付取消
+   * 
+   * @param request - CancelRequest
+   * @returns CancelResponse
+   */
   async cancel(request: CancelRequest): Promise<CancelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CancelHeaders({ });
     return await this.cancelWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 改签-Apply
+   * 
+   * @param tmpReq - ChangeApplyRequest
+   * @param headers - ChangeApplyHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeApplyResponse
+   */
   async changeApplyWithOptions(tmpReq: ChangeApplyRequest, headers: ChangeApplyHeaders, runtime: $Util.RuntimeOptions): Promise<ChangeApplyResponse> {
     Util.validateModel(tmpReq);
     let request = new ChangeApplyShrinkRequest({ });
@@ -8440,12 +13194,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeApplyResponse>(await this.callApi(params, req, runtime), new ChangeApplyResponse({}));
   }
 
+  /**
+   * 改签-Apply
+   * 
+   * @param request - ChangeApplyRequest
+   * @returns ChangeApplyResponse
+   */
   async changeApply(request: ChangeApplyRequest): Promise<ChangeApplyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ChangeApplyHeaders({ });
     return await this.changeApplyWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 改签-取消
+   * 
+   * @param request - ChangeCancelRequest
+   * @param headers - ChangeCancelHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeCancelResponse
+   */
   async changeCancelWithOptions(request: ChangeCancelRequest, headers: ChangeCancelHeaders, runtime: $Util.RuntimeOptions): Promise<ChangeCancelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8484,12 +13252,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeCancelResponse>(await this.callApi(params, req, runtime), new ChangeCancelResponse({}));
   }
 
+  /**
+   * 改签-取消
+   * 
+   * @param request - ChangeCancelRequest
+   * @returns ChangeCancelResponse
+   */
   async changeCancel(request: ChangeCancelRequest): Promise<ChangeCancelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ChangeCancelHeaders({ });
     return await this.changeCancelWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 改签-确认
+   * 
+   * @param request - ChangeConfirmRequest
+   * @param headers - ChangeConfirmHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeConfirmResponse
+   */
   async changeConfirmWithOptions(request: ChangeConfirmRequest, headers: ChangeConfirmHeaders, runtime: $Util.RuntimeOptions): Promise<ChangeConfirmResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8528,12 +13310,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeConfirmResponse>(await this.callApi(params, req, runtime), new ChangeConfirmResponse({}));
   }
 
+  /**
+   * 改签-确认
+   * 
+   * @param request - ChangeConfirmRequest
+   * @returns ChangeConfirmResponse
+   */
   async changeConfirm(request: ChangeConfirmRequest): Promise<ChangeConfirmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ChangeConfirmHeaders({ });
     return await this.changeConfirmWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 改签-Detail
+   * 
+   * @param request - ChangeDetailRequest
+   * @param headers - ChangeDetailHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeDetailResponse
+   */
   async changeDetailWithOptions(request: ChangeDetailRequest, headers: ChangeDetailHeaders, runtime: $Util.RuntimeOptions): Promise<ChangeDetailResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8572,12 +13368,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeDetailResponse>(await this.callApi(params, req, runtime), new ChangeDetailResponse({}));
   }
 
+  /**
+   * 改签-Detail
+   * 
+   * @param request - ChangeDetailRequest
+   * @returns ChangeDetailResponse
+   */
   async changeDetail(request: ChangeDetailRequest): Promise<ChangeDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ChangeDetailHeaders({ });
     return await this.changeDetailWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 改签单列表-关于买家账号
+   * 
+   * @param request - ChangeDetailListOfBuyerRequest
+   * @param headers - ChangeDetailListOfBuyerHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeDetailListOfBuyerResponse
+   */
   async changeDetailListOfBuyerWithOptions(request: ChangeDetailListOfBuyerRequest, headers: ChangeDetailListOfBuyerHeaders, runtime: $Util.RuntimeOptions): Promise<ChangeDetailListOfBuyerResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8628,12 +13438,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeDetailListOfBuyerResponse>(await this.callApi(params, req, runtime), new ChangeDetailListOfBuyerResponse({}));
   }
 
+  /**
+   * 改签单列表-关于买家账号
+   * 
+   * @param request - ChangeDetailListOfBuyerRequest
+   * @returns ChangeDetailListOfBuyerResponse
+   */
   async changeDetailListOfBuyer(request: ChangeDetailListOfBuyerRequest): Promise<ChangeDetailListOfBuyerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ChangeDetailListOfBuyerHeaders({ });
     return await this.changeDetailListOfBuyerWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 改签单列表-关于正向订单
+   * 
+   * @param request - ChangeDetailListOfOrderNumRequest
+   * @param headers - ChangeDetailListOfOrderNumHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeDetailListOfOrderNumResponse
+   */
   async changeDetailListOfOrderNumWithOptions(request: ChangeDetailListOfOrderNumRequest, headers: ChangeDetailListOfOrderNumHeaders, runtime: $Util.RuntimeOptions): Promise<ChangeDetailListOfOrderNumResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8680,12 +13504,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeDetailListOfOrderNumResponse>(await this.callApi(params, req, runtime), new ChangeDetailListOfOrderNumResponse({}));
   }
 
+  /**
+   * 改签单列表-关于正向订单
+   * 
+   * @param request - ChangeDetailListOfOrderNumRequest
+   * @returns ChangeDetailListOfOrderNumResponse
+   */
   async changeDetailListOfOrderNum(request: ChangeDetailListOfOrderNumRequest): Promise<ChangeDetailListOfOrderNumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ChangeDetailListOfOrderNumHeaders({ });
     return await this.changeDetailListOfOrderNumWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 搜索-Enrich
+   * 
+   * @param tmpReq - EnrichRequest
+   * @param headers - EnrichHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnrichResponse
+   */
   async enrichWithOptions(tmpReq: EnrichRequest, headers: EnrichHeaders, runtime: $Util.RuntimeOptions): Promise<EnrichResponse> {
     Util.validateModel(tmpReq);
     let request = new EnrichShrinkRequest({ });
@@ -8750,12 +13588,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EnrichResponse>(await this.callApi(params, req, runtime), new EnrichResponse({}));
   }
 
+  /**
+   * 搜索-Enrich
+   * 
+   * @param request - EnrichRequest
+   * @returns EnrichResponse
+   */
   async enrich(request: EnrichRequest): Promise<EnrichResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new EnrichHeaders({ });
     return await this.enrichWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 附件上传
+   * 
+   * @param request - FileUploadRequest
+   * @param headers - FileUploadHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FileUploadResponse
+   */
   async fileUploadWithOptions(request: FileUploadRequest, headers: FileUploadHeaders, runtime: $Util.RuntimeOptions): Promise<FileUploadResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8798,12 +13650,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FileUploadResponse>(await this.callApi(params, req, runtime), new FileUploadResponse({}));
   }
 
+  /**
+   * 附件上传
+   * 
+   * @param request - FileUploadRequest
+   * @returns FileUploadResponse
+   */
   async fileUpload(request: FileUploadRequest): Promise<FileUploadResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FileUploadHeaders({ });
     return await this.fileUploadWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 航变信息-关于订单
+   * 
+   * @param request - FlightChangeOfOrderRequest
+   * @param headers - FlightChangeOfOrderHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FlightChangeOfOrderResponse
+   */
   async flightChangeOfOrderWithOptions(request: FlightChangeOfOrderRequest, headers: FlightChangeOfOrderHeaders, runtime: $Util.RuntimeOptions): Promise<FlightChangeOfOrderResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8842,12 +13708,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightChangeOfOrderResponse>(await this.callApi(params, req, runtime), new FlightChangeOfOrderResponse({}));
   }
 
+  /**
+   * 航变信息-关于订单
+   * 
+   * @param request - FlightChangeOfOrderRequest
+   * @returns FlightChangeOfOrderResponse
+   */
   async flightChangeOfOrder(request: FlightChangeOfOrderRequest): Promise<FlightChangeOfOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightChangeOfOrderHeaders({ });
     return await this.flightChangeOfOrderWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 获取token
+   * 
+   * @param request - GetTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTokenResponse
+   */
   async getTokenWithOptions(request: GetTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8877,12 +13757,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
   }
 
+  /**
+   * 获取token
+   * 
+   * @param request - GetTokenRequest
+   * @returns GetTokenResponse
+   */
   async getToken(request: GetTokenRequest): Promise<GetTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTokenWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 航程行李直挂
+   * 
+   * @param tmpReq - LuggageDirectRequest
+   * @param headers - LuggageDirectHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LuggageDirectResponse
+   */
   async luggageDirectWithOptions(tmpReq: LuggageDirectRequest, headers: LuggageDirectHeaders, runtime: $Util.RuntimeOptions): Promise<LuggageDirectResponse> {
     Util.validateModel(tmpReq);
     let request = new LuggageDirectShrinkRequest({ });
@@ -8927,12 +13821,26 @@ export default class Client extends OpenApi {
     return $tea.cast<LuggageDirectResponse>(await this.callApi(params, req, runtime), new LuggageDirectResponse({}));
   }
 
+  /**
+   * 航程行李直挂
+   * 
+   * @param request - LuggageDirectRequest
+   * @returns LuggageDirectResponse
+   */
   async luggageDirect(request: LuggageDirectRequest): Promise<LuggageDirectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new LuggageDirectHeaders({ });
     return await this.luggageDirectWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 交易-订单详情
+   * 
+   * @param request - OrderDetailRequest
+   * @param headers - OrderDetailHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OrderDetailResponse
+   */
   async orderDetailWithOptions(request: OrderDetailRequest, headers: OrderDetailHeaders, runtime: $Util.RuntimeOptions): Promise<OrderDetailResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8975,12 +13883,26 @@ export default class Client extends OpenApi {
     return $tea.cast<OrderDetailResponse>(await this.callApi(params, req, runtime), new OrderDetailResponse({}));
   }
 
+  /**
+   * 交易-订单详情
+   * 
+   * @param request - OrderDetailRequest
+   * @returns OrderDetailResponse
+   */
   async orderDetail(request: OrderDetailRequest): Promise<OrderDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new OrderDetailHeaders({ });
     return await this.orderDetailWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 交易-订单列表
+   * 
+   * @param request - OrderListRequest
+   * @param headers - OrderListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OrderListResponse
+   */
   async orderListWithOptions(request: OrderListRequest, headers: OrderListHeaders, runtime: $Util.RuntimeOptions): Promise<OrderListResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -9035,12 +13957,26 @@ export default class Client extends OpenApi {
     return $tea.cast<OrderListResponse>(await this.callApi(params, req, runtime), new OrderListResponse({}));
   }
 
+  /**
+   * 交易-订单列表
+   * 
+   * @param request - OrderListRequest
+   * @returns OrderListResponse
+   */
   async orderList(request: OrderListRequest): Promise<OrderListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new OrderListHeaders({ });
     return await this.orderListWithOptions(request, headers, runtime);
   }
 
+  /**
+   * Pricing
+   * 
+   * @param request - PricingRequest
+   * @param headers - PricingHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PricingResponse
+   */
   async pricingWithOptions(request: PricingRequest, headers: PricingHeaders, runtime: $Util.RuntimeOptions): Promise<PricingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9079,12 +14015,26 @@ export default class Client extends OpenApi {
     return $tea.cast<PricingResponse>(await this.callApi(params, req, runtime), new PricingResponse({}));
   }
 
+  /**
+   * Pricing
+   * 
+   * @param request - PricingRequest
+   * @returns PricingResponse
+   */
   async pricing(request: PricingRequest): Promise<PricingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new PricingHeaders({ });
     return await this.pricingWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 退票-申请
+   * 
+   * @param tmpReq - RefundApplyRequest
+   * @param headers - RefundApplyHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefundApplyResponse
+   */
   async refundApplyWithOptions(tmpReq: RefundApplyRequest, headers: RefundApplyHeaders, runtime: $Util.RuntimeOptions): Promise<RefundApplyResponse> {
     Util.validateModel(tmpReq);
     let request = new RefundApplyShrinkRequest({ });
@@ -9149,12 +14099,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RefundApplyResponse>(await this.callApi(params, req, runtime), new RefundApplyResponse({}));
   }
 
+  /**
+   * 退票-申请
+   * 
+   * @param request - RefundApplyRequest
+   * @returns RefundApplyResponse
+   */
   async refundApply(request: RefundApplyRequest): Promise<RefundApplyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new RefundApplyHeaders({ });
     return await this.refundApplyWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 退票-Detail
+   * 
+   * @param request - RefundDetailRequest
+   * @param headers - RefundDetailHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefundDetailResponse
+   */
   async refundDetailWithOptions(request: RefundDetailRequest, headers: RefundDetailHeaders, runtime: $Util.RuntimeOptions): Promise<RefundDetailResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -9193,12 +14157,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RefundDetailResponse>(await this.callApi(params, req, runtime), new RefundDetailResponse({}));
   }
 
+  /**
+   * 退票-Detail
+   * 
+   * @param request - RefundDetailRequest
+   * @returns RefundDetailResponse
+   */
   async refundDetail(request: RefundDetailRequest): Promise<RefundDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new RefundDetailHeaders({ });
     return await this.refundDetailWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 退票-DetailList
+   * 
+   * @param request - RefundDetailListRequest
+   * @param headers - RefundDetailListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefundDetailListResponse
+   */
   async refundDetailListWithOptions(request: RefundDetailListRequest, headers: RefundDetailListHeaders, runtime: $Util.RuntimeOptions): Promise<RefundDetailListResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -9253,18 +14231,36 @@ export default class Client extends OpenApi {
     return $tea.cast<RefundDetailListResponse>(await this.callApi(params, req, runtime), new RefundDetailListResponse({}));
   }
 
+  /**
+   * 退票-DetailList
+   * 
+   * @param request - RefundDetailListRequest
+   * @returns RefundDetailListResponse
+   */
   async refundDetailList(request: RefundDetailListRequest): Promise<RefundDetailListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new RefundDetailListHeaders({ });
     return await this.refundDetailListWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 搜索
+   * 
+   * @param tmpReq - SearchRequest
+   * @param headers - SearchHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchResponse
+   */
   async searchWithOptions(tmpReq: SearchRequest, headers: SearchHeaders, runtime: $Util.RuntimeOptions): Promise<SearchResponse> {
     Util.validateModel(tmpReq);
     let request = new SearchShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!Util.isUnset(tmpReq.airLegs)) {
       request.airLegsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.airLegs, "air_legs", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.searchControlOptions)) {
+      request.searchControlOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchControlOptions, "search_control_options", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -9286,6 +14282,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.infants)) {
       body["infants"] = request.infants;
+    }
+
+    if (!Util.isUnset(request.searchControlOptionsShrink)) {
+      body["search_control_options"] = request.searchControlOptionsShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -9319,12 +14319,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchResponse>(await this.callApi(params, req, runtime), new SearchResponse({}));
   }
 
+  /**
+   * 搜索
+   * 
+   * @param request - SearchRequest
+   * @returns SearchResponse
+   */
   async search(request: SearchRequest): Promise<SearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new SearchHeaders({ });
     return await this.searchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 交易-支付出票
+   * 
+   * @param request - TicketingRequest
+   * @param headers - TicketingHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketingResponse
+   */
   async ticketingWithOptions(request: TicketingRequest, headers: TicketingHeaders, runtime: $Util.RuntimeOptions): Promise<TicketingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9363,12 +14377,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TicketingResponse>(await this.callApi(params, req, runtime), new TicketingResponse({}));
   }
 
+  /**
+   * 交易-支付出票
+   * 
+   * @param request - TicketingRequest
+   * @returns TicketingResponse
+   */
   async ticketing(request: TicketingRequest): Promise<TicketingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TicketingHeaders({ });
     return await this.ticketingWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 交易-支付前校验
+   * 
+   * @param request - TicketingCheckRequest
+   * @param headers - TicketingCheckHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketingCheckResponse
+   */
   async ticketingCheckWithOptions(request: TicketingCheckRequest, headers: TicketingCheckHeaders, runtime: $Util.RuntimeOptions): Promise<TicketingCheckResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9407,12 +14435,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TicketingCheckResponse>(await this.callApi(params, req, runtime), new TicketingCheckResponse({}));
   }
 
+  /**
+   * 交易-支付前校验
+   * 
+   * @param request - TicketingCheckRequest
+   * @returns TicketingCheckResponse
+   */
   async ticketingCheck(request: TicketingCheckRequest): Promise<TicketingCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TicketingCheckHeaders({ });
     return await this.ticketingCheckWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 航程过境签
+   * 
+   * @param tmpReq - TransitVisaRequest
+   * @param headers - TransitVisaHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransitVisaResponse
+   */
   async transitVisaWithOptions(tmpReq: TransitVisaRequest, headers: TransitVisaHeaders, runtime: $Util.RuntimeOptions): Promise<TransitVisaResponse> {
     Util.validateModel(tmpReq);
     let request = new TransitVisaShrinkRequest({ });
@@ -9457,6 +14499,12 @@ export default class Client extends OpenApi {
     return $tea.cast<TransitVisaResponse>(await this.callApi(params, req, runtime), new TransitVisaResponse({}));
   }
 
+  /**
+   * 航程过境签
+   * 
+   * @param request - TransitVisaRequest
+   * @returns TransitVisaResponse
+   */
   async transitVisa(request: TransitVisaRequest): Promise<TransitVisaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TransitVisaHeaders({ });
