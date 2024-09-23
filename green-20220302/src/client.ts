@@ -20,6 +20,8 @@ export class DescribeFileModerationResultRequest extends $tea.Model {
    * @remarks
    * The parameters required by the moderation service. The value is a JSON string.
    * 
+   * *   taskId: required. The URL of the object that you want to moderate. Make sure that the URL can be accessed over the Internet.
+   * 
    * @example
    * {\\"taskId\\":\\"vi_f_hPgx9PFIQISdlfA888hOFG-1yJq8v\\"}
    */
@@ -46,7 +48,7 @@ export class DescribeFileModerationResultRequest extends $tea.Model {
 export class DescribeFileModerationResultResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The returned HTTP status code.
+   * The returned HTTP status code. The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -67,7 +69,7 @@ export class DescribeFileModerationResultResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
@@ -1912,12 +1914,19 @@ export class VoiceModerationResultResponse extends $tea.Model {
 export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult extends $tea.Model {
   /**
    * @remarks
-   * Confidence score, 0 to 100, reserved to 2 decimal places.
+   * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
    * 
    * @example
    * 25.0
    */
   confidence?: number;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * This is a title.
+   */
   description?: string;
   /**
    * @remarks
@@ -2007,7 +2016,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLo
 export class DescribeFileModerationResultResponseBodyDataPageResultImageResult extends $tea.Model {
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * This is a title.
@@ -2015,14 +2024,21 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResult e
   description?: string;
   /**
    * @remarks
-   * Label information.
+   * The label information.
    */
   labelResult?: DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult[];
   /**
    * @remarks
-   * Location information.
+   * The location information
    */
   location?: DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation;
+  /**
+   * @remarks
+   * Risk Level
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
   /**
    * @remarks
@@ -2060,7 +2076,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResult e
 export class DescribeFileModerationResultResponseBodyDataPageResultTextResult extends $tea.Model {
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * This is a title.
@@ -2074,6 +2090,13 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
    * porn
    */
   labels?: string;
+  /**
+   * @remarks
+   * Risk Level
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
   /**
    * @remarks
@@ -2101,7 +2124,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   service?: string;
   /**
    * @remarks
-   * Text content.
+   * The text content.
    * 
    * @example
    * This is a text.
@@ -2109,7 +2132,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   text?: string;
   /**
    * @remarks
-   * Text segmentation information.
+   * The text segmentation information.
    * 
    * @example
    * [0,999]
@@ -2149,12 +2172,12 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
 export class DescribeFileModerationResultResponseBodyDataPageResult extends $tea.Model {
   /**
    * @remarks
-   * Image detection results.
+   * The image moderation results.
    */
   imageResult?: DescribeFileModerationResultResponseBodyDataPageResultImageResult[];
   /**
    * @remarks
-   * The image url.
+   * The image URL.
    * 
    * @example
    * https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.jpg
@@ -2170,12 +2193,12 @@ export class DescribeFileModerationResultResponseBodyDataPageResult extends $tea
   pageNum?: number;
   /**
    * @remarks
-   * Text detection results.
+   * The text moderation results.
    */
   textResult?: DescribeFileModerationResultResponseBodyDataPageResultTextResult[];
   /**
    * @remarks
-   * the text url.
+   * The text URL.
    * 
    * @example
    * https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.txt
@@ -2207,8 +2230,29 @@ export class DescribeFileModerationResultResponseBodyDataPageResult extends $tea
 }
 
 export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels extends $tea.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The details of the labels.
+   * 
+   * @example
+   * contraband
+   */
   label?: string;
+  /**
+   * @remarks
+   * The number of times that the label is matched.
+   * 
+   * @example
+   * 1
+   */
   labelSum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2232,7 +2276,18 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary
 }
 
 export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary extends $tea.Model {
+  /**
+   * @remarks
+   * Image Label
+   */
   imageLabels?: DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels[];
+  /**
+   * @remarks
+   * Risk Level
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2254,7 +2309,21 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary
 }
 
 export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the labels.
+   * 
+   * @example
+   * contraband
+   */
   label?: string;
+  /**
+   * @remarks
+   * The number of times that the label is matched.
+   * 
+   * @example
+   * 1
+   */
   labelSum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2276,7 +2345,18 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryT
 }
 
 export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary extends $tea.Model {
+  /**
+   * @remarks
+   * Risk Level
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
+  /**
+   * @remarks
+   * Text Label
+   */
   textLabels?: DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels[];
   static names(): { [key: string]: string } {
     return {
@@ -2298,8 +2378,23 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary 
 }
 
 export class DescribeFileModerationResultResponseBodyDataPageSummary extends $tea.Model {
+  /**
+   * @remarks
+   * Image Results Summary
+   */
   imageSummary?: DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary;
+  /**
+   * @remarks
+   * Number of pages
+   * 
+   * @example
+   * 1
+   */
   pageSum?: number;
+  /**
+   * @remarks
+   * Text Results Summary
+   */
   textSummary?: DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary;
   static names(): { [key: string]: string } {
     return {
@@ -2333,7 +2428,7 @@ export class DescribeFileModerationResultResponseBodyData extends $tea.Model {
   dataId?: string;
   /**
    * @remarks
-   * Optional, document type.
+   * Optional. The document type.
    * 
    * @example
    * doc
@@ -2341,14 +2436,25 @@ export class DescribeFileModerationResultResponseBodyData extends $tea.Model {
   docType?: string;
   /**
    * @remarks
-   * The pagination information.
+   * An array that consists of the moderation results.
    */
   pageResult?: DescribeFileModerationResultResponseBodyDataPageResult[];
+  /**
+   * @remarks
+   * Summary of results
+   */
   pageSummary?: DescribeFileModerationResultResponseBodyDataPageSummary;
+  /**
+   * @remarks
+   * Risk Level
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
   /**
    * @remarks
-   * The URL of the moderation object.
+   * The URL of the moderated object.
    * 
    * @example
    * https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.pdf
@@ -3029,7 +3135,21 @@ export class ImageModerationResponseBodyDataExtCustomImage extends $tea.Model {
 }
 
 export class ImageModerationResponseBodyDataExtFaceDataBang extends $tea.Model {
+  /**
+   * @remarks
+   * The confidence level of the bang recognition result. Valid values: 0 to 100. A higher value indicates a more credible result.
+   * 
+   * @example
+   * 81.88
+   */
   confidence?: number;
+  /**
+   * @remarks
+   * Indicates whether the recognition result of bangs is available.
+   * 
+   * @example
+   * Has
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3051,7 +3171,25 @@ export class ImageModerationResponseBodyDataExtFaceDataBang extends $tea.Model {
 }
 
 export class ImageModerationResponseBodyDataExtFaceDataGender extends $tea.Model {
+  /**
+   * @remarks
+   * The confidence level of the gender recognition result. Valid values: 0 to 100. A higher value indicates a more credible result.
+   * 
+   * @example
+   * 81.88
+   */
   confidence?: number;
+  /**
+   * @remarks
+   * The gender recognition result. Valid values:
+   * 
+   * - Male
+   * 
+   * - FeMale
+   * 
+   * @example
+   * FeMale
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3073,7 +3211,27 @@ export class ImageModerationResponseBodyDataExtFaceDataGender extends $tea.Model
 }
 
 export class ImageModerationResponseBodyDataExtFaceDataHairstyle extends $tea.Model {
+  /**
+   * @remarks
+   * The confidence level of the hairstyle recognition result. Valid values: 0 to 100. A higher value indicates a more credible result.
+   * 
+   * @example
+   * 81.88
+   */
   confidence?: number;
+  /**
+   * @remarks
+   * The hairstyle recognition result. Valid values:
+   * 
+   * - Bald: bald head.
+   * 
+   * - Long: Long hair.
+   * 
+   * - Short: Short hair.
+   * 
+   * @example
+   * Short
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3095,7 +3253,25 @@ export class ImageModerationResponseBodyDataExtFaceDataHairstyle extends $tea.Mo
 }
 
 export class ImageModerationResponseBodyDataExtFaceDataHat extends $tea.Model {
+  /**
+   * @remarks
+   * The confidence level of the result of wearing the hat. Valid values: 0 to 100. A higher value indicates a more credible result.
+   * 
+   * @example
+   * 88.88
+   */
   confidence?: number;
+  /**
+   * @remarks
+   * The recognition result of whether to wear the hat. Valid values:
+   * 
+   * - Wear: Wear a hat.
+   * 
+   * - None: No hat.
+   * 
+   * @example
+   * Wear
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3117,9 +3293,37 @@ export class ImageModerationResponseBodyDataExtFaceDataHat extends $tea.Model {
 }
 
 export class ImageModerationResponseBodyDataExtFaceDataLocation extends $tea.Model {
+  /**
+   * @remarks
+   * The height of the face area. Unit: pixels.
+   * 
+   * @example
+   * 26
+   */
   h?: number;
+  /**
+   * @remarks
+   * The width of the face area. Unit: pixels.
+   * 
+   * @example
+   * 83
+   */
   w?: number;
+  /**
+   * @remarks
+   * The distance from the upper-left corner of the face area to the y-axis with the upper-left corner of the image as the coordinate origin. Unit: pixels.
+   * 
+   * @example
+   * 41
+   */
   x?: number;
+  /**
+   * @remarks
+   * The distance from the upper-left corner of the face area to the x-axis with the upper-left corner of the image as the coordinate origin. Unit: pixels.
+   * 
+   * @example
+   * 84
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3145,7 +3349,25 @@ export class ImageModerationResponseBodyDataExtFaceDataLocation extends $tea.Mod
 }
 
 export class ImageModerationResponseBodyDataExtFaceDataMask extends $tea.Model {
+  /**
+   * @remarks
+   * The confidence level of the result of wearing the mask. Valid values: 0 to 100. A higher value indicates a more credible result.
+   * 
+   * @example
+   * 99.99
+   */
   confidence?: number;
+  /**
+   * @remarks
+   * The recognition result of whether to wear a mask. Valid values:
+   * 
+   * - Wear a mask.
+   * 
+   *  - None: No mask.
+   * 
+   * @example
+   * Wear
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3167,7 +3389,25 @@ export class ImageModerationResponseBodyDataExtFaceDataMask extends $tea.Model {
 }
 
 export class ImageModerationResponseBodyDataExtFaceDataMustache extends $tea.Model {
+  /**
+   * @remarks
+   * The confidence level of the result of the beard. Valid values: 0 to 100. A higher value indicates a more credible result.
+   * 
+   * @example
+   * 99.99
+   */
   confidence?: number;
+  /**
+   * @remarks
+   * The identification result of whether there is a beard.Valid values:
+   * 
+   * - Has:have a beard.
+   * 
+   * - None:No beard.
+   * 
+   * @example
+   * Has
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3189,10 +3429,49 @@ export class ImageModerationResponseBodyDataExtFaceDataMustache extends $tea.Mod
 }
 
 export class ImageModerationResponseBodyDataExtFaceDataQuality extends $tea.Model {
+  /**
+   * @remarks
+   * The blur of the face image. Valid values: 0 to 100. The higher the score, the more fuzzy it is.
+   * Recommended values: 0 to 25.
+   * 
+   * @example
+   * 5.88
+   */
   blur?: number;
+  /**
+   * @remarks
+   * The integrity of the human face. Recommended values:80 to 100.
+   * 
+   * @example
+   * 100.0
+   */
   integrity?: number;
+  /**
+   * @remarks
+   * The head-up or head-down angle of the face.
+   * Recommended values:-30 to 30.
+   * 
+   * @example
+   * 5.88
+   */
   pitch?: number;
+  /**
+   * @remarks
+   * The plane rotation angle of the face.
+   * Recommended values:-30 to 30.
+   * 
+   * @example
+   * 5.18
+   */
   roll?: number;
+  /**
+   * @remarks
+   * The left and right shaking angle of the human face.
+   * Recommended values:-30 to 30.
+   * 
+   * @example
+   * 5.18
+   */
   yaw?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3220,16 +3499,75 @@ export class ImageModerationResponseBodyDataExtFaceDataQuality extends $tea.Mode
 }
 
 export class ImageModerationResponseBodyDataExtFaceData extends $tea.Model {
+  /**
+   * @remarks
+   * The age recognition result.
+   * 
+   * @example
+   * 18
+   */
   age?: number;
+  /**
+   * @remarks
+   * Indicates whether the recognition result of bangs is available.
+   */
   bang?: ImageModerationResponseBodyDataExtFaceDataBang;
+  /**
+   * @remarks
+   * The gender recognition result.
+   */
   gender?: ImageModerationResponseBodyDataExtFaceDataGender;
+  /**
+   * @remarks
+   * The recognition result of whether to wear glasses.
+   * 
+   * - None: No glasses.
+   * 
+   * - Wear: Wear glasses.
+   * 
+   * - Sunglass: Wear sunglasses.
+   * 
+   * @example
+   * Common
+   */
   glasses?: string;
+  /**
+   * @remarks
+   * The hairstyle recognition result.
+   */
   hairstyle?: ImageModerationResponseBodyDataExtFaceDataHairstyle;
+  /**
+   * @remarks
+   * The recognition result of whether to wear a hat.
+   */
   hat?: ImageModerationResponseBodyDataExtFaceDataHat;
+  /**
+   * @remarks
+   * The location of the face.
+   */
   location?: ImageModerationResponseBodyDataExtFaceDataLocation;
+  /**
+   * @remarks
+   * The recognition result of whether to wear a mask.
+   */
   mask?: ImageModerationResponseBodyDataExtFaceDataMask;
+  /**
+   * @remarks
+   * The identification result of whether there is a beard.
+   */
   mustache?: ImageModerationResponseBodyDataExtFaceDataMustache;
+  /**
+   * @remarks
+   * The quality information of the face image.
+   */
   quality?: ImageModerationResponseBodyDataExtFaceDataQuality;
+  /**
+   * @remarks
+   * The smiling degree of the face.
+   * 
+   * @example
+   * 85.88
+   */
   smile?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3802,6 +4140,10 @@ export class ImageModerationResponseBodyDataExt extends $tea.Model {
    * If a custom image library is hit, information about the hit custom image library is returned.
    */
   customImage?: ImageModerationResponseBodyDataExtCustomImage[];
+  /**
+   * @remarks
+   * The returned face attribute information
+   */
   faceData?: ImageModerationResponseBodyDataExtFaceData[];
   /**
    * @remarks
@@ -4347,6 +4689,7 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
    * porn
    */
   labels?: string;
+  riskLevel?: string;
   /**
    * @remarks
    * Subcategory labels. Multiple labels are separated by commas (,).
@@ -4409,6 +4752,7 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
       endTimestamp: 'EndTimestamp',
       extend: 'Extend',
       labels: 'Labels',
+      riskLevel: 'RiskLevel',
       riskTips: 'RiskTips',
       riskWords: 'RiskWords',
       score: 'Score',
@@ -4425,6 +4769,7 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
       endTimestamp: 'number',
       extend: 'string',
       labels: 'string',
+      riskLevel: 'string',
       riskTips: 'string',
       riskWords: 'string',
       score: 'number',
@@ -4446,6 +4791,7 @@ export class VideoModerationResultResponseBodyDataAudioResult extends $tea.Model
    * Summary of voice labels.
    */
   audioSummarys?: VideoModerationResultResponseBodyDataAudioResultAudioSummarys[];
+  riskLevel?: string;
   /**
    * @remarks
    * The details about the text in the moderated voice. The value is a JSON array that contains one or more elements. Each element corresponds to a text entry.
@@ -4454,6 +4800,7 @@ export class VideoModerationResultResponseBodyDataAudioResult extends $tea.Model
   static names(): { [key: string]: string } {
     return {
       audioSummarys: 'AudioSummarys',
+      riskLevel: 'RiskLevel',
       sliceDetails: 'SliceDetails',
     };
   }
@@ -4461,6 +4808,7 @@ export class VideoModerationResultResponseBodyDataAudioResult extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       audioSummarys: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataAudioResultAudioSummarys },
+      riskLevel: 'string',
       sliceDetails: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataAudioResultSliceDetails },
     };
   }
@@ -4471,6 +4819,7 @@ export class VideoModerationResultResponseBodyDataAudioResult extends $tea.Model
 }
 
 export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys extends $tea.Model {
+  description?: string;
   /**
    * @remarks
    * The label against which a captured frame is matched.
@@ -4489,6 +4838,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys exten
   labelSum?: number;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       label: 'Label',
       labelSum: 'LabelSum',
     };
@@ -4496,6 +4846,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys exten
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       label: 'string',
       labelSum: 'number',
     };
@@ -4577,6 +4928,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult
    * 50
    */
   confidence?: number;
+  description?: string;
   /**
    * @remarks
    * The label returned after a frame is moderated. Multiple risk labels and the corresponding scores of confidence levels may be returned for a frame.
@@ -4588,6 +4940,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult
   static names(): { [key: string]: string } {
     return {
       confidence: 'Confidence',
+      description: 'Description',
       label: 'Label',
     };
   }
@@ -4595,6 +4948,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult
   static types(): { [key: string]: any } {
     return {
       confidence: 'number',
+      description: 'string',
       label: 'string',
     };
   }
@@ -4672,6 +5026,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFrames extends $tea
    * The results of frame moderation parameters such as the label parameter and the confidence parameter.
    */
   results?: VideoModerationResultResponseBodyDataFrameResultFramesResults[];
+  riskLevel?: string;
   /**
    * @remarks
    * The temporary URL of a captured frame. This URL is valid for 30 minutes.
@@ -4692,6 +5047,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFrames extends $tea
     return {
       offset: 'Offset',
       results: 'Results',
+      riskLevel: 'RiskLevel',
       tempUrl: 'TempUrl',
       timestamp: 'Timestamp',
     };
@@ -4701,6 +5057,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFrames extends $tea
     return {
       offset: 'number',
       results: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResults },
+      riskLevel: 'string',
       tempUrl: 'string',
       timestamp: 'number',
     };
@@ -4730,11 +5087,13 @@ export class VideoModerationResultResponseBodyDataFrameResult extends $tea.Model
    * The information about the frames that match the labels.
    */
   frames?: VideoModerationResultResponseBodyDataFrameResultFrames[];
+  riskLevel?: string;
   static names(): { [key: string]: string } {
     return {
       frameNum: 'FrameNum',
       frameSummarys: 'FrameSummarys',
       frames: 'Frames',
+      riskLevel: 'RiskLevel',
     };
   }
 
@@ -4743,6 +5102,7 @@ export class VideoModerationResultResponseBodyDataFrameResult extends $tea.Model
       frameNum: 'number',
       frameSummarys: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFrameSummarys },
       frames: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFrames },
+      riskLevel: 'string',
     };
   }
 
@@ -4778,6 +5138,7 @@ export class VideoModerationResultResponseBodyData extends $tea.Model {
    * liveId
    */
   liveId?: string;
+  riskLevel?: string;
   /**
    * @remarks
    * The task ID.
@@ -4792,6 +5153,7 @@ export class VideoModerationResultResponseBodyData extends $tea.Model {
       dataId: 'DataId',
       frameResult: 'FrameResult',
       liveId: 'LiveId',
+      riskLevel: 'RiskLevel',
       taskId: 'TaskId',
     };
   }
@@ -4802,6 +5164,7 @@ export class VideoModerationResultResponseBodyData extends $tea.Model {
       dataId: 'string',
       frameResult: VideoModerationResultResponseBodyDataFrameResult,
       liveId: 'string',
+      riskLevel: 'string',
       taskId: 'string',
     };
   }
