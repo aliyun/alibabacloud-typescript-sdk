@@ -723,6 +723,9 @@ export class CreateCsrRequest extends $tea.Model {
   /**
    * @remarks
    * The name of the company.
+   * 
+   * @example
+   * aly
    */
   corpName?: string;
   /**
@@ -1435,6 +1438,8 @@ export class DeleteDeploymentJobResponse extends $tea.Model {
 export class DeletePCACertRequest extends $tea.Model {
   /**
    * @remarks
+   * The unique identifier of the certificate. You can call the [ListCert](https://help.aliyun.com/document_detail/452331.html) operation to query the unique identifiers of certificates.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1460,6 +1465,9 @@ export class DeletePCACertRequest extends $tea.Model {
 
 export class DeletePCACertResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
    */
@@ -3002,6 +3010,14 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
   cert?: string;
   /**
    * @remarks
+   * The unique identifier of the certificate. The value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
+   * 
+   * @example
+   * 10741304-cn-hangzhou
+   */
+  certIdentifier?: string;
+  /**
+   * @remarks
    * The city of the company or organization to which the certificate purchaser belongs.
    * 
    * @example
@@ -3208,6 +3224,7 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
       algorithm: 'Algorithm',
       buyInAliyun: 'BuyInAliyun',
       cert: 'Cert',
+      certIdentifier: 'CertIdentifier',
       city: 'City',
       common: 'Common',
       country: 'Country',
@@ -3240,6 +3257,7 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
       algorithm: 'string',
       buyInAliyun: 'boolean',
       cert: 'string',
+      certIdentifier: 'string',
       city: 'string',
       common: 'string',
       country: 'string',
@@ -7011,6 +7029,9 @@ export class ListContactResponseBodyContactList extends $tea.Model {
   /**
    * @remarks
    * The name of the contact.
+   * 
+   * @example
+   * ty-yaoyue.com
    */
   name?: string;
   /**
@@ -7070,6 +7091,9 @@ export class ListCsrResponseBodyCsrList extends $tea.Model {
   /**
    * @remarks
    * The name of the company.
+   * 
+   * @example
+   * corp_name
    */
   corpName?: string;
   /**
@@ -9272,6 +9296,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a private certificate from a certificate application repository.
+   * 
+   * @remarks
+   * You can call the DeletePCACert operation to delete a private certificate from a certificate application repository.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
    * @param request - DeletePCACertRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePCACertResponse
@@ -9301,6 +9332,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a private certificate from a certificate application repository.
+   * 
+   * @remarks
+   * You can call the DeletePCACert operation to delete a private certificate from a certificate application repository.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
    * @param request - DeletePCACertRequest
    * @returns DeletePCACertResponse
    */
