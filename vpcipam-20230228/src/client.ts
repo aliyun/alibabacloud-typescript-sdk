@@ -274,6 +274,7 @@ export class CreateIpamRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: CreateIpamRequestTag[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -287,6 +288,7 @@ export class CreateIpamRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
@@ -303,6 +305,7 @@ export class CreateIpamRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': CreateIpamRequestTag },
     };
   }
 
@@ -405,6 +408,7 @@ export class CreateIpamPoolRequest extends $tea.Model {
    * 8
    */
   allocationMinCidrMask?: number;
+  autoImport?: boolean;
   /**
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -460,11 +464,13 @@ export class CreateIpamPoolRequest extends $tea.Model {
    * ipam-pool-6rcq3tobayc20t****
    */
   sourceIpamPoolId?: string;
+  tag?: CreateIpamPoolRequestTag[];
   static names(): { [key: string]: string } {
     return {
       allocationDefaultCidrMask: 'AllocationDefaultCidrMask',
       allocationMaxCidrMask: 'AllocationMaxCidrMask',
       allocationMinCidrMask: 'AllocationMinCidrMask',
+      autoImport: 'AutoImport',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       ipVersion: 'IpVersion',
@@ -478,6 +484,7 @@ export class CreateIpamPoolRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       sourceIpamPoolId: 'SourceIpamPoolId',
+      tag: 'Tag',
     };
   }
 
@@ -486,6 +493,7 @@ export class CreateIpamPoolRequest extends $tea.Model {
       allocationDefaultCidrMask: 'number',
       allocationMaxCidrMask: 'number',
       allocationMinCidrMask: 'number',
+      autoImport: 'boolean',
       clientToken: 'string',
       dryRun: 'boolean',
       ipVersion: 'string',
@@ -499,6 +507,7 @@ export class CreateIpamPoolRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       sourceIpamPoolId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateIpamPoolRequestTag },
     };
   }
 
@@ -741,6 +750,7 @@ export class CreateIpamScopeRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: CreateIpamScopeRequestTag[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -754,6 +764,7 @@ export class CreateIpamScopeRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
@@ -770,6 +781,7 @@ export class CreateIpamScopeRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': CreateIpamScopeRequestTag },
     };
   }
 
@@ -1491,6 +1503,9 @@ export class ListIpamPoolAllocationsRequest extends $tea.Model {
   cidr?: string;
   ipamPoolAllocationIds?: string[];
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * ipam-pool-6rcq3tobayc20t****
    */
@@ -1541,6 +1556,7 @@ export class ListIpamPoolAllocationsRequest extends $tea.Model {
 }
 
 export class ListIpamPoolAllocationsResponseBody extends $tea.Model {
+  count?: number;
   ipamPoolAllocations?: ListIpamPoolAllocationsResponseBodyIpamPoolAllocations[];
   /**
    * @example
@@ -1564,6 +1580,7 @@ export class ListIpamPoolAllocationsResponseBody extends $tea.Model {
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
       ipamPoolAllocations: 'IpamPoolAllocations',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -1574,6 +1591,7 @@ export class ListIpamPoolAllocationsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'number',
       ipamPoolAllocations: { 'type': 'array', 'itemType': ListIpamPoolAllocationsResponseBodyIpamPoolAllocations },
       maxResults: 'number',
       nextToken: 'string',
@@ -1670,6 +1688,7 @@ export class ListIpamPoolCidrsRequest extends $tea.Model {
 }
 
 export class ListIpamPoolCidrsResponseBody extends $tea.Model {
+  count?: number;
   ipamPoolCidrs?: ListIpamPoolCidrsResponseBodyIpamPoolCidrs[];
   /**
    * @example
@@ -1693,6 +1712,7 @@ export class ListIpamPoolCidrsResponseBody extends $tea.Model {
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
       ipamPoolCidrs: 'IpamPoolCidrs',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -1703,6 +1723,7 @@ export class ListIpamPoolCidrsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'number',
       ipamPoolCidrs: { 'type': 'array', 'itemType': ListIpamPoolCidrsResponseBodyIpamPoolCidrs },
       maxResults: 'number',
       nextToken: 'string',
@@ -1753,6 +1774,7 @@ export class ListIpamPoolsRequest extends $tea.Model {
    * ipam-scope-glfmcyldpm8lsy****
    */
   ipamScopeId?: string;
+  isShared?: boolean;
   /**
    * @example
    * 10
@@ -1796,6 +1818,7 @@ export class ListIpamPoolsRequest extends $tea.Model {
       ipamPoolIds: 'IpamPoolIds',
       ipamPoolName: 'IpamPoolName',
       ipamScopeId: 'IpamScopeId',
+      isShared: 'IsShared',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
@@ -1815,6 +1838,7 @@ export class ListIpamPoolsRequest extends $tea.Model {
       ipamPoolIds: { 'type': 'array', 'itemType': 'string' },
       ipamPoolName: 'string',
       ipamScopeId: 'string',
+      isShared: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       ownerAccount: 'string',
@@ -1835,6 +1859,7 @@ export class ListIpamPoolsRequest extends $tea.Model {
 }
 
 export class ListIpamPoolsResponseBody extends $tea.Model {
+  count?: number;
   ipamPools?: ListIpamPoolsResponseBodyIpamPools[];
   /**
    * @example
@@ -1858,6 +1883,7 @@ export class ListIpamPoolsResponseBody extends $tea.Model {
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
       ipamPools: 'IpamPools',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -1868,6 +1894,7 @@ export class ListIpamPoolsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'number',
       ipamPools: { 'type': 'array', 'itemType': ListIpamPoolsResponseBodyIpamPools },
       maxResults: 'number',
       nextToken: 'string',
@@ -1946,6 +1973,7 @@ export class ListIpamResourceCidrsRequest extends $tea.Model {
    * VPC
    */
   resourceType?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       ipamPoolId: 'IpamPoolId',
@@ -1956,6 +1984,7 @@ export class ListIpamResourceCidrsRequest extends $tea.Model {
       resourceId: 'ResourceId',
       resourceOwnerId: 'ResourceOwnerId',
       resourceType: 'ResourceType',
+      vpcId: 'VpcId',
     };
   }
 
@@ -1969,6 +1998,7 @@ export class ListIpamResourceCidrsRequest extends $tea.Model {
       resourceId: 'string',
       resourceOwnerId: 'number',
       resourceType: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -1978,6 +2008,7 @@ export class ListIpamResourceCidrsRequest extends $tea.Model {
 }
 
 export class ListIpamResourceCidrsResponseBody extends $tea.Model {
+  count?: number;
   ipamResourceCidrs?: ListIpamResourceCidrsResponseBodyIpamResourceCidrs[];
   /**
    * @example
@@ -2001,6 +2032,7 @@ export class ListIpamResourceCidrsResponseBody extends $tea.Model {
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
       ipamResourceCidrs: 'IpamResourceCidrs',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -2011,6 +2043,7 @@ export class ListIpamResourceCidrsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'number',
       ipamResourceCidrs: { 'type': 'array', 'itemType': ListIpamResourceCidrsResponseBodyIpamResourceCidrs },
       maxResults: 'number',
       nextToken: 'string',
@@ -2136,6 +2169,7 @@ export class ListIpamScopesRequest extends $tea.Model {
 }
 
 export class ListIpamScopesResponseBody extends $tea.Model {
+  count?: number;
   ipamScopes?: ListIpamScopesResponseBodyIpamScopes[];
   /**
    * @example
@@ -2159,6 +2193,7 @@ export class ListIpamScopesResponseBody extends $tea.Model {
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
       ipamScopes: 'IpamScopes',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -2169,6 +2204,7 @@ export class ListIpamScopesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'number',
       ipamScopes: { 'type': 'array', 'itemType': ListIpamScopesResponseBodyIpamScopes },
       maxResults: 'number',
       nextToken: 'string',
@@ -2280,6 +2316,7 @@ export class ListIpamsRequest extends $tea.Model {
 }
 
 export class ListIpamsResponseBody extends $tea.Model {
+  count?: number;
   ipams?: ListIpamsResponseBodyIpams[];
   /**
    * @example
@@ -2303,6 +2340,7 @@ export class ListIpamsResponseBody extends $tea.Model {
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
       ipams: 'Ipams',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -2313,6 +2351,7 @@ export class ListIpamsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'number',
       ipams: { 'type': 'array', 'itemType': ListIpamsResponseBodyIpams },
       maxResults: 'number',
       nextToken: 'string',
@@ -2953,6 +2992,7 @@ export class UpdateIpamPoolRequest extends $tea.Model {
    * 8
    */
   allocationMinCidrMask?: number;
+  autoImport?: boolean;
   /**
    * @example
    * true
@@ -3003,6 +3043,7 @@ export class UpdateIpamPoolRequest extends $tea.Model {
       allocationDefaultCidrMask: 'AllocationDefaultCidrMask',
       allocationMaxCidrMask: 'AllocationMaxCidrMask',
       allocationMinCidrMask: 'AllocationMinCidrMask',
+      autoImport: 'AutoImport',
       clearAllocationDefaultCidrMask: 'ClearAllocationDefaultCidrMask',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
@@ -3022,6 +3063,7 @@ export class UpdateIpamPoolRequest extends $tea.Model {
       allocationDefaultCidrMask: 'number',
       allocationMaxCidrMask: 'number',
       allocationMinCidrMask: 'number',
+      autoImport: 'boolean',
       clearAllocationDefaultCidrMask: 'boolean',
       clientToken: 'string',
       dryRun: 'boolean',
@@ -3205,6 +3247,72 @@ export class UpdateIpamScopeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateIpamScopeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIpamRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIpamPoolRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIpamScopeRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -3419,6 +3527,7 @@ export class ListIpamPoolsResponseBodyIpamPools extends $tea.Model {
    * 8
    */
   allocationMinCidrMask?: number;
+  autoImport?: boolean;
   /**
    * @example
    * 2023-04-19T16:49:01Z
@@ -3469,6 +3578,7 @@ export class ListIpamPoolsResponseBodyIpamPools extends $tea.Model {
    * private
    */
   ipamScopeType?: string;
+  isShared?: boolean;
   /**
    * @example
    * 1210123456******
@@ -3505,6 +3615,7 @@ export class ListIpamPoolsResponseBodyIpamPools extends $tea.Model {
       allocationDefaultCidrMask: 'AllocationDefaultCidrMask',
       allocationMaxCidrMask: 'AllocationMaxCidrMask',
       allocationMinCidrMask: 'AllocationMinCidrMask',
+      autoImport: 'AutoImport',
       createTime: 'CreateTime',
       hasSubPool: 'HasSubPool',
       ipVersion: 'IpVersion',
@@ -3515,6 +3626,7 @@ export class ListIpamPoolsResponseBodyIpamPools extends $tea.Model {
       ipamRegionId: 'IpamRegionId',
       ipamScopeId: 'IpamScopeId',
       ipamScopeType: 'IpamScopeType',
+      isShared: 'IsShared',
       ownerId: 'OwnerId',
       poolDepth: 'PoolDepth',
       poolRegionId: 'PoolRegionId',
@@ -3530,6 +3642,7 @@ export class ListIpamPoolsResponseBodyIpamPools extends $tea.Model {
       allocationDefaultCidrMask: 'number',
       allocationMaxCidrMask: 'number',
       allocationMinCidrMask: 'number',
+      autoImport: 'boolean',
       createTime: 'string',
       hasSubPool: 'boolean',
       ipVersion: 'string',
@@ -3540,6 +3653,7 @@ export class ListIpamPoolsResponseBodyIpamPools extends $tea.Model {
       ipamRegionId: 'string',
       ipamScopeId: 'string',
       ipamScopeType: 'string',
+      isShared: 'boolean',
       ownerId: 'number',
       poolDepth: 'number',
       poolRegionId: 'string',
@@ -3636,6 +3750,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $tea.Mod
    * Created
    */
   status?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       aliUid: 'AliUid',
@@ -3654,6 +3769,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $tea.Mod
       resourceType: 'ResourceType',
       sourceCidr: 'SourceCidr',
       status: 'Status',
+      vpcId: 'VpcId',
     };
   }
 
@@ -3675,6 +3791,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $tea.Mod
       resourceType: 'string',
       sourceCidr: 'string',
       status: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -4308,6 +4425,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4354,6 +4475,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.allocationMinCidrMask)) {
       query["AllocationMinCidrMask"] = request.allocationMinCidrMask;
+    }
+
+    if (!Util.isUnset(request.autoImport)) {
+      query["AutoImport"] = request.autoImport;
     }
 
     if (!Util.isUnset(request.clientToken)) {
@@ -4406,6 +4531,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sourceIpamPoolId)) {
       query["SourceIpamPoolId"] = request.sourceIpamPoolId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4542,6 +4671,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -5074,6 +5207,10 @@ export default class Client extends OpenApi {
       query["IpamScopeId"] = request.ipamScopeId;
     }
 
+    if (!Util.isUnset(request.isShared)) {
+      query["IsShared"] = request.isShared;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -5182,6 +5319,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -5766,6 +5907,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.allocationMinCidrMask)) {
       query["AllocationMinCidrMask"] = request.allocationMinCidrMask;
+    }
+
+    if (!Util.isUnset(request.autoImport)) {
+      query["AutoImport"] = request.autoImport;
     }
 
     if (!Util.isUnset(request.clearAllocationDefaultCidrMask)) {
