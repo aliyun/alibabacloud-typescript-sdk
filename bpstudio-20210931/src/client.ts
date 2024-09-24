@@ -1995,6 +1995,253 @@ export class GetPotentialFailZonesResponse extends $tea.Model {
   }
 }
 
+export class GetResource4ModifyRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BE68D71ZY5YYIU9R
+   */
+  applicationId?: string;
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 1
+   */
+  nextToken?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      maxResults: 'number',
+      nextToken: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResource4ModifyRecordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {
+   *     "PolicyType": "",
+   *     "AuthPrincipalOwnerId": "",
+   *     "EncodedDiagnosticMessage": "",
+   *     "AuthPrincipalType": "",
+   *     "AuthPrincipalDisplayName": "",
+   *     "NoPermissionType": "",
+   *     "AuthAction": ""
+   *   }
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  data?: GetResource4ModifyRecordResponseBodyData[];
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 2
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * A07FFDF2-78FA-1B48-9E38-88E833A93187
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 123
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetResource4ModifyRecordResponseBodyData },
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResource4ModifyRecordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResource4ModifyRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetResource4ModifyRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResult4QueryInstancePrice4ModifyRequest extends $tea.Model {
+  /**
+   * @example
+   * 02S7UU41WKJL7ERR
+   */
+  applicationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 58d5d8c5b5489150417a7cd6caa614bb
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResult4QueryInstancePrice4ModifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {
+   *     "PolicyType": "",
+   *     "AuthPrincipalOwnerId": "",
+   *     "EncodedDiagnosticMessage": "",
+   *     "AuthPrincipalType": "",
+   *     "AuthPrincipalDisplayName": "",
+   *     "NoPermissionType": "",
+   *     "AuthAction": ""
+   *   }
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  data?: GetResult4QueryInstancePrice4ModifyResponseBodyData;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * A07FFDF2-78FA-1B48-9E38-88E833A93187
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: GetResult4QueryInstancePrice4ModifyResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResult4QueryInstancePrice4ModifyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResult4QueryInstancePrice4ModifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetResult4QueryInstancePrice4ModifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTemplateRequest extends $tea.Model {
   /**
    * @remarks
@@ -2963,6 +3210,495 @@ export class ListTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApplicationSpecRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 02S7UU41WKJL7ERR
+   */
+  applicationId?: string;
+  instanceSpec?: ModifyApplicationSpecRequestInstanceSpec[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      instanceSpec: 'InstanceSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      instanceSpec: { 'type': 'array', 'itemType': ModifyApplicationSpecRequestInstanceSpec },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApplicationSpecShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 02S7UU41WKJL7ERR
+   */
+  applicationId?: string;
+  instanceSpecShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      instanceSpecShrink: 'InstanceSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      instanceSpecShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApplicationSpecResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {
+   *     "PolicyType": "",
+   *     "AuthPrincipalOwnerId": "",
+   *     "EncodedDiagnosticMessage": "",
+   *     "AuthPrincipalType": "",
+   *     "AuthPrincipalDisplayName": "",
+   *     "NoPermissionType": "",
+   *     "AuthAction": ""
+   *   }
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * -1
+   */
+  data?: string;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * A3488F1D-xxxx-xxxx-xxxx-5374BA0F3562
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApplicationSpecResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyApplicationSpecResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApplicationSpecResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstancePrice4ModifyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 002XWH7MXB8MJRU0
+   */
+  applicationId?: string;
+  configuration?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rm-uf66k9143r2ch*****
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      configuration: 'Configuration',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      configuration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstancePrice4ModifyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 002XWH7MXB8MJRU0
+   */
+  applicationId?: string;
+  configurationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rm-uf66k9143r2ch*****
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      configurationShrink: 'Configuration',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      configurationShrink: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstancePrice4ModifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {
+   *     "PolicyType": "",
+   *     "AuthPrincipalOwnerId": "",
+   *     "EncodedDiagnosticMessage": "",
+   *     "AuthPrincipalType": "",
+   *     "AuthPrincipalDisplayName": "",
+   *     "NoPermissionType": "",
+   *     "AuthAction": ""
+   *   }
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * taskId
+   */
+  data?: string;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 9656C816-1E9A-58D2-86D5-710678D61AF1
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstancePrice4ModifyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryInstancePrice4ModifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryInstancePrice4ModifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceSpec4ModifyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BE68D71ZY5YYIU9R
+   */
+  applicationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rm-uf66k9143r2ch*****
+   */
+  instanceId?: string;
+  methodName?: string;
+  parameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      instanceId: 'InstanceId',
+      methodName: 'MethodName',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      instanceId: 'string',
+      methodName: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceSpec4ModifyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BE68D71ZY5YYIU9R
+   */
+  applicationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rm-uf66k9143r2ch*****
+   */
+  instanceId?: string;
+  methodName?: string;
+  parametersShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      instanceId: 'InstanceId',
+      methodName: 'MethodName',
+      parametersShrink: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      instanceId: 'string',
+      methodName: 'string',
+      parametersShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceSpec4ModifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {
+   *     "PolicyType": "",
+   *     "AuthPrincipalOwnerId": "",
+   *     "EncodedDiagnosticMessage": "",
+   *     "AuthPrincipalType": "",
+   *     "AuthPrincipalDisplayName": "",
+   *     "NoPermissionType": "",
+   *     "AuthAction": ""
+   *   }
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  data?: string;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 847C9D0A-BABD-589C-8A9C-6464409EDED9
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceSpec4ModifyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryInstanceSpec4ModifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryInstanceSpec4ModifyResponseBody,
     };
   }
 
@@ -4368,6 +5104,143 @@ export class GetExecuteOperationResultResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetResource4ModifyRecordResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * {\\"InstanceId\\": \\"\\", \\"AttributeName\\": \\"drmCommand\\", \\"Id\\": 16800, \\"Desc\\": \\"test\\"}
+   */
+  attribute?: string;
+  /**
+   * @example
+   * 1726645341000
+   */
+  modifyTime?: string;
+  /**
+   * @example
+   * rm-uf6308dyal1*****
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * Finish
+   */
+  status?: string;
+  /**
+   * @example
+   * rds
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'Attribute',
+      modifyTime: 'ModifyTime',
+      resourceId: 'ResourceId',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: 'string',
+      modifyTime: 'string',
+      resourceId: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResult4QueryInstancePrice4ModifyResponseBodyDataPriceList extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
+  discountAmount?: number;
+  ERROR?: string;
+  /**
+   * @example
+   * vpc
+   */
+  nodeType?: string;
+  /**
+   * @example
+   * 3
+   */
+  originalAmount?: number;
+  priceUnit?: string;
+  promotionName?: string;
+  /**
+   * @example
+   * 1
+   */
+  tradeAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      discountAmount: 'DiscountAmount',
+      ERROR: 'ERROR',
+      nodeType: 'NodeType',
+      originalAmount: 'OriginalAmount',
+      priceUnit: 'PriceUnit',
+      promotionName: 'PromotionName',
+      tradeAmount: 'TradeAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountAmount: 'number',
+      ERROR: 'string',
+      nodeType: 'string',
+      originalAmount: 'number',
+      priceUnit: 'string',
+      promotionName: 'string',
+      tradeAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResult4QueryInstancePrice4ModifyResponseBodyData extends $tea.Model {
+  priceList?: GetResult4QueryInstancePrice4ModifyResponseBodyDataPriceList[];
+  /**
+   * @example
+   * SUCCESS
+   */
+  status?: string;
+  /**
+   * @example
+   * d9a3e99b-6954-4a16-ad51-954db4a528b7
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      priceList: 'PriceList',
+      status: 'Status',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      priceList: { 'type': 'array', 'itemType': GetResult4QueryInstancePrice4ModifyResponseBodyDataPriceList },
+      status: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTemplateResponseBodyDataVariables extends $tea.Model {
   /**
    * @remarks
@@ -4883,6 +5756,32 @@ export class ListTemplateResponseBodyData extends $tea.Model {
       tagId: 'number',
       tagName: 'string',
       templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApplicationSpecRequestInstanceSpec extends $tea.Model {
+  configuration?: { [key: string]: any };
+  /**
+   * @example
+   * rm-2ze8f4ah378a*****
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'Configuration',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      instanceId: 'string',
     };
   }
 
@@ -5936,6 +6835,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取询价应用变配记录
+   * 
+   * @param request - GetResource4ModifyRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResource4ModifyRecordResponse
+   */
+  async getResource4ModifyRecordWithOptions(request: GetResource4ModifyRecordRequest, runtime: $Util.RuntimeOptions): Promise<GetResource4ModifyRecordResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetResource4ModifyRecord",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetResource4ModifyRecordResponse>(await this.callApi(params, req, runtime), new GetResource4ModifyRecordResponse({}));
+  }
+
+  /**
+   * 获取询价应用变配记录
+   * 
+   * @param request - GetResource4ModifyRecordRequest
+   * @returns GetResource4ModifyRecordResponse
+   */
+  async getResource4ModifyRecord(request: GetResource4ModifyRecordRequest): Promise<GetResource4ModifyRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getResource4ModifyRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取询价结果
+   * 
+   * @param request - GetResult4QueryInstancePrice4ModifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResult4QueryInstancePrice4ModifyResponse
+   */
+  async getResult4QueryInstancePrice4ModifyWithOptions(request: GetResult4QueryInstancePrice4ModifyRequest, runtime: $Util.RuntimeOptions): Promise<GetResult4QueryInstancePrice4ModifyResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetResult4QueryInstancePrice4Modify",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetResult4QueryInstancePrice4ModifyResponse>(await this.callApi(params, req, runtime), new GetResult4QueryInstancePrice4ModifyResponse({}));
+  }
+
+  /**
+   * 获取询价结果
+   * 
+   * @param request - GetResult4QueryInstancePrice4ModifyRequest
+   * @returns GetResult4QueryInstancePrice4ModifyResponse
+   */
+  async getResult4QueryInstancePrice4Modify(request: GetResult4QueryInstancePrice4ModifyRequest): Promise<GetResult4QueryInstancePrice4ModifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getResult4QueryInstancePrice4ModifyWithOptions(request, runtime);
+  }
+
+  /**
    * Get template images and information about architecture diagrams.
    * 
    * @param request - GetTemplateRequest
@@ -6326,6 +7321,174 @@ export default class Client extends OpenApi {
   async listTemplate(request: ListTemplateRequest): Promise<ListTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交应用变配
+   * 
+   * @param tmpReq - ModifyApplicationSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApplicationSpecResponse
+   */
+  async modifyApplicationSpecWithOptions(tmpReq: ModifyApplicationSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApplicationSpecResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyApplicationSpecShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceSpec)) {
+      request.instanceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceSpec, "InstanceSpec", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.instanceSpecShrink)) {
+      body["InstanceSpec"] = request.instanceSpecShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApplicationSpec",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApplicationSpecResponse>(await this.callApi(params, req, runtime), new ModifyApplicationSpecResponse({}));
+  }
+
+  /**
+   * 提交应用变配
+   * 
+   * @param request - ModifyApplicationSpecRequest
+   * @returns ModifyApplicationSpecResponse
+   */
+  async modifyApplicationSpec(request: ModifyApplicationSpecRequest): Promise<ModifyApplicationSpecResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApplicationSpecWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询变配价格
+   * 
+   * @param tmpReq - QueryInstancePrice4ModifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryInstancePrice4ModifyResponse
+   */
+  async queryInstancePrice4ModifyWithOptions(tmpReq: QueryInstancePrice4ModifyRequest, runtime: $Util.RuntimeOptions): Promise<QueryInstancePrice4ModifyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryInstancePrice4ModifyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.configuration)) {
+      request.configurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configuration, "Configuration", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.configurationShrink)) {
+      body["Configuration"] = request.configurationShrink;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryInstancePrice4Modify",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryInstancePrice4ModifyResponse>(await this.callApi(params, req, runtime), new QueryInstancePrice4ModifyResponse({}));
+  }
+
+  /**
+   * 查询变配价格
+   * 
+   * @param request - QueryInstancePrice4ModifyRequest
+   * @returns QueryInstancePrice4ModifyResponse
+   */
+  async queryInstancePrice4Modify(request: QueryInstancePrice4ModifyRequest): Promise<QueryInstancePrice4ModifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryInstancePrice4ModifyWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询变配规格列表
+   * 
+   * @param tmpReq - QueryInstanceSpec4ModifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryInstanceSpec4ModifyResponse
+   */
+  async queryInstanceSpec4ModifyWithOptions(tmpReq: QueryInstanceSpec4ModifyRequest, runtime: $Util.RuntimeOptions): Promise<QueryInstanceSpec4ModifyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryInstanceSpec4ModifyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.methodName)) {
+      body["MethodName"] = request.methodName;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      body["Parameters"] = request.parametersShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryInstanceSpec4Modify",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryInstanceSpec4ModifyResponse>(await this.callApi(params, req, runtime), new QueryInstanceSpec4ModifyResponse({}));
+  }
+
+  /**
+   * 查询变配规格列表
+   * 
+   * @param request - QueryInstanceSpec4ModifyRequest
+   * @returns QueryInstanceSpec4ModifyResponse
+   */
+  async queryInstanceSpec4Modify(request: QueryInstanceSpec4ModifyRequest): Promise<QueryInstanceSpec4ModifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryInstanceSpec4ModifyWithOptions(request, runtime);
   }
 
   /**
