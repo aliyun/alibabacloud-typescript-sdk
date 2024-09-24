@@ -1701,6 +1701,7 @@ export class CreateStackGroupRequest extends $tea.Model {
    * rg-acfmxazb4ph6aiy****
    */
   resourceGroupId?: string;
+  stackArn?: string;
   /**
    * @remarks
    * The name of the stack group. The name must be unique within a region.\\
@@ -1760,6 +1761,7 @@ export class CreateStackGroupRequest extends $tea.Model {
       permissionModel: 'PermissionModel',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      stackArn: 'StackArn',
       stackGroupName: 'StackGroupName',
       tags: 'Tags',
       templateBody: 'TemplateBody',
@@ -1781,6 +1783,7 @@ export class CreateStackGroupRequest extends $tea.Model {
       permissionModel: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      stackArn: 'string',
       stackGroupName: 'string',
       tags: { 'type': 'array', 'itemType': CreateStackGroupRequestTags },
       templateBody: 'string',
@@ -1889,6 +1892,7 @@ export class CreateStackGroupShrinkRequest extends $tea.Model {
    * rg-acfmxazb4ph6aiy****
    */
   resourceGroupId?: string;
+  stackArn?: string;
   /**
    * @remarks
    * The name of the stack group. The name must be unique within a region.\\
@@ -1948,6 +1952,7 @@ export class CreateStackGroupShrinkRequest extends $tea.Model {
       permissionModel: 'PermissionModel',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      stackArn: 'StackArn',
       stackGroupName: 'StackGroupName',
       tags: 'Tags',
       templateBody: 'TemplateBody',
@@ -1969,6 +1974,7 @@ export class CreateStackGroupShrinkRequest extends $tea.Model {
       permissionModel: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      stackArn: 'string',
       stackGroupName: 'string',
       tags: { 'type': 'array', 'itemType': CreateStackGroupShrinkRequestTags },
       templateBody: 'string',
@@ -9228,6 +9234,195 @@ export class GetTemplateSummaryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetTemplateSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportStacksToStackGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * Import ops stacks to stack group
+   */
+  operationDescription?: string;
+  /**
+   * @example
+   * {"FailureToleranceCount": 1,"MaxConcurrentCount": 2}
+   */
+  operationPreferences?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceDirectoryFolderIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  stackArns?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyStackGroup
+   */
+  stackGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      operationDescription: 'OperationDescription',
+      operationPreferences: 'OperationPreferences',
+      regionId: 'RegionId',
+      resourceDirectoryFolderIds: 'ResourceDirectoryFolderIds',
+      stackArns: 'StackArns',
+      stackGroupName: 'StackGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      operationDescription: 'string',
+      operationPreferences: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      regionId: 'string',
+      resourceDirectoryFolderIds: { 'type': 'array', 'itemType': 'string' },
+      stackArns: { 'type': 'array', 'itemType': 'string' },
+      stackGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportStacksToStackGroupShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * Import ops stacks to stack group
+   */
+  operationDescription?: string;
+  /**
+   * @example
+   * {"FailureToleranceCount": 1,"MaxConcurrentCount": 2}
+   */
+  operationPreferencesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceDirectoryFolderIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  stackArnsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyStackGroup
+   */
+  stackGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      operationDescription: 'OperationDescription',
+      operationPreferencesShrink: 'OperationPreferences',
+      regionId: 'RegionId',
+      resourceDirectoryFolderIdsShrink: 'ResourceDirectoryFolderIds',
+      stackArnsShrink: 'StackArns',
+      stackGroupName: 'StackGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      operationDescription: 'string',
+      operationPreferencesShrink: 'string',
+      regionId: 'string',
+      resourceDirectoryFolderIdsShrink: 'string',
+      stackArnsShrink: 'string',
+      stackGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportStacksToStackGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6da106ca-1784-4a6f-a7e1-e723863d****
+   */
+  operationId?: string;
+  /**
+   * @example
+   * 14A07460-EBE7-47CA-9757-12CC4761D47A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationId: 'OperationId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportStacksToStackGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportStacksToStackGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportStacksToStackGroupResponseBody,
     };
   }
 
@@ -26186,6 +26381,10 @@ export default class Client extends OpenApi {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!Util.isUnset(request.stackArn)) {
+      query["StackArn"] = request.stackArn;
+    }
+
     if (!Util.isUnset(request.stackGroupName)) {
       query["StackGroupName"] = request.stackGroupName;
     }
@@ -28792,6 +28991,82 @@ export default class Client extends OpenApi {
   async getTemplateSummary(request: GetTemplateSummaryRequest): Promise<GetTemplateSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTemplateSummaryWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - ImportStacksToStackGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportStacksToStackGroupResponse
+   */
+  async importStacksToStackGroupWithOptions(tmpReq: ImportStacksToStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<ImportStacksToStackGroupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ImportStacksToStackGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.operationPreferences)) {
+      request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.resourceDirectoryFolderIds)) {
+      request.resourceDirectoryFolderIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceDirectoryFolderIds, "ResourceDirectoryFolderIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.stackArns)) {
+      request.stackArnsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stackArns, "StackArns", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.operationDescription)) {
+      query["OperationDescription"] = request.operationDescription;
+    }
+
+    if (!Util.isUnset(request.operationPreferencesShrink)) {
+      query["OperationPreferences"] = request.operationPreferencesShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceDirectoryFolderIdsShrink)) {
+      query["ResourceDirectoryFolderIds"] = request.resourceDirectoryFolderIdsShrink;
+    }
+
+    if (!Util.isUnset(request.stackArnsShrink)) {
+      query["StackArns"] = request.stackArnsShrink;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportStacksToStackGroup",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportStacksToStackGroupResponse>(await this.callApi(params, req, runtime), new ImportStacksToStackGroupResponse({}));
+  }
+
+  /**
+   * @param request - ImportStacksToStackGroupRequest
+   * @returns ImportStacksToStackGroupResponse
+   */
+  async importStacksToStackGroup(request: ImportStacksToStackGroupRequest): Promise<ImportStacksToStackGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importStacksToStackGroupWithOptions(request, runtime);
   }
 
   /**
