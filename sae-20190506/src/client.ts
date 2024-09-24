@@ -6126,6 +6126,7 @@ export class CreateApplicationRequest extends $tea.Model {
    * true
    */
   deploy?: boolean;
+  dotnet?: string;
   /**
    * @remarks
    * 3.5.3
@@ -6468,6 +6469,7 @@ export class CreateApplicationRequest extends $tea.Model {
       cpu: 'Cpu',
       customHostAlias: 'CustomHostAlias',
       deploy: 'Deploy',
+      dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
       enableEbpf: 'EnableEbpf',
       enableNewArms: 'EnableNewArms',
@@ -6535,6 +6537,7 @@ export class CreateApplicationRequest extends $tea.Model {
       cpu: 'number',
       customHostAlias: 'string',
       deploy: 'boolean',
+      dotnet: 'string',
       edasContainerVersion: 'string',
       enableEbpf: 'string',
       enableNewArms: 'boolean',
@@ -10278,6 +10281,7 @@ export class DeployApplicationRequest extends $tea.Model {
    * true
    */
   deploy?: string;
+  dotnet?: string;
   /**
    * @remarks
    * The version of the container, such as Ali-Tomcat, in which an application developed based on High-speed Service Framework (HSF) is deployed.
@@ -10751,6 +10755,7 @@ export class DeployApplicationRequest extends $tea.Model {
       cpu: 'Cpu',
       customHostAlias: 'CustomHostAlias',
       deploy: 'Deploy',
+      dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
       enableAhas: 'EnableAhas',
       enableGreyTagRoute: 'EnableGreyTagRoute',
@@ -10817,6 +10822,7 @@ export class DeployApplicationRequest extends $tea.Model {
       cpu: 'number',
       customHostAlias: 'string',
       deploy: 'string',
+      dotnet: 'string',
       edasContainerVersion: 'string',
       enableAhas: 'string',
       enableGreyTagRoute: 'boolean',
@@ -20432,11 +20438,17 @@ export class RescaleApplicationVerticallyRequest extends $tea.Model {
    * 2048
    */
   memory?: string;
+  autoEnableApplicationScalingRule?: boolean;
+  minReadyInstanceRatio?: number;
+  minReadyInstances?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       cpu: 'Cpu',
       memory: 'Memory',
+      autoEnableApplicationScalingRule: 'autoEnableApplicationScalingRule',
+      minReadyInstanceRatio: 'minReadyInstanceRatio',
+      minReadyInstances: 'minReadyInstances',
     };
   }
 
@@ -20445,6 +20457,9 @@ export class RescaleApplicationVerticallyRequest extends $tea.Model {
       appId: 'string',
       cpu: 'string',
       memory: 'string',
+      autoEnableApplicationScalingRule: 'boolean',
+      minReadyInstanceRatio: 'number',
+      minReadyInstances: 'number',
     };
   }
 
@@ -27354,6 +27369,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
    * [{"hostName":"test.host.name","ip":"0.0.0.0"}]
    */
   customHostAlias?: string;
+  dotnet?: string;
   /**
    * @remarks
    * The version of the container, such as Ali-Tomcat, in which an application developed based on High-speed Service Framework (HSF) is deployed.
@@ -27894,6 +27910,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       configMapMountDesc: 'ConfigMapMountDesc',
       cpu: 'Cpu',
       customHostAlias: 'CustomHostAlias',
+      dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
       enableAhas: 'EnableAhas',
       enableGreyTagRoute: 'EnableGreyTagRoute',
@@ -27968,6 +27985,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       configMapMountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataConfigMapMountDesc },
       cpu: 'number',
       customHostAlias: 'string',
+      dotnet: 'string',
       edasContainerVersion: 'string',
       enableAhas: 'string',
       enableGreyTagRoute: 'boolean',
@@ -35299,6 +35317,7 @@ export class ListApplicationsResponseBodyDataApplications extends $tea.Model {
    * 1000
    */
   cpu?: number;
+  imageUrl?: string;
   /**
    * @remarks
    * The number of application instances.
@@ -35336,6 +35355,7 @@ export class ListApplicationsResponseBodyDataApplications extends $tea.Model {
    * cn-beijing:demo
    */
   namespaceId?: string;
+  packageUrl?: string;
   programmingLanguage?: string;
   /**
    * @remarks
@@ -35367,11 +35387,13 @@ export class ListApplicationsResponseBodyDataApplications extends $tea.Model {
       baseAppId: 'BaseAppId',
       children: 'Children',
       cpu: 'Cpu',
+      imageUrl: 'ImageUrl',
       instances: 'Instances',
       mem: 'Mem',
       mseEnabled: 'MseEnabled',
       mseNamespaceId: 'MseNamespaceId',
       namespaceId: 'NamespaceId',
+      packageUrl: 'PackageUrl',
       programmingLanguage: 'ProgrammingLanguage',
       regionId: 'RegionId',
       runningInstances: 'RunningInstances',
@@ -35388,11 +35410,13 @@ export class ListApplicationsResponseBodyDataApplications extends $tea.Model {
       baseAppId: 'string',
       children: { 'type': 'array', 'itemType': ListApplicationsResponseBodyDataApplicationsChildren },
       cpu: 'number',
+      imageUrl: 'string',
       instances: 'number',
       mem: 'number',
       mseEnabled: 'boolean',
       mseNamespaceId: 'string',
       namespaceId: 'string',
+      packageUrl: 'string',
       programmingLanguage: 'string',
       regionId: 'string',
       runningInstances: 'number',
@@ -38903,6 +38927,10 @@ export default class Client extends OpenApi {
       query["Deploy"] = request.deploy;
     }
 
+    if (!Util.isUnset(request.dotnet)) {
+      query["Dotnet"] = request.dotnet;
+    }
+
     if (!Util.isUnset(request.edasContainerVersion)) {
       query["EdasContainerVersion"] = request.edasContainerVersion;
     }
@@ -40521,6 +40549,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deploy)) {
       query["Deploy"] = request.deploy;
+    }
+
+    if (!Util.isUnset(request.dotnet)) {
+      query["Dotnet"] = request.dotnet;
     }
 
     if (!Util.isUnset(request.edasContainerVersion)) {
@@ -44244,6 +44276,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.memory)) {
       query["Memory"] = request.memory;
+    }
+
+    if (!Util.isUnset(request.autoEnableApplicationScalingRule)) {
+      query["autoEnableApplicationScalingRule"] = request.autoEnableApplicationScalingRule;
+    }
+
+    if (!Util.isUnset(request.minReadyInstanceRatio)) {
+      query["minReadyInstanceRatio"] = request.minReadyInstanceRatio;
+    }
+
+    if (!Util.isUnset(request.minReadyInstances)) {
+      query["minReadyInstances"] = request.minReadyInstances;
     }
 
     let req = new $OpenApi.OpenApiRequest({
