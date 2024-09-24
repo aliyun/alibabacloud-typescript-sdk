@@ -3639,7 +3639,7 @@ export class QueryInstanceSpec4ModifyResponseBody extends $tea.Model {
    * 200
    */
   code?: string;
-  data?: string;
+  data?: QueryInstanceSpec4ModifyResponseBodyData;
   /**
    * @example
    * Success
@@ -3670,7 +3670,7 @@ export class QueryInstanceSpec4ModifyResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: 'string',
       code: 'string',
-      data: 'string',
+      data: QueryInstanceSpec4ModifyResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -5161,7 +5161,7 @@ export class GetResult4QueryInstancePrice4ModifyResponseBodyDataPriceList extend
    * 2
    */
   discountAmount?: number;
-  ERROR?: string;
+  error?: string;
   /**
    * @example
    * vpc
@@ -5182,7 +5182,7 @@ export class GetResult4QueryInstancePrice4ModifyResponseBodyDataPriceList extend
   static names(): { [key: string]: string } {
     return {
       discountAmount: 'DiscountAmount',
-      ERROR: 'ERROR',
+      error: 'Error',
       nodeType: 'NodeType',
       originalAmount: 'OriginalAmount',
       priceUnit: 'PriceUnit',
@@ -5194,7 +5194,7 @@ export class GetResult4QueryInstancePrice4ModifyResponseBodyDataPriceList extend
   static types(): { [key: string]: any } {
     return {
       discountAmount: 'number',
-      ERROR: 'string',
+      error: 'string',
       nodeType: 'string',
       originalAmount: 'number',
       priceUnit: 'string',
@@ -5782,6 +5782,56 @@ export class ModifyApplicationSpecRequestInstanceSpec extends $tea.Model {
     return {
       configuration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceSpec4ModifyResponseBodyDataOptionalValues extends $tea.Model {
+  label?: string;
+  max?: number;
+  min?: number;
+  step?: number;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      max: 'Max',
+      min: 'Min',
+      step: 'Step',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      max: 'number',
+      min: 'number',
+      step: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceSpec4ModifyResponseBodyData extends $tea.Model {
+  optionalValues?: QueryInstanceSpec4ModifyResponseBodyDataOptionalValues[];
+  static names(): { [key: string]: string } {
+    return {
+      optionalValues: 'OptionalValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionalValues: { 'type': 'array', 'itemType': QueryInstanceSpec4ModifyResponseBodyDataOptionalValues },
     };
   }
 

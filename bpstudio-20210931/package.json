@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/bpstudio20210931",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
