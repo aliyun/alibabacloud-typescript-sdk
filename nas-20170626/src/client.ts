@@ -686,6 +686,124 @@ export class CancelDataFlowAutoRefreshResponse extends $tea.Model {
   }
 }
 
+export class CancelDataFlowSubTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dfid-194433a5be31****
+   */
+  dataFlowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * subTaskId-370kyfmyknxcyzw****
+   */
+  dataFlowSubTaskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * taskId-12345678
+   */
+  dataFlowTaskId?: string;
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bmcpfs-370lx1ev9ss27o0****
+   */
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dataFlowId: 'DataFlowId',
+      dataFlowSubTaskId: 'DataFlowSubTaskId',
+      dataFlowTaskId: 'DataFlowTaskId',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dataFlowId: 'string',
+      dataFlowSubTaskId: 'string',
+      dataFlowTaskId: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelDataFlowSubTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelDataFlowSubTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelDataFlowSubTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelDataFlowSubTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelDataFlowTaskRequest extends $tea.Model {
   /**
    * @remarks
@@ -2223,6 +2341,144 @@ export class CreateDataFlowResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDataFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataFlowSubTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  condition?: CreateDataFlowSubTaskRequestCondition;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dfid-194433a5be31****
+   */
+  dataFlowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * taskId-12345678
+   */
+  dataFlowTaskId?: string;
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /mnt/file.png
+   */
+  dstFilePath?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bmcpfs-370lx1ev9ss27o0****
+   */
+  fileSystemId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /test/file.png
+   */
+  srcFilePath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      condition: 'Condition',
+      dataFlowId: 'DataFlowId',
+      dataFlowTaskId: 'DataFlowTaskId',
+      dryRun: 'DryRun',
+      dstFilePath: 'DstFilePath',
+      fileSystemId: 'FileSystemId',
+      srcFilePath: 'SrcFilePath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      condition: CreateDataFlowSubTaskRequestCondition,
+      dataFlowId: 'string',
+      dataFlowTaskId: 'string',
+      dryRun: 'boolean',
+      dstFilePath: 'string',
+      fileSystemId: 'string',
+      srcFilePath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataFlowSubTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * subTaskId-370kyfmyknxcyzw****
+   */
+  dataFlowSubTaskId?: string;
+  /**
+   * @example
+   * A70BEE5D-76D3-49FB-B58F-1F398211A5C3
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataFlowSubTaskId: 'DataFlowSubTaskId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFlowSubTaskId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataFlowSubTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataFlowSubTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataFlowSubTaskResponseBody,
     };
   }
 
@@ -7162,6 +7418,111 @@ export class DescribeBlackListClientsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeBlackListClientsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowSubTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bmcpfs-370lx1ev9ss27o0****
+   */
+  fileSystemId?: string;
+  /**
+   * **if can be null:**
+   * false
+   */
+  filters?: DescribeDataFlowSubTasksRequestFilters[];
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * iWk0AQAAAAAvY2FzZS8=
+   */
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      filters: 'Filters',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      filters: { 'type': 'array', 'itemType': DescribeDataFlowSubTasksRequestFilters },
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowSubTasksResponseBody extends $tea.Model {
+  dataFlowSubTask?: DescribeDataFlowSubTasksResponseBodyDataFlowSubTask;
+  /**
+   * @example
+   * pUJaUwAAAABhdGUyNTk1MQ==
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 98696EF0-1607-4E9D-B01D-F20930B6****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataFlowSubTask: 'DataFlowSubTask',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFlowSubTask: DescribeDataFlowSubTasksResponseBodyDataFlowSubTask,
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowSubTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataFlowSubTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataFlowSubTasksResponseBody,
     };
   }
 
@@ -14902,6 +15263,36 @@ export class CreateDataFlowRequestAutoRefreshs extends $tea.Model {
   }
 }
 
+export class CreateDataFlowSubTaskRequestCondition extends $tea.Model {
+  /**
+   * @example
+   * 1725897600000000000
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 68
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      modifyTime: 'ModifyTime',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modifyTime: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMountTargetResponseBodyMountTargetExtra extends $tea.Model {
   /**
    * @remarks
@@ -15957,6 +16348,238 @@ export class DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasks extends $tea
   static types(): { [key: string]: any } {
     return {
       autoSnapshotTask: { 'type': 'array', 'itemType': DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasksAutoSnapshotTask },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowSubTasksRequestFilters extends $tea.Model {
+  /**
+   * @example
+   * DataFlowSubTaskIds
+   */
+  key?: string;
+  /**
+   * @example
+   * subTaskId-370kyfmyknxcyzw****
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTaskFileDetail extends $tea.Model {
+  /**
+   * @example
+   * crc64:850309505450944****
+   */
+  checksum?: string;
+  /**
+   * @example
+   * 1721167603
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 68
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checksum: 'Checksum',
+      modifyTime: 'ModifyTime',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checksum: 'string',
+      modifyTime: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTaskProgressStats extends $tea.Model {
+  /**
+   * @example
+   * 68
+   */
+  actualBytes?: number;
+  /**
+   * @example
+   * 34
+   */
+  averageSpeed?: number;
+  /**
+   * @example
+   * 68
+   */
+  bytesDone?: number;
+  /**
+   * @example
+   * 68
+   */
+  bytesTotal?: number;
+  static names(): { [key: string]: string } {
+    return {
+      actualBytes: 'ActualBytes',
+      averageSpeed: 'AverageSpeed',
+      bytesDone: 'BytesDone',
+      bytesTotal: 'BytesTotal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actualBytes: 'number',
+      averageSpeed: 'number',
+      bytesDone: 'number',
+      bytesTotal: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTask extends $tea.Model {
+  /**
+   * @example
+   * 2024-07-01 19:59:29
+   */
+  createTime?: string;
+  /**
+   * @example
+   * dfid-194433a5be31****
+   */
+  dataFlowId?: string;
+  /**
+   * @example
+   * subTaskId-370kyfmyknxcyzw****
+   */
+  dataFlowSubTaskId?: string;
+  /**
+   * @example
+   * taskId-12345678
+   */
+  dataFlowTaskId?: string;
+  /**
+   * @example
+   * /mnt/file.png
+   */
+  dstFilePath?: string;
+  /**
+   * @example
+   * 2024-07-04 11:14:22
+   */
+  endTime?: string;
+  errorMsg?: string;
+  fileDetail?: DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTaskFileDetail;
+  /**
+   * @example
+   * bmcpfs-370lx1ev9ss27o0****
+   */
+  fileSystemId?: string;
+  /**
+   * @example
+   * 10000
+   */
+  progress?: number;
+  progressStats?: DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTaskProgressStats;
+  /**
+   * @example
+   * /test/file.png
+   */
+  srcFilePath?: string;
+  /**
+   * @example
+   * 2024-07-03 10:43:16
+   */
+  startTime?: string;
+  /**
+   * @example
+   * COMPLETE
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      dataFlowId: 'DataFlowId',
+      dataFlowSubTaskId: 'DataFlowSubTaskId',
+      dataFlowTaskId: 'DataFlowTaskId',
+      dstFilePath: 'DstFilePath',
+      endTime: 'EndTime',
+      errorMsg: 'ErrorMsg',
+      fileDetail: 'FileDetail',
+      fileSystemId: 'FileSystemId',
+      progress: 'Progress',
+      progressStats: 'ProgressStats',
+      srcFilePath: 'SrcFilePath',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      dataFlowId: 'string',
+      dataFlowSubTaskId: 'string',
+      dataFlowTaskId: 'string',
+      dstFilePath: 'string',
+      endTime: 'string',
+      errorMsg: 'string',
+      fileDetail: DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTaskFileDetail,
+      fileSystemId: 'string',
+      progress: 'number',
+      progressStats: DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTaskProgressStats,
+      srcFilePath: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowSubTasksResponseBodyDataFlowSubTask extends $tea.Model {
+  dataFlowSubTask?: DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTask[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFlowSubTask: 'DataFlowSubTask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFlowSubTask: { 'type': 'array', 'itemType': DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTask },
     };
   }
 
@@ -21305,6 +21928,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消数据流动任务队列中尚未执行的子任务
+   * 
+   * @param request - CancelDataFlowSubTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelDataFlowSubTaskResponse
+   */
+  async cancelDataFlowSubTaskWithOptions(request: CancelDataFlowSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelDataFlowSubTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataFlowId)) {
+      query["DataFlowId"] = request.dataFlowId;
+    }
+
+    if (!Util.isUnset(request.dataFlowSubTaskId)) {
+      query["DataFlowSubTaskId"] = request.dataFlowSubTaskId;
+    }
+
+    if (!Util.isUnset(request.dataFlowTaskId)) {
+      query["DataFlowTaskId"] = request.dataFlowTaskId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelDataFlowSubTask",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelDataFlowSubTaskResponse>(await this.callApi(params, req, runtime), new CancelDataFlowSubTaskResponse({}));
+  }
+
+  /**
+   * 取消数据流动任务队列中尚未执行的子任务
+   * 
+   * @param request - CancelDataFlowSubTaskRequest
+   * @returns CancelDataFlowSubTaskResponse
+   */
+  async cancelDataFlowSubTask(request: CancelDataFlowSubTaskRequest): Promise<CancelDataFlowSubTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelDataFlowSubTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels a dataflow task that is not running.
    * 
    * @remarks
@@ -22086,6 +22771,76 @@ export default class Client extends OpenApi {
   async createDataFlow(request: CreateDataFlowRequest): Promise<CreateDataFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据流动子任务
+   * 
+   * @param request - CreateDataFlowSubTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataFlowSubTaskResponse
+   */
+  async createDataFlowSubTaskWithOptions(request: CreateDataFlowSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataFlowSubTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.condition)) {
+      query["Condition"] = request.condition;
+    }
+
+    if (!Util.isUnset(request.dataFlowId)) {
+      query["DataFlowId"] = request.dataFlowId;
+    }
+
+    if (!Util.isUnset(request.dataFlowTaskId)) {
+      query["DataFlowTaskId"] = request.dataFlowTaskId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.dstFilePath)) {
+      query["DstFilePath"] = request.dstFilePath;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.srcFilePath)) {
+      query["SrcFilePath"] = request.srcFilePath;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataFlowSubTask",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataFlowSubTaskResponse>(await this.callApi(params, req, runtime), new CreateDataFlowSubTaskResponse({}));
+  }
+
+  /**
+   * 创建数据流动子任务
+   * 
+   * @param request - CreateDataFlowSubTaskRequest
+   * @returns CreateDataFlowSubTaskResponse
+   */
+  async createDataFlowSubTask(request: CreateDataFlowSubTaskRequest): Promise<CreateDataFlowSubTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataFlowSubTaskWithOptions(request, runtime);
   }
 
   /**
@@ -24372,6 +25127,60 @@ export default class Client extends OpenApi {
   async describeBlackListClients(request: DescribeBlackListClientsRequest): Promise<DescribeBlackListClientsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBlackListClientsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询数据流动子任务
+   * 
+   * @param request - DescribeDataFlowSubTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataFlowSubTasksResponse
+   */
+  async describeDataFlowSubTasksWithOptions(request: DescribeDataFlowSubTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataFlowSubTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDataFlowSubTasks",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataFlowSubTasksResponse>(await this.callApi(params, req, runtime), new DescribeDataFlowSubTasksResponse({}));
+  }
+
+  /**
+   * 查询数据流动子任务
+   * 
+   * @param request - DescribeDataFlowSubTasksRequest
+   * @returns DescribeDataFlowSubTasksResponse
+   */
+  async describeDataFlowSubTasks(request: DescribeDataFlowSubTasksRequest): Promise<DescribeDataFlowSubTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDataFlowSubTasksWithOptions(request, runtime);
   }
 
   /**
