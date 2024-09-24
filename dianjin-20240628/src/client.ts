@@ -12,6 +12,183 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CreateFinReportSummaryTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
+  docId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  enableTable?: boolean;
+  /**
+   * @example
+   * 10
+   */
+  endPage?: number;
+  instruction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3akzl28vap
+   */
+  libraryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  /**
+   * @example
+   * 1
+   */
+  startPage?: number;
+  /**
+   * @example
+   * custom
+   */
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'docId',
+      enableTable: 'enableTable',
+      endPage: 'endPage',
+      instruction: 'instruction',
+      libraryId: 'libraryId',
+      modelId: 'modelId',
+      startPage: 'startPage',
+      taskType: 'taskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      enableTable: 'boolean',
+      endPage: 'number',
+      instruction: 'string',
+      libraryId: 'string',
+      modelId: 'string',
+      startPage: 'number',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFinReportSummaryTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  /**
+   * @example
+   * 3284627354
+   */
+  data?: string;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 5E3FBAF1-17AF-53B7-AF0A-CDCEEB6DE658
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: 'string',
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFinReportSummaryTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFinReportSummaryTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFinReportSummaryTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateLibraryRequest extends $tea.Model {
   /**
    * @remarks
@@ -492,6 +669,125 @@ export class DeleteLibraryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteLibraryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EvictTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 17071319
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EvictTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  /**
+   * @example
+   * 17071319
+   */
+  data?: string;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  message?: string;
+  /**
+   * @example
+   * 44BD277A-87F9-5310-8D63-3E6645F1DA85
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: 'string',
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EvictTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EvictTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EvictTaskResponseBody,
     };
   }
 
@@ -1681,6 +1977,213 @@ export class GetParseResultResponse extends $tea.Model {
   }
 }
 
+export class GetSummaryTaskResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 17071319
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSummaryTaskResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: GetSummaryTaskResultResponseBodyData;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 0bc13a9517168617617186457e401f
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: GetSummaryTaskResultResponseBodyData,
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSummaryTaskResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSummaryTaskResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSummaryTaskResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskStatusResponseBody extends $tea.Model {
+  cost?: number;
+  data?: string;
+  dataType?: string;
+  errCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: 'string',
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvokePluginRequest extends $tea.Model {
   params?: { [key: string]: any };
   /**
@@ -2171,6 +2674,162 @@ export class RecallDocumentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RecallDocumentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIntentionRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  analysis?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * common
+   */
+  bizType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  conversation?: string;
+  globalIntentionList?: RecognizeIntentionRequestGlobalIntentionList[];
+  hierarchicalIntentionList?: RecognizeIntentionRequestHierarchicalIntentionList[];
+  intentionList?: RecognizeIntentionRequestIntentionList[];
+  /**
+   * @example
+   * common
+   */
+  opType?: string;
+  /**
+   * @example
+   * false
+   */
+  recommend?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      analysis: 'analysis',
+      bizType: 'bizType',
+      conversation: 'conversation',
+      globalIntentionList: 'globalIntentionList',
+      hierarchicalIntentionList: 'hierarchicalIntentionList',
+      intentionList: 'intentionList',
+      opType: 'opType',
+      recommend: 'recommend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysis: 'boolean',
+      bizType: 'string',
+      conversation: 'string',
+      globalIntentionList: { 'type': 'array', 'itemType': RecognizeIntentionRequestGlobalIntentionList },
+      hierarchicalIntentionList: { 'type': 'array', 'itemType': RecognizeIntentionRequestHierarchicalIntentionList },
+      intentionList: { 'type': 'array', 'itemType': RecognizeIntentionRequestIntentionList },
+      opType: 'string',
+      recommend: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIntentionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: RecognizeIntentionResponseBodyData;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 003D019A-1BB3-53EC-A0D2-CE76DA5D73B1
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: RecognizeIntentionResponseBodyData,
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIntentionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RecognizeIntentionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeIntentionResponseBody,
     };
   }
 
@@ -5006,6 +5665,183 @@ export class GetParseResultResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetSummaryTaskResultResponseBodyDataChoicesMessage extends $tea.Model {
+  content?: string;
+  /**
+   * @example
+   * assistant
+   */
+  role?: string;
+  toolCalls?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      role: 'role',
+      toolCalls: 'toolCalls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
+      toolCalls: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSummaryTaskResultResponseBodyDataChoices extends $tea.Model {
+  /**
+   * @example
+   * stop
+   */
+  finishReason?: string;
+  /**
+   * @example
+   * 0
+   */
+  index?: number;
+  message?: GetSummaryTaskResultResponseBodyDataChoicesMessage;
+  static names(): { [key: string]: string } {
+    return {
+      finishReason: 'finishReason',
+      index: 'index',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      finishReason: 'string',
+      index: 'number',
+      message: GetSummaryTaskResultResponseBodyDataChoicesMessage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSummaryTaskResultResponseBodyDataUsage extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  imageCount?: number;
+  /**
+   * @example
+   * 0
+   */
+  imageTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 300
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageCount: 'imageCount',
+      imageTokens: 'imageTokens',
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageCount: 'number',
+      imageTokens: 'number',
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSummaryTaskResultResponseBodyData extends $tea.Model {
+  choices?: GetSummaryTaskResultResponseBodyDataChoices[];
+  /**
+   * @example
+   * 1726285125915
+   */
+  created?: number;
+  /**
+   * @example
+   * 1202
+   */
+  id?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  /**
+   * @example
+   * 0bc13a9517168617617186457e401f
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  /**
+   * @example
+   * 300
+   */
+  totalTokens?: number;
+  usage?: GetSummaryTaskResultResponseBodyDataUsage;
+  static names(): { [key: string]: string } {
+    return {
+      choices: 'choices',
+      created: 'created',
+      id: 'id',
+      modelId: 'modelId',
+      requestId: 'requestId',
+      time: 'time',
+      totalTokens: 'totalTokens',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      choices: { 'type': 'array', 'itemType': GetSummaryTaskResultResponseBodyDataChoices },
+      created: 'number',
+      id: 'string',
+      modelId: 'string',
+      requestId: 'string',
+      time: 'string',
+      totalTokens: 'number',
+      usage: GetSummaryTaskResultResponseBodyDataUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreviewDocumentResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -5822,6 +6658,128 @@ export class RecallDocumentResponseBodyData extends $tea.Model {
   }
 }
 
+export class RecognizeIntentionRequestGlobalIntentionList extends $tea.Model {
+  description?: string;
+  intention?: string;
+  /**
+   * @example
+   * 1810566978021232640
+   */
+  intentionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      intention: 'intention',
+      intentionCode: 'intentionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      intention: 'string',
+      intentionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIntentionRequestHierarchicalIntentionList extends $tea.Model {
+  description?: string;
+  intention?: string;
+  /**
+   * @example
+   * 1810929291010150400
+   */
+  intentionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      intention: 'intention',
+      intentionCode: 'intentionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      intention: 'string',
+      intentionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIntentionRequestIntentionList extends $tea.Model {
+  description?: string;
+  intention?: string;
+  /**
+   * @example
+   * 1808766224000262144
+   */
+  intentionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      intention: 'intention',
+      intentionCode: 'intentionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      intention: 'string',
+      intentionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIntentionResponseBodyData extends $tea.Model {
+  analysisProcess?: string;
+  /**
+   * @example
+   * 1
+   */
+  intentionCode?: string;
+  intentionName?: string;
+  recommendIntention?: string;
+  recommendScript?: string;
+  static names(): { [key: string]: string } {
+    return {
+      analysisProcess: 'analysisProcess',
+      intentionCode: 'intentionCode',
+      intentionName: 'intentionName',
+      recommendIntention: 'recommendIntention',
+      recommendScript: 'recommendScript',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysisProcess: 'string',
+      intentionCode: 'string',
+      intentionName: 'string',
+      recommendIntention: 'string',
+      recommendScript: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunChatResultGenerationRequestMessages extends $tea.Model {
   content?: string;
   /**
@@ -6593,6 +7551,79 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建财报总结任务
+   * 
+   * @param request - CreateFinReportSummaryTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFinReportSummaryTaskResponse
+   */
+  async createFinReportSummaryTaskWithOptions(workspaceId: string, request: CreateFinReportSummaryTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFinReportSummaryTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.docId)) {
+      body["docId"] = request.docId;
+    }
+
+    if (!Util.isUnset(request.enableTable)) {
+      body["enableTable"] = request.enableTable;
+    }
+
+    if (!Util.isUnset(request.endPage)) {
+      body["endPage"] = request.endPage;
+    }
+
+    if (!Util.isUnset(request.instruction)) {
+      body["instruction"] = request.instruction;
+    }
+
+    if (!Util.isUnset(request.libraryId)) {
+      body["libraryId"] = request.libraryId;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!Util.isUnset(request.startPage)) {
+      body["startPage"] = request.startPage;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      body["taskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFinReportSummaryTask",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/task/summary`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFinReportSummaryTaskResponse>(await this.callApi(params, req, runtime), new CreateFinReportSummaryTaskResponse({}));
+  }
+
+  /**
+   * 创建财报总结任务
+   * 
+   * @param request - CreateFinReportSummaryTaskRequest
+   * @returns CreateFinReportSummaryTaskResponse
+   */
+  async createFinReportSummaryTask(workspaceId: string, request: CreateFinReportSummaryTaskRequest): Promise<CreateFinReportSummaryTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createFinReportSummaryTaskWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 创建文档库
    * 
    * @param request - CreateLibraryRequest
@@ -6794,6 +7825,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteLibraryWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 中断任务
+   * 
+   * @param request - EvictTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EvictTaskResponse
+   */
+  async evictTaskWithOptions(workspaceId: string, request: EvictTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EvictTaskResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EvictTask",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/task/evict`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<EvictTaskResponse>(await this.callApi(params, req, runtime), new EvictTaskResponse({}));
+  }
+
+  /**
+   * 中断任务
+   * 
+   * @param request - EvictTaskRequest
+   * @returns EvictTaskResponse
+   */
+  async evictTask(workspaceId: string, request: EvictTaskRequest): Promise<EvictTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.evictTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -7280,6 +8356,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取财报总结任务结果
+   * 
+   * @param request - GetSummaryTaskResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSummaryTaskResultResponse
+   */
+  async getSummaryTaskResultWithOptions(workspaceId: string, request: GetSummaryTaskResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSummaryTaskResultResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSummaryTaskResult",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/task/summary/result`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSummaryTaskResultResponse>(await this.callApi(params, req, runtime), new GetSummaryTaskResultResponse({}));
+  }
+
+  /**
+   * 获取财报总结任务结果
+   * 
+   * @param request - GetSummaryTaskResultRequest
+   * @returns GetSummaryTaskResultResponse
+   */
+  async getSummaryTaskResult(workspaceId: string, request: GetSummaryTaskResultRequest): Promise<GetSummaryTaskResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSummaryTaskResultWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取财报总结任务结果
+   * 
+   * @param request - GetTaskStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskStatusResponse
+   */
+  async getTaskStatusWithOptions(workspaceId: string, request: GetTaskStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskStatusResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTaskStatus",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/task/status`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskStatusResponse>(await this.callApi(params, req, runtime), new GetTaskStatusResponse({}));
+  }
+
+  /**
+   * 获取财报总结任务结果
+   * 
+   * @param request - GetTaskStatusRequest
+   * @returns GetTaskStatusResponse
+   */
+  async getTaskStatus(workspaceId: string, request: GetTaskStatusRequest): Promise<GetTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTaskStatusWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 插件调试接口
    * 
    * @param request - InvokePluginRequest
@@ -7473,6 +8639,79 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.recallDocumentWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 意图识别
+   * 
+   * @param request - RecognizeIntentionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecognizeIntentionResponse
+   */
+  async recognizeIntentionWithOptions(workspaceId: string, request: RecognizeIntentionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RecognizeIntentionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.analysis)) {
+      body["analysis"] = request.analysis;
+    }
+
+    if (!Util.isUnset(request.bizType)) {
+      body["bizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.conversation)) {
+      body["conversation"] = request.conversation;
+    }
+
+    if (!Util.isUnset(request.globalIntentionList)) {
+      body["globalIntentionList"] = request.globalIntentionList;
+    }
+
+    if (!Util.isUnset(request.hierarchicalIntentionList)) {
+      body["hierarchicalIntentionList"] = request.hierarchicalIntentionList;
+    }
+
+    if (!Util.isUnset(request.intentionList)) {
+      body["intentionList"] = request.intentionList;
+    }
+
+    if (!Util.isUnset(request.opType)) {
+      body["opType"] = request.opType;
+    }
+
+    if (!Util.isUnset(request.recommend)) {
+      body["recommend"] = request.recommend;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeIntention",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/recog/intent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeIntentionResponse>(await this.callApi(params, req, runtime), new RecognizeIntentionResponse({}));
+  }
+
+  /**
+   * 意图识别
+   * 
+   * @param request - RecognizeIntentionRequest
+   * @returns RecognizeIntentionResponse
+   */
+  async recognizeIntention(workspaceId: string, request: RecognizeIntentionRequest): Promise<RecognizeIntentionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.recognizeIntentionWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
