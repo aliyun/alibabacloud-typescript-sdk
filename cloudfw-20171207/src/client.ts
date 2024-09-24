@@ -12,11 +12,11 @@ export class AddAddressBookRequest extends $tea.Model {
    * @remarks
    * The addresses that you want to add to the address book. Separate multiple addresses with commas (,).
    * 
-   * >  If you set GroupType to `ip`, `port`, or `domain`, you must specify the AddressList parameter.
+   * >  If you set GroupType to `ip`, `port` or `domain`, you must specify AddressList.
    * 
-   * *   If you set GroupType to `ip`, you must add IP addresses to the address book. Example: 192.0.XX.XX/32, 192.0.XX.XX/24.
-   * *   If you set GroupType to `port`, you must add port numbers or port ranges to the address book. Example: 80, 100/200.
-   * *   If you set GroupType to `domain`, you must add domain names to the address book. Example: example.com, aliyundoc.com.
+   * *   If you set GroupType to `ip`, you must add IP addresses to the address book. Example: 192.0.XX.XX/32,192.0.XX.XX/24.
+   * *   If you set GroupType to `port`, you must add port numbers or port ranges to the address book. Example: 80,100/200.
+   * *   If you set GroupType to `domain`, you must add domain names to the address book. Example: example.com,aliyundoc.com.
    * 
    * @example
    * 192.0.XX.XX/32, 192.0.XX.XX/24
@@ -668,7 +668,7 @@ export class AddControlPolicyResponse extends $tea.Model {
 export class AddInstanceMembersRequest extends $tea.Model {
   /**
    * @remarks
-   * The members that you want to add to Cloud Firewall.
+   * The members.
    * 
    * This parameter is required.
    */
@@ -693,7 +693,7 @@ export class AddInstanceMembersRequest extends $tea.Model {
 export class AddInstanceMembersResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B40A54DF-C142-44F7-8441-B31C1EADB36E
@@ -1214,9 +1214,9 @@ export class CreateNatFirewallControlPolicyRequest extends $tea.Model {
   destinationType?: string;
   /**
    * @remarks
-   * The direction of the traffic to which the access control policy applies. Valid values:
+   * The direction of the traffic to which the access control policy applies. Valid value:
    * 
-   * *   **out**: outbound traffic
+   * *   **out**: outbound.
    * 
    * This parameter is required.
    * 
@@ -1295,10 +1295,12 @@ export class CreateNatFirewallControlPolicyRequest extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   ANY: all types of protocols
+   * *   ANY: all types of protocols.
    * *   TCP
    * *   UDP
    * *   ICMP
+   * 
+   * >  If the destination address is a threat intelligence address book of the domain name type or a cloud service address book, you can set Proto only to TCP and set ApplicationNameList to HTTP, HTTPS, SMTP, SMTPS, or SSL.
    * 
    * This parameter is required.
    * 
@@ -1538,17 +1540,31 @@ export class CreateNatFirewallControlPolicyResponse extends $tea.Model {
 
 export class CreateSecurityProxyRequest extends $tea.Model {
   /**
+   * @remarks
+   * The status of the NAT firewall. Valid values:
+   * 
+   * *   **open**: enabled
+   * *   **close**: disabled
+   * 
    * @example
    * close
    */
   firewallSwitch?: string;
   /**
+   * @remarks
+   * The language of the content within the response. Valid values:
+   * 
+   * *   **zh** (default): Chinese
+   * *   **en**: English
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The ID of the NAT gateway.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1557,11 +1573,15 @@ export class CreateSecurityProxyRequest extends $tea.Model {
   natGatewayId?: string;
   /**
    * @remarks
+   * The routes to be switched to the NAT gateway.
+   * 
    * This parameter is required.
    */
   natRouteEntryList?: CreateSecurityProxyRequestNatRouteEntryList[];
   /**
    * @remarks
+   * The name of the NAT firewall. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (_). However, it cannot start with an underscore.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1570,6 +1590,10 @@ export class CreateSecurityProxyRequest extends $tea.Model {
   proxyName?: string;
   /**
    * @remarks
+   * The region ID of the virtual private cloud (VPC).
+   * 
+   * >  For more information about Cloud Firewall supported regions, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1577,12 +1601,20 @@ export class CreateSecurityProxyRequest extends $tea.Model {
    */
   regionNo?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the strict mode. Valid values:
+   * 
+   * *   1: yes
+   * *   0: no
+   * 
    * @example
    * 0
    */
   strictMode?: number;
   /**
    * @remarks
+   * The ID of the VPC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1590,16 +1622,28 @@ export class CreateSecurityProxyRequest extends $tea.Model {
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The mode of the vSwitch that you want to use. Valid values:
+   * 
+   * *   **true**: automatic
+   * *   **false**: manual
+   * 
    * @example
    * true
    */
   vswitchAuto?: string;
   /**
+   * @remarks
+   * The CIDR block of the vSwitch.
+   * 
    * @example
    * 0.0.0.0/0
    */
   vswitchCidr?: string;
   /**
+   * @remarks
+   * The ID of the vSwitch. This parameter is required if you set the VswitchAuto parameter to true.
+   * 
    * @example
    * vsw-bp1sqg9wms9w9y1uxcs1x
    */
@@ -1643,11 +1687,17 @@ export class CreateSecurityProxyRequest extends $tea.Model {
 
 export class CreateSecurityProxyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the NAT firewall.
+   * 
    * @example
    * proxy-nat97ac4d7cc3834a5daf40
    */
   proxyId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 15FCCC52-1E23-57AE-B5EF-3E00A3DC3CAB
    */
@@ -2787,6 +2837,17 @@ export class CreateVpcFirewallControlPolicyRequest extends $tea.Model {
    * net
    */
   destinationType?: string;
+  /**
+   * @remarks
+   * The domain name resolution method of the access control policy. Valid values:
+   * 
+   * * **FQDN**: fully qualified domain name (FQDN)-based resolution
+   * * **DNS**: DNS-based dynamic resolution
+   * * **FQDN_AND_DNS**: FQDN and DNS-based dynamic resolution
+   * 
+   * @example
+   * DNS
+   */
   domainResolveType?: string;
   /**
    * @remarks
@@ -3203,8 +3264,8 @@ export class DeleteControlPolicyRequest extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   **in**: inbound traffic
-   * *   **out**: outbound traffic
+   * *   **in**: inbound.
+   * *   **out**: outbound.
    * 
    * @example
    * in
@@ -3602,7 +3663,7 @@ export class DeleteFirewallV2RoutePoliciesResponse extends $tea.Model {
 export class DeleteInstanceMembersRequest extends $tea.Model {
   /**
    * @remarks
-   * The unique identifiers (UID) of members that you want to remove from Cloud Firewall.
+   * The UIDs of the members.
    * 
    * This parameter is required.
    * 
@@ -3630,7 +3691,7 @@ export class DeleteInstanceMembersRequest extends $tea.Model {
 export class DeleteInstanceMembersResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 03E8AA70-0CC9-42EA-97AA-EA68377930B4
@@ -4602,7 +4663,7 @@ export class DescribeAddressBookRequest extends $tea.Model {
    * *   **tag**: Elastic Compute Service (ECS) tag-based address book
    * *   **allCloud**: cloud service address book
    * *   **threat**: threat intelligence address book
-   * 
+   * *   **ipv6**: IPv6 address book
    * >  If you do not specify a type, the domain address books and ECS tag-based address books are queried.
    * 
    * @example
@@ -5018,9 +5079,9 @@ export class DescribeAssetRiskListRequest extends $tea.Model {
    * 
    * > 
    * 
-   * *   Example of an IPv4 address: 47.97.XX.XX
+   * *   Example IPv4 address: 47.97.XX.XX.
    * 
-   * *   Example of an IPv6 address: 2001:db8:ffff:ffff:ffff:XXXX:ffff
+   * *   Example IPv6 address: 2001:db8:ffff:ffff:ffff:XXXX:ffff.
    */
   ipAddrList?: string[];
   /**
@@ -5083,7 +5144,7 @@ export class DescribeAssetRiskListRequest extends $tea.Model {
 export class DescribeAssetRiskListResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details of the asset.
+   * The details of the assets.
    */
   assetList?: DescribeAssetRiskListResponseBodyAssetList[];
   /**
@@ -5321,10 +5382,10 @@ export class DescribeControlPolicyRequest extends $tea.Model {
   destination?: string;
   /**
    * @remarks
-   * The direction of the traffic to which the access control policy applies. Valid values:
+   * The direction of the traffic to which the access control policies apply. Valid values:
    * 
-   * *   **in**: inbound traffic
-   * *   **out**: outbound traffic
+   * *   **in**: inbound.
+   * *   **out**: outbound.
    * 
    * @example
    * in
@@ -7161,6 +7222,13 @@ export class DescribeNatAclPageStatusRequest extends $tea.Model {
 }
 
 export class DescribeNatAclPageStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Extra error information.
+   * 
+   * @example
+   * proxy_not_exist
+   */
   detail?: string;
   /**
    * @remarks
@@ -8492,8 +8560,8 @@ export class DescribePolicyPriorUsedRequest extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   **in**: inbound traffic
-   * *   **out**: outbound traffic
+   * *   **in**: inbound.
+   * *   **out**: outbound.
    * 
    * This parameter is required.
    * 
@@ -8507,8 +8575,8 @@ export class DescribePolicyPriorUsedRequest extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   **4**: IPv4 (default)
-   * *   **6**: IPv6
+   * *   **4** (default): IPv4.
+   * *   **6**: IPv6.
    * 
    * @example
    * 6
@@ -8516,12 +8584,12 @@ export class DescribePolicyPriorUsedRequest extends $tea.Model {
   ipVersion?: string;
   /**
    * @remarks
-   * The natural language of the request and response.
+   * The language of the content within the request and response.
    * 
    * Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * *   **zh** (default)
+   * *   **en**
    * 
    * @example
    * zh
@@ -8573,7 +8641,7 @@ export class DescribePolicyPriorUsedResponseBody extends $tea.Model {
   end?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
@@ -8684,6 +8752,7 @@ export class DescribePostpayTrafficDetailRequest extends $tea.Model {
    * 10
    */
   pageSize?: number;
+  regionNo?: string;
   /**
    * @remarks
    * The instance ID or the IP address of the asset.
@@ -8706,9 +8775,9 @@ export class DescribePostpayTrafficDetailRequest extends $tea.Model {
    * @remarks
    * The traffic type. This parameter is required. Valid values:
    * 
-   * *   **EIP_TRAFFIC**: traffic for the Internet firewall
-   * *   **NatGateway_TRAFFIC**: traffic for NAT firewalls
-   * *   **VPC_TRAFFIC**: traffic for virtual private cloud (VPC) firewalls
+   * *   **EIP_TRAFFIC**: traffic for the Internet firewall.
+   * *   **NatGateway_TRAFFIC**: traffic for NAT firewalls.
+   * *   **VPC_TRAFFIC**: traffic for virtual private cloud (VPC) firewalls.
    * 
    * This parameter is required.
    * 
@@ -8723,6 +8792,7 @@ export class DescribePostpayTrafficDetailRequest extends $tea.Model {
       lang: 'Lang',
       order: 'Order',
       pageSize: 'PageSize',
+      regionNo: 'RegionNo',
       searchItem: 'SearchItem',
       startTime: 'StartTime',
       trafficType: 'TrafficType',
@@ -8736,6 +8806,7 @@ export class DescribePostpayTrafficDetailRequest extends $tea.Model {
       lang: 'string',
       order: 'string',
       pageSize: 'number',
+      regionNo: 'string',
       searchItem: 'string',
       startTime: 'string',
       trafficType: 'string',
@@ -10891,6 +10962,157 @@ export class DescribeUserAssetIPTrafficInfoResponse extends $tea.Model {
   }
 }
 
+export class DescribeUserBuyVersionRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserBuyVersionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 119898001566xxxx
+   */
+  aliUid?: number;
+  /**
+   * @example
+   * 1726934400000
+   */
+  expire?: number;
+  /**
+   * @example
+   * vipcloudfw-cn-xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * normal
+   */
+  instanceStatus?: string;
+  /**
+   * @example
+   * 63
+   */
+  ipNumber?: number;
+  /**
+   * @example
+   * true
+   */
+  logStatus?: boolean;
+  /**
+   * @example
+   * 3000
+   */
+  logStorage?: number;
+  /**
+   * @example
+   * 0
+   */
+  maxOverflow?: number;
+  /**
+   * @example
+   * F71B03EE-xxxxx-91D79CC6AA1A
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1692504764000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * true
+   */
+  userStatus?: boolean;
+  /**
+   * @example
+   * 2
+   */
+  version?: number;
+  /**
+   * @example
+   * 21
+   */
+  vpcNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      expire: 'Expire',
+      instanceId: 'InstanceId',
+      instanceStatus: 'InstanceStatus',
+      ipNumber: 'IpNumber',
+      logStatus: 'LogStatus',
+      logStorage: 'LogStorage',
+      maxOverflow: 'MaxOverflow',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+      userStatus: 'UserStatus',
+      version: 'Version',
+      vpcNumber: 'VpcNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'number',
+      expire: 'number',
+      instanceId: 'string',
+      instanceStatus: 'string',
+      ipNumber: 'number',
+      logStatus: 'boolean',
+      logStorage: 'number',
+      maxOverflow: 'number',
+      requestId: 'string',
+      startTime: 'number',
+      userStatus: 'boolean',
+      version: 'number',
+      vpcNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserBuyVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserBuyVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserBuyVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserIPSWhitelistRequest extends $tea.Model {
   lang?: string;
   sourceIp?: string;
@@ -11680,7 +11902,7 @@ export class DescribeVpcFirewallControlPolicyRequest extends $tea.Model {
 export class DescribeVpcFirewallControlPolicyResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The access control policies.
+   * The details of the access control policies.
    */
   policys?: DescribeVpcFirewallControlPolicyResponseBodyPolicys[];
   /**
@@ -12347,7 +12569,7 @@ export class DescribeVpcFirewallListResponseBody extends $tea.Model {
   totalCount?: number;
   /**
    * @remarks
-   * An array that consists of the details about the VPC firewall.
+   * The information about the VPC firewalls.
    */
   vpcFirewalls?: DescribeVpcFirewallListResponseBodyVpcFirewalls[];
   static names(): { [key: string]: string } {
@@ -12399,12 +12621,12 @@ export class DescribeVpcFirewallListResponse extends $tea.Model {
 export class DescribeVpcFirewallPolicyPriorUsedRequest extends $tea.Model {
   /**
    * @remarks
-   * The natural language of the request and response. 
+   * The language of the content within the request and response.
    * 
    * Valid values:
    * 
-   * - **zh**: Chinese (default)
-   * - **en**: English
+   * *   **zh** (default)
+   * *   **en**
    * 
    * @example
    * zh
@@ -12412,16 +12634,15 @@ export class DescribeVpcFirewallPolicyPriorUsedRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the policy group to which the access control policy belongs. You can call the DescribeVpcFirewallAclGroupList operation to query the ID.  
+   * The ID of the access control policy group. You can call the [DescribeVpcFirewallAclGroupList](https://help.aliyun.com/document_detail/159760.html) operation to query the ID.
    * 
-   * Valid values:
+   * *   If the VPC firewall is used to protect a Cloud Enterprise Network (CEN) instance, the value of this parameter is the ID of the CEN instance.
    * 
-   * - If the VPC firewall is used to protect a Cloud Enterprise Network (CEN) instance, the value of this parameter is the ID of the CEN instance.  
+   *     Example: cen-ervw0g12b5jbw\\*\\*\\*\\*.
    * 
-   * Example: cen-ervw0g12b5jbw****
-   * - If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the ID of the VPC firewall instance.  
+   * *   If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the ID of the VPC firewall.
    * 
-   * Example: vfw-a42bbb7b887148c9****
+   *     Example: vfw-a42bbb7b887148c9\\*\\*\\*\\*.
    * 
    * This parameter is required.
    * 
@@ -12451,7 +12672,7 @@ export class DescribeVpcFirewallPolicyPriorUsedRequest extends $tea.Model {
 export class DescribeVpcFirewallPolicyPriorUsedResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The lowest priority for the access control policy.
+   * The lowest priority for the access control policies.
    * 
    * @example
    * 150
@@ -12459,7 +12680,7 @@ export class DescribeVpcFirewallPolicyPriorUsedResponseBody extends $tea.Model {
   end?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
@@ -12467,7 +12688,7 @@ export class DescribeVpcFirewallPolicyPriorUsedResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The highest priority for the access control policy.
+   * The highest priority for the access control policies.
    * 
    * @example
    * 1
@@ -13139,6 +13360,20 @@ export class ModifyAddressBookRequest extends $tea.Model {
    * zh
    */
   lang?: string;
+  /**
+   * @remarks
+   * Modification mode with the following values:
+   * 
+   * - **Cover**: Use the value of the AddressList parameter to overwrite the original address book.
+   * - **Append**: After the original address book, append addresses using the value of the AddressList parameter.
+   * - **Delete**: Delete addresses using the value of the AddressList parameter from the address book.
+   * 
+   * >When GroupType is **ip**, **ipv6**, **port**, or **domain**, if this parameter is not configured, the default is to use the **Cover** method to modify the address book.
+   * >Notice: When GroupType is **tag**, this parameter must be empty.</notice>
+   * 
+   * @example
+   * Cover
+   */
   modifyMode?: string;
   /**
    * @remarks
@@ -14246,9 +14481,9 @@ export class ModifyNatFirewallControlPolicyRequest extends $tea.Model {
   destinationType?: string;
   /**
    * @remarks
-   * The direction of the traffic to which the access control policy applies.
+   * The direction of the traffic to which the access control policy applies. Valid value:
    * 
-   * *   Set the value to **out**.
+   * *   **out**: outbound.
    * 
    * @example
    * out
@@ -14657,12 +14892,22 @@ export class ModifyNatFirewallControlPolicyPositionResponse extends $tea.Model {
 
 export class ModifyObjectGroupOperationRequest extends $tea.Model {
   /**
+   * @remarks
+   * The remarks of the operation.
+   * 
    * @example
    * test
    */
   comment?: string;
   /**
    * @remarks
+   * The direction of the traffic to which the access control policy applies.
+   * 
+   * Valid values:
+   * 
+   * *   **in**: inbound.
+   * *   **out**: outbound.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14670,17 +14915,32 @@ export class ModifyObjectGroupOperationRequest extends $tea.Model {
    */
   direction?: string;
   /**
+   * @remarks
+   * The language of the content within the response. Valid values:
+   * 
+   * *   **zh** (default)
+   * *   **en**
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The operation objects.
+   * 
    * This parameter is required.
    */
   objectList?: string[];
   /**
    * @remarks
+   * The operation. Valid values:
+   * 
+   * *   **ignore**: adds the operation object to the whitelist.
+   * *   **cancelIgnore**: removes the operation object from the whitelist.
+   * *   **subscribe**: follows the operation object.
+   * *   **unsubscribe**: unfollows the operation object.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14689,6 +14949,15 @@ export class ModifyObjectGroupOperationRequest extends $tea.Model {
   objectOperation?: string;
   /**
    * @remarks
+   * The type of the operation object.
+   * 
+   * Valid values:
+   * 
+   * *   **assetsIp**: the asset IP address.
+   * *   **destinationIp**: the destination IP address.
+   * *   **destinationPort**: the destination port.
+   * *   **destinationDomain**: the destination domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14696,6 +14965,9 @@ export class ModifyObjectGroupOperationRequest extends $tea.Model {
    */
   objectType?: string;
   /**
+   * @remarks
+   * The source IP address of the request.
+   * 
    * @example
    * 123.xxx.251.60
    */
@@ -14731,6 +15003,9 @@ export class ModifyObjectGroupOperationRequest extends $tea.Model {
 
 export class ModifyObjectGroupOperationResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB32593D************775F41D6ED84
    */
@@ -15806,6 +16081,17 @@ export class ModifyVpcFirewallControlPolicyRequest extends $tea.Model {
    * net
    */
   destinationType?: string;
+  /**
+   * @remarks
+   * The domain name resolution method of the access control policy. By default, an access control policy is enabled after the policy is created. Valid values:
+   * 
+   * * **FQDN**: fully qualified domain name (FQDN)-based resolution
+   * * **DNS**: DNS-based dynamic resolution
+   * * **FQDN_AND_DNS**: FQDN and DNS-based dynamic resolution
+   * 
+   * @example
+   * FQDN
+   */
   domainResolveType?: string;
   /**
    * @remarks
@@ -16228,8 +16514,8 @@ export class ModifyVpcFirewallDefaultIPSConfigRequest extends $tea.Model {
    * @remarks
    * Specifies whether to enable basic protection. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * *   **1**: yes.
+   * *   **0**: no.
    * 
    * This parameter is required.
    * 
@@ -16241,8 +16527,8 @@ export class ModifyVpcFirewallDefaultIPSConfigRequest extends $tea.Model {
    * @remarks
    * Specifies whether to enable virtual patching. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * *   **1**: yes.
+   * *   **0**: no.
    * 
    * This parameter is required.
    * 
@@ -16254,8 +16540,8 @@ export class ModifyVpcFirewallDefaultIPSConfigRequest extends $tea.Model {
    * @remarks
    * The language of the content within the request and response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * *   **zh** (default)
+   * *   **en**
    * 
    * @example
    * zh
@@ -16269,13 +16555,24 @@ export class ModifyVpcFirewallDefaultIPSConfigRequest extends $tea.Model {
    * 258039427902****
    */
   memberUid?: string;
+  /**
+   * @remarks
+   * The level of the rule group for the IPS. Valid values:
+   * 
+   * *   **1**: loose
+   * *   **2**: medium
+   * *   **3**: strict
+   * 
+   * @example
+   * 1
+   */
   ruleClass?: string;
   /**
    * @remarks
    * The mode of the intrusion prevention system (IPS). Valid values:
    * 
-   * *   **1**: block mode
-   * *   **0**: monitor mode
+   * *   **1**: block mode.
+   * *   **0**: monitor mode.
    * 
    * This parameter is required.
    * 
@@ -16295,10 +16592,10 @@ export class ModifyVpcFirewallDefaultIPSConfigRequest extends $tea.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The instance ID of the VPC firewall. Valid values:
+   * The instance ID of the VPC firewall.
    * 
-   * *   If the VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance, the value of this parameter is the ID of the CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. You can call the [DescribeVpcFirewallCenList](https://help.aliyun.com/document_detail/345777.html) operation to query the IDs of CEN instances.
-   * *   If the VPC firewall protects mutual access traffic between two VPCs that are connected by using an Express Connect circuit, the value of this parameter is the ID of the VPC firewall. You can call the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) operation to query the instance IDs of VPC firewalls.
+   * *   If the VPC firewall protects traffic between a VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance, the value of this parameter is the ID of the CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. You can call the [DescribeVpcFirewallCenList](https://help.aliyun.com/document_detail/345777.html) operation to query the IDs of CEN instances.
+   * *   If the VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit, the value of this parameter is the instance ID of the VPC firewall. You can call the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) operation to query the instance IDs of VPC firewalls.
    * 
    * This parameter is required.
    * 
@@ -16340,7 +16637,7 @@ export class ModifyVpcFirewallDefaultIPSConfigRequest extends $tea.Model {
 export class ModifyVpcFirewallDefaultIPSConfigResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3B51B5BF-3C26-5009-ADAB-190E58DE4D6E
@@ -17582,7 +17879,7 @@ export class AddAddressBookRequestTagList extends $tea.Model {
 export class AddInstanceMembersRequestMembers extends $tea.Model {
   /**
    * @remarks
-   * The remarks of member that you want to add to Cloud Firewall. The remarks must be 1 to 256 characters in length.
+   * The remarks of the member. The value must be 1 to 256 characters in length.
    * 
    * @example
    * renewal
@@ -17590,7 +17887,7 @@ export class AddInstanceMembersRequestMembers extends $tea.Model {
   memberDesc?: string;
   /**
    * @remarks
-   * The UID of member that you want to add to Cloud Firewall.
+   * The UID of the member. You can add up to 20 members to Cloud Firewall at a time.
    * 
    * This parameter is required.
    * 
@@ -17620,6 +17917,8 @@ export class AddInstanceMembersRequestMembers extends $tea.Model {
 export class CreateSecurityProxyRequestNatRouteEntryList extends $tea.Model {
   /**
    * @remarks
+   * The destination CIDR block of the default route.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17628,6 +17927,8 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $tea.Model {
   destinationCidr?: string;
   /**
    * @remarks
+   * The next hop of the original NAT gateway.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17636,6 +17937,8 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $tea.Model {
   nextHopId?: string;
   /**
    * @remarks
+   * The network type of the next hop. Set the value to NatGateway.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17644,6 +17947,8 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $tea.Model {
   nextHopType?: string;
   /**
    * @remarks
+   * The route table to which the default route of the NAT gateway belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18434,12 +18739,12 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
   destPortType?: string;
   /**
    * @remarks
-   * The destination address in the access control policy. The value of this parameter varies based on the value of DestinationType. Valid values:
+   * The destination address in the access control policy. The value of this parameter varies based on the value of DestinationType.
    * 
-   * *   If **DestinationType** is set to **net**, the value of Destination is a CIDR block. Example: 192.0.XX.XX/24.
-   * *   If **DestinationType** is set to **domain**, the value of Destination is a domain name. Example: aliyuncs.com.
-   * *   If **DestinationType** is set to **group**, the value of Destination is the name of an address book. Example: db_group.
-   * *   If **DestinationType** is set to **location**, the value of Destination is a location. For more information about location codes, see [AddControlPolicy](https://help.aliyun.com/document_detail/138867.html). Example: ["BJ11", "ZB"].
+   * *   If the value of **DestinationType** is **net**, the value of Destination is a CIDR block. Example: 192.0.XX.XX/24.
+   * *   If the value of **DestinationType** is **domain**, the value of Destination is a domain name. Example: aliyuncs.com.
+   * *   If the value of **DestinationType** is **group**, the value of Destination is the name of an address book. Example: db_group.
+   * *   If the value of **DestinationType** is **location**, the value of Destination is the name of a location. For more information about location codes, see AddControlPolicy. Example: ["BJ11", "ZB"].
    * 
    * @example
    * 192.0.XX.XX/24
@@ -18490,7 +18795,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
   direction?: string;
   /**
    * @remarks
-   * The DNS resolution result.
+   * The DNS resolution results.
    * 
    * @example
    * 192.0.XX.XX,192.0.XX.XX
@@ -19343,6 +19648,8 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $tea.Model {
    * The list of applications.
    */
   serviceNameList?: string[];
+  srcIpCnt?: number;
+  totalReplyBytes?: number;
   /**
    * @remarks
    * The percentage of traffic of a day. Unit: percent (%).
@@ -19381,6 +19688,8 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $tea.Model {
       riskLevel: 'RiskLevel',
       riskReason: 'RiskReason',
       serviceNameList: 'ServiceNameList',
+      srcIpCnt: 'SrcIpCnt',
+      totalReplyBytes: 'TotalReplyBytes',
       trafficPercent1Day: 'TrafficPercent1Day',
       trafficPercent30Day: 'TrafficPercent30Day',
       trafficPercent7Day: 'TrafficPercent7Day',
@@ -19401,6 +19710,8 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $tea.Model {
       riskLevel: 'number',
       riskReason: 'string',
       serviceNameList: { 'type': 'array', 'itemType': 'string' },
+      srcIpCnt: 'number',
+      totalReplyBytes: 'number',
       trafficPercent1Day: 'string',
       trafficPercent30Day: 'string',
       trafficPercent7Day: 'string',
@@ -21262,6 +21573,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $tea.Mo
    */
   outBytes?: number;
   protectionDuration?: number;
+  regionNo?: string;
   /**
    * @remarks
    * The resource ID. The resource ID for the Internet firewall is the public IP address that is protected the Internet firewall, and the resource ID for a NAT firewall is the instance ID of the NAT firewall.
@@ -21305,6 +21617,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $tea.Mo
       instanceType: 'InstanceType',
       outBytes: 'OutBytes',
       protectionDuration: 'ProtectionDuration',
+      regionNo: 'RegionNo',
       resourceId: 'ResourceId',
       totalBytes: 'TotalBytes',
       trafficDay: 'TrafficDay',
@@ -21319,6 +21632,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $tea.Mo
       instanceType: 'string',
       outBytes: 'number',
       protectionDuration: 'number',
+      regionNo: 'string',
       resourceId: 'string',
       totalBytes: 'number',
       trafficDay: 'string',
@@ -24437,6 +24751,17 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig extends $t
    * 1
    */
   enableAllPatch?: number;
+  /**
+   * @remarks
+   * The level of the rule group for the IPS. Valid values:
+   * 
+   * *   **1**: loose
+   * *   **2**: medium
+   * *   **3**: strict
+   * 
+   * @example
+   * 1
+   */
   ruleClass?: number;
   /**
    * @remarks
@@ -24798,7 +25123,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $tea.Model 
   firewallSwitchStatus?: string;
   /**
    * @remarks
-   * The information about the intrusion prevention system (IPS) configuration.
+   * The intrusion prevention system (IPS) configurations.
    */
   ipsConfig?: DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig;
   /**
@@ -25835,8 +26160,8 @@ export default class Client extends OpenApi {
    * Adds members to Cloud Firewall.
    * 
    * @remarks
-   * You can call the AddInstanceMembers operation to add members to Cloud Firewall. 
-   * ## Limits
+   * You can call this operation to add members to Cloud Firewall.
+   * ## [](#qps-)Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - AddInstanceMembersRequest
@@ -25871,8 +26196,8 @@ export default class Client extends OpenApi {
    * Adds members to Cloud Firewall.
    * 
    * @remarks
-   * You can call the AddInstanceMembers operation to add members to Cloud Firewall. 
-   * ## Limits
+   * You can call this operation to add members to Cloud Firewall.
+   * ## [](#qps-)Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - AddInstanceMembersRequest
@@ -26190,7 +26515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建安全正向代理
+   * Creates a NAT firewall.
    * 
    * @param request - CreateSecurityProxyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26261,7 +26586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建安全正向代理
+   * Creates a NAT firewall.
    * 
    * @param request - CreateSecurityProxyRequest
    * @returns CreateSecurityProxyResponse
@@ -27103,8 +27428,8 @@ export default class Client extends OpenApi {
    * Removes members from Cloud Firewall.
    * 
    * @remarks
-   * You can call the DeleteInstanceMembers operation to remove members from Cloud Firewall. 
-   * ## Limits
+   * You can call this operation to remove up to 20 members from Cloud Firewall at a time. Separate multiple members with commas (,). After a member is removed, Cloud Firewall can no longer access the cloud resources of the member. Proceed with caution. Before you call this operation, call the [DescribeInstanceMembers](https://help.aliyun.com/document_detail/271704.html) operation to obtain the information about the members that are added to Cloud Firewall.
+   * ## [](#qps-)Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - DeleteInstanceMembersRequest
@@ -27139,8 +27464,8 @@ export default class Client extends OpenApi {
    * Removes members from Cloud Firewall.
    * 
    * @remarks
-   * You can call the DeleteInstanceMembers operation to remove members from Cloud Firewall. 
-   * ## Limits
+   * You can call this operation to remove up to 20 members from Cloud Firewall at a time. Separate multiple members with commas (,). After a member is removed, Cloud Firewall can no longer access the cloud resources of the member. Proceed with caution. Before you call this operation, call the [DescribeInstanceMembers](https://help.aliyun.com/document_detail/271704.html) operation to obtain the information about the members that are added to Cloud Firewall.
+   * ## [](#qps-)Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - DeleteInstanceMembersRequest
@@ -28025,10 +28350,13 @@ export default class Client extends OpenApi {
    * ## Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
+   * @deprecated OpenAPI DescribeDomainResolve is deprecated
+   * 
    * @param request - DescribeDomainResolveRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDomainResolveResponse
    */
+  // Deprecated
   async describeDomainResolveWithOptions(request: DescribeDomainResolveRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResolveResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28077,9 +28405,12 @@ export default class Client extends OpenApi {
    * ## Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
+   * @deprecated OpenAPI DescribeDomainResolve is deprecated
+   * 
    * @param request - DescribeDomainResolveRequest
    * @returns DescribeDomainResolveResponse
    */
+  // Deprecated
   async describeDomainResolve(request: DescribeDomainResolveRequest): Promise<DescribeDomainResolveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainResolveWithOptions(request, runtime);
@@ -29094,11 +29425,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the priority range of the access control policies that match specific query conditions.
+   * Queries the priority range of access control policies.
    * 
    * @remarks
-   * You can call the DescribePolicyPriorUsed operation to query the priority range of the access control policies that match specific query conditions.  
-   * ## Limits
+   * You can call this operation to query the priority range of the access control policies that match specific query conditions.
+   * ## [](#qps-)Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - DescribePolicyPriorUsedRequest
@@ -29142,11 +29473,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the priority range of the access control policies that match specific query conditions.
+   * Queries the priority range of access control policies.
    * 
    * @remarks
-   * You can call the DescribePolicyPriorUsed operation to query the priority range of the access control policies that match specific query conditions.  
-   * ## Limits
+   * You can call this operation to query the priority range of the access control policies that match specific query conditions.
+   * ## [](#qps-)Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - DescribePolicyPriorUsedRequest
@@ -29188,6 +29519,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
     }
 
     if (!Util.isUnset(request.searchItem)) {
@@ -29908,6 +30243,50 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取用户版本信息
+   * 
+   * @param request - DescribeUserBuyVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserBuyVersionResponse
+   */
+  async describeUserBuyVersionWithOptions(request: DescribeUserBuyVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserBuyVersionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserBuyVersion",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserBuyVersionResponse>(await this.callApi(params, req, runtime), new DescribeUserBuyVersionResponse({}));
+  }
+
+  /**
+   * 获取用户版本信息
+   * 
+   * @param request - DescribeUserBuyVersionRequest
+   * @returns DescribeUserBuyVersionResponse
+   */
+  async describeUserBuyVersion(request: DescribeUserBuyVersionRequest): Promise<DescribeUserBuyVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserBuyVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用户IPS白名单
+   * 
    * @param request - DescribeUserIPSWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUserIPSWhitelistResponse
@@ -29945,6 +30324,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取用户IPS白名单
+   * 
    * @param request - DescribeUserIPSWhitelistRequest
    * @returns DescribeUserIPSWhitelistResponse
    */
@@ -30561,8 +30942,8 @@ export default class Client extends OpenApi {
    * Queries the priority range of access control policies that are created for a virtual private cloud (VPC) firewall in a specific policy group.
    * 
    * @remarks
-   * You can call the DescribeVpcFirewallPolicyPriorUsed operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.  
-   * ## Limits
+   * You can call this operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.
+   * ## [](#qps-)Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - DescribeVpcFirewallPolicyPriorUsedRequest
@@ -30601,8 +30982,8 @@ export default class Client extends OpenApi {
    * Queries the priority range of access control policies that are created for a virtual private cloud (VPC) firewall in a specific policy group.
    * 
    * @remarks
-   * You can call the DescribeVpcFirewallPolicyPriorUsed operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.  
-   * ## Limits
+   * You can call this operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.
+   * ## [](#qps-)Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - DescribeVpcFirewallPolicyPriorUsedRequest
@@ -30836,7 +31217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the address book that is configured for access control.
+   * Modifies the address book that is specified in an access control policy.
    * 
    * @remarks
    * You can call the ModifyAddressBook operation to modify the address book that is configured for access control.  
@@ -30908,7 +31289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the address book that is configured for access control.
+   * Modifies the address book that is specified in an access control policy.
    * 
    * @remarks
    * You can call the ModifyAddressBook operation to modify the address book that is configured for access control.  
@@ -31498,7 +31879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改对象组操作
+   * Modifies information about an operation on an object group.
    * 
    * @param request - ModifyObjectGroupOperationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31553,7 +31934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改对象组操作
+   * Modifies information about an operation on an object group.
    * 
    * @param request - ModifyObjectGroupOperationRequest
    * @returns ModifyObjectGroupOperationResponse
@@ -31746,6 +32127,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改用户IPS白名单
+   * 
    * @param request - ModifyUserIPSWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyUserIPSWhitelistResponse
@@ -31803,6 +32186,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改用户IPS白名单
+   * 
    * @param request - ModifyUserIPSWhitelistRequest
    * @returns ModifyUserIPSWhitelistResponse
    */
@@ -32225,9 +32610,9 @@ export default class Client extends OpenApi {
    * Modifies the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
    * 
    * @remarks
-   * You can call the ModifyVpcFirewallDefaultIPSConfig operation to modify the intrusion prevention configurations of a VPC firewall.  
-   * ## Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * You can call this operation to modify the intrusion prevention configurations of a VPC firewall.
+   * ## [](#qps-)Limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - ModifyVpcFirewallDefaultIPSConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32289,9 +32674,9 @@ export default class Client extends OpenApi {
    * Modifies the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
    * 
    * @remarks
-   * You can call the ModifyVpcFirewallDefaultIPSConfig operation to modify the intrusion prevention configurations of a VPC firewall.  
-   * ## Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * You can call this operation to modify the intrusion prevention configurations of a VPC firewall.
+   * ## [](#qps-)Limits
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - ModifyVpcFirewallDefaultIPSConfigRequest
    * @returns ModifyVpcFirewallDefaultIPSConfigResponse
@@ -32623,7 +33008,7 @@ export default class Client extends OpenApi {
    * @remarks
    * You can call the PutEnableFwSwitch operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
    * ## Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+   * You can call this operation up to 5 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
    * 
    * @param request - PutEnableFwSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32675,7 +33060,7 @@ export default class Client extends OpenApi {
    * @remarks
    * You can call the PutEnableFwSwitch operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
    * ## Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+   * You can call this operation up to 5 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
    * 
    * @param request - PutEnableFwSwitchRequest
    * @returns PutEnableFwSwitchResponse
