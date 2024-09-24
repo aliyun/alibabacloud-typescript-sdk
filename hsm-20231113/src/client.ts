@@ -10,6 +10,11 @@ import * as $tea from '@alicloud/tea-typescript';
 export class ConfigAuditLogRequest extends $tea.Model {
   /**
    * @remarks
+   * The status of the audit log feature.
+   * 
+   * *   enable
+   * *   disable
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +22,17 @@ export class ConfigAuditLogRequest extends $tea.Model {
    */
   auditAction?: string;
   /**
+   * @remarks
+   * The bucket to which audit logs are delivered.
+   * 
    * @example
    * hsm-log
    */
   auditOssBucket?: string;
   /**
    * @remarks
+   * The ID of the region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,6 +62,9 @@ export class ConfigAuditLogRequest extends $tea.Model {
 
 export class ConfigAuditLogResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 42B118FB-16A6-56FB-B877-D58637EEC6AF
    */
@@ -386,6 +399,8 @@ export class ConfigClusterCertificateResponse extends $tea.Model {
 export class ConfigClusterNameRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -394,6 +409,8 @@ export class ConfigClusterNameRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The cluster name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -421,6 +438,9 @@ export class ConfigClusterNameRequest extends $tea.Model {
 
 export class ConfigClusterNameResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
@@ -624,6 +644,8 @@ export class ConfigClusterSubnetResponse extends $tea.Model {
 export class ConfigClusterWhitelistRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -632,6 +654,8 @@ export class ConfigClusterWhitelistRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The IP address whitelist of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -659,6 +683,9 @@ export class ConfigClusterWhitelistRequest extends $tea.Model {
 
 export class ConfigClusterWhitelistResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
@@ -792,6 +819,8 @@ export class ConfigImageRemarkResponse extends $tea.Model {
 export class ConfigInstanceIpAddressRequest extends $tea.Model {
   /**
    * @remarks
+   * The HSM ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -800,6 +829,8 @@ export class ConfigInstanceIpAddressRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The IP address of the HSM in the VPC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -808,6 +839,8 @@ export class ConfigInstanceIpAddressRequest extends $tea.Model {
   ip?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -816,6 +849,8 @@ export class ConfigInstanceIpAddressRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The vSwitch ID of the subnet to which the HSM belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -824,6 +859,8 @@ export class ConfigInstanceIpAddressRequest extends $tea.Model {
   vSwitchId?: string;
   /**
    * @remarks
+   * The ID of the VPC to which the HSM belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -857,6 +894,9 @@ export class ConfigInstanceIpAddressRequest extends $tea.Model {
 
 export class ConfigInstanceIpAddressResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
@@ -906,6 +946,8 @@ export class ConfigInstanceIpAddressResponse extends $tea.Model {
 export class ConfigInstanceRemarkRequest extends $tea.Model {
   /**
    * @remarks
+   * The HSM ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -914,6 +956,8 @@ export class ConfigInstanceRemarkRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The description.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -941,6 +985,9 @@ export class ConfigInstanceRemarkRequest extends $tea.Model {
 
 export class ConfigInstanceRemarkResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
@@ -1208,6 +1255,8 @@ export class CopyImageResponse extends $tea.Model {
 export class CreateClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1216,6 +1265,8 @@ export class CreateClusterRequest extends $tea.Model {
   clusterName?: string;
   /**
    * @remarks
+   * The HSM ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1224,6 +1275,8 @@ export class CreateClusterRequest extends $tea.Model {
   masterInstanceId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1253,11 +1306,17 @@ export class CreateClusterRequest extends $tea.Model {
 
 export class CreateClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cluster-729dm40FG****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5F58413E-8F57-585B-BE48-64CC1E31133C
    */
@@ -1309,6 +1368,8 @@ export class CreateClusterResponse extends $tea.Model {
 export class DeleteClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1334,6 +1395,9 @@ export class DeleteClusterRequest extends $tea.Model {
 
 export class DeleteClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
@@ -1821,6 +1885,8 @@ export class GetBackupResponse extends $tea.Model {
 export class GetClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1845,8 +1911,15 @@ export class GetClusterRequest extends $tea.Model {
 }
 
 export class GetClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the cluster.
+   */
   cluster?: GetClusterResponseBodyCluster;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
@@ -1974,6 +2047,9 @@ export class GetImageResponse extends $tea.Model {
 
 export class GetInstanceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The HSM ID.
+   * 
    * @example
    * hsm-cn-vj30bil****
    */
@@ -1996,8 +2072,15 @@ export class GetInstanceRequest extends $tea.Model {
 }
 
 export class GetInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HSM details.
+   */
   instance?: GetInstanceResponseBodyInstance;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
@@ -2174,6 +2257,8 @@ export class InitializeAuditLogResponse extends $tea.Model {
 export class InitializeClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2199,6 +2284,9 @@ export class InitializeClusterRequest extends $tea.Model {
 
 export class InitializeClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049366F216
    */
@@ -2248,6 +2336,8 @@ export class InitializeClusterResponse extends $tea.Model {
 export class JoinClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2256,6 +2346,8 @@ export class JoinClusterRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The ID of the HSM that you want to add to the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2282,8 +2374,15 @@ export class JoinClusterRequest extends $tea.Model {
 }
 
 export class JoinClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The task details.
+   */
   job?: JoinClusterResponseBodyJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
@@ -2335,6 +2434,8 @@ export class JoinClusterResponse extends $tea.Model {
 export class LeaveClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2343,6 +2444,8 @@ export class LeaveClusterRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The ID of the HSM that you want to remove from the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2370,6 +2473,9 @@ export class LeaveClusterRequest extends $tea.Model {
 
 export class LeaveClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
@@ -2558,6 +2664,8 @@ export class ListBackupsResponse extends $tea.Model {
 export class ListClustersRequest extends $tea.Model {
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2566,6 +2674,8 @@ export class ListClustersRequest extends $tea.Model {
   currentPage?: number;
   /**
    * @remarks
+   * The number of entries per page. Valid values: 1 to 1000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2574,6 +2684,8 @@ export class ListClustersRequest extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2602,23 +2714,39 @@ export class ListClustersRequest extends $tea.Model {
 }
 
 export class ListClustersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details of the clusters.
+   */
   clusters?: ListClustersResponseBodyClusters[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 114
    */
@@ -2810,25 +2938,36 @@ export class ListImagesResponse extends $tea.Model {
 
 export class ListInstancesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  tenantIsolationType?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      tenantIsolationType: 'TenantIsolationType',
     };
   }
 
@@ -2837,6 +2976,7 @@ export class ListInstancesRequest extends $tea.Model {
       currentPage: 'number',
       pageSize: 'number',
       regionId: 'string',
+      tenantIsolationType: 'string',
     };
   }
 
@@ -2847,22 +2987,38 @@ export class ListInstancesRequest extends $tea.Model {
 
 export class ListInstancesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * The HSMs.
+   */
   instances?: ListInstancesResponseBodyInstances[];
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 1000.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 80
    */
@@ -3024,6 +3180,8 @@ export class MoveResourceGroupResponse extends $tea.Model {
 export class PauseInstanceRequest extends $tea.Model {
   /**
    * @remarks
+   * The HSM ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3049,6 +3207,9 @@ export class PauseInstanceRequest extends $tea.Model {
 
 export class PauseInstanceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049366F216
    */
@@ -3098,6 +3259,8 @@ export class PauseInstanceResponse extends $tea.Model {
 export class QuickInitInstanceRequest extends $tea.Model {
   /**
    * @remarks
+   * The HSM ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3122,8 +3285,15 @@ export class QuickInitInstanceRequest extends $tea.Model {
 }
 
 export class QuickInitInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The task details.
+   */
   job?: QuickInitInstanceResponseBodyJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049366F216
    */
@@ -3246,6 +3416,8 @@ export class ResetBackupResponse extends $tea.Model {
 export class ResetInstanceRequest extends $tea.Model {
   /**
    * @remarks
+   * The HSM ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3270,8 +3442,15 @@ export class ResetInstanceRequest extends $tea.Model {
 }
 
 export class ResetInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The task details.
+   */
   job?: ResetInstanceResponseBodyJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
@@ -3323,6 +3502,8 @@ export class ResetInstanceResponse extends $tea.Model {
 export class RestoreInstanceRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the image that you want to use to restore the HSM.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3331,6 +3512,8 @@ export class RestoreInstanceRequest extends $tea.Model {
   imageId?: string;
   /**
    * @remarks
+   * The HSM ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3357,8 +3540,15 @@ export class RestoreInstanceRequest extends $tea.Model {
 }
 
 export class RestoreInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The task details.
+   */
   job?: RestoreInstanceResponseBodyJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049366F216
    */
@@ -3410,6 +3600,8 @@ export class RestoreInstanceResponse extends $tea.Model {
 export class ResumeInstanceRequest extends $tea.Model {
   /**
    * @remarks
+   * The HSM ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3435,6 +3627,9 @@ export class ResumeInstanceRequest extends $tea.Model {
 
 export class ResumeInstanceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
@@ -3484,6 +3679,8 @@ export class ResumeInstanceResponse extends $tea.Model {
 export class SwitchClusterMasterRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3492,6 +3689,8 @@ export class SwitchClusterMasterRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The ID of the HSM that you want to promote to the master HSM.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3519,6 +3718,9 @@ export class SwitchClusterMasterRequest extends $tea.Model {
 
 export class SwitchClusterMasterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
@@ -3568,6 +3770,8 @@ export class SwitchClusterMasterResponse extends $tea.Model {
 export class SyncClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3592,8 +3796,15 @@ export class SyncClusterRequest extends $tea.Model {
 }
 
 export class SyncClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The task details.
+   */
   job?: SyncClusterResponseBodyJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C467B38-3910-447D-87BC-AC049166F216
    */
@@ -3906,16 +4117,28 @@ export class GetBackupResponseBodyBackup extends $tea.Model {
 
 export class GetClusterResponseBodyClusterInstances extends $tea.Model {
   /**
+   * @remarks
+   * The HSM ID.
+   * 
    * @example
    * hsm-cn-g6z3v0uf****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Indicates whether the HSM is the master HSM.
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   master?: boolean;
   /**
+   * @remarks
+   * The sequence number of the HSM in the cluster.
+   * 
    * @example
    * 1
    */
@@ -3943,11 +4166,17 @@ export class GetClusterResponseBodyClusterInstances extends $tea.Model {
 
 export class GetClusterResponseBodyClusterZones extends $tea.Model {
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-uf61s651p69bdgmki****
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-j
    */
@@ -3973,6 +4202,9 @@ export class GetClusterResponseBodyClusterZones extends $tea.Model {
 
 export class GetClusterResponseBodyCluster extends $tea.Model {
   /**
+   * @remarks
+   * The cluster certificate.
+   * 
    * @example
    * -----BEGIN CERTIFICATE-----
    * MIIDfTCCAmWgAwIBAgIJAMRqQMr5if66MA0GCSqGSIb3DQEBCwUAMFUxCzAJBgNV
@@ -3982,22 +4214,34 @@ export class GetClusterResponseBodyCluster extends $tea.Model {
    */
   clusterCertificate?: string;
   /**
+   * @remarks
+   * The certificate signing request (CSR) file of the cluster.
+   * 
    * @example
    * -----BEGIN CERTIFICATE REQUEST-----\\nMIIC5TCCAc0CAQAwgZ8xWTAJBgNVBAYTAlVTMAkGA1UECAwCQ0EwDQYDVQQKDAZD\\nYXZpdW0wDQYDVQQLDAZOM0ZJUFMwDgYDVQQHDAdTYW5Kb3NlMBMGA1UdEQwMMTk****
    * -----END CERTIFICATE REQUEST-----
    */
   clusterCsr?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cluster-p94y1dud9ts****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The cluster name.
+   * 
    * @example
    * cluster_polar_****
    */
   clusterName?: string;
   /**
+   * @remarks
+   * The self-signed certificate of the cluster.
+   * 
    * @example
    * ----BEGIN CERTIFICATE-----
    * MIIDaTCCAlECAQEwDQYJKoZIhvcNAQELBQAwVTELMAkGA1UEBhMCY24xCzAJBgNV
@@ -4007,41 +4251,76 @@ export class GetClusterResponseBodyCluster extends $tea.Model {
    */
   clusterOwnerCertificate?: string;
   /**
+   * @remarks
+   * The time when the cluster was created. Unit: milliseconds. The value is a UNIX timestamp.
+   * 
    * @example
    * 1641275680000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The device type.
+   * 
    * @example
    * jnta
    */
   deviceType?: string;
+  /**
+   * @remarks
+   * The HSMs in the cluster.
+   */
   instances?: GetClusterResponseBodyClusterInstances[];
   /**
+   * @remarks
+   * The ID of the region in which the cluster resides.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The number of hardware security modules (HSMs) in the cluster.
+   * 
    * @example
    * 2
    */
   size?: number;
   /**
+   * @remarks
+   * The cluster status.
+   * 
+   * *   NEW: The cluster is not initialized.
+   * *   INITIALIZED: The cluster is initialized.
+   * *   DELETED: The cluster is deleted.
+   * *   SYNCHRONIZING: The cluster is being synchronized.
+   * *   TO_DELETE: The cluster is to be deleted.
+   * 
    * @example
    * NEW
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) to which the cluster belongs.
+   * 
    * @example
    * vpc-8vbt0fjdm29hofvbo****
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The IP address whitelist of the cluster.
+   * 
    * @example
    * 130.176.XX.XX
    */
   whitelist?: string;
+  /**
+   * @remarks
+   * The information about the zone in which the cluster is deployed.
+   */
   zones?: GetClusterResponseBodyClusterZones[];
   static names(): { [key: string]: string } {
     return {
@@ -4202,91 +4481,161 @@ export class GetImageResponseBodyImage extends $tea.Model {
 
 export class GetInstanceResponseBodyInstance extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the cluster to which the HSM belongs.
+   * 
    * @example
    * cluster-w3G9vOJI2****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The cluster name.
+   * 
    * @example
    * cluster_online
    */
   clusterName?: string;
   /**
+   * @remarks
+   * The time when the HSM was created.
+   * 
    * @example
    * 1699515963000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The device type.
+   * 
    * @example
    * jnta.SJJ1528-G
    */
   deviceType?: string;
   /**
+   * @remarks
+   * The time when the instance expired.
+   * 
    * @example
    * 1699496389720
    */
   expireTime?: number;
   /**
+   * @remarks
+   * The HSM ID.
+   * 
    * @example
    * hsm-cn-g4t3jwsc****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The IP address of the HSM in the VPC.
+   * 
    * @example
    * 10.192.XX.XX
    */
   ip?: string;
   /**
+   * @remarks
+   * Indicates whether the HSM is for trial use. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * false
    */
   isTrial?: boolean;
   /**
+   * @remarks
+   * Indicates whether the HSM is the master HSM.
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   master?: boolean;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 23576634952****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The HSM description.
+   * 
    * @example
    * hsmOnline
    */
   remark?: string;
   /**
+   * @remarks
+   * The HSM status.
+   * 
+   * *   PENDING
+   * *   ACTIVE
+   * *   EXPIRED
+   * *   INVALID
+   * *   FAILURE
+   * *   RESET
+   * *   PAUSED
+   * *   MODIFYING
+   * 
    * @example
    * EXPIRED
    */
   status?: string;
+  tenantIsolationType?: string;
   /**
+   * @remarks
+   * The ID of the vSwitch configured for the HSM.
+   * 
    * @example
    * vsw-bp1mvfs31ltt0wyhf****
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The vendor information.
+   * 
    * @example
    * jnta
    */
   vendor?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) to which the HSM belongs.
+   * 
    * @example
    * vpc-uf69i66j9kmoko52p****
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The IP address whitelist of the HSM.
+   * 
    * @example
    * 18.68.XX.XX
    */
   whitelist?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-b
    */
@@ -4306,6 +4655,7 @@ export class GetInstanceResponseBodyInstance extends $tea.Model {
       regionId: 'RegionId',
       remark: 'Remark',
       status: 'Status',
+      tenantIsolationType: 'TenantIsolationType',
       vSwitchId: 'VSwitchId',
       vendor: 'Vendor',
       vpcId: 'VpcId',
@@ -4329,6 +4679,7 @@ export class GetInstanceResponseBodyInstance extends $tea.Model {
       regionId: 'string',
       remark: 'string',
       status: 'string',
+      tenantIsolationType: 'string',
       vSwitchId: 'string',
       vendor: 'string',
       vpcId: 'string',
@@ -4409,41 +4760,76 @@ export class GetJobResponseBodyJob extends $tea.Model {
 
 export class JoinClusterResponseBodyJob extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the task is complete. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   completed?: boolean;
   /**
+   * @remarks
+   * The time when the task was created. Unit: milliseconds. The value is a UNIX timestamp.
+   * 
    * @example
    * 1711764127000
    */
   createTime?: string;
   /**
+   * @remarks
+   * The error message returned if the task fails.
+   * 
    * @example
    * OperationTimeout
    */
   error?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * job-202401250936hze747fd7e0007005
    */
   jobId?: string;
   /**
+   * @remarks
+   * The task progress. Unit: percent (%).
+   * 
    * @example
    * 86
    */
   progress?: number;
   /**
+   * @remarks
+   * The response parameters.
+   * 
    * @example
    * success
    */
   response?: string;
   /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * *   success
+   * *   running
+   * *   cancel
+   * *   fail
+   * 
    * @example
    * running
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the action.
+   * 
+   * *   create: creates a task.
+   * *   cancel: cancels a task.
+   * 
    * @example
    * create
    */
@@ -4616,11 +5002,23 @@ export class ListBackupsResponseBodyBackups extends $tea.Model {
 
 export class ListClustersResponseBodyClusters extends $tea.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cluster-w3G9vOJI2****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The cluster status.
+   * 
+   * *   NEW: not initialized
+   * *   INITIALIZED: initialized
+   * *   DELETED: deleted
+   * *   SYNCHRONIZING: being synchronized
+   * *   TO_DELETE: pending deletion
+   * 
    * @example
    * INITIALIZED
    */
@@ -4760,11 +5158,17 @@ export class ListImagesResponseBodyImages extends $tea.Model {
 
 export class ListInstancesResponseBodyInstances extends $tea.Model {
   /**
+   * @remarks
+   * The HSM ID.
+   * 
    * @example
    * hsm-cn-vj30bil8****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The HSM status. PENDING ACTIVE EXPIRED INVALID FAILURE RESET PAUSED MODIFYING
+   * 
    * @example
    * ACTIVE
    */
@@ -4790,41 +5194,65 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
 
 export class QuickInitInstanceResponseBodyJob extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the task is complete.
+   * 
    * @example
    * true
    */
   completed?: boolean;
   /**
+   * @remarks
+   * The time when the task was created. Unit: milliseconds. The value is a UNIX timestamp.
+   * 
    * @example
    * 1699515963000
    */
   createTime?: string;
   /**
+   * @remarks
+   * The error message returned if the task fails.
+   * 
    * @example
    * OperationTimeout
    */
   error?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * job-000fi9k1v2hclo321sal
    */
   jobId?: string;
   /**
+   * @remarks
+   * The task progress. Unit: percent (%).
+   * 
    * @example
    * 100
    */
   progress?: number;
   /**
+   * @remarks
+   * The response parameters.
+   * 
    * @example
    * success
    */
   response?: string;
   /**
+   * @remarks
+   * The task status. Valid values: success running cancel fail
+   * 
    * @example
    * success
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the SQL statement. Valid values: create: creates a task. cancel: cancels a task.
+   * 
    * @example
    * create
    */
@@ -4862,41 +5290,65 @@ export class QuickInitInstanceResponseBodyJob extends $tea.Model {
 
 export class ResetInstanceResponseBodyJob extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the task is complete. Valid values:
+   * 
    * @example
    * true
    */
   completed?: boolean;
   /**
+   * @remarks
+   * The time when the task was created. Unit: milliseconds. The value is a UNIX timestamp.
+   * 
    * @example
    * 1653274407000
    */
   createTime?: string;
   /**
+   * @remarks
+   * The error message returned if the task fails.
+   * 
    * @example
    * OperationTimeout
    */
   error?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * job-0007bl8oev0u3jqyfu6a
    */
   jobId?: string;
   /**
+   * @remarks
+   * The task progress. Unit: percent (%).
+   * 
    * @example
    * 80
    */
   progress?: number;
   /**
+   * @remarks
+   * The response parameters.
+   * 
    * @example
    * success
    */
   response?: string;
   /**
+   * @remarks
+   * The task status. Valid values: success running cancel fail
+   * 
    * @example
    * success
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the action. create: creates a task. cancel: cancels a task.
+   * 
    * @example
    * create
    */
@@ -4934,41 +5386,65 @@ export class ResetInstanceResponseBodyJob extends $tea.Model {
 
 export class RestoreInstanceResponseBodyJob extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the task is complete.
+   * 
    * @example
    * true
    */
   completed?: boolean;
   /**
+   * @remarks
+   * The time when the task was created. Unit: milliseconds. The value is a UNIX timestamp.
+   * 
    * @example
    * 1711764127000
    */
   createTime?: string;
   /**
+   * @remarks
+   * The error message returned if the task fails.
+   * 
    * @example
    * OperationTimeout
    */
   error?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * job-540356379023708160
    */
   jobId?: string;
   /**
+   * @remarks
+   * The task progress. Unit: percent (%).
+   * 
    * @example
    * 50
    */
   progress?: number;
   /**
+   * @remarks
+   * The response returned if the task succeeds.
+   * 
    * @example
    * success
    */
   response?: string;
   /**
+   * @remarks
+   * The task status. Valid values:
+   * 
    * @example
    * success
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the action. Valid values: create: creates a task. cancel: cancels a task.
+   * 
    * @example
    * create
    */
@@ -5006,41 +5482,76 @@ export class RestoreInstanceResponseBodyJob extends $tea.Model {
 
 export class SyncClusterResponseBodyJob extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the task is complete. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   completed?: boolean;
   /**
+   * @remarks
+   * The time when the task was created. Unit: milliseconds. The value is a UNIX timestamp.
+   * 
    * @example
    * 1711764127000
    */
   createTime?: string;
   /**
+   * @remarks
+   * The error message returned if the task fails.
+   * 
    * @example
    * OperationTimeout
    */
   error?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * job-000bu7m5vjmyz9s7qz85
    */
   jobId?: string;
   /**
+   * @remarks
+   * The task progress. Unit: percent (%).
+   * 
    * @example
    * 90
    */
   progress?: number;
   /**
+   * @remarks
+   * The response parameters.
+   * 
    * @example
    * success
    */
   response?: string;
   /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * *   success
+   * *   running
+   * *   cancel
+   * *   fail
+   * 
    * @example
    * success
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the action.
+   * 
+   * *   create: creates a task.
+   * *   cancel: cancels a task.
+   * 
    * @example
    * create
    */
@@ -5100,7 +5611,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户地域下审计日志功能开通
+   * Enables or disables the audit log feature and delivers audit logs to buckets.
+   * 
+   * @remarks
+   *   The region of the bucket must be the same as the region where the security audit feature is enabled.
+   * *   If the security audit feature is enabled, do not delete Object Storage Service (OSS) buckets. If you delete OSS buckets, audit logs fail to be delivered.
+   * *   Only electronic virtual security modules (EVSMs) and general virtual security modules (GVSMs) within the Chinese mainland support the security audit feature.
    * 
    * @param request - ConfigAuditLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5139,7 +5655,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户地域下审计日志功能开通
+   * Enables or disables the audit log feature and delivers audit logs to buckets.
+   * 
+   * @remarks
+   *   The region of the bucket must be the same as the region where the security audit feature is enabled.
+   * *   If the security audit feature is enabled, do not delete Object Storage Service (OSS) buckets. If you delete OSS buckets, audit logs fail to be delivered.
+   * *   Only electronic virtual security modules (EVSMs) and general virtual security modules (GVSMs) within the Chinese mainland support the security audit feature.
    * 
    * @param request - ConfigAuditLogRequest
    * @returns ConfigAuditLogResponse
@@ -5308,7 +5829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集群名称
+   * Modifies the name of a cluster.
    * 
    * @param request - ConfigClusterNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5343,7 +5864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集群名称
+   * Modifies the name of a cluster.
    * 
    * @param request - ConfigClusterNameRequest
    * @returns ConfigClusterNameResponse
@@ -5414,7 +5935,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集群名称
+   * Modifies the IP address whitelist of a cluster.
+   * 
+   * @remarks
+   * The IP address whitelist of a cluster has a higher priority than the IP address whitelist of a hardware security module (HSM) in the cluster. In cluster mode, we recommend that you create an IP address whitelist for your cluster. In this case, you do not need to create an IP address for the HSM in the cluster.
    * 
    * @param request - ConfigClusterWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5449,7 +5973,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集群名称
+   * Modifies the IP address whitelist of a cluster.
+   * 
+   * @remarks
+   * The IP address whitelist of a cluster has a higher priority than the IP address whitelist of a hardware security module (HSM) in the cluster. In cluster mode, we recommend that you create an IP address whitelist for your cluster. In this case, you do not need to create an IP address for the HSM in the cluster.
    * 
    * @param request - ConfigClusterWhitelistRequest
    * @returns ConfigClusterWhitelistResponse
@@ -5506,6 +6033,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the virtual private cloud (VPC) endpoint of a hardware security module (HSM).
+   * 
+   * @remarks
+   * After you add an HSM to a cluster, you cannot modify the VPC endpoint of the HSM.
+   * 
    * @param request - ConfigInstanceIpAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigInstanceIpAddressResponse
@@ -5551,6 +6083,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the virtual private cloud (VPC) endpoint of a hardware security module (HSM).
+   * 
+   * @remarks
+   * After you add an HSM to a cluster, you cannot modify the VPC endpoint of the HSM.
+   * 
    * @param request - ConfigInstanceIpAddressRequest
    * @returns ConfigInstanceIpAddressResponse
    */
@@ -5560,6 +6097,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the description of a hardware security module (HSM).
+   * 
    * @param request - ConfigInstanceRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigInstanceRemarkResponse
@@ -5593,6 +6132,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the description of a hardware security module (HSM).
+   * 
    * @param request - ConfigInstanceRemarkRequest
    * @returns ConfigInstanceRemarkResponse
    */
@@ -5694,6 +6235,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Specifies a hardware security module (HSM) as the master HSM to create a cluster.
+   * 
+   * @remarks
+   * The master HSM that you specify to create a cluster must be in the ACTIVE state.
+   * 
    * @param request - CreateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateClusterResponse
@@ -5731,6 +6277,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Specifies a hardware security module (HSM) as the master HSM to create a cluster.
+   * 
+   * @remarks
+   * The master HSM that you specify to create a cluster must be in the ACTIVE state.
+   * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
    */
@@ -5740,6 +6291,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a cluster.
+   * 
+   * @remarks
+   * You can delete a cluster only when no hardware security modules (HSMs) exist in the cluster.
+   * 
    * @param request - DeleteClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteClusterResponse
@@ -5769,6 +6325,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a cluster.
+   * 
+   * @remarks
+   * You can delete a cluster only when no hardware security modules (HSMs) exist in the cluster.
+   * 
    * @param request - DeleteClusterRequest
    * @returns DeleteClusterResponse
    */
@@ -5996,6 +6557,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries information about a cluster.
+   * 
    * @param request - GetClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetClusterResponse
@@ -6025,6 +6588,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries information about a cluster.
+   * 
    * @param request - GetClusterRequest
    * @returns GetClusterResponse
    */
@@ -6076,6 +6641,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries information about a hardware security module (HSM).
+   * 
    * @param request - GetInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceResponse
@@ -6105,6 +6672,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries information about a hardware security module (HSM).
+   * 
    * @param request - GetInstanceRequest
    * @returns GetInstanceResponse
    */
@@ -6188,7 +6757,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 初始化集群（原activeCluster）
+   * Initializes a cluster.
+   * 
+   * @remarks
+   *   The cluster is not initialized, but the master hardware security module (HSM) of the cluster is initialized.
+   * *   Two or more vSwitches are configured for the cluster.
    * 
    * @param request - InitializeClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6219,7 +6792,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 初始化集群（原activeCluster）
+   * Initializes a cluster.
+   * 
+   * @remarks
+   *   The cluster is not initialized, but the master hardware security module (HSM) of the cluster is initialized.
+   * *   Two or more vSwitches are configured for the cluster.
    * 
    * @param request - InitializeClusterRequest
    * @returns InitializeClusterResponse
@@ -6230,6 +6807,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds a hardware security module (HSM) to the current cluster.
+   * 
+   * @remarks
+   * You can add an HSM only to the cluster that is in the INITIALIZED state, and the HSM must be enabled or disabled and is not initialized.
+   * 
    * @param request - JoinClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns JoinClusterResponse
@@ -6263,6 +6845,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds a hardware security module (HSM) to the current cluster.
+   * 
+   * @remarks
+   * You can add an HSM only to the cluster that is in the INITIALIZED state, and the HSM must be enabled or disabled and is not initialized.
+   * 
    * @param request - JoinClusterRequest
    * @returns JoinClusterResponse
    */
@@ -6272,6 +6859,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Removes a hardware security module (HSM) from the current cluster.
+   * 
+   * @remarks
+   *   If non-master HSMs exist in a cluster, you cannot remove the master HSM from the cluster.
+   * *   After the master HSM is removed from a cluster, the cluster enters the TO_DELETE state and cannot be restored to be available. Proceed with caution.
+   * 
    * @param request - LeaveClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns LeaveClusterResponse
@@ -6305,6 +6898,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Removes a hardware security module (HSM) from the current cluster.
+   * 
+   * @remarks
+   *   If non-master HSMs exist in a cluster, you cannot remove the master HSM from the cluster.
+   * *   After the master HSM is removed from a cluster, the cluster enters the TO_DELETE state and cannot be restored to be available. Proceed with caution.
+   * 
    * @param request - LeaveClusterRequest
    * @returns LeaveClusterResponse
    */
@@ -6376,6 +6975,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtains the clusters that meet the query conditions.
+   * 
    * @param request - ListClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListClustersResponse
@@ -6413,6 +7014,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtains the clusters that meet the query conditions.
+   * 
    * @param request - ListClustersRequest
    * @returns ListClustersResponse
    */
@@ -6480,6 +7083,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the hardware security modules (HSMs) that meet the query conditions.
+   * 
    * @param request - ListInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstancesResponse
@@ -6497,6 +7102,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.tenantIsolationType)) {
+      body["TenantIsolationType"] = request.tenantIsolationType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6517,6 +7126,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the hardware security modules (HSMs) that meet the query conditions.
+   * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
    */
@@ -6580,6 +7191,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deactivates a hardware security module (HSM).
+   * 
+   * @remarks
+   * After you deactivate an HSM, the relevant service operations fail. Proceed with caution.
+   * 
    * @param request - PauseInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PauseInstanceResponse
@@ -6609,6 +7225,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deactivates a hardware security module (HSM).
+   * 
+   * @remarks
+   * After you deactivate an HSM, the relevant service operations fail. Proceed with caution.
+   * 
    * @param request - PauseInstanceRequest
    * @returns PauseInstanceResponse
    */
@@ -6618,6 +7239,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Initializes a hardware security module (HSM).
+   * 
+   * @remarks
+   * This operation is supported only for general virtual security modules (GVSMs) that are deployed in regions in the Chinese mainland.
+   * 
    * @param request - QuickInitInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuickInitInstanceResponse
@@ -6647,6 +7273,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Initializes a hardware security module (HSM).
+   * 
+   * @remarks
+   * This operation is supported only for general virtual security modules (GVSMs) that are deployed in regions in the Chinese mainland.
+   * 
    * @param request - QuickInitInstanceRequest
    * @returns QuickInitInstanceResponse
    */
@@ -6698,6 +7329,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resets a hardware security module (HSM).
+   * 
+   * @remarks
+   * After an HSM is reset, all related data is deleted and cannot be recovered. Exercise caution.
+   * 
    * @param request - ResetInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResetInstanceResponse
@@ -6727,6 +7363,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resets a hardware security module (HSM).
+   * 
+   * @remarks
+   * After an HSM is reset, all related data is deleted and cannot be recovered. Exercise caution.
+   * 
    * @param request - ResetInstanceRequest
    * @returns ResetInstanceResponse
    */
@@ -6736,6 +7377,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Restores a hardware security module (HSM) by using an image.
+   * 
+   * @remarks
+   * You can use images to restore only HSMs that are suspended or deactivated.
+   * 
    * @param request - RestoreInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RestoreInstanceResponse
@@ -6769,6 +7415,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Restores a hardware security module (HSM) by using an image.
+   * 
+   * @remarks
+   * You can use images to restore only HSMs that are suspended or deactivated.
+   * 
    * @param request - RestoreInstanceRequest
    * @returns RestoreInstanceResponse
    */
@@ -6778,6 +7429,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resumes a deactivated hardware security module (HSM).
+   * 
    * @param request - ResumeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResumeInstanceResponse
@@ -6807,6 +7460,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resumes a deactivated hardware security module (HSM).
+   * 
    * @param request - ResumeInstanceRequest
    * @returns ResumeInstanceResponse
    */
@@ -6816,6 +7471,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Promote a non-master hardware security module (HSM) in a cluster to the master HSM.
+   * 
    * @param request - SwitchClusterMasterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SwitchClusterMasterResponse
@@ -6849,6 +7506,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Promote a non-master hardware security module (HSM) in a cluster to the master HSM.
+   * 
    * @param request - SwitchClusterMasterRequest
    * @returns SwitchClusterMasterResponse
    */
@@ -6858,6 +7517,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Synchronizes HSM data in a cluster.
+   * 
+   * @remarks
+   * This operation is supported only for hardware security modules (HSMs) that are created in regions in the Chinese mainland.
+   * 
    * @param request - SyncClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SyncClusterResponse
@@ -6887,6 +7551,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Synchronizes HSM data in a cluster.
+   * 
+   * @remarks
+   * This operation is supported only for hardware security modules (HSMs) that are created in regions in the Chinese mainland.
+   * 
    * @param request - SyncClusterRequest
    * @returns SyncClusterResponse
    */
