@@ -8,6 +8,7 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AnalyzeConversationRequest extends $tea.Model {
+  categoryTags?: AnalyzeConversationRequestCategoryTags[];
   /**
    * @remarks
    * This parameter is required.
@@ -35,8 +36,10 @@ export class AnalyzeConversationRequest extends $tea.Model {
    * false
    */
   stream?: boolean;
+  userProfiles?: AnalyzeConversationRequestUserProfiles[];
   static names(): { [key: string]: string } {
     return {
+      categoryTags: 'categoryTags',
       dialogue: 'dialogue',
       examples: 'examples',
       fields: 'fields',
@@ -45,11 +48,13 @@ export class AnalyzeConversationRequest extends $tea.Model {
       sceneName: 'sceneName',
       serviceInspection: 'serviceInspection',
       stream: 'stream',
+      userProfiles: 'userProfiles',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      categoryTags: { 'type': 'array', 'itemType': AnalyzeConversationRequestCategoryTags },
       dialogue: AnalyzeConversationRequestDialogue,
       examples: { 'type': 'array', 'itemType': AnalyzeConversationRequestExamples },
       fields: { 'type': 'array', 'itemType': AnalyzeConversationRequestFields },
@@ -58,6 +63,7 @@ export class AnalyzeConversationRequest extends $tea.Model {
       sceneName: 'string',
       serviceInspection: AnalyzeConversationRequestServiceInspection,
       stream: 'boolean',
+      userProfiles: { 'type': 'array', 'itemType': AnalyzeConversationRequestUserProfiles },
     };
   }
 
@@ -563,6 +569,28 @@ export class RunCompletionMessageResponse extends $tea.Model {
   }
 }
 
+export class AnalyzeConversationRequestCategoryTags extends $tea.Model {
+  tagDesc?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDesc: 'tagDesc',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDesc: 'string',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AnalyzeConversationRequestDialogueSentences extends $tea.Model {
   /**
    * @remarks
@@ -818,6 +846,28 @@ export class AnalyzeConversationRequestServiceInspection extends $tea.Model {
       inspectionContents: { 'type': 'array', 'itemType': AnalyzeConversationRequestServiceInspectionInspectionContents },
       inspectionIntroduction: 'string',
       sceneIntroduction: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestUserProfiles extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
     };
   }
 
@@ -1331,6 +1381,10 @@ export default class Client extends OpenApi {
   async analyzeConversationWithOptions(workspaceId: string, appId: string, request: AnalyzeConversationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AnalyzeConversationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryTags)) {
+      body["categoryTags"] = request.categoryTags;
+    }
+
     if (!Util.isUnset(request.dialogue)) {
       body["dialogue"] = request.dialogue;
     }
@@ -1361,6 +1415,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.stream)) {
       body["stream"] = request.stream;
+    }
+
+    if (!Util.isUnset(request.userProfiles)) {
+      body["userProfiles"] = request.userProfiles;
     }
 
     let req = new $OpenApi.OpenApiRequest({
