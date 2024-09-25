@@ -1157,7 +1157,11 @@ export class CredentialVerifyRequest extends $tea.Model {
    * 1
    */
   isOCR?: string;
+  merchantDetail?: CredentialVerifyRequestMerchantDetail[];
   merchantId?: string;
+  productCode?: string;
+  prompt?: string;
+  promptModel?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1169,7 +1173,11 @@ export class CredentialVerifyRequest extends $tea.Model {
       imageUrl: 'ImageUrl',
       isCheck: 'IsCheck',
       isOCR: 'IsOCR',
+      merchantDetail: 'MerchantDetail',
       merchantId: 'MerchantId',
+      productCode: 'ProductCode',
+      prompt: 'Prompt',
+      promptModel: 'PromptModel',
       userName: 'UserName',
     };
   }
@@ -1184,7 +1192,101 @@ export class CredentialVerifyRequest extends $tea.Model {
       imageUrl: 'string',
       isCheck: 'string',
       isOCR: 'string',
+      merchantDetail: { 'type': 'array', 'itemType': CredentialVerifyRequestMerchantDetail },
       merchantId: 'string',
+      productCode: 'string',
+      prompt: 'string',
+      promptModel: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 4601*****
+   */
+  certNum?: string;
+  /**
+   * @example
+   * 0104
+   */
+  credName?: string;
+  /**
+   * @example
+   * 01
+   */
+  credType?: string;
+  /**
+   * @example
+   * 429001********8211
+   */
+  identifyNum?: string;
+  /**
+   * @example
+   * base64
+   */
+  imageContext?: string;
+  /**
+   * @example
+   * http://marry.momocdn.com/avatar/3B/B6/3BB6527E-7467-926E-1048-B43614F20CC420230803_L.jpg
+   */
+  imageUrl?: string;
+  /**
+   * @example
+   * 0
+   */
+  isCheck?: string;
+  /**
+   * @example
+   * 1
+   */
+  isOCR?: string;
+  merchantDetailShrink?: string;
+  merchantId?: string;
+  productCode?: string;
+  prompt?: string;
+  promptModel?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certNum: 'CertNum',
+      credName: 'CredName',
+      credType: 'CredType',
+      identifyNum: 'IdentifyNum',
+      imageContext: 'ImageContext',
+      imageUrl: 'ImageUrl',
+      isCheck: 'IsCheck',
+      isOCR: 'IsOCR',
+      merchantDetailShrink: 'MerchantDetail',
+      merchantId: 'MerchantId',
+      productCode: 'ProductCode',
+      prompt: 'Prompt',
+      promptModel: 'PromptModel',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certNum: 'string',
+      credName: 'string',
+      credType: 'string',
+      identifyNum: 'string',
+      imageContext: 'string',
+      imageUrl: 'string',
+      isCheck: 'string',
+      isOCR: 'string',
+      merchantDetailShrink: 'string',
+      merchantId: 'string',
+      productCode: 'string',
+      prompt: 'string',
+      promptModel: 'string',
       userName: 'string',
     };
   }
@@ -2807,6 +2909,143 @@ export class InitFaceVerifyResponse extends $tea.Model {
   }
 }
 
+export class InsertWhiteListSettingRequest extends $tea.Model {
+  /**
+   * @example
+   * 330103xxxxxxxxxxxx
+   */
+  certNo?: string;
+  /**
+   * @example
+   * shsf57a4e0d9981c3bd66dc754f3d3cd
+   */
+  certifyId?: string;
+  /**
+   * @example
+   * xxxxxx
+   */
+  remark?: string;
+  /**
+   * @example
+   * 100000xxxx
+   */
+  sceneId?: number;
+  /**
+   * @example
+   * antcloudauth
+   */
+  serviceCode?: string;
+  /**
+   * @example
+   * 30
+   */
+  validDay?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certNo: 'CertNo',
+      certifyId: 'CertifyId',
+      remark: 'Remark',
+      sceneId: 'SceneId',
+      serviceCode: 'ServiceCode',
+      validDay: 'ValidDay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certNo: 'string',
+      certifyId: 'string',
+      remark: 'string',
+      sceneId: 'number',
+      serviceCode: 'string',
+      validDay: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertWhiteListSettingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  resultObject?: boolean;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertWhiteListSettingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertWhiteListSettingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InsertWhiteListSettingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LivenessFaceVerifyRequest extends $tea.Model {
   certifyId?: string;
   crop?: string;
@@ -3542,6 +3781,319 @@ export class ModifyDeviceInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyDeviceInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQueryWhiteListSettingRequest extends $tea.Model {
+  /**
+   * @example
+   * 330103xxxxxxxxxxxx
+   */
+  certNo?: string;
+  /**
+   * @example
+   * sha75b4e19a1ddda059b920757b0e12b
+   */
+  certifyId?: string;
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1000000xxx
+   */
+  sceneId?: number;
+  /**
+   * @example
+   * antcloudauth
+   */
+  serviceCode?: string;
+  /**
+   * @example
+   * VALID
+   */
+  status?: string;
+  /**
+   * @example
+   * 1725379200000
+   */
+  validEndDate?: string;
+  /**
+   * @example
+   * 1725120000000
+   */
+  validStartDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certNo: 'CertNo',
+      certifyId: 'CertifyId',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      sceneId: 'SceneId',
+      serviceCode: 'ServiceCode',
+      status: 'Status',
+      validEndDate: 'ValidEndDate',
+      validStartDate: 'ValidStartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certNo: 'string',
+      certifyId: 'string',
+      currentPage: 'number',
+      pageSize: 'number',
+      sceneId: 'number',
+      serviceCode: 'string',
+      status: 'string',
+      validEndDate: 'string',
+      validStartDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQueryWhiteListSettingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 5A6229C0-E156-48E4-B6EC-0F528BDF60D2
+   */
+  requestId?: string;
+  resultObject?: PageQueryWhiteListSettingResponseBodyResultObject[];
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 28
+   */
+  totalItem?: number;
+  /**
+   * @example
+   * 3
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      currentPage: 'CurrentPage',
+      message: 'Message',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+      success: 'Success',
+      totalItem: 'TotalItem',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      currentPage: 'number',
+      message: 'string',
+      pageSize: 'number',
+      requestId: 'string',
+      resultObject: { 'type': 'array', 'itemType': PageQueryWhiteListSettingResponseBodyResultObject },
+      success: 'boolean',
+      totalItem: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQueryWhiteListSettingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PageQueryWhiteListSettingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PageQueryWhiteListSettingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveWhiteListSettingRequest extends $tea.Model {
+  ids?: number[];
+  /**
+   * @example
+   * antcloudauth
+   */
+  serviceCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      serviceCode: 'ServiceCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: { 'type': 'array', 'itemType': 'number' },
+      serviceCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveWhiteListSettingShrinkRequest extends $tea.Model {
+  idsShrink?: string;
+  /**
+   * @example
+   * antcloudauth
+   */
+  serviceCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      idsShrink: 'Ids',
+      serviceCode: 'ServiceCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idsShrink: 'string',
+      serviceCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveWhiteListSettingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  resultObject?: boolean;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveWhiteListSettingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveWhiteListSettingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveWhiteListSettingResponseBody,
     };
   }
 
@@ -4420,6 +4972,50 @@ export class ContrastFaceVerifyResponseBodyResultObject extends $tea.Model {
   }
 }
 
+export class CredentialVerifyRequestMerchantDetail extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyResponseBodyResultObjectVlResult extends $tea.Model {
+  success?: boolean;
+  vlContent?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      vlContent: 'VlContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      vlContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CredentialVerifyResponseBodyResultObject extends $tea.Model {
   materialInfo?: string;
   ocrInfo?: string;
@@ -4444,6 +5040,7 @@ export class CredentialVerifyResponseBodyResultObject extends $tea.Model {
    * *
    */
   verifyResult?: string;
+  vlResult?: CredentialVerifyResponseBodyResultObjectVlResult;
   static names(): { [key: string]: string } {
     return {
       materialInfo: 'MaterialInfo',
@@ -4453,6 +5050,7 @@ export class CredentialVerifyResponseBodyResultObject extends $tea.Model {
       riskTag: 'RiskTag',
       verifyDetail: 'VerifyDetail',
       verifyResult: 'VerifyResult',
+      vlResult: 'VlResult',
     };
   }
 
@@ -4465,6 +5063,7 @@ export class CredentialVerifyResponseBodyResultObject extends $tea.Model {
       riskTag: 'string',
       verifyDetail: 'string',
       verifyResult: 'string',
+      vlResult: CredentialVerifyResponseBodyResultObjectVlResult,
     };
   }
 
@@ -5551,6 +6150,99 @@ export class MobileOnlineTimeResponseBodyResultObject extends $tea.Model {
   }
 }
 
+export class PageQueryWhiteListSettingResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 330103xxxxxxxxxxxx
+   */
+  certNo?: string;
+  /**
+   * @example
+   * sha43d9cabd52d370d9f4cca9468f71e
+   */
+  certifyId?: string;
+  /**
+   * @example
+   * 2024-08-30 14:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-08-30 14:00:00
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 234822
+   */
+  id?: number;
+  /**
+   * @example
+   * test
+   */
+  remark?: string;
+  /**
+   * @example
+   * 1000000332
+   */
+  sceneId?: number;
+  /**
+   * @example
+   * antcloudauth
+   */
+  serviceCode?: string;
+  /**
+   * @example
+   * VALID
+   */
+  status?: string;
+  /**
+   * @example
+   * 2024-09-02 13:57:51
+   */
+  validEndDate?: string;
+  /**
+   * @example
+   * 2024-08-30 13:57:51
+   */
+  validStartDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certNo: 'CertNo',
+      certifyId: 'CertifyId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      remark: 'Remark',
+      sceneId: 'SceneId',
+      serviceCode: 'ServiceCode',
+      status: 'Status',
+      validEndDate: 'ValidEndDate',
+      validStartDate: 'ValidStartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certNo: 'string',
+      certifyId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      remark: 'string',
+      sceneId: 'number',
+      serviceCode: 'string',
+      status: 'string',
+      validEndDate: 'string',
+      validStartDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Vehicle5ItemQueryResponseBodyResultObject extends $tea.Model {
   /**
    * @example
@@ -6413,12 +7105,18 @@ export default class Client extends OpenApi {
   /**
    * 凭证核验
    * 
-   * @param request - CredentialVerifyRequest
+   * @param tmpReq - CredentialVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CredentialVerifyResponse
    */
-  async credentialVerifyWithOptions(request: CredentialVerifyRequest, runtime: $Util.RuntimeOptions): Promise<CredentialVerifyResponse> {
-    Util.validateModel(request);
+  async credentialVerifyWithOptions(tmpReq: CredentialVerifyRequest, runtime: $Util.RuntimeOptions): Promise<CredentialVerifyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CredentialVerifyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.merchantDetail)) {
+      request.merchantDetailShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.merchantDetail, "MerchantDetail", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.certNum)) {
       query["CertNum"] = request.certNum;
@@ -6448,8 +7146,24 @@ export default class Client extends OpenApi {
       query["IsOCR"] = request.isOCR;
     }
 
+    if (!Util.isUnset(request.merchantDetailShrink)) {
+      query["MerchantDetail"] = request.merchantDetailShrink;
+    }
+
     if (!Util.isUnset(request.merchantId)) {
       query["MerchantId"] = request.merchantId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.prompt)) {
+      query["Prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.promptModel)) {
+      query["PromptModel"] = request.promptModel;
     }
 
     if (!Util.isUnset(request.userName)) {
@@ -7250,6 +7964,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增实人白名单
+   * 
+   * @param request - InsertWhiteListSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InsertWhiteListSettingResponse
+   */
+  async insertWhiteListSettingWithOptions(request: InsertWhiteListSettingRequest, runtime: $Util.RuntimeOptions): Promise<InsertWhiteListSettingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certNo)) {
+      query["CertNo"] = request.certNo;
+    }
+
+    if (!Util.isUnset(request.certifyId)) {
+      query["CertifyId"] = request.certifyId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!Util.isUnset(request.validDay)) {
+      query["ValidDay"] = request.validDay;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InsertWhiteListSetting",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InsertWhiteListSettingResponse>(await this.callApi(params, req, runtime), new InsertWhiteListSettingResponse({}));
+  }
+
+  /**
+   * 新增实人白名单
+   * 
+   * @param request - InsertWhiteListSettingRequest
+   * @returns InsertWhiteListSettingResponse
+   */
+  async insertWhiteListSetting(request: InsertWhiteListSettingRequest): Promise<InsertWhiteListSettingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.insertWhiteListSettingWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - LivenessFaceVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns LivenessFaceVerifyResponse
@@ -7639,6 +8415,132 @@ export default class Client extends OpenApi {
   async modifyDeviceInfo(request: ModifyDeviceInfoRequest): Promise<ModifyDeviceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDeviceInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询实人白名单配置
+   * 
+   * @param request - PageQueryWhiteListSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PageQueryWhiteListSettingResponse
+   */
+  async pageQueryWhiteListSettingWithOptions(request: PageQueryWhiteListSettingRequest, runtime: $Util.RuntimeOptions): Promise<PageQueryWhiteListSettingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certNo)) {
+      query["CertNo"] = request.certNo;
+    }
+
+    if (!Util.isUnset(request.certifyId)) {
+      query["CertifyId"] = request.certifyId;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.validEndDate)) {
+      query["ValidEndDate"] = request.validEndDate;
+    }
+
+    if (!Util.isUnset(request.validStartDate)) {
+      query["ValidStartDate"] = request.validStartDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PageQueryWhiteListSetting",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PageQueryWhiteListSettingResponse>(await this.callApi(params, req, runtime), new PageQueryWhiteListSettingResponse({}));
+  }
+
+  /**
+   * 分页查询实人白名单配置
+   * 
+   * @param request - PageQueryWhiteListSettingRequest
+   * @returns PageQueryWhiteListSettingResponse
+   */
+  async pageQueryWhiteListSetting(request: PageQueryWhiteListSettingRequest): Promise<PageQueryWhiteListSettingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pageQueryWhiteListSettingWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除实人白名单
+   * 
+   * @param tmpReq - RemoveWhiteListSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveWhiteListSettingResponse
+   */
+  async removeWhiteListSettingWithOptions(tmpReq: RemoveWhiteListSettingRequest, runtime: $Util.RuntimeOptions): Promise<RemoveWhiteListSettingResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RemoveWhiteListSettingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.idsShrink)) {
+      query["Ids"] = request.idsShrink;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveWhiteListSetting",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveWhiteListSettingResponse>(await this.callApi(params, req, runtime), new RemoveWhiteListSettingResponse({}));
+  }
+
+  /**
+   * 删除实人白名单
+   * 
+   * @param request - RemoveWhiteListSettingRequest
+   * @returns RemoveWhiteListSettingResponse
+   */
+  async removeWhiteListSetting(request: RemoveWhiteListSettingRequest): Promise<RemoveWhiteListSettingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeWhiteListSettingWithOptions(request, runtime);
   }
 
   /**
