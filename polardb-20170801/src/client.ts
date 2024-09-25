@@ -2880,12 +2880,13 @@ export class CreateDatabaseRequest extends $tea.Model {
   characterSetName?: string;
   /**
    * @remarks
-   * The language that indicates the collation of the databases that are created.
+   * The language that defines the collation rules in the database.
    * 
-   * > *   The language must be compatible with the character set that is specified by **CharacterSetName**.
-   * >*   This parameter is required for PolarDB for PostgreSQL (Compatible with Oracle) clusters or PolarDB for PostgreSQL clusters. This parameter is not supported by PolarDB for MySQL clusters.
+   * > 
    * 
-   * To view the valid values for this parameter, perform the following steps: Log on to the PolarDB console and click the ID of a cluster. In the left-side navigation pane, choose **Settings and Management** > **Databases**. Then, click **Create Database**.
+   * *   The language must be compatible with the character set that is specified by **CharacterSetName**.
+   * 
+   * *   This parameter is required for a PolarDB for PostgreSQL (Compatible with Oracle) or PolarDB for PostgreSQL cluster. This parameter is optional for a PolarDB for MySQL cluster. To view the valid values of this parameter, perform the following steps: Log on to the PolarDB console and click the ID of the cluster. In the left-side navigation pane, choose **Settings and Management** > **Databases**. Then, click **Create Database**.
    * 
    * @example
    * C
@@ -10054,10 +10055,11 @@ export class DescribeDBInitializeVariableRequest extends $tea.Model {
 export class DescribeDBInitializeVariableResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The type of the database engine. Valid values:
+   * The database type. Valid values:
    * 
    * *   Oracle
    * *   PostgreSQL
+   * *   MySQL
    * 
    * @example
    * PostgreSQL
@@ -23129,12 +23131,19 @@ export class UpgradeDBClusterVersionRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The code of the version to which you want to upgrade the cluster. You can call the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/2319145.html) operation to query the version code.
+   * The code of the db version to which you want to upgrade the cluster. You can call the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/2319145.html) operation to query the version code.
    * 
    * @example
    * 20230707
    */
   targetDBRevisionVersionCode?: string;
+  /**
+   * @remarks
+   * The code of the proxy version to which you want to upgrade the cluster. You can call the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/2319145.html) operation to query the version code.
+   * 
+   * @example
+   * 20240702
+   */
   targetProxyRevisionVersionCode?: string;
   /**
    * @remarks
@@ -23149,10 +23158,10 @@ export class UpgradeDBClusterVersionRequest extends $tea.Model {
   upgradeLabel?: string;
   /**
    * @remarks
-   * The upgrade policy. Valid values:
+   * The engine version upgrade policy. Valid values:
    * 
    * *   **HOT**: hot upgrade.
-   * *   **COLD**: cold upgrade. Only PolarDB for MySQL Cluster Edition that runs MySQL 8.0 supports this upgrade method.
+   * *   **COLD**: cold upgrade. Only PolarDB for MySQL 8.0 Cluster Edition supports this upgrade method.
    * 
    * @example
    * HOT
@@ -27074,12 +27083,15 @@ export class DescribeDBInitializeVariableResponseBodyVariablesVariable extends $
    * @remarks
    * The language that indicates the character type of the database.
    * 
-   * >- The language must be compatible with the character set that is specified by **CharacterSetName**.
-   * >- The specified value must be the same as the value of **Collate**.
-   * >- This parameter is required for PolarDB for PostgreSQL (Compatible with Oracle) clusters or PolarDB for PostgreSQL clusters.
-   * >- This parameter is optional for PolarDB for MySQL clusters.
+   * > 
    * 
-   * To view the valid values for this parameter, perform the following steps: Log on to the PolarDB console and click the ID of a cluster. In the left-side navigation pane, choose **Settings and Management** > **Databases**. Then, click **Create Database**.
+   * *   The language must be compatible with the character set that is specified by **CharacterSetName**.
+   * 
+   * *   The specified parameter value must be the same as the value of **Collate**.
+   * 
+   * *   If the PolarDB cluster runs PolarDB for PostgreSQL (Compatible with Oracle) or PolarDB for PostgreSQL, this parameter is required. If the cluster runs PolarDB for MySQL, this parameter is not supported.
+   * 
+   * To view the valid values of this parameter, perform the following steps: First, log on to the PolarDB console and click the ID of a cluster. Then, in the left-side navigation pane, choose **Settings and Management** > **Databases**. Finally, click **Create Database**.
    * 
    * @example
    * C
@@ -29710,6 +29722,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.M
    * 0
    */
   returnRowCounts?: number;
+  SQLHash?: string;
   /**
    * @remarks
    * The SQL statement that is executed in the query.
@@ -29726,6 +29739,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.M
       queryTimeMS: 'QueryTimeMS',
       queryTimes: 'QueryTimes',
       returnRowCounts: 'ReturnRowCounts',
+      SQLHash: 'SQLHash',
       SQLText: 'SQLText',
     };
   }
@@ -29741,6 +29755,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.M
       queryTimeMS: 'number',
       queryTimes: 'number',
       returnRowCounts: 'number',
+      SQLHash: 'string',
       SQLText: 'string',
     };
   }
@@ -35055,7 +35070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes that are supported by a PolarDB for PostgreSQL (Compatible with Oracle) cluster or a PolarDB for PostgreSQL cluster, such as the character sets and collations.
+   * Queries attributes such as character sets and collations supported by a database in a PolarDB cluster.
    * 
    * @param request - DescribeDBInitializeVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35102,7 +35117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes that are supported by a PolarDB for PostgreSQL (Compatible with Oracle) cluster or a PolarDB for PostgreSQL cluster, such as the character sets and collations.
+   * Queries attributes such as character sets and collations supported by a database in a PolarDB cluster.
    * 
    * @param request - DescribeDBInitializeVariableRequest
    * @returns DescribeDBInitializeVariableResponse
