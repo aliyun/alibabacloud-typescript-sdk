@@ -5180,6 +5180,9 @@ export class ListTopicsResponse extends $tea.Model {
 
 export class ListTracesRequest extends $tea.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 2023-05-19 10:10:09
    */
@@ -5195,21 +5198,33 @@ export class ListTracesRequest extends $tea.Model {
    */
   messageKey?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * MESSAGE_ID
    */
   queryType?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 2023-05-10 10:42:11
    */
