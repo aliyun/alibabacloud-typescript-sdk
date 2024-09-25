@@ -57369,6 +57369,7 @@ export class GetServiceListPageResponseBodyDataResult extends $tea.Model {
    * sc-A
    */
   serviceName?: string;
+  serviceType?: string;
   /**
    * @remarks
    * The service version.
@@ -57385,6 +57386,7 @@ export class GetServiceListPageResponseBodyDataResult extends $tea.Model {
       group: 'Group',
       instanceNum: 'InstanceNum',
       serviceName: 'ServiceName',
+      serviceType: 'ServiceType',
       version: 'Version',
     };
   }
@@ -57397,6 +57399,7 @@ export class GetServiceListPageResponseBodyDataResult extends $tea.Model {
       group: 'string',
       instanceNum: 'number',
       serviceName: 'string',
+      serviceType: 'string',
       version: 'string',
     };
   }
