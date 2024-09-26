@@ -7,6 +7,108 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class GenerateBroadcastNewsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  prompt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      prompt: 'prompt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prompt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateBroadcastNewsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  code?: string;
+  data?: GenerateBroadcastNewsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 117F5ABE-CF02-5502-9A3F-E56BC9081A64
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GenerateBroadcastNewsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateBroadcastNewsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateBroadcastNewsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateBroadcastNewsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHotTopicSummariesRequest extends $tea.Model {
   /**
    * @example
@@ -150,6 +252,92 @@ export class ListHotTopicSummariesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListHotTopicSummariesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
+  length?: string;
+  /**
+   * @example
+   * 10
+   */
+  numComments?: string;
+  sourceMaterial?: string;
+  style?: string;
+  static names(): { [key: string]: string } {
+    return {
+      length: 'length',
+      numComments: 'numComments',
+      sourceMaterial: 'sourceMaterial',
+      style: 'style',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      length: 'string',
+      numComments: 'string',
+      sourceMaterial: 'string',
+      style: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationResponseBody extends $tea.Model {
+  end?: boolean;
+  header?: RunCommentGenerationResponseBodyHeader;
+  payload?: RunCommentGenerationResponseBodyPayload;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'end',
+      header: 'header',
+      payload: 'payload',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'boolean',
+      header: RunCommentGenerationResponseBodyHeader,
+      payload: RunCommentGenerationResponseBodyPayload,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunCommentGenerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunCommentGenerationResponseBody,
     };
   }
 
@@ -721,11 +909,13 @@ export class RunVideoAnalysisRequest extends $tea.Model {
    * a3d1c2ac-f086-4a21-9069-f5631542f5ax
    */
   originalSessionId?: string;
+  snapshotInterval?: number;
   /**
    * @example
    * a3d1c2ac-f086-4a21-9069-f5631542f5a2
    */
   taskId?: string;
+  videoExtraInfo?: string;
   videoModelCustomPromptTemplate?: string;
   /**
    * @example
@@ -744,7 +934,9 @@ export class RunVideoAnalysisRequest extends $tea.Model {
       modelCustomPromptTemplateId: 'modelCustomPromptTemplateId',
       modelId: 'modelId',
       originalSessionId: 'originalSessionId',
+      snapshotInterval: 'snapshotInterval',
       taskId: 'taskId',
+      videoExtraInfo: 'videoExtraInfo',
       videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
       videoModelId: 'videoModelId',
       videoUrl: 'videoUrl',
@@ -758,7 +950,9 @@ export class RunVideoAnalysisRequest extends $tea.Model {
       modelCustomPromptTemplateId: 'string',
       modelId: 'string',
       originalSessionId: 'string',
+      snapshotInterval: 'number',
       taskId: 'string',
+      videoExtraInfo: 'string',
       videoModelCustomPromptTemplate: 'string',
       videoModelId: 'string',
       videoUrl: 'string',
@@ -788,11 +982,13 @@ export class RunVideoAnalysisShrinkRequest extends $tea.Model {
    * a3d1c2ac-f086-4a21-9069-f5631542f5ax
    */
   originalSessionId?: string;
+  snapshotInterval?: number;
   /**
    * @example
    * a3d1c2ac-f086-4a21-9069-f5631542f5a2
    */
   taskId?: string;
+  videoExtraInfo?: string;
   videoModelCustomPromptTemplate?: string;
   /**
    * @example
@@ -811,7 +1007,9 @@ export class RunVideoAnalysisShrinkRequest extends $tea.Model {
       modelCustomPromptTemplateId: 'modelCustomPromptTemplateId',
       modelId: 'modelId',
       originalSessionId: 'originalSessionId',
+      snapshotInterval: 'snapshotInterval',
       taskId: 'taskId',
+      videoExtraInfo: 'videoExtraInfo',
       videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
       videoModelId: 'videoModelId',
       videoUrl: 'videoUrl',
@@ -825,7 +1023,9 @@ export class RunVideoAnalysisShrinkRequest extends $tea.Model {
       modelCustomPromptTemplateId: 'string',
       modelId: 'string',
       originalSessionId: 'string',
+      snapshotInterval: 'number',
       taskId: 'string',
+      videoExtraInfo: 'string',
       videoModelCustomPromptTemplate: 'string',
       videoModelId: 'string',
       videoUrl: 'string',
@@ -883,6 +1083,158 @@ export class RunVideoAnalysisResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RunVideoAnalysisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateBroadcastNewsResponseBodyDataHotTopicSummariesImages extends $tea.Model {
+  /**
+   * @example
+   * http://xxx.com/xxx.jpeg
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateBroadcastNewsResponseBodyDataHotTopicSummaries extends $tea.Model {
+  category?: string;
+  hotTopic?: string;
+  /**
+   * @example
+   * 2024-09-13_08
+   */
+  hotTopicVersion?: string;
+  /**
+   * @example
+   * 1000000
+   */
+  hotValue?: number;
+  /**
+   * @example
+   * 1458tb3bjo7531kap42a
+   */
+  id?: string;
+  images?: GenerateBroadcastNewsResponseBodyDataHotTopicSummariesImages[];
+  /**
+   * @example
+   * xxx
+   */
+  textSummary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      hotTopic: 'hotTopic',
+      hotTopicVersion: 'hotTopicVersion',
+      hotValue: 'hotValue',
+      id: 'id',
+      images: 'images',
+      textSummary: 'textSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      hotTopic: 'string',
+      hotTopicVersion: 'string',
+      hotValue: 'number',
+      id: 'string',
+      images: { 'type': 'array', 'itemType': GenerateBroadcastNewsResponseBodyDataHotTopicSummariesImages },
+      textSummary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateBroadcastNewsResponseBodyDataUsage extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 2
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 3
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateBroadcastNewsResponseBodyData extends $tea.Model {
+  hotTopicSummaries?: GenerateBroadcastNewsResponseBodyDataHotTopicSummaries[];
+  /**
+   * @example
+   * 2bb0ea82dafd48a8817fadc4c90e2b52
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3feb69ed02d9b1a17d0f1a942675d300
+   */
+  taskId?: string;
+  text?: string;
+  usage?: GenerateBroadcastNewsResponseBodyDataUsage;
+  static names(): { [key: string]: string } {
+    return {
+      hotTopicSummaries: 'hotTopicSummaries',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      text: 'text',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotTopicSummaries: { 'type': 'array', 'itemType': GenerateBroadcastNewsResponseBodyDataHotTopicSummaries },
+      sessionId: 'string',
+      taskId: 'string',
+      text: 'string',
+      usage: GenerateBroadcastNewsResponseBodyDataUsage,
     };
   }
 
@@ -1065,6 +1417,138 @@ export class ListHotTopicSummariesResponseBodyData extends $tea.Model {
       news: { 'type': 'array', 'itemType': ListHotTopicSummariesResponseBodyDataNews },
       summary: ListHotTopicSummariesResponseBodyDataSummary,
       textSummary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * F8A35034-EDCF-5C50-95A5-1044316F36E3
+   */
+  requestId?: string;
+  /**
+   * @example
+   * tcm9xac9dsfbfgm8hf5k94l3cqybwh9o3mn0iuyytdgd9qoejxf1crxsdvuvr8fu0zuhbe8anhdaoeif2wbkmebagnezh23cuhkiazx2tmjh4eml791eak7t95sshvtkz14bh2lnbktzvdhialzd8reoaem0pktw41slinwyoabe75xlnxsqb5eo1i6ly70
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * task-fu1918oghtodbis3chgpfr
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 21507c3517074446017046500ed5f1
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'event',
+      eventInfo: 'eventInfo',
+      requestId: 'requestId',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: 'string',
+      eventInfo: 'string',
+      requestId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationResponseBodyPayloadOutput extends $tea.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationResponseBodyPayload extends $tea.Model {
+  output?: RunCommentGenerationResponseBodyPayloadOutput;
+  usage?: RunCommentGenerationResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunCommentGenerationResponseBodyPayloadOutput,
+      usage: RunCommentGenerationResponseBodyPayloadUsage,
     };
   }
 
@@ -2405,6 +2889,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新闻播报-抽取分类获取播报热点
+   * 
+   * @param request - GenerateBroadcastNewsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateBroadcastNewsResponse
+   */
+  async generateBroadcastNewsWithOptions(workspaceId: string, request: GenerateBroadcastNewsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateBroadcastNewsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateBroadcastNews",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/GenerateBroadcastNews`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateBroadcastNewsResponse>(await this.callApi(params, req, runtime), new GenerateBroadcastNewsResponse({}));
+  }
+
+  /**
+   * 新闻播报-抽取分类获取播报热点
+   * 
+   * @param request - GenerateBroadcastNewsRequest
+   * @returns GenerateBroadcastNewsResponse
+   */
+  async generateBroadcastNews(workspaceId: string, request: GenerateBroadcastNewsRequest): Promise<GenerateBroadcastNewsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.generateBroadcastNewsWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 轻应用-新闻播报-获取热点话题摘要列表
    * 
    * @param request - ListHotTopicSummariesRequest
@@ -2463,6 +2992,63 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listHotTopicSummariesWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 评论生成服务
+   * 
+   * @param request - RunCommentGenerationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunCommentGenerationResponse
+   */
+  async runCommentGenerationWithOptions(workspaceId: string, request: RunCommentGenerationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunCommentGenerationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.length)) {
+      body["length"] = request.length;
+    }
+
+    if (!Util.isUnset(request.numComments)) {
+      body["numComments"] = request.numComments;
+    }
+
+    if (!Util.isUnset(request.sourceMaterial)) {
+      body["sourceMaterial"] = request.sourceMaterial;
+    }
+
+    if (!Util.isUnset(request.style)) {
+      body["style"] = request.style;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunCommentGeneration",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runCommentGeneration`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunCommentGenerationResponse>(await this.callApi(params, req, runtime), new RunCommentGenerationResponse({}));
+  }
+
+  /**
+   * 评论生成服务
+   * 
+   * @param request - RunCommentGenerationRequest
+   * @returns RunCommentGenerationResponse
+   */
+  async runCommentGeneration(workspaceId: string, request: RunCommentGenerationRequest): Promise<RunCommentGenerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runCommentGenerationWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -2811,8 +3397,16 @@ export default class Client extends OpenApi {
       body["originalSessionId"] = request.originalSessionId;
     }
 
+    if (!Util.isUnset(request.snapshotInterval)) {
+      body["snapshotInterval"] = request.snapshotInterval;
+    }
+
     if (!Util.isUnset(request.taskId)) {
       body["taskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.videoExtraInfo)) {
+      body["videoExtraInfo"] = request.videoExtraInfo;
     }
 
     if (!Util.isUnset(request.videoModelCustomPromptTemplate)) {
