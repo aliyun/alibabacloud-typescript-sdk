@@ -1402,6 +1402,8 @@ export class CreateDynamicTagGroupRequest extends $tea.Model {
   enableSubscribeEvent?: boolean;
   /**
    * @remarks
+   * The conditional expressions used to create an application group based on the tag.
+   * 
    * This parameter is required.
    */
   matchExpress?: CreateDynamicTagGroupRequestMatchExpress[];
@@ -3102,10 +3104,10 @@ export class CreateMetricRuleBlackListResponse extends $tea.Model {
 export class CreateMetricRuleResourcesRequest extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to overwrite the existing data. Valid values:
+   * Specifies whether to overwrite existing resources. Valid values:
    * 
-   * *   true: The resources submitted this time will overwrite the previous associated resources.
-   * *   false: The resources submitted this time will not overwrite the previous associated resources. The associated resources after submission include the previous associated resources and the resources submitted this time.
+   * *   true: The resources submitted this time overwrite the previously associated resources.
+   * *   false: The resources submitted this time do not overwrite the previously associated resources. The associated resources after submission include the previously associated resources and the resources submitted this time.
    * 
    * @example
    * false
@@ -3113,7 +3115,7 @@ export class CreateMetricRuleResourcesRequest extends $tea.Model {
   overwrite?: string;
   /**
    * @remarks
-   * The resources to be associated with the alert rule. The value is a JSON array.
+   * The resources that are associated with the alert rule. Set the value to a JSON array.
    * 
    * >  You can add up to 100 resources each time. An alert rule can be associated with up to 3,000 resources.
    * 
@@ -3155,9 +3157,9 @@ export class CreateMetricRuleResourcesRequest extends $tea.Model {
 export class CreateMetricRuleResourcesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The response code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * >  The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -3173,7 +3175,7 @@ export class CreateMetricRuleResourcesResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0671A721-0D7A-4F11-BB77-2416325D65AB
@@ -3181,7 +3183,7 @@ export class CreateMetricRuleResourcesResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+   * Indicates whether the request was successful. Valid values: true: The request was successful. false: The request failed.
    * 
    * @example
    * true
@@ -4373,9 +4375,9 @@ export class CreateSiteMonitorRequest extends $tea.Model {
   taskName?: string;
   /**
    * @remarks
-   * The type of the site monitoring task.
+   * The protocol that is used by the site monitoring task.
    * 
-   * Valid values: HTTP, HTTPS, PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
+   * Valid values: HTTP, HTTPS, PING, TCP, UDP, DNS, SMTP, POP3, FTP, and WEBSOCKET.
    * 
    * This parameter is required.
    * 
@@ -6649,7 +6651,7 @@ export class DeleteMetricRuleBlackListResponse extends $tea.Model {
 export class DeleteMetricRuleResourcesRequest extends $tea.Model {
   /**
    * @remarks
-   * The resources to be disassociated from the alert rule.
+   * The resources that are associated with the alert rule.
    * 
    * This parameter is required.
    * 
@@ -6689,9 +6691,9 @@ export class DeleteMetricRuleResourcesRequest extends $tea.Model {
 export class DeleteMetricRuleResourcesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The responses code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * >  The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -6699,7 +6701,7 @@ export class DeleteMetricRuleResourcesResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The error message.
    * 
    * @example
    * The alert does not exist.
@@ -6707,7 +6709,7 @@ export class DeleteMetricRuleResourcesResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D8A35882-90C6-4F03-BBEB-153C180398EA
@@ -6715,10 +6717,10 @@ export class DeleteMetricRuleResourcesResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: The call was successful.
-   * *   false: The call failed.
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -9761,7 +9763,7 @@ export class DescribeContactListRequest extends $tea.Model {
   contactName?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * Default value: 1.
    * 
@@ -9771,7 +9773,7 @@ export class DescribeContactListRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * Default value: 100.
    * 
@@ -9812,7 +9814,7 @@ export class DescribeContactListResponseBody extends $tea.Model {
    * @remarks
    * The HTTP status code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * >  The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -9825,7 +9827,7 @@ export class DescribeContactListResponseBody extends $tea.Model {
   contacts?: DescribeContactListResponseBodyContacts;
   /**
    * @remarks
-   * The error message.
+   * The error message returned.
    * 
    * @example
    * The Request is not authorization.
@@ -9833,7 +9835,7 @@ export class DescribeContactListResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 06D5ECC2-B9BE-42A4-8FA3-1A610FB08B83
@@ -9841,10 +9843,10 @@ export class DescribeContactListResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: The call was successful.
-   * *   false: The call failed.
+   * *   true: The request was successful.
+   * *   false: The request failed.
    * 
    * @example
    * true
@@ -9852,7 +9854,7 @@ export class DescribeContactListResponseBody extends $tea.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries returned.
    * 
    * @example
    * 15
@@ -10602,7 +10604,7 @@ export class DescribeCustomEventHistogramResponse extends $tea.Model {
 export class DescribeCustomMetricListRequest extends $tea.Model {
   /**
    * @remarks
-   * The dimensions that specify the resources for which you want to query custom metrics.
+   * The dimensions based on which the resources are queried.
    * 
    * @example
    * {sampleName1=value1&amp;sampleName2=value2}
@@ -10612,7 +10614,7 @@ export class DescribeCustomMetricListRequest extends $tea.Model {
    * @remarks
    * The ID of the application group.
    * 
-   * For more information, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
+   * For information about how to query the IDs of application groups, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
    * 
    * @example
    * 7378****
@@ -10620,7 +10622,7 @@ export class DescribeCustomMetricListRequest extends $tea.Model {
   groupId?: string;
   /**
    * @remarks
-   * The MD5 value of the HTTP request body. The MD5 value is a 128-bit hash value used to verify the uniqueness of the reported custom metrics.
+   * The MD5 value of the HTTP request body. The MD5 value is a 128-bit hash value used to verify the uniqueness of the reported monitoring data.
    * 
    * @example
    * 97c25982d9745a231276bff27469****
@@ -10636,7 +10638,7 @@ export class DescribeCustomMetricListRequest extends $tea.Model {
   metricName?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * Pages start from page 1. Default value: 1.
    * 
@@ -10646,7 +10648,7 @@ export class DescribeCustomMetricListRequest extends $tea.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * Pages start from page 1. Default value: 10.
    * 
@@ -10687,9 +10689,9 @@ export class DescribeCustomMetricListRequest extends $tea.Model {
 export class DescribeCustomMetricListResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The responses code.
    * 
-   * >  The value 200 indicates that the call is successful.
+   * >  The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -10705,7 +10707,7 @@ export class DescribeCustomMetricListResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AF425E4-1DEA-54F2-910A-8117C9686140
@@ -14417,7 +14419,7 @@ export class DescribeMetricRuleBlackListResponse extends $tea.Model {
 export class DescribeMetricRuleCountRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the metric. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The metric name. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * cpu_total
@@ -14425,7 +14427,7 @@ export class DescribeMetricRuleCountRequest extends $tea.Model {
   metricName?: string;
   /**
    * @remarks
-   * The namespace of the service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The namespace of the cloud service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * acs_ecs_dashboard
@@ -14456,9 +14458,9 @@ export class DescribeMetricRuleCountRequest extends $tea.Model {
 export class DescribeMetricRuleCountResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The responses code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * >  The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -14466,7 +14468,7 @@ export class DescribeMetricRuleCountResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The error message.
    * 
    * @example
    * The Request is not authorization.
@@ -14479,7 +14481,7 @@ export class DescribeMetricRuleCountResponseBody extends $tea.Model {
   metricRuleCount?: DescribeMetricRuleCountResponseBodyMetricRuleCount;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * FF38D33A-67C1-40EB-AB65-FAEE51EDB644
@@ -14487,10 +14489,10 @@ export class DescribeMetricRuleCountResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: The call was successful.
-   * *   false: The call failed.
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -14689,7 +14691,7 @@ export class DescribeMetricRuleListRequest extends $tea.Model {
 export class DescribeMetricRuleListResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details of the alert rules.
+   * The alert rules.
    */
   alarms?: DescribeMetricRuleListResponseBodyAlarms;
   /**
@@ -18322,10 +18324,10 @@ export class DescribeSiteMonitorAttributeResponse extends $tea.Model {
 export class DescribeSiteMonitorDataRequest extends $tea.Model {
   /**
    * @remarks
-   * The end of the time range for the query. Supported formats:
+   * The end of the time range to query. The following formats are supported:
    * 
-   * *   UNIX timestamp: The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-   * *   Time format: The value is in the YYYY-MM-DDThh:mm:ssZ format.
+   * *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
+   * *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 1551581437000
@@ -18341,7 +18343,7 @@ export class DescribeSiteMonitorDataRequest extends $tea.Model {
   length?: number;
   /**
    * @remarks
-   * The name of the metric. Valid values:
+   * The metric name. Valid values:
    * 
    * *   Availability
    * *   ResponseTime
@@ -18354,7 +18356,7 @@ export class DescribeSiteMonitorDataRequest extends $tea.Model {
   metricName?: string;
   /**
    * @remarks
-   * The pagination cursor.
+   * The pagination token.
    * 
    * @example
    * 49f7b317-7645-4cc9-94fd-ea42e5220930ea42e5220930ea42e522****
@@ -18362,7 +18364,7 @@ export class DescribeSiteMonitorDataRequest extends $tea.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The interval at which monitoring data is returned. The value is an integral multiple of 60. Unit: seconds.
+   * The statistical period. The value is an integral multiple of 60. Unit: seconds.
    * 
    * >  The default value equals the minimum interval at which detection requests are sent to the monitored address.
    * 
@@ -18373,10 +18375,10 @@ export class DescribeSiteMonitorDataRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range for the query. Supported formats:
+   * The start of the time range to query. The following formats are supported:
    * 
-   * *   UNIX timestamp: The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-   * *   Time format: The value is in the YYYY-MM-DDThh:mm:ssZ format.
+   * *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
+   * *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 1551579637000
@@ -18384,7 +18386,7 @@ export class DescribeSiteMonitorDataRequest extends $tea.Model {
   startTime?: string;
   /**
    * @remarks
-   * The ID of the site monitoring task.
+   * The job ID.
    * 
    * This parameter is required.
    * 
@@ -18439,9 +18441,9 @@ export class DescribeSiteMonitorDataRequest extends $tea.Model {
 export class DescribeSiteMonitorDataResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The responses code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * >  The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -18449,7 +18451,7 @@ export class DescribeSiteMonitorDataResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The returned monitoring data.
+   * The monitoring data.
    * 
    * @example
    * [{"Maximum":247,"Mimimum":61,"Average":154,"userId":"127067667954****","taskId":"49f7b317-7645-4cc9-94fd-ea42e522****","timestamp":1551581760000}]
@@ -18465,7 +18467,7 @@ export class DescribeSiteMonitorDataResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination cursor.
+   * The pagination token.
    * 
    * @example
    * ea42e5220930ea42e522****
@@ -18473,7 +18475,7 @@ export class DescribeSiteMonitorDataResponseBody extends $tea.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3febb181-0d98-4af9-8b04-7faf36b048b9
@@ -18481,7 +18483,7 @@ export class DescribeSiteMonitorDataResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+   * Indicates whether the request was successful. Valid values: true: The request was successful. false: The request failed.
    * 
    * @example
    * true
@@ -18917,20 +18919,10 @@ export class DescribeSiteMonitorListResponse extends $tea.Model {
 
 export class DescribeSiteMonitorLogRequest extends $tea.Model {
   /**
-   * @remarks
-   * 浏览器类型。
-   * 
    * @example
    * Chrome
    */
   browser?: string;
-  /**
-   * @remarks
-   * 该参数已废弃，无需关注。
-   * 
-   * @example
-   * 无
-   */
   browserInfo?: string;
   /**
    * @remarks
@@ -18941,9 +18933,6 @@ export class DescribeSiteMonitorLogRequest extends $tea.Model {
    */
   city?: string;
   /**
-   * @remarks
-   * 设备类型（模拟屏幕大小类型）。
-   * 
    * @example
    * laptop
    */
@@ -19203,9 +19192,9 @@ export class DescribeSiteMonitorQuotaRequest extends $tea.Model {
 export class DescribeSiteMonitorQuotaResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The responses code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * >  The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -19213,7 +19202,7 @@ export class DescribeSiteMonitorQuotaResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The quotas and version of site monitoring.
+   * The quota.
    */
   data?: DescribeSiteMonitorQuotaResponseBodyData;
   /**
@@ -19223,7 +19212,7 @@ export class DescribeSiteMonitorQuotaResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 26860260-76C6-404E-AB7A-EB98D36A6885
@@ -19231,10 +19220,10 @@ export class DescribeSiteMonitorQuotaResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: The call was successful.
-   * *   false: The call failed.
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -19293,7 +19282,7 @@ export class DescribeSiteMonitorQuotaResponse extends $tea.Model {
 export class DescribeSiteMonitorStatisticsRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the metric. Valid values:
+   * The metric name. Valid values:
    * 
    * *   Availability
    * *   ErrorRate
@@ -19308,7 +19297,7 @@ export class DescribeSiteMonitorStatisticsRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The timestamp that specifies the beginning of the time range to query.
+   * The beginning of the time range to query.
    * 
    * Unit: milliseconds. The default value is 1 hour ahead of the current time.
    * 
@@ -19332,7 +19321,7 @@ export class DescribeSiteMonitorStatisticsRequest extends $tea.Model {
    * @remarks
    * The statistical period.
    * 
-   * Unit: minutes. Default value: 1440 (1 day). Maximum value: 43200 (30 days).
+   * Unit: minutes. Default value: 1440 (one day). Maximum value: 43200 (30 days).
    * 
    * @example
    * 1440
@@ -19366,9 +19355,9 @@ export class DescribeSiteMonitorStatisticsRequest extends $tea.Model {
 export class DescribeSiteMonitorStatisticsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The responses code.
    * 
-   * >  The status code 200 indicates that the call is successful.
+   * >  The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -19376,7 +19365,7 @@ export class DescribeSiteMonitorStatisticsResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The statistics of the specified metric.
+   * The statistics.
    * 
    * @example
    * 100
@@ -19392,7 +19381,7 @@ export class DescribeSiteMonitorStatisticsResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3AD2724D-E317-4BFB-B422-D6691D071BE1
@@ -19400,10 +19389,10 @@ export class DescribeSiteMonitorStatisticsResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -19451,6 +19440,145 @@ export class DescribeSiteMonitorStatisticsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeSiteMonitorStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyntheticProbeListRequest extends $tea.Model {
+  city?: string;
+  /**
+   * @example
+   * false
+   */
+  idcProbe?: boolean;
+  /**
+   * @example
+   * false
+   */
+  ipv4?: boolean;
+  /**
+   * @example
+   * false
+   */
+  ipv6?: boolean;
+  isp?: string;
+  /**
+   * @example
+   * false
+   */
+  lmProbe?: boolean;
+  /**
+   * @example
+   * false
+   */
+  mbProbe?: boolean;
+  regionId?: string;
+  /**
+   * @example
+   * true
+   */
+  viewAll?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      city: 'City',
+      idcProbe: 'IdcProbe',
+      ipv4: 'Ipv4',
+      ipv6: 'Ipv6',
+      isp: 'Isp',
+      lmProbe: 'LmProbe',
+      mbProbe: 'MbProbe',
+      regionId: 'RegionId',
+      viewAll: 'ViewAll',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      city: 'string',
+      idcProbe: 'boolean',
+      ipv4: 'boolean',
+      ipv6: 'boolean',
+      isp: 'string',
+      lmProbe: 'boolean',
+      mbProbe: 'boolean',
+      regionId: 'string',
+      viewAll: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyntheticProbeListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  ispCityList?: DescribeSyntheticProbeListResponseBodyIspCityList[];
+  /**
+   * @example
+   * The specified resource is not found.
+   */
+  message?: string;
+  /**
+   * @example
+   * 87170bc7-e28a-4c93-b9bf-90a1dbe84736
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      ispCityList: 'IspCityList',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      ispCityList: { 'type': 'array', 'itemType': DescribeSyntheticProbeListResponseBodyIspCityList },
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyntheticProbeListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSyntheticProbeListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSyntheticProbeListResponseBody,
     };
   }
 
@@ -21024,6 +21152,8 @@ export class DisableMetricRulesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the alert rule. Valid values of N: 1 to 20.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21052,9 +21182,9 @@ export class DisableMetricRulesRequest extends $tea.Model {
 export class DisableMetricRulesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The responses code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * >  The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -21070,7 +21200,7 @@ export class DisableMetricRulesResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * FF38D33A-67C1-40EB-AB65-FAEE51EDB644
@@ -21078,10 +21208,10 @@ export class DisableMetricRulesResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: The call was successful.
-   * *   false: The call failed.
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -21139,7 +21269,7 @@ export class DisableSiteMonitorsRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the site monitoring tasks. Separate multiple IDs with commas (,).
+   * The ID of the site monitoring task. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -21169,9 +21299,9 @@ export class DisableSiteMonitorsRequest extends $tea.Model {
 export class DisableSiteMonitorsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The status code.
+   * The responses code.
    * 
-   * >  The status code 200 indicates a success.
+   * >  The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -21179,7 +21309,7 @@ export class DisableSiteMonitorsResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The number of detection points that were monitored by the site monitoring tasks.
+   * The number of detection points that are affected by the site monitoring tasks.
    */
   data?: DisableSiteMonitorsResponseBodyData;
   /**
@@ -21192,7 +21322,7 @@ export class DisableSiteMonitorsResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3fcd12e7-d387-42ee-b77e-661c775bb17f
@@ -21200,10 +21330,10 @@ export class DisableSiteMonitorsResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: successful.
-   * *   false: failed.
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -21886,7 +22016,7 @@ export class EnableSiteMonitorsRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the site monitoring tasks. Separate multiple instance IDs with commas (,).
+   * The ID of the site monitoring task. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -21916,9 +22046,9 @@ export class EnableSiteMonitorsRequest extends $tea.Model {
 export class EnableSiteMonitorsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The status code.
+   * The responses code.
    * 
-   * >  The status code 200 indicates a success.
+   * >  The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -21939,7 +22069,7 @@ export class EnableSiteMonitorsResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3fcd12e7-d387-42ee-b77e-661c775bb17f
@@ -21947,10 +22077,10 @@ export class EnableSiteMonitorsResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: successful.
-   * *   false: failed.
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -28880,13 +29010,13 @@ export class SubscriptionConditions extends $tea.Model {
 export class AddTagsRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The key of tag N.
+   * The tag key.
    * 
    * Valid values of N: 1 to 3. A tag key can be 1 to 64 characters in length.
    * 
    * You can create a tag key or specify an existing tag key. For more information about how to obtain a tag key, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/145558.html).
    * 
-   * > The tag key cannot start with `aliyun` or `acs:`. The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
+   * >  The tag key cannot start with `aliyun` or `acs:`. The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
    * 
    * This parameter is required.
    * 
@@ -28896,13 +29026,13 @@ export class AddTagsRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N.
+   * The tag value.
    * 
    * Valid values of N: 1 to 3. A tag value can be 1 to 64 characters in length.
    * 
-   * You can create a tag value or specify an existing tag value. For more information about how to obtain a tag value, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/145557.html).
+   * You can create a tag value or specify an existing tag value. For more information about how to obtain a tag value, see [DescribeTagValueList](https://help.aliyun.com/document_detail/145557.html).
    * 
-   * > The tag value cannot start with `aliyun` or `acs:`. The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
+   * >  The tag value cannot start with `aliyun` or `acs:`. The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
    * 
    * This parameter is required.
    * 
@@ -29160,7 +29290,7 @@ export class CreateDynamicTagGroupRequestMatchExpress extends $tea.Model {
   tagName?: string;
   /**
    * @remarks
-   * The tag values of the cloud resources. In this example, set the value of N to 1.
+   * The tag values of the cloud resources. Set the value of N to 1.
    * 
    * >  If you set the `MatchExpress.N.TagValueMatchFunction` parameter, you must also set the `MatchExpress.N.TagValue` parameter.
    * 
@@ -29170,7 +29300,7 @@ export class CreateDynamicTagGroupRequestMatchExpress extends $tea.Model {
   tagValue?: string;
   /**
    * @remarks
-   * The method that is used to match the tag values of the cloud resources. In this example, set the value of N to 1. Valid values:
+   * The method that is used to match the tag values of the cloud resources. Set the value of N to 1. Valid values:
    * 
    * *   contains: contains
    * *   startWith: starts with a prefix
@@ -30272,7 +30402,7 @@ export class CreateHostAvailabilityRequestTaskOption extends $tea.Model {
   httpResponseMatchContent?: string;
   /**
    * @remarks
-   * The URI that you want to monitor. This parameter must be specified when TaskType is set to HTTP.
+   * The URI that you want to monitor. This parameter is required if the TaskType parameter is set to HTTP or Telnet.
    * 
    * @example
    * https://www.aliyun.com
@@ -30292,7 +30422,7 @@ export class CreateHostAvailabilityRequestTaskOption extends $tea.Model {
    * @remarks
    * The domain name or IP address that you want to monitor.
    * 
-   * > This parameter must be specified when TaskType is set to PING or TELNET.
+   * >  This parameter is required if the TaskType parameter is set to PING.
    * 
    * @example
    * www.aliyun.com
@@ -34018,7 +34148,7 @@ export class DescribeContactListResponseBodyContactsContactChannels extends $tea
   mail?: string;
   /**
    * @remarks
-   * The phone number of the alert contact.
+   * The phone number of the alert contac.
    * 
    * @example
    * 1333333****
@@ -34054,7 +34184,7 @@ export class DescribeContactListResponseBodyContactsContactChannelsState extends
    * 
    * Valid value: OK. The value OK indicates that the TradeManager ID is valid and can receive alert notifications.
    * 
-   * >  This parameter can be returned only on the China site (aliyun.com).
+   * >  This parameter applies only to the Alibaba Cloud China site (aliyun.com).
    * 
    * @example
    * OK
@@ -34074,8 +34204,8 @@ export class DescribeContactListResponseBodyContactsContactChannelsState extends
    * @remarks
    * The status of the email address. Valid values:
    * 
-   * *   PENDING: The email address is not activated. Alert notifications can be sent to the email address only after the email address is activated.
-   * *   OK: The email address is activated and can receive alert notifications.
+   * *   PENDING: The phone number is not activated. Alert notifications can be sent to the phone number by using text messages only after the phone number is activated.
+   * *   OK: The phone number is activated and can receive alert notifications.
    * 
    * @example
    * PENDING
@@ -34088,7 +34218,7 @@ export class DescribeContactListResponseBodyContactsContactChannelsState extends
    * *   PENDING: The phone number is not activated. Alert notifications can be sent to the phone number by using text messages only after the phone number is activated.
    * *   OK: The phone number is activated and can receive alert notifications.
    * 
-   * >  This parameter can be returned only on the China site (aliyun.com).
+   * >  This parameter applies only to the Alibaba Cloud China site (aliyun.com).
    * 
    * @example
    * OK
@@ -34151,7 +34281,7 @@ export class DescribeContactListResponseBodyContactsContact extends $tea.Model {
   channelsState?: DescribeContactListResponseBodyContactsContactChannelsState;
   /**
    * @remarks
-   * The alert contact groups.
+   * None.
    */
   contactGroups?: DescribeContactListResponseBodyContactsContactContactGroups;
   /**
@@ -34166,7 +34296,7 @@ export class DescribeContactListResponseBodyContactsContact extends $tea.Model {
   createTime?: number;
   /**
    * @remarks
-   * The description of the alert contact.
+   * The description.
    */
   desc?: string;
   /**
@@ -39360,11 +39490,11 @@ export class DescribeMetricRuleListResponseBodyAlarmsAlarmCompositeExpression ex
   expressionRaw?: string;
   /**
    * @remarks
-   * The level of the alert. Valid values:
+   * The alert level. Valid values:
    * 
-   * *   Critical
-   * *   Warn
-   * *   Info
+   * *   CRITICAL
+   * *   WARN
+   * *   INFO
    * 
    * @example
    * Critical
@@ -39806,11 +39936,11 @@ export class DescribeMetricRuleListResponseBodyAlarmsAlarmPrometheus extends $te
   annotations?: DescribeMetricRuleListResponseBodyAlarmsAlarmPrometheusAnnotations;
   /**
    * @remarks
-   * The level of the alert. Valid values:
+   * The alert level. Valid values:
    * 
-   * *   Critical
-   * *   Warn
-   * *   Info
+   * *   CRITICAL
+   * *   WARN
+   * *   INFO
    * 
    * @example
    * Critical
@@ -39994,9 +40124,9 @@ export class DescribeMetricRuleListResponseBodyAlarmsAlarm extends $tea.Model {
   period?: string;
   /**
    * @remarks
-   * The Prometheus alert rule.
+   * The Prometheus alerts.
    * 
-   * >  This parameter is required only when you create a Prometheus alert rule for Hybrid Cloud Monitoring.
+   * >  This parameter is required only if you create a Prometheus alert rule for Hybrid Cloud Monitoring.
    */
   prometheus?: DescribeMetricRuleListResponseBodyAlarmsAlarmPrometheus;
   /**
@@ -43581,12 +43711,14 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsIspCitiesIspCit
    * The carrier name.
    */
   ispName?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       city: 'City',
       cityName: 'CityName',
       isp: 'Isp',
       ispName: 'IspName',
+      type: 'Type',
     };
   }
 
@@ -43596,6 +43728,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsIspCitiesIspCit
       cityName: 'string',
       isp: 'string',
       ispName: 'string',
+      type: 'string',
     };
   }
 
@@ -43982,6 +44115,10 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * A
    */
   dnsType?: string;
+  /**
+   * @example
+   * false
+   */
   emptyMessage?: boolean;
   expectExistString?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectExistString;
   expectNonExistString?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectNonExistString;
@@ -44025,6 +44162,13 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * get
    */
   httpMethod?: string;
+  /**
+   * @remarks
+   * ip_network indicates the network type of the task. Valid values: v4, v6, and auto. Default value: v4.
+   * 
+   * @example
+   * v4
+   */
   ipNetwork?: string;
   /**
    * @example
@@ -44069,6 +44213,13 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    */
   pingPort?: number;
   /**
+   * @remarks
+   * The PING protocol type. Valid values:
+   * 
+   * *   icmp
+   * *   tcp
+   * *   udp
+   * 
    * @example
    * icmp,tcp,udp
    */
@@ -44089,7 +44240,18 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * TCP
    */
   protocol?: string;
+  /**
+   * @remarks
+   * Indicates whether the Quick UDP Internet Connections (QUIC) protocol is used for browser detection. Valid values: true false Default value: false.
+   * 
+   * @example
+   * true
+   */
   quicEnabled?: boolean;
+  /**
+   * @remarks
+   * The sites for which the QUIC protocol is forcibly used.
+   */
   quicTarget?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonQuicTarget;
   /**
    * @remarks
@@ -44134,6 +44296,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * 0
    */
   retryDelay?: number;
+  screenShot?: boolean;
   /**
    * @example
    * false
@@ -44209,6 +44372,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       responseContent: 'response_content',
       responseFormat: 'response_format',
       retryDelay: 'retry_delay',
+      screenShot: 'screen_shot',
       strictMode: 'strict_mode',
       timeOut: 'time_out',
       trafficHijackElementBlacklist: 'traffic_hijack_element_blacklist',
@@ -44261,6 +44425,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       responseContent: 'string',
       responseFormat: 'string',
       retryDelay: 'number',
+      screenShot: 'boolean',
       strictMode: 'boolean',
       timeOut: 'number',
       trafficHijackElementBlacklist: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementBlacklist,
@@ -44277,11 +44442,13 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
 }
 
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig extends $tea.Model {
+  region?: string;
   securityGroupId?: string;
   vpcId?: string;
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      region: 'Region',
       securityGroupId: 'SecurityGroupId',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
@@ -44290,6 +44457,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig exten
 
   static types(): { [key: string]: any } {
     return {
+      region: 'string',
       securityGroupId: 'string',
       vpcId: 'string',
       vswitchId: 'string',
@@ -45165,10 +45333,10 @@ export class DescribeSiteMonitorListResponseBodySiteMonitors extends $tea.Model 
 export class DescribeSiteMonitorQuotaResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * Indicates whether the second-level monitoring is enabled. Valid values:
+   * Indicates whether second-level monitoring is enabled. Valid values:
    * 
-   * *   true
-   * *   false
+   * *   true: Second-level monitoring is enabled.
+   * *   false: Second-level monitoring is disabled.
    * 
    * @example
    * false
@@ -45236,6 +45404,127 @@ export class DescribeSiteMonitorQuotaResponseBodyData extends $tea.Model {
       siteMonitorQuotaTaskUsed: 'number',
       siteMonitorTaskQuota: 'number',
       siteMonitorVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyntheticProbeListResponseBodyIspCityList extends $tea.Model {
+  areaCn?: string;
+  /**
+   * @example
+   * Huabei
+   */
+  areaEn?: string;
+  /**
+   * @example
+   * 738
+   */
+  city?: string;
+  cityCn?: string;
+  /**
+   * @example
+   * Beijing
+   */
+  cityEn?: string;
+  /**
+   * @example
+   * 629
+   */
+  country?: string;
+  countryCn?: string;
+  /**
+   * @example
+   * China
+   */
+  countryEn?: string;
+  /**
+   * @example
+   * 1
+   */
+  idcV4ProbeCount?: number;
+  idcV6ProbeCount?: number;
+  ipPool?: string[];
+  /**
+   * @example
+   * 232
+   */
+  isp?: string;
+  ispCn?: string;
+  /**
+   * @example
+   * China-Unicom
+   */
+  ispEn?: string;
+  /**
+   * @example
+   * 1
+   */
+  lmProbeCount?: number;
+  /**
+   * @example
+   * 1
+   */
+  mbProbeCount?: number;
+  /**
+   * @example
+   * 264
+   */
+  region?: string;
+  regionCn?: string;
+  /**
+   * @example
+   * Jiangxi
+   */
+  regionEn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      areaCn: 'AreaCn',
+      areaEn: 'AreaEn',
+      city: 'City',
+      cityCn: 'CityCn',
+      cityEn: 'CityEn',
+      country: 'Country',
+      countryCn: 'CountryCn',
+      countryEn: 'CountryEn',
+      idcV4ProbeCount: 'IdcV4ProbeCount',
+      idcV6ProbeCount: 'IdcV6ProbeCount',
+      ipPool: 'IpPool',
+      isp: 'Isp',
+      ispCn: 'IspCn',
+      ispEn: 'IspEn',
+      lmProbeCount: 'LmProbeCount',
+      mbProbeCount: 'MbProbeCount',
+      region: 'Region',
+      regionCn: 'RegionCn',
+      regionEn: 'RegionEn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      areaCn: 'string',
+      areaEn: 'string',
+      city: 'string',
+      cityCn: 'string',
+      cityEn: 'string',
+      country: 'string',
+      countryCn: 'string',
+      countryEn: 'string',
+      idcV4ProbeCount: 'number',
+      idcV6ProbeCount: 'number',
+      ipPool: { 'type': 'array', 'itemType': 'string' },
+      isp: 'string',
+      ispCn: 'string',
+      ispEn: 'string',
+      lmProbeCount: 'number',
+      mbProbeCount: 'number',
+      region: 'string',
+      regionCn: 'string',
+      regionEn: 'string',
     };
   }
 
@@ -46253,7 +46542,7 @@ export class ModifyHostAvailabilityRequestTaskOption extends $tea.Model {
   httpResponseMatchContent?: string;
   /**
    * @remarks
-   * The URI that you want to monitor. This parameter must be specified when TaskType is set to HTTP.
+   * The URI that you want to monitor. This parameter is required if the TaskType parameter is set to HTTP or Telnet.
    * 
    * @example
    * https://www.aliyun.com
@@ -46273,7 +46562,7 @@ export class ModifyHostAvailabilityRequestTaskOption extends $tea.Model {
    * @remarks
    * The domain name or IP address that you want to monitor.
    * 
-   * > This parameter must be specified when TaskType is set to PING or TELNET. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
+   * >  This parameter is required if the TaskType parameter is set to PING. For more information about how to set the TaskType parameter, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
    * 
    * @example
    * www.aliyun.com
@@ -49157,6 +49446,7 @@ export class PutResourceMetricRuleRequestEscalationsCritical extends $tea.Model 
    * *   LessThanOrEqualToThreshold: less than or equal to the threshold
    * *   LessThanThreshold: less than the threshold
    * *   NotEqualToThreshold: not equal to the threshold
+   * *   EqualToThreshold: equal to the threshold
    * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
    * *   LessThanYesterday: less than the metric value at the same time yesterday
    * *   GreaterThanLastWeek: greater than the metric value at the same time last week
@@ -49235,6 +49525,7 @@ export class PutResourceMetricRuleRequestEscalationsInfo extends $tea.Model {
    * *   LessThanOrEqualToThreshold: less than or equal to the threshold
    * *   LessThanThreshold: less than the threshold
    * *   NotEqualToThreshold: not equal to the threshold
+   * *   EqualToThreshold: equal to the threshold
    * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
    * *   LessThanYesterday: less than the metric value at the same time yesterday
    * *   GreaterThanLastWeek: greater than the metric value at the same time last week
@@ -49313,6 +49604,7 @@ export class PutResourceMetricRuleRequestEscalationsWarn extends $tea.Model {
    * *   LessThanOrEqualToThreshold: less than or equal to the threshold
    * *   LessThanThreshold: less than the threshold
    * *   NotEqualToThreshold: not equal to the threshold
+   * *   EqualToThreshold: equal to the threshold
    * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
    * *   LessThanYesterday: less than the metric value at the same time yesterday
    * *   GreaterThanLastWeek: greater than the metric value at the same time last week
@@ -49416,6 +49708,7 @@ export class PutResourceMetricRuleRequestCompositeExpressionExpressionList exten
    * *   LessThanOrEqualToThreshold: less than or equal to the threshold
    * *   LessThanThreshold: less than the threshold
    * *   NotEqualToThreshold: not equal to the threshold
+   * *   EqualToThreshold: equal to the threshold
    * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
    * *   LessThanYesterday: less than the metric value at the same time yesterday
    * *   GreaterThanLastWeek: greater than the metric value at the same time last week
@@ -49712,6 +50005,7 @@ export class PutResourceMetricRuleShrinkRequestEscalationsCritical extends $tea.
    * *   LessThanOrEqualToThreshold: less than or equal to the threshold
    * *   LessThanThreshold: less than the threshold
    * *   NotEqualToThreshold: not equal to the threshold
+   * *   EqualToThreshold: equal to the threshold
    * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
    * *   LessThanYesterday: less than the metric value at the same time yesterday
    * *   GreaterThanLastWeek: greater than the metric value at the same time last week
@@ -49790,6 +50084,7 @@ export class PutResourceMetricRuleShrinkRequestEscalationsInfo extends $tea.Mode
    * *   LessThanOrEqualToThreshold: less than or equal to the threshold
    * *   LessThanThreshold: less than the threshold
    * *   NotEqualToThreshold: not equal to the threshold
+   * *   EqualToThreshold: equal to the threshold
    * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
    * *   LessThanYesterday: less than the metric value at the same time yesterday
    * *   GreaterThanLastWeek: greater than the metric value at the same time last week
@@ -49868,6 +50163,7 @@ export class PutResourceMetricRuleShrinkRequestEscalationsWarn extends $tea.Mode
    * *   LessThanOrEqualToThreshold: less than or equal to the threshold
    * *   LessThanThreshold: less than the threshold
    * *   NotEqualToThreshold: not equal to the threshold
+   * *   EqualToThreshold: equal to the threshold
    * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
    * *   LessThanYesterday: less than the metric value at the same time yesterday
    * *   GreaterThanLastWeek: greater than the metric value at the same time last week
@@ -54117,10 +54413,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the reported custom metrics of a cloud service.
+   * Queries the reported monitoring data.
    * 
    * @remarks
-   * >  You can call the DescribeMetricList operation to query the metrics of a cloud service. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
+   * >  You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
    * 
    * @param request - DescribeCustomMetricListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54171,10 +54467,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the reported custom metrics of a cloud service.
+   * Queries the reported monitoring data.
    * 
    * @remarks
-   * >  You can call the DescribeMetricList operation to query the metrics of a cloud service. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
+   * >  You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
    * 
    * @param request - DescribeCustomMetricListRequest
    * @returns DescribeCustomMetricListResponse
@@ -56675,6 +56971,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the fine-grained monitoring data of a site monitoring task.
+   * 
    * @param request - DescribeSiteMonitorDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSiteMonitorDataResponse
@@ -56732,6 +57030,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the fine-grained monitoring data of a site monitoring task.
+   * 
    * @param request - DescribeSiteMonitorDataRequest
    * @returns DescribeSiteMonitorDataResponse
    */
@@ -56967,6 +57267,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the quotas and version of site monitoring.
+   * 
    * @param request - DescribeSiteMonitorQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSiteMonitorQuotaResponse
@@ -56989,6 +57291,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the quotas and version of site monitoring.
+   * 
    * @param request - DescribeSiteMonitorQuotaRequest
    * @returns DescribeSiteMonitorQuotaResponse
    */
@@ -56998,8 +57302,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the statistics of a specified metric for a specified site monitoring task.
+   * 
    * @remarks
-   * This topic provides an example to show how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
+   * This topic provides an example on how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
    * 
    * @param request - DescribeSiteMonitorStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57042,8 +57348,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the statistics of a specified metric for a specified site monitoring task.
+   * 
    * @remarks
-   * This topic provides an example to show how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
+   * This topic provides an example on how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
    * 
    * @param request - DescribeSiteMonitorStatisticsRequest
    * @returns DescribeSiteMonitorStatisticsResponse
@@ -57051,6 +57359,76 @@ export default class Client extends OpenApi {
   async describeSiteMonitorStatistics(request: DescribeSiteMonitorStatisticsRequest): Promise<DescribeSiteMonitorStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSiteMonitorStatisticsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询拨测探测节点列表
+   * 
+   * @param request - DescribeSyntheticProbeListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSyntheticProbeListResponse
+   */
+  async describeSyntheticProbeListWithOptions(request: DescribeSyntheticProbeListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSyntheticProbeListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.idcProbe)) {
+      query["IdcProbe"] = request.idcProbe;
+    }
+
+    if (!Util.isUnset(request.ipv4)) {
+      query["Ipv4"] = request.ipv4;
+    }
+
+    if (!Util.isUnset(request.ipv6)) {
+      query["Ipv6"] = request.ipv6;
+    }
+
+    if (!Util.isUnset(request.isp)) {
+      query["Isp"] = request.isp;
+    }
+
+    if (!Util.isUnset(request.lmProbe)) {
+      query["LmProbe"] = request.lmProbe;
+    }
+
+    if (!Util.isUnset(request.mbProbe)) {
+      query["MbProbe"] = request.mbProbe;
+    }
+
+    if (!Util.isUnset(request.viewAll)) {
+      query["ViewAll"] = request.viewAll;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSyntheticProbeList",
+      version: "2019-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSyntheticProbeListResponse>(await this.callApi(params, req, runtime), new DescribeSyntheticProbeListResponse({}));
+  }
+
+  /**
+   * 查询拨测探测节点列表
+   * 
+   * @param request - DescribeSyntheticProbeListRequest
+   * @returns DescribeSyntheticProbeListResponse
+   */
+  async describeSyntheticProbeList(request: DescribeSyntheticProbeListRequest): Promise<DescribeSyntheticProbeListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSyntheticProbeListWithOptions(request, runtime);
   }
 
   /**
@@ -57573,6 +57951,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables alert rules.
+   * 
    * @param request - DisableMetricRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableMetricRulesResponse
@@ -57602,6 +57982,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables alert rules.
+   * 
    * @param request - DisableMetricRulesRequest
    * @returns DisableMetricRulesResponse
    */
@@ -57611,6 +57993,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables site monitoring tasks.
+   * 
    * @param request - DisableSiteMonitorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableSiteMonitorsResponse
@@ -57640,6 +58024,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables site monitoring tasks.
+   * 
    * @param request - DisableSiteMonitorsRequest
    * @returns DisableSiteMonitorsResponse
    */
@@ -57851,6 +58237,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables site monitoring tasks.
+   * 
    * @param request - EnableSiteMonitorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableSiteMonitorsResponse
@@ -57880,6 +58268,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables site monitoring tasks.
+   * 
    * @param request - EnableSiteMonitorsRequest
    * @returns EnableSiteMonitorsResponse
    */
@@ -59727,7 +60117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an alert rule for a metric of a resource.
+   * Configures an alert rule.
    * 
    * @remarks
    * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
@@ -59839,7 +60229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an alert rule for a metric of a resource.
+   * Configures an alert rule.
    * 
    * @remarks
    * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
