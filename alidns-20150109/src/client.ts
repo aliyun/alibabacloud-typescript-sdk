@@ -2,6 +2,7 @@
 /**
  */
 import Util, * as $Util from '@alicloud/tea-util';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -640,21 +641,21 @@ export class AddDnsGtmAddressPoolRequest extends $tea.Model {
   lbaStrategy?: string;
   /**
    * @remarks
-   * The extended information. The required parameters vary based on the value of ProtocolType.
+   * The extended information. The required parameters vary based on the health check protocol.
    * 
-   * *   HTTP or HTTPS
+   * *   HTTP or HTTPS:
    * 
    *     *   port: the port that you want to check
    * 
    *     *   host: the host settings
    * 
-   *     *   path: the URL path
+   *     *   path: the URL
    * 
-   *     *   code: the response code. The health check result is deemed abnormal if the returned value is greater than the specified value. Values: 400, 500.
+   *     *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value. Valid values: 400 and 500.
    * 
    *     *   failureRate: the failure rate
    * 
-   *     *   sni: specifies whether to enable server name indication (SNI). This parameter is available only when ProtocolType is set to HTTPS. Valid values:
+   *     *   sni: specifies whether to enable Server Name Indication (SNI). This parameter is available only when ProtocolType is set to HTTPS. Valid values:
    * 
    *         *   true: enables SNI.
    *         *   other: disables SNI.
@@ -664,7 +665,7 @@ export class AddDnsGtmAddressPoolRequest extends $tea.Model {
    *         *   IPV4
    *         *   IPV6
    * 
-   * *   PING
+   * *   ping:
    * 
    *     *   failureRate: the failure rate
    * 
@@ -677,7 +678,7 @@ export class AddDnsGtmAddressPoolRequest extends $tea.Model {
    *         *   IPV4
    *         *   IPV6
    * 
-   * *   TCP
+   * *   TCP:
    * 
    *     *   port: the port that you want to check
    * 
@@ -908,50 +909,50 @@ export class AddDnsGtmMonitorRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The extended information, that is, the parameters required for the protocol. Different protocols require different parameters:
+   * The extended information. The required parameters vary based on the value of ProtocolType.
    * 
-   * *   HTTP or HTTPS:
+   * *   HTTP or HTTPS
    * 
-   *     *   port: the port to check.
+   *     *   port: the port that you want to check
    * 
-   *     *   host: the host configuration.
+   *     *   host: the host settings
    * 
-   *     *   path: the health check URL.
+   *     *   path: the URL path
    * 
-   *     *   code: the status code threshold. If the returned status code is greater than the specified threshold, the application service is deemed abnormal.
+   *     *   code: the response code. The health check result is deemed abnormal if the returned value is greater than the specified value.
    * 
-   *     *   failureRate: the failure rate.
+   *     *   failureRate: the failure rate
    * 
-   *     *   sni: specifies whether to enable Server Name Indication (SNI). This parameter is only required for the HTTPS protocol. Valid values:
+   *     *   sni: specifies whether to enable server name indication (SNI). This parameter is available only when ProtocolType is set to HTTPS. Valid values:
    * 
    *         *   true: enables SNI.
    *         *   false: disables SNI.
    * 
-   *     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+   *     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
    * 
    *         *   IPV4
    *         *   IPV6
    * 
-   * *   PING:
+   * *   PING
    * 
-   *     *   failureRate: the failure rate.
+   *     *   failureRate: the failure rate
    * 
-   *     *   packetNum: the number of ping packets.
+   *     *   packetNum: the number of ping packets
    * 
-   *     *   packetLossRate: the loss rate of ping packets.
+   *     *   packetLossRate: the loss rate of ping packets
    * 
-   *     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+   *     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
    * 
    *         *   IPV4
    *         *   IPV6
    * 
-   * *   TCP:
+   * *   TCP
    * 
-   *     *   port: the port to check.
+   *     *   port: the port that you want to check
    * 
-   *     *   failureRate: the failure rate.
+   *     *   failureRate: the failure rate
    * 
-   *     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+   *     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
    * 
    *         *   IPV4
    *         *   IPV6
@@ -964,7 +965,7 @@ export class AddDnsGtmMonitorRequest extends $tea.Model {
   monitorExtendInfo?: string;
   /**
    * @remarks
-   * The protocol used for the health check. Valid values:
+   * The health check protocol. Valid values:
    * 
    * *   HTTP
    * *   HTTPS
@@ -979,7 +980,7 @@ export class AddDnsGtmMonitorRequest extends $tea.Model {
   protocolType?: string;
   /**
    * @remarks
-   * The health check timeout period. Unit: milliseconds.
+   * The timeout period. Unit: milliseconds.
    * 
    * This parameter is required.
    * 
@@ -1100,7 +1101,12 @@ export class AddDomainRequest extends $tea.Model {
   groupId?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en.
    * 
    * @example
    * en
@@ -1258,7 +1264,12 @@ export class AddDomainBackupRequest extends $tea.Model {
   domainName?: string;
   /**
    * @remarks
-   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en.
    * 
    * @example
    * en
@@ -1268,8 +1279,8 @@ export class AddDomainBackupRequest extends $tea.Model {
    * @remarks
    * The backup cycle. Valid values:
    * 
-   * *   **DAY**: Backs up data once every day.
-   * *   **HOUR**: Backs up data once every hour.
+   * *   DAY: backs up data on a daily basis.
+   * *   HOUR: backs up data on an hourly basis.
    * 
    * This parameter is required.
    * 
@@ -1382,7 +1393,12 @@ export class AddDomainGroupRequest extends $tea.Model {
   groupName?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en.
    * 
    * @example
    * en
@@ -1499,9 +1515,9 @@ export class AddDomainRecordRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The DNS resolution line. Default value: **default**. For more information, see
+   * The resolution line. Default value: **default**. For more information, see
    * 
-   * [DNS lines](https://www.alibabacloud.com/help/zh/doc-detail/29807.htm).
+   * [DNS resolution lines](https://www.alibabacloud.com/help/zh/doc-detail/29807.htm).
    * 
    * @example
    * default
@@ -1511,7 +1527,7 @@ export class AddDomainRecordRequest extends $tea.Model {
    * @remarks
    * The priority of the mail exchanger (MX) record. Valid values: `1 to 50`.
    * 
-   * This parameter must be specified if the type of the DNS record is MX. A smaller value indicates a higher priority.
+   * This parameter is required if the type of the DNS record is MX. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -1531,7 +1547,7 @@ export class AddDomainRecordRequest extends $tea.Model {
   RR?: string;
   /**
    * @remarks
-   * The time-to-live (TTL) of the DNS record. Default value: 600. Unit: seconds. For more information, see
+   * The time to live (TTL) period of the Domain Name System (DNS) record. Default value: 600. Unit: seconds. For more information, see
    * 
    * [TTL definition](https://www.alibabacloud.com/help/zh/doc-detail/29806.htm).
    * 
@@ -2255,7 +2271,7 @@ export class AddGtmMonitorResponse extends $tea.Model {
 export class AddGtmRecoveryPlanRequest extends $tea.Model {
   /**
    * @remarks
-   * The list of IDs of faulty address pools.
+   * The IDs of faulty address pools.
    * 
    * This parameter is required.
    * 
@@ -2265,7 +2281,7 @@ export class AddGtmRecoveryPlanRequest extends $tea.Model {
   faultAddrPool?: string;
   /**
    * @remarks
-   * The language used by the user.
+   * The language.
    * 
    * @example
    * en
@@ -2273,7 +2289,7 @@ export class AddGtmRecoveryPlanRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the disaster recovery plan that you want to create.
+   * The name of the disaster recovery plan.
    * 
    * This parameter is required.
    * 
@@ -2283,7 +2299,7 @@ export class AddGtmRecoveryPlanRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * The remarks on the disaster recovery plan.
+   * The description of the disaster recovery plan.
    * 
    * @example
    * remark
@@ -2315,7 +2331,7 @@ export class AddGtmRecoveryPlanRequest extends $tea.Model {
 export class AddGtmRecoveryPlanResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the disaster recovery plan created.
+   * The ID of the disaster recovery plan.
    * 
    * @example
    * 100
@@ -2323,7 +2339,7 @@ export class AddGtmRecoveryPlanResponseBody extends $tea.Model {
   recoveryPlanId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -2509,12 +2525,12 @@ export class ChangeDomainGroupRequest extends $tea.Model {
   domainName?: string;
   /**
    * @remarks
-   * The ID of the destination domain name group.
+   * The ID of the target domain name group.
    * 
-   * *   If you do not specify GroupId, the domain name is moved to the default group.
-   * *   If you set GroupId to an empty string, the domain name is moved to the default group.
-   * *   If you set GroupId to defaultGroup, the domain name is moved to the default group.
-   * *   If you do not set GroupId to one of the preceding values and set GroupId to an existing group ID, the domain name is moved to the existing group. If you set GroupId to a group ID that does not exist, the domain name remains in the original group.
+   * *   If you do not specify GroupId, the domain name belongs to the default group.
+   * *   If you specify an empty string "" for GroupId, the domain name belongs to the default group.
+   * *   If you set GroupId to defaultGroup, the domain name belongs to the default group.
+   * *   If you specify GroupId to another value and the value is verified existent, the value of GroupId for the target domain name is updated. If the value is verified inexistent, the value of GroupId for the target domain name is not updated.
    * 
    * @example
    * 2223
@@ -2522,7 +2538,12 @@ export class ChangeDomainGroupRequest extends $tea.Model {
   groupId?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -2552,7 +2573,7 @@ export class ChangeDomainGroupRequest extends $tea.Model {
 export class ChangeDomainGroupResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the destination domain name group.
+   * The ID of the target domain name group.
    * 
    * @example
    * 2223
@@ -2649,7 +2670,7 @@ export class ChangeDomainOfDnsProductRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The domain name that you want to bind to the instance. If you do not specify this parameter, this operation unbinds the original domain name from the instance.
+   * The domain name that you want to bind to the instance. If you leave this parameter empty, the domain name that is bound to the instance is unbound from the instance.
    * 
    * @example
    * newdomain.com
@@ -2691,7 +2712,7 @@ export class ChangeDomainOfDnsProductRequest extends $tea.Model {
 export class ChangeDomainOfDnsProductResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The original domain name that was bound to the instance. If the value of this parameter is empty, the instance is bound with a domain name for the first time.
+   * The domain name that is originally bound to the instance. If no value is returned for this parameter, the instance is bound to a domain name for the first time.
    * 
    * @example
    * originaldomain.com
@@ -2699,7 +2720,7 @@ export class ChangeDomainOfDnsProductResponseBody extends $tea.Model {
   originalDomain?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -2752,7 +2773,7 @@ export class ChangeDomainOfDnsProductResponse extends $tea.Model {
 export class CopyGtmConfigRequest extends $tea.Model {
   /**
    * @remarks
-   * The type of the object that you want to copy. Only the INSTANCE type is supported.
+   * The type of the object that is copied. Only the INSTANCE type is supported.
    * 
    * This parameter is required.
    * 
@@ -2762,7 +2783,7 @@ export class CopyGtmConfigRequest extends $tea.Model {
   copyType?: string;
   /**
    * @remarks
-   * The language that specific response parameters will use.
+   * The language.
    * 
    * @example
    * en
@@ -2814,7 +2835,7 @@ export class CopyGtmConfigRequest extends $tea.Model {
 export class CopyGtmConfigResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
@@ -2864,21 +2885,41 @@ export class CopyGtmConfigResponse extends $tea.Model {
 
 export class CreateCloudGtmAddressRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * zh-CN
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * IP address or domain name.
+   * 
    * This parameter is required.
    * 
    * @example
    * 223.5.XX.XX
    */
   address?: string;
+  /**
+   * @remarks
+   * Address ownership information.
+   * 
+   * @example
+   * 当前版本不支持传入此参数，请不要传入参数。
+   */
   attributeInfo?: string;
   /**
    * @remarks
+   * The failover mode that is used when address exceptions are identified. Valid values:
+   * 
+   * *   auto: the automatic mode. The system determines whether to return an address based on the health check results. If the address fails health checks, the system does not return the address. If the address passes health checks, the system returns the address.
+   * *   manual: the manual mode. If an address is in the unavailable state, the address is not returned for DNS requests even if the address passes health checks. If an address is in the available state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2886,12 +2927,19 @@ export class CreateCloudGtmAddressRequest extends $tea.Model {
    */
   availableMode?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
    * @remarks
+   * Indicates the current enabled status of the address:
+   * - enable: Enabled status 
+   * - disable: Disabled status
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2900,20 +2948,40 @@ export class CreateCloudGtmAddressRequest extends $tea.Model {
   enableStatus?: string;
   /**
    * @remarks
+   * The condition for determining the health status of the address. This parameter is required when HealthTasks is specified. Valid values:
+   * 
+   * *   any_ok: The health check results of at least one health check template are normal.
+   * *   p30_ok: The health check results of at least 30% of health check templates are normal.
+   * *   p50_ok: The health check results of at least 50% of health check templates are normal.
+   * *   p70_ok: The health check results of at least 70% of health check templates are normal.
+   * *   all_ok: The health check results of all health check templates are normal.
+   * 
    * This parameter is required.
    * 
    * @example
    * p50_ok
    */
   healthJudgement?: string;
+  /**
+   * @remarks
+   * The health check tasks associated with the address.
+   */
   healthTasks?: CreateCloudGtmAddressRequestHealthTasks[];
   /**
+   * @remarks
+   * The availability state of the address. This parameter is required when AvailableMode is set to **manual**. Valid values:
+   * 
+   * *   available: The address is normal. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * *   unavailable: The address is abnormal. In this state, the address is not returned for DNS requests even if the address passes health checks.
+   * 
    * @example
    * available
    */
   manualAvailableStatus?: string;
   /**
    * @remarks
+   * Address name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2921,12 +2989,20 @@ export class CreateCloudGtmAddressRequest extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
    * @remarks
+   * Address type:
+   * - IPv4
+   * - IPv6
+   * - domain
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2974,21 +3050,41 @@ export class CreateCloudGtmAddressRequest extends $tea.Model {
 
 export class CreateCloudGtmAddressShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * zh-CN
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * IP address or domain name.
+   * 
    * This parameter is required.
    * 
    * @example
    * 223.5.XX.XX
    */
   address?: string;
+  /**
+   * @remarks
+   * Address ownership information.
+   * 
+   * @example
+   * 当前版本不支持传入此参数，请不要传入参数。
+   */
   attributeInfo?: string;
   /**
    * @remarks
+   * The failover mode that is used when address exceptions are identified. Valid values:
+   * 
+   * *   auto: the automatic mode. The system determines whether to return an address based on the health check results. If the address fails health checks, the system does not return the address. If the address passes health checks, the system returns the address.
+   * *   manual: the manual mode. If an address is in the unavailable state, the address is not returned for DNS requests even if the address passes health checks. If an address is in the available state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2996,12 +3092,19 @@ export class CreateCloudGtmAddressShrinkRequest extends $tea.Model {
    */
   availableMode?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
    * @remarks
+   * Indicates the current enabled status of the address:
+   * - enable: Enabled status 
+   * - disable: Disabled status
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3010,20 +3113,40 @@ export class CreateCloudGtmAddressShrinkRequest extends $tea.Model {
   enableStatus?: string;
   /**
    * @remarks
+   * The condition for determining the health status of the address. This parameter is required when HealthTasks is specified. Valid values:
+   * 
+   * *   any_ok: The health check results of at least one health check template are normal.
+   * *   p30_ok: The health check results of at least 30% of health check templates are normal.
+   * *   p50_ok: The health check results of at least 50% of health check templates are normal.
+   * *   p70_ok: The health check results of at least 70% of health check templates are normal.
+   * *   all_ok: The health check results of all health check templates are normal.
+   * 
    * This parameter is required.
    * 
    * @example
    * p50_ok
    */
   healthJudgement?: string;
+  /**
+   * @remarks
+   * The health check tasks associated with the address.
+   */
   healthTasksShrink?: string;
   /**
+   * @remarks
+   * The availability state of the address. This parameter is required when AvailableMode is set to **manual**. Valid values:
+   * 
+   * *   available: The address is normal. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * *   unavailable: The address is abnormal. In this state, the address is not returned for DNS requests even if the address passes health checks.
+   * 
    * @example
    * available
    */
   manualAvailableStatus?: string;
   /**
    * @remarks
+   * Address name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3031,12 +3154,20 @@ export class CreateCloudGtmAddressShrinkRequest extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
    * @remarks
+   * Address type:
+   * - IPv4
+   * - IPv6
+   * - domain
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3084,16 +3215,27 @@ export class CreateCloudGtmAddressShrinkRequest extends $tea.Model {
 
 export class CreateCloudGtmAddressResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The address ID. This ID uniquely identifies the address.
+   * 
    * @example
    * addr-8951821811436**192
    */
   addressId?: string;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the address creation operation is successful:
+   * - true: Operation was successful
+   * - false: Operation was failed
+   * 
    * @example
    * true
    */
@@ -3146,36 +3288,73 @@ export class CreateCloudGtmAddressResponse extends $tea.Model {
 
 export class CreateCloudGtmAddressPoolRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * Address pool name, helping users distinguish the purpose of address pools.
+   * 
    * @example
    * Address pool-1
    */
   addressPoolName?: string;
   /**
+   * @remarks
+   * The type of the address pool. Valid values:
+   * 
+   * *   IPv4: IPv4 addresses are returned for Domain Name System (DNS) resolution.
+   * *   IPv6: IPv6 addresses are returned for DNS resolution.
+   * *   domain: Domain names are returned for DNS resolution.
+   * 
    * @example
    * IPv4
    */
   addressPoolType?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The enabling state of the address pool. Valid values:
+   * 
+   * *   enable: The address pool is enabled, and the addresses in the address pool are returned for DNS resolution when the health check results are normal.
+   * *   disable: The address pool is disabled, and the addresses in the address pool are not returned for DNS resolution regardless of whether the health check results are normal or not.
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address pool. Valid values:
+   * 
+   * *   any_ok: At least one address in the address pool is available.
+   * *   p30_ok: At least 30% of the addresses in the address pool are available.
+   * *   p50_ok: At least 50% of the addresses in the address pool are available.
+   * *   p70_ok: At least 70% of the addresses in the address pool are available.
+   * *   all_ok: All addresses in the address pool are available.
+   * 
    * @example
    * any_ok
    */
   healthJudgement?: string;
   /**
+   * @remarks
+   * Remarks for the address pool, helping users distinguish the usage scenarios of different address pools.
+   * 
    * @example
    * app
    */
@@ -3211,16 +3390,27 @@ export class CreateCloudGtmAddressPoolRequest extends $tea.Model {
 
 export class CreateCloudGtmAddressPoolResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the address pool creation operation was successful:
+   * - true: Operation was successful
+   * - false: Operation was failed
+   * 
    * @example
    * true
    */
@@ -3273,51 +3463,94 @@ export class CreateCloudGtmAddressPoolResponse extends $tea.Model {
 
 export class CreateCloudGtmInstanceConfigRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The enabling state of the access domain name. Valid values:
+   * 
+   * *   enable: The access domain name is enabled and the intelligent scheduling policy of the corresponding GTM instance takes effect.
+   * *   disable: The access domain name is disabled and the intelligent scheduling policy of the corresponding GTM instance is unavailable.
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The ID of the Global Traffic Manager (GTM) 3.0 instance. This ID uniquely identifies a GTM 3.0 instance.
+   * 
    * @example
    * gtm-cn-jmp3qnw**03
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The description of the access domain name.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The hostname of the access domain name.
+   * 
    * @example
    * www
    */
   scheduleHostname?: string;
   /**
+   * @remarks
+   * The type of the Domain Name System (DNS) record configured for the access domain name. Valid values:
+   * 
+   * *   A: IPv4 address
+   * *   AAAA: IPv6 address
+   * *   CNAME: domain name
+   * 
    * @example
    * A
    */
   scheduleRrType?: string;
   /**
+   * @remarks
+   * The configuration mode of the access domain name. Valid values:
+   * 
+   * *   sys_assign: system allocation. This mode is not supported.
+   * *   custom: custom allocation. You must select a zone within the account to which the instance belongs and enter a hostname to generate an access domain name.
+   * 
    * @example
    * custom
    */
   scheduleZoneMode?: string;
   /**
+   * @remarks
+   * The name of the parent zone for the access domain name configured in GTM. In most cases, the value of this parameter is the name of a zone hosted by Alibaba Cloud DNS. This zone belongs to the account to which the GTM instance belongs. You can specify the name of a zone or subzone.
+   * 
    * @example
    * example.com
    */
   scheduleZoneName?: string;
   /**
+   * @remarks
+   * The global time to live (TTL) period. Unit: seconds. The global TTL period affects how long the DNS records that map the access domain name to the addresses in the address pools are cached in the local DNS servers of Internet service providers (ISPs). You can specify a custom value.
+   * 
    * @example
    * 30
    */
@@ -3359,16 +3592,28 @@ export class CreateCloudGtmInstanceConfigRequest extends $tea.Model {
 
 export class CreateCloudGtmInstanceConfigResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * 
    * @example
    * config-000**1
    */
   configId?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -3421,11 +3666,20 @@ export class CreateCloudGtmInstanceConfigResponse extends $tea.Model {
 
 export class CreateCloudGtmMonitorTemplateRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
@@ -3439,6 +3693,36 @@ export class CreateCloudGtmMonitorTemplateRequest extends $tea.Model {
    */
   evaluationCount?: number;
   /**
+   * @remarks
+   * The extended information. The value of this parameter is a JSON string. The required parameters vary based on the health check protocol.
+   * 
+   * *   HTTP or HTTPS:
+   * 
+   *     **host**: the Host field of an HTTP or HTTPS request header during an HTTP or HTTPS health check. The parameter value indicates the HTTP website that you want to visit. By default, the value is the primary domain name. You can change the value based on your business requirements.
+   * 
+   *     **path**: the URL for HTTP or HTTPS health checks. Default value: /.
+   * 
+   *     **code**: the alert threshold. During an HTTP or HTTPS health check, the system checks whether a web server functions as expected based on the status code that is returned from the web server. If the returned status code is greater than the specified threshold, the corresponding application service address is deemed abnormal. Valid values:
+   * 
+   *     *   400: specifies an invalid request. If an HTTP or HTTPS request contains invalid request parameters, a web server returns a status code that is greater than 400. You must set path to an exact URL if you set code to 400.
+   *     *   500: specifies a server error. If some exceptions occur on a web server, the web server returns a status code that is greater than 500. This value is used by default.
+   * 
+   *     **sni**: specifies whether to enable Server Name Indication (SNI). This parameter is used only when the health check protocol is HTTPS. SNI is an extension to the Transport Layer Security (TLS) protocol, which allows a client to specify the host to be connected when the client sends a TLS handshake request. TLS handshakes occur before any data of HTTP requests is sent. Therefore, SNI enables servers to identify the services that clients are attempting to access before certificates are sent. This allows the servers to present correct certificates to the clients. Valid values:
+   * 
+   *     *   true: enables SNI.
+   *     *   false: disables SNI.
+   * 
+   *     **followRedirect**: specifies whether to follow 3XX redirects. Valid values:
+   * 
+   *     *   true: follows 3XX redirects. You are redirected to the destination address if a 3XX status code such as 301, 302, 303, 307, or 308 is returned.
+   *     *   false: does not follow 3XX redirects.
+   * 
+   * *   ping:
+   * 
+   *     **packetNum**: the total number of Internet Control Message Protocol (ICMP) packets that are sent to the address for each ping-based health check. Valid values: 20, 50, and 100.
+   * 
+   *     **packetLossRate**: the ICMP packet loss rate for each ping-based health check. The packet loss rate in a health check can be calculated by using the following formula: Packet loss rate in a health check = (Number of lost packets/Total number of sent ICMP packets) × 100%. If the packet loss rate reaches the threshold, an alert is triggered. Valid values: 10, 30, 40, 80, 90, and 100.
+   * 
    * @example
    * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
    */
@@ -3461,6 +3745,11 @@ export class CreateCloudGtmMonitorTemplateRequest extends $tea.Model {
   interval?: number;
   /**
    * @remarks
+   * The IP address type of health check nodes. Valid values:
+   * 
+   * *   IPv4: You can set IpVersion to IPv4 to perform health checks on IPv4 addresses.
+   * *   IPv6: You can set IpVersion to IPv6 to perform health checks on IPv6 addresses.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3469,11 +3758,15 @@ export class CreateCloudGtmMonitorTemplateRequest extends $tea.Model {
   ipVersion?: string;
   /**
    * @remarks
+   * The health check nodes. You can call the [ListCloudGtmMonitorNodes](~~ListCloudGtmMonitorNodes~~) operation to obtain the health check nodes.
+   * 
    * This parameter is required.
    */
   ispCityNodes?: CreateCloudGtmMonitorTemplateRequestIspCityNodes[];
   /**
    * @remarks
+   * The name of the health check template. We recommend that you use a name that distinguishes the type of health check protocol used.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3535,11 +3828,20 @@ export class CreateCloudGtmMonitorTemplateRequest extends $tea.Model {
 
 export class CreateCloudGtmMonitorTemplateShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
@@ -3553,6 +3855,36 @@ export class CreateCloudGtmMonitorTemplateShrinkRequest extends $tea.Model {
    */
   evaluationCount?: number;
   /**
+   * @remarks
+   * The extended information. The value of this parameter is a JSON string. The required parameters vary based on the health check protocol.
+   * 
+   * *   HTTP or HTTPS:
+   * 
+   *     **host**: the Host field of an HTTP or HTTPS request header during an HTTP or HTTPS health check. The parameter value indicates the HTTP website that you want to visit. By default, the value is the primary domain name. You can change the value based on your business requirements.
+   * 
+   *     **path**: the URL for HTTP or HTTPS health checks. Default value: /.
+   * 
+   *     **code**: the alert threshold. During an HTTP or HTTPS health check, the system checks whether a web server functions as expected based on the status code that is returned from the web server. If the returned status code is greater than the specified threshold, the corresponding application service address is deemed abnormal. Valid values:
+   * 
+   *     *   400: specifies an invalid request. If an HTTP or HTTPS request contains invalid request parameters, a web server returns a status code that is greater than 400. You must set path to an exact URL if you set code to 400.
+   *     *   500: specifies a server error. If some exceptions occur on a web server, the web server returns a status code that is greater than 500. This value is used by default.
+   * 
+   *     **sni**: specifies whether to enable Server Name Indication (SNI). This parameter is used only when the health check protocol is HTTPS. SNI is an extension to the Transport Layer Security (TLS) protocol, which allows a client to specify the host to be connected when the client sends a TLS handshake request. TLS handshakes occur before any data of HTTP requests is sent. Therefore, SNI enables servers to identify the services that clients are attempting to access before certificates are sent. This allows the servers to present correct certificates to the clients. Valid values:
+   * 
+   *     *   true: enables SNI.
+   *     *   false: disables SNI.
+   * 
+   *     **followRedirect**: specifies whether to follow 3XX redirects. Valid values:
+   * 
+   *     *   true: follows 3XX redirects. You are redirected to the destination address if a 3XX status code such as 301, 302, 303, 307, or 308 is returned.
+   *     *   false: does not follow 3XX redirects.
+   * 
+   * *   ping:
+   * 
+   *     **packetNum**: the total number of Internet Control Message Protocol (ICMP) packets that are sent to the address for each ping-based health check. Valid values: 20, 50, and 100.
+   * 
+   *     **packetLossRate**: the ICMP packet loss rate for each ping-based health check. The packet loss rate in a health check can be calculated by using the following formula: Packet loss rate in a health check = (Number of lost packets/Total number of sent ICMP packets) × 100%. If the packet loss rate reaches the threshold, an alert is triggered. Valid values: 10, 30, 40, 80, 90, and 100.
+   * 
    * @example
    * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
    */
@@ -3575,6 +3907,11 @@ export class CreateCloudGtmMonitorTemplateShrinkRequest extends $tea.Model {
   interval?: number;
   /**
    * @remarks
+   * The IP address type of health check nodes. Valid values:
+   * 
+   * *   IPv4: You can set IpVersion to IPv4 to perform health checks on IPv4 addresses.
+   * *   IPv6: You can set IpVersion to IPv6 to perform health checks on IPv6 addresses.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3583,11 +3920,15 @@ export class CreateCloudGtmMonitorTemplateShrinkRequest extends $tea.Model {
   ipVersion?: string;
   /**
    * @remarks
+   * The health check nodes. You can call the [ListCloudGtmMonitorNodes](~~ListCloudGtmMonitorNodes~~) operation to obtain the health check nodes.
+   * 
    * This parameter is required.
    */
   ispCityNodesShrink?: string;
   /**
    * @remarks
+   * The name of the health check template. We recommend that you use a name that distinguishes the type of health check protocol used.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3659,6 +4000,9 @@ export class CreateCloudGtmMonitorTemplateResponseBody extends $tea.Model {
    */
   success?: boolean;
   /**
+   * @remarks
+   * The ID of the health check template. This ID uniquely identifies the health check template.
+   * 
    * @example
    * mtp-89518052425100**80
    */
@@ -3711,15 +4055,18 @@ export class CreateCloudGtmMonitorTemplateResponse extends $tea.Model {
 
 export class CreatePdnsAppKeyRequest extends $tea.Model {
   lang?: string;
+  remark?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
+      remark: 'Remark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
+      remark: 'string',
     };
   }
 
@@ -3849,12 +4196,20 @@ export class CreatePdnsUdpIpSegmentResponse extends $tea.Model {
 
 export class DeleteCloudGtmAddressRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The address ID. This ID uniquely identifies the address.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3862,6 +4217,9 @@ export class DeleteCloudGtmAddressRequest extends $tea.Model {
    */
   addressId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
@@ -3889,11 +4247,19 @@ export class DeleteCloudGtmAddressRequest extends $tea.Model {
 
 export class DeleteCloudGtmAddressResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the address deletion operation was successful:
+   * - true: Operation successful
+   * - false: Operation failed
+   * 
    * @example
    * true
    */
@@ -3944,16 +4310,28 @@ export class DeleteCloudGtmAddressResponse extends $tea.Model {
 
 export class DeleteCloudGtmAddressPoolRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
@@ -3981,6 +4359,9 @@ export class DeleteCloudGtmAddressPoolRequest extends $tea.Model {
 
 export class DeleteCloudGtmAddressPoolResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
@@ -4043,21 +4424,36 @@ export class DeleteCloudGtmAddressPoolResponse extends $tea.Model {
 
 export class DeleteCloudGtmInstanceConfigRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration. You can call the [ListCloudGtmInstanceConfigs](~~ListCloudGtmInstanceConfigs~~) operation to query the configuration ID of the access domain name.
+   * 
    * @example
    * config-000**1
    */
   configId?: string;
   /**
+   * @remarks
+   * The access domain name that is configured for the desired GTM 3.0 instance. You can delete only one access domain name.
+   * 
    * @example
    * gtm-cn-jmp3qnw**03
    */
@@ -4087,11 +4483,18 @@ export class DeleteCloudGtmInstanceConfigRequest extends $tea.Model {
 
 export class DeleteCloudGtmInstanceConfigResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation to delete domain instance configurations was successful:
+   * - true: Operation successful - false: Operation failed
+   * 
    * @example
    * true
    */
@@ -4142,17 +4545,28 @@ export class DeleteCloudGtmInstanceConfigResponse extends $tea.Model {
 
 export class DeleteCloudGtmMonitorTemplateRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language in which the returned results are displayed. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the health check template. This ID uniquely identifies a health check template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4182,11 +4596,19 @@ export class DeleteCloudGtmMonitorTemplateRequest extends $tea.Model {
 
 export class DeleteCloudGtmMonitorTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation to delete the health check template was successful:
+   * - true: Operation successful
+   * - false: Operation failed
+   * 
    * @example
    * true
    */
@@ -4604,7 +5026,12 @@ export class DeleteDomainRequest extends $tea.Model {
   domainName?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en.
    * 
    * @example
    * en
@@ -4703,7 +5130,12 @@ export class DeleteDomainGroupRequest extends $tea.Model {
   groupId?: string;
   /**
    * @remarks
-   * The language type.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en.
    * 
    * @example
    * en
@@ -5317,7 +5749,7 @@ export class DescribeBatchResultCountRequest extends $tea.Model {
    * 
    * *   **DOMAIN_ADD**: adds domain names in batches.
    * *   **DOMAIN_DEL**: deletes domain names in batches.
-   * *   **RR_ADD**: adds DNS records in batches.
+   * *   **RR_ADD**: adds Domain Name System (DNS) records in batches.
    * *   **RR_DEL**: deletes DNS records in batches.
    * 
    * @example
@@ -5326,7 +5758,7 @@ export class DescribeBatchResultCountRequest extends $tea.Model {
   batchType?: string;
   /**
    * @remarks
-   * The language type.
+   * The language.
    * 
    * @example
    * en
@@ -5334,7 +5766,7 @@ export class DescribeBatchResultCountRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * If you specify TaskId, the execution result of the specified task is returned. If you do not specify TaskId, the execution result of the last task is returned.
    * 
@@ -5390,7 +5822,7 @@ export class DescribeBatchResultCountResponseBody extends $tea.Model {
   reason?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 75446CC1-FC9A-4595-8D96-089D73D7A63D
@@ -5398,11 +5830,11 @@ export class DescribeBatchResultCountResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The state of the task. Valid values:
    * 
    * *   **-1**: No task for importing domain names or DNS records is submitted.
    * *   **0**: The task is being processed.
-   * *   **1**: The task is completed.
+   * *   **1**: The task is complete.
    * *   **2**: The task failed.
    * 
    * @example
@@ -5411,7 +5843,7 @@ export class DescribeBatchResultCountResponseBody extends $tea.Model {
   status?: number;
   /**
    * @remarks
-   * The total number of successfully processed domain names or DNS records.
+   * The total number of domain names or DNS records that were processed.
    * 
    * @example
    * 2
@@ -5660,12 +6092,20 @@ export class DescribeBatchResultDetailResponse extends $tea.Model {
 
 export class DescribeCloudGtmAddressRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The address ID. This ID uniquely identifies the address.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5673,6 +6113,9 @@ export class DescribeCloudGtmAddressRequest extends $tea.Model {
    */
   addressId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
@@ -5700,83 +6143,166 @@ export class DescribeCloudGtmAddressRequest extends $tea.Model {
 
 export class DescribeCloudGtmAddressResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * IP address or domain name.
+   * 
    * @example
    * 223.5.XX.XX
    */
   address?: string;
   /**
+   * @remarks
+   * The address ID. This ID uniquely identifies the address.
+   * 
    * @example
    * addr-89518218114368**92
    */
   addressId?: string;
+  /**
+   * @remarks
+   * Address ownership information.
+   * 
+   * @example
+   * The current version does not support passing this parameter, please do not input the parameter.
+   */
   attributeInfo?: string;
   /**
+   * @remarks
+   * The failover method that is used if the address fails health checks. Valid values:
+   * 
+   * *   auto: the automatic mode. The system determines whether to return an address based on the health check results. If the address fails health checks, the system does not return the address. If the address passes health checks, the system returns the address.
+   * *   manual: the manual mode. If an address is in the unavailable state, the address is not returned for Domain Name System (DNS) requests even if the address passes health checks. If an address is in the available state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * 
    * @example
    * auto
    */
   availableMode?: string;
   /**
+   * @remarks
+   * Address availability status:
+   * - available: Available
+   * - unavailable: Unavailable
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * Address creation time.
+   * 
    * @example
    * 2024-03-23T13:09Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Indicates the current enabled status of the address:
+   * enabled: enabled state
+   * disabled: disabled state
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address. Valid values:
+   * 
+   * *   any_ok: The health check results of at least one health check template are normal.
+   * *   p30_ok: The health check results of at least 30% of health check templates are normal.
+   * *   p50_ok: The health check results of at least 50% of health check templates are normal.
+   * *   p70_ok: The health check results of at least 70% of health check templates are normal.
+   * *   all_ok: The health check results of all health check templates are normal.
+   * 
    * @example
    * p50_ok
    */
   healthJudgement?: string;
   /**
+   * @remarks
+   * The health check state of the address. Valid values:
+   * 
+   * *   ok: The address passes all health checks of the referenced health check templates.
+   * *   ok_alert: The address fails some health checks of the referenced health check templates but the address is deemed normal.
+   * *   ok_no_monitor: The address does not reference a health check template.
+   * *   exceptional: The address fails some or all health checks of the referenced health check templates and the address is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
+  /**
+   * @remarks
+   * The health check tasks referenced by the address.
+   */
   healthTasks?: DescribeCloudGtmAddressResponseBodyHealthTasks;
   /**
+   * @remarks
+   * The availability state of the address when AvailableMode is set to manual. Valid values:
+   * 
+   * *   available: The address is normal. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * *   unavailable: The address is abnormal. In this state, the address is not returned for DNS requests even if the address passes health checks.
+   * 
    * @example
    * available
    */
   manualAvailableStatus?: string;
   /**
+   * @remarks
+   * Address name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * test1
    */
   remark?: string;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * B57C121B-A45F-44D8-A9B2-13E5A5044195
    */
   requestId?: string;
   /**
+   * @remarks
+   * Address type:
+   * - IPv4
+   * - IPv6
+   * - domain
+   * 
    * @example
    * IPv4
    */
   type?: string;
   /**
+   * @remarks
+   * The last modification time of the address configuration.
+   * 
    * @example
    * 2024-03-29T13:20Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Modified time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
@@ -5859,16 +6385,28 @@ export class DescribeCloudGtmAddressResponse extends $tea.Model {
 
 export class DescribeCloudGtmAddressPoolRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89564674533755**96
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
@@ -5896,77 +6434,150 @@ export class DescribeCloudGtmAddressPoolRequest extends $tea.Model {
 
 export class DescribeCloudGtmAddressPoolResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Load balancing policy among addresses in the address pool:
+   * - round_robin: Round-robin, where for any source of DNS resolution requests, all addresses are returned, with a rotation of the order for every request.
+   * - sequence: Sequential, where for any source of DNS resolution requests, the address with the lower sequence number (indicating a higher priority, the smaller the number, the higher the priority) is returned. If the address with the lower sequence number is unavailable, the next address with a lower sequence number is returned.
+   * - weight: Weighted, supporting the setting of different weight values for each address to realize returning addresses according to the weight ratio of query resolutions.
+   * - source_nearest: Source-nearest, also known as intelligent resolution, where GTM can return different addresses based on the source of different DNS resolution requests, achieving the effect of users accessing nearby servers.
+   * 
    * @example
    * round_robin
    */
   addressLbStrategy?: string;
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89564674533755**96
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Address pool name.
+   * 
    * @example
    * AddressPool-1
    */
   addressPoolName?: string;
   /**
+   * @remarks
+   * Address pool type:
+   * - IPv4
+   * - IPv6
+   * - domain
+   * 
    * @example
    * IPv4
    */
   addressPoolType?: string;
+  /**
+   * @remarks
+   * The addresses.
+   */
   addresses?: DescribeCloudGtmAddressPoolResponseBodyAddresses;
   /**
+   * @remarks
+   * Address pool availability status:
+   * - available: Available
+   * - unavailable: Unavailable
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * Address pool creation time.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Address pool creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Address pool status:
+   * - enable: Enabled status
+   * - disable: Disabled status
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address pool. Valid values:
+   * 
+   * *   any_ok: At least one address in the address pool is available.
+   * *   p30_ok: At least 30% of the addresses in the address pool are available.
+   * *   p50_ok: At least 50% of the addresses in the address pool are available.
+   * *   p70_ok: At least 70% of the addresses in the address pool are available.
+   * *   all_ok: All addresses in the address pool are available.
+   * 
    * @example
    * any_ok
    */
   healthJudgement?: string;
   /**
+   * @remarks
+   * The health state of the address pool. Valid values:
+   * 
+   * *   ok: The health state of the address pool is normal and all addresses that are referenced by the address pool are available.
+   * *   ok_alert: The health state of the address pool is warning and some of the addresses that are referenced by the address pool are unavailable. However, the address pool is deemed normal. In this case, only the available addresses are returned for Domain Name System (DNS) requests.
+   * *   exceptional: The health state of the address pool is abnormal and some or all of the addresses that are referenced by the address pool are unavailable. In this case, the address pool is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
   /**
+   * @remarks
+   * Remarks for the address.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
    */
   requestId?: string;
   /**
+   * @remarks
+   * The mode used if the address with the smallest sequence number is recovered. This parameter is returned only when the policy for load balancing between addresses is sequence. Valid values:
+   * 
+   * *   preemptive: The address with the smallest sequence number is preferentially used if this address is recovered.
+   * *   non_preemptive: The current address is still used even if the address with the smallest sequence number is recovered.
+   * 
    * @example
    * preemptive
    */
   sequenceLbStrategyMode?: string;
   /**
+   * @remarks
+   * The last modification time of the address pool.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Last modification time of the address pool (timestamp).
+   * 
    * @example
    * 1527690629357
    */
@@ -6045,16 +6656,28 @@ export class DescribeCloudGtmAddressPoolResponse extends $tea.Model {
 
 export class DescribeCloudGtmAddressPoolReferenceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
@@ -6082,17 +6705,30 @@ export class DescribeCloudGtmAddressPoolReferenceRequest extends $tea.Model {
 
 export class DescribeCloudGtmAddressPoolReferenceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Address pool name.
+   * 
    * @example
    * app
    */
   addressPoolName?: string;
+  /**
+   * @remarks
+   * The access domain names that reference the address pool.
+   */
   instanceConfigs?: DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigs;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 853805EA-3D47-47D5-9A1A-A45C24313ABD
    */
@@ -6147,16 +6783,28 @@ export class DescribeCloudGtmAddressPoolReferenceResponse extends $tea.Model {
 
 export class DescribeCloudGtmAddressReferenceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The address ID. This ID uniquely identifies the address.
+   * 
    * @example
    * addr-89518218114368**92
    */
   addressId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
@@ -6184,22 +6832,38 @@ export class DescribeCloudGtmAddressReferenceRequest extends $tea.Model {
 
 export class DescribeCloudGtmAddressReferenceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * IP address or domain name.
+   * 
    * @example
    * 223.5.XX.XX
    */
   address?: string;
   /**
+   * @remarks
+   * The address ID. This ID uniquely identifies the address.
+   * 
    * @example
    * addr-89564584963974**40
    */
   addressId?: string;
+  /**
+   * @remarks
+   * The address pools.
+   */
   addressPools?: DescribeCloudGtmAddressReferenceResponseBodyAddressPools;
   /**
+   * @remarks
+   * Address name.
+   * 
    * @example
    * Address-1
    */
   name?: string;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
@@ -6256,11 +6920,20 @@ export class DescribeCloudGtmAddressReferenceResponse extends $tea.Model {
 
 export class DescribeCloudGtmGlobalAlertRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
@@ -6285,9 +6958,20 @@ export class DescribeCloudGtmGlobalAlertRequest extends $tea.Model {
 }
 
 export class DescribeCloudGtmGlobalAlertResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The alert configurations.
+   */
   alertConfig?: DescribeCloudGtmGlobalAlertResponseBodyAlertConfig;
+  /**
+   * @remarks
+   * The alert contact groups.
+   */
   alertGroup?: DescribeCloudGtmGlobalAlertResponseBodyAlertGroup;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B57C121B-A45F-44D8-A9B2-13E5A5044195
    */
@@ -6340,21 +7024,36 @@ export class DescribeCloudGtmGlobalAlertResponse extends $tea.Model {
 
 export class DescribeCloudGtmInstanceConfigAlertRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   **zh-CN**: Chinese
+   * *   **en-US**: English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * 
    * @example
    * Config-000**11
    */
   configId?: string;
   /**
+   * @remarks
+   * The ID of the Global Traffic Manager (GTM) 3.0 instance.
+   * 
    * @example
    * gtm-cn-wwo3a3hbz**
    */
@@ -6383,24 +7082,47 @@ export class DescribeCloudGtmInstanceConfigAlertRequest extends $tea.Model {
 }
 
 export class DescribeCloudGtmInstanceConfigAlertResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The alert configurations.
+   */
   alertConfig?: DescribeCloudGtmInstanceConfigAlertResponseBodyAlertConfig;
+  /**
+   * @remarks
+   * The alert contact groups.
+   */
   alertGroup?: DescribeCloudGtmInstanceConfigAlertResponseBodyAlertGroup;
   /**
+   * @remarks
+   * The alert configuration mode of the instance. Valid values:
+   * 
+   * *   global: global alert configuration
+   * *   instance_config: custom alert configuration
+   * 
    * @example
    * global
    */
   alertMode?: string;
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * 
    * @example
    * Config-000**11
    */
   configId?: string;
   /**
+   * @remarks
+   * The ID of the GTM 3.0 instance.
+   * 
    * @example
    * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0F32959D-417B-4D66-8463-68606605E3E2
    */
@@ -6837,12 +7559,20 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponse extends $tea.Model {
 
 export class DescribeCloudGtmMonitorTemplateRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   **zh-CN**: Chinese
+   * *   **en-US** (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The ID of the health check template that you want to query. This ID uniquely identifies the health check template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6870,77 +7600,170 @@ export class DescribeCloudGtmMonitorTemplateRequest extends $tea.Model {
 
 export class DescribeCloudGtmMonitorTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Health check template creation time.
+   * 
    * @example
    * 2024-03-23T13:09Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Health check template creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Retries count. The system will only judge the application service as abnormal after consecutive monitoring failures to prevent inaccurate monitoring results due to momentary network fluctuations or other reasons. Available retry counts are:
+   * - 1
+   * - 2
+   * - 3
+   * 
    * @example
    * 2
    */
   evaluationCount?: number;
   /**
+   * @remarks
+   * The extended information. The value of this parameter is a JSON string. The required parameters vary based on the health check protocol.
+   * 
+   * *   HTTP or HTTPS:
+   * 
+   *     **host**: the Host field of an HTTP or HTTPS request header during an HTTP or HTTPS health check. The parameter value indicates the HTTP website that you want to visit. By default, the value is the primary domain name. You can change the value based on your business requirements.
+   * 
+   *     **path**: the URL for HTTP or HTTPS health checks. Default value: /.
+   * 
+   *     **code**: the alert threshold. During an HTTP or HTTPS health check, the system checks whether a web server functions as expected based on the status code that is returned from the web server. If the returned status code is greater than the specified threshold, the corresponding application service address is deemed abnormal. Valid values:
+   * 
+   *     *   400: indicates an invalid request. If an HTTP or HTTPS request contains invalid request parameters, a web server returns a status code that is greater than 400. You must specify an exact URL for path if you set code to 400.
+   *     *   500: indicates a server error. If some exceptions occur on a web server, the web server returns a status code that is greater than 500. This value is used by default.
+   * 
+   *     **sni**: indicates whether Server Name Indication (SNI) is enabled. This parameter is used only when the health check protocol is HTTPS. SNI is an extension to the Transport Layer Security (TLS) protocol, which allows a client to specify the host to be connected when the client sends a TLS handshake request. TLS handshakes occur before any data of HTTP requests is sent. Therefore, SNI enables servers to identify the services that clients are attempting to access before certificates are sent. This allows the servers to present correct certificates to the clients. Valid values:
+   * 
+   *     *   true: SNI is enabled.
+   *     *   false: SNI is disabled.
+   * 
+   *     **followRedirect**: indicates whether 3XX redirects are followed. Valid values:
+   * 
+   *     *   true: 3XX redirects are followed. You are redirected to the destination address if a 3XX status code such as 301, 302, 303, 307, or 308 is returned.
+   *     *   false: 3XX redirects are not followed.
+   * 
+   * *   ping:
+   * 
+   *     **packetNum**: the total number of Internet Control Message Protocol (ICMP) packets that are sent to the address for each ping-based health check. Valid values: 20, 50, and 100.
+   * 
+   *     **packetLossRate**: the ICMP packet loss rate for each ping-based health check. The packet loss rate in a health check can be calculated by using the following formula: Packet loss rate in a health check = (Number of lost packets/Total number of sent ICMP packets) × 100%. If the packet loss rate reaches the threshold, an alert is triggered. Valid values: 10, 30, 40, 80, 90, and 100.
+   * 
    * @example
    * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
    */
   extendInfo?: string;
   /**
+   * @remarks
+   * Percentage of selected node probe failures (%), that is, the percentage of abnormal detection points among the total detection points. When the failure ratio exceeds the set threshold, the service address is judged as abnormal. The available failure ratio thresholds are:
+   * - 20
+   * - 50
+   * - 80
+   * - 100
+   * 
    * @example
    * 50
    */
   failureRate?: number;
   /**
+   * @remarks
+   * The time interval (in seconds) between each check, with a default interval of 1 minute. The minimum supported health check interval is 15 seconds, available for flagship edition instances.
+   * 
    * @example
    * 60
    */
   interval?: number;
   /**
+   * @remarks
+   * Detect the type of the node IP address:
+   * - IPv4: Applicable when the target address type is IPv4;
+   * - IPv6: Applicable when the target address type is IPv6.
+   * 
    * @example
    * IPv4
    */
   ipVersion?: string;
+  /**
+   * @remarks
+   * Probe node list, detailed information can be obtained by calling ListCloudGtmMonitorNodes.
+   */
   ispCityNodes?: DescribeCloudGtmMonitorTemplateResponseBodyIspCityNodes;
   /**
+   * @remarks
+   * The name of the health check probe template, which is recommended to be distinguishable for configuration personnel to differentiate and remember, ideally indicating the health check protocol.
+   * 
    * @example
    * Ping-IPv4
    */
   name?: string;
   /**
+   * @remarks
+   * Protocol types to initiate probes to the target IP address:
+   * - ping
+   * - tcp
+   * - http
+   * - https
+   * 
    * @example
    * ping
    */
   protocol?: string;
   /**
+   * @remarks
+   * Remarks for the health check template.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 6AEC7A64-3CB1-4C49-8B35-0B901F1E26BF
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the health check template. This ID uniquely identifies the health check template.
+   * 
    * @example
    * mtp-89518052425100**80
    */
   templateId?: string;
   /**
+   * @remarks
+   * Probe timeout (in milliseconds), data packets not returned within the timeout period are deemed as health check timeouts:
+   * - 2000
+   * - 3000
+   * - 5000
+   * - 10000
+   * 
    * @example
    * 5000
    */
   timeout?: number;
   /**
+   * @remarks
+   * Health check template configuration modification time.
+   * 
    * @example
    * 2024-03-29T13:20Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Health check template configuration modification time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
@@ -7129,11 +7952,25 @@ export class DescribeCloudGtmSummaryResponse extends $tea.Model {
 
 export class DescribeCloudGtmSystemLinesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The system lines.
+   */
   systemLines?: DescribeCloudGtmSystemLinesResponseBodySystemLines;
+  /**
+   * @remarks
+   * The system lines, which are in a tree structure. Only a system line is listed in this example.
+   * 
+   * @example
+   * [{\\"displayName\\":\\"Default\\",\\"id\\":\\"default\\",\\"isAvailable\\":true,\\"name\\":\\"Default\\",\\"parentId\\":\\"\\"}]
+   */
   systemLinesTree?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7661,7 +8498,7 @@ export class DescribeDnsCacheDomainsRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * The number of entries per page. Maximum value: **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -8469,7 +9306,7 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponse extends $tea.Mo
 export class DescribeDnsGtmAddrAttributeInfoRequest extends $tea.Model {
   /**
    * @remarks
-   * The addresses whose source regions you want to query.
+   * The addresses.
    * 
    * This parameter is required.
    * 
@@ -8479,7 +9316,7 @@ export class DescribeDnsGtmAddrAttributeInfoRequest extends $tea.Model {
   addrs?: string;
   /**
    * @remarks
-   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -8487,10 +9324,10 @@ export class DescribeDnsGtmAddrAttributeInfoRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The type of the addresses. Valid values:
+   * The type of addresses. Valid values:
    * 
    * *   IPV4: IPv4 address
-   * *   IPV6: IPv6 address
+   * *   IPv6: IPv6 address
    * *   DOMAIN: domain name
    * 
    * This parameter is required.
@@ -8523,12 +9360,12 @@ export class DescribeDnsGtmAddrAttributeInfoRequest extends $tea.Model {
 export class DescribeDnsGtmAddrAttributeInfoResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The addresses that were queried.
+   * The address in the address pool.
    */
   addr?: DescribeDnsGtmAddrAttributeInfoResponseBodyAddr;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -9577,7 +10414,7 @@ export class DescribeDnsGtmInstanceSystemCnameResponse extends $tea.Model {
 export class DescribeDnsGtmInstancesRequest extends $tea.Model {
   /**
    * @remarks
-   * The keyword that you use for query. Fuzzy search by instance ID or instance name is supported.
+   * The keyword that you use for the query. Fuzzy search by instance ID or instance name is supported.
    * 
    * @example
    * instance1
@@ -9585,7 +10422,7 @@ export class DescribeDnsGtmInstancesRequest extends $tea.Model {
   keyword?: string;
   /**
    * @remarks
-   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -9593,7 +10430,7 @@ export class DescribeDnsGtmInstancesRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number. Pages start from page **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -9601,7 +10438,7 @@ export class DescribeDnsGtmInstancesRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page. Maximum value: **100**. Default value: **20**.
    * 
    * @example
    * 1
@@ -9609,7 +10446,7 @@ export class DescribeDnsGtmInstancesRequest extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group where you want to query instances.
+   * The resource group ID.
    * 
    * @example
    * rg-testgroupid
@@ -9643,12 +10480,12 @@ export class DescribeDnsGtmInstancesRequest extends $tea.Model {
 export class DescribeDnsGtmInstancesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The returned instances.
+   * The Global Traffic Manager (GTM) instances.
    */
   gtmInstances?: DescribeDnsGtmInstancesResponseBodyGtmInstances[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number. Pages start from page **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -9656,7 +10493,7 @@ export class DescribeDnsGtmInstancesResponseBody extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 1
@@ -9664,7 +10501,7 @@ export class DescribeDnsGtmInstancesResponseBody extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 84314904-D047-4176-A0EC-256D7F68C7F5
@@ -9672,7 +10509,7 @@ export class DescribeDnsGtmInstancesResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned on all pages.
+   * The total number of entries returned.
    * 
    * @example
    * 100
@@ -9680,7 +10517,7 @@ export class DescribeDnsGtmInstancesResponseBody extends $tea.Model {
   totalItems?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages returned.
    * 
    * @example
    * 123
@@ -9953,27 +10790,27 @@ export class DescribeDnsGtmMonitorAvailableConfigRequest extends $tea.Model {
 export class DescribeDnsGtmMonitorAvailableConfigResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The monitored nodes that can be used to perform health checks on address pools that contain public domain names that are resolved to IPv4 addresses.
+   * The nodes that perform health checks on domain names that use public IPv4 addresses.
    */
   domainIpv4IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodes;
   /**
    * @remarks
-   * The monitored nodes that can be used to perform health checks on address pools that contain public domain names that are resolved to IPv6 addresses.
+   * The nodes that perform health checks on domain names that use public IPv6 addresses.
    */
   domainIpv6IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodes;
   /**
    * @remarks
-   * The monitored nodes that can be used to perform health checks on address pools that contain public IPv4 addresses.
+   * The nodes that perform health checks on public IPv4 addresses.
    */
   ipv4IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodes;
   /**
    * @remarks
-   * The monitored nodes that can be used to perform health checks on address pools that contain public IPv6 addresses.
+   * The nodes that perform health checks on public IPv6 addresses.
    */
   ipv6IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodes;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -10070,7 +10907,7 @@ export class DescribeDnsGtmMonitorConfigRequest extends $tea.Model {
 export class DescribeDnsGtmMonitorConfigResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The time when the health check task was created.
+   * The time when the health check configuration was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
    * 
    * @example
    * 2017-12-28T13:08Z
@@ -10078,7 +10915,7 @@ export class DescribeDnsGtmMonitorConfigResponseBody extends $tea.Model {
   createTime?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the health check task was created.
+   * The time when the health check configuration was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1527690629357
@@ -10086,7 +10923,7 @@ export class DescribeDnsGtmMonitorConfigResponseBody extends $tea.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The number of consecutive times of failed health check attempts.
+   * The number of consecutive failures.
    * 
    * @example
    * 1
@@ -10094,7 +10931,7 @@ export class DescribeDnsGtmMonitorConfigResponseBody extends $tea.Model {
   evaluationCount?: number;
   /**
    * @remarks
-   * The interval at which the health check task is executed. Unit: seconds.
+   * The health check interval. Unit: seconds.
    * 
    * @example
    * 1
@@ -10102,12 +10939,12 @@ export class DescribeDnsGtmMonitorConfigResponseBody extends $tea.Model {
   interval?: number;
   /**
    * @remarks
-   * The monitored node.
+   * The health check nodes.
    */
   ispCityNodes?: DescribeDnsGtmMonitorConfigResponseBodyIspCityNodes;
   /**
    * @remarks
-   * The ID of the health check task.
+   * The ID of the health check configuration.
    * 
    * @example
    * MonitorConfigId1
@@ -10115,50 +10952,50 @@ export class DescribeDnsGtmMonitorConfigResponseBody extends $tea.Model {
   monitorConfigId?: string;
   /**
    * @remarks
-   * The extended information. The following parameters are required for different health check protocols:
+   * The extended information. The required parameters vary based on the value of ProtocolType.
    * 
-   * *   HTTP or HTTPS:
+   * *   HTTP or HTTPS
    * 
-   *     *   port: the check port.
+   *     *   port: the port that you want to check
    * 
-   *     *   host: the host settings.
+   *     *   host: the host settings
    * 
-   *     *   path: the URL path.
+   *     *   path: the URL path
    * 
-   *     *   code: the return code greater than the specified value.
+   *     *   code: the response code. The health check result is deemed abnormal if the returned value is greater than the specified value.
    * 
-   *     *   failureRate: the failure rate.
+   *     *   failureRate: the failure rate
    * 
-   *     *   sni: specifies whether to enable server name indication (SNI). This parameter is used only for the HTTPS protocol. Valid values:
+   *     *   sni: specifies whether to enable server name indication (SNI). This parameter is available only when ProtocolType is set to HTTPS. Valid values:
    * 
-   *         *   true: enable SNI.
-   *         *   false: disable SNI.
+   *         *   true: enables SNI.
+   *         *   false: disables SNI.
    * 
-   *     *   nodeType: the type of the node to monitor when the address pool type is DOMAIN. Valid values:
+   *     *   nodeType: the type of the node for monitoring when the address pool type is domain name. Valid values:
    * 
    *         *   IPV4
    *         *   IPV6
    * 
    * *   PING:
    * 
-   *     *   failureRate: the failure rate.
+   *     *   failureRate: the failure rate
    * 
-   *     *   packetNum: the number of ping packets.
+   *     *   packetNum: the number of ping packets
    * 
-   *     *   packetLossRate: the loss rate of ping packets.
+   *     *   packetLossRate: the loss rate of ping packets
    * 
-   *     *   nodeType: the type of the node to monitor when the address pool type is DOMAIN. Valid values:
+   *     *   nodeType: the type of the node for monitoring when the address pool type is domain name. Valid values:
    * 
    *         *   IPV4
    *         *   IPV6
    * 
-   * *   TCP:
+   * *   TCP
    * 
-   *     *   port: the check port.
+   *     *   port: the port that you want to check
    * 
-   *     *   failureRate: the failure rate.
+   *     *   failureRate: the failure rate
    * 
-   *     *   nodeType: the type of the node to monitor when the address pool type is DOMAIN. Valid values:
+   *     *   nodeType: the type of the node for monitoring when the address pool type is domain name. Valid values:
    * 
    *         *   IPV4
    *         *   IPV6
@@ -10182,7 +11019,7 @@ export class DescribeDnsGtmMonitorConfigResponseBody extends $tea.Model {
   protocolType?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -10198,7 +11035,7 @@ export class DescribeDnsGtmMonitorConfigResponseBody extends $tea.Model {
   timeout?: number;
   /**
    * @remarks
-   * The time when the information about the health check task was updated.
+   * The time when the health check configuration was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
    * 
    * @example
    * 2018-01-03T08:57Z
@@ -10206,7 +11043,7 @@ export class DescribeDnsGtmMonitorConfigResponseBody extends $tea.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the information about the health check task was updated.
+   * The time when the health check configuration was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1527690629357
@@ -10289,7 +11126,12 @@ export class DescribeDnsProductInstanceRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -10327,10 +11169,10 @@ export class DescribeDnsProductInstanceRequest extends $tea.Model {
 export class DescribeDnsProductInstanceResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The auto-renewal status of the instance. Valid values:
+   * Indicates whether auto-renewal was enabled. Valid values:
    * 
-   * *   **true**: Auto-renewal is enabled.
-   * *   **false**: Auto-renewal is disabled.
+   * *   true: Auto-renewal was enabled.
+   * *   false: Auto-renewal was not enabled.
    * 
    * @example
    * true
@@ -10394,11 +11236,11 @@ export class DescribeDnsProductInstanceResponseBody extends $tea.Model {
   dnsSLBCount?: number;
   /**
    * @remarks
-   * The DNS protection level. Valid values:
+   * The level of DNS protection. Valid values:
    * 
-   * *   **no**: DNS protection is not provided.
-   * *   **basic**: Basic DNS attack defense is provided.
-   * *   **advanced**: Advanced DNS attack defense is provided.
+   * *   no: No DNS protection is provided.
+   * *   basic: Basic DNS protection is provided.
+   * *   advanced: Advanced DNS protection is provided.
    * 
    * @example
    * advanced
@@ -10448,7 +11290,10 @@ export class DescribeDnsProductInstanceResponseBody extends $tea.Model {
   endTimestamp?: number;
   /**
    * @remarks
-   * Indicates whether global server load balancing (GSLB) is supported.
+   * Indicates whether global server load balancing (GSLB) is supported. Valid values:
+   * 
+   * *   true: GSLB is supported.
+   * *   false: GSLB is not supported.
    * 
    * @example
    * true
@@ -10456,17 +11301,32 @@ export class DescribeDnsProductInstanceResponseBody extends $tea.Model {
   gslb?: boolean;
   /**
    * @remarks
-   * The Internet service provider (ISP) lines for DNS resolution.
+   * The ISP resolution lines. Valid values:
+   * 
+   * *   China Telecom
+   * *   China Mobile
+   * *   China Unicom
+   * *   China Education and Research Network (CERNET)
+   * *   China Broadcasting Network (CBN)
+   * *   Dr Peng Telecom & Media Group
    */
   ISPLines?: string;
   /**
    * @remarks
-   * The regional ISP lines for DNS resolution.
+   * The regional ISP resolution lines. Valid values:
+   * 
+   * *   China Telecom (province)
+   * *   China Mobile (province)
+   * *   China Unicom (province)
+   * *   CERNET (province)
    */
   ISPRegionLines?: string;
   /**
    * @remarks
-   * Indicates whether the Domain Name System (DNS) servers stopped responding to all requests sent to the domain names.
+   * Indicates whether the Domain Name System (DNS) servers stopped responding to all DNS requests. Valid values:
+   * 
+   * *   true: The DNS servers stopped responding to all DNS requests.
+   * *   false: The DNS servers did not stop responding to all DNS requests.
    * 
    * @example
    * false
@@ -10475,6 +11335,9 @@ export class DescribeDnsProductInstanceResponseBody extends $tea.Model {
   /**
    * @remarks
    * Indicates whether the DNS servers stopped responding to abnormal requests sent to the domain names.
+   * 
+   * *   true: The DNS servers stopped responding to abnormal requests sent to the domain names.
+   * *   false: The DNS servers did not stop responding to abnormal requests sent to the domain names.
    * 
    * @example
    * false
@@ -10535,7 +11398,10 @@ export class DescribeDnsProductInstanceResponseBody extends $tea.Model {
   paymentType?: string;
   /**
    * @remarks
-   * Indicates whether regional lines are supported.
+   * Indicates whether the DNS request lines are regional lines. Valid values:
+   * 
+   * *   true: The DNS request lines are regional lines.
+   * *   false: The DNS request lines are not regional lines.
    * 
    * @example
    * true
@@ -10551,7 +11417,12 @@ export class DescribeDnsProductInstanceResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The search engine lines for DNS resolution.
+   * The search engine resolution lines. Valid values:
+   * 
+   * *   Google
+   * *   Baidu
+   * *   Bing
+   * *   Youdao
    */
   searchEngineLines?: string;
   /**
@@ -10722,9 +11593,10 @@ export class DescribeDnsProductInstanceResponse extends $tea.Model {
 export class DescribeDnsProductInstancesRequest extends $tea.Model {
   /**
    * @remarks
-   * The Sorting direction. Values:
-   * * **DESC**: Descending (if not specified, the default is descending order)
-   * * **ASC**: Ascending
+   * The order in which you want to sort returned entries. Valid values:
+   * 
+   * *   DESC: Returned entries are sorted in descending order. If this parameter is left empty, returned entries are sorted in descending order by default.
+   * *   ASC: Returned entries are sorted in ascending order.
    * 
    * @example
    * DESC
@@ -10743,10 +11615,12 @@ export class DescribeDnsProductInstancesRequest extends $tea.Model {
   domainType?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh** : Chinese
-   * *   **en** (default) : English
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -10754,9 +11628,10 @@ export class DescribeDnsProductInstancesRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The Sorting parameter. Values:
-   * * createDate: Sort by creation time (if not specified, the default is to sort by creation time)
-   * * expireDate: Sort by expiration time
+   * The method that is used to sort returned entries. Valid values:
+   * 
+   * *   createDate: sorts returned entries by creation time. If this parameter is left empty, returned entries are sorted by creation time by default.
+   * *   expireDate: sorts returned entries by expiration time.
    * 
    * @example
    * createDate
@@ -10828,7 +11703,7 @@ export class DescribeDnsProductInstancesRequest extends $tea.Model {
 export class DescribeDnsProductInstancesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The list of Alibaba Cloud DNS instances obtained by this operation.
+   * The paid Alibaba Cloud DNS instances.
    */
   dnsProducts?: DescribeDnsProductInstancesResponseBodyDnsProducts;
   /**
@@ -10860,7 +11735,7 @@ export class DescribeDnsProductInstancesResponseBody extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -12182,6 +13057,10 @@ export class DescribeDomainInfoResponseBody extends $tea.Model {
    * 00efd71a-770e-4255-b54e-6fe5659baffe
    */
   domainId?: string;
+  /**
+   * @remarks
+   * Indicates whether the DNS traffic analysis feature is enabled. Valid values:
+   */
   domainLoggingSwitchStatus?: string;
   /**
    * @remarks
@@ -13660,7 +14539,7 @@ export class DescribeDomainStatisticsSummaryRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: **100**. Minimum value: **1**. Default value: **20**.
+   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -15238,7 +16117,7 @@ export class DescribeGtmInstanceAddressPoolsResponse extends $tea.Model {
 export class DescribeGtmInstanceStatusRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the instance to query.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15248,7 +16127,7 @@ export class DescribeGtmInstanceStatusRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+   * The language.
    * 
    * @example
    * en
@@ -15292,7 +16171,7 @@ export class DescribeGtmInstanceStatusResponseBody extends $tea.Model {
   addrPoolNotAvailableNum?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
@@ -15300,10 +16179,10 @@ export class DescribeGtmInstanceStatusResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the instance. Valid values:
+   * The state of the instance. Valid values:
    * 
-   * *   ALLOW: Operations on the instance are allowed.
-   * *   DENY: Operations on the instance are not allowed.
+   * *   ALLOW: The operation on the instance is allowed.
+   * *   DENY: The operation on the instance is not allowed.
    * 
    * @example
    * ALLOW
@@ -15311,9 +16190,9 @@ export class DescribeGtmInstanceStatusResponseBody extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * List of reasons for an instance status. Valid values:
+   * The reasons why the instance is in the current state. Valid values:
    * 
-   * *   INSTANCE_OPERATE_BLACK_LIST: The instance is in the blacklist.
+   * *   INSTANCE_OPERATE_BLACK_LIST: The operation on the instance is not allowed.
    * *   BETA_INSTANCE: The instance is in public preview.
    * 
    * @example
@@ -15322,7 +16201,7 @@ export class DescribeGtmInstanceStatusResponseBody extends $tea.Model {
   statusReason?: string;
   /**
    * @remarks
-   * The number of access policies that are unavailable in the active address pool.
+   * The number of unavailable access policies.
    * 
    * @example
    * 10
@@ -15330,7 +16209,7 @@ export class DescribeGtmInstanceStatusResponseBody extends $tea.Model {
   strategyNotAvailableNum?: number;
   /**
    * @remarks
-   * The number of access policies that fail over to the secondary address pool.
+   * The number of access policies switched to the secondary address pool.
    * 
    * @example
    * 10
@@ -16149,7 +17028,12 @@ export class DescribeGtmMonitorConfigResponse extends $tea.Model {
 export class DescribeGtmRecoveryPlanRequest extends $tea.Model {
   /**
    * @remarks
-   * The language used by the user.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en.
    * 
    * @example
    * en
@@ -16157,7 +17041,7 @@ export class DescribeGtmRecoveryPlanRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the disaster recovery plan that you want to query.
+   * The ID of the disaster recovery plan.
    * 
    * This parameter is required.
    * 
@@ -16187,13 +17071,16 @@ export class DescribeGtmRecoveryPlanRequest extends $tea.Model {
 export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The time when the disaster recovery plan was created.
+   * The time when the disaster recovery plan was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2019-08-11T05:04Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the disaster recovery plan was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
    * @example
    * 1565499867000
    */
@@ -16208,12 +17095,12 @@ export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
   faultAddrPoolNum?: number;
   /**
    * @remarks
-   * The list of faulty address pools.
+   * The faulty address pools.
    */
   faultAddrPools?: DescribeGtmRecoveryPlanResponseBodyFaultAddrPools;
   /**
    * @remarks
-   * The last time when the recovery plan was executed.
+   * The time when the disaster recovery plan was last executed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2019-08-11T05:04Z
@@ -16221,7 +17108,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
   lastExecuteTime?: string;
   /**
    * @remarks
-   * A timestamp that indicates the last time when the recovery plan was executed.
+   * The time when the disaster recovery plan was last executed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1565505898000
@@ -16229,7 +17116,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
   lastExecuteTimestamp?: number;
   /**
    * @remarks
-   * The last time when the disaster recovery plan was rolled back.
+   * The time when the disaster recovery plan was last rolled back. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 2019-08-11T06:45Z
@@ -16237,7 +17124,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
   lastRollbackTime?: string;
   /**
    * @remarks
-   * A timestamp that indicates the last time when the disaster recovery plan was rolled back.
+   * The time when the disaster recovery plan was last rolled back. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1565505919000
@@ -16245,7 +17132,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
   lastRollbackTimestamp?: number;
   /**
    * @remarks
-   * The name of the disaster recovery plan queried.
+   * The name of the disaster recovery plan.
    * 
    * @example
    * name-example
@@ -16253,7 +17140,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the disaster recovery plan queried.
+   * The ID of the disaster recovery plan.
    * 
    * @example
    * 55
@@ -16261,7 +17148,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
   recoveryPlanId?: number;
   /**
    * @remarks
-   * The remarks on the disaster recovery plan.
+   * The description of the disaster recovery plan.
    * 
    * @example
    * remark-example
@@ -16269,7 +17156,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
   remark?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0A5F4315-D6E8-435E-82DF-24F4C97D6999
@@ -16277,7 +17164,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the disaster recovery plan queried.
+   * The status of the disaster recovery plan.
    * 
    * @example
    * UNEXECUTED
@@ -16285,7 +17172,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The last time when the disaster recovery plan was updated.
+   * The time when the disaster recovery plan was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2019-08-11T06:45Z
@@ -16293,7 +17180,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
   updateTime?: string;
   /**
    * @remarks
-   * A timestamp that indicates the last time when the disaster recovery plan was updated.
+   * The time when the disaster recovery plan was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1565499867000
@@ -16372,7 +17259,12 @@ export class DescribeGtmRecoveryPlanResponse extends $tea.Model {
 export class DescribeGtmRecoveryPlanAvailableConfigRequest extends $tea.Model {
   /**
    * @remarks
-   * The language used by the user.
+   * The language in which the returned results are displayed. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en.
    * 
    * @example
    * en
@@ -16398,12 +17290,12 @@ export class DescribeGtmRecoveryPlanAvailableConfigRequest extends $tea.Model {
 export class DescribeGtmRecoveryPlanAvailableConfigResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The list of GTM instances involved in the disaster recovery plan.
+   * The instances.
    */
   instances?: DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstances;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F8F8EF50-8B7F-4702-B294-97170A423403
@@ -16764,8 +17656,18 @@ export class DescribeInstanceDomainsResponse extends $tea.Model {
 }
 
 export class DescribeInternetDnsLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The account ID displayed on the Recursive Resolution (Public DNS) page after you activate Alibaba Cloud Public DNS.
+   * 
+   * @example
+   * 51**4
+   */
   accountId?: number;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * example.com
    */
@@ -16849,6 +17751,10 @@ export class DescribeInternetDnsLogsResponseBody extends $tea.Model {
    * 1
    */
   curPage?: number;
+  /**
+   * @remarks
+   * The logs.
+   */
   logs?: DescribeInternetDnsLogsResponseBodyLogs;
   /**
    * @example
@@ -18631,7 +19537,7 @@ export class DescribeRecordResolveStatisticsSummaryResponse extends $tea.Model {
 export class DescribeRecordStatisticsRequest extends $tea.Model {
   /**
    * @remarks
-   * The domain name.
+   * The primary domain name.
    * 
    * This parameter is required.
    * 
@@ -18670,7 +19576,7 @@ export class DescribeRecordStatisticsRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The hostname. If you want to resolve the subdomain name www.dns-exmaple.top, set this parameter to www.
+   * The hostname. If you want to resolve www.dns-exmaple.top, set Rr to www.
    * 
    * This parameter is required.
    * 
@@ -19199,25 +20105,16 @@ export class DescribeSubDomainRecordsResponse extends $tea.Model {
 
 export class DescribeSupportLinesRequest extends $tea.Model {
   /**
-   * @remarks
-   * 域名名称。
-   * 
    * @example
    * example.com
    */
   domainName?: string;
   /**
-   * @remarks
-   * 语言。
-   * 
    * @example
    * en
    */
   lang?: string;
   /**
-   * @remarks
-   * 用户端IP。
-   * 
    * @example
    * 1.1.*.*
    */
@@ -19246,13 +20143,10 @@ export class DescribeSupportLinesRequest extends $tea.Model {
 export class DescribeSupportLinesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 云解析线路列表。
+   * The Alibaba Cloud DNS lines.
    */
   recordLines?: DescribeSupportLinesResponseBodyRecordLines;
   /**
-   * @remarks
-   * 请求ID。
-   * 
    * @example
    * CFDA0830-7D6E-4C13-8632-B57C7EDCF079
    */
@@ -19629,7 +20523,12 @@ export class DescribeTransferDomainsResponse extends $tea.Model {
 export class ExecuteGtmRecoveryPlanRequest extends $tea.Model {
   /**
    * @remarks
-   * The language used by the user.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: English.
    * 
    * @example
    * en
@@ -19637,7 +20536,7 @@ export class ExecuteGtmRecoveryPlanRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the disaster recovery plan that you want to executed.
+   * The ID of the disaster recovery plan.
    * 
    * This parameter is required.
    * 
@@ -19667,7 +20566,7 @@ export class ExecuteGtmRecoveryPlanRequest extends $tea.Model {
 export class ExecuteGtmRecoveryPlanResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -19975,41 +20874,75 @@ export class GetTxtRecordForVerifyResponse extends $tea.Model {
 
 export class ListCloudGtmAddressPoolsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * Address pool name.
+   * 
    * @example
    * AddressPool-1
    */
   addressPoolName?: string;
   /**
+   * @remarks
+   * The type of the address pool. Valid values:
+   * 
+   * *   IPv4: indicates that the service address to be resolved is an IPv4 address.
+   * *   IPv6: indicates that the service address to be resolved is an IPv6 address.
+   * *   domain: indicates that the service address to be resolved is a domain name.
+   * 
    * @example
    * IPv4
    */
   addressPoolType?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The enabling state of the address pool. Valid values:
+   * 
+   * *   enable: The address pool is enabled.
+   * *   disable: The address pool is disabled.
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * Current page number, starting at **1**, default is **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The additional description of the address pool.
+   * 
    * @example
    * test
    */
@@ -20046,28 +20979,47 @@ export class ListCloudGtmAddressPoolsRequest extends $tea.Model {
 }
 
 export class ListCloudGtmAddressPoolsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The address pools.
+   */
   addressPools?: ListCloudGtmAddressPoolsResponseBodyAddressPools;
   /**
+   * @remarks
+   * Current page number, starting at **1**, default is **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of entries in the address pool.
+   * 
    * @example
    * 11
    */
   totalItems?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */
@@ -20126,47 +21078,82 @@ export class ListCloudGtmAddressPoolsResponse extends $tea.Model {
 
 export class ListCloudGtmAddressesRequest extends $tea.Model {
   /**
+   * @remarks
+   * Return language value, options:
+   * - zh-CN: Chinese.
+   * - en-US: English.
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * IP address or domain name.
+   * 
    * @example
    * 223.5.XX.XX
    */
   address?: string;
   /**
+   * @remarks
+   * The address ID. This ID uniquely identifies the address.
+   * 
    * @example
    * addr-89518218114368**92
    */
   addressId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Indicates the current availability of the address:
+   * - enable: Enabled status
+   * - disable: Disabled status
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The health check state of the address. Valid values:
+   * 
+   * *   ok: The address passes all health checks of the referenced health check templates.
+   * *   ok_alert: The address fails some health checks of the referenced health check templates but the address is deemed normal.
+   * *   ok_no_monitor: The address does not reference a health check template.
+   * *   exceptional: The address fails some or all health checks of the referenced health check templates and the address is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
   /**
+   * @remarks
+   * The ID of the health check template. This ID uniquely identifies the health check template.
+   * 
    * @example
    * mtp-89518052425100**80
    */
   monitorTemplateId?: string;
   /**
+   * @remarks
+   * Address name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
    * @remarks
+   * Current page number, starting from **1**, default is **1**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20175,6 +21162,8 @@ export class ListCloudGtmAddressesRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20182,6 +21171,12 @@ export class ListCloudGtmAddressesRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Address type:
+   * - IPv4
+   * - IPv6
+   * - domain
+   * 
    * @example
    * IPv4
    */
@@ -20224,28 +21219,47 @@ export class ListCloudGtmAddressesRequest extends $tea.Model {
 }
 
 export class ListCloudGtmAddressesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The addresses.
+   */
   addresses?: ListCloudGtmAddressesResponseBodyAddresses;
   /**
+   * @remarks
+   * Current page number, starting from **1**, default is **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Get the total number of addresses in the address list.
+   * 
    * @example
    * 30
    */
   totalItems?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 2
    */
@@ -20304,12 +21318,19 @@ export class ListCloudGtmAddressesResponse extends $tea.Model {
 
 export class ListCloudGtmAlertLogsRequest extends $tea.Model {
   /**
+   * @remarks
+   * Alert type:
+   * - ALERT
+   * - RESUME
+   * 
    * @example
    * ALERT
    */
   actionType?: string;
   /**
    * @remarks
+   * The end time of the query (timestamp).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20317,22 +21338,39 @@ export class ListCloudGtmAlertLogsRequest extends $tea.Model {
    */
   endTimestamp?: number;
   /**
+   * @remarks
+   * Alarm object types:
+   * - GTM_ADDRESS: Address
+   * - GTM_ADDRESS_POOL: Address Pool
+   * - GTM_INSTANCE: Instance
+   * - GTM_MONITOR_TEMPLATE: Health Check Template
+   * 
    * @example
    * GTM_ADDRESS
    */
   entityType?: string;
   /**
+   * @remarks
+   * Search keyword, usually an address ID, address pool ID, domain information, etc.
+   * 
    * @example
    * pool-895280232254422016
    */
   keyword?: string;
   /**
+   * @remarks
+   * Language type of the returned information:
+   * - zh-CN: Chinese
+   * - en-US: English
+   * 
    * @example
    * zh-CN
    */
   lang?: string;
   /**
    * @remarks
+   * Current page number, starting from **1**, default is **1**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20341,6 +21379,8 @@ export class ListCloudGtmAlertLogsRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20349,6 +21389,8 @@ export class ListCloudGtmAlertLogsRequest extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The start time of the query (timestamp).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20387,28 +21429,47 @@ export class ListCloudGtmAlertLogsRequest extends $tea.Model {
 }
 
 export class ListCloudGtmAlertLogsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The alert logs.
+   */
   logs?: ListCloudGtmAlertLogsResponseBodyLogs;
   /**
+   * @remarks
+   * Current page number, starting from 1, default is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of alarm log entries.
+   * 
    * @example
    * 15
    */
   totalItems?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */
@@ -20467,6 +21528,12 @@ export class ListCloudGtmAlertLogsResponse extends $tea.Model {
 
 export class ListCloudGtmAvailableAlertGroupsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   **zh-CN**: Chinese
+   * *   **en-US**: English
+   * 
    * @example
    * en-US
    */
@@ -20489,8 +21556,15 @@ export class ListCloudGtmAvailableAlertGroupsRequest extends $tea.Model {
 }
 
 export class ListCloudGtmAvailableAlertGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The alert contact groups.
+   */
   alertGroups?: ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroups;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
@@ -20541,46 +21615,79 @@ export class ListCloudGtmAvailableAlertGroupsResponse extends $tea.Model {
 
 export class ListCloudGtmInstanceConfigsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The enabling state of the access domain name. Valid values:
+   * 
+   * *   enable: The access domain name is enabled and the intelligent scheduling policy of the GTM instance takes effect.
+   * *   disable: The access domain name is disabled and the intelligent scheduling policy of the GTM instance does not take effect.
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The ID of the GTM 3.0 instance.
+   * 
    * @example
    * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Current page number, starting at **1**, default is **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The GTM access domain name. The value of this parameter is composed of the value of ScheduleHostname and the value of ScheduleZoneName.
+   * 
    * @example
    * www.example.com
    */
   scheduleDomainName?: string;
   /**
+   * @remarks
+   * The zone (such as example.com) or subzone (such as a.example.com) of the GTM access domain name. In most cases, the zone or subzone is hosted in Authoritative DNS Resolution of the Alibaba Cloud DNS console within the account to which the GTM instance belongs.
+   * 
    * @example
    * example.com
    */
@@ -20619,28 +21726,47 @@ export class ListCloudGtmInstanceConfigsRequest extends $tea.Model {
 }
 
 export class ListCloudGtmInstanceConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the instance.
+   */
   instanceConfigs?: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigs;
   /**
+   * @remarks
+   * Current page number, starting from **1**, default is **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of entries for domain instance configurations.
+   * 
    * @example
    * 10
    */
   totalItems?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */
@@ -20699,31 +21825,51 @@ export class ListCloudGtmInstanceConfigsResponse extends $tea.Model {
 
 export class ListCloudGtmInstancesRequest extends $tea.Model {
   /**
+   * @remarks
+   * Return language value. Options:
+   * - zh-CN: Chinese.
+   * - en-US: English.
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The ID of the GTM instance.
+   * 
    * @example
    * gtm-cn-jmp3qnw**03
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Instance name, used to distinguish the business purpose of the instance.
+   * 
    * @example
    * test
    */
   instanceName?: string;
   /**
+   * @remarks
+   * Current page number, starting from **1**, default is **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+   * 
    * @example
    * 20
    */
@@ -20756,28 +21902,47 @@ export class ListCloudGtmInstancesRequest extends $tea.Model {
 }
 
 export class ListCloudGtmInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instances.
+   */
   instances?: ListCloudGtmInstancesResponseBodyInstances;
   /**
+   * @remarks
+   * Current page number, starting with **1**, default is **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of instance entries.
+   * 
    * @example
    * 15
    */
   totalItems?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */
@@ -20836,6 +22001,12 @@ export class ListCloudGtmInstancesResponse extends $tea.Model {
 
 export class ListCloudGtmMonitorNodesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   **zh-CN**: Chinese
+   * *   **en-US** (default): English
+   * 
    * @example
    * en-US
    */
@@ -20858,9 +22029,20 @@ export class ListCloudGtmMonitorNodesRequest extends $tea.Model {
 }
 
 export class ListCloudGtmMonitorNodesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Public IPv4 monitoring node list.
+   */
   ipv4IspCityNodes?: ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodes;
+  /**
+   * @remarks
+   * List of public IPv6 monitoring nodes.
+   */
   ipv6IspCityNodes?: ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodes;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
@@ -20913,22 +22095,39 @@ export class ListCloudGtmMonitorNodesResponse extends $tea.Model {
 
 export class ListCloudGtmMonitorTemplatesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The IP address type of health check nodes. Valid values:
+   * 
+   * *   IPv4: applicable when health checks are performed on IPv4 addresses.
+   * *   IPv6: applicable when health checks are performed on IPv6 addresses.
+   * 
    * @example
    * IPv4
    */
   ipVersion?: string;
   /**
+   * @remarks
+   * The name of the health check probe template, which is recommended to be distinguishable for configuration personnel to differentiate and remember, ideally indicating the health check protocol.
+   * 
    * @example
    * IPv4-Ping
    */
   name?: string;
   /**
    * @remarks
+   * Current page number, starting from **1**, default is **1**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20937,6 +22136,8 @@ export class ListCloudGtmMonitorTemplatesRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20944,6 +22145,13 @@ export class ListCloudGtmMonitorTemplatesRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Protocol types for initiating probes to the target IP address:
+   * - ping
+   * - tcp
+   * - http
+   * - https
+   * 
    * @example
    * ping
    */
@@ -20977,27 +22185,46 @@ export class ListCloudGtmMonitorTemplatesRequest extends $tea.Model {
 
 export class ListCloudGtmMonitorTemplatesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Current page number, starting from 1, default is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 75446CC1-FC9A-4595-8D96-089D73D7A63D
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The health check templates.
+   */
   templates?: ListCloudGtmMonitorTemplatesResponseBodyTemplates;
   /**
+   * @remarks
+   * Total number of health check template entries retrieved.
+   * 
    * @example
    * 30
    */
   totalItems?: number;
   /**
+   * @remarks
+   * Total number of pages after data pagination.
+   * 
    * @example
    * 2
    */
@@ -21197,7 +22424,12 @@ export class ModifyHichinaDomainDNSRequest extends $tea.Model {
   domainName?: string;
   /**
    * @remarks
-   * The language type.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -21235,17 +22467,17 @@ export class ModifyHichinaDomainDNSRequest extends $tea.Model {
 export class ModifyHichinaDomainDNSResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The list of DNS servers after the domain name is changed.
+   * The DNS server names after modification.
    */
   newDnsServers?: ModifyHichinaDomainDNSResponseBodyNewDnsServers;
   /**
    * @remarks
-   * The list of DNS servers before the domain name is changed.
+   * The DNS server names before modification.
    */
   originalDnsServers?: ModifyHichinaDomainDNSResponseBodyOriginalDnsServers;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -21309,6 +22541,8 @@ export class MoveDomainResourceGroupRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the new resource group.
+   * 
+   * You can view the ID of the resource group in the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?) or call the ListResourceGroups operation.
    * 
    * This parameter is required.
    * 
@@ -21492,7 +22726,7 @@ export class MoveGtmResourceGroupResponse extends $tea.Model {
 export class OperateBatchDomainRequest extends $tea.Model {
   /**
    * @remarks
-   * The DNS records. You can submit up to 1000 DNS records.
+   * The Domain Name System (DNS) records. You can submit up to 1,000 DNS records.
    * 
    * This parameter is required.
    */
@@ -21958,17 +23192,33 @@ export class RemovePdnsUdpIpSegmentResponse extends $tea.Model {
 
 export class ReplaceCloudGtmAddressPoolAddressRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   **zh-CN**: Chinese
+   * *   **en-US (default)**: English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The ID of the address pool for which you want to replace addresses. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89618921167339**24
    */
   addressPoolId?: string;
+  /**
+   * @remarks
+   * The addresses.
+   */
   addresses?: ReplaceCloudGtmAddressPoolAddressRequestAddresses[];
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
@@ -21998,17 +23248,33 @@ export class ReplaceCloudGtmAddressPoolAddressRequest extends $tea.Model {
 
 export class ReplaceCloudGtmAddressPoolAddressShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   **zh-CN**: Chinese
+   * *   **en-US (default)**: English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The ID of the address pool for which you want to replace addresses. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89618921167339**24
    */
   addressPoolId?: string;
+  /**
+   * @remarks
+   * The addresses.
+   */
   addressesShrink?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
@@ -22038,16 +23304,26 @@ export class ReplaceCloudGtmAddressPoolAddressShrinkRequest extends $tea.Model {
 
 export class ReplaceCloudGtmAddressPoolAddressResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89618921167339**24
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * B57C121B-A45F-44D8-A9B2-13E5A5044195
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful:
+   * - true: Successful. - false: Failed.
+   * 
    * @example
    * true
    */
@@ -22100,22 +23376,43 @@ export class ReplaceCloudGtmAddressPoolAddressResponse extends $tea.Model {
 
 export class ReplaceCloudGtmInstanceConfigAddressPoolRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The address pools.
+   */
   addressPools?: ReplaceCloudGtmInstanceConfigAddressPoolRequestAddressPools[];
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * 
+   * You can call the [ListCloudGtmInstanceConfigs](~~ListCloudGtmInstanceConfigs~~) operation to query the configuration ID of the access domain name.
+   * 
    * @example
    * Config-000**11
    */
   configId?: string;
   /**
+   * @remarks
+   * The ID of the GTM 3.0 instance for which you want to change address pools.
+   * 
    * @example
    * gtm-cn-wwo3a3hbz**
    */
@@ -22147,22 +23444,43 @@ export class ReplaceCloudGtmInstanceConfigAddressPoolRequest extends $tea.Model 
 
 export class ReplaceCloudGtmInstanceConfigAddressPoolShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The address pools.
+   */
   addressPoolsShrink?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * 
+   * You can call the [ListCloudGtmInstanceConfigs](~~ListCloudGtmInstanceConfigs~~) operation to query the configuration ID of the access domain name.
+   * 
    * @example
    * Config-000**11
    */
   configId?: string;
   /**
+   * @remarks
+   * The ID of the GTM 3.0 instance for which you want to change address pools.
+   * 
    * @example
    * gtm-cn-wwo3a3hbz**
    */
@@ -22194,11 +23512,19 @@ export class ReplaceCloudGtmInstanceConfigAddressPoolShrinkRequest extends $tea.
 
 export class ReplaceCloudGtmInstanceConfigAddressPoolResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful, with values: 
+   * - true: Success. 
+   * - false: Failure.
+   * 
    * @example
    * true
    */
@@ -22405,7 +23731,12 @@ export class RetrieveDomainResponse extends $tea.Model {
 export class RollbackGtmRecoveryPlanRequest extends $tea.Model {
   /**
    * @remarks
-   * The language used by the user.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en.
    * 
    * @example
    * en
@@ -22413,7 +23744,7 @@ export class RollbackGtmRecoveryPlanRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the disaster recovery plan that you want to roll back.
+   * The ID of the disaster recovery plan.
    * 
    * This parameter is required.
    * 
@@ -22443,7 +23774,7 @@ export class RollbackGtmRecoveryPlanRequest extends $tea.Model {
 export class RollbackGtmRecoveryPlanResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 853805EA-3D47-47D5-9A1A-A45C24313ABD
@@ -22493,51 +23824,97 @@ export class RollbackGtmRecoveryPlanResponse extends $tea.Model {
 
 export class SearchCloudGtmAddressPoolsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * Address pool name, supports fuzzy search for the entered address pool name.
+   * 
    * @example
    * AddressPool-1
    */
   addressPoolName?: string;
   /**
+   * @remarks
+   * Address pool type, supports precise query for address pool types:
+   * - IPv4
+   * - IPv6
+   * - domain
+   * 
    * @example
    * IPv4
    */
   addressPoolType?: string;
   /**
+   * @remarks
+   * Address pool availability status, supporting precise queries for address pool availability:
+   * - available: Available
+   * - unavailable: Unavailable
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Address pool enable status, supports precise query of address pool enable status:
+   * - enable: Enabled status
+   * - disable: Disabled status
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The health state of the address pool. You can enter a health state for exact search. Valid values:
+   * 
+   * ok: The health state of the address pool is normal and all addresses that are referenced by the address pool are available.
+   * 
+   * ok_alert: The health state of the address pool is warning and some of the addresses that are referenced by the address pool are unavailable. However, the address pool is deemed normal. In this case, only the available addresses are returned for Domain Name System (DNS) requests.
+   * 
+   * exceptional: The health state of the address pool is abnormal and some or all of the addresses that are referenced by the address pool are unavailable. In this case, the address pool is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
   /**
+   * @remarks
+   * Current page number, starting from 1, default is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Address pool remarks, supporting fuzzy search for the input remarks.
+   * 
    * @example
    * test
    */
@@ -22578,28 +23955,47 @@ export class SearchCloudGtmAddressPoolsRequest extends $tea.Model {
 }
 
 export class SearchCloudGtmAddressPoolsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The address pools.
+   */
   addressPools?: SearchCloudGtmAddressPoolsResponseBodyAddressPools;
   /**
+   * @remarks
+   * Current page number, starting from 1, default is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of address pools matching the query conditions.
+   * 
    * @example
    * 11
    */
   totalItems?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */
@@ -22658,48 +24054,93 @@ export class SearchCloudGtmAddressPoolsResponse extends $tea.Model {
 
 export class SearchCloudGtmAddressesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * Query by service address with precise conditions, supporting IP addresses or domain names.
+   * 
    * @example
    * 223.5.XX.XX
    */
   address?: string;
   /**
+   * @remarks
+   * The address ID. This ID uniquely identifies the address.
+   * 
    * @example
    * addr-89518218114368**92
    */
   addressId?: string;
   /**
+   * @remarks
+   * Search by address availability status with precise conditions:
+   * - available
+   * - unavailable
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * Query by exact address enable status:
+   * - enable: enabled status
+   * - disable: disabled status
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The health state of the addresses that you want to query. Valid values:
+   * 
+   * *   ok: The addresses pass all health checks of the referenced health check templates.
+   * *   ok_alert: The addresses fail some health checks of the referenced health check templates, but the addresses are deemed available.
+   * *   ok_no_monitor: The addresses do not reference any health check template.
+   * *   exceptional: The addresses fail some or all health checks of the referenced health check templates, and the addresses are deemed unavailable.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
   /**
+   * @remarks
+   * Health check template name.
+   * 
    * @example
    * Ping-IPv4
    */
   monitorTemplateName?: string;
   /**
+   * @remarks
+   * The logical condition for querying addresses by name. This parameter is required if you want to query addresses by name. Valid values:
+   * 
+   * *   and: displays the results that match all search conditions.
+   * *   or: displays the results that match some or all search conditions.
+   * 
    * @example
    * or
    */
   nameSearchCondition?: string;
+  /**
+   * @remarks
+   * Address name, usually for users to distinguish between different addresses.
+   */
   names?: string[];
   /**
    * @remarks
+   * Current page number, starting from 1, default is 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22708,6 +24149,8 @@ export class SearchCloudGtmAddressesRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22715,12 +24158,29 @@ export class SearchCloudGtmAddressesRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The logical condition for querying addresses by additional description. This parameter is required if you want to query addresses by additional description. Valid values:
+   * 
+   * and: displays the results that match all search conditions.
+   * 
+   * or: displays the results that match some or all search conditions.
+   * 
    * @example
    * or
    */
   remarkSearchCondition?: string;
+  /**
+   * @remarks
+   * Remarks for the address.
+   */
   remarks?: string[];
   /**
+   * @remarks
+   * Search precisely by address type conditions:
+   * - IPv4
+   * - IPv6
+   * - domain
+   * 
    * @example
    * IPv4
    */
@@ -22769,28 +24229,47 @@ export class SearchCloudGtmAddressesRequest extends $tea.Model {
 }
 
 export class SearchCloudGtmAddressesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The addresses.
+   */
   addresses?: SearchCloudGtmAddressesResponseBodyAddresses;
   /**
+   * @remarks
+   * Current page number, starting from **1**, default is **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of **100** and a default of **20**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of address entries that meet the query conditions.
+   * 
    * @example
    * 15
    */
   totalItems?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */
@@ -22849,56 +24328,102 @@ export class SearchCloudGtmAddressesResponse extends $tea.Model {
 
 export class SearchCloudGtmInstanceConfigsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * zh-CN
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The availability state of the access domain name. Valid values:
+   * 
+   * *   available: If the access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
+   * *   unavailable: If the access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The enabling state of the access domain name. Valid values:
+   * 
+   * *   enable: The access domain name is enabled and the intelligent scheduling policy of the corresponding GTM instance takes effect.
+   * *   disable: The access domain name is disabled and the intelligent scheduling policy of the corresponding GTM instance does not take effect.
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The health state of the access domain name. Valid values:
+   * 
+   * *   ok: The health state of the access domain name is normal and all address pools that are referenced by the access domain name are available.
+   * *   ok_alert: The health state of the access domain name is warning and some of the address pools that are referenced by the access domain name are unavailable. In this case, only the available address pools are returned for Domain Name System (DNS) requests.
+   * *   exceptional: The health state of the access domain name is abnormal and all address pools that are referenced by the access domain name are unavailable. In this case, addresses in the non-empty address pool with the smallest sequence number are preferentially used for fallback resolution. This returns DNS results for clients as much as possible.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
   /**
+   * @remarks
+   * The ID of the Global Traffic Manager (GTM) 3.0 instance.
+   * 
    * @example
    * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Current page number, starting from 1, default is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Remarks for the domain instance.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The access domain name. The value of this parameter is composed of the value of ScheduleHostname and the value of ScheduleZoneName.
+   * 
    * @example
    * www.example.com
    */
   scheduleDomainName?: string;
   /**
+   * @remarks
+   * The zone such as example.com or subzone such as a.example.com of the access domain name. In most cases, the zone or subzone is hosted by the Public Authoritative DNS module of Alibaba Cloud DNS. This zone belongs to the account to which the GTM instance belongs.
+   * 
    * @example
    * example.com
    */
@@ -22941,28 +24466,47 @@ export class SearchCloudGtmInstanceConfigsRequest extends $tea.Model {
 }
 
 export class SearchCloudGtmInstanceConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instances list.
+   */
   instanceConfigs?: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigs;
   /**
+   * @remarks
+   * Current page number, starting from 1, default is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 6AEC7A64-3CB1-4C49-8B35-0B901F1E26BF
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of instance configuration entries.
+   * 
    * @example
    * 15
    */
   totalItems?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */
@@ -23021,31 +24565,51 @@ export class SearchCloudGtmInstanceConfigsResponse extends $tea.Model {
 
 export class SearchCloudGtmInstancesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the return value. Options are:
+   * - **zh-CN**: Chinese. 
+   * - **en-US**: English.
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see How to ensure idempotence.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The ID of the Global Traffic Manager (GTM) 3.0 instance.
+   * 
    * @example
    * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Schedule instance name, supports fuzzy search.
+   * 
    * @example
    * test
    */
   instanceName?: string;
   /**
+   * @remarks
+   * Current page number, starting from 1, default is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+   * 
    * @example
    * 20
    */
@@ -23078,28 +24642,47 @@ export class SearchCloudGtmInstancesRequest extends $tea.Model {
 }
 
 export class SearchCloudGtmInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instances.
+   */
   instances?: SearchCloudGtmInstancesResponseBodyInstances;
   /**
+   * @remarks
+   * Current page number, starting at **1**, default is **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of instances found from the search.
+   * 
    * @example
    * 10
    */
   totalItems?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */
@@ -23158,11 +24741,23 @@ export class SearchCloudGtmInstancesResponse extends $tea.Model {
 
 export class SearchCloudGtmMonitorTemplatesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The IP address type of health check nodes. An exact search is performed based on the IP address type. Valid values:
+   * 
+   * *   IPv4: applicable when the destination address of health checks is an IPv4 address
+   * *   IPv6: applicable when the destination address of health checks is an IPv6 address
+   * 
    * @example
    * IPv4
    */
@@ -23236,6 +24831,10 @@ export class SearchCloudGtmMonitorTemplatesResponseBody extends $tea.Model {
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The health check templates.
+   */
   templates?: SearchCloudGtmMonitorTemplatesResponseBodyTemplates;
   /**
    * @example
@@ -23464,11 +25063,11 @@ export class SetDNSSLBStatusResponse extends $tea.Model {
 export class SetDnsGtmAccessModeRequest extends $tea.Model {
   /**
    * @remarks
-   * The primary/secondary switchover policy for address pool groups. Valid values:
+   * The switchover policy for primary and secondary address pool sets. Valid values:
    * 
-   * *   AUTO: performs automatic switchover between the primary and secondary address pool groups upon failures.
-   * *   DEFAULT: uses the primary address pool group.
-   * *   FAILOVER: uses the secondary address pool group.
+   * *   AUTO: performs automatic switchover between the primary and secondary address pool sets upon failures.
+   * *   DEFAULT: the primary address pool set
+   * *   FAILOVER: the secondary address pool set
    * 
    * This parameter is required.
    * 
@@ -23478,7 +25077,7 @@ export class SetDnsGtmAccessModeRequest extends $tea.Model {
   accessMode?: string;
   /**
    * @remarks
-   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -23486,7 +25085,7 @@ export class SetDnsGtmAccessModeRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the policy.
+   * The policy ID.
    * 
    * This parameter is required.
    * 
@@ -23518,7 +25117,7 @@ export class SetDnsGtmAccessModeRequest extends $tea.Model {
 export class SetDnsGtmAccessModeResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
@@ -23673,7 +25272,7 @@ export class SetDnsGtmMonitorStatusResponse extends $tea.Model {
 export class SetDomainDnssecStatusRequest extends $tea.Model {
   /**
    * @remarks
-   * The domain name for which you want to set the DNSSEC status.
+   * The domain name for which you want to enable the DNSSEC. Only the users of the paid editions of Alibaba Cloud DNS can enable this feature.
    * 
    * This parameter is required.
    * 
@@ -23683,7 +25282,12 @@ export class SetDomainDnssecStatusRequest extends $tea.Model {
   domainName?: string;
   /**
    * @remarks
-   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages. Default value: en. Valid values: en, zh, and ja.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en.
    * 
    * @example
    * en
@@ -23911,11 +25515,11 @@ export class SetDomainRecordStatusResponse extends $tea.Model {
 export class SetGtmAccessModeRequest extends $tea.Model {
   /**
    * @remarks
-   * The target access policy of the GTM instance. Valid values:
+   * The desired access policy. Valid values:
    * 
-   * *   **AUTO**: Automatic switch
-   * *   **DEFAULT**: Default address pool
-   * *   **FAILOVER**: Failover address pool
+   * *   **AUTO: performs automatic switchover between the primary and secondary address pool sets upon failures.**
+   * *   **DEFAULT: specifies the primary address pool set.**
+   * *   **FAILOVER: specifies the secondary address pool set.
    * 
    * This parameter is required.
    * 
@@ -23925,7 +25529,7 @@ export class SetGtmAccessModeRequest extends $tea.Model {
   accessMode?: string;
   /**
    * @remarks
-   * The language used by the user.
+   * The language.
    * 
    * @example
    * en
@@ -23965,7 +25569,7 @@ export class SetGtmAccessModeRequest extends $tea.Model {
 export class SetGtmAccessModeResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
@@ -24854,36 +26458,73 @@ export class UpdateAppKeyStateResponse extends $tea.Model {
 
 export class UpdateCloudGtmAddressRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * IP address or domain name.
+   * 
    * @example
    * 223.5.XX.XX
    */
   address?: string;
   /**
    * @remarks
+   * The ID of the address. This ID uniquely identifies the address.
+   * 
    * This parameter is required.
    * 
    * @example
    * addr-89518218114368**92
    */
   addressId?: string;
+  /**
+   * @remarks
+   * Address Attribution information.
+   * 
+   * @example
+   * This parameter is not supported in the current version and does not need to be input.
+   */
   attributeInfo?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address. This parameter is required when HealthTasks is specified. Valid values:
+   * 
+   * *   any_ok: The health check results of at least one health check template are normal.
+   * *   p30_ok: The health check results of at least 30% of health check templates are normal.
+   * *   p50_ok: The health check results of at least 50% of health check templates are normal.
+   * *   p70_ok: The health check results of at least 70% of health check templates are normal.
+   * *   all_ok: The health check results of all health check templates are normal.
+   * 
    * @example
    * p50_ok
    */
   healthJudgement?: string;
+  /**
+   * @remarks
+   * The health check tasks.
+   */
   healthTasks?: UpdateCloudGtmAddressRequestHealthTasks[];
   /**
+   * @remarks
+   * Address name.
+   * 
    * @example
    * Address-1
    */
@@ -24921,36 +26562,73 @@ export class UpdateCloudGtmAddressRequest extends $tea.Model {
 
 export class UpdateCloudGtmAddressShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * IP address or domain name.
+   * 
    * @example
    * 223.5.XX.XX
    */
   address?: string;
   /**
    * @remarks
+   * The ID of the address. This ID uniquely identifies the address.
+   * 
    * This parameter is required.
    * 
    * @example
    * addr-89518218114368**92
    */
   addressId?: string;
+  /**
+   * @remarks
+   * Address Attribution information.
+   * 
+   * @example
+   * This parameter is not supported in the current version and does not need to be input.
+   */
   attributeInfo?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address. This parameter is required when HealthTasks is specified. Valid values:
+   * 
+   * *   any_ok: The health check results of at least one health check template are normal.
+   * *   p30_ok: The health check results of at least 30% of health check templates are normal.
+   * *   p50_ok: The health check results of at least 50% of health check templates are normal.
+   * *   p70_ok: The health check results of at least 70% of health check templates are normal.
+   * *   all_ok: The health check results of all health check templates are normal.
+   * 
    * @example
    * p50_ok
    */
   healthJudgement?: string;
+  /**
+   * @remarks
+   * The health check tasks.
+   */
   healthTasksShrink?: string;
   /**
+   * @remarks
+   * Address name.
+   * 
    * @example
    * Address-1
    */
@@ -24988,11 +26666,19 @@ export class UpdateCloudGtmAddressShrinkRequest extends $tea.Model {
 
 export class UpdateCloudGtmAddressResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Modify address base configuration operation status:
+   * - true: Operation was successful
+   * - false: Operation was failed
+   * 
    * @example
    * true
    */
@@ -25043,12 +26729,21 @@ export class UpdateCloudGtmAddressResponse extends $tea.Model {
 
 export class UpdateCloudGtmAddressEnableStatusRequest extends $tea.Model {
   /**
+   * @remarks
+   * 返回结果显示的语言。取值：
+   * 
+   * - zh-CN：中文
+   * 
+   * - en-US：英文
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The ID of the address. This ID uniquely identifies the address.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25056,12 +26751,20 @@ export class UpdateCloudGtmAddressEnableStatusRequest extends $tea.Model {
    */
   addressId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
    * @remarks
+   * The enabling state of the address. Valid values:
+   * 
+   * *   enable: The address is enabled and the address can be used for Domain Name System (DNS) resolution if the address passes health checks.
+   * *   disable: The address is disabled and the address cannot be used for DNS resolution regardless of whether the address passes health checks or not.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25093,11 +26796,20 @@ export class UpdateCloudGtmAddressEnableStatusRequest extends $tea.Model {
 
 export class UpdateCloudGtmAddressEnableStatusResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * *   true: The operation was successful.
+   * *   false: The operation was failed.
+   * 
    * @example
    * true
    */
@@ -25148,12 +26860,20 @@ export class UpdateCloudGtmAddressEnableStatusResponse extends $tea.Model {
 
 export class UpdateCloudGtmAddressManualAvailableStatusRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The ID of the address. This ID uniquely identifies the address.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25161,16 +26881,31 @@ export class UpdateCloudGtmAddressManualAvailableStatusRequest extends $tea.Mode
    */
   addressId?: string;
   /**
+   * @remarks
+   * The failover mode that is used when address exceptions are identified. Valid values:
+   * 
+   * *   auto: the automatic mode. The system determines whether to return an address based on health check results. If the address fails health checks, the system does not return the address. If the address passes health checks, the system returns the address.
+   * *   manual: the manual mode. If an address is in the unavailable state, the address is not returned for DNS requests even if the address passes health checks. If an address is in the available state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * 
    * @example
    * manual
    */
   availableMode?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The availability state of the address when AvailableMode is set to manual. Valid values:
+   * 
+   * *   available: The address is normal. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * *   unavailable: The address is abnormal. In this state, the address is not returned for DNS requests even if the address passes health checks.
+   * 
    * @example
    * available
    */
@@ -25202,11 +26937,20 @@ export class UpdateCloudGtmAddressManualAvailableStatusRequest extends $tea.Mode
 
 export class UpdateCloudGtmAddressManualAvailableStatusResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 0F32959D-417B-4D66-8463-68606605E3E2
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
    * @example
    * true
    */
@@ -25257,26 +27001,50 @@ export class UpdateCloudGtmAddressManualAvailableStatusResponse extends $tea.Mod
 
 export class UpdateCloudGtmAddressPoolBasicConfigRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Address pool name, helping users distinguish the purpose of address pools.
+   * 
    * @example
    * app
    */
   addressPoolName?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address pool. Valid values:
+   * 
+   * *   any_ok: At least one address in the address pool is available.
+   * *   p30_ok: At least 30% of the addresses in the address pool are available.
+   * *   p50_ok: At least 50% of the addresses in the address pool are available.
+   * *   p70_ok: At least 70% of the addresses in the address pool are available.
+   * *   all_ok: All addresses in the address pool are available.
+   * 
    * @example
    * any_ok
    */
@@ -25308,16 +27076,27 @@ export class UpdateCloudGtmAddressPoolBasicConfigRequest extends $tea.Model {
 
 export class UpdateCloudGtmAddressPoolBasicConfigResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Modify the basic configuration of the address pool operation success:
+   * - true: Operation successful
+   * - false: Operation failed
+   * 
    * @example
    * true
    */
@@ -25370,21 +27149,39 @@ export class UpdateCloudGtmAddressPoolBasicConfigResponse extends $tea.Model {
 
 export class UpdateCloudGtmAddressPoolEnableStatusRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The enabling state of the address pool. Valid values:
+   * 
+   * *   enable: The address pool is enabled, and the addresses in the address pool are returned for DNS resolution when the health check results are normal.
+   * *   disable: The address pool is disabled, and the addresses in the address pool are not returned for DNS resolution regardless of whether the health check results are normal or not.
+   * 
    * @example
    * enable
    */
@@ -25414,16 +27211,27 @@ export class UpdateCloudGtmAddressPoolEnableStatusRequest extends $tea.Model {
 
 export class UpdateCloudGtmAddressPoolEnableStatusResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 89184F33-48A1-4401-9C0F-40E45DB091AB
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the modification operation was successful:
+   * - true: Operation was successful
+   * - false: Operation failed
+   * 
    * @example
    * true
    */
@@ -25476,26 +27284,51 @@ export class UpdateCloudGtmAddressPoolEnableStatusResponse extends $tea.Model {
 
 export class UpdateCloudGtmAddressPoolLbStrategyRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * Load balancing policy among addresses in the address pool:
+   * - round_robin: Round-robin, for any source of DNS resolution requests, all addresses are returned. The order of all addresses is rotated each time.
+   * - sequence: Sequential, for any source of DNS resolution requests, the address with the smaller sequence number (the sequence number indicates the priority of address returns, with smaller numbers having higher priority) is returned. If the address with the smaller sequence number is unavailable, the next address with a smaller sequence number is returned.
+   * - weight: Weighted, supports setting different weight values for each address, realizing the return of addresses according to the weight ratio for resolution queries.
+   * - source_nearest: Source-nearest, i.e., intelligent resolution function, where GTM can return different addresses based on the source of different DNS resolution requests, achieving the effect of users accessing nearby.
+   * 
    * @example
    * sequence
    */
   addressLbStrategy?: string;
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The mode used if the address with the smallest sequence number is recovered. This parameter is required only when AddressLbStrategy is set to sequence. Valid values:
+   * 
+   * *   preemptive: The address with the smallest sequence number is preferentially used if this address is recovered.
+   * *   non_preemptive: The current address is still used even if the address with the smallest sequence number is recovered.
+   * 
    * @example
    * preemptive
    */
@@ -25527,16 +27360,27 @@ export class UpdateCloudGtmAddressPoolLbStrategyRequest extends $tea.Model {
 
 export class UpdateCloudGtmAddressPoolLbStrategyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * B57C121B-A45F-44D8-A9B2-13E5A5044195
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the modification operation was successful:
+   * - true: Operation successful
+   * - false: Operation failed
+   * 
    * @example
    * true
    */
@@ -25589,21 +27433,36 @@ export class UpdateCloudGtmAddressPoolLbStrategyResponse extends $tea.Model {
 
 export class UpdateCloudGtmAddressPoolRemarkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The input parameter serves as the updated note; if an empty value is passed, the note will be deleted.
+   * 
    * @example
    * test
    */
@@ -25633,16 +27492,27 @@ export class UpdateCloudGtmAddressPoolRemarkRequest extends $tea.Model {
 
 export class UpdateCloudGtmAddressPoolRemarkResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the modification operation was successful:
+   * - true: Operation successful
+   * - false: Operation failed
+   * 
    * @example
    * true
    */
@@ -25695,12 +27565,20 @@ export class UpdateCloudGtmAddressPoolRemarkResponse extends $tea.Model {
 
 export class UpdateCloudGtmAddressRemarkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The ID of the address. This ID uniquely identifies the address.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25708,11 +27586,17 @@ export class UpdateCloudGtmAddressRemarkRequest extends $tea.Model {
    */
   addressId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The input parameter serves as the updated note; if an empty value is passed, the note will be deleted.
+   * 
    * @example
    * test
    */
@@ -25742,11 +27626,19 @@ export class UpdateCloudGtmAddressRemarkRequest extends $tea.Model {
 
 export class UpdateCloudGtmAddressRemarkResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * B57C121B-A45F-44D8-A9B2-13E5A5044195
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the modification operation was successful:
+   * - true: Operation was successful
+   * - false: Operation was failed
+   * 
    * @example
    * true
    */
@@ -25797,13 +27689,30 @@ export class UpdateCloudGtmAddressRemarkResponse extends $tea.Model {
 
 export class UpdateCloudGtmGlobalAlertRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The alert configurations.
+   */
   alertConfig?: UpdateCloudGtmGlobalAlertRequestAlertConfig[];
+  /**
+   * @remarks
+   * The alert contact groups.
+   */
   alertGroup?: string[];
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
@@ -25833,13 +27742,30 @@ export class UpdateCloudGtmGlobalAlertRequest extends $tea.Model {
 
 export class UpdateCloudGtmGlobalAlertShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The alert configurations.
+   */
   alertConfigShrink?: string;
+  /**
+   * @remarks
+   * The alert contact groups.
+   */
   alertGroupShrink?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
@@ -25869,11 +27795,20 @@ export class UpdateCloudGtmGlobalAlertShrinkRequest extends $tea.Model {
 
 export class UpdateCloudGtmGlobalAlertResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B57C121B-A45F-44D8-A9B2-13E5A5044195
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -26160,35 +28095,65 @@ export class UpdateCloudGtmInstanceConfigAlertResponse extends $tea.Model {
 
 export class UpdateCloudGtmInstanceConfigBasicRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   **zh-CN**: Chinese
+   * *   **en-US** (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * 
+   * You can call the [ListCloudGtmInstanceConfigs](~~ListCloudGtmInstanceConfigs~~) operation to query the value of ConfigId for the access domain name.
+   * 
    * @example
    * Config-000**11
    */
   configId?: string;
   /**
+   * @remarks
+   * The ID of the GTM 3.0 instance for which you want to modify the TTL configuration.
+   * 
    * @example
    * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Host record of the domain accessed by GTM.
+   * 
    * @example
    * www
    */
   scheduleHostname?: string;
   /**
+   * @remarks
+   * The zone (such as example.com) or subzone (such as a.example.com) of the GTM access domain name. In most cases, the zone or subzone is hosted in Authoritative DNS Resolution of the Alibaba Cloud DNS console within the account to which the GTM instance belongs.
+   * 
    * @example
    * example.com
    */
   scheduleZoneName?: string;
+  /**
+   * @remarks
+   * The global TTL value, in seconds. The global TTL value affects how long the DNS records that map the access domain name to the addresses in the address pools are cached in the local DNS servers of Internet service providers (ISPs).
+   * 
+   * @example
+   * 60
+   */
   ttl?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26221,11 +28186,19 @@ export class UpdateCloudGtmInstanceConfigBasicRequest extends $tea.Model {
 
 export class UpdateCloudGtmInstanceConfigBasicResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful: 
+   * - **true**: The call succeeded. 
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */
@@ -26276,26 +28249,49 @@ export class UpdateCloudGtmInstanceConfigBasicResponse extends $tea.Model {
 
 export class UpdateCloudGtmInstanceConfigEnableStatusRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   **zh-CN**: Chinese
+   * *   **en-US** (default): English
+   * 
    * @example
    * zh-CN
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * 
+   * You can call the [ListCloudGtmInstanceConfigs](~~ListCloudGtmInstanceConfigs~~) operation to query the configuration ID of the access domain name.
+   * 
    * @example
    * Config-000**11
    */
   configId?: string;
   /**
+   * @remarks
+   * The enabling state of the access domain name. Valid values:
+   * 
+   * *   enable
+   * *   disable
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The ID of the Global Traffic Manager (GTM) 3.0 instance.
+   * 
    * @example
    * gtm-cn-wwo3a3hbz**
    */
@@ -26327,11 +28323,19 @@ export class UpdateCloudGtmInstanceConfigEnableStatusRequest extends $tea.Model 
 
 export class UpdateCloudGtmInstanceConfigEnableStatusResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful: 
+   * - **true**: The call succeeded. 
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */
@@ -26382,31 +28386,62 @@ export class UpdateCloudGtmInstanceConfigEnableStatusResponse extends $tea.Model
 
 export class UpdateCloudGtmInstanceConfigLbStrategyRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language in which the returned results are displayed. Valid values:
+   * 
+   * *   **zh-CN**: Chinese
+   * *   **en-US** (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The new policy for load balancing between address pools. Valid values:
+   * 
+   * *   round_robin: All address pools are returned for Domain Name System (DNS) requests from any source. All address pools are sorted in round-robin mode each time they are returned.
+   * *   sequence: The address pool with the smallest sequence number is preferentially returned for DNS requests from any source. The sequence number indicates the priority for returning the address pool. A smaller sequence number indicates a higher priority. If the address pool with the smallest sequence number is unavailable, the address pool with the second smallest sequence number is returned.
+   * *   weight: You can set a different weight value for each address pool. This way, address pools are returned based on the weight values.
+   * *   source_nearest: GTM returns different address pools based on the sources of DNS requests. This way, users can access nearby address pools.
+   * 
    * @example
    * sequence
    */
   addressPoolLbStrategy?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * 
+   * You can call the [ListCloudGtmInstanceConfigs](~~ListCloudGtmInstanceConfigs~~) operation to query the configuration ID of the desired access domain name.
+   * 
    * @example
    * Config-000**11
    */
   configId?: string;
   /**
+   * @remarks
+   * The ID of the GTM 3.0 instance for which you want to modify the load balancing policy.
+   * 
    * @example
    * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The mode used if the address pool with the smallest sequence number is recovered. This parameter is required when AddressPoolLbStrategy is set to sequence. Valid values:
+   * 
+   * *   preemptive: The address pool with the smallest sequence number is preferentially used if this address pool is recovered.
+   * *   non_preemptive: The current address pool is still used even if the address pool with the smallest sequence number is recovered.
+   * 
    * @example
    * preemptive
    */
@@ -26495,21 +28530,38 @@ export class UpdateCloudGtmInstanceConfigLbStrategyResponse extends $tea.Model {
 
 export class UpdateCloudGtmInstanceConfigRemarkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language in which the returned results are displayed. Valid values:
+   * 
+   * *   **zh-CN**: Chinese
+   * *   **en-US** (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * 
+   * You can call the [ListCloudGtmInstanceConfigs](~~ListCloudGtmInstanceConfigs~~) operation to query the configuration ID of the access domain name.
+   * 
    * @example
    * Config-000**11
    */
   configId?: string;
   /**
+   * @remarks
+   * The ID of the GTM 3.0 instance for which you want to modify the description.
+   * 
    * @example
    * gtm-cn-wwo3a3hbz**
    */
@@ -26601,21 +28653,36 @@ export class UpdateCloudGtmInstanceConfigRemarkResponse extends $tea.Model {
 
 export class UpdateCloudGtmInstanceNameRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The ID of the Global Traffic Manager (GTM) instance.
+   * 
    * @example
    * gtm-cn-jmp3qnw**03
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the instance. You cannot leave this parameter empty.
+   * 
    * @example
    * test
    */
@@ -26645,11 +28712,20 @@ export class UpdateCloudGtmInstanceNameRequest extends $tea.Model {
 
 export class UpdateCloudGtmInstanceNameResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -26700,43 +28776,107 @@ export class UpdateCloudGtmInstanceNameResponse extends $tea.Model {
 
 export class UpdateCloudGtmMonitorTemplateRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The number of retries. The system will only judge the application service as abnormal after consecutive monitoring failures to prevent inaccurate monitoring results due to momentary network fluctuations or other reasons. Available retry options are:
+   * - 1 
+   * - 2 
+   * - 3
+   * 
    * @example
    * 2
    */
   evaluationCount?: number;
   /**
+   * @remarks
+   * The extended information. The value of this parameter is a JSON string. The required parameters vary based on the health check protocol.
+   * 
+   * *   HTTP or HTTPS:
+   * 
+   *     host: the Host field of an HTTP or HTTPS request header during an HTTP or HTTPS health check. The parameter value indicates the HTTP website that you want to visit. By default, the value is the primary domain name. You can change the value based on your business requirements.
+   * 
+   *     path: the URL for HTTP or HTTPS health checks. Default value: /.
+   * 
+   *     code: the alert threshold. During an HTTP or HTTPS health check, the system checks whether a web server functions as expected based on the status code that is returned from the web server. If the returned status code is greater than the specified threshold, the corresponding application service address is deemed abnormal. Valid values:
+   * 
+   *     *   400: specifies an invalid request. If an HTTP or HTTPS request contains invalid request parameters, a web server returns a status code that is greater than 400. You must set path to an exact URL if you set code to 400.
+   *     *   500: specifies a server error. If some exceptions occur on a web server, the web server returns a status code that is greater than 500. This value is used by default.
+   * 
+   *     sni: specifies whether to enable Server Name Indication (SNI). This parameter is used only when the health check protocol is HTTPS. SNI is an extension to the Transport Layer Security (TLS) protocol, which allows a client to specify the host to be connected when the client sends a TLS handshake request. TLS handshakes occur before any data of HTTP requests is sent. Therefore, SNI enables servers to identify the services that clients are attempting to access before certificates are sent. This allows the servers to present correct certificates to the clients. Valid values:
+   * 
+   *     *   true: enables SNI.
+   *     *   false: disables SNI.
+   * 
+   *     followRedirect: specifies whether to follow 3XX redirects. Valid values:
+   * 
+   *     *   true: follows 3XX redirects. You are redirected to the destination address if a 3XX status code such as 301, 302, 303, 307, or 308 is returned.
+   *     *   false: does not follow 3XX redirects.
+   * 
+   * *   ping:
+   * 
+   *     packetNum: the total number of Internet Control Message Protocol (ICMP) packets that are sent to the address for each ping-based health check. Valid values: 20, 50, and 100.
+   * 
+   *     packetLossRate: the ICMP packet loss rate for each ping-based health check. The packet loss rate in a health check can be calculated by using the following formula: Packet loss rate in a health check = (Number of lost packets/Total number of sent ICMP packets) × 100%. If the packet loss rate reaches the threshold, an alert is triggered. Valid values: 10, 30, 40, 80, 90, and 100.
+   * 
    * @example
    * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
    */
   extendInfo?: string;
   /**
+   * @remarks
+   * Percentage of selected node probe failures (%), that is, the percentage of abnormal detection points among the total detection points. When the failure ratio exceeds the set threshold, the service address is judged as abnormal. The available failure ratio thresholds are:
+   * - 20
+   * - 50
+   * - 80
+   * - 100
+   * 
    * @example
    * 50
    */
   failureRate?: number;
   /**
+   * @remarks
+   * The time interval (in seconds) for each health check probe. By default, it probes every 60 seconds. The minimum supported interval for health checks is 15 seconds, available for flagship edition instances.
+   * 
    * @example
    * 60
    */
   interval?: number;
+  /**
+   * @remarks
+   * The health check nodes. You can call the [ListCloudGtmMonitorNodes](~~ListCloudGtmMonitorNodes~~) operation to obtain the health check nodes.
+   */
   ispCityNodes?: UpdateCloudGtmMonitorTemplateRequestIspCityNodes[];
   /**
+   * @remarks
+   * The name of the health check probe template, which is generally recommended to be distinguishable and memorable for configuration personnel, ideally indicating the health check protocol for easier identification.
+   * 
    * @example
    * Ping-IPv4
    */
   name?: string;
   /**
    * @remarks
+   * The ID of the health check template that you want to modify. This ID uniquely identifies the health check template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26744,6 +28884,13 @@ export class UpdateCloudGtmMonitorTemplateRequest extends $tea.Model {
    */
   templateId?: string;
   /**
+   * @remarks
+   * Probe timeout (in milliseconds), data packets not returned within the timeout period are considered as health check timeouts:
+   * - 2000
+   * - 3000
+   * - 5000
+   * - 10000
+   * 
    * @example
    * 5000
    */
@@ -26785,43 +28932,107 @@ export class UpdateCloudGtmMonitorTemplateRequest extends $tea.Model {
 
 export class UpdateCloudGtmMonitorTemplateShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US (default): English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The number of retries. The system will only judge the application service as abnormal after consecutive monitoring failures to prevent inaccurate monitoring results due to momentary network fluctuations or other reasons. Available retry options are:
+   * - 1 
+   * - 2 
+   * - 3
+   * 
    * @example
    * 2
    */
   evaluationCount?: number;
   /**
+   * @remarks
+   * The extended information. The value of this parameter is a JSON string. The required parameters vary based on the health check protocol.
+   * 
+   * *   HTTP or HTTPS:
+   * 
+   *     host: the Host field of an HTTP or HTTPS request header during an HTTP or HTTPS health check. The parameter value indicates the HTTP website that you want to visit. By default, the value is the primary domain name. You can change the value based on your business requirements.
+   * 
+   *     path: the URL for HTTP or HTTPS health checks. Default value: /.
+   * 
+   *     code: the alert threshold. During an HTTP or HTTPS health check, the system checks whether a web server functions as expected based on the status code that is returned from the web server. If the returned status code is greater than the specified threshold, the corresponding application service address is deemed abnormal. Valid values:
+   * 
+   *     *   400: specifies an invalid request. If an HTTP or HTTPS request contains invalid request parameters, a web server returns a status code that is greater than 400. You must set path to an exact URL if you set code to 400.
+   *     *   500: specifies a server error. If some exceptions occur on a web server, the web server returns a status code that is greater than 500. This value is used by default.
+   * 
+   *     sni: specifies whether to enable Server Name Indication (SNI). This parameter is used only when the health check protocol is HTTPS. SNI is an extension to the Transport Layer Security (TLS) protocol, which allows a client to specify the host to be connected when the client sends a TLS handshake request. TLS handshakes occur before any data of HTTP requests is sent. Therefore, SNI enables servers to identify the services that clients are attempting to access before certificates are sent. This allows the servers to present correct certificates to the clients. Valid values:
+   * 
+   *     *   true: enables SNI.
+   *     *   false: disables SNI.
+   * 
+   *     followRedirect: specifies whether to follow 3XX redirects. Valid values:
+   * 
+   *     *   true: follows 3XX redirects. You are redirected to the destination address if a 3XX status code such as 301, 302, 303, 307, or 308 is returned.
+   *     *   false: does not follow 3XX redirects.
+   * 
+   * *   ping:
+   * 
+   *     packetNum: the total number of Internet Control Message Protocol (ICMP) packets that are sent to the address for each ping-based health check. Valid values: 20, 50, and 100.
+   * 
+   *     packetLossRate: the ICMP packet loss rate for each ping-based health check. The packet loss rate in a health check can be calculated by using the following formula: Packet loss rate in a health check = (Number of lost packets/Total number of sent ICMP packets) × 100%. If the packet loss rate reaches the threshold, an alert is triggered. Valid values: 10, 30, 40, 80, 90, and 100.
+   * 
    * @example
    * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
    */
   extendInfo?: string;
   /**
+   * @remarks
+   * Percentage of selected node probe failures (%), that is, the percentage of abnormal detection points among the total detection points. When the failure ratio exceeds the set threshold, the service address is judged as abnormal. The available failure ratio thresholds are:
+   * - 20
+   * - 50
+   * - 80
+   * - 100
+   * 
    * @example
    * 50
    */
   failureRate?: number;
   /**
+   * @remarks
+   * The time interval (in seconds) for each health check probe. By default, it probes every 60 seconds. The minimum supported interval for health checks is 15 seconds, available for flagship edition instances.
+   * 
    * @example
    * 60
    */
   interval?: number;
+  /**
+   * @remarks
+   * The health check nodes. You can call the [ListCloudGtmMonitorNodes](~~ListCloudGtmMonitorNodes~~) operation to obtain the health check nodes.
+   */
   ispCityNodesShrink?: string;
   /**
+   * @remarks
+   * The name of the health check probe template, which is generally recommended to be distinguishable and memorable for configuration personnel, ideally indicating the health check protocol for easier identification.
+   * 
    * @example
    * Ping-IPv4
    */
   name?: string;
   /**
    * @remarks
+   * The ID of the health check template that you want to modify. This ID uniquely identifies the health check template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26829,6 +29040,13 @@ export class UpdateCloudGtmMonitorTemplateShrinkRequest extends $tea.Model {
    */
   templateId?: string;
   /**
+   * @remarks
+   * Probe timeout (in milliseconds), data packets not returned within the timeout period are considered as health check timeouts:
+   * - 2000
+   * - 3000
+   * - 5000
+   * - 10000
+   * 
    * @example
    * 5000
    */
@@ -26870,11 +29088,19 @@ export class UpdateCloudGtmMonitorTemplateShrinkRequest extends $tea.Model {
 
 export class UpdateCloudGtmMonitorTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Unique request identification code.
+   * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Modify the health check template operation status:
+   * - true: Operation successful
+   * - false: Operation failed
+   * 
    * @example
    * true
    */
@@ -26925,22 +29151,36 @@ export class UpdateCloudGtmMonitorTemplateResponse extends $tea.Model {
 
 export class UpdateCloudGtmMonitorTemplateRemarkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
    * @example
    * en-US
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The new description of the template. If you do not specify this parameter, the original description is deleted.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
    * @remarks
+   * The ID of the health check template. This ID uniquely identifies a health check template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26972,11 +29212,19 @@ export class UpdateCloudGtmMonitorTemplateRemarkRequest extends $tea.Model {
 
 export class UpdateCloudGtmMonitorTemplateRemarkResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Modify the health check template remark operation status:
+   * - true: Operation successful
+   * - false: Operation failed
+   * 
    * @example
    * true
    */
@@ -28209,7 +30457,7 @@ export class UpdateDnsGtmMonitorRequest extends $tea.Model {
   protocolType?: string;
   /**
    * @remarks
-   * The health check timeout period. Unit: milliseconds.
+   * The timeout period. Unit: milliseconds.
    * 
    * @example
    * 3000
@@ -28300,7 +30548,7 @@ export class UpdateDnsGtmMonitorResponse extends $tea.Model {
 export class UpdateDomainGroupRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the domain name group.
+   * The ID of the domain name group whose name you want to modify.
    * 
    * This parameter is required.
    * 
@@ -28320,7 +30568,12 @@ export class UpdateDomainGroupRequest extends $tea.Model {
   groupName?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en.
    * 
    * @example
    * en
@@ -28429,11 +30682,11 @@ export class UpdateDomainRecordRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The DNS resolution line. Default value: **default**.
+   * The resolution line. Default value: **default**.
    * 
    * For more information, see
    * 
-   * [DNS lines](https://www.alibabacloud.com/help/zh/doc-detail/29807.htm).
+   * [DNS resolution lines](https://www.alibabacloud.com/help/zh/doc-detail/29807.htm).
    * 
    * @example
    * default
@@ -28443,7 +30696,7 @@ export class UpdateDomainRecordRequest extends $tea.Model {
    * @remarks
    * The priority of the mail exchanger (MX) record. Valid values: `1 to 50`.
    * 
-   * This parameter must be specified if the type of the DNS record is MX.
+   * This parameter is required if the type of the DNS record is MX.
    * 
    * @example
    * 1
@@ -28473,7 +30726,7 @@ export class UpdateDomainRecordRequest extends $tea.Model {
   recordId?: string;
   /**
    * @remarks
-   * The time-to-live (TTL) of the DNS record. Default value: 600. Unit: seconds.
+   * The time to live (TTL) value of the Domain Name System (DNS) record. Default value: 600. Unit: seconds.
    * 
    * For more information, see
    * 
@@ -28726,7 +30979,12 @@ export class UpdateDomainRemarkRequest extends $tea.Model {
   domainName?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * Default value: en
    * 
    * @example
    * cn
@@ -28735,6 +30993,8 @@ export class UpdateDomainRemarkRequest extends $tea.Model {
   /**
    * @remarks
    * The description of your domain name.
+   * 
+   * It can be up to 50 characters in length and can contain digits, letters, and the following special characters: _ - , .
    */
   remark?: string;
   static names(): { [key: string]: string } {
@@ -30219,11 +32479,17 @@ export class AddGtmMonitorRequestIspCityNode extends $tea.Model {
 
 export class CreateCloudGtmAddressRequestHealthTasks extends $tea.Model {
   /**
+   * @remarks
+   * The service port of the address on which health check tasks are performed. If the ping protocol is used for health checks, the configuration of the service port is not supported.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * The ID of the health check template associated with the address.
+   * 
    * @example
    * mtp-89518052425100**80
    */
@@ -30249,11 +32515,17 @@ export class CreateCloudGtmAddressRequestHealthTasks extends $tea.Model {
 
 export class CreateCloudGtmMonitorTemplateRequestIspCityNodes extends $tea.Model {
   /**
+   * @remarks
+   * The city code of the health check node.
+   * 
    * @example
    * 503
    */
   cityCode?: string;
   /**
+   * @remarks
+   * The Internet service provider (ISP) code of the health check node.
+   * 
    * @example
    * 465
    */
@@ -30474,21 +32746,37 @@ export class DescribeBatchResultDetailResponseBodyBatchResultDetails extends $te
 
 export class DescribeCloudGtmAddressResponseBodyHealthTasksHealthTask extends $tea.Model {
   /**
+   * @remarks
+   * The state of the health check task. Valid values:
+   * 
+   * *   ok: The task is normal.
+   * *   alert: An alert is triggered.
+   * *   no_data: No data is available. In most cases, the health check task is newly created and no data is collected.
+   * 
    * @example
    * ok
    */
   monitorStatus?: string;
   /**
+   * @remarks
+   * The target service port for health checks. When the Ping protocol is selected for health checks, configuration of the service port is not supported.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * The ID of the health check template associated with the address.
+   * 
    * @example
    * mtp-89518052425100**80
    */
   templateId?: string;
   /**
+   * @remarks
+   * The name of the health check template.
+   * 
    * @example
    * Ping-IPv4
    */
@@ -30537,16 +32825,25 @@ export class DescribeCloudGtmAddressResponseBodyHealthTasks extends $tea.Model {
 
 export class DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasksHealthTask extends $tea.Model {
   /**
+   * @remarks
+   * The target service port for health check probes. When the health check protocol is set to Ping, configuration of the service port is not supported.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * ID of the health check template associated with the address.
+   * 
    * @example
    * mtp-89518052425100**80
    */
   templateId?: string;
   /**
+   * @remarks
+   * Health check template name.
+   * 
    * @example
    * IPv4-Ping
    */
@@ -30612,94 +32909,188 @@ export class DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSourc
 
 export class DescribeCloudGtmAddressPoolResponseBodyAddressesAddress extends $tea.Model {
   /**
+   * @remarks
+   * IP address or domain name.
+   * 
    * @example
    * 223.5.XX.XX
    */
   address?: string;
   /**
+   * @remarks
+   * The address ID. This ID uniquely identifies the address.
+   * 
    * @example
    * addr-89518218114368**92
    */
   addressId?: string;
+  /**
+   * @remarks
+   * Address ownership information, not supported in the current version.
+   * 
+   * @example
+   * Not supported in the current version.
+   */
   attributeInfo?: string;
   /**
+   * @remarks
+   * The failover method that is used if the address fails health checks. Valid values:
+   * 
+   * *   auto: the automatic mode. The system determines whether to return an address based on the health check results. If the address fails health checks, the system does not return the address. If the address passes health checks, the system returns the address.
+   * *   manual: the manual mode. If an address is in the unavailable state, the address is not returned for DNS requests even if the address passes health checks. If an address is in the available state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * 
    * @example
    * auto
    */
   availableMode?: string;
   /**
+   * @remarks
+   * Address availability status:
+   * - available: Address available
+   * - unavailable: Address unavailable
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * Address creation time.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Address creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Address enable status, indicating whether the address is currently available:
+   * - enable: Enabled status
+   * - disable: Disabled status
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address. Valid values:
+   * 
+   * *   any_ok: The health check results of at least one health check template are normal.
+   * *   p30_ok: The health check results of at least 30% of health check templates are normal.
+   * *   p50_ok: The health check results of at least 50% of health check templates are normal.
+   * *   p70_ok: The health check results of at least 70% of health check templates are normal.
+   * *   all_ok: The health check results of all health check templates are normal.
+   * 
    * @example
    * any_ok
    */
   healthJudgement?: string;
   /**
+   * @remarks
+   * The health check state of the address. Valid values:
+   * 
+   * *   ok: The address passes all health checks of the referenced health check templates.
+   * *   ok_alert: The address fails some health checks of the referenced health check templates but the address is deemed normal.
+   * *   ok_no_monitor: The address does not reference a health check template and is normal.
+   * *   exceptional: The address fails some or all health checks of the referenced health check templates and the address is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
+  /**
+   * @remarks
+   * Health check task list.
+   */
   healthTasks?: DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasks;
   /**
+   * @remarks
+   * The availability state of the address when AvailableMode is set to manual. Valid values:
+   * 
+   * *   available: The address is normal. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * *   unavailable: The address is abnormal. In this state, the address is not returned for DNS requests even if the address passes health checks.
+   * 
    * @example
    * available
    */
   manualAvailableStatus?: string;
   /**
+   * @remarks
+   * Address name.
+   * 
    * @example
    * Address-1
    */
   name?: string;
   /**
+   * @remarks
+   * Remarks for the address.
+   * 
    * @example
    * test
    */
   remark?: string;
+  /**
+   * @remarks
+   * The request source list.
+   */
   requestSource?: DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSource;
   /**
+   * @remarks
+   * Indicates whether it is a sequential (non-preemptive) scheduling object for hybrid cloud management scenarios: - true: yes - false: no
+   * 
    * @example
    * false
    */
   seqNonPreemptiveSchedule?: boolean;
   /**
+   * @remarks
+   * Sequence number, indicating the priority of address return, where smaller numbers have higher priority.
+   * 
    * @example
    * 1
    */
   serialNumber?: number;
   /**
+   * @remarks
+   * The address type. Valid values:
+   * 
+   * *   IPv4: IPv4 address
+   * *   IPv6: IPv6 address
+   * *   domain: domain name
+   * 
    * @example
    * IPv4
    */
   type?: string;
   /**
+   * @remarks
+   * The last time the address was modified.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The last modification time of the address (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   updateTimestamp?: number;
   /**
+   * @remarks
+   * Weight value (an integer between 1 and 100, inclusive), allowing different weight values to be set for each address, enabling resolution queries to return addresses according to the weighted ratio.
+   * 
    * @example
    * 1
    */
@@ -30782,76 +33173,144 @@ export class DescribeCloudGtmAddressPoolResponseBodyAddresses extends $tea.Model
 
 export class DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigsInstanceConfig extends $tea.Model {
   /**
+   * @remarks
+   * The policy for load balancing between address pools. Valid values:
+   * 
+   * *   round_robin: All address pools are returned for Domain Name System (DNS) requests from any source. All address pools are sorted in round-robin mode each time they are returned.
+   * *   sequence: The address pool with the smallest sequence number is preferentially returned for DNS requests from any source. The sequence number indicates the priority for returning the address pool. A smaller sequence number indicates a higher priority. If the address pool with the smallest sequence number is unavailable, the address pool with the second smallest sequence number is returned.
+   * *   weight: You can set a different weight value for each address pool. This way, address pools are returned based on the weight values.
+   * *   source_nearest: Different address pools are returned based on the sources of DNS requests. This way, users can access nearby address pools.
+   * 
    * @example
    * round_robin
    */
   addressPoolLbStrategy?: string;
   /**
+   * @remarks
+   * The availability state of the access domain name. Valid values:
+   * 
+   * *   available: If the access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
+   * *   unavailable: If the access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * 
    * @example
    * config-000**1
    */
   configId?: string;
   /**
+   * @remarks
+   * The enabling state of the access domain name. Valid values:
+   * 
+   * *   enable: The access domain name is enabled and the intelligent scheduling policy of the corresponding GTM instance takes effect.
+   * *   disable: The access domain name is disabled and the intelligent scheduling policy of the corresponding GTM instance does not take effect.
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The health state of the access domain name. Valid values:
+   * 
+   * *   ok: The health state of the access domain name is normal and all address pools that are referenced by the access domain name are available.
+   * *   ok_alert: The health state of the access domain name is warning and some of the address pools that are referenced by the access domain name are unavailable. In this case, only the available address pools are returned for DNS requests.
+   * *   exceptional: The health state of the access domain name is abnormal and all address pools that are referenced by the access domain name are unavailable. In this case, addresses in the non-empty address pool with the smallest sequence number are preferentially used for fallback resolution. This returns DNS results for clients as much as possible.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
   /**
+   * @remarks
+   * The ID of the Global Traffic Manager (GTM) 3.0 instance.
+   * 
    * @example
    * gtm-cn-jmp3qnw**03
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Instance name.
+   * 
    * @example
    * test
    */
   instanceName?: string;
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The access domain name. The value of this parameter is composed of the value of ScheduleHostname and the value of ScheduleZoneName.
+   * 
    * @example
    * www.example.com
    */
   scheduleDomainName?: string;
   /**
+   * @remarks
+   * Host record of the domain accessed by GTM.
+   * 
    * @example
    * www
    */
   scheduleHostname?: string;
   /**
+   * @remarks
+   * DNS record types for scheduling domains:
+   * - A: IPv4 address
+   * - AAAA: IPv6 address
+   * - CNAME: Domain name
+   * 
    * @example
    * A
    */
   scheduleRrType?: string;
   /**
+   * @remarks
+   * The zone such as example.com or subzone such as a.example.com of the access domain name. In most cases, the zone or subzone is hosted by the Public Authoritative DNS module of Alibaba Cloud DNS. This zone belongs to the account to which the GTM instance belongs.
+   * 
    * @example
    * example.com
    */
   scheduleZoneName?: string;
   /**
+   * @remarks
+   * The mode used if the address pool with the smallest sequence number is recovered. This parameter is returned when AddressPoolLbStrategy is set to sequence. Valid values:
+   * 
+   * *   preemptive: The address pool with the smallest sequence number is preferentially used if this address pool is recovered.
+   * *   non_preemptive: The current address pool is still used even if the address pool with the smallest sequence number is recovered.
+   * 
    * @example
    * preemptive
    */
   sequenceLbStrategyMode?: string;
   /**
+   * @remarks
+   * Global TTL, the TTL value for resolving the accessed domain name to addresses in the address pool, which affects the caching time of DNS records in the operator\\"s LocalDNS. Supports custom TTL values.
+   * 
    * @example
    * 30
    */
   ttl?: number;
   /**
+   * @remarks
+   * Global Traffic Management version 3.0 instance types:
+   * - standard: Standard Edition
+   * - ultimate: Ultimate Edition
+   * 
    * @example
    * ultimate
    */
@@ -30922,76 +33381,144 @@ export class DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigs ext
 
 export class DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPoolInstanceConfigsInstanceConfig extends $tea.Model {
   /**
+   * @remarks
+   * The policy for load balancing between address pools. Valid values:
+   * 
+   * *   round_robin: All address pools are returned for Domain Name System (DNS) requests from any source. All address pools are sorted in round-robin mode each time they are returned.
+   * *   sequence: The address pool with the smallest sequence number is preferentially returned for DNS requests from any source. The sequence number indicates the priority for returning the address pool. A smaller sequence number indicates a higher priority. If the address pool with the smallest sequence number is unavailable, the address pool with the second smallest sequence number is returned.
+   * *   weight: You can set a different weight value for each address pool. This way, address pools are returned based on the weight values.
+   * *   source_nearest: Different address pools are returned based on the sources of DNS requests. This way, users can access nearby address pools.
+   * 
    * @example
    * round_robin
    */
   addressPoolLbStrategy?: string;
   /**
+   * @remarks
+   * The availability state of the access domain name. Valid values:
+   * 
+   * *   available: If the access domain name is **enabled** and the health state is normal, the access domain name is deemed **available**.
+   * *   unavailable: If the access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * 
    * @example
    * config-00**01
    */
   configId?: string;
   /**
+   * @remarks
+   * The enabling state of the access domain name. Valid values:
+   * 
+   * *   enable: The access domain name is enabled and the intelligent scheduling policy of the corresponding GTM instance takes effect.
+   * *   disable: The access domain name is disabled and the intelligent scheduling policy of the corresponding GTM instance does not take effect.
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The health state of the access domain name. Valid values:
+   * 
+   * *   ok: The health state of the access domain name is normal and all address pools that are referenced by the access domain name are available.
+   * *   ok_alert: The health state of the access domain name is warning and some of the address pools that are referenced by the access domain name are unavailable. In this case, only the available address pools are returned for DNS requests.
+   * *   exceptional: The health state of the access domain name is abnormal and all address pools that are referenced by the access domain name are unavailable. In this case, addresses in the non-empty address pool with the smallest sequence number are preferentially used for fallback resolution. This returns DNS results for clients as much as possible.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
   /**
+   * @remarks
+   * The ID of the GTM 3.0 instance.
+   * 
    * @example
    * gtm-cn-zz11t58**0k
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Instance name.
+   * 
    * @example
    * test
    */
   instanceName?: string;
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The access domain name. The value of this parameter is composed of the value of ScheduleHostname and the value of ScheduleZoneName.
+   * 
    * @example
    * www.example.com
    */
   scheduleDomainName?: string;
   /**
+   * @remarks
+   * Host record of the domain accessed by GTM.
+   * 
    * @example
    * www
    */
   scheduleHostname?: string;
   /**
+   * @remarks
+   * DNS record types for the scheduling domain:
+   * - A: IPv4 address
+   * - AAAA: IPv6 address
+   * - CNAME: Domain name
+   * 
    * @example
    * A
    */
   scheduleRrType?: string;
   /**
+   * @remarks
+   * The zone such as example.com or subzone such as a.example.com of the access domain name. In most cases, the zone or subzone is hosted by the Public Authoritative DNS module of Alibaba Cloud DNS. This zone belongs to the account to which the GTM instance belongs.
+   * 
    * @example
    * example.com
    */
   scheduleZoneName?: string;
   /**
+   * @remarks
+   * The mode used if the address pool with the smallest sequence number is recovered. This parameter is returned when AddressPoolLbStrategy is set to sequence. Valid values:
+   * 
+   * *   preemptive: The address pool with the smallest sequence number is preferentially used if this address pool is recovered.
+   * *   non_preemptive: The current address pool is still used even if the address pool with the smallest sequence number is recovered.
+   * 
    * @example
    * preemptive
    */
   sequenceLbStrategyMode?: string;
   /**
+   * @remarks
+   * Global TTL (in seconds), the TTL value for domain name resolution to addresses in the address pool, which affects the caching time of DNS records in the ISP\\"s LocalDNS. Custom TTL values are supported.
+   * 
    * @example
    * 30
    */
   ttl?: number;
   /**
+   * @remarks
+   * Global Traffic Management version 3.0 instance types:
+   * - standard: Standard Edition
+   * - ultimate: Ultimate Edition
+   * 
    * @example
    * ultimate
    */
@@ -31062,52 +33589,109 @@ export class DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPool
 
 export class DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPool extends $tea.Model {
   /**
+   * @remarks
+   * Load balancing policy among addresses in the address pool:
+   * - round_robin: Round-robin, for any source of DNS resolution requests, all addresses are returned, with a rotation sort applied to all addresses each time.
+   * - sequence: Sequential, for any source of DNS resolution requests, returns the address with the smaller sequence number (the sequence number indicates the priority of address return, with smaller numbers having higher priority). If the address with the smaller sequence number is unavailable, the next address with a smaller sequence number is returned.
+   * - weight: Weighted, supports setting different weight values for each address, realizing the return of addresses according to the ratio of weight for DNS query resolutions.
+   * - source_nearest: Source-nearest, i.e., intelligent resolution function, where GTM can return different addresses based on the source of different DNS resolution requests, achieving the effect of users accessing nearby.
+   * 
    * @example
    * round_robin
    */
   addressLbStrategy?: string;
   /**
+   * @remarks
+   * The ID of the address pool.
+   * 
    * @example
    * pool-895280232254422016
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Address pool name.
+   * 
    * @example
    * AddressPool-1
    */
   addressPoolName?: string;
   /**
+   * @remarks
+   * Address pool type:
+   * - IPv4
+   * - IPv6
+   * - domain
+   * 
    * @example
    * IPv4
    */
   addressPoolType?: string;
   /**
+   * @remarks
+   * Address pool availability status:
+   * - available
+   * - unavailable
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * Address pool status:
+   * - enable: Enabled status
+   * - disable: Disabled status
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address pool. Valid values:
+   * 
+   * *   any_ok: At least one address in the address pool is available.
+   * *   p30_ok: At least 30% of the addresses in the address pool are available.
+   * *   p50_ok: At least 50% of the addresses in the address pool are available.
+   * *   p70_ok: At least 70% of the addresses in the address pool are available.
+   * *   all_ok: All addresses in the address pool are available.
+   * 
    * @example
    * any_ok
    */
   healthJudgement?: string;
   /**
+   * @remarks
+   * The health state of the address pool. Valid values:
+   * 
+   * *   ok: The health state of the address pool is normal and all addresses that are referenced by the address pool are available.
+   * *   ok_alert: The health state of the address pool is warning and some of the addresses that are referenced by the address pool are unavailable. However, the address pool is deemed normal. In this case, only the available addresses are returned for DNS requests.
+   * *   exceptional: The health state of the address pool is abnormal and some or all of the addresses that are referenced by the address pool are unavailable. In this case, the address pool is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
+  /**
+   * @remarks
+   * The instances that reference the address pool.
+   */
   instanceConfigs?: DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPoolInstanceConfigs;
   /**
+   * @remarks
+   * Remarks for the address pool.
+   * 
    * @example
    * pool-1
    */
   remark?: string;
   /**
+   * @remarks
+   * Load balancing policy between addresses in sequential mode during the recovery of preceding resources service mode:
+   * - preemptive: Preemption mode, where upon recovery of preceding resources, priority is given to using addresses with smaller sequence numbers;
+   * - non_preemptive: Non-preemption mode, where upon recovery of preceding resources, the current address continues to be used;
+   * 
    * @example
    * preemptive
    */
@@ -31170,21 +33754,49 @@ export class DescribeCloudGtmAddressReferenceResponseBodyAddressPools extends $t
 
 export class DescribeCloudGtmGlobalAlertResponseBodyAlertConfigAlertConfig extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether DingTalk notifications are configured. Valid values:
+   * 
+   * *   true: DingTalk notifications are configured. DingTalk notifications are sent when alerts are triggered.
+   * *   false: DingTalk notifications are not configured.
+   * 
    * @example
    * false
    */
   dingtalkNotice?: boolean;
   /**
+   * @remarks
+   * Indicates whether email notifications are configured. Valid values:
+   * 
+   * *   true: Email notifications are configured. Emails are sent when alerts are triggered.
+   * *   false: Email notifications are not configured.
+   * 
    * @example
    * true
    */
   emailNotice?: boolean;
   /**
+   * @remarks
+   * The type of the alert event. Valid values:
+   * 
+   * *   addr_alert: The address is unavailable.
+   * *   addr_resume: The address becomes available.
+   * *   addr_pool_unavailable: The address pool is unavailable.
+   * *   addr_pool_available: The address pool becomes available.
+   * 
    * @example
    * addr_alert
    */
   noticeType?: string;
   /**
+   * @remarks
+   * Indicates whether text message notifications are configured. Valid values:
+   * 
+   * *   true: Text message notifications are configured. Text messages are sent when alerts are triggered.
+   * *   false: Text message notifications are not configured.
+   * 
+   * Only the China site (aliyun.com) supports text message notifications.
+   * 
    * @example
    * true
    */
@@ -31252,21 +33864,49 @@ export class DescribeCloudGtmGlobalAlertResponseBodyAlertGroup extends $tea.Mode
 
 export class DescribeCloudGtmInstanceConfigAlertResponseBodyAlertConfigAlertConfig extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether DingTalk notifications are configured. Valid values:
+   * 
+   * *   true: DingTalk notifications are configured. DingTalk notifications are sent after alerts are triggered.
+   * *   false: DingTalk notifications are not configured.
+   * 
    * @example
    * true
    */
   dingtalkNotice?: boolean;
   /**
+   * @remarks
+   * Indicates whether email notifications are configured. Valid values:
+   * 
+   * *   true: Email notifications are configured. Emails are sent after alerts are triggered.
+   * *   false: Email notifications are not configured.
+   * 
    * @example
    * true
    */
   emailNotice?: boolean;
   /**
+   * @remarks
+   * The type of the alert event. Valid values:
+   * 
+   * *   addr_alert: The address is unavailable.
+   * *   addr_resume: The address becomes available.
+   * *   addr_pool_unavailable: The address pool is unavailable.
+   * *   addr_pool_available: The address pool becomes available.
+   * 
    * @example
    * addr_alert
    */
   noticeType?: string;
   /**
+   * @remarks
+   * Indicates whether text message notifications are configured. Valid values:
+   * 
+   * *   true: Text message notifications are configured. Text messages are sent after alerts are triggered.
+   * *   false: Text message notifications are not configured.
+   * 
+   * Only the China site (aliyun.com) supports text message notifications.
+   * 
    * @example
    * true
    */
@@ -31870,28 +34510,71 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPools exte
 
 export class DescribeCloudGtmMonitorTemplateResponseBodyIspCityNodesIspCityNode extends $tea.Model {
   /**
+   * @remarks
+   * City code
+   * 
    * @example
-   * 503
+   * 357
    */
   cityCode?: string;
+  /**
+   * @remarks
+   * City name
+   * 
+   * @example
+   * Shanghai
+   */
   cityName?: string;
   /**
+   * @remarks
+   * Country Code
+   * 
    * @example
-   * 001
+   * 629
    */
   countryCode?: string;
+  /**
+   * @remarks
+   * Country Name
+   * 
+   * @example
+   * China
+   */
   countryName?: string;
+  /**
+   * @remarks
+   * Probe node group type name
+   * 
+   * @example
+   * BGP Nodes
+   */
   groupName?: string;
   /**
+   * @remarks
+   * Probe node group types:
+   * - BGP: BGP nodes
+   * - OVERSEAS: International nodes
+   * - ISP: Carrier nodes
+   * 
    * @example
    * BGP
    */
   groupType?: string;
   /**
+   * @remarks
+   * Operator Code
+   * 
    * @example
    * 465
    */
   ispCode?: string;
+  /**
+   * @remarks
+   * Operator Name
+   * 
+   * @example
+   * Alibaba
+   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31945,18 +34628,44 @@ export class DescribeCloudGtmMonitorTemplateResponseBodyIspCityNodes extends $te
 
 export class DescribeCloudGtmSystemLinesResponseBodySystemLinesSystemLine extends $tea.Model {
   /**
+   * @remarks
+   * The line code.
+   * 
    * @example
    * aliyun_r_ap-south-1
    */
   code?: string;
+  /**
+   * @remarks
+   * The display name of the line.
+   * 
+   * @example
+   * Default
+   */
   displayName?: string;
   /**
+   * @remarks
+   * Indicates whether the line can be selected as the source of a Domain Name System (DNS) request. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   isAvailable?: boolean;
+  /**
+   * @remarks
+   * The name of the line.
+   * 
+   * @example
+   * Default
+   */
   name?: string;
   /**
+   * @remarks
+   * The code of the parent line.
+   * 
    * @example
    * String	aliyun
    */
@@ -33346,7 +36055,7 @@ export class DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddrAttributeInfo ex
 export class DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddr extends $tea.Model {
   /**
    * @remarks
-   * The address that was queried.
+   * The address in the address pool.
    * 
    * @example
    * 1.1.1.1
@@ -33354,7 +36063,7 @@ export class DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddr extends $tea.Mo
   addr?: string;
   /**
    * @remarks
-   * The source region of the address.
+   * The information about the source region of the address.
    */
   attributeInfo?: DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddrAttributeInfo;
   static names(): { [key: string]: string } {
@@ -34034,13 +36743,23 @@ export class DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPools extends $te
 }
 
 export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether DingTalk alert notifications are configured. Valid values:
+   * 
+   * *   true
+   * *   false | null
+   * 
+   * @example
+   * true
+   */
   dingtalkNotice?: string;
   /**
    * @remarks
-   * Indicates whether email notifications were configured. Valid values:
+   * Indicates whether email notifications are configured. Valid values:
    * 
-   * *   true: configured
-   * *   false | null: not configured
+   * *   true
+   * *   false | null
    * 
    * @example
    * true
@@ -34051,9 +36770,9 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig ex
    * The type of the alert event. Valid values:
    * 
    * *   ADDR_ALERT: The address is unavailable.
-   * *   ADDR_RESUME: The address is restored and becomes available.
-   * *   ADDR_POOL_GROUP_UNAVAILABLE: The address pool group is unavailable.
-   * *   ADDR_POOL_GROUP_AVAILABLE: The address pool group is restored and becomes available.
+   * *   ADDR_RESUME: The address becomes available.
+   * *   ADDR_POOL_GROUP_UNAVAILABLE: The address pool set is unavailable.
+   * *   ADDR_POOL_GROUP_AVAILABLE: The address pool set becomes available.
    * *   ACCESS_STRATEGY_POOL_GROUP_SWITCH: Switchover is triggered between the primary and secondary address pools.
    * 
    * @example
@@ -34062,10 +36781,10 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig ex
   noticeType?: string;
   /**
    * @remarks
-   * Indicates whether SMS notifications were configured. Valid values:
+   * Indicates whether SMS notifications are configured. Valid values:
    * 
-   * *   true: configured
-   * *   false | null: not configured
+   * *   true
+   * *   false | null
    * 
    * @example
    * true
@@ -34097,12 +36816,12 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig ex
 export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $tea.Model {
   /**
    * @remarks
-   * The alert notification methods.
+   * The alert notification method.
    */
   alertConfig?: DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig[];
   /**
    * @remarks
-   * The alert group.
+   * The alert contact groups. The value is in the JSON format.
    * 
    * @example
    * testgroup
@@ -34110,9 +36829,9 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $tea.
   alertGroup?: string;
   /**
    * @remarks
-   * The access type of the CNAME domain name.
+   * The type of the CNAME. Valid value:
    * 
-   * *   The value was set to PUBLIC, which indicates Internet access.
+   * *   PUBLIC
    * 
    * @example
    * public
@@ -34128,23 +36847,26 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $tea.
   instanceName?: string;
   /**
    * @remarks
-   * Indicates whether a custom CNAME domain name or a CNAME domain name assigned by the system is used to access GTM over the Internet. Valid values:
+   * Specifies whether to use a custom CNAME or a system-assigned CNAME to access GTM over the Internet. Valid values:
    * 
-   * *   CUSTOM: a custom CNAME domain name
-   * *   SYSTEM_ASSIGN: a CNAME domain name assigned by the system
+   * *   CUSTOM: a custom CNAME
+   * *   SYSTEM_ASSIGN: a system-assigned CNAME. You cannot set PublicCnameMode to this value.
    * 
    * @example
    * custom
    */
   publicCnameMode?: string;
   /**
+   * @remarks
+   * The hostname of the domain name that is used to access GTM over the Internet.
+   * 
    * @example
    * test.rr
    */
   publicRr?: string;
   /**
    * @remarks
-   * The website domain name that the user uses on the Internet.
+   * The domain name that is used to access GTM over the Internet.
    * 
    * @example
    * example.com
@@ -34152,7 +36874,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $tea.
   publicUserDomainName?: string;
   /**
    * @remarks
-   * The domain name that is used to access GTM over the Internet.
+   * The canonical name (CNAME) that is used to access GTM over the Internet.
    * 
    * @example
    * test.rr.gtm-003.com
@@ -34162,8 +36884,8 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $tea.
    * @remarks
    * The type of the access policy. Valid values:
    * 
-   * *   LATENCY: latency-based
-   * *   GEO: geographical location-based
+   * *   LATENCY: latency-based access policy
+   * *   GEO: geographical location-based access policy
    * 
    * @example
    * geo
@@ -34213,10 +36935,17 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $tea.
 }
 
 export class DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of sent DingTalk notifications.
+   * 
+   * @example
+   * 100
+   */
   dingtalkUsedCount?: number;
   /**
    * @remarks
-   * The total number of email notifications that were sent.
+   * The total number of sent email notifications.
    * 
    * @example
    * 100
@@ -34224,7 +36953,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota extends $t
   emailUsedCount?: number;
   /**
    * @remarks
-   * The total number of SMS notifications that were sent.
+   * The total number of sent SMS notifications.
    * 
    * @example
    * 100
@@ -34232,7 +36961,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota extends $t
   smsUsedCount?: number;
   /**
    * @remarks
-   * The number of detection tasks that were created.
+   * The number of created detection tasks.
    * 
    * @example
    * 100
@@ -34269,7 +36998,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $tea.Model 
   config?: DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2020-10-14T06:58Z
@@ -34277,7 +37006,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $tea.Model 
   createTime?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the instance was created.
+   * The time when the instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1602658709000
@@ -34285,7 +37014,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $tea.Model 
   createTimestamp?: number;
   /**
    * @remarks
-   * The time when the instance expires.
+   * The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2020-10-14T06:58Z
@@ -34293,7 +37022,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $tea.Model 
   expireTime?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the instance expires.
+   * The time when the instance expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1602658709000
@@ -34301,7 +37030,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $tea.Model 
   expireTimestamp?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * instance1
@@ -34309,9 +37038,9 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $tea.Model 
   instanceId?: string;
   /**
    * @remarks
-   * The billing method of the instance.
+   * The billing method of the GTM instance. Valid value:
    * 
-   * *   The value is set to Subscription.
+   * *   Subscription.
    * 
    * @example
    * Subscription
@@ -34319,7 +37048,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $tea.Model 
   paymentType?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The ID of the resource group.
    * 
    * @example
    * resourceGroupid123
@@ -34327,7 +37056,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $tea.Model 
   resourceGroupId?: string;
   /**
    * @remarks
-   * The total number of SMS notifications.
+   * The total number of Short Message Service (SMS) notifications.
    * 
    * @example
    * 1
@@ -34524,7 +37253,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNo
 export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNode extends $tea.Model {
   /**
    * @remarks
-   * The code of the city where the monitored node is deployed.
+   * The city code.
    * 
    * @example
    * 503
@@ -34532,7 +37261,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNo
   cityCode?: string;
   /**
    * @remarks
-   * The display name of the city where the monitored node is deployed.
+   * The display name of the city.
    * 
    * @example
    * Zhangjiakou
@@ -34540,7 +37269,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNo
   cityName?: string;
   /**
    * @remarks
-   * Indicates whether the monitored node is selected for the health check by default.
+   * Indicates whether the health check node is selected by default.
    * 
    * @example
    * true
@@ -34548,7 +37277,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNo
   defaultSelected?: boolean;
   /**
    * @remarks
-   * The name of the group to which the monitored node belongs.
+   * The name of the node group.
    * 
    * @example
    * BGP Nodes
@@ -34556,20 +37285,24 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNo
   groupName?: string;
   /**
    * @remarks
-   * The type of the group to which the monitored node belongs. Valid values:
+   * The type of the node group. Valid values:
    * 
-   * *   BGP: BGP nodes
-   * *   OVERSEAS: nodes outside the Chinese mainland
-   * *   ISP: ISP nodes
+   * *   BGP: BGP node
+   * *   OVERSEAS: node outside the Chinese mainland
+   * *   ISP: ISP node
    * 
    * @example
    * BGP
    */
   groupType?: string;
+  /**
+   * @remarks
+   * The IP addresses of the health check nodes.
+   */
   ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNodeIps;
   /**
    * @remarks
-   * The code of the ISP to which the monitored node belongs.
+   * The ISP code.
    * 
    * @example
    * 465
@@ -34577,7 +37310,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNo
   ispCode?: string;
   /**
    * @remarks
-   * The display name of the ISP to which the monitored node belongs.
+   * The display name of the ISP.
    * 
    * @example
    * Alibaba
@@ -34655,7 +37388,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNo
 export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNode extends $tea.Model {
   /**
    * @remarks
-   * The code of the city where the monitored node is deployed.
+   * The city code.
    * 
    * @example
    * 503
@@ -34663,7 +37396,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNo
   cityCode?: string;
   /**
    * @remarks
-   * The display name of the city where the monitored node is deployed.
+   * The display name of the city.
    * 
    * @example
    * Zhangjiakou
@@ -34671,7 +37404,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNo
   cityName?: string;
   /**
    * @remarks
-   * Indicates whether the monitored node is selected for the health check by default.
+   * Indicates whether the health check node is selected by default.
    * 
    * @example
    * false
@@ -34679,7 +37412,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNo
   defaultSelected?: boolean;
   /**
    * @remarks
-   * The name of the group to which the monitored node belongs.
+   * The name of the node group.
    * 
    * @example
    * BGP Nodes
@@ -34687,20 +37420,24 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNo
   groupName?: string;
   /**
    * @remarks
-   * The type of the group to which the monitored node belongs. Valid values:
+   * The type of the node group. Valid values:
    * 
-   * *   BGP: BGP nodes
-   * *   OVERSEAS: nodes outside the Chinese mainland
-   * *   ISP: ISP nodes
+   * *   BGP: BGP node
+   * *   OVERSEAS: node outside the Chinese mainland
+   * *   ISP: ISP node
    * 
    * @example
    * BGP
    */
   groupType?: string;
+  /**
+   * @remarks
+   * This parameter is not returned.
+   */
   ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNodeIps;
   /**
    * @remarks
-   * The code of the ISP to which the monitored node belongs.
+   * The ISP code.
    * 
    * @example
    * 465
@@ -34708,7 +37445,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNo
   ispCode?: string;
   /**
    * @remarks
-   * The display name of the ISP to which the monitored node belongs.
+   * The display name of the ISP.
    * 
    * @example
    * Alibaba
@@ -34786,7 +37523,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv
 export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNode extends $tea.Model {
   /**
    * @remarks
-   * The code of the city where the monitored node is deployed.
+   * The city code.
    * 
    * @example
    * 503
@@ -34794,7 +37531,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv
   cityCode?: string;
   /**
    * @remarks
-   * The display name of the city where the monitored node is deployed.
+   * The display name of the city.
    * 
    * @example
    * Zhangjiakou
@@ -34802,7 +37539,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv
   cityName?: string;
   /**
    * @remarks
-   * Indicates whether the monitored node is selected for the health check by default.
+   * Indicates whether the health check node is selected by default.
    * 
    * @example
    * true
@@ -34810,7 +37547,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv
   defaultSelected?: boolean;
   /**
    * @remarks
-   * The name of the group to which the monitored node belongs.
+   * The name of the node group.
    * 
    * @example
    * BGP Nodes
@@ -34818,20 +37555,24 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv
   groupName?: string;
   /**
    * @remarks
-   * The type of the group to which the monitored node belongs. Valid values:
+   * The type of the node group. Valid values:
    * 
-   * *   BGP: Border Gateway Protocol (BGP) nodes
-   * *   OVERSEAS: nodes outside the Chinese mainland
-   * *   ISP: ISP nodes
+   * *   BGP: Border Gateway Protocol (BGP) node
+   * *   OVERSEAS: node outside the Chinese mainland
+   * *   ISP: ISP node
    * 
    * @example
    * BGP
    */
   groupType?: string;
+  /**
+   * @remarks
+   * The IP addresses of the health check nodes.
+   */
   ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNodeIps;
   /**
    * @remarks
-   * The code of the Internet service provider (ISP) to which the monitored node belongs.
+   * The Internet service provider (ISP) code.
    * 
    * @example
    * 465
@@ -34839,7 +37580,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv
   ispCode?: string;
   /**
    * @remarks
-   * The display name of the ISP to which the monitored node belongs.
+   * The display name of the ISP.
    * 
    * @example
    * Alibaba
@@ -34917,7 +37658,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv
 export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNode extends $tea.Model {
   /**
    * @remarks
-   * The code of the city where the monitored node is deployed.
+   * The city code.
    * 
    * @example
    * 503
@@ -34925,7 +37666,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv
   cityCode?: string;
   /**
    * @remarks
-   * The display name of the city where the monitored node is deployed.
+   * The display name of the city.
    * 
    * @example
    * Zhangjiakou
@@ -34933,7 +37674,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv
   cityName?: string;
   /**
    * @remarks
-   * Indicates whether the monitored node is selected for the health check by default.
+   * Indicates whether the health check node is selected by default.
    * 
    * @example
    * true
@@ -34941,7 +37682,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv
   defaultSelected?: boolean;
   /**
    * @remarks
-   * The name of the group to which the monitored node belongs.
+   * The name of the node group.
    * 
    * @example
    * BGP Nodes
@@ -34949,20 +37690,24 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv
   groupName?: string;
   /**
    * @remarks
-   * The type of the group to which the monitored node belongs. Valid values:
+   * The type of the node group. Valid values:
    * 
-   * *   BGP: BGP nodes
-   * *   OVERSEAS: nodes outside the Chinese mainland
-   * *   ISP: ISP nodes
+   * *   BGP: BGP node
+   * *   OVERSEAS: node outside the Chinese mainland
+   * *   ISP: ISP node
    * 
    * @example
    * BGP
    */
   groupType?: string;
+  /**
+   * @remarks
+   * This parameter is not returned.
+   */
   ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNodeIps;
   /**
    * @remarks
-   * The code of the ISP to which the monitored node belongs.
+   * The ISP code.
    * 
    * @example
    * 465
@@ -34970,7 +37715,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv
   ispCode?: string;
   /**
    * @remarks
-   * The display name of the ISP to which the monitored node belongs.
+   * The display name of the ISP.
    * 
    * @example
    * Alibaba
@@ -35029,7 +37774,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodes ex
 export class DescribeDnsGtmMonitorConfigResponseBodyIspCityNodesIspCityNode extends $tea.Model {
   /**
    * @remarks
-   * The code of the monitored city node.
+   * The city code.
    * 
    * @example
    * 572
@@ -35037,7 +37782,7 @@ export class DescribeDnsGtmMonitorConfigResponseBodyIspCityNodesIspCityNode exte
   cityCode?: string;
   /**
    * @remarks
-   * The display name of the monitored city node.
+   * The display name of the city.
    * 
    * @example
    * Qingdao
@@ -35061,7 +37806,7 @@ export class DescribeDnsGtmMonitorConfigResponseBodyIspCityNodesIspCityNode exte
   countryName?: string;
   /**
    * @remarks
-   * The code of the monitored Internet service provider (ISP) node.
+   * The Internet service provider (ISP) code.
    * 
    * @example
    * 123
@@ -35069,7 +37814,7 @@ export class DescribeDnsGtmMonitorConfigResponseBodyIspCityNodesIspCityNode exte
   ispCode?: string;
   /**
    * @remarks
-   * The name of the ISP.
+   * The display name of the ISP.
    * 
    * @example
    * Alibaba
@@ -35143,12 +37888,10 @@ export class DescribeDnsProductInstanceResponseBodyDnsServers extends $tea.Model
 export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extends $tea.Model {
   /**
    * @remarks
-   * Indicates whether auto-renewal is enabled for the extra internal bandwidth that you purchased. Valid values:
+   * Indicates whether auto-renewal was enabled. Valid values:
    * 
-   * *   **true**: Auto-renewal is enabled.
-   * *   **false**: Auto-renewal is disabled.
-   * 
-   * > If no extra internal bandwidth is purchased, this parameter is not returned.
+   * *   true: Auto-renewal was enabled.
+   * *   false: Auto-renewal was not enabled.
    * 
    * @example
    * true
@@ -35212,11 +37955,11 @@ export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extend
   dnsSLBCount?: number;
   /**
    * @remarks
-   * The DNS security policy. Valid values:
+   * The level of DNS protection. Valid values:
    * 
-   * *   **no**: not required.
-   * *   **basic**: anti-DDoS basic.
-   * *   **advanced**: anti-DDoS advanced.
+   * *   no: No DNS protection is provided.
+   * *   basic: Basic DNS protection is provided.
+   * *   advanced: Advanced DNS protection is provided.
    * 
    * @example
    * no
@@ -35248,7 +37991,10 @@ export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extend
   endTimestamp?: number;
   /**
    * @remarks
-   * Indicates whether global server load balancing (GSLB) was allowed.
+   * Indicates whether global server load balancing (GSLB) is supported.
+   * 
+   * *   true: GSLB is supported.
+   * *   false: GSLB is not supported.
    * 
    * @example
    * true
@@ -35256,7 +38002,14 @@ export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extend
   gslb?: boolean;
   /**
    * @remarks
-   * The list of ISP lines.
+   * The ISP resolution lines.
+   * 
+   * *   China Telecom
+   * *   China Mobile
+   * *   China Unicom
+   * *   CERNET
+   * *   China Broadcasting Network (CBN)
+   * *   Dr Peng Telecom & Media Group
    * 
    * @example
    * China Mobile,China Unicom,China Telecom,China Edu
@@ -35264,7 +38017,12 @@ export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extend
   ISPLines?: string;
   /**
    * @remarks
-   * The list of ISP line subdivisions.
+   * The regional ISP resolution lines. Valid values:
+   * 
+   * *   China Telecom (province)
+   * *   China Mobile (province)
+   * *   China Unicom (province)
+   * *   China Education and Research Network (CERNET) (province)
    * 
    * @example
    * Telecom (Province), Mobile (Province), Unicom (Province), Education Network (Province)
@@ -35272,7 +38030,10 @@ export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extend
   ISPRegionLines?: string;
   /**
    * @remarks
-   * Indicates whether the request for domain name resolution was in the black hole.
+   * Indicates whether the Domain Name System (DNS) servers stopped responding to all requests. Valid values:
+   * 
+   * *   true: The DNS servers stopped responding to all requests.
+   * *   false: The DNS servers did not stop responding to all requests.
    * 
    * @example
    * false
@@ -35336,9 +38097,7 @@ export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extend
   overseaLine?: string;
   /**
    * @remarks
-   * The billing method. Valid value:
-   * 
-   * *   Subscription: You can pay in advance for the use of resources.
+   * The billing method.
    * 
    * @example
    * Subscription
@@ -35346,7 +38105,10 @@ export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extend
   paymentType?: string;
   /**
    * @remarks
-   * Indicates whether regional lines were allowed.
+   * Indicates whether the DNS request lines are regional lines.
+   * 
+   * *   true: The DNS request lines are regional lines.
+   * *   false: The DNS request lines are not regional lines.
    * 
    * @example
    * true
@@ -35354,7 +38116,12 @@ export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extend
   regionLines?: boolean;
   /**
    * @remarks
-   * The list of search engine lines.
+   * The search engine resolution lines. Valid values:
+   * 
+   * *   Google
+   * *   Baidu
+   * *   Bing
+   * *   Youdao
    * 
    * @example
    * Search Engine Robots,Google Robots,Baidu Robots,Bing Robots
@@ -36667,12 +39434,12 @@ export class DescribeDomainsResponseBodyDomainsDomainDnsServers extends $tea.Mod
 export class DescribeDomainsResponseBodyDomainsDomainTagsTag extends $tea.Model {
   /**
    * @remarks
-   * The key of the tag added to the resource.
+   * The key of tag N added to the resource.
    */
   key?: string;
   /**
    * @remarks
-   * The value of the tag added to the resource.
+   * The value of tag N added to the resource.
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -36716,7 +39483,7 @@ export class DescribeDomainsResponseBodyDomainsDomainTags extends $tea.Model {
 export class DescribeDomainsResponseBodyDomainsDomain extends $tea.Model {
   /**
    * @remarks
-   * Indicates whether the domain name was registered in Alibaba Cloud.
+   * Indicates whether the domain name was registered with Alibaba Cloud.
    * 
    * @example
    * true
@@ -36724,7 +39491,7 @@ export class DescribeDomainsResponseBodyDomainsDomain extends $tea.Model {
   aliDomain?: boolean;
   /**
    * @remarks
-   * The time when the domain name was added.
+   * The time when the domain name was added. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
    * 
    * @example
    * 2019-01-30T05:25Z
@@ -36740,7 +39507,7 @@ export class DescribeDomainsResponseBodyDomainsDomain extends $tea.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The names of the DNS servers configured for the domain name.
+   * The names of the DNS servers configured for the domain name assigned by Alibaba Cloud DNS.
    */
   dnsServers?: DescribeDomainsResponseBodyDomainsDomainDnsServers;
   /**
@@ -36751,6 +39518,16 @@ export class DescribeDomainsResponseBodyDomainsDomain extends $tea.Model {
    * 00efd71a-770e-4255-b54e-6fe5659baffe
    */
   domainId?: string;
+  /**
+   * @remarks
+   * Indicates whether the DNS traffic analysis feature is enabled for the domain name. Valid values:
+   * 
+   * *   OPEN
+   * *   CLOSE
+   * 
+   * @example
+   * OPEN
+   */
   domainLoggingSwitchStatus?: string;
   /**
    * @remarks
@@ -36778,7 +39555,7 @@ export class DescribeDomainsResponseBodyDomainsDomain extends $tea.Model {
   groupName?: string;
   /**
    * @remarks
-   * The time when the Alibaba Cloud DNS instance expires.
+   * The time when the Alibaba Cloud DNS instance expires. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
    * 
    * @example
    * 2020-03-14T16:00Z
@@ -38277,7 +41054,7 @@ export class DescribeGtmMonitorConfigResponseBodyIspCityNodes extends $tea.Model
 export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrsAddr extends $tea.Model {
   /**
    * @remarks
-   * The ID of the address.
+   * The address ID.
    * 
    * @example
    * 739
@@ -38285,7 +41062,7 @@ export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs
   id?: number;
   /**
    * @remarks
-   * The address work mode. It is the mode that was set for the IP address to work.
+   * The address mode.
    * 
    * @example
    * OFFLINE
@@ -38293,7 +41070,7 @@ export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs
   mode?: string;
   /**
    * @remarks
-   * The address value.
+   * The address.
    * 
    * @example
    * 1.1.1.1
@@ -38342,7 +41119,7 @@ export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs
 export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPool extends $tea.Model {
   /**
    * @remarks
-   * The ID of the address pool.
+   * The address pool ID.
    * 
    * @example
    * hra0oq
@@ -38350,17 +41127,13 @@ export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPool exte
   addrPoolId?: string;
   /**
    * @remarks
-   * The name of the address pool.
+   * The address pool name.
    */
   addrPoolName?: string;
-  /**
-   * @remarks
-   * The list of addresses in the address pool.
-   */
   addrs?: DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs;
   /**
    * @remarks
-   * The ID of the GTM instance.
+   * The instance ID.
    * 
    * @example
    * instance-zwy-38
@@ -38411,7 +41184,7 @@ export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPools extends $tea.Mode
 export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstanceAddrPoolsAddrPool extends $tea.Model {
   /**
    * @remarks
-   * The ID of the address pool.
+   * The address pool ID.
    */
   addrPoolId?: string;
   /**
@@ -38463,12 +41236,12 @@ export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstance
 export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstance extends $tea.Model {
   /**
    * @remarks
-   * The list of address pools for the GTM instance.
+   * The address pools.
    */
   addrPools?: DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstanceAddrPools;
   /**
    * @remarks
-   * The ID of the GTM instance.
+   * The instance ID.
    * 
    * @example
    * instance-example
@@ -38476,7 +41249,7 @@ export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstance
   instanceId?: string;
   /**
    * @remarks
-   * The name of the GTM instance.
+   * The instance name.
    * 
    * @example
    * instance-name-example
@@ -38769,6 +41542,9 @@ export class DescribeInternetDnsLogsResponseBodyLogsLog extends $tea.Model {
   logTime?: number;
   protocol?: string;
   /**
+   * @remarks
+   * The domain name for which you want to query Domain Name System (DNS) records.
+   * 
    * @example
    * example.com
    */
@@ -38804,6 +41580,13 @@ export class DescribeInternetDnsLogsResponseBodyLogsLog extends $tea.Model {
    */
   subnetIp?: string;
   value?: DescribeInternetDnsLogsResponseBodyLogsLogValue;
+  /**
+   * @remarks
+   * The zone name.
+   * 
+   * @example
+   * example.com
+   */
   zoneName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39085,6 +41868,7 @@ export class DescribePdnsAppKeyResponseBodyAppKey extends $tea.Model {
   appKeySecret?: string;
   createDate?: string;
   createTimestamp?: number;
+  remark?: string;
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39092,6 +41876,7 @@ export class DescribePdnsAppKeyResponseBodyAppKey extends $tea.Model {
       appKeySecret: 'AppKeySecret',
       createDate: 'CreateDate',
       createTimestamp: 'CreateTimestamp',
+      remark: 'Remark',
       state: 'State',
     };
   }
@@ -39102,6 +41887,7 @@ export class DescribePdnsAppKeyResponseBodyAppKey extends $tea.Model {
       appKeySecret: 'string',
       createDate: 'string',
       createTimestamp: 'number',
+      remark: 'string',
       state: 'string',
     };
   }
@@ -39115,12 +41901,14 @@ export class DescribePdnsAppKeysResponseBodyAppKeys extends $tea.Model {
   appKeyId?: string;
   createDate?: string;
   createTimestamp?: number;
+  remark?: string;
   state?: string;
   static names(): { [key: string]: string } {
     return {
       appKeyId: 'AppKeyId',
       createDate: 'CreateDate',
       createTimestamp: 'CreateTimestamp',
+      remark: 'Remark',
       state: 'State',
     };
   }
@@ -39130,6 +41918,7 @@ export class DescribePdnsAppKeysResponseBodyAppKeys extends $tea.Model {
       appKeyId: 'string',
       createDate: 'string',
       createTimestamp: 'number',
+      remark: 'string',
       state: 'string',
     };
   }
@@ -39911,7 +42700,7 @@ export class DescribeSubDomainRecordsResponseBodyDomainRecords extends $tea.Mode
 export class DescribeSupportLinesResponseBodyRecordLinesRecordLine extends $tea.Model {
   /**
    * @remarks
-   * 2021-12-06T02:47:26.000+0000
+   * The code of the parent line. This parameter is not returned if the line has no parent line.
    * 
    * @example
    * unicom
@@ -39919,7 +42708,7 @@ export class DescribeSupportLinesResponseBodyRecordLinesRecordLine extends $tea.
   fatherCode?: string;
   /**
    * @remarks
-   * 子线路Code。
+   * The code of the line.
    * 
    * @example
    * cn_unicom_shanxi
@@ -39927,18 +42716,18 @@ export class DescribeSupportLinesResponseBodyRecordLinesRecordLine extends $tea.
   lineCode?: string;
   /**
    * @remarks
-   * 父线路展示名称。
+   * The display name of the parent line.
    * 
    * @example
-   * 联通
+   * China Unicom
    */
   lineDisplayName?: string;
   /**
    * @remarks
-   * 子线路展示名称。
+   * The display name of the line.
    * 
    * @example
-   * 联通_山西
+   * China Unicom_Shanxi
    */
   lineName?: string;
   static names(): { [key: string]: string } {
@@ -40113,16 +42902,25 @@ export class DescribeTransferDomainsResponseBodyDomainTransfers extends $tea.Mod
 
 export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasksHealthTask extends $tea.Model {
   /**
+   * @remarks
+   * The target service port for health checks. When the Ping protocol is selected for health checks, configuration of the service port is not supported.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * The ID of the health check template.
+   * 
    * @example
    * mtp-895180524251002880
    */
   templateId?: string;
   /**
+   * @remarks
+   * Health check template name.
+   * 
    * @example
    * IPv4-Ping
    */
@@ -40188,90 +42986,191 @@ export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresse
 
 export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddress extends $tea.Model {
   /**
+   * @remarks
+   * IP address or domain name.
+   * 
    * @example
    * 223.5.XX.XX
    */
   address?: string;
   /**
+   * @remarks
+   * The address ID. This ID uniquely identifies the address.
+   * 
    * @example
    * addr-895182181143688192
    */
   addressId?: string;
+  /**
+   * @remarks
+   * Address ownership information, not supported in the current version.
+   * 
+   * @example
+   * The current version does not support returning this parameter.
+   */
   attributeInfo?: string;
   /**
+   * @remarks
+   * The failover mode that is used when address exceptions are identified. Valid values:
+   * 
+   * *   auto: the automatic mode. The system determines whether to return an address based on the health check results. If the address fails health checks, the system does not return the address. If the address passes health checks, the system returns the address.
+   * *   manual: the manual mode. If an address is in the unavailable state, the address is not returned for DNS requests even if the address passes health checks. If an address is in the available state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * 
    * @example
    * auto
    */
   availableMode?: string;
   /**
+   * @remarks
+   * The availability state of the address. Valid values:
+   * 
+   * *   available: The address is available.
+   * *   unavailable: The address is unavailable.
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * Address creation time.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Address creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Address enable status:
+   * - enable: Enabled status
+   * - disable: Disabled status
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address. Valid values:
+   * 
+   * *   any_ok: The health check results of at least one health check template are normal.
+   * *   p30_ok: The health check results of at least 30% of health check templates are normal.
+   * *   p50_ok: The health check results of at least 50% of health check templates are normal.
+   * *   p70_ok: The health check results of at least 70% of health check templates are normal.
+   * *   all_ok: The health check results of all health check templates are normal.
+   * 
    * @example
    * any_ok
    */
   healthJudgement?: string;
   /**
+   * @remarks
+   * The health check state of the address. Valid values:
+   * 
+   * *   ok: The address passes all health checks of the referenced health check templates.
+   * *   ok_alert: The address fails some health checks of the referenced health check templates but the address is deemed normal.
+   * *   ok_no_monitor: The address does not reference any health check template and is normal.
+   * *   exceptional: The address fails some or all health checks of the referenced health check templates and the address is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
+  /**
+   * @remarks
+   * The health check tasks.
+   */
   healthTasks?: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasks;
   /**
+   * @remarks
+   * The availability state of the address when AvailableMode is set to manual for the address. Valid values:
+   * 
+   * *   available: The address is available. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * *   unavailable: The address is unavailable. In this state, the address is not returned for DNS requests even if the address passes health checks.
+   * 
    * @example
    * available
    */
   manualAvailableStatus?: string;
   /**
+   * @remarks
+   * Address name.
+   * 
    * @example
    * Address-1
    */
   name?: string;
   /**
+   * @remarks
+   * Address remarks.
+   * 
    * @example
    * test
    */
   remark?: string;
+  /**
+   * @remarks
+   * List of request sources.
+   */
   requestSource?: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressRequestSource;
+  /**
+   * @remarks
+   * Indicates whether the mode of the sequence policy for load balancing between address pools is non-preemptive. This parameter is available only for the multicloud integration scenario. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   seqNonPreemptiveSchedule?: boolean;
   /**
+   * @remarks
+   * Sequence number, indicating the priority of address return, where smaller numbers have higher priority.
+   * 
    * @example
    * 1
    */
   serialNumber?: number;
   /**
+   * @remarks
+   * Address type:
+   * - IPv4: IPv4 address
+   * - IPv6: IPv6 address
+   * - domain: Domain name
+   * 
    * @example
    * IPv4
    */
   type?: string;
   /**
+   * @remarks
+   * The last time the address was modified.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The last modification time of the address (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   updateTimestamp?: number;
   /**
+   * @remarks
+   * Weight value (integer between 1 and 100), supports setting different weight values for each address, enabling resolution queries to return addresses according to the weight ratio.
+   * 
    * @example
    * 1
    */
@@ -40354,72 +43253,144 @@ export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresse
 
 export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPool extends $tea.Model {
   /**
+   * @remarks
+   * Load balancing policy among addresses in the address pool:
+   * - round_robin: Round-robin, for any source of DNS resolution requests, all addresses are returned. The order of all addresses is rotated each time.
+   * - sequence: Sequential, for any source of DNS resolution requests, the address with the smaller sequence number (the sequence number indicates the priority of address returns, with smaller numbers having higher priority) is returned. If the address with the smaller sequence number is unavailable, the next address with a smaller sequence number is returned.
+   * - weight: Weighted, supports setting different weight values for each address, realizing the return of addresses according to the ratio of weights in resolution queries.
+   * - source_nearest: Source-nearest, i.e., intelligent resolution function, where GTM can return different addresses based on the source of different DNS resolution requests, achieving the effect of users accessing nearby.
+   * 
    * @example
    * round_robin
    */
   addressLbStrategy?: string;
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Address pool name.
+   * 
    * @example
    * AddressPool-1
    */
   addressPoolName?: string;
   /**
+   * @remarks
+   * Address pool type:
+   * - IPv4
+   * - IPv6
+   * - domain
+   * 
    * @example
    * IPv4
    */
   addressPoolType?: string;
+  /**
+   * @remarks
+   * The addresses.
+   */
   addresses?: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresses;
   /**
+   * @remarks
+   * The availability state of the address pool. Valid values:
+   * 
+   * *   Available: The address pool is available.
+   * *   unavailable: The address pool is unavailable.
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * Address pool creation time.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Address pool creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * The enabling state of the address pool. Valid values:
+   * 
+   * *   enable: The address pool is enabled.
+   * *   disable: The address pool is disabled.
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The condition for determining the health state of the address. Valid values:
+   * 
+   * *   any_ok: The health check results of at least one health check template are normal.
+   * *   p30_ok: The health check results of at least 30% of health check templates are normal.
+   * *   p50_ok: The health check results of at least 50% of health check templates are normal.
+   * *   p70_ok: The health check results of at least 70% of health check templates are normal.
+   * *   all_ok: The health check results of all health check templates are normal.
+   * 
    * @example
    * any_ok
    */
   healthJudgement?: string;
   /**
+   * @remarks
+   * The health state of the address pool. Valid values:
+   * 
+   * *   ok: The health state of the address pool is Normal and all addresses that are referenced by the address pool are available.
+   * *   ok_alert: The health state of the address pool is Warning and some of the addresses that are referenced by the address pool are unavailable. However, the address pool is deemed normal. In this state, available address pools are normally used for DNS resolution, but unavailable address pools cannot be used for DNS resolution.
+   * *   exceptional: The health state of the address pool is Abnormal and some or all of the addresses that are referenced by the address pool are unavailable. In this case, the address pool is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
   /**
+   * @remarks
+   * Remark
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The mode used if the address with the smallest sequence number is recovered. This parameter is required only when AddressLbStrategy is set to sequence. Valid values:
+   * 
+   * *   preemptive: The address with the smallest sequence number is preferentially used if this address is recovered.
+   * *   non_preemptive: The current address is still used even if the address with the smallest sequence number is recovered.
+   * 
    * @example
    * preemptive
    */
   sequenceLbStrategyMode?: string;
   /**
+   * @remarks
+   * Last modification time of the address pool.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Last modification time of the address pool (timestamp).
+   * 
    * @example
    * 1527690629357
    */
@@ -40490,21 +43461,37 @@ export class ListCloudGtmAddressPoolsResponseBodyAddressPools extends $tea.Model
 
 export class ListCloudGtmAddressesResponseBodyAddressesAddressHealthTasksHealthTask extends $tea.Model {
   /**
+   * @remarks
+   * The state of the health check task. Valid values:
+   * 
+   * *   ok: The task is normal.
+   * *   alert: An alert is triggered.
+   * *   no_data: No data is available. In most cases, the health check task is newly created and no data is collected.
+   * 
    * @example
    * ok
    */
   monitorStatus?: string;
   /**
+   * @remarks
+   * The target service port for health check probes. When the health check protocol is set to Ping, configuration of the service port is not supported.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * The ID of the health check template associated with the address.
+   * 
    * @example
    * mtp-89518052425100**80
    */
   templateId?: string;
   /**
+   * @remarks
+   * Health check template name.
+   * 
    * @example
    * Ping-IPv4
    */
@@ -40553,78 +43540,161 @@ export class ListCloudGtmAddressesResponseBodyAddressesAddressHealthTasks extend
 
 export class ListCloudGtmAddressesResponseBodyAddressesAddress extends $tea.Model {
   /**
+   * @remarks
+   * IP address or domain name.
+   * 
    * @example
    * 223.5.XX.XX
    */
   address?: string;
   /**
+   * @remarks
+   * The address ID. This ID uniquely identifies the address.
+   * 
    * @example
    * addr-89518218114368**92
    */
   addressId?: string;
+  /**
+   * @remarks
+   * Address ownership information.
+   * 
+   * @example
+   * Not supported in current version, this parameter should be none.
+   */
   attributeInfo?: string;
   /**
+   * @remarks
+   * The failover method that is used if the address fails health checks. Valid values:
+   * 
+   * auto: the automatic mode. The system determines whether to return an address based on the health check results. If the address fails health checks, the system does not return the address. If the address passes health checks, the system returns the address.
+   * 
+   * manual: the manual mode. If an address is in the unavailable state, the address is not returned for Domain Name System (DNS) requests even if the address passes health checks. If an address is in the available state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * 
    * @example
    * auto
    */
   availableMode?: string;
   /**
+   * @remarks
+   * The availability state of the address. Valid values:
+   * 
+   * *   available: The address is available.
+   * *   unavailable: The address is unavailable.
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * Address creation time.
+   * 
    * @example
    * 2024-03-23T13:09Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Indicates the current availability of the address:
+   * - enable: Enabled status 
+   * - disable: Disabled status
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address. Valid values:
+   * 
+   * *   any_ok: The health check results of at least one health check template are normal.
+   * *   p30_ok: The health check results of at least 30% of health check templates are normal.
+   * *   p50_ok: The health check results of at least 50% of health check templates are normal.
+   * *   p70_ok: The health check results of at least 70% of health check templates are normal.
+   * *   all_ok: The health check results of all health check templates are normal.
+   * 
    * @example
    * p50_ok
    */
   healthJudgement?: string;
   /**
+   * @remarks
+   * The health check state of the address. Valid values:
+   * 
+   * *   ok: The address passes all health checks of the referenced health check templates.
+   * *   ok_alert: The address fails some health checks of the referenced health check templates but the address is deemed normal.
+   * *   ok_no_monitor: The address does not reference a health check template.
+   * *   exceptional: The address fails some or all health checks of the referenced health check templates and the address is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
+  /**
+   * @remarks
+   * The health check tasks referenced by the address.
+   */
   healthTasks?: ListCloudGtmAddressesResponseBodyAddressesAddressHealthTasks;
   /**
+   * @remarks
+   * The availability state of the address when AvailableMode is set to manual. Valid values:
+   * 
+   * available: The address is normal. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * 
+   * unavailable: The address is abnormal. In this state, the address is not returned for DNS requests even if the address passes health checks.
+   * 
    * @example
    * available
    */
   manualAvailableStatus?: string;
   /**
+   * @remarks
+   * Address name.
+   * 
    * @example
    * Address-1
    */
   name?: string;
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * app
    */
   remark?: string;
   /**
+   * @remarks
+   * Address type:
+   * - IPv4
+   * - IPv6
+   * - domain
+   * 
    * @example
    * IPv4
    */
   type?: string;
   /**
+   * @remarks
+   * Address modification time.
+   * 
    * @example
    * 2024-03-29T13:20Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Update time (timestamp).
+   * 
    * @example
    * 1527690824357
    */
@@ -40699,17 +43769,39 @@ export class ListCloudGtmAddressesResponseBodyAddresses extends $tea.Model {
 
 export class ListCloudGtmAlertLogsResponseBodyLogsLog extends $tea.Model {
   /**
+   * @remarks
+   * Alert type:
+   * - ALERT
+   * - RESUME
+   * 
    * @example
    * ALERT
    */
   actionType?: string;
+  /**
+   * @remarks
+   * The alert content.
+   * 
+   * @example
+   * The alert content.
+   */
   content?: string;
   /**
+   * @remarks
+   * Alarm object types:
+   * - GTM_ADDRESS: Address
+   * - GTM_ADDRESS_POOL: Address Pool
+   * - GTM_INSTANCE: Instance
+   * - GTM_MONITOR_TEMPLATE: Health Check Template
+   * 
    * @example
    * GTM_ADDRESS
    */
   entityType?: string;
   /**
+   * @remarks
+   * Alert log time (timestamp).
+   * 
    * @example
    * 1711328826977
    */
@@ -40757,6 +43849,13 @@ export class ListCloudGtmAlertLogsResponseBodyLogs extends $tea.Model {
 }
 
 export class ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroupsAlertGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the alert contact group.
+   * 
+   * @example
+   * [\\"Default\\"]
+   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40815,78 +43914,159 @@ export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfi
 
 export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPool extends $tea.Model {
   /**
+   * @remarks
+   * Load balancing policy among addresses in the address pool:
+   * - round_robin: Round-robin, for any source of DNS resolution requests, returns all addresses and rotates the order of all addresses each time.
+   * - sequence: Sequential, for any source of DNS resolution requests, returns the address with the smaller sequence number (the sequence number indicates the priority of the address return, the smaller the higher the priority). If the address with the smaller sequence number is unavailable, return the next address with a smaller sequence number.
+   * - weight: Weighted, supports setting different weight values for each address to realize returning addresses according to the weight ratio for resolution queries.
+   * - source_nearest: Source-nearest, i.e., intelligent resolution function, where GTM can return different addresses based on the source of different DNS resolution requests, achieving the effect of users accessing nearby.
+   * 
    * @example
    * round_robin
    */
   addressLbStrategy?: string;
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-89528023225442**16
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Address pool name.
+   * 
    * @example
    * AddressPool-1
    */
   addressPoolName?: string;
   /**
+   * @remarks
+   * Address pool type:
+   * - IPv4
+   * - IPv6
+   * - domain
+   * 
    * @example
    * IPv4
    */
   addressPoolType?: string;
   /**
+   * @remarks
+   * Address pool availability status:
+   * - available: Available
+   * - unavailable: Unavailable
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * Address pool creation time.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Address pool creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Address pool status:
+   * - enable: Enabled status
+   * - disable: Disabled status
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The health state of the address pool. Valid values:
+   * 
+   * *   ok: The health state of the address pool is Normal and all addresses that are referenced by the address pool are available.
+   * *   ok_alert: The health state of the address pool is Warning and some of the addresses that are referenced by the address pool are unavailable. However, the address pool is deemed normal. In this case, available address pools are normally used for DNS resolution, but unavailable address pools cannot be used for DNS resolution.
+   * *   exceptional: The health state of the address pool is Abnormal and some or all of the addresses that are referenced by the address pool are unavailable. In this case, the address pool is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthJudgement?: string;
   /**
+   * @remarks
+   * The health state of the address pool. Valid values:
+   * 
+   * *   ok: The health state of the address pool is Normal and all addresses that are referenced by the address pool are available.
+   * *   ok_alert: The health state of the address pool is Warning and some of the addresses that are referenced by the address pool are unavailable. However, the address pool is deemed normal. In this case, available address pools are normally used for DNS resolution, but unavailable address pools cannot be used for DNS resolution.
+   * *   exceptional: The health state of the address pool is Abnormal and some or all of the addresses that are referenced by the address pool are unavailable. In this case, the address pool is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
+  /**
+   * @remarks
+   * Parse the request source list.
+   */
   requestSource?: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPoolRequestSource;
+  /**
+   * @remarks
+   * Indicates whether the mode of the sequence policy for load balancing between address pools is non-preemptive. This parameter is available only for the multicloud integration scenario. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   seqNonPreemptiveSchedule?: boolean;
   /**
+   * @remarks
+   * The mode used if the address with the smallest sequence number is recovered. This parameter is required only when AddressLbStrategy is set to sequence. Valid values:
+   * 
+   * *   preemptive: The address with the smallest sequence number is preferentially used if this address is recovered.
+   * *   non_preemptive: The current address is still used even if the address with the smallest sequence number is recovered.
+   * 
    * @example
    * preemptive
    */
   sequenceLbStrategyMode?: string;
   /**
+   * @remarks
+   * Sequence number. For any parsing request, the address pool with the smaller sequence number (indicating the priority of the address pool returned, with smaller numbers having higher priority) is returned.
+   * 
    * @example
    * 1
    */
   serialNumber?: number;
   /**
+   * @remarks
+   * Last modification time of the address pool.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Last modification time of the address pool (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   updateTimestamp?: number;
   /**
+   * @remarks
+   * Weight value (an integer between 1 and 100, including both 1 and 100), which supports setting different weight values for each address pool, enabling the resolution query to return address pools according to the weighted ratio.
+   * 
    * @example
    * 1
    */
@@ -40961,102 +44141,196 @@ export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfi
 
 export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfig extends $tea.Model {
   /**
+   * @remarks
+   * The policy for load balancing between address pools. Valid values:
+   * 
+   * *   round_robin: All address pools are returned for DNS requests from any source. All address pools are sorted in round-robin mode each time they are returned.
+   * *   sequence: The address pool with the smallest sequence number is preferentially returned for DNS requests from any source. The sequence number indicates the priority for returning the address pool. A smaller sequence number indicates a higher priority. If the address pool with the smallest sequence number is unavailable, the address pool with the second smallest sequence number is returned.
+   * *   weight: You can set a different weight value for each address pool. This way, address pools are returned based on the weight values.
+   * *   source_nearest: GTM returns different address pools based on the sources of DNS requests. This way, users can access nearby addresses.
+   * 
    * @example
    * round_robin
    */
   addressPoolLbStrategy?: string;
+  /**
+   * @remarks
+   * The address pools.
+   */
   addressPools?: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPools;
   /**
+   * @remarks
+   * The availability state of the access domain name. Valid values:
+   * 
+   * *   available: If the access domain name is **enabled** and the health state of the access domain name is **Normal**, the access domain name is deemed **Available**.
+   * *   unavailable: If the access domain name is **disabled** or the health state of the access domain name is **Abnormal**, the access domain name is deemed **Unavailable**.
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * The commodity code. Valid values:
+   * 
+   * *   dns_gtm_public_cn: the commodity code on the China site (aliyun.com)
+   * *   dns_gtm_public_intl: the commodity code on the international site (alibabacloud.com)
+   * 
    * @example
    * dns_gtm_public_cn
    */
   commodityCode?: string;
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * 
    * @example
    * Config-000**11
    */
   configId?: string;
   /**
+   * @remarks
+   * Instance configuration creation time.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Instance creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * The enabling state of the access domain name. Valid values:
+   * 
+   * *   enable: The access domain name is enabled and the intelligent scheduling policy of the GTM instance takes effect.
+   * *   disable: The access domain name is disabled and the intelligent scheduling policy of the GTM instance does not take effect.
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The health state of the access domain name. Valid values:
+   * 
+   * *   ok: The health state of the access domain name is Normal and all address pools that are referenced by the access domain name are available.
+   * *   ok_alert: The health state of the access domain name is Warning and some of the address pools that are referenced by the access domain name are unavailable. In this case, available address pools are normally used for DNS resolution, but unavailable address pools cannot be used for DNS resolution.
+   * *   exceptional: The health state of the access domain name is Abnormal and all address pools that are referenced by the access domain name are unavailable. In this case, addresses in the non-empty address pool with the smallest sequence number are preferentially used for fallback resolution. This returns DNS results for clients as much as possible.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
   /**
+   * @remarks
+   * The ID of the GTM 3.0 instance.
+   * 
    * @example
    * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Remarks on the configuration of domain instance.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The GTM access domain name. The value of this parameter is composed of the value of ScheduleHostname and the value of ScheduleZoneName.
+   * 
    * @example
    * www.example.com
    */
   scheduleDomainName?: string;
   /**
+   * @remarks
+   * Host record of the domain accessed by GTM.
+   * 
    * @example
    * www
    */
   scheduleHostname?: string;
   /**
+   * @remarks
+   * DNS record types for the scheduling domain:
+   * - A: IPv4 address
+   * - AAAA: IPv6 address
+   * - CNAME: Domain name
+   * 
    * @example
    * A
    */
   scheduleRrType?: string;
   /**
+   * @remarks
+   * The allocation mode of the access domain name. Valid values:
+   * 
+   * *   custom: custom allocation. You must specify a custom hostname and associate the hostname with a zone within the account to which the GTM instance belongs to generate an access domain name.
+   * *   sys_assign: system allocation. This mode is not supported. Do not set ScheduleZoneMode to sys_assign.
+   * 
    * @example
    * custom
    */
   scheduleZoneMode?: string;
   /**
+   * @remarks
+   * The zone (such as example.com) or subzone (such as a.example.com) of the GTM access domain name. In most cases, the zone or subzone is hosted in Authoritative DNS Resolution of the Alibaba Cloud DNS console within the account to which the GTM instance belongs.
+   * 
    * @example
    * example.com
    */
   scheduleZoneName?: string;
   /**
+   * @remarks
+   * The mode used if the address pool with the smallest sequence number is recovered. This parameter is required when AddressPoolLbStrategy is set to sequence. Valid values:
+   * 
+   * *   preemptive: The address pool with the smallest sequence number is preferentially used if this address pool is recovered.
+   * *   non_preemptive: The current address pool is still used even if the address pool with the smallest sequence number is recovered.
+   * 
    * @example
    * preemptive
    */
   sequenceLbStrategyMode?: string;
   /**
+   * @remarks
+   * Global TTL (in seconds), the TTL value for domain resolution to addresses in the address pool, affecting the caching time of DNS records in the ISP\\"s LocalDNS. Supports custom TTL values.
+   * 
    * @example
    * 60
    */
   ttl?: number;
   /**
+   * @remarks
+   * The last modified time of the instance configuration.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The last modification time of the instance configuration (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   updateTimestamp?: number;
   /**
+   * @remarks
+   * The edition of the GTM 3.0 instance. Valid values:
+   * 
+   * *   standard: Standard Edition
+   * *   ultimate: Ultimate Edition
+   * 
    * @example
    * ultimate
    */
@@ -41139,81 +44413,134 @@ export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigs extends $tea
 
 export class ListCloudGtmInstancesResponseBodyInstancesInstance extends $tea.Model {
   /**
+   * @remarks
+   * The commodity code. Valid values:
+   * 
+   * *   dns_gtm_public_cn: commodity code on the China site (aliyun.com)
+   * *   dns_gtm_public_intl: commodity code on the international site (alibabacloud.com)
+   * 
    * @example
    * dns_gtm_public_cn
    */
   commodityCode?: string;
   /**
+   * @remarks
+   * Instance creation time.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Instance creation time (timestamp).
+   * 
    * @example
    * 1231298343343
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Instance expiration time.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   expireTime?: string;
   /**
+   * @remarks
+   * Instance expiration time (timestamp).
+   * 
    * @example
    * 1231298343343
    */
   expireTimestamp?: number;
   /**
+   * @remarks
+   * The ID of the GTM instance.
+   * 
    * @example
    * gtm-cn-jmp3qnw**03
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Instance name.
+   * 
    * @example
    * test
    */
   instanceName?: string;
   /**
+   * @remarks
+   * Monitor probe task quota.
+   * 
    * @example
    * 100
    */
   monitorTaskQuota?: number;
   /**
+   * @remarks
+   * Monthly email sending volume.
+   * 
    * @example
    * 50
    */
   monthlyEmailUsed?: number;
   /**
+   * @remarks
+   * SMS quota, only supported on the China site as international sites do not support SMS.
+   * 
    * @example
    * 1000
    */
   monthlySmsQuota?: number;
   /**
+   * @remarks
+   * Monthly SMS sending volume, only supported by the China site as international sites do not support SMS.
+   * 
    * @example
    * 100
    */
   monthlySmsUsed?: number;
   /**
+   * @remarks
+   * Monthly webhook send volume.
+   * 
    * @example
    * 80
    */
   monthlyWebhookUsed?: number;
   /**
+   * @remarks
+   * The access domain name, which consists of a hostname and a zone or a subzone.
+   * 
    * @example
    * www.example.com
    */
   scheduleDomainName?: string;
   /**
+   * @remarks
+   * The last time the instance was modified.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The last modification time of the instance (timestamp).
+   * 
    * @example
    * 1231298343343
    */
   updateTimestamp?: number;
   /**
+   * @remarks
+   * GTM instance version:
+   * - standard: Standard Edition
+   * - ultimate: Ultimate Edition
+   * 
    * @example
    * ultimate
    */
@@ -41305,36 +44632,91 @@ export class ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNode
 
 export class ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNode extends $tea.Model {
   /**
+   * @remarks
+   * City code.
+   * 
    * @example
    * 503
    */
   cityCode?: string;
+  /**
+   * @remarks
+   * City name.
+   * 
+   * @example
+   * Beijing
+   */
   cityName?: string;
   /**
+   * @remarks
+   * Country code.
+   * 
    * @example
-   * 001
+   * 629
    */
   countryCode?: string;
+  /**
+   * @remarks
+   * Country name.
+   * 
+   * @example
+   * China
+   */
   countryName?: string;
   /**
+   * @remarks
+   * Monitor node default selection:
+   * - true: Selected by default
+   * - false: Not selected by default
+   * 
    * @example
    * true
    */
   defaultSelected?: boolean;
+  /**
+   * @remarks
+   * Monitor probe group name.
+   * 
+   * @example
+   * BGP Nodes
+   */
   groupName?: string;
   /**
+   * @remarks
+   * Monitoring node group type, currently supported:
+   * - BGP: BGP node
+   * - OVERSEAS: International node
+   * - ISP: Carrier node
+   * 
    * @example
    * BGP
    */
   groupType?: string;
+  /**
+   * @remarks
+   * List of node IP addresses.
+   */
   ips?: ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNodeIps;
   /**
+   * @remarks
+   * Operator code.
+   * 
    * @example
    * 465
    */
   ispCode?: string;
+  /**
+   * @remarks
+   * Operator name.
+   * 
+   * @example
+   * Alibaba
+   */
   ispName?: string;
   /**
+   * @remarks
+   * Unique identifier ID of the probe node.
+   * 
    * @example
    * node-ewze1bysndy4gf**j8
    */
@@ -41416,36 +44798,91 @@ export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNode
 
 export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNode extends $tea.Model {
   /**
+   * @remarks
+   * City code.
+   * 
    * @example
-   * 503
+   * 357
    */
   cityCode?: string;
+  /**
+   * @remarks
+   * City name.
+   * 
+   * @example
+   * Shanghai
+   */
   cityName?: string;
   /**
+   * @remarks
+   * Country code.
+   * 
    * @example
-   * 001
+   * 629
    */
   countryCode?: string;
+  /**
+   * @remarks
+   * Country name.
+   * 
+   * @example
+   * China
+   */
   countryName?: string;
   /**
+   * @remarks
+   * Monitor node default selection:
+   * - true: Selected by default
+   * - false: Not selected by default
+   * 
    * @example
    * true
    */
   defaultSelected?: boolean;
+  /**
+   * @remarks
+   * Monitoring probe group name.
+   * 
+   * @example
+   * BGP
+   */
   groupName?: string;
   /**
+   * @remarks
+   * Monitoring node group type, currently supported:
+   * - BGP: BGP node
+   * - OVERSEAS: International node
+   * - ISP: Carrier node
+   * 
    * @example
    * BGP
    */
   groupType?: string;
+  /**
+   * @remarks
+   * List of node IP addresses.
+   */
   ips?: ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNodeIps;
   /**
+   * @remarks
+   * Operator code.
+   * 
    * @example
    * 465
    */
   ispCode?: string;
+  /**
+   * @remarks
+   * Operator name.
+   * 
+   * @example
+   * Alibaba
+   */
   ispName?: string;
   /**
+   * @remarks
+   * Unique identifier ID of the probe node.
+   * 
    * @example
    * node-ewze1bysndy4gf**j8
    */
@@ -41508,28 +44945,71 @@ export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodes extends $tea.M
 
 export class ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodesIspCityNode extends $tea.Model {
   /**
+   * @remarks
+   * City code.
+   * 
    * @example
-   * 503
+   * 738
    */
   cityCode?: string;
+  /**
+   * @remarks
+   * City name.
+   * 
+   * @example
+   * Beijing
+   */
   cityName?: string;
   /**
+   * @remarks
+   * Country code.
+   * 
    * @example
-   * 001
+   * 629
    */
   countryCode?: string;
+  /**
+   * @remarks
+   * Country name.
+   * 
+   * @example
+   * China
+   */
   countryName?: string;
+  /**
+   * @remarks
+   * Probe node group name.
+   * 
+   * @example
+   * BGP Nodes
+   */
   groupName?: string;
   /**
+   * @remarks
+   * Probe node group types:
+   * - BGP: BGP nodes
+   * - OVERSEAS: International nodes
+   * - ISP: Carrier nodes
+   * 
    * @example
    * BGP
    */
   groupType?: string;
   /**
+   * @remarks
+   * Operator code.
+   * 
    * @example
    * 465
    */
   ispCode?: string;
+  /**
+   * @remarks
+   * Operator name.
+   * 
+   * @example
+   * Alibaba
+   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41583,72 +45063,161 @@ export class ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNod
 
 export class ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate extends $tea.Model {
   /**
+   * @remarks
+   * Health check template creation time.
+   * 
    * @example
    * 2024-03-23T13:09Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Health check template creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * The number of retries. The system will only judge the application service as abnormal after consecutive monitoring failures to prevent inaccurate monitoring results due to momentary network fluctuations or other reasons. Available retry options are:
+   * - 1 - 2 - 3
+   * 
    * @example
    * 2
    */
   evaluationCount?: number;
   /**
+   * @remarks
+   * The extended information. The value of this parameter is a JSON string. The required parameters vary based on the health check protocol.
+   * 
+   * *   HTTP or HTTPS:
+   * 
+   *     **host**: the Host field of an HTTP or HTTPS request header during an HTTP or HTTPS health check. The parameter value indicates the HTTP website that you want to visit. By default, the value is the primary domain name. You can change the value based on your business requirements.
+   * 
+   *     **path**: the URL for HTTP or HTTPS health checks. Default value: /.
+   * 
+   *     **code**: the alert threshold. During an HTTP or HTTPS health check, the system checks whether a web server functions as expected based on the status code that is returned from the web server. If the returned status code is greater than the specified threshold, the corresponding application service address is deemed abnormal. Valid values:
+   * 
+   *     *   400: indicates an invalid request. If an HTTP or HTTPS request contains invalid request parameters, a web server returns a status code that is greater than 400. You must specify an exact URL for path if you set code to 400.
+   *     *   500: indicates a server error. If some exceptions occur on a web server, the web server returns a status code that is greater than 500. This value is used by default.
+   * 
+   *     **sni**: indicates whether Server Name Indication (SNI) is enabled. This parameter is used only when the health check protocol is HTTPS. SNI is an extension to the Transport Layer Security (TLS) protocol, which allows a client to specify the host to be connected when the client sends a TLS handshake request. TLS handshakes occur before any data of HTTP requests is sent. Therefore, SNI enables servers to identify the services that clients are attempting to access before certificates are sent. This allows the servers to present correct certificates to the clients. Valid values:
+   * 
+   *     *   true: SNI is enabled.
+   *     *   false: SNI is disabled.
+   * 
+   *     **followRedirect**: indicates whether 3XX redirects are followed. Valid values:
+   * 
+   *     *   true: 3XX redirects are followed. You are redirected to the destination address if a 3XX status code such as 301, 302, 303, 307, or 308 is returned.
+   *     *   false: 3XX redirects are not followed.
+   * 
+   * *   ping:
+   * 
+   *     **packetNum**: the total number of Internet Control Message Protocol (ICMP) packets that are sent to the address for each ping-based health check. Valid values: 20, 50, and 100.
+   * 
+   *     **packetLossRate**: the ICMP packet loss rate for each ping-based health check. The packet loss rate in a health check can be calculated by using the following formula: Packet loss rate in a health check = (Number of lost packets/Total number of sent ICMP packets) × 100%. If the packet loss rate reaches the threshold, an alert is triggered. Valid values: 10, 30, 40, 80, 90, and 100.
+   * 
    * @example
    * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
    */
   extendInfo?: string;
   /**
+   * @remarks
+   * Percentage of selected node probe failures (%), that is, the percentage of unhealthy check points among total probe points. When the failure ratio exceeds the set threshold, the service address is judged as abnormal. The available failure ratio thresholds are:
+   * - 20
+   * - 50
+   * - 80
+   * - 100
+   * 
    * @example
    * 50
    */
   failureRate?: number;
   /**
+   * @remarks
+   * The time interval between each check (in seconds), with a default of probing once every minute. The minimum supported health check interval is 15 seconds, available for flagship edition instances.
+   * 
    * @example
    * 60
    */
   interval?: number;
   /**
+   * @remarks
+   * The IP address type of health check nodes. Valid values:
+   * 
+   * *   IPv4: applicable when health checks are performed on IPv4 addresses.
+   * *   IPv6: applicable when health checks are performed on IPv6 addresses.
+   * 
    * @example
    * IPv4
    */
   ipVersion?: string;
+  /**
+   * @remarks
+   * The health check nodes. You can call the [ListCloudGtmMonitorNodes](~~ListCloudGtmMonitorNodes~~) operation to obtain the health check nodes.
+   */
   ispCityNodes?: ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodes;
   /**
+   * @remarks
+   * The name of the health check probe template, generally for the convenience of configuration personnel to distinguish and remember.
+   * 
    * @example
    * IPv4-Ping
    */
   name?: string;
   /**
+   * @remarks
+   * Protocol types for initiating probes to the target IP address:
+   * - ping
+   * - tcp
+   * - http
+   * - https
+   * 
    * @example
    * ping
    */
   protocol?: string;
   /**
+   * @remarks
+   * Remarks for the health check template.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The ID of the health check template. This ID uniquely identifies the health check template.
+   * 
    * @example
    * mtp-89518052425100**80
    */
   templateId?: string;
   /**
+   * @remarks
+   * Probe timeout (in milliseconds), data packets not returned within the timeout period are deemed as health check timeouts:
+   * - 2000
+   * - 3000
+   * - 5000
+   * - 10000
+   * 
    * @example
    * 5000
    */
   timeout?: number;
   /**
+   * @remarks
+   * Last modification time of the health check template.
+   * 
    * @example
    * 2024-03-29T13:20Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Health check template configuration modification time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
@@ -41862,7 +45431,7 @@ export class OperateBatchDomainRequestDomainRecordInfo extends $tea.Model {
   domain?: string;
   /**
    * @remarks
-   * The resolution line. Default value: default.
+   * The DNS request source. Default value: default.
    * 
    * @example
    * default
@@ -42092,17 +45661,33 @@ export class PreviewGtmRecoveryPlanResponseBodyPreviews extends $tea.Model {
 
 export class ReplaceCloudGtmAddressPoolAddressRequestAddresses extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the new address. This ID uniquely identifies the address.
+   * 
+   * *   If you specify this parameter, the original addresses in the address pool will be deleted and replaced with new addresses.
+   * *   If you do not specify this parameter, all addresses in the address pool will be deleted and the address pool will be left empty.
+   * 
    * @example
    * addr-89636516932803**44
    */
   addressId?: string;
+  /**
+   * @remarks
+   * The DNS request sources.
+   */
   requestSource?: string[];
   /**
+   * @remarks
+   * The sequence number that specifies the priority for returning the new address. A smaller sequence number specifies a higher priority. This setting takes effect for new addresses.
+   * 
    * @example
    * 1
    */
   serialNumber?: number;
   /**
+   * @remarks
+   * The weight value of the new address. You can set a different weight value for each address. This way, addresses are returned based on the weight values for Domain Name System (DNS) requests. A weight value must be an integer that ranges from 1 to 100. This setting takes effect for new addresses.
+   * 
    * @example
    * 1
    */
@@ -42132,17 +45717,33 @@ export class ReplaceCloudGtmAddressPoolAddressRequestAddresses extends $tea.Mode
 
 export class ReplaceCloudGtmInstanceConfigAddressPoolRequestAddressPools extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
+   * *   If you specify this parameter, the address pools that are associated with the desired instance are removed and the instance is associated with new address pools.
+   * *   If this parameter is left empty, the address pools that are associated with the desired instance are removed and no address pool is associated with the instance.
+   * 
    * @example
    * pool-89564542105737**12
    */
   addressPoolId?: string;
+  /**
+   * @remarks
+   * The DNS request sources.
+   */
   requestSource?: string[];
   /**
+   * @remarks
+   * The sequence number of the new address pool. The address pool with the smallest sequence number is preferentially returned for DNS requests from any source. The sequence number specifies the priority for returning the address pool. A smaller sequence number specifies a higher priority.
+   * 
    * @example
    * 1
    */
   serialNumber?: number;
   /**
+   * @remarks
+   * The weight value of the new address pool. You can set a different weight value for each address pool. This way, address pools are returned based on the weight values for Domain Name System (DNS) requests. A weight value must be an integer that ranges from 1 to 100.
+   * 
    * @example
    * 1
    */
@@ -42172,16 +45773,25 @@ export class ReplaceCloudGtmInstanceConfigAddressPoolRequestAddressPools extends
 
 export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasksHealthTask extends $tea.Model {
   /**
+   * @remarks
+   * The target service port for health checks. When the Ping protocol is selected for health checks, configuration of the service port is not supported.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * The ID of the health check template associated with the address.
+   * 
    * @example
    * mtp-89518052425100**80
    */
   templateId?: string;
   /**
+   * @remarks
+   * Health check template name.
+   * 
    * @example
    * IPv4-Ping
    */
@@ -42228,93 +45838,180 @@ export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddres
 
 export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddress extends $tea.Model {
   /**
+   * @remarks
+   * IP address or domain name.
+   * 
    * @example
    * 223.5.XX.XX
    */
   address?: string;
   /**
+   * @remarks
+   * The address ID. This ID uniquely identifies the address.
+   * 
    * @example
    * addr-895182181143688192
    */
   addressId?: string;
+  /**
+   * @remarks
+   * Address ownership information, not supported in the current version.
+   * 
+   * @example
+   * Not supported in the current version.
+   */
   attributeInfo?: string;
   /**
+   * @remarks
+   * The failover method that is used if the address fails health checks. Valid values:
+   * 
+   * *   auto: the automatic mode. The system determines whether to return an address based on the health check results. If the address fails health checks, the system does not return the address. If the address passes health checks, the system returns the address.
+   * *   manual: the manual mode. If an address is in the unavailable state, the address is not returned for DNS requests even if the address passes health checks. If an address is in the available state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * 
    * @example
    * auto
    */
   availableMode?: string;
   /**
+   * @remarks
+   * Address availability status:
+   * - available: Address is available
+   * - unavailable: Address is unavailable
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * Address creation time.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Address creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Address enable status, indicating whether the address is currently available:
+   * - enable: Enabled status 
+   * - disable: Disabled status
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address. Valid values:
+   * 
+   * *   any_ok: The health check results of at least one health check template are normal.
+   * *   p30_ok: The health check results of at least 30% of health check templates are normal.
+   * *   p50_ok: The health check results of at least 50% of health check templates are normal.
+   * *   p70_ok: The health check results of at least 70% of health check templates are normal.
+   * *   all_ok: The health check results of all health check templates are normal.
+   * 
    * @example
    * any_ok
    */
   healthJudgement?: string;
   /**
+   * @remarks
+   * The health check state of the address. Valid values:
+   * 
+   * *   ok: The address passes all health checks of the referenced health check templates.
+   * *   ok_alert: The address fails some health checks of the referenced health check templates but the address is deemed normal.
+   * *   ok_no_monitor: The address does not reference a health check template and is normal.
+   * *   exceptional: The address fails some or all health checks of the referenced health check templates and the address is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
+  /**
+   * @remarks
+   * The health check tasks.
+   */
   healthTasks?: SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasks;
   /**
+   * @remarks
+   * The availability state of the address when AvailableMode is set to manual. Valid values:
+   * 
+   * *   available: The address is normal. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * *   unavailable: The address is abnormal. In this state, the address is not returned for DNS requests even if the address passes health checks.
+   * 
    * @example
    * available
    */
   manualAvailableStatus?: string;
   /**
+   * @remarks
+   * Address name.
+   * 
    * @example
    * Address-1
    */
   name?: string;
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * Request source, referring to the source of the request. GTM schedules based on the exit IP of the LocalDNS used by the terminal. If the LocalDNS supports ECS (edns-client-subnet), intelligent scheduling can also be performed based on the IP of the visiting terminal.
+   * 
    * @example
    * default
    */
   requestSource?: string;
   /**
+   * @remarks
+   * Sequence number, indicating the priority of address return, where smaller numbers have higher priority.
+   * 
    * @example
    * 1
    */
   serialNumber?: number;
   /**
+   * @remarks
+   * Address type:
+   * - IPv4: ipv4 address - IPv6: ipv6 address - domain: domain name
+   * 
    * @example
    * IPv4
    */
   type?: string;
   /**
+   * @remarks
+   * The last time the address was modified.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The last modification time of the address (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   updateTimestamp?: number;
   /**
+   * @remarks
+   * Weight value (an integer between 1 and 100), allowing different weight values to be set for each address, enabling resolution queries to return addresses according to the weighted ratio.
+   * 
    * @example
    * 1
    */
@@ -42395,72 +46092,142 @@ export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddres
 
 export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPool extends $tea.Model {
   /**
+   * @remarks
+   * Load balancing policy among addresses in the address pool:
+   * - round_robin: Round-robin, for any source of DNS resolution requests, returns all addresses and rotates the order of all addresses each time.
+   * - sequence: Sequential, for any source of DNS resolution requests, returns the address with the smaller sequence number (the sequence number indicates the priority of the address return, the smaller the higher the priority). If the address with the smaller sequence number is unavailable, return the next address with a smaller sequence number.
+   * - weight: Weighted, supports setting different weight values for each address to realize returning addresses according to the weight ratio for resolution queries.
+   * - source_nearest: Source-nearest, i.e., intelligent resolution function, where GTM can return different addresses based on the source of different DNS resolution requests, achieving the effect of users accessing nearby.
+   * 
    * @example
    * round_robin
    */
   addressLbStrategy?: string;
   /**
+   * @remarks
+   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * 
    * @example
    * pool-895280232254422016
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Address pool name.
+   * 
    * @example
    * AddressPool-1
    */
   addressPoolName?: string;
   /**
+   * @remarks
+   * Address pool type:
+   * - IPv4
+   * - IPv6
+   * - domain
+   * 
    * @example
    * IPv4
    */
   addressPoolType?: string;
+  /**
+   * @remarks
+   * The IP addresses or domain names.
+   */
   addresses?: SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresses;
   /**
+   * @remarks
+   * Address pool availability status:
+   * - available: Available
+   * - unavailable: Unavailable
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * Address pool creation time.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Address pool creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Address pool status:
+   * - enable: Enabled status
+   * - disable: Disabled status
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address pool. Valid values:
+   * 
+   * *   any_ok: At least one address in the address pool is available.
+   * *   p30_ok: At least 30% of the addresses in the address pool are available.
+   * *   p50_ok: At least 50% of the addresses in the address pool are available.
+   * *   p70_ok: At least 70% of the addresses in the address pool are available.
+   * *   all_ok: All addresses in the address pool are available.
+   * 
    * @example
    * any_ok
    */
   healthJudgement?: string;
   /**
+   * @remarks
+   * The health state of the address pool. Valid values:
+   * 
+   * *   ok: The health state of the address pool is normal and all addresses that are referenced by the address pool are available.
+   * *   ok_alert: The health state of the address pool is warning and some of the addresses that are referenced by the address pool are unavailable. However, the address pool is deemed normal. In this case, only the available addresses are returned for DNS requests.
+   * *   exceptional: The health state of the address pool is abnormal and some or all of the addresses that are referenced by the address pool are unavailable. In this case, the address pool is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
   /**
+   * @remarks
+   * Address remarks.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The mode used if the address with the smallest sequence number is recovered. This parameter is returned only when the policy for load balancing between addresses is sequence. Valid values:
+   * 
+   * *   preemptive: The address with the smallest sequence number is preferentially used if this address is recovered.
+   * *   non_preemptive: The current address is still used even if the address with the smallest sequence number is recovered.
+   * 
    * @example
    * preemptive
    */
   sequenceLbStrategyMode?: string;
   /**
+   * @remarks
+   * Last modification time of the address pool.
+   * 
    * @example
    * 024-03-15T01:46Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Last modification time of the address pool (timestamp).
+   * 
    * @example
    * 1527690629357
    */
@@ -42531,21 +46298,37 @@ export class SearchCloudGtmAddressPoolsResponseBodyAddressPools extends $tea.Mod
 
 export class SearchCloudGtmAddressesResponseBodyAddressesAddressHealthTasksHealthTask extends $tea.Model {
   /**
+   * @remarks
+   * The state of the health check task. Valid values:
+   * 
+   * *   ok: The task is normal.
+   * *   alert: The task has an alert.
+   * *   no_data: No data is available. In most cases, the health check task is newly created and no data is collected.
+   * 
    * @example
    * ok
    */
   monitorStatus?: string;
   /**
+   * @remarks
+   * The target service port for health check probes. When the health check protocol is set to Ping, configuration of the service port is not supported.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * The ID of the health check template associated with the address.
+   * 
    * @example
    * mtp-895180524251002880
    */
   templateId?: string;
   /**
+   * @remarks
+   * Health check template name.
+   * 
    * @example
    * IPv4-Ping
    */
@@ -42594,78 +46377,157 @@ export class SearchCloudGtmAddressesResponseBodyAddressesAddressHealthTasks exte
 
 export class SearchCloudGtmAddressesResponseBodyAddressesAddress extends $tea.Model {
   /**
+   * @remarks
+   * IP address or domain name.
+   * 
    * @example
    * 223.5.XX.XX
    */
   address?: string;
   /**
+   * @remarks
+   * ID of the address, unique identifier for the address.
+   * 
    * @example
    * addr-89518218114368**92
    */
   addressId?: string;
+  /**
+   * @remarks
+   * Address ownership information, not supported in the current version.
+   * 
+   * @example
+   * The parameter should be none.
+   */
   attributeInfo?: string;
   /**
+   * @remarks
+   * The failover method that is used if the address fails health checks. Valid values:
+   * 
+   * *   auto: the automatic mode. The system determines whether to return an address based on the health check results. If the address fails health checks, the system does not return the address. If the address passes health checks, the system returns the address.
+   * *   manual: the manual mode. If an address is in the unavailable state, the address is not returned for Domain Name System (DNS) requests even if the address passes health checks. If an address is in the available state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * 
    * @example
    * auto
    */
   availableMode?: string;
   /**
+   * @remarks
+   * The availability state of the address when AvailableMode is set to manual. Valid values:
+   * 
+   * *   available: The address is normal. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * *   unavailable: The address is abnormal. In this state, the address is not returned for DNS requests even if the address passes health checks.
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * Creation time of the address.
+   * 
    * @example
    * 2024-03-23T13:09Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Creation time of the address (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Current activation status of the address:
+   * - enable: Enabled status
+   * - disable: Disabled status
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address. Valid values:
+   * 
+   * *   any_ok: The health check results of at least one health check template are normal.
+   * *   p30_ok: The health check results of at least 30% of health check templates are normal.
+   * *   p50_ok: The health check results of at least 50% of health check templates are normal.
+   * *   p70_ok: The health check results of at least 70% of health check templates are normal.
+   * *   all_ok: The health check results of all health check templates are normal.
+   * 
    * @example
    * p50_ok
    */
   healthJudgement?: string;
   /**
+   * @remarks
+   * The health check state of the address. Valid values:
+   * 
+   * *   ok: The address passes all health checks of the referenced health check templates.
+   * *   ok_alert: The address fails some health checks of the referenced health check templates, but the address is deemed available.
+   * *   ok_no_monitor: The address does not reference any health check template.
+   * *   exceptional: The address fails some or all health checks of the referenced health check templates, and the address is deemed unavailable.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
+  /**
+   * @remarks
+   * The health check tasks.
+   */
   healthTasks?: SearchCloudGtmAddressesResponseBodyAddressesAddressHealthTasks;
   /**
+   * @remarks
+   * The availability state of the address when AvailableMode is set to manual. Valid values:
+   * 
+   * *   available: The address is normal. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+   * *   unavailable: The address is abnormal. In this state, the address is not returned for DNS requests even if the address passes health checks.
+   * 
    * @example
    * available
    */
   manualAvailableStatus?: string;
   /**
+   * @remarks
+   * Address name.
+   * 
    * @example
    * Address-1
    */
   name?: string;
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * Address type:
+   * - IPv4: ipv4 address - IPv6: ipv6 address - domain: domain name
+   * 
    * @example
    * IPv4
    */
   type?: string;
   /**
+   * @remarks
+   * The last modification time of the address.
+   * 
    * @example
    * 2024-03-29T13:20Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The last modification time of the address (timestamp).
+   * 
    * @example
    * 1527690629357
    */
@@ -42759,82 +46621,160 @@ export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceCon
 
 export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPool extends $tea.Model {
   /**
+   * @remarks
+   * Load balancing policy among addresses in the address pool:
+   * - round_robin: Round-robin, where for any source of DNS resolution requests, all addresses are returned, with a rotation of the order for every request.
+   * - sequence: Sequential, where for any source of DNS resolution requests, the address with the lower sequence number (indicating a higher priority, the smaller the number, the higher the priority) is returned. If the address with the lower sequence number is unavailable, the next address with a lower sequence number is returned.
+   * - weight: Weighted, supporting the setting of different weight values for each address to realize returning addresses according to the ratio of weights in DNS query resolutions.
+   * - source_nearest: Source-nearest, referring to the intelligent resolution feature, where GTM can return different addresses based on the source of different DNS resolution requests, achieving the effect of users accessing the nearest server.
+   * 
    * @example
    * round_robin
    */
   addressLbStrategy?: string;
   /**
+   * @remarks
+   * Address pool ID, uniquely identifying the address pool.
+   * 
    * @example
    * pool-89564504435014**60
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * Address pool name.
+   * 
    * @example
    * AddressPool-1
    */
   addressPoolName?: string;
   /**
+   * @remarks
+   * Address pool type:
+   * - IPv4
+   * - IPv6
+   * - domain
+   * 
    * @example
    * IPv4
    */
   addressPoolType?: string;
   /**
+   * @remarks
+   * Address pool availability status:
+   * - available: Available
+   * - unavailable: Unavailable
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * Address pool creation time.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Address pool creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Address pool status:
+   * - enable: Enabled status
+   * - disable: Disabled status
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The condition for determining the health status of the address pool. Valid values:
+   * 
+   * *   any_ok: At least one address in the address pool is available.
+   * *   p30_ok: At least 30% of the addresses in the address pool are available.
+   * *   p50_ok: At least 50% of the addresses in the address pool are available.
+   * *   p70_ok: At least 70% of the addresses in the address pool are available.
+   * *   all_ok: All addresses in the address pool are available.
+   * 
    * @example
    * any_ok
    */
   healthJudgement?: string;
   /**
+   * @remarks
+   * The health state of the address pool. Valid values:
+   * 
+   * *   ok: The health state of the address pool is normal and all addresses that are referenced by the address pool are available.
+   * *   ok_alert: The health state of the address pool is warning and some of the addresses that are referenced by the address pool are unavailable. However, the address pool is deemed normal. In this case, only the available addresses are returned for DNS requests.
+   * *   exceptional: The health state of the address pool is abnormal and some or all of the addresses that are referenced by the address pool are unavailable. In this case, the address pool is deemed abnormal.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
+  /**
+   * @remarks
+   * Parse the request source list.
+   */
   requestSource?: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPoolRequestSource;
   /**
+   * @remarks
+   * Indicates whether it is a sequential (non-preemptive) scheduling object for hybrid cloud management scenarios: 
+   * - true: yes 
+   * - false: no
+   * 
    * @example
    * false
    */
   seqNonPreemptiveSchedule?: boolean;
   /**
+   * @remarks
+   * The mode used if the address with the smallest sequence number is recovered. This parameter is required only when the policy for load balancing between addresses is sequence. Valid values:
+   * 
+   * *   preemptive: The address with the smallest sequence number is preferentially used if this address is recovered.
+   * *   non_preemptive: The current address is still used even if the address with the smallest sequence number is recovered.
+   * 
    * @example
    * preemptive
    */
   sequenceLbStrategyMode?: string;
   /**
+   * @remarks
+   * Sequence number. For any parsing request, the address pool with the smaller sequence number (indicating the priority of the address pool returned, with smaller numbers having higher priority) will be returned.
+   * 
    * @example
    * 1
    */
   serialNumber?: number;
   /**
+   * @remarks
+   * Last modification time of the address pool.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Update time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   updateTimestamp?: number;
   /**
+   * @remarks
+   * Weight value (an integer between 1 and 100, inclusive), allowing different weight values to be set for each address pool, implementing the return of address pools according to weight ratios in resolution queries.
+   * 
    * @example
    * 1
    */
@@ -42909,102 +46849,195 @@ export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceCon
 
 export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfig extends $tea.Model {
   /**
+   * @remarks
+   * The policy for load balancing between address pools. Valid values:
+   * 
+   * *   round_robin: All address pools are returned for DNS requests from any source. All address pools are sorted in round-robin mode each time they are returned.
+   * *   sequence: The address pool with the smallest sequence number is preferentially returned for DNS requests from any source. The sequence number indicates the priority for returning the address pool. A smaller sequence number indicates a higher priority. If the address pool with the smallest sequence number is unavailable, the address pool with the second smallest sequence number is returned.
+   * *   weight: You can set a different weight value for each address pool. This way, address pools are returned based on the weight values.
+   * *   source_nearest: Different address pools are returned based on the sources of DNS requests. This way, users can access nearby address pools.
+   * 
    * @example
    * round_robin
    */
   addressPoolLbStrategy?: string;
+  /**
+   * @remarks
+   * The address pools.
+   */
   addressPools?: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPools;
   /**
+   * @remarks
+   * The availability state of the access domain name. Valid values:
+   * 
+   * *   available: If the access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
+   * *   unavailable: If the access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
+   * 
    * @example
    * available
    */
   availableStatus?: string;
   /**
+   * @remarks
+   * The commodity code. Valid values:
+   * 
+   * *   dns_gtm_public_cn: the commodity code on the China site (aliyun.com)
+   * *   dns_gtm_public_intl: the commodity code on the international site (alibabacloud.com)
+   * 
    * @example
    * dns_gtm_public_cn
    */
   commodityCode?: string;
   /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * 
    * @example
    * Config-000**11
    */
   configId?: string;
   /**
+   * @remarks
+   * Domain instance creation time.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Domain instance creation time (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * The enabling state of the access domain name. Valid values:
+   * 
+   * *   enable: The access domain name is enabled and the intelligent scheduling policy of the corresponding GTM instance takes effect.
+   * *   disable: The access domain name is disabled and the intelligent scheduling policy of the corresponding GTM instance does not take effect.
+   * 
    * @example
    * enable
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * The health state of the access domain name. Valid values:
+   * 
+   * *   ok: The health state of the access domain name is normal and all address pools that are referenced by the access domain name are available.
+   * *   ok_alert: The health state of the access domain name is warning and some of the address pools that are referenced by the access domain name are unavailable. In this case, only the available address pools are returned for DNS requests.
+   * *   exceptional: The health state of the access domain name is abnormal and all address pools that are referenced by the access domain name are unavailable. In this case, addresses in the non-empty address pool with the smallest sequence number are preferentially used for fallback resolution. This returns DNS results for clients as much as possible.
+   * 
    * @example
    * ok
    */
   healthStatus?: string;
   /**
+   * @remarks
+   * The ID of the GTM 3.0 instance.
+   * 
    * @example
    * gtm-cn-x0r38e0**03
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Remarks for the domain instance.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The access domain name. The value of this parameter is composed of the value of ScheduleHostname and the value of ScheduleZoneName.
+   * 
    * @example
    * www.example.com
    */
   scheduleDomainName?: string;
   /**
+   * @remarks
+   * Host record of the domain accessed by GTM.
+   * 
    * @example
    * www
    */
   scheduleHostname?: string;
   /**
+   * @remarks
+   * DNS record types for the scheduling domain:
+   * - A: IPv4 address
+   * - AAAA: IPv6 address
+   * - CNAME: Domain name
+   * 
    * @example
    * A
    */
   scheduleRrType?: string;
   /**
+   * @remarks
+   * The allocation mode of the access domain name. Valid values:
+   * 
+   * *   custom: custom allocation. You must specify a custom hostname and associate the hostname with a zone that is hosted by the Public Authoritative DNS module within the account to which the GTM instance belongs to generate an access domain name.
+   * *   sys_assign: system allocation. This mode is not supported. Do not set ScheduleZoneMode to sys_assign.
+   * 
    * @example
    * custom
    */
   scheduleZoneMode?: string;
   /**
+   * @remarks
+   * The zone such as example.com or subzone such as a.example.com of the access domain name. In most cases, the zone or subzone is hosted by the Public Authoritative DNS module of Alibaba Cloud DNS. This zone belongs to the account to which the GTM instance belongs.
+   * 
    * @example
    * example.com
    */
   scheduleZoneName?: string;
   /**
+   * @remarks
+   * The mode used if the address pool with the smallest sequence number is recovered. This parameter is returned when AddressPoolLbStrategy is set to sequence. Valid values:
+   * 
+   * *   preemptive: The address pool with the smallest sequence number is preferentially used if this address pool is recovered.
+   * *   non_preemptive: The current address pool is still used even if the address pool with the smallest sequence number is recovered.
+   * 
    * @example
    * preemptive
    */
   sequenceLbStrategyMode?: string;
   /**
+   * @remarks
+   * Global TTL (in seconds), the TTL value for resolving the access domain name to the address pool, which affects the caching time of DNS records in the operator\\"s LocalDNS. Supports custom TTL values.
+   * 
    * @example
    * 60
    */
   ttl?: number;
   /**
+   * @remarks
+   * The last modification time of the domain instance.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The last modification time of the domain instance (timestamp).
+   * 
    * @example
    * 1527690629357
    */
   updateTimestamp?: number;
   /**
+   * @remarks
+   * Global Traffic Management version 3.0 instance types:
+   * - standard: Standard Edition
+   * - ultimate: Ultimate Edition
+   * 
    * @example
    * ultimate
    */
@@ -43087,81 +47120,134 @@ export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigs extends $t
 
 export class SearchCloudGtmInstancesResponseBodyInstancesInstance extends $tea.Model {
   /**
+   * @remarks
+   * The commodity code. Valid values:
+   * 
+   * *   dns_gtm_public_cn: commodity code on the China site (aliyun.com)
+   * *   dns_gtm_public_intl: commodity code on the international site (alibabacloud.com)
+   * 
    * @example
    * dns_gtm_public_cn
    */
   commodityCode?: string;
   /**
+   * @remarks
+   * Instance creation time.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Instance creation time (timestamp).
+   * 
    * @example
    * 1710467214858
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Instance expiration time.
+   * 
    * @example
    * 2024-09-05T16:00Z
    */
   expireTime?: number;
   /**
+   * @remarks
+   * Instance expiration time (timestamp).
+   * 
    * @example
    * 1725552000000
    */
   expireTimestamp?: string;
   /**
+   * @remarks
+   * The ID of the GTM 3.0 instance.
+   * 
    * @example
    * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Schedule instance name.
+   * 
    * @example
    * test
    */
   instanceName?: string;
   /**
+   * @remarks
+   * Monitor probe task quota.
+   * 
    * @example
    * 100
    */
   monitorTaskQuota?: number;
   /**
+   * @remarks
+   * Monthly email sending volume.
+   * 
    * @example
    * 200
    */
   monthlyEmailUsed?: number;
   /**
+   * @remarks
+   * SMS quota, only supported on the China site. International site does not support SMS.
+   * 
    * @example
    * 2000
    */
   monthlySmsQuota?: number;
   /**
+   * @remarks
+   * Monthly SMS sending volume, only supported by the China site as international sites do not support SMS.
+   * 
    * @example
    * 200
    */
   monthlySmsUsed?: number;
   /**
+   * @remarks
+   * Monthly webhook dispatch volume.
+   * 
    * @example
    * 100
    */
   monthlyWebhookUsed?: number;
   /**
+   * @remarks
+   * The access domain name, which consists of a hostname and a zone or a subzone.
+   * 
    * @example
    * www.example.com
    */
   scheduleDomainName?: string;
   /**
+   * @remarks
+   * The last modified time of the instance.
+   * 
    * @example
    * 2024-03-15T01:46Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The last modified time of the instance (timestamp).
+   * 
    * @example
    * 1710467214858
    */
   updateTimestamp?: number;
   /**
+   * @remarks
+   * Global Traffic Management version 3.0 instance types:
+   * - standard: Standard Edition
+   * - ultimate: Ultimate Edition
+   * 
    * @example
    * ultimate
    */
@@ -43251,6 +47337,13 @@ export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityN
    */
   groupName?: string;
   /**
+   * @remarks
+   * The group type of health check nodes. Valid values:
+   * 
+   * *   BGP: BGP node
+   * *   OVERSEAS: node outside the Chinese mainland
+   * *   ISP: Internet service provider (ISP) node
+   * 
    * @example
    * BGP
    */
@@ -43328,6 +47421,36 @@ export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate extends
    */
   evaluationCount?: number;
   /**
+   * @remarks
+   * The extended information. The value of this parameter is a JSON string. The required parameters vary based on the health check protocol. Valid values:
+   * 
+   * *   **http(s)**:
+   * 
+   *     **host**: indicates the Host field of an HTTP or HTTPS request header during an HTTP or HTTPS health check. The parameter value indicates the HTTP website that you want to visit. By default, the value is the primary domain name. You can change the value based on your business requirements.
+   * 
+   *     **path**: the URL for HTTP or HTTPS health checks. Default value: /.
+   * 
+   *     **code**: indicates the alert threshold. During an HTTP or HTTPS health check, the system checks whether a web server functions as expected based on the status code that is returned from the web server. If the returned status code is greater than the specified threshold, the corresponding application service address is deemed abnormal. Valid values:
+   * 
+   *     *   400: indicates an invalid request. If an HTTP or HTTPS request contains invalid request parameters, a web server returns a status code that is greater than 400. If Verification Content is set to "The error code is greater than 400", you must specify an exact URL for the path parameter.
+   *     *   500: indicates a server error. If some exceptions occur on a web server, the web server returns a status code that is greater than 500. The error code that is greater than 500 is used as the alert threshold by default.
+   * 
+   *     **sni**: indicates whether Server Name Indication (SNI) is enabled for HTTPS. SNI is an extension to the Transport Layer Security (TLS) protocol, which allows a client to specify the host to be connected when the client sends a TLS handshake request. TLS handshakes occur before any data of HTTP requests is sent. Therefore, SNI enables servers to identify the services that clients are attempting to access before certificates are sent. This allows the servers to present correct certificates to the clients. Valid values:
+   * 
+   *     *   true: SNI is enabled.
+   *     *   false: SNI is disabled.
+   * 
+   *     **followRedirect**: indicates whether 3XX redirection is followed. Valid values:
+   * 
+   *     *   true: You are redirected to the destination address if a status code 3XX, such as 301, 302, 303, 307, or 308, is returned.
+   *     *   false: You are not redirected to the destination address.
+   * 
+   * *   **ping**:
+   * 
+   *     **packetNum**: The total number of Internet Control Message Protocol (ICMP) packets that are sent to the address for each ping-based health check. Valid values: 20, 50, and 100.
+   * 
+   *     **packetLossRate**: The packet loss rate for each ping-based health check. The packet loss rate in a check can be calculated by using the following formula: Packet loss rate = (Number of lost packets/Total number of sent ICMP packets) × 100%. If the packet loss rate reaches the threshold, an alert is triggered. Valid values: 10, 30, 40, 80, 90, and 100.
+   * 
    * @example
    * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
    */
@@ -43343,10 +47466,20 @@ export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate extends
    */
   interval?: number;
   /**
+   * @remarks
+   * The IP address type of health check nodes. Valid values:
+   * 
+   * *   IPv4: applicable when the destination address of health checks is an IPv4 address
+   * *   IPv6: applicable when the destination address of health checks is an IPv6 address
+   * 
    * @example
    * IPv4
    */
   ipVersion?: string;
+  /**
+   * @remarks
+   * The health check nodes.
+   */
   ispCityNodes?: SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodes;
   /**
    * @example
@@ -43485,11 +47618,17 @@ export class TagResourcesRequestTag extends $tea.Model {
 
 export class UpdateCloudGtmAddressRequestHealthTasks extends $tea.Model {
   /**
+   * @remarks
+   * The service port of the address on which health check tasks are performed. If the ping protocol is used for health checks, the configuration of the service port is not supported.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * The ID of the health check template associated with the address.
+   * 
    * @example
    * mtp-89518052425100**80
    */
@@ -43515,21 +47654,49 @@ export class UpdateCloudGtmAddressRequestHealthTasks extends $tea.Model {
 
 export class UpdateCloudGtmGlobalAlertRequestAlertConfig extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to configure DingTalk notifications. Valid values:
+   * 
+   * *   true: configures DingTalk notifications. DingTalk notifications are sent when alerts are triggered.
+   * *   false: does not configure DingTalk notifications.
+   * 
    * @example
    * false
    */
   dingtalkNotice?: boolean;
   /**
+   * @remarks
+   * Specifies whether to configure email notifications. Valid values:
+   * 
+   * *   true: configures email notifications. Emails are sent when alerts are triggered.
+   * *   false｜null: does not configure email notifications.
+   * 
    * @example
    * true
    */
   emailNotice?: boolean;
   /**
+   * @remarks
+   * The type of the alert event. Valid values:
+   * 
+   * *   addr_alert: The address is unavailable.
+   * *   addr_resume: The address becomes available.
+   * *   addr_pool_unavailable: The address pool is unavailable.
+   * *   addr_pool_available: The address pool becomes available.
+   * 
    * @example
    * addr_alert
    */
   noticeType?: string;
   /**
+   * @remarks
+   * Specifies whether to configure text message notifications. Valid values:
+   * 
+   * *   true: configures text message notifications. Text messages are sent when alerts are triggered.
+   * *   false｜null: does not configure text message notifications.
+   * 
+   * Only the China site (aliyun.com) supports text message notifications.
+   * 
    * @example
    * true
    */
@@ -43562,8 +47729,8 @@ export class UpdateCloudGtmInstanceConfigAlertRequestAlertConfig extends $tea.Mo
    * @remarks
    * Specifies whether to configure DingTalk notifications. Valid values:
    * 
-   * *   true: DingTalk notifications are configured. DingTalk notifications are sent when alerts are triggered.
-   * *   false: DingTalk notifications are not configured.
+   * *   true: configures DingTalk notifications. DingTalk notifications are sent when alerts are triggered.
+   * *   false: does not configure DingTalk notifications.
    * 
    * @example
    * true
@@ -43573,8 +47740,8 @@ export class UpdateCloudGtmInstanceConfigAlertRequestAlertConfig extends $tea.Mo
    * @remarks
    * Specifies whether to configure email notifications. Valid values:
    * 
-   * *   true: Email notifications are configured. Emails are sent when alerts are triggered.
-   * *   false: Email notifications are not configured.
+   * *   true: configures email notifications. Emails are sent when alerts are triggered.
+   * *   false: does not configure email notifications.
    * 
    * @example
    * true
@@ -43597,8 +47764,8 @@ export class UpdateCloudGtmInstanceConfigAlertRequestAlertConfig extends $tea.Mo
    * @remarks
    * Specifies whether to configure text message notifications. Valid values:
    * 
-   * *   true: Text message notifications are configured. Text messages are sent when alerts are triggered.
-   * *   false: Text message notifications are not configured.
+   * *   true: configures text message notifications. Text messages are sent when alerts are triggered.
+   * *   false: does not configure text message notifications.
    * 
    * Only the China site (aliyun.com) supports text message notifications.
    * 
@@ -43631,11 +47798,17 @@ export class UpdateCloudGtmInstanceConfigAlertRequestAlertConfig extends $tea.Mo
 
 export class UpdateCloudGtmMonitorTemplateRequestIspCityNodes extends $tea.Model {
   /**
+   * @remarks
+   * The city code of the health check node.
+   * 
    * @example
    * 503
    */
   cityCode?: string;
   /**
+   * @remarks
+   * The Internet service provider (ISP) code of the health check node.
+   * 
    * @example
    * 465
    */
@@ -43816,17 +47989,17 @@ export class UpdateDnsGtmAddressPoolRequestAddr extends $tea.Model {
   addr?: string;
   /**
    * @remarks
-   * The source region of the address, in JSON-formatted string.
+   * The information about the source region of the address. The value of the parameter is a string in the JSON format. Valid values:
    * 
-   * *   LineCode: the line code of the source region of the address. The LineCode field is deprecated, and the lineCodes field is used as a substitute.
+   * *   LineCode: the line code of the source region. This parameter is deprecated. Use lineCodes instead.
    * 
-   * *   LineCodes: the line code list of the source regions of addresses.
+   * *   lineCodes: the line codes of the source region
    * 
-   * *   lineCodeRectifyType: the rectification type of the line codes. Default value: AUTO. Valid values:
+   * *   lineCodeRectifyType: the rectification type of the line code. Default value: AUTO. Valid values:
    * 
-   *     *   NO_NEED: no need for rectification.
-   *     *   RECTIFIED: rectified.
-   *     *   AUTO: automatic rectification.
+   *     *   NO_NEED: no need for rectification
+   *     *   RECTIFIED: rectified
+   *     *   AUTO: automatic rectification
    * 
    * @example
    * Linecode:default,lineCodes:["default"],lineCodeRectifyType:"NO_NEED"
@@ -43842,11 +48015,11 @@ export class UpdateDnsGtmAddressPoolRequestAddr extends $tea.Model {
   lbaWeight?: number;
   /**
    * @remarks
-   * The response mode: Valid values:
+   * The return mode of the addresses. Valid values:
    * 
-   * *   SMART: smart return.
-   * *   ONLINE: always online.
-   * *   OFFLINE: always offline.
+   * *   SMART: smart return
+   * *   ONLINE: always online
+   * *   OFFLINE: always offline
    * 
    * This parameter is required.
    * 
@@ -43856,7 +48029,7 @@ export class UpdateDnsGtmAddressPoolRequestAddr extends $tea.Model {
   mode?: string;
   /**
    * @remarks
-   * The additional information about the address.
+   * The description of the address pool.
    * 
    * @example
    * test
@@ -44060,6 +48233,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._productId = "Alidns";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "central";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("alidns", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -44122,7 +48298,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddCustomLineResponse>(await this.callApi(params, req, runtime), new AddCustomLineResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddCustomLineResponse>(await this.callApi(params, req, runtime), new AddCustomLineResponse({}));
+    } else {
+      return $tea.cast<AddCustomLineResponse>(await this.execute(params, req, runtime), new AddCustomLineResponse({}));
+    }
+
   }
 
   /**
@@ -44198,7 +48379,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddDnsCacheDomainResponse>(await this.callApi(params, req, runtime), new AddDnsCacheDomainResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddDnsCacheDomainResponse>(await this.callApi(params, req, runtime), new AddDnsCacheDomainResponse({}));
+    } else {
+      return $tea.cast<AddDnsCacheDomainResponse>(await this.execute(params, req, runtime), new AddDnsCacheDomainResponse({}));
+    }
+
   }
 
   /**
@@ -44302,7 +48488,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new AddDnsGtmAccessStrategyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new AddDnsGtmAccessStrategyResponse({}));
+    } else {
+      return $tea.cast<AddDnsGtmAccessStrategyResponse>(await this.execute(params, req, runtime), new AddDnsGtmAccessStrategyResponse({}));
+    }
+
   }
 
   /**
@@ -44392,7 +48583,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddDnsGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new AddDnsGtmAddressPoolResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddDnsGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new AddDnsGtmAddressPoolResponse({}));
+    } else {
+      return $tea.cast<AddDnsGtmAddressPoolResponse>(await this.execute(params, req, runtime), new AddDnsGtmAddressPoolResponse({}));
+    }
+
   }
 
   /**
@@ -44465,7 +48661,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddDnsGtmMonitorResponse>(await this.callApi(params, req, runtime), new AddDnsGtmMonitorResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddDnsGtmMonitorResponse>(await this.callApi(params, req, runtime), new AddDnsGtmMonitorResponse({}));
+    } else {
+      return $tea.cast<AddDnsGtmMonitorResponse>(await this.execute(params, req, runtime), new AddDnsGtmMonitorResponse({}));
+    }
+
   }
 
   /**
@@ -44526,7 +48727,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddDomainResponse>(await this.callApi(params, req, runtime), new AddDomainResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddDomainResponse>(await this.callApi(params, req, runtime), new AddDomainResponse({}));
+    } else {
+      return $tea.cast<AddDomainResponse>(await this.execute(params, req, runtime), new AddDomainResponse({}));
+    }
+
   }
 
   /**
@@ -44580,7 +48786,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddDomainBackupResponse>(await this.callApi(params, req, runtime), new AddDomainBackupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddDomainBackupResponse>(await this.callApi(params, req, runtime), new AddDomainBackupResponse({}));
+    } else {
+      return $tea.cast<AddDomainBackupResponse>(await this.execute(params, req, runtime), new AddDomainBackupResponse({}));
+    }
+
   }
 
   /**
@@ -44626,7 +48837,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddDomainGroupResponse>(await this.callApi(params, req, runtime), new AddDomainGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddDomainGroupResponse>(await this.callApi(params, req, runtime), new AddDomainGroupResponse({}));
+    } else {
+      return $tea.cast<AddDomainGroupResponse>(await this.execute(params, req, runtime), new AddDomainGroupResponse({}));
+    }
+
   }
 
   /**
@@ -44700,7 +48916,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddDomainRecordResponse>(await this.callApi(params, req, runtime), new AddDomainRecordResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddDomainRecordResponse>(await this.callApi(params, req, runtime), new AddDomainRecordResponse({}));
+    } else {
+      return $tea.cast<AddDomainRecordResponse>(await this.execute(params, req, runtime), new AddDomainRecordResponse({}));
+    }
+
   }
 
   /**
@@ -44760,7 +48981,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new AddGtmAccessStrategyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new AddGtmAccessStrategyResponse({}));
+    } else {
+      return $tea.cast<AddGtmAccessStrategyResponse>(await this.execute(params, req, runtime), new AddGtmAccessStrategyResponse({}));
+    }
+
   }
 
   /**
@@ -44848,7 +49074,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new AddGtmAddressPoolResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new AddGtmAddressPoolResponse({}));
+    } else {
+      return $tea.cast<AddGtmAddressPoolResponse>(await this.execute(params, req, runtime), new AddGtmAddressPoolResponse({}));
+    }
+
   }
 
   /**
@@ -44918,7 +49149,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddGtmMonitorResponse>(await this.callApi(params, req, runtime), new AddGtmMonitorResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddGtmMonitorResponse>(await this.callApi(params, req, runtime), new AddGtmMonitorResponse({}));
+    } else {
+      return $tea.cast<AddGtmMonitorResponse>(await this.execute(params, req, runtime), new AddGtmMonitorResponse({}));
+    }
+
   }
 
   /**
@@ -44933,6 +49169,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a disaster recovery plan.
+   * 
    * @param request - AddGtmRecoveryPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddGtmRecoveryPlanResponse
@@ -44970,10 +49208,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new AddGtmRecoveryPlanResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new AddGtmRecoveryPlanResponse({}));
+    } else {
+      return $tea.cast<AddGtmRecoveryPlanResponse>(await this.execute(params, req, runtime), new AddGtmRecoveryPlanResponse({}));
+    }
+
   }
 
   /**
+   * Creates a disaster recovery plan.
+   * 
    * @param request - AddGtmRecoveryPlanRequest
    * @returns AddGtmRecoveryPlanResponse
    */
@@ -45022,7 +49267,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindInstanceDomainsResponse>(await this.callApi(params, req, runtime), new BindInstanceDomainsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<BindInstanceDomainsResponse>(await this.callApi(params, req, runtime), new BindInstanceDomainsResponse({}));
+    } else {
+      return $tea.cast<BindInstanceDomainsResponse>(await this.execute(params, req, runtime), new BindInstanceDomainsResponse({}));
+    }
+
   }
 
   /**
@@ -45079,7 +49329,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangeDomainGroupResponse>(await this.callApi(params, req, runtime), new ChangeDomainGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ChangeDomainGroupResponse>(await this.callApi(params, req, runtime), new ChangeDomainGroupResponse({}));
+    } else {
+      return $tea.cast<ChangeDomainGroupResponse>(await this.execute(params, req, runtime), new ChangeDomainGroupResponse({}));
+    }
+
   }
 
   /**
@@ -45097,10 +49352,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the domain name bound to an Alibaba Cloud DNS instance.
+   * Changes the domain name that is bound to an Alibaba Cloud DNS instance.
    * 
    * @remarks
-   * >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
+   *   **You can call this operation regardless of whether the Alibaba Cloud DNS instance is bound to a domain name. You can also call this operation to unbind the domain name from the Alibaba Cloud DNS instance by leaving the NewDomain parameter empty.**
+   * *   **This operation applies to instances of the custom edition. To change the domain name that is bound to an Alibaba Cloud DNS instance of Personal Edition, Enterprise Standard Edition, or Enterprise Ultimate Edition, call the BindInstanceDomains operation.
    * 
    * @param request - ChangeDomainOfDnsProductRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45143,14 +49399,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangeDomainOfDnsProductResponse>(await this.callApi(params, req, runtime), new ChangeDomainOfDnsProductResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ChangeDomainOfDnsProductResponse>(await this.callApi(params, req, runtime), new ChangeDomainOfDnsProductResponse({}));
+    } else {
+      return $tea.cast<ChangeDomainOfDnsProductResponse>(await this.execute(params, req, runtime), new ChangeDomainOfDnsProductResponse({}));
+    }
+
   }
 
   /**
-   * Changes the domain name bound to an Alibaba Cloud DNS instance.
+   * Changes the domain name that is bound to an Alibaba Cloud DNS instance.
    * 
    * @remarks
-   * >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
+   *   **You can call this operation regardless of whether the Alibaba Cloud DNS instance is bound to a domain name. You can also call this operation to unbind the domain name from the Alibaba Cloud DNS instance by leaving the NewDomain parameter empty.**
+   * *   **This operation applies to instances of the custom edition. To change the domain name that is bound to an Alibaba Cloud DNS instance of Personal Edition, Enterprise Standard Edition, or Enterprise Ultimate Edition, call the BindInstanceDomains operation.
    * 
    * @param request - ChangeDomainOfDnsProductRequest
    * @returns ChangeDomainOfDnsProductResponse
@@ -45161,6 +49423,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Copies the configurations of a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - CopyGtmConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CopyGtmConfigResponse
@@ -45198,10 +49462,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CopyGtmConfigResponse>(await this.callApi(params, req, runtime), new CopyGtmConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CopyGtmConfigResponse>(await this.callApi(params, req, runtime), new CopyGtmConfigResponse({}));
+    } else {
+      return $tea.cast<CopyGtmConfigResponse>(await this.execute(params, req, runtime), new CopyGtmConfigResponse({}));
+    }
+
   }
 
   /**
+   * Copies the configurations of a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - CopyGtmConfigRequest
    * @returns CopyGtmConfigResponse
    */
@@ -45211,6 +49482,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an address.
+   * 
    * @param tmpReq - CreateCloudGtmAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateCloudGtmAddressResponse
@@ -45286,10 +49559,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateCloudGtmAddressResponse>(await this.callApi(params, req, runtime), new CreateCloudGtmAddressResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateCloudGtmAddressResponse>(await this.callApi(params, req, runtime), new CreateCloudGtmAddressResponse({}));
+    } else {
+      return $tea.cast<CreateCloudGtmAddressResponse>(await this.execute(params, req, runtime), new CreateCloudGtmAddressResponse({}));
+    }
+
   }
 
   /**
+   * Creates an address.
+   * 
    * @param request - CreateCloudGtmAddressRequest
    * @returns CreateCloudGtmAddressResponse
    */
@@ -45299,6 +49579,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an address pool.
+   * 
    * @param request - CreateCloudGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateCloudGtmAddressPoolResponse
@@ -45348,10 +49630,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateCloudGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new CreateCloudGtmAddressPoolResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateCloudGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new CreateCloudGtmAddressPoolResponse({}));
+    } else {
+      return $tea.cast<CreateCloudGtmAddressPoolResponse>(await this.execute(params, req, runtime), new CreateCloudGtmAddressPoolResponse({}));
+    }
+
   }
 
   /**
+   * Creates an address pool.
+   * 
    * @param request - CreateCloudGtmAddressPoolRequest
    * @returns CreateCloudGtmAddressPoolResponse
    */
@@ -45422,7 +49711,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateCloudGtmInstanceConfigResponse>(await this.callApi(params, req, runtime), new CreateCloudGtmInstanceConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateCloudGtmInstanceConfigResponse>(await this.callApi(params, req, runtime), new CreateCloudGtmInstanceConfigResponse({}));
+    } else {
+      return $tea.cast<CreateCloudGtmInstanceConfigResponse>(await this.execute(params, req, runtime), new CreateCloudGtmInstanceConfigResponse({}));
+    }
+
   }
 
   /**
@@ -45435,6 +49729,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a health check template.
+   * 
    * @param tmpReq - CreateCloudGtmMonitorTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateCloudGtmMonitorTemplateResponse
@@ -45506,10 +49802,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateCloudGtmMonitorTemplateResponse>(await this.callApi(params, req, runtime), new CreateCloudGtmMonitorTemplateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateCloudGtmMonitorTemplateResponse>(await this.callApi(params, req, runtime), new CreateCloudGtmMonitorTemplateResponse({}));
+    } else {
+      return $tea.cast<CreateCloudGtmMonitorTemplateResponse>(await this.execute(params, req, runtime), new CreateCloudGtmMonitorTemplateResponse({}));
+    }
+
   }
 
   /**
+   * Creates a health check template.
+   * 
    * @param request - CreateCloudGtmMonitorTemplateRequest
    * @returns CreateCloudGtmMonitorTemplateResponse
    */
@@ -45532,6 +49835,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -45546,7 +49853,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreatePdnsAppKeyResponse>(await this.callApi(params, req, runtime), new CreatePdnsAppKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreatePdnsAppKeyResponse>(await this.callApi(params, req, runtime), new CreatePdnsAppKeyResponse({}));
+    } else {
+      return $tea.cast<CreatePdnsAppKeyResponse>(await this.execute(params, req, runtime), new CreatePdnsAppKeyResponse({}));
+    }
+
   }
 
   /**
@@ -45600,7 +49912,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreatePdnsUdpIpSegmentResponse>(await this.callApi(params, req, runtime), new CreatePdnsUdpIpSegmentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreatePdnsUdpIpSegmentResponse>(await this.callApi(params, req, runtime), new CreatePdnsUdpIpSegmentResponse({}));
+    } else {
+      return $tea.cast<CreatePdnsUdpIpSegmentResponse>(await this.execute(params, req, runtime), new CreatePdnsUdpIpSegmentResponse({}));
+    }
+
   }
 
   /**
@@ -45615,6 +49932,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an address.
+   * 
    * @param request - DeleteCloudGtmAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCloudGtmAddressResponse
@@ -45648,10 +49967,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCloudGtmAddressResponse>(await this.callApi(params, req, runtime), new DeleteCloudGtmAddressResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteCloudGtmAddressResponse>(await this.callApi(params, req, runtime), new DeleteCloudGtmAddressResponse({}));
+    } else {
+      return $tea.cast<DeleteCloudGtmAddressResponse>(await this.execute(params, req, runtime), new DeleteCloudGtmAddressResponse({}));
+    }
+
   }
 
   /**
+   * Deletes an address.
+   * 
    * @param request - DeleteCloudGtmAddressRequest
    * @returns DeleteCloudGtmAddressResponse
    */
@@ -45661,6 +49987,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an address pool.
+   * 
    * @param request - DeleteCloudGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCloudGtmAddressPoolResponse
@@ -45694,10 +50022,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCloudGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DeleteCloudGtmAddressPoolResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteCloudGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DeleteCloudGtmAddressPoolResponse({}));
+    } else {
+      return $tea.cast<DeleteCloudGtmAddressPoolResponse>(await this.execute(params, req, runtime), new DeleteCloudGtmAddressPoolResponse({}));
+    }
+
   }
 
   /**
+   * Deletes an address pool.
+   * 
    * @param request - DeleteCloudGtmAddressPoolRequest
    * @returns DeleteCloudGtmAddressPoolResponse
    */
@@ -45707,6 +50042,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an access domain name that is configured for a Global Traffic Manager (GTM) 3.0 instance.
+   * 
    * @param request - DeleteCloudGtmInstanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCloudGtmInstanceConfigResponse
@@ -45744,10 +50081,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCloudGtmInstanceConfigResponse>(await this.callApi(params, req, runtime), new DeleteCloudGtmInstanceConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteCloudGtmInstanceConfigResponse>(await this.callApi(params, req, runtime), new DeleteCloudGtmInstanceConfigResponse({}));
+    } else {
+      return $tea.cast<DeleteCloudGtmInstanceConfigResponse>(await this.execute(params, req, runtime), new DeleteCloudGtmInstanceConfigResponse({}));
+    }
+
   }
 
   /**
+   * Deletes an access domain name that is configured for a Global Traffic Manager (GTM) 3.0 instance.
+   * 
    * @param request - DeleteCloudGtmInstanceConfigRequest
    * @returns DeleteCloudGtmInstanceConfigResponse
    */
@@ -45757,6 +50101,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a health check template.
+   * 
    * @param request - DeleteCloudGtmMonitorTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCloudGtmMonitorTemplateResponse
@@ -45790,10 +50136,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCloudGtmMonitorTemplateResponse>(await this.callApi(params, req, runtime), new DeleteCloudGtmMonitorTemplateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteCloudGtmMonitorTemplateResponse>(await this.callApi(params, req, runtime), new DeleteCloudGtmMonitorTemplateResponse({}));
+    } else {
+      return $tea.cast<DeleteCloudGtmMonitorTemplateResponse>(await this.execute(params, req, runtime), new DeleteCloudGtmMonitorTemplateResponse({}));
+    }
+
   }
 
   /**
+   * Deletes a health check template.
+   * 
    * @param request - DeleteCloudGtmMonitorTemplateRequest
    * @returns DeleteCloudGtmMonitorTemplateResponse
    */
@@ -45834,7 +50187,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCustomLinesResponse>(await this.callApi(params, req, runtime), new DeleteCustomLinesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteCustomLinesResponse>(await this.callApi(params, req, runtime), new DeleteCustomLinesResponse({}));
+    } else {
+      return $tea.cast<DeleteCustomLinesResponse>(await this.execute(params, req, runtime), new DeleteCustomLinesResponse({}));
+    }
+
   }
 
   /**
@@ -45878,7 +50236,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDnsCacheDomainResponse>(await this.callApi(params, req, runtime), new DeleteDnsCacheDomainResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteDnsCacheDomainResponse>(await this.callApi(params, req, runtime), new DeleteDnsCacheDomainResponse({}));
+    } else {
+      return $tea.cast<DeleteDnsCacheDomainResponse>(await this.execute(params, req, runtime), new DeleteDnsCacheDomainResponse({}));
+    }
+
   }
 
   /**
@@ -45920,7 +50283,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DeleteDnsGtmAccessStrategyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DeleteDnsGtmAccessStrategyResponse({}));
+    } else {
+      return $tea.cast<DeleteDnsGtmAccessStrategyResponse>(await this.execute(params, req, runtime), new DeleteDnsGtmAccessStrategyResponse({}));
+    }
+
   }
 
   /**
@@ -45962,7 +50330,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDnsGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DeleteDnsGtmAddressPoolResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteDnsGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DeleteDnsGtmAddressPoolResponse({}));
+    } else {
+      return $tea.cast<DeleteDnsGtmAddressPoolResponse>(await this.execute(params, req, runtime), new DeleteDnsGtmAddressPoolResponse({}));
+    }
+
   }
 
   /**
@@ -46006,7 +50379,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDomainResponse>(await this.callApi(params, req, runtime), new DeleteDomainResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteDomainResponse>(await this.callApi(params, req, runtime), new DeleteDomainResponse({}));
+    } else {
+      return $tea.cast<DeleteDomainResponse>(await this.execute(params, req, runtime), new DeleteDomainResponse({}));
+    }
+
   }
 
   /**
@@ -46055,7 +50433,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDomainGroupResponse>(await this.callApi(params, req, runtime), new DeleteDomainGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteDomainGroupResponse>(await this.callApi(params, req, runtime), new DeleteDomainGroupResponse({}));
+    } else {
+      return $tea.cast<DeleteDomainGroupResponse>(await this.execute(params, req, runtime), new DeleteDomainGroupResponse({}));
+    }
+
   }
 
   /**
@@ -46108,7 +50491,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDomainRecordResponse>(await this.callApi(params, req, runtime), new DeleteDomainRecordResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteDomainRecordResponse>(await this.callApi(params, req, runtime), new DeleteDomainRecordResponse({}));
+    } else {
+      return $tea.cast<DeleteDomainRecordResponse>(await this.execute(params, req, runtime), new DeleteDomainRecordResponse({}));
+    }
+
   }
 
   /**
@@ -46152,7 +50540,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DeleteGtmAccessStrategyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DeleteGtmAccessStrategyResponse({}));
+    } else {
+      return $tea.cast<DeleteGtmAccessStrategyResponse>(await this.execute(params, req, runtime), new DeleteGtmAccessStrategyResponse({}));
+    }
+
   }
 
   /**
@@ -46194,7 +50587,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DeleteGtmAddressPoolResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DeleteGtmAddressPoolResponse({}));
+    } else {
+      return $tea.cast<DeleteGtmAddressPoolResponse>(await this.execute(params, req, runtime), new DeleteGtmAddressPoolResponse({}));
+    }
+
   }
 
   /**
@@ -46236,7 +50634,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new DeleteGtmRecoveryPlanResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new DeleteGtmRecoveryPlanResponse({}));
+    } else {
+      return $tea.cast<DeleteGtmRecoveryPlanResponse>(await this.execute(params, req, runtime), new DeleteGtmRecoveryPlanResponse({}));
+    }
+
   }
 
   /**
@@ -46293,7 +50696,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteSubDomainRecordsResponse>(await this.callApi(params, req, runtime), new DeleteSubDomainRecordsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteSubDomainRecordsResponse>(await this.callApi(params, req, runtime), new DeleteSubDomainRecordsResponse({}));
+    } else {
+      return $tea.cast<DeleteSubDomainRecordsResponse>(await this.execute(params, req, runtime), new DeleteSubDomainRecordsResponse({}));
+    }
+
   }
 
   /**
@@ -46309,6 +50717,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the result of a batch operation task.
+   * 
    * @param request - DescribeBatchResultCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBatchResultCountResponse
@@ -46342,10 +50752,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeBatchResultCountResponse>(await this.callApi(params, req, runtime), new DescribeBatchResultCountResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeBatchResultCountResponse>(await this.callApi(params, req, runtime), new DescribeBatchResultCountResponse({}));
+    } else {
+      return $tea.cast<DescribeBatchResultCountResponse>(await this.execute(params, req, runtime), new DescribeBatchResultCountResponse({}));
+    }
+
   }
 
   /**
+   * Queries the result of a batch operation task.
+   * 
    * @param request - DescribeBatchResultCountRequest
    * @returns DescribeBatchResultCountResponse
    */
@@ -46405,7 +50822,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeBatchResultDetailResponse>(await this.callApi(params, req, runtime), new DescribeBatchResultDetailResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeBatchResultDetailResponse>(await this.callApi(params, req, runtime), new DescribeBatchResultDetailResponse({}));
+    } else {
+      return $tea.cast<DescribeBatchResultDetailResponse>(await this.execute(params, req, runtime), new DescribeBatchResultDetailResponse({}));
+    }
+
   }
 
   /**
@@ -46423,6 +50845,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the configurations of an address.
+   * 
    * @param request - DescribeCloudGtmAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCloudGtmAddressResponse
@@ -46456,10 +50880,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCloudGtmAddressResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmAddressResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeCloudGtmAddressResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmAddressResponse({}));
+    } else {
+      return $tea.cast<DescribeCloudGtmAddressResponse>(await this.execute(params, req, runtime), new DescribeCloudGtmAddressResponse({}));
+    }
+
   }
 
   /**
+   * Queries the configurations of an address.
+   * 
    * @param request - DescribeCloudGtmAddressRequest
    * @returns DescribeCloudGtmAddressResponse
    */
@@ -46469,6 +50900,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the configurations of an address pool.
+   * 
    * @param request - DescribeCloudGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCloudGtmAddressPoolResponse
@@ -46502,10 +50935,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCloudGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmAddressPoolResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeCloudGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmAddressPoolResponse({}));
+    } else {
+      return $tea.cast<DescribeCloudGtmAddressPoolResponse>(await this.execute(params, req, runtime), new DescribeCloudGtmAddressPoolResponse({}));
+    }
+
   }
 
   /**
+   * Queries the configurations of an address pool.
+   * 
    * @param request - DescribeCloudGtmAddressPoolRequest
    * @returns DescribeCloudGtmAddressPoolResponse
    */
@@ -46515,6 +50955,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about the access domain names that reference an address pool.
+   * 
    * @param request - DescribeCloudGtmAddressPoolReferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCloudGtmAddressPoolReferenceResponse
@@ -46548,10 +50990,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCloudGtmAddressPoolReferenceResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmAddressPoolReferenceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeCloudGtmAddressPoolReferenceResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmAddressPoolReferenceResponse({}));
+    } else {
+      return $tea.cast<DescribeCloudGtmAddressPoolReferenceResponse>(await this.execute(params, req, runtime), new DescribeCloudGtmAddressPoolReferenceResponse({}));
+    }
+
   }
 
   /**
+   * Queries the information about the access domain names that reference an address pool.
+   * 
    * @param request - DescribeCloudGtmAddressPoolReferenceRequest
    * @returns DescribeCloudGtmAddressPoolReferenceResponse
    */
@@ -46561,6 +51010,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about the address pools and Global Traffic Manager (GTM) 3.0 instances that reference an address.
+   * 
    * @param request - DescribeCloudGtmAddressReferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCloudGtmAddressReferenceResponse
@@ -46594,10 +51045,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCloudGtmAddressReferenceResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmAddressReferenceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeCloudGtmAddressReferenceResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmAddressReferenceResponse({}));
+    } else {
+      return $tea.cast<DescribeCloudGtmAddressReferenceResponse>(await this.execute(params, req, runtime), new DescribeCloudGtmAddressReferenceResponse({}));
+    }
+
   }
 
   /**
+   * Queries the information about the address pools and Global Traffic Manager (GTM) 3.0 instances that reference an address.
+   * 
    * @param request - DescribeCloudGtmAddressReferenceRequest
    * @returns DescribeCloudGtmAddressReferenceResponse
    */
@@ -46636,7 +51094,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCloudGtmGlobalAlertResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmGlobalAlertResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeCloudGtmGlobalAlertResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmGlobalAlertResponse({}));
+    } else {
+      return $tea.cast<DescribeCloudGtmGlobalAlertResponse>(await this.execute(params, req, runtime), new DescribeCloudGtmGlobalAlertResponse({}));
+    }
+
   }
 
   /**
@@ -46686,7 +51149,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCloudGtmInstanceConfigAlertResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmInstanceConfigAlertResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeCloudGtmInstanceConfigAlertResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmInstanceConfigAlertResponse({}));
+    } else {
+      return $tea.cast<DescribeCloudGtmInstanceConfigAlertResponse>(await this.execute(params, req, runtime), new DescribeCloudGtmInstanceConfigAlertResponse({}));
+    }
+
   }
 
   /**
@@ -46738,7 +51206,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCloudGtmInstanceConfigFullInfoResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmInstanceConfigFullInfoResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeCloudGtmInstanceConfigFullInfoResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmInstanceConfigFullInfoResponse({}));
+    } else {
+      return $tea.cast<DescribeCloudGtmInstanceConfigFullInfoResponse>(await this.execute(params, req, runtime), new DescribeCloudGtmInstanceConfigFullInfoResponse({}));
+    }
+
   }
 
   /**
@@ -46753,6 +51226,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the configurations of a health check template.
+   * 
    * @param request - DescribeCloudGtmMonitorTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCloudGtmMonitorTemplateResponse
@@ -46782,10 +51257,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCloudGtmMonitorTemplateResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmMonitorTemplateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeCloudGtmMonitorTemplateResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmMonitorTemplateResponse({}));
+    } else {
+      return $tea.cast<DescribeCloudGtmMonitorTemplateResponse>(await this.execute(params, req, runtime), new DescribeCloudGtmMonitorTemplateResponse({}));
+    }
+
   }
 
   /**
+   * Queries the configurations of a health check template.
+   * 
    * @param request - DescribeCloudGtmMonitorTemplateRequest
    * @returns DescribeCloudGtmMonitorTemplateResponse
    */
@@ -46820,7 +51302,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCloudGtmSummaryResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmSummaryResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeCloudGtmSummaryResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmSummaryResponse({}));
+    } else {
+      return $tea.cast<DescribeCloudGtmSummaryResponse>(await this.execute(params, req, runtime), new DescribeCloudGtmSummaryResponse({}));
+    }
+
   }
 
   /**
@@ -46850,7 +51337,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCloudGtmSystemLinesResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmSystemLinesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeCloudGtmSystemLinesResponse>(await this.callApi(params, req, runtime), new DescribeCloudGtmSystemLinesResponse({}));
+    } else {
+      return $tea.cast<DescribeCloudGtmSystemLinesResponse>(await this.execute(params, req, runtime), new DescribeCloudGtmSystemLinesResponse({}));
+    }
+
   }
 
   /**
@@ -46893,7 +51385,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCustomLineResponse>(await this.callApi(params, req, runtime), new DescribeCustomLineResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeCustomLineResponse>(await this.callApi(params, req, runtime), new DescribeCustomLineResponse({}));
+    } else {
+      return $tea.cast<DescribeCustomLineResponse>(await this.execute(params, req, runtime), new DescribeCustomLineResponse({}));
+    }
+
   }
 
   /**
@@ -46908,7 +51405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries custom lines.
+   * Queries a list of custom lines.
    * 
    * @param request - DescribeCustomLinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -46947,11 +51444,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCustomLinesResponse>(await this.callApi(params, req, runtime), new DescribeCustomLinesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeCustomLinesResponse>(await this.callApi(params, req, runtime), new DescribeCustomLinesResponse({}));
+    } else {
+      return $tea.cast<DescribeCustomLinesResponse>(await this.execute(params, req, runtime), new DescribeCustomLinesResponse({}));
+    }
+
   }
 
   /**
-   * Queries custom lines.
+   * Queries a list of custom lines.
    * 
    * @param request - DescribeCustomLinesRequest
    * @returns DescribeCustomLinesResponse
@@ -47009,7 +51511,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDNSSLBSubDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDNSSLBSubDomainsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDNSSLBSubDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDNSSLBSubDomainsResponse({}));
+    } else {
+      return $tea.cast<DescribeDNSSLBSubDomainsResponse>(await this.execute(params, req, runtime), new DescribeDNSSLBSubDomainsResponse({}));
+    }
+
   }
 
   /**
@@ -47061,7 +51568,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsCacheDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDnsCacheDomainsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsCacheDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDnsCacheDomainsResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsCacheDomainsResponse>(await this.execute(params, req, runtime), new DescribeDnsCacheDomainsResponse({}));
+    }
+
   }
 
   /**
@@ -47117,7 +51629,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmAccessStrategiesResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAccessStrategiesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmAccessStrategiesResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAccessStrategiesResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmAccessStrategiesResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmAccessStrategiesResponse({}));
+    }
+
   }
 
   /**
@@ -47163,7 +51680,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAccessStrategyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAccessStrategyResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmAccessStrategyResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmAccessStrategyResponse({}));
+    }
+
   }
 
   /**
@@ -47213,7 +51735,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmAccessStrategyAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAccessStrategyAvailableConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmAccessStrategyAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAccessStrategyAvailableConfigResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmAccessStrategyAvailableConfigResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmAccessStrategyAvailableConfigResponse({}));
+    }
+
   }
 
   /**
@@ -47228,6 +51755,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the source regions of addresses.
+   * 
    * @param request - DescribeDnsGtmAddrAttributeInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDnsGtmAddrAttributeInfoResponse
@@ -47261,10 +51790,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmAddrAttributeInfoResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAddrAttributeInfoResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmAddrAttributeInfoResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAddrAttributeInfoResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmAddrAttributeInfoResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmAddrAttributeInfoResponse({}));
+    }
+
   }
 
   /**
+   * Queries the source regions of addresses.
+   * 
    * @param request - DescribeDnsGtmAddrAttributeInfoRequest
    * @returns DescribeDnsGtmAddrAttributeInfoResponse
    */
@@ -47305,7 +51841,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmAddressPoolAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAddressPoolAvailableConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmAddressPoolAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAddressPoolAvailableConfigResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmAddressPoolAvailableConfigResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmAddressPoolAvailableConfigResponse({}));
+    }
+
   }
 
   /**
@@ -47345,7 +51886,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmAvailableAlertGroupResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAvailableAlertGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmAvailableAlertGroupResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAvailableAlertGroupResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmAvailableAlertGroupResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmAvailableAlertGroupResponse({}));
+    }
+
   }
 
   /**
@@ -47389,7 +51935,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmInstanceResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmInstanceResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmInstanceResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -47435,7 +51986,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmInstanceAddressPoolResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceAddressPoolResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmInstanceAddressPoolResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceAddressPoolResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmInstanceAddressPoolResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmInstanceAddressPoolResponse({}));
+    }
+
   }
 
   /**
@@ -47489,7 +52045,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmInstanceAddressPoolsResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceAddressPoolsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmInstanceAddressPoolsResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceAddressPoolsResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmInstanceAddressPoolsResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmInstanceAddressPoolsResponse({}));
+    }
+
   }
 
   /**
@@ -47535,7 +52096,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceStatusResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmInstanceStatusResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmInstanceStatusResponse({}));
+    }
+
   }
 
   /**
@@ -47581,7 +52147,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmInstanceSystemCnameResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceSystemCnameResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmInstanceSystemCnameResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceSystemCnameResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmInstanceSystemCnameResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmInstanceSystemCnameResponse({}));
+    }
+
   }
 
   /**
@@ -47596,6 +52167,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of instances.
+   * 
    * @param request - DescribeDnsGtmInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDnsGtmInstancesResponse
@@ -47637,10 +52210,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstancesResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmInstancesResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmInstancesResponse({}));
+    }
+
   }
 
   /**
+   * Queries a list of instances.
+   * 
    * @param request - DescribeDnsGtmInstancesRequest
    * @returns DescribeDnsGtmInstancesResponse
    */
@@ -47701,7 +52281,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmLogsResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmLogsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmLogsResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmLogsResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmLogsResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmLogsResponse({}));
+    }
+
   }
 
   /**
@@ -47716,7 +52301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries available monitored nodes.
+   * Queries the configuration items that can be set for a health check task.
    * 
    * @param request - DescribeDnsGtmMonitorAvailableConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47743,11 +52328,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmMonitorAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmMonitorAvailableConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmMonitorAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmMonitorAvailableConfigResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmMonitorAvailableConfigResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmMonitorAvailableConfigResponse({}));
+    }
+
   }
 
   /**
-   * Queries available monitored nodes.
+   * Queries the configuration items that can be set for a health check task.
    * 
    * @param request - DescribeDnsGtmMonitorAvailableConfigRequest
    * @returns DescribeDnsGtmMonitorAvailableConfigResponse
@@ -47758,7 +52348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the health check configurations of an address pool of a Global Traffic Manager (GTM) instance.
+   * Queries the health check configuration of an address pool.
    * 
    * @param request - DescribeDnsGtmMonitorConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47789,11 +52379,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsGtmMonitorConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmMonitorConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsGtmMonitorConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmMonitorConfigResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsGtmMonitorConfigResponse>(await this.execute(params, req, runtime), new DescribeDnsGtmMonitorConfigResponse({}));
+    }
+
   }
 
   /**
-   * Queries the health check configurations of an address pool of a Global Traffic Manager (GTM) instance.
+   * Queries the health check configuration of an address pool.
    * 
    * @param request - DescribeDnsGtmMonitorConfigRequest
    * @returns DescribeDnsGtmMonitorConfigResponse
@@ -47839,7 +52434,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsProductInstanceResponse>(await this.callApi(params, req, runtime), new DescribeDnsProductInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsProductInstanceResponse>(await this.callApi(params, req, runtime), new DescribeDnsProductInstanceResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsProductInstanceResponse>(await this.execute(params, req, runtime), new DescribeDnsProductInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -47912,7 +52512,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDnsProductInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDnsProductInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDnsProductInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDnsProductInstancesResponse({}));
+    } else {
+      return $tea.cast<DescribeDnsProductInstancesResponse>(await this.execute(params, req, runtime), new DescribeDnsProductInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -47963,7 +52568,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDohAccountStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDohAccountStatisticsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDohAccountStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDohAccountStatisticsResponse({}));
+    } else {
+      return $tea.cast<DescribeDohAccountStatisticsResponse>(await this.execute(params, req, runtime), new DescribeDohAccountStatisticsResponse({}));
+    }
+
   }
 
   /**
@@ -48013,7 +52623,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDohDomainStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDohDomainStatisticsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDohDomainStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDohDomainStatisticsResponse({}));
+    } else {
+      return $tea.cast<DescribeDohDomainStatisticsResponse>(await this.execute(params, req, runtime), new DescribeDohDomainStatisticsResponse({}));
+    }
+
   }
 
   /**
@@ -48071,7 +52686,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDohDomainStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDohDomainStatisticsSummaryResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDohDomainStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDohDomainStatisticsSummaryResponse({}));
+    } else {
+      return $tea.cast<DescribeDohDomainStatisticsSummaryResponse>(await this.execute(params, req, runtime), new DescribeDohDomainStatisticsSummaryResponse({}));
+    }
+
   }
 
   /**
@@ -48121,7 +52741,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDohSubDomainStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDohSubDomainStatisticsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDohSubDomainStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDohSubDomainStatisticsResponse({}));
+    } else {
+      return $tea.cast<DescribeDohSubDomainStatisticsResponse>(await this.execute(params, req, runtime), new DescribeDohSubDomainStatisticsResponse({}));
+    }
+
   }
 
   /**
@@ -48183,7 +52808,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDohSubDomainStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDohSubDomainStatisticsSummaryResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDohSubDomainStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDohSubDomainStatisticsSummaryResponse({}));
+    } else {
+      return $tea.cast<DescribeDohSubDomainStatisticsSummaryResponse>(await this.execute(params, req, runtime), new DescribeDohSubDomainStatisticsSummaryResponse({}));
+    }
+
   }
 
   /**
@@ -48231,7 +52861,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDohUserInfoResponse>(await this.callApi(params, req, runtime), new DescribeDohUserInfoResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDohUserInfoResponse>(await this.callApi(params, req, runtime), new DescribeDohUserInfoResponse({}));
+    } else {
+      return $tea.cast<DescribeDohUserInfoResponse>(await this.execute(params, req, runtime), new DescribeDohUserInfoResponse({}));
+    }
+
   }
 
   /**
@@ -48277,7 +52912,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDomainDnssecInfoResponse>(await this.callApi(params, req, runtime), new DescribeDomainDnssecInfoResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDomainDnssecInfoResponse>(await this.callApi(params, req, runtime), new DescribeDomainDnssecInfoResponse({}));
+    } else {
+      return $tea.cast<DescribeDomainDnssecInfoResponse>(await this.execute(params, req, runtime), new DescribeDomainDnssecInfoResponse({}));
+    }
+
   }
 
   /**
@@ -48331,7 +52971,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDomainGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDomainGroupsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDomainGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDomainGroupsResponse({}));
+    } else {
+      return $tea.cast<DescribeDomainGroupsResponse>(await this.execute(params, req, runtime), new DescribeDomainGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -48384,7 +53029,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDomainInfoResponse>(await this.callApi(params, req, runtime), new DescribeDomainInfoResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDomainInfoResponse>(await this.callApi(params, req, runtime), new DescribeDomainInfoResponse({}));
+    } else {
+      return $tea.cast<DescribeDomainInfoResponse>(await this.execute(params, req, runtime), new DescribeDomainInfoResponse({}));
+    }
+
   }
 
   /**
@@ -48457,7 +53107,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDomainLogsResponse>(await this.callApi(params, req, runtime), new DescribeDomainLogsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDomainLogsResponse>(await this.callApi(params, req, runtime), new DescribeDomainLogsResponse({}));
+    } else {
+      return $tea.cast<DescribeDomainLogsResponse>(await this.execute(params, req, runtime), new DescribeDomainLogsResponse({}));
+    }
+
   }
 
   /**
@@ -48506,7 +53161,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDomainNsResponse>(await this.callApi(params, req, runtime), new DescribeDomainNsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDomainNsResponse>(await this.callApi(params, req, runtime), new DescribeDomainNsResponse({}));
+    } else {
+      return $tea.cast<DescribeDomainNsResponse>(await this.execute(params, req, runtime), new DescribeDomainNsResponse({}));
+    }
+
   }
 
   /**
@@ -48563,7 +53223,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDomainRecordInfoResponse>(await this.callApi(params, req, runtime), new DescribeDomainRecordInfoResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDomainRecordInfoResponse>(await this.callApi(params, req, runtime), new DescribeDomainRecordInfoResponse({}));
+    } else {
+      return $tea.cast<DescribeDomainRecordInfoResponse>(await this.execute(params, req, runtime), new DescribeDomainRecordInfoResponse({}));
+    }
+
   }
 
   /**
@@ -48671,7 +53336,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDomainRecordsResponse>(await this.callApi(params, req, runtime), new DescribeDomainRecordsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDomainRecordsResponse>(await this.callApi(params, req, runtime), new DescribeDomainRecordsResponse({}));
+    } else {
+      return $tea.cast<DescribeDomainRecordsResponse>(await this.execute(params, req, runtime), new DescribeDomainRecordsResponse({}));
+    }
+
   }
 
   /**
@@ -48751,7 +53421,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDomainResolveStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDomainResolveStatisticsSummaryResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDomainResolveStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDomainResolveStatisticsSummaryResponse({}));
+    } else {
+      return $tea.cast<DescribeDomainResolveStatisticsSummaryResponse>(await this.execute(params, req, runtime), new DescribeDomainResolveStatisticsSummaryResponse({}));
+    }
+
   }
 
   /**
@@ -48812,7 +53487,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDomainStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDomainStatisticsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDomainStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDomainStatisticsResponse({}));
+    } else {
+      return $tea.cast<DescribeDomainStatisticsResponse>(await this.execute(params, req, runtime), new DescribeDomainStatisticsResponse({}));
+    }
+
   }
 
   /**
@@ -48885,7 +53565,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDomainStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDomainStatisticsSummaryResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDomainStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDomainStatisticsSummaryResponse({}));
+    } else {
+      return $tea.cast<DescribeDomainStatisticsSummaryResponse>(await this.execute(params, req, runtime), new DescribeDomainStatisticsSummaryResponse({}));
+    }
+
   }
 
   /**
@@ -48961,7 +53646,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDomainsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDomainsResponse({}));
+    } else {
+      return $tea.cast<DescribeDomainsResponse>(await this.execute(params, req, runtime), new DescribeDomainsResponse({}));
+    }
+
   }
 
   /**
@@ -49021,7 +53711,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmAccessStrategiesResponse>(await this.callApi(params, req, runtime), new DescribeGtmAccessStrategiesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmAccessStrategiesResponse>(await this.callApi(params, req, runtime), new DescribeGtmAccessStrategiesResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmAccessStrategiesResponse>(await this.execute(params, req, runtime), new DescribeGtmAccessStrategiesResponse({}));
+    }
+
   }
 
   /**
@@ -49067,7 +53762,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DescribeGtmAccessStrategyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DescribeGtmAccessStrategyResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmAccessStrategyResponse>(await this.execute(params, req, runtime), new DescribeGtmAccessStrategyResponse({}));
+    }
+
   }
 
   /**
@@ -49113,7 +53813,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmAccessStrategyAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmAccessStrategyAvailableConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmAccessStrategyAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmAccessStrategyAvailableConfigResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmAccessStrategyAvailableConfigResponse>(await this.execute(params, req, runtime), new DescribeGtmAccessStrategyAvailableConfigResponse({}));
+    }
+
   }
 
   /**
@@ -49153,7 +53858,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmAvailableAlertGroupResponse>(await this.callApi(params, req, runtime), new DescribeGtmAvailableAlertGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmAvailableAlertGroupResponse>(await this.callApi(params, req, runtime), new DescribeGtmAvailableAlertGroupResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmAvailableAlertGroupResponse>(await this.execute(params, req, runtime), new DescribeGtmAvailableAlertGroupResponse({}));
+    }
+
   }
 
   /**
@@ -49201,7 +53911,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmInstanceResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmInstanceResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmInstanceResponse>(await this.execute(params, req, runtime), new DescribeGtmInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -49247,7 +53962,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmInstanceAddressPoolResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceAddressPoolResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmInstanceAddressPoolResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceAddressPoolResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmInstanceAddressPoolResponse>(await this.execute(params, req, runtime), new DescribeGtmInstanceAddressPoolResponse({}));
+    }
+
   }
 
   /**
@@ -49301,7 +54021,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmInstanceAddressPoolsResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceAddressPoolsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmInstanceAddressPoolsResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceAddressPoolsResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmInstanceAddressPoolsResponse>(await this.execute(params, req, runtime), new DescribeGtmInstanceAddressPoolsResponse({}));
+    }
+
   }
 
   /**
@@ -49316,7 +54041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the current status of a Global Traffic Manager (GTM) instance.
+   * Queries the status of a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeGtmInstanceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49347,11 +54072,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceStatusResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmInstanceStatusResponse>(await this.execute(params, req, runtime), new DescribeGtmInstanceStatusResponse({}));
+    }
+
   }
 
   /**
-   * Queries the current status of a Global Traffic Manager (GTM) instance.
+   * Queries the status of a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeGtmInstanceStatusRequest
    * @returns DescribeGtmInstanceStatusResponse
@@ -49391,7 +54121,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmInstanceSystemCnameResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceSystemCnameResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmInstanceSystemCnameResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceSystemCnameResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmInstanceSystemCnameResponse>(await this.execute(params, req, runtime), new DescribeGtmInstanceSystemCnameResponse({}));
+    }
+
   }
 
   /**
@@ -49451,7 +54186,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstancesResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmInstancesResponse>(await this.execute(params, req, runtime), new DescribeGtmInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -49517,7 +54257,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmLogsResponse>(await this.callApi(params, req, runtime), new DescribeGtmLogsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmLogsResponse>(await this.callApi(params, req, runtime), new DescribeGtmLogsResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmLogsResponse>(await this.execute(params, req, runtime), new DescribeGtmLogsResponse({}));
+    }
+
   }
 
   /**
@@ -49559,7 +54304,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmMonitorAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmMonitorAvailableConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmMonitorAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmMonitorAvailableConfigResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmMonitorAvailableConfigResponse>(await this.execute(params, req, runtime), new DescribeGtmMonitorAvailableConfigResponse({}));
+    }
+
   }
 
   /**
@@ -49605,7 +54355,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmMonitorConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmMonitorConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmMonitorConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmMonitorConfigResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmMonitorConfigResponse>(await this.execute(params, req, runtime), new DescribeGtmMonitorConfigResponse({}));
+    }
+
   }
 
   /**
@@ -49620,7 +54375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the detailed information of a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+   * Queries the details of a disaster recovery plan.
    * 
    * @param request - DescribeGtmRecoveryPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49651,11 +54406,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new DescribeGtmRecoveryPlanResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new DescribeGtmRecoveryPlanResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmRecoveryPlanResponse>(await this.execute(params, req, runtime), new DescribeGtmRecoveryPlanResponse({}));
+    }
+
   }
 
   /**
-   * You can call this operation to query the detailed information of a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+   * Queries the details of a disaster recovery plan.
    * 
    * @param request - DescribeGtmRecoveryPlanRequest
    * @returns DescribeGtmRecoveryPlanResponse
@@ -49666,7 +54426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the available configurations of a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+   * Queries the configuration items that can be set for a disaster recovery plan.
    * 
    * @param request - DescribeGtmRecoveryPlanAvailableConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49693,11 +54453,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmRecoveryPlanAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmRecoveryPlanAvailableConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmRecoveryPlanAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmRecoveryPlanAvailableConfigResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmRecoveryPlanAvailableConfigResponse>(await this.execute(params, req, runtime), new DescribeGtmRecoveryPlanAvailableConfigResponse({}));
+    }
+
   }
 
   /**
-   * You can call this operation to query the available configurations of a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+   * Queries the configuration items that can be set for a disaster recovery plan.
    * 
    * @param request - DescribeGtmRecoveryPlanAvailableConfigRequest
    * @returns DescribeGtmRecoveryPlanAvailableConfigResponse
@@ -49747,7 +54512,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGtmRecoveryPlansResponse>(await this.callApi(params, req, runtime), new DescribeGtmRecoveryPlansResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGtmRecoveryPlansResponse>(await this.callApi(params, req, runtime), new DescribeGtmRecoveryPlansResponse({}));
+    } else {
+      return $tea.cast<DescribeGtmRecoveryPlansResponse>(await this.execute(params, req, runtime), new DescribeGtmRecoveryPlansResponse({}));
+    }
+
   }
 
   /**
@@ -49801,7 +54571,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeInstanceDomainsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceDomainsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeInstanceDomainsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceDomainsResponse({}));
+    } else {
+      return $tea.cast<DescribeInstanceDomainsResponse>(await this.execute(params, req, runtime), new DescribeInstanceDomainsResponse({}));
+    }
+
   }
 
   /**
@@ -49873,7 +54648,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeInternetDnsLogsResponse>(await this.callApi(params, req, runtime), new DescribeInternetDnsLogsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeInternetDnsLogsResponse>(await this.callApi(params, req, runtime), new DescribeInternetDnsLogsResponse({}));
+    } else {
+      return $tea.cast<DescribeInternetDnsLogsResponse>(await this.execute(params, req, runtime), new DescribeInternetDnsLogsResponse({}));
+    }
+
   }
 
   /**
@@ -49941,7 +54721,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeIspFlushCacheInstancesResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeIspFlushCacheInstancesResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheInstancesResponse({}));
+    } else {
+      return $tea.cast<DescribeIspFlushCacheInstancesResponse>(await this.execute(params, req, runtime), new DescribeIspFlushCacheInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -49983,7 +54768,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeIspFlushCacheRemainQuotaResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheRemainQuotaResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeIspFlushCacheRemainQuotaResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheRemainQuotaResponse({}));
+    } else {
+      return $tea.cast<DescribeIspFlushCacheRemainQuotaResponse>(await this.execute(params, req, runtime), new DescribeIspFlushCacheRemainQuotaResponse({}));
+    }
+
   }
 
   /**
@@ -50029,7 +54819,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeIspFlushCacheTaskResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeIspFlushCacheTaskResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheTaskResponse({}));
+    } else {
+      return $tea.cast<DescribeIspFlushCacheTaskResponse>(await this.execute(params, req, runtime), new DescribeIspFlushCacheTaskResponse({}));
+    }
+
   }
 
   /**
@@ -50099,7 +54894,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeIspFlushCacheTasksResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheTasksResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeIspFlushCacheTasksResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheTasksResponse({}));
+    } else {
+      return $tea.cast<DescribeIspFlushCacheTasksResponse>(await this.execute(params, req, runtime), new DescribeIspFlushCacheTasksResponse({}));
+    }
+
   }
 
   /**
@@ -50149,7 +54949,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePdnsAccountSummaryResponse>(await this.callApi(params, req, runtime), new DescribePdnsAccountSummaryResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePdnsAccountSummaryResponse>(await this.callApi(params, req, runtime), new DescribePdnsAccountSummaryResponse({}));
+    } else {
+      return $tea.cast<DescribePdnsAccountSummaryResponse>(await this.execute(params, req, runtime), new DescribePdnsAccountSummaryResponse({}));
+    }
+
   }
 
   /**
@@ -50199,7 +55004,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePdnsAppKeyResponse>(await this.callApi(params, req, runtime), new DescribePdnsAppKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePdnsAppKeyResponse>(await this.callApi(params, req, runtime), new DescribePdnsAppKeyResponse({}));
+    } else {
+      return $tea.cast<DescribePdnsAppKeyResponse>(await this.execute(params, req, runtime), new DescribePdnsAppKeyResponse({}));
+    }
+
   }
 
   /**
@@ -50241,7 +55051,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePdnsAppKeysResponse>(await this.callApi(params, req, runtime), new DescribePdnsAppKeysResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePdnsAppKeysResponse>(await this.callApi(params, req, runtime), new DescribePdnsAppKeysResponse({}));
+    } else {
+      return $tea.cast<DescribePdnsAppKeysResponse>(await this.execute(params, req, runtime), new DescribePdnsAppKeysResponse({}));
+    }
+
   }
 
   /**
@@ -50307,7 +55122,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePdnsOperateLogsResponse>(await this.callApi(params, req, runtime), new DescribePdnsOperateLogsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePdnsOperateLogsResponse>(await this.callApi(params, req, runtime), new DescribePdnsOperateLogsResponse({}));
+    } else {
+      return $tea.cast<DescribePdnsOperateLogsResponse>(await this.execute(params, req, runtime), new DescribePdnsOperateLogsResponse({}));
+    }
+
   }
 
   /**
@@ -50365,7 +55185,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePdnsRequestStatisticResponse>(await this.callApi(params, req, runtime), new DescribePdnsRequestStatisticResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePdnsRequestStatisticResponse>(await this.callApi(params, req, runtime), new DescribePdnsRequestStatisticResponse({}));
+    } else {
+      return $tea.cast<DescribePdnsRequestStatisticResponse>(await this.execute(params, req, runtime), new DescribePdnsRequestStatisticResponse({}));
+    }
+
   }
 
   /**
@@ -50435,7 +55260,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePdnsRequestStatisticsResponse>(await this.callApi(params, req, runtime), new DescribePdnsRequestStatisticsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePdnsRequestStatisticsResponse>(await this.callApi(params, req, runtime), new DescribePdnsRequestStatisticsResponse({}));
+    } else {
+      return $tea.cast<DescribePdnsRequestStatisticsResponse>(await this.execute(params, req, runtime), new DescribePdnsRequestStatisticsResponse({}));
+    }
+
   }
 
   /**
@@ -50509,7 +55339,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePdnsThreatLogsResponse>(await this.callApi(params, req, runtime), new DescribePdnsThreatLogsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePdnsThreatLogsResponse>(await this.callApi(params, req, runtime), new DescribePdnsThreatLogsResponse({}));
+    } else {
+      return $tea.cast<DescribePdnsThreatLogsResponse>(await this.execute(params, req, runtime), new DescribePdnsThreatLogsResponse({}));
+    }
+
   }
 
   /**
@@ -50563,7 +55398,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePdnsThreatStatisticResponse>(await this.callApi(params, req, runtime), new DescribePdnsThreatStatisticResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePdnsThreatStatisticResponse>(await this.callApi(params, req, runtime), new DescribePdnsThreatStatisticResponse({}));
+    } else {
+      return $tea.cast<DescribePdnsThreatStatisticResponse>(await this.execute(params, req, runtime), new DescribePdnsThreatStatisticResponse({}));
+    }
+
   }
 
   /**
@@ -50653,7 +55493,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePdnsThreatStatisticsResponse>(await this.callApi(params, req, runtime), new DescribePdnsThreatStatisticsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePdnsThreatStatisticsResponse>(await this.callApi(params, req, runtime), new DescribePdnsThreatStatisticsResponse({}));
+    } else {
+      return $tea.cast<DescribePdnsThreatStatisticsResponse>(await this.execute(params, req, runtime), new DescribePdnsThreatStatisticsResponse({}));
+    }
+
   }
 
   /**
@@ -50703,7 +55548,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePdnsUdpIpSegmentsResponse>(await this.callApi(params, req, runtime), new DescribePdnsUdpIpSegmentsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePdnsUdpIpSegmentsResponse>(await this.callApi(params, req, runtime), new DescribePdnsUdpIpSegmentsResponse({}));
+    } else {
+      return $tea.cast<DescribePdnsUdpIpSegmentsResponse>(await this.execute(params, req, runtime), new DescribePdnsUdpIpSegmentsResponse({}));
+    }
+
   }
 
   /**
@@ -50745,7 +55595,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePdnsUserInfoResponse>(await this.callApi(params, req, runtime), new DescribePdnsUserInfoResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePdnsUserInfoResponse>(await this.callApi(params, req, runtime), new DescribePdnsUserInfoResponse({}));
+    } else {
+      return $tea.cast<DescribePdnsUserInfoResponse>(await this.execute(params, req, runtime), new DescribePdnsUserInfoResponse({}));
+    }
+
   }
 
   /**
@@ -50815,7 +55670,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRecordLogsResponse>(await this.callApi(params, req, runtime), new DescribeRecordLogsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeRecordLogsResponse>(await this.callApi(params, req, runtime), new DescribeRecordLogsResponse({}));
+    } else {
+      return $tea.cast<DescribeRecordLogsResponse>(await this.execute(params, req, runtime), new DescribeRecordLogsResponse({}));
+    }
+
   }
 
   /**
@@ -50897,7 +55757,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRecordResolveStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeRecordResolveStatisticsSummaryResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeRecordResolveStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeRecordResolveStatisticsSummaryResponse({}));
+    } else {
+      return $tea.cast<DescribeRecordResolveStatisticsSummaryResponse>(await this.execute(params, req, runtime), new DescribeRecordResolveStatisticsSummaryResponse({}));
+    }
+
   }
 
   /**
@@ -50962,7 +55827,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRecordStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeRecordStatisticsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeRecordStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeRecordStatisticsResponse({}));
+    } else {
+      return $tea.cast<DescribeRecordStatisticsResponse>(await this.execute(params, req, runtime), new DescribeRecordStatisticsResponse({}));
+    }
+
   }
 
   /**
@@ -51043,7 +55913,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRecordStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeRecordStatisticsSummaryResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeRecordStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeRecordStatisticsSummaryResponse({}));
+    } else {
+      return $tea.cast<DescribeRecordStatisticsSummaryResponse>(await this.execute(params, req, runtime), new DescribeRecordStatisticsSummaryResponse({}));
+    }
+
   }
 
   /**
@@ -51113,7 +55988,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSubDomainRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSubDomainRecordsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeSubDomainRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSubDomainRecordsResponse({}));
+    } else {
+      return $tea.cast<DescribeSubDomainRecordsResponse>(await this.execute(params, req, runtime), new DescribeSubDomainRecordsResponse({}));
+    }
+
   }
 
   /**
@@ -51128,8 +56008,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云解析支持的所有线路列表。
-   * 
    * @param request - DescribeSupportLinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSupportLinesResponse
@@ -51163,12 +56041,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSupportLinesResponse>(await this.callApi(params, req, runtime), new DescribeSupportLinesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeSupportLinesResponse>(await this.callApi(params, req, runtime), new DescribeSupportLinesResponse({}));
+    } else {
+      return $tea.cast<DescribeSupportLinesResponse>(await this.execute(params, req, runtime), new DescribeSupportLinesResponse({}));
+    }
+
   }
 
   /**
-   * 查询云解析支持的所有线路列表。
-   * 
    * @param request - DescribeSupportLinesRequest
    * @returns DescribeSupportLinesResponse
    */
@@ -51217,7 +56098,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
+    } else {
+      return $tea.cast<DescribeTagsResponse>(await this.execute(params, req, runtime), new DescribeTagsResponse({}));
+    }
+
   }
 
   /**
@@ -51283,7 +56169,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeTransferDomainsResponse>(await this.callApi(params, req, runtime), new DescribeTransferDomainsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeTransferDomainsResponse>(await this.callApi(params, req, runtime), new DescribeTransferDomainsResponse({}));
+    } else {
+      return $tea.cast<DescribeTransferDomainsResponse>(await this.execute(params, req, runtime), new DescribeTransferDomainsResponse({}));
+    }
+
   }
 
   /**
@@ -51298,6 +56189,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Executes a disaster recovery plan.
+   * 
    * @param request - ExecuteGtmRecoveryPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExecuteGtmRecoveryPlanResponse
@@ -51327,10 +56220,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExecuteGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new ExecuteGtmRecoveryPlanResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ExecuteGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new ExecuteGtmRecoveryPlanResponse({}));
+    } else {
+      return $tea.cast<ExecuteGtmRecoveryPlanResponse>(await this.execute(params, req, runtime), new ExecuteGtmRecoveryPlanResponse({}));
+    }
+
   }
 
   /**
+   * Executes a disaster recovery plan.
+   * 
    * @param request - ExecuteGtmRecoveryPlanRequest
    * @returns ExecuteGtmRecoveryPlanResponse
    */
@@ -51375,7 +56275,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMainDomainNameResponse>(await this.callApi(params, req, runtime), new GetMainDomainNameResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetMainDomainNameResponse>(await this.callApi(params, req, runtime), new GetMainDomainNameResponse({}));
+    } else {
+      return $tea.cast<GetMainDomainNameResponse>(await this.execute(params, req, runtime), new GetMainDomainNameResponse({}));
+    }
+
   }
 
   /**
@@ -51429,7 +56334,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetTxtRecordForVerifyResponse>(await this.callApi(params, req, runtime), new GetTxtRecordForVerifyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetTxtRecordForVerifyResponse>(await this.callApi(params, req, runtime), new GetTxtRecordForVerifyResponse({}));
+    } else {
+      return $tea.cast<GetTxtRecordForVerifyResponse>(await this.execute(params, req, runtime), new GetTxtRecordForVerifyResponse({}));
+    }
+
   }
 
   /**
@@ -51444,6 +56354,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of address pools.
+   * 
    * @param request - ListCloudGtmAddressPoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCloudGtmAddressPoolsResponse
@@ -51497,10 +56409,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListCloudGtmAddressPoolsResponse>(await this.callApi(params, req, runtime), new ListCloudGtmAddressPoolsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListCloudGtmAddressPoolsResponse>(await this.callApi(params, req, runtime), new ListCloudGtmAddressPoolsResponse({}));
+    } else {
+      return $tea.cast<ListCloudGtmAddressPoolsResponse>(await this.execute(params, req, runtime), new ListCloudGtmAddressPoolsResponse({}));
+    }
+
   }
 
   /**
+   * Queries a list of address pools.
+   * 
    * @param request - ListCloudGtmAddressPoolsRequest
    * @returns ListCloudGtmAddressPoolsResponse
    */
@@ -51510,6 +56429,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of addresses.
+   * 
    * @param request - ListCloudGtmAddressesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCloudGtmAddressesResponse
@@ -51575,10 +56496,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListCloudGtmAddressesResponse>(await this.callApi(params, req, runtime), new ListCloudGtmAddressesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListCloudGtmAddressesResponse>(await this.callApi(params, req, runtime), new ListCloudGtmAddressesResponse({}));
+    } else {
+      return $tea.cast<ListCloudGtmAddressesResponse>(await this.execute(params, req, runtime), new ListCloudGtmAddressesResponse({}));
+    }
+
   }
 
   /**
+   * Queries a list of addresses.
+   * 
    * @param request - ListCloudGtmAddressesRequest
    * @returns ListCloudGtmAddressesResponse
    */
@@ -51641,7 +56569,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListCloudGtmAlertLogsResponse>(await this.callApi(params, req, runtime), new ListCloudGtmAlertLogsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListCloudGtmAlertLogsResponse>(await this.callApi(params, req, runtime), new ListCloudGtmAlertLogsResponse({}));
+    } else {
+      return $tea.cast<ListCloudGtmAlertLogsResponse>(await this.execute(params, req, runtime), new ListCloudGtmAlertLogsResponse({}));
+    }
+
   }
 
   /**
@@ -51679,7 +56612,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListCloudGtmAvailableAlertGroupsResponse>(await this.callApi(params, req, runtime), new ListCloudGtmAvailableAlertGroupsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListCloudGtmAvailableAlertGroupsResponse>(await this.callApi(params, req, runtime), new ListCloudGtmAvailableAlertGroupsResponse({}));
+    } else {
+      return $tea.cast<ListCloudGtmAvailableAlertGroupsResponse>(await this.execute(params, req, runtime), new ListCloudGtmAvailableAlertGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -51692,6 +56630,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the configurations of a Global Traffic Manager (GTM) instance, including the information about access domain names and address pools.
+   * 
    * @param request - ListCloudGtmInstanceConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCloudGtmInstanceConfigsResponse
@@ -51749,10 +56689,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListCloudGtmInstanceConfigsResponse>(await this.callApi(params, req, runtime), new ListCloudGtmInstanceConfigsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListCloudGtmInstanceConfigsResponse>(await this.callApi(params, req, runtime), new ListCloudGtmInstanceConfigsResponse({}));
+    } else {
+      return $tea.cast<ListCloudGtmInstanceConfigsResponse>(await this.execute(params, req, runtime), new ListCloudGtmInstanceConfigsResponse({}));
+    }
+
   }
 
   /**
+   * Queries the configurations of a Global Traffic Manager (GTM) instance, including the information about access domain names and address pools.
+   * 
    * @param request - ListCloudGtmInstanceConfigsRequest
    * @returns ListCloudGtmInstanceConfigsResponse
    */
@@ -51762,6 +56709,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of Global Traffic Manager (GTM) 3.0 instances.
+   * 
    * @param request - ListCloudGtmInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCloudGtmInstancesResponse
@@ -51807,10 +56756,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListCloudGtmInstancesResponse>(await this.callApi(params, req, runtime), new ListCloudGtmInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListCloudGtmInstancesResponse>(await this.callApi(params, req, runtime), new ListCloudGtmInstancesResponse({}));
+    } else {
+      return $tea.cast<ListCloudGtmInstancesResponse>(await this.execute(params, req, runtime), new ListCloudGtmInstancesResponse({}));
+    }
+
   }
 
   /**
+   * Queries a list of Global Traffic Manager (GTM) 3.0 instances.
+   * 
    * @param request - ListCloudGtmInstancesRequest
    * @returns ListCloudGtmInstancesResponse
    */
@@ -51820,6 +56776,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of health check nodes.
+   * 
    * @param request - ListCloudGtmMonitorNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCloudGtmMonitorNodesResponse
@@ -51845,10 +56803,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListCloudGtmMonitorNodesResponse>(await this.callApi(params, req, runtime), new ListCloudGtmMonitorNodesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListCloudGtmMonitorNodesResponse>(await this.callApi(params, req, runtime), new ListCloudGtmMonitorNodesResponse({}));
+    } else {
+      return $tea.cast<ListCloudGtmMonitorNodesResponse>(await this.execute(params, req, runtime), new ListCloudGtmMonitorNodesResponse({}));
+    }
+
   }
 
   /**
+   * Queries a list of health check nodes.
+   * 
    * @param request - ListCloudGtmMonitorNodesRequest
    * @returns ListCloudGtmMonitorNodesResponse
    */
@@ -51858,6 +56823,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of health check templates.
+   * 
    * @param request - ListCloudGtmMonitorTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCloudGtmMonitorTemplatesResponse
@@ -51903,10 +56870,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListCloudGtmMonitorTemplatesResponse>(await this.callApi(params, req, runtime), new ListCloudGtmMonitorTemplatesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListCloudGtmMonitorTemplatesResponse>(await this.callApi(params, req, runtime), new ListCloudGtmMonitorTemplatesResponse({}));
+    } else {
+      return $tea.cast<ListCloudGtmMonitorTemplatesResponse>(await this.execute(params, req, runtime), new ListCloudGtmMonitorTemplatesResponse({}));
+    }
+
   }
 
   /**
+   * Queries a list of health check templates.
+   * 
    * @param request - ListCloudGtmMonitorTemplatesRequest
    * @returns ListCloudGtmMonitorTemplatesResponse
    */
@@ -51965,7 +56939,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $tea.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -51986,11 +56965,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyHichinaDomainDNS operation to change the name of a DNS server based on input parameters.
+   * Changes the names of DNS servers bound to a domain name from DNS server names provided by a third-party service provider to DNS server names provided by Alibaba Cloud DNS.
    * 
    * @remarks
-   * If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
-   * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
+   * If the operation succeeds, the names of DNS servers change to those of Alibaba Cloud DNS servers (ending with hichina.com).
+   * >  **Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS servers in use are not Alibaba Cloud DNS servers.
    * 
    * @param request - ModifyHichinaDomainDNSRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -52025,15 +57004,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyHichinaDomainDNSResponse>(await this.callApi(params, req, runtime), new ModifyHichinaDomainDNSResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyHichinaDomainDNSResponse>(await this.callApi(params, req, runtime), new ModifyHichinaDomainDNSResponse({}));
+    } else {
+      return $tea.cast<ModifyHichinaDomainDNSResponse>(await this.execute(params, req, runtime), new ModifyHichinaDomainDNSResponse({}));
+    }
+
   }
 
   /**
-   * Calls the ModifyHichinaDomainDNS operation to change the name of a DNS server based on input parameters.
+   * Changes the names of DNS servers bound to a domain name from DNS server names provided by a third-party service provider to DNS server names provided by Alibaba Cloud DNS.
    * 
    * @remarks
-   * If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
-   * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
+   * If the operation succeeds, the names of DNS servers change to those of Alibaba Cloud DNS servers (ending with hichina.com).
+   * >  **Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS servers in use are not Alibaba Cloud DNS servers.
    * 
    * @param request - ModifyHichinaDomainDNSRequest
    * @returns ModifyHichinaDomainDNSResponse
@@ -52079,7 +57063,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<MoveDomainResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveDomainResourceGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<MoveDomainResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveDomainResourceGroupResponse({}));
+    } else {
+      return $tea.cast<MoveDomainResourceGroupResponse>(await this.execute(params, req, runtime), new MoveDomainResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -52127,7 +57116,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<MoveGtmResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveGtmResourceGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<MoveGtmResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveGtmResourceGroupResponse({}));
+    } else {
+      return $tea.cast<MoveGtmResourceGroupResponse>(await this.execute(params, req, runtime), new MoveGtmResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -52178,7 +57172,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OperateBatchDomainResponse>(await this.callApi(params, req, runtime), new OperateBatchDomainResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<OperateBatchDomainResponse>(await this.callApi(params, req, runtime), new OperateBatchDomainResponse({}));
+    } else {
+      return $tea.cast<OperateBatchDomainResponse>(await this.execute(params, req, runtime), new OperateBatchDomainResponse({}));
+    }
+
   }
 
   /**
@@ -52227,7 +57226,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PausePdnsServiceResponse>(await this.callApi(params, req, runtime), new PausePdnsServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<PausePdnsServiceResponse>(await this.callApi(params, req, runtime), new PausePdnsServiceResponse({}));
+    } else {
+      return $tea.cast<PausePdnsServiceResponse>(await this.execute(params, req, runtime), new PausePdnsServiceResponse({}));
+    }
+
   }
 
   /**
@@ -52281,7 +57285,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PreviewGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new PreviewGtmRecoveryPlanResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<PreviewGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new PreviewGtmRecoveryPlanResponse({}));
+    } else {
+      return $tea.cast<PreviewGtmRecoveryPlanResponse>(await this.execute(params, req, runtime), new PreviewGtmRecoveryPlanResponse({}));
+    }
+
   }
 
   /**
@@ -52327,7 +57336,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RemovePdnsAppKeyResponse>(await this.callApi(params, req, runtime), new RemovePdnsAppKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RemovePdnsAppKeyResponse>(await this.callApi(params, req, runtime), new RemovePdnsAppKeyResponse({}));
+    } else {
+      return $tea.cast<RemovePdnsAppKeyResponse>(await this.execute(params, req, runtime), new RemovePdnsAppKeyResponse({}));
+    }
+
   }
 
   /**
@@ -52373,7 +57387,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RemovePdnsUdpIpSegmentResponse>(await this.callApi(params, req, runtime), new RemovePdnsUdpIpSegmentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RemovePdnsUdpIpSegmentResponse>(await this.callApi(params, req, runtime), new RemovePdnsUdpIpSegmentResponse({}));
+    } else {
+      return $tea.cast<RemovePdnsUdpIpSegmentResponse>(await this.execute(params, req, runtime), new RemovePdnsUdpIpSegmentResponse({}));
+    }
+
   }
 
   /**
@@ -52388,6 +57407,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Replaces the addresses referenced by an address pool.
+   * 
    * @param tmpReq - ReplaceCloudGtmAddressPoolAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReplaceCloudGtmAddressPoolAddressResponse
@@ -52431,10 +57452,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReplaceCloudGtmAddressPoolAddressResponse>(await this.callApi(params, req, runtime), new ReplaceCloudGtmAddressPoolAddressResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ReplaceCloudGtmAddressPoolAddressResponse>(await this.callApi(params, req, runtime), new ReplaceCloudGtmAddressPoolAddressResponse({}));
+    } else {
+      return $tea.cast<ReplaceCloudGtmAddressPoolAddressResponse>(await this.execute(params, req, runtime), new ReplaceCloudGtmAddressPoolAddressResponse({}));
+    }
+
   }
 
   /**
+   * Replaces the addresses referenced by an address pool.
+   * 
    * @param request - ReplaceCloudGtmAddressPoolAddressRequest
    * @returns ReplaceCloudGtmAddressPoolAddressResponse
    */
@@ -52444,6 +57472,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Replaces address pools that are associated with a Global Traffic Manager (GTM) 3.0 instance with new address pools.
+   * 
    * @param tmpReq - ReplaceCloudGtmInstanceConfigAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReplaceCloudGtmInstanceConfigAddressPoolResponse
@@ -52491,10 +57521,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReplaceCloudGtmInstanceConfigAddressPoolResponse>(await this.callApi(params, req, runtime), new ReplaceCloudGtmInstanceConfigAddressPoolResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ReplaceCloudGtmInstanceConfigAddressPoolResponse>(await this.callApi(params, req, runtime), new ReplaceCloudGtmInstanceConfigAddressPoolResponse({}));
+    } else {
+      return $tea.cast<ReplaceCloudGtmInstanceConfigAddressPoolResponse>(await this.execute(params, req, runtime), new ReplaceCloudGtmInstanceConfigAddressPoolResponse({}));
+    }
+
   }
 
   /**
+   * Replaces address pools that are associated with a Global Traffic Manager (GTM) 3.0 instance with new address pools.
+   * 
    * @param request - ReplaceCloudGtmInstanceConfigAddressPoolRequest
    * @returns ReplaceCloudGtmInstanceConfigAddressPoolResponse
    */
@@ -52535,7 +57572,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ResumePdnsServiceResponse>(await this.callApi(params, req, runtime), new ResumePdnsServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ResumePdnsServiceResponse>(await this.callApi(params, req, runtime), new ResumePdnsServiceResponse({}));
+    } else {
+      return $tea.cast<ResumePdnsServiceResponse>(await this.execute(params, req, runtime), new ResumePdnsServiceResponse({}));
+    }
+
   }
 
   /**
@@ -52553,7 +57595,7 @@ export default class Client extends OpenApi {
    * Retrieves a domain name.
    * 
    * @remarks
-   * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+   * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/en/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
    * 
    * @param request - RetrieveDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -52584,14 +57626,19 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RetrieveDomainResponse>(await this.callApi(params, req, runtime), new RetrieveDomainResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RetrieveDomainResponse>(await this.callApi(params, req, runtime), new RetrieveDomainResponse({}));
+    } else {
+      return $tea.cast<RetrieveDomainResponse>(await this.execute(params, req, runtime), new RetrieveDomainResponse({}));
+    }
+
   }
 
   /**
    * Retrieves a domain name.
    * 
    * @remarks
-   * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+   * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/en/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
    * 
    * @param request - RetrieveDomainRequest
    * @returns RetrieveDomainResponse
@@ -52602,6 +57649,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Rolls back a disaster recovery plan.
+   * 
    * @param request - RollbackGtmRecoveryPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RollbackGtmRecoveryPlanResponse
@@ -52631,10 +57680,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RollbackGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new RollbackGtmRecoveryPlanResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RollbackGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new RollbackGtmRecoveryPlanResponse({}));
+    } else {
+      return $tea.cast<RollbackGtmRecoveryPlanResponse>(await this.execute(params, req, runtime), new RollbackGtmRecoveryPlanResponse({}));
+    }
+
   }
 
   /**
+   * Rolls back a disaster recovery plan.
+   * 
    * @param request - RollbackGtmRecoveryPlanRequest
    * @returns RollbackGtmRecoveryPlanResponse
    */
@@ -52644,6 +57700,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of address pools.
+   * 
    * @param request - SearchCloudGtmAddressPoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SearchCloudGtmAddressPoolsResponse
@@ -52705,10 +57763,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SearchCloudGtmAddressPoolsResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmAddressPoolsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SearchCloudGtmAddressPoolsResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmAddressPoolsResponse({}));
+    } else {
+      return $tea.cast<SearchCloudGtmAddressPoolsResponse>(await this.execute(params, req, runtime), new SearchCloudGtmAddressPoolsResponse({}));
+    }
+
   }
 
   /**
+   * Queries a list of address pools.
+   * 
    * @param request - SearchCloudGtmAddressPoolsRequest
    * @returns SearchCloudGtmAddressPoolsResponse
    */
@@ -52718,6 +57783,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of addresses based on address names, descriptions, health check templates referenced by the addresses, or address IDs.
+   * 
    * @param request - SearchCloudGtmAddressesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SearchCloudGtmAddressesResponse
@@ -52795,10 +57862,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SearchCloudGtmAddressesResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmAddressesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SearchCloudGtmAddressesResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmAddressesResponse({}));
+    } else {
+      return $tea.cast<SearchCloudGtmAddressesResponse>(await this.execute(params, req, runtime), new SearchCloudGtmAddressesResponse({}));
+    }
+
   }
 
   /**
+   * Queries a list of addresses based on address names, descriptions, health check templates referenced by the addresses, or address IDs.
+   * 
    * @param request - SearchCloudGtmAddressesRequest
    * @returns SearchCloudGtmAddressesResponse
    */
@@ -52808,6 +57882,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the configurations of an access domain name.
+   * 
    * @param request - SearchCloudGtmInstanceConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SearchCloudGtmInstanceConfigsResponse
@@ -52873,10 +57949,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SearchCloudGtmInstanceConfigsResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmInstanceConfigsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SearchCloudGtmInstanceConfigsResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmInstanceConfigsResponse({}));
+    } else {
+      return $tea.cast<SearchCloudGtmInstanceConfigsResponse>(await this.execute(params, req, runtime), new SearchCloudGtmInstanceConfigsResponse({}));
+    }
+
   }
 
   /**
+   * Queries the configurations of an access domain name.
+   * 
    * @param request - SearchCloudGtmInstanceConfigsRequest
    * @returns SearchCloudGtmInstanceConfigsResponse
    */
@@ -52886,6 +57969,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of instances.
+   * 
    * @param request - SearchCloudGtmInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SearchCloudGtmInstancesResponse
@@ -52931,10 +58016,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SearchCloudGtmInstancesResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SearchCloudGtmInstancesResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmInstancesResponse({}));
+    } else {
+      return $tea.cast<SearchCloudGtmInstancesResponse>(await this.execute(params, req, runtime), new SearchCloudGtmInstancesResponse({}));
+    }
+
   }
 
   /**
+   * Queries a list of instances.
+   * 
    * @param request - SearchCloudGtmInstancesRequest
    * @returns SearchCloudGtmInstancesResponse
    */
@@ -52944,6 +58036,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of health check templates.
+   * 
    * @param request - SearchCloudGtmMonitorTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SearchCloudGtmMonitorTemplatesResponse
@@ -52989,10 +58083,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SearchCloudGtmMonitorTemplatesResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmMonitorTemplatesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SearchCloudGtmMonitorTemplatesResponse>(await this.callApi(params, req, runtime), new SearchCloudGtmMonitorTemplatesResponse({}));
+    } else {
+      return $tea.cast<SearchCloudGtmMonitorTemplatesResponse>(await this.execute(params, req, runtime), new SearchCloudGtmMonitorTemplatesResponse({}));
+    }
+
   }
 
   /**
+   * Queries the list of health check templates.
+   * 
    * @param request - SearchCloudGtmMonitorTemplatesRequest
    * @returns SearchCloudGtmMonitorTemplatesResponse
    */
@@ -53053,7 +58154,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetDNSSLBStatusResponse>(await this.callApi(params, req, runtime), new SetDNSSLBStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SetDNSSLBStatusResponse>(await this.callApi(params, req, runtime), new SetDNSSLBStatusResponse({}));
+    } else {
+      return $tea.cast<SetDNSSLBStatusResponse>(await this.execute(params, req, runtime), new SetDNSSLBStatusResponse({}));
+    }
+
   }
 
   /**
@@ -53068,6 +58174,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies an access policy.
+   * 
    * @remarks
    * ***
    * 
@@ -53104,10 +58212,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetDnsGtmAccessModeResponse>(await this.callApi(params, req, runtime), new SetDnsGtmAccessModeResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SetDnsGtmAccessModeResponse>(await this.callApi(params, req, runtime), new SetDnsGtmAccessModeResponse({}));
+    } else {
+      return $tea.cast<SetDnsGtmAccessModeResponse>(await this.execute(params, req, runtime), new SetDnsGtmAccessModeResponse({}));
+    }
+
   }
 
   /**
+   * Modifies an access policy.
+   * 
    * @remarks
    * ***
    * 
@@ -53155,7 +58270,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetDnsGtmMonitorStatusResponse>(await this.callApi(params, req, runtime), new SetDnsGtmMonitorStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SetDnsGtmMonitorStatusResponse>(await this.callApi(params, req, runtime), new SetDnsGtmMonitorStatusResponse({}));
+    } else {
+      return $tea.cast<SetDnsGtmMonitorStatusResponse>(await this.execute(params, req, runtime), new SetDnsGtmMonitorStatusResponse({}));
+    }
+
   }
 
   /**
@@ -53170,7 +58290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the Domain Name System Security Extensions (DNSSEC) status of a domain name.
+   * Enables or disables the Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only for the users of the paid editions of Alibaba Cloud DNS.
    * 
    * @param request - SetDomainDnssecStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -53205,11 +58325,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetDomainDnssecStatusResponse>(await this.callApi(params, req, runtime), new SetDomainDnssecStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SetDomainDnssecStatusResponse>(await this.callApi(params, req, runtime), new SetDomainDnssecStatusResponse({}));
+    } else {
+      return $tea.cast<SetDomainDnssecStatusResponse>(await this.execute(params, req, runtime), new SetDomainDnssecStatusResponse({}));
+    }
+
   }
 
   /**
-   * Sets the Domain Name System Security Extensions (DNSSEC) status of a domain name.
+   * Enables or disables the Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only for the users of the paid editions of Alibaba Cloud DNS.
    * 
    * @param request - SetDomainDnssecStatusRequest
    * @returns SetDomainDnssecStatusResponse
@@ -53259,7 +58384,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetDomainRecordStatusResponse>(await this.callApi(params, req, runtime), new SetDomainRecordStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SetDomainRecordStatusResponse>(await this.callApi(params, req, runtime), new SetDomainRecordStatusResponse({}));
+    } else {
+      return $tea.cast<SetDomainRecordStatusResponse>(await this.execute(params, req, runtime), new SetDomainRecordStatusResponse({}));
+    }
+
   }
 
   /**
@@ -53274,6 +58404,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a policy for switchover between address pool sets.
+   * 
    * @param request - SetGtmAccessModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetGtmAccessModeResponse
@@ -53307,10 +58439,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetGtmAccessModeResponse>(await this.callApi(params, req, runtime), new SetGtmAccessModeResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SetGtmAccessModeResponse>(await this.callApi(params, req, runtime), new SetGtmAccessModeResponse({}));
+    } else {
+      return $tea.cast<SetGtmAccessModeResponse>(await this.execute(params, req, runtime), new SetGtmAccessModeResponse({}));
+    }
+
   }
 
   /**
+   * Modifies a policy for switchover between address pool sets.
+   * 
    * @param request - SetGtmAccessModeRequest
    * @returns SetGtmAccessModeResponse
    */
@@ -53353,7 +58492,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetGtmMonitorStatusResponse>(await this.callApi(params, req, runtime), new SetGtmMonitorStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SetGtmMonitorStatusResponse>(await this.callApi(params, req, runtime), new SetGtmMonitorStatusResponse({}));
+    } else {
+      return $tea.cast<SetGtmMonitorStatusResponse>(await this.execute(params, req, runtime), new SetGtmMonitorStatusResponse({}));
+    }
+
   }
 
   /**
@@ -53405,7 +58549,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitIspFlushCacheTaskResponse>(await this.callApi(params, req, runtime), new SubmitIspFlushCacheTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SubmitIspFlushCacheTaskResponse>(await this.callApi(params, req, runtime), new SubmitIspFlushCacheTaskResponse({}));
+    } else {
+      return $tea.cast<SubmitIspFlushCacheTaskResponse>(await this.execute(params, req, runtime), new SubmitIspFlushCacheTaskResponse({}));
+    }
+
   }
 
   /**
@@ -53455,7 +58604,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SwitchDnsGtmInstanceStrategyModeResponse>(await this.callApi(params, req, runtime), new SwitchDnsGtmInstanceStrategyModeResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SwitchDnsGtmInstanceStrategyModeResponse>(await this.callApi(params, req, runtime), new SwitchDnsGtmInstanceStrategyModeResponse({}));
+    } else {
+      return $tea.cast<SwitchDnsGtmInstanceStrategyModeResponse>(await this.execute(params, req, runtime), new SwitchDnsGtmInstanceStrategyModeResponse({}));
+    }
+
   }
 
   /**
@@ -53509,7 +58663,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $tea.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -53563,7 +58722,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TransferDomainResponse>(await this.callApi(params, req, runtime), new TransferDomainResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<TransferDomainResponse>(await this.callApi(params, req, runtime), new TransferDomainResponse({}));
+    } else {
+      return $tea.cast<TransferDomainResponse>(await this.execute(params, req, runtime), new TransferDomainResponse({}));
+    }
+
   }
 
   /**
@@ -53617,7 +58781,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnbindInstanceDomainsResponse>(await this.callApi(params, req, runtime), new UnbindInstanceDomainsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UnbindInstanceDomainsResponse>(await this.callApi(params, req, runtime), new UnbindInstanceDomainsResponse({}));
+    } else {
+      return $tea.cast<UnbindInstanceDomainsResponse>(await this.execute(params, req, runtime), new UnbindInstanceDomainsResponse({}));
+    }
+
   }
 
   /**
@@ -53679,7 +58848,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $tea.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -53729,7 +58903,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAppKeyStateResponse>(await this.callApi(params, req, runtime), new UpdateAppKeyStateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateAppKeyStateResponse>(await this.callApi(params, req, runtime), new UpdateAppKeyStateResponse({}));
+    } else {
+      return $tea.cast<UpdateAppKeyStateResponse>(await this.execute(params, req, runtime), new UpdateAppKeyStateResponse({}));
+    }
+
   }
 
   /**
@@ -53744,6 +58923,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the condition for determining the health status of a specified address.
+   * 
    * @param tmpReq - UpdateCloudGtmAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmAddressResponse
@@ -53803,10 +58984,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmAddressResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmAddressResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmAddressResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmAddressResponse({}));
+    }
+
   }
 
   /**
+   * Modifies the condition for determining the health status of a specified address.
+   * 
    * @param request - UpdateCloudGtmAddressRequest
    * @returns UpdateCloudGtmAddressResponse
    */
@@ -53816,6 +59004,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the enabling status of an address.
+   * 
+   * @remarks
+   *   If an address is **enabled** and the health status of the address is **Normal**, the availability status of the address is **Available**.
+   * *   If an address is **disabled** or the health status of the address is **Abnormal**, the availability status of the address is **Unavailable**.
+   * 
    * @param request - UpdateCloudGtmAddressEnableStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmAddressEnableStatusResponse
@@ -53853,10 +59047,21 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmAddressEnableStatusResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressEnableStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmAddressEnableStatusResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressEnableStatusResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmAddressEnableStatusResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmAddressEnableStatusResponse({}));
+    }
+
   }
 
   /**
+   * Modifies the enabling status of an address.
+   * 
+   * @remarks
+   *   If an address is **enabled** and the health status of the address is **Normal**, the availability status of the address is **Available**.
+   * *   If an address is **disabled** or the health status of the address is **Abnormal**, the availability status of the address is **Unavailable**.
+   * 
    * @param request - UpdateCloudGtmAddressEnableStatusRequest
    * @returns UpdateCloudGtmAddressEnableStatusResponse
    */
@@ -53866,6 +59071,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the failover mode that is used when address exceptions are identified.
+   * 
    * @param request - UpdateCloudGtmAddressManualAvailableStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmAddressManualAvailableStatusResponse
@@ -53907,10 +59114,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmAddressManualAvailableStatusResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressManualAvailableStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmAddressManualAvailableStatusResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressManualAvailableStatusResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmAddressManualAvailableStatusResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmAddressManualAvailableStatusResponse({}));
+    }
+
   }
 
   /**
+   * Modifies the failover mode that is used when address exceptions are identified.
+   * 
    * @param request - UpdateCloudGtmAddressManualAvailableStatusRequest
    * @returns UpdateCloudGtmAddressManualAvailableStatusResponse
    */
@@ -53920,6 +59134,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the condition for determining the health status of an address pool.
+   * 
    * @param request - UpdateCloudGtmAddressPoolBasicConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmAddressPoolBasicConfigResponse
@@ -53961,10 +59177,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmAddressPoolBasicConfigResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressPoolBasicConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmAddressPoolBasicConfigResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressPoolBasicConfigResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmAddressPoolBasicConfigResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmAddressPoolBasicConfigResponse({}));
+    }
+
   }
 
   /**
+   * Modifies the condition for determining the health status of an address pool.
+   * 
    * @param request - UpdateCloudGtmAddressPoolBasicConfigRequest
    * @returns UpdateCloudGtmAddressPoolBasicConfigResponse
    */
@@ -53974,6 +59197,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the enabling status of an address pool.
+   * 
+   * @remarks
+   *   If an address pool is **enabled** and the health status of the address pool is **Normal**, the availability status of the address pool is **Available**.
+   * *   If an address pool is **disabled** or the health status of the address pool is **Abnormal**, the availability status of the address pool is **unavailable**.
+   * 
    * @param request - UpdateCloudGtmAddressPoolEnableStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmAddressPoolEnableStatusResponse
@@ -54011,10 +59240,21 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmAddressPoolEnableStatusResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressPoolEnableStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmAddressPoolEnableStatusResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressPoolEnableStatusResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmAddressPoolEnableStatusResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmAddressPoolEnableStatusResponse({}));
+    }
+
   }
 
   /**
+   * Modifies the enabling status of an address pool.
+   * 
+   * @remarks
+   *   If an address pool is **enabled** and the health status of the address pool is **Normal**, the availability status of the address pool is **Available**.
+   * *   If an address pool is **disabled** or the health status of the address pool is **Abnormal**, the availability status of the address pool is **unavailable**.
+   * 
    * @param request - UpdateCloudGtmAddressPoolEnableStatusRequest
    * @returns UpdateCloudGtmAddressPoolEnableStatusResponse
    */
@@ -54024,6 +59264,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the load balancing policy of an address pool.
+   * 
    * @param request - UpdateCloudGtmAddressPoolLbStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmAddressPoolLbStrategyResponse
@@ -54065,10 +59307,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmAddressPoolLbStrategyResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressPoolLbStrategyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmAddressPoolLbStrategyResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressPoolLbStrategyResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmAddressPoolLbStrategyResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmAddressPoolLbStrategyResponse({}));
+    }
+
   }
 
   /**
+   * Modifies the load balancing policy of an address pool.
+   * 
    * @param request - UpdateCloudGtmAddressPoolLbStrategyRequest
    * @returns UpdateCloudGtmAddressPoolLbStrategyResponse
    */
@@ -54078,6 +59327,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the remarks of an address pool.
+   * 
    * @param request - UpdateCloudGtmAddressPoolRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmAddressPoolRemarkResponse
@@ -54115,10 +59366,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmAddressPoolRemarkResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressPoolRemarkResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmAddressPoolRemarkResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressPoolRemarkResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmAddressPoolRemarkResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmAddressPoolRemarkResponse({}));
+    }
+
   }
 
   /**
+   * Modifies the remarks of an address pool.
+   * 
    * @param request - UpdateCloudGtmAddressPoolRemarkRequest
    * @returns UpdateCloudGtmAddressPoolRemarkResponse
    */
@@ -54128,6 +59386,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the remarks of an address.
+   * 
    * @param request - UpdateCloudGtmAddressRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmAddressRemarkResponse
@@ -54165,10 +59425,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmAddressRemarkResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressRemarkResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmAddressRemarkResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmAddressRemarkResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmAddressRemarkResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmAddressRemarkResponse({}));
+    }
+
   }
 
   /**
+   * Modifies the remarks of an address.
+   * 
    * @param request - UpdateCloudGtmAddressRemarkRequest
    * @returns UpdateCloudGtmAddressRemarkResponse
    */
@@ -54225,7 +59492,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmGlobalAlertResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmGlobalAlertResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmGlobalAlertResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmGlobalAlertResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmGlobalAlertResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmGlobalAlertResponse({}));
+    }
+
   }
 
   /**
@@ -54297,7 +59569,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmInstanceConfigAlertResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigAlertResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmInstanceConfigAlertResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigAlertResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmInstanceConfigAlertResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmInstanceConfigAlertResponse({}));
+    }
+
   }
 
   /**
@@ -54310,6 +59587,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the global time-to-live (TTL) configuration of a GTM 3.0 instance.
+   * 
    * @param request - UpdateCloudGtmInstanceConfigBasicRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmInstanceConfigBasicResponse
@@ -54359,10 +59638,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmInstanceConfigBasicResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigBasicResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmInstanceConfigBasicResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigBasicResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmInstanceConfigBasicResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmInstanceConfigBasicResponse({}));
+    }
+
   }
 
   /**
+   * Updates the global time-to-live (TTL) configuration of a GTM 3.0 instance.
+   * 
    * @param request - UpdateCloudGtmInstanceConfigBasicRequest
    * @returns UpdateCloudGtmInstanceConfigBasicResponse
    */
@@ -54372,6 +59658,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the enabling status of an access domain name.
+   * 
+   * @remarks
+   *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
+   * *   If an access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
+   * 
    * @param request - UpdateCloudGtmInstanceConfigEnableStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmInstanceConfigEnableStatusResponse
@@ -54413,10 +59705,21 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmInstanceConfigEnableStatusResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigEnableStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmInstanceConfigEnableStatusResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigEnableStatusResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmInstanceConfigEnableStatusResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmInstanceConfigEnableStatusResponse({}));
+    }
+
   }
 
   /**
+   * Modifies the enabling status of an access domain name.
+   * 
+   * @remarks
+   *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
+   * *   If an access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
+   * 
    * @param request - UpdateCloudGtmInstanceConfigEnableStatusRequest
    * @returns UpdateCloudGtmInstanceConfigEnableStatusResponse
    */
@@ -54426,6 +59729,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the load balancing policy of a Global Traffic Manager (GTM) 3.0 instance.
+   * 
    * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmInstanceConfigLbStrategyResponse
@@ -54471,10 +59776,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmInstanceConfigLbStrategyResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigLbStrategyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmInstanceConfigLbStrategyResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigLbStrategyResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmInstanceConfigLbStrategyResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmInstanceConfigLbStrategyResponse({}));
+    }
+
   }
 
   /**
+   * Modifies the load balancing policy of a Global Traffic Manager (GTM) 3.0 instance.
+   * 
    * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
    * @returns UpdateCloudGtmInstanceConfigLbStrategyResponse
    */
@@ -54484,6 +59796,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the description of a Global Traffic Manager (GTM) 3.0 instance.
+   * 
    * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmInstanceConfigRemarkResponse
@@ -54525,10 +59839,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmInstanceConfigRemarkResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigRemarkResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmInstanceConfigRemarkResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceConfigRemarkResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmInstanceConfigRemarkResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmInstanceConfigRemarkResponse({}));
+    }
+
   }
 
   /**
+   * Modifies the description of a Global Traffic Manager (GTM) 3.0 instance.
+   * 
    * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
    * @returns UpdateCloudGtmInstanceConfigRemarkResponse
    */
@@ -54575,7 +59896,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmInstanceNameResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceNameResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmInstanceNameResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmInstanceNameResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmInstanceNameResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmInstanceNameResponse({}));
+    }
+
   }
 
   /**
@@ -54588,6 +59914,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the information about a health check template.
+   * 
    * @param tmpReq - UpdateCloudGtmMonitorTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmMonitorTemplateResponse
@@ -54655,10 +59983,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmMonitorTemplateResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmMonitorTemplateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmMonitorTemplateResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmMonitorTemplateResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmMonitorTemplateResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmMonitorTemplateResponse({}));
+    }
+
   }
 
   /**
+   * Modifies the information about a health check template.
+   * 
    * @param request - UpdateCloudGtmMonitorTemplateRequest
    * @returns UpdateCloudGtmMonitorTemplateResponse
    */
@@ -54705,7 +60040,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCloudGtmMonitorTemplateRemarkResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmMonitorTemplateRemarkResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCloudGtmMonitorTemplateRemarkResponse>(await this.callApi(params, req, runtime), new UpdateCloudGtmMonitorTemplateRemarkResponse({}));
+    } else {
+      return $tea.cast<UpdateCloudGtmMonitorTemplateRemarkResponse>(await this.execute(params, req, runtime), new UpdateCloudGtmMonitorTemplateRemarkResponse({}));
+    }
+
   }
 
   /**
@@ -54761,7 +60101,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCustomLineResponse>(await this.callApi(params, req, runtime), new UpdateCustomLineResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCustomLineResponse>(await this.callApi(params, req, runtime), new UpdateCustomLineResponse({}));
+    } else {
+      return $tea.cast<UpdateCustomLineResponse>(await this.execute(params, req, runtime), new UpdateCustomLineResponse({}));
+    }
+
   }
 
   /**
@@ -54819,7 +60164,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDNSSLBWeightResponse>(await this.callApi(params, req, runtime), new UpdateDNSSLBWeightResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateDNSSLBWeightResponse>(await this.callApi(params, req, runtime), new UpdateDNSSLBWeightResponse({}));
+    } else {
+      return $tea.cast<UpdateDNSSLBWeightResponse>(await this.execute(params, req, runtime), new UpdateDNSSLBWeightResponse({}));
+    }
+
   }
 
   /**
@@ -54887,7 +60237,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDnsCacheDomainResponse>(await this.callApi(params, req, runtime), new UpdateDnsCacheDomainResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateDnsCacheDomainResponse>(await this.callApi(params, req, runtime), new UpdateDnsCacheDomainResponse({}));
+    } else {
+      return $tea.cast<UpdateDnsCacheDomainResponse>(await this.execute(params, req, runtime), new UpdateDnsCacheDomainResponse({}));
+    }
+
   }
 
   /**
@@ -54933,7 +60288,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDnsCacheDomainRemarkResponse>(await this.callApi(params, req, runtime), new UpdateDnsCacheDomainRemarkResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateDnsCacheDomainRemarkResponse>(await this.callApi(params, req, runtime), new UpdateDnsCacheDomainRemarkResponse({}));
+    } else {
+      return $tea.cast<UpdateDnsCacheDomainRemarkResponse>(await this.execute(params, req, runtime), new UpdateDnsCacheDomainRemarkResponse({}));
+    }
+
   }
 
   /**
@@ -55037,7 +60397,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmAccessStrategyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmAccessStrategyResponse({}));
+    } else {
+      return $tea.cast<UpdateDnsGtmAccessStrategyResponse>(await this.execute(params, req, runtime), new UpdateDnsGtmAccessStrategyResponse({}));
+    }
+
   }
 
   /**
@@ -55052,7 +60417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of address pools for a GTM instance.
+   * Modifies an address pool.
    * 
    * @param request - UpdateDnsGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55095,11 +60460,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDnsGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmAddressPoolResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateDnsGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmAddressPoolResponse({}));
+    } else {
+      return $tea.cast<UpdateDnsGtmAddressPoolResponse>(await this.execute(params, req, runtime), new UpdateDnsGtmAddressPoolResponse({}));
+    }
+
   }
 
   /**
-   * Modifies the configurations of address pools for a GTM instance.
+   * Modifies an address pool.
    * 
    * @param request - UpdateDnsGtmAddressPoolRequest
    * @returns UpdateDnsGtmAddressPoolResponse
@@ -55181,7 +60551,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDnsGtmInstanceGlobalConfigResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmInstanceGlobalConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateDnsGtmInstanceGlobalConfigResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmInstanceGlobalConfigResponse({}));
+    } else {
+      return $tea.cast<UpdateDnsGtmInstanceGlobalConfigResponse>(await this.execute(params, req, runtime), new UpdateDnsGtmInstanceGlobalConfigResponse({}));
+    }
+
   }
 
   /**
@@ -55251,7 +60626,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDnsGtmMonitorResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmMonitorResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateDnsGtmMonitorResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmMonitorResponse({}));
+    } else {
+      return $tea.cast<UpdateDnsGtmMonitorResponse>(await this.execute(params, req, runtime), new UpdateDnsGtmMonitorResponse({}));
+    }
+
   }
 
   /**
@@ -55267,6 +60647,9 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies the name of a domain name group based on the specified parameters.
+   * 
+   * @remarks
+   * Modifies the name of an existing domain name group.
    * 
    * @param request - UpdateDomainGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55301,11 +60684,19 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDomainGroupResponse>(await this.callApi(params, req, runtime), new UpdateDomainGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateDomainGroupResponse>(await this.callApi(params, req, runtime), new UpdateDomainGroupResponse({}));
+    } else {
+      return $tea.cast<UpdateDomainGroupResponse>(await this.execute(params, req, runtime), new UpdateDomainGroupResponse({}));
+    }
+
   }
 
   /**
    * Modifies the name of a domain name group based on the specified parameters.
+   * 
+   * @remarks
+   * Modifies the name of an existing domain name group.
    * 
    * @param request - UpdateDomainGroupRequest
    * @returns UpdateDomainGroupResponse
@@ -55375,7 +60766,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDomainRecordResponse>(await this.callApi(params, req, runtime), new UpdateDomainRecordResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateDomainRecordResponse>(await this.callApi(params, req, runtime), new UpdateDomainRecordResponse({}));
+    } else {
+      return $tea.cast<UpdateDomainRecordResponse>(await this.execute(params, req, runtime), new UpdateDomainRecordResponse({}));
+    }
+
   }
 
   /**
@@ -55429,7 +60825,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDomainRecordRemarkResponse>(await this.callApi(params, req, runtime), new UpdateDomainRecordRemarkResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateDomainRecordRemarkResponse>(await this.callApi(params, req, runtime), new UpdateDomainRecordRemarkResponse({}));
+    } else {
+      return $tea.cast<UpdateDomainRecordRemarkResponse>(await this.execute(params, req, runtime), new UpdateDomainRecordRemarkResponse({}));
+    }
+
   }
 
   /**
@@ -55479,7 +60880,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDomainRemarkResponse>(await this.callApi(params, req, runtime), new UpdateDomainRemarkResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateDomainRemarkResponse>(await this.callApi(params, req, runtime), new UpdateDomainRemarkResponse({}));
+    } else {
+      return $tea.cast<UpdateDomainRemarkResponse>(await this.execute(params, req, runtime), new UpdateDomainRemarkResponse({}));
+    }
+
   }
 
   /**
@@ -55539,7 +60945,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new UpdateGtmAccessStrategyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new UpdateGtmAccessStrategyResponse({}));
+    } else {
+      return $tea.cast<UpdateGtmAccessStrategyResponse>(await this.execute(params, req, runtime), new UpdateGtmAccessStrategyResponse({}));
+    }
+
   }
 
   /**
@@ -55597,7 +61008,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new UpdateGtmAddressPoolResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new UpdateGtmAddressPoolResponse({}));
+    } else {
+      return $tea.cast<UpdateGtmAddressPoolResponse>(await this.execute(params, req, runtime), new UpdateGtmAddressPoolResponse({}));
+    }
+
   }
 
   /**
@@ -55669,7 +61085,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateGtmInstanceGlobalConfigResponse>(await this.callApi(params, req, runtime), new UpdateGtmInstanceGlobalConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateGtmInstanceGlobalConfigResponse>(await this.callApi(params, req, runtime), new UpdateGtmInstanceGlobalConfigResponse({}));
+    } else {
+      return $tea.cast<UpdateGtmInstanceGlobalConfigResponse>(await this.execute(params, req, runtime), new UpdateGtmInstanceGlobalConfigResponse({}));
+    }
+
   }
 
   /**
@@ -55739,7 +61160,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateGtmMonitorResponse>(await this.callApi(params, req, runtime), new UpdateGtmMonitorResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateGtmMonitorResponse>(await this.callApi(params, req, runtime), new UpdateGtmMonitorResponse({}));
+    } else {
+      return $tea.cast<UpdateGtmMonitorResponse>(await this.execute(params, req, runtime), new UpdateGtmMonitorResponse({}));
+    }
+
   }
 
   /**
@@ -55754,7 +61180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+   * Modifies a disaster recovery plan.
    * 
    * @param request - UpdateGtmRecoveryPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55797,11 +61223,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new UpdateGtmRecoveryPlanResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new UpdateGtmRecoveryPlanResponse({}));
+    } else {
+      return $tea.cast<UpdateGtmRecoveryPlanResponse>(await this.execute(params, req, runtime), new UpdateGtmRecoveryPlanResponse({}));
+    }
+
   }
 
   /**
-   * Modifies a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+   * Modifies a disaster recovery plan.
    * 
    * @param request - UpdateGtmRecoveryPlanRequest
    * @returns UpdateGtmRecoveryPlanResponse
@@ -55847,7 +61278,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateIspFlushCacheInstanceConfigResponse>(await this.callApi(params, req, runtime), new UpdateIspFlushCacheInstanceConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateIspFlushCacheInstanceConfigResponse>(await this.callApi(params, req, runtime), new UpdateIspFlushCacheInstanceConfigResponse({}));
+    } else {
+      return $tea.cast<UpdateIspFlushCacheInstanceConfigResponse>(await this.execute(params, req, runtime), new UpdateIspFlushCacheInstanceConfigResponse({}));
+    }
+
   }
 
   /**
@@ -55909,7 +61345,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ValidateDnsGtmCnameRrCanUseResponse>(await this.callApi(params, req, runtime), new ValidateDnsGtmCnameRrCanUseResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ValidateDnsGtmCnameRrCanUseResponse>(await this.callApi(params, req, runtime), new ValidateDnsGtmCnameRrCanUseResponse({}));
+    } else {
+      return $tea.cast<ValidateDnsGtmCnameRrCanUseResponse>(await this.execute(params, req, runtime), new ValidateDnsGtmCnameRrCanUseResponse({}));
+    }
+
   }
 
   /**
@@ -55959,7 +61400,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ValidatePdnsUdpIpSegmentResponse>(await this.callApi(params, req, runtime), new ValidatePdnsUdpIpSegmentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ValidatePdnsUdpIpSegmentResponse>(await this.callApi(params, req, runtime), new ValidatePdnsUdpIpSegmentResponse({}));
+    } else {
+      return $tea.cast<ValidatePdnsUdpIpSegmentResponse>(await this.execute(params, req, runtime), new ValidatePdnsUdpIpSegmentResponse({}));
+    }
+
   }
 
   /**
