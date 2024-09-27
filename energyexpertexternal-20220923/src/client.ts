@@ -313,7 +313,15 @@ export class OrgEmission extends $tea.Model {
 }
 
 export class BatchSaveInstructionStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * ***
+   */
   factoryId?: string;
+  /**
+   * @example
+   * ib
+   */
   pKey?: string;
   statusList?: string;
   static names(): { [key: string]: string } {
@@ -338,7 +346,21 @@ export class BatchSaveInstructionStatusRequest extends $tea.Model {
 }
 
 export class BatchSaveInstructionStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * true
+   * 
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 83A5A7DD-8974-5769-952E-590A97BEA34E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -385,19 +407,75 @@ export class BatchSaveInstructionStatusResponse extends $tea.Model {
 }
 
 export class BatchUpdateSystemRunningPlanRequest extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   controlType?: number;
+  /**
+   * @example
+   * 0
+   */
   dateType?: number;
+  /**
+   * @example
+   * 05:00:00
+   */
   earliestStartupTime?: string;
+  /**
+   * @example
+   * 2024-08-30
+   */
   endTime?: string;
+  /**
+   * @example
+   * ***
+   */
   factoryId?: string;
+  /**
+   * @example
+   * 05:30:00
+   */
   latestShutdownTime?: string;
+  /**
+   * @example
+   * 37.1
+   */
   maxCarbonDioxide?: number;
+  /**
+   * @example
+   * 25.3
+   */
   maxTem?: number;
+  /**
+   * @example
+   * 20.1
+   */
   minTem?: number;
+  /**
+   * @example
+   * 0
+   */
   seasonMode?: number;
+  /**
+   * @example
+   * 2024-08-21
+   */
   startTime?: string;
+  /**
+   * @example
+   * system1
+   */
   systemId?: string;
+  /**
+   * @example
+   * 05:30:00
+   */
   workingEndTime?: string;
+  /**
+   * @example
+   * 05:00:00
+   */
   workingStartTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -443,7 +521,18 @@ export class BatchUpdateSystemRunningPlanRequest extends $tea.Model {
 }
 
 export class BatchUpdateSystemRunningPlanResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 83A5A7DD-8974-5769-952E-590A97BEA34E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -490,8 +579,16 @@ export class BatchUpdateSystemRunningPlanResponse extends $tea.Model {
 }
 
 export class EditProhibitedDevicesRequest extends $tea.Model {
+  /**
+   * @example
+   * ***
+   */
   factoryId?: string;
   hvacDeviceConfigVOList?: EditProhibitedDevicesRequestHvacDeviceConfigVOList[];
+  /**
+   * @example
+   * system1
+   */
   systemId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -515,7 +612,18 @@ export class EditProhibitedDevicesRequest extends $tea.Model {
 }
 
 export class EditProhibitedDevicesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9bc20a5a-b26b-4c28-922a-7cd10b61f96f
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -562,8 +670,16 @@ export class EditProhibitedDevicesResponse extends $tea.Model {
 }
 
 export class EditUnfavorableAreaDevicesRequest extends $tea.Model {
+  /**
+   * @example
+   * ***
+   */
   factoryId?: string;
   hvacDeviceConfigVOList?: EditUnfavorableAreaDevicesRequestHvacDeviceConfigVOList[];
+  /**
+   * @example
+   * system1
+   */
   systemId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -587,7 +703,18 @@ export class EditUnfavorableAreaDevicesRequest extends $tea.Model {
 }
 
 export class EditUnfavorableAreaDevicesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 83A5A7DD-8974-5769-952E-590A97BEA34E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3964,21 +4091,85 @@ export class SendDocumentAskQuestionResponse extends $tea.Model {
 }
 
 export class SetRunningPlanRequest extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   controlType?: number;
+  /**
+   * @example
+   * 0
+   */
   dateType?: number;
+  /**
+   * @example
+   * 05:00:00
+   */
   earliestStartupTime?: string;
+  /**
+   * @example
+   * 2024-07-21
+   */
   endTime?: string;
+  /**
+   * @example
+   * ***
+   */
   factoryId?: string;
+  /**
+   * @example
+   * 05:30:00
+   */
   latestShutdownTime?: string;
+  /**
+   * @example
+   * 2.1
+   */
   maxCarbonDioxide?: number;
+  /**
+   * @example
+   * 3.1
+   */
   maxTem?: number;
+  /**
+   * @example
+   * 2.1
+   */
   minTem?: number;
+  /**
+   * @example
+   * ib
+   */
   pKey?: string;
+  /**
+   * @example
+   * 0
+   */
   seasonMode?: number;
+  /**
+   * @example
+   * 2024-07-20
+   */
   startTime?: string;
+  /**
+   * @example
+   * 2024-07-31
+   */
   statisticsTime?: string;
+  /**
+   * @example
+   * system1
+   */
   systemId?: string;
+  /**
+   * @example
+   * 05:30:00
+   */
   workingEndTime?: string;
+  /**
+   * @example
+   * 05:00:00
+   */
   workingStartTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4028,7 +4219,18 @@ export class SetRunningPlanRequest extends $tea.Model {
 }
 
 export class SetRunningPlanResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 83A5A7DD-8974-5769-952E-590A97BEA34E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4075,6 +4277,7 @@ export class SetRunningPlanResponse extends $tea.Model {
 }
 
 export class SubmitDocumentAnalyzeJobRequest extends $tea.Model {
+  dataType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -4100,6 +4303,7 @@ export class SubmitDocumentAnalyzeJobRequest extends $tea.Model {
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      dataType: 'dataType',
       fileName: 'fileName',
       fileUrl: 'fileUrl',
       folderId: 'folderId',
@@ -4109,6 +4313,7 @@ export class SubmitDocumentAnalyzeJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataType: 'string',
       fileName: 'string',
       fileUrl: 'string',
       folderId: 'string',
@@ -4122,6 +4327,7 @@ export class SubmitDocumentAnalyzeJobRequest extends $tea.Model {
 }
 
 export class SubmitDocumentAnalyzeJobAdvanceRequest extends $tea.Model {
+  dataType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -4147,6 +4353,7 @@ export class SubmitDocumentAnalyzeJobAdvanceRequest extends $tea.Model {
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      dataType: 'dataType',
       fileName: 'fileName',
       fileUrlObject: 'fileUrl',
       folderId: 'folderId',
@@ -4156,6 +4363,7 @@ export class SubmitDocumentAnalyzeJobAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataType: 'string',
       fileName: 'string',
       fileUrlObject: 'Readable',
       folderId: 'string',
@@ -4380,13 +4588,45 @@ export class OrgEmissionModuleEmissionList extends $tea.Model {
 }
 
 export class EditProhibitedDevicesRequestHvacDeviceConfigVOList extends $tea.Model {
+  /**
+   * @example
+   * build_01
+   */
   buildingId?: string;
+  /**
+   * @example
+   * id1
+   */
   deviceId?: string;
+  /**
+   * @example
+   * name1
+   */
   deviceName?: string;
+  /**
+   * @example
+   * 1
+   */
   deviceType?: string;
+  /**
+   * @example
+   * fence_01
+   */
   fenceId?: string;
+  /**
+   * @example
+   * floor_01
+   */
   floorId?: string;
+  /**
+   * @example
+   * 1
+   */
   isForbidden?: number;
+  /**
+   * @example
+   * 1
+   */
   isUnfavorableArea?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4420,13 +4660,45 @@ export class EditProhibitedDevicesRequestHvacDeviceConfigVOList extends $tea.Mod
 }
 
 export class EditUnfavorableAreaDevicesRequestHvacDeviceConfigVOList extends $tea.Model {
+  /**
+   * @example
+   * buildingId1
+   */
   buildingId?: string;
+  /**
+   * @example
+   * id1
+   */
   deviceId?: string;
+  /**
+   * @example
+   * name1
+   */
   deviceName?: string;
+  /**
+   * @example
+   * 1
+   */
   deviceType?: string;
+  /**
+   * @example
+   * fenceId1
+   */
   fenceId?: string;
+  /**
+   * @example
+   * floorId2
+   */
   floorId?: string;
+  /**
+   * @example
+   * 1
+   */
   isForbidden?: number;
+  /**
+   * @example
+   * 1
+   */
   isUnfavorableArea?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10318,6 +10590,10 @@ export default class Client extends OpenApi {
   async submitDocumentAnalyzeJobWithOptions(request: SubmitDocumentAnalyzeJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitDocumentAnalyzeJobResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataType)) {
+      query["dataType"] = request.dataType;
+    }
+
     if (!Util.isUnset(request.fileName)) {
       query["fileName"] = request.fileName;
     }
