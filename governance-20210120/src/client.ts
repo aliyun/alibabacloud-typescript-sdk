@@ -2,6 +2,7 @@
 /**
  */
 import Util, * as $Util from '@alicloud/tea-util';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -1364,11 +1365,17 @@ export class ListEvaluationMetricDetailsResponse extends $tea.Model {
 
 export class ListEvaluationResultsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+   * 
    * @example
    * 176618589410****
    */
   accountId?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -1394,15 +1401,25 @@ export class ListEvaluationResultsRequest extends $tea.Model {
 
 export class ListEvaluationResultsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
    * @example
    * 176618589410****
    */
   accountId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BD57329E-131A-59F4-8746-E1CD8D7B****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The check results, including the status of the overall check and the results of check items.
+   */
   results?: ListEvaluationResultsResponseBodyResults;
   static names(): { [key: string]: string } {
     return {
@@ -1451,6 +1468,7 @@ export class ListEvaluationResultsResponse extends $tea.Model {
 }
 
 export class ListEvaluationScoreHistoryRequest extends $tea.Model {
+  accountId?: number;
   /**
    * @example
    * 2024-07-11
@@ -1468,6 +1486,7 @@ export class ListEvaluationScoreHistoryRequest extends $tea.Model {
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       endDate: 'EndDate',
       regionId: 'RegionId',
       startDate: 'StartDate',
@@ -1476,6 +1495,7 @@ export class ListEvaluationScoreHistoryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'number',
       endDate: 'string',
       regionId: 'string',
       startDate: 'string',
@@ -2757,6 +2777,7 @@ export class ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties 
 }
 
 export class ListEvaluationMetricDetailsResponseBodyResources extends $tea.Model {
+  complianceType?: string;
   /**
    * @example
    * cn-hangzhou
@@ -2786,6 +2807,7 @@ export class ListEvaluationMetricDetailsResponseBodyResources extends $tea.Model
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      complianceType: 'ComplianceType',
       regionId: 'RegionId',
       resourceClassification: 'ResourceClassification',
       resourceId: 'ResourceId',
@@ -2798,6 +2820,7 @@ export class ListEvaluationMetricDetailsResponseBodyResources extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      complianceType: 'string',
       regionId: 'string',
       resourceClassification: 'string',
       resourceId: 'string',
@@ -2814,7 +2837,21 @@ export class ListEvaluationMetricDetailsResponseBodyResources extends $tea.Model
 }
 
 export class ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * EcsInsightEnableFailed
+   */
   code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Unable to enable ECS Insight due to a server error.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2837,6 +2874,9 @@ export class ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo exte
 
 export class ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary extends $tea.Model {
   /**
+   * @remarks
+   * The number of non-compliant resources.
+   * 
    * @example
    * 2
    */
@@ -2859,29 +2899,62 @@ export class ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSumma
 }
 
 export class ListEvaluationResultsResponseBodyResultsMetricResults extends $tea.Model {
+  /**
+   * @remarks
+   * The error information.
+   * 
+   * >  This parameter is returned only if the value of `Status` is `Failed`.
+   */
   errorInfo?: ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo;
   /**
+   * @remarks
+   * The end time of the check item. The time is displayed in UTC.
+   * 
    * @example
    * 2023-12-13T03:34:02Z
    */
   evaluationTime?: string;
   /**
+   * @remarks
+   * The ID of the check item.
+   * 
    * @example
    * r7xdcu****
    */
   id?: string;
+  /**
+   * @remarks
+   * The checked resources.
+   */
   resourcesSummary?: ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary;
   /**
+   * @remarks
+   * The rate of the non-compliant resources.
+   * 
    * @example
    * 0.67
    */
   result?: number;
   /**
+   * @remarks
+   * The risk level. Valid values:
+   * 
+   * *   Error: high risk
+   * *   Warning: medium risk
+   * *   None: no risk
+   * 
    * @example
    * Error
    */
   risk?: string;
   /**
+   * @remarks
+   * The status of the check item. Valid values:
+   * 
+   * *   Running: The check is in progress.
+   * *   Finished: The check is complete.
+   * *   failed: The check fails.
+   * 
    * @example
    * Running
    */
@@ -2917,17 +2990,34 @@ export class ListEvaluationResultsResponseBodyResultsMetricResults extends $tea.
 
 export class ListEvaluationResultsResponseBodyResults extends $tea.Model {
   /**
+   * @remarks
+   * The end time of the overall check. The time is displayed in UTC.
+   * 
    * @example
    * 2023-12-13T03:35:00Z
    */
   evaluationTime?: string;
+  /**
+   * @remarks
+   * The check results.
+   */
   metricResults?: ListEvaluationResultsResponseBodyResultsMetricResults[];
   /**
+   * @remarks
+   * The status of the overall check. Valid values:
+   * 
+   * *   Running: The check is in progress.
+   * *   Finished: The check is complete.
+   * *   failed: The check fails.
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The overall score.
+   * 
    * @example
    * 0.6453
    */
@@ -3046,7 +3136,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
+    this._productId = "governance";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("governance", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -3105,7 +3197,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BatchEnrollAccountsResponse>(await this.callApi(params, req, runtime), new BatchEnrollAccountsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<BatchEnrollAccountsResponse>(await this.callApi(params, req, runtime), new BatchEnrollAccountsResponse({}));
+    } else {
+      return $tea.cast<BatchEnrollAccountsResponse>(await this.execute(params, req, runtime), new BatchEnrollAccountsResponse({}));
+    }
+
   }
 
   /**
@@ -3159,7 +3256,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new CreateAccountFactoryBaselineResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new CreateAccountFactoryBaselineResponse({}));
+    } else {
+      return $tea.cast<CreateAccountFactoryBaselineResponse>(await this.execute(params, req, runtime), new CreateAccountFactoryBaselineResponse({}));
+    }
+
   }
 
   /**
@@ -3205,7 +3307,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new DeleteAccountFactoryBaselineResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new DeleteAccountFactoryBaselineResponse({}));
+    } else {
+      return $tea.cast<DeleteAccountFactoryBaselineResponse>(await this.execute(params, req, runtime), new DeleteAccountFactoryBaselineResponse({}));
+    }
+
   }
 
   /**
@@ -3283,7 +3390,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EnrollAccountResponse>(await this.callApi(params, req, runtime), new EnrollAccountResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<EnrollAccountResponse>(await this.callApi(params, req, runtime), new EnrollAccountResponse({}));
+    } else {
+      return $tea.cast<EnrollAccountResponse>(await this.execute(params, req, runtime), new EnrollAccountResponse({}));
+    }
+
   }
 
   /**
@@ -3333,7 +3445,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new GetAccountFactoryBaselineResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new GetAccountFactoryBaselineResponse({}));
+    } else {
+      return $tea.cast<GetAccountFactoryBaselineResponse>(await this.execute(params, req, runtime), new GetAccountFactoryBaselineResponse({}));
+    }
+
   }
 
   /**
@@ -3379,7 +3496,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetEnrolledAccountResponse>(await this.callApi(params, req, runtime), new GetEnrolledAccountResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetEnrolledAccountResponse>(await this.callApi(params, req, runtime), new GetEnrolledAccountResponse({}));
+    } else {
+      return $tea.cast<GetEnrolledAccountResponse>(await this.execute(params, req, runtime), new GetEnrolledAccountResponse({}));
+    }
+
   }
 
   /**
@@ -3441,7 +3563,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAccountFactoryBaselineItemsResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselineItemsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAccountFactoryBaselineItemsResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselineItemsResponse({}));
+    } else {
+      return $tea.cast<ListAccountFactoryBaselineItemsResponse>(await this.execute(params, req, runtime), new ListAccountFactoryBaselineItemsResponse({}));
+    }
+
   }
 
   /**
@@ -3491,7 +3618,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAccountFactoryBaselinesResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselinesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAccountFactoryBaselinesResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselinesResponse({}));
+    } else {
+      return $tea.cast<ListAccountFactoryBaselinesResponse>(await this.execute(params, req, runtime), new ListAccountFactoryBaselinesResponse({}));
+    }
+
   }
 
   /**
@@ -3541,7 +3673,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListEnrolledAccountsResponse>(await this.callApi(params, req, runtime), new ListEnrolledAccountsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListEnrolledAccountsResponse>(await this.callApi(params, req, runtime), new ListEnrolledAccountsResponse({}));
+    } else {
+      return $tea.cast<ListEnrolledAccountsResponse>(await this.execute(params, req, runtime), new ListEnrolledAccountsResponse({}));
+    }
+
   }
 
   /**
@@ -3587,7 +3724,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListEvaluationMetadataResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetadataResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListEvaluationMetadataResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetadataResponse({}));
+    } else {
+      return $tea.cast<ListEvaluationMetadataResponse>(await this.execute(params, req, runtime), new ListEvaluationMetadataResponse({}));
+    }
+
   }
 
   /**
@@ -3645,7 +3787,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListEvaluationMetricDetailsResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetricDetailsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListEvaluationMetricDetailsResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetricDetailsResponse({}));
+    } else {
+      return $tea.cast<ListEvaluationMetricDetailsResponse>(await this.execute(params, req, runtime), new ListEvaluationMetricDetailsResponse({}));
+    }
+
   }
 
   /**
@@ -3660,7 +3807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看检测结果
+   * Queries the result and status of a governance maturity check.
    * 
    * @param request - ListEvaluationResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3691,11 +3838,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListEvaluationResultsResponse>(await this.callApi(params, req, runtime), new ListEvaluationResultsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListEvaluationResultsResponse>(await this.callApi(params, req, runtime), new ListEvaluationResultsResponse({}));
+    } else {
+      return $tea.cast<ListEvaluationResultsResponse>(await this.execute(params, req, runtime), new ListEvaluationResultsResponse({}));
+    }
+
   }
 
   /**
-   * 查看检测结果
+   * Queries the result and status of a governance maturity check.
    * 
    * @param request - ListEvaluationResultsRequest
    * @returns ListEvaluationResultsResponse
@@ -3715,6 +3867,10 @@ export default class Client extends OpenApi {
   async listEvaluationScoreHistoryWithOptions(request: ListEvaluationScoreHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListEvaluationScoreHistoryResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
     if (!Util.isUnset(request.endDate)) {
       query["EndDate"] = request.endDate;
     }
@@ -3741,7 +3897,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListEvaluationScoreHistoryResponse>(await this.callApi(params, req, runtime), new ListEvaluationScoreHistoryResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListEvaluationScoreHistoryResponse>(await this.callApi(params, req, runtime), new ListEvaluationScoreHistoryResponse({}));
+    } else {
+      return $tea.cast<ListEvaluationScoreHistoryResponse>(await this.execute(params, req, runtime), new ListEvaluationScoreHistoryResponse({}));
+    }
+
   }
 
   /**
@@ -3791,7 +3952,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunEvaluationResponse>(await this.callApi(params, req, runtime), new RunEvaluationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunEvaluationResponse>(await this.callApi(params, req, runtime), new RunEvaluationResponse({}));
+    } else {
+      return $tea.cast<RunEvaluationResponse>(await this.execute(params, req, runtime), new RunEvaluationResponse({}));
+    }
+
   }
 
   /**
@@ -3849,7 +4015,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new UpdateAccountFactoryBaselineResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new UpdateAccountFactoryBaselineResponse({}));
+    } else {
+      return $tea.cast<UpdateAccountFactoryBaselineResponse>(await this.execute(params, req, runtime), new UpdateAccountFactoryBaselineResponse({}));
+    }
+
   }
 
   /**
