@@ -1816,11 +1816,24 @@ export class CreateClusterRequest extends $tea.Model {
    */
   apiAudiences?: string;
   /**
+   * @remarks
+   * Specifies whether to enable auto-renewal, which takes effect only when the `charge_type` value is set to `PrePaid`. 
+   * 
+   * Possible values:
+   * - `true`: Enable auto-renewal. 
+   * - `false`: Do not auto-renew.
+   * 
+   * Default value: `false`.
+   * 
    * @example
    * true
    */
   autoRenew?: boolean;
   /**
+   * @remarks
+   * Renewal period, which takes effect only when Prepaid and Auto-Renewal are selected. When `PeriodUnit=Month`, the value range is {1, 2, 3, 6, 12}.
+   * Default value: 1.
+   * 
    * @example
    * 1
    */
@@ -2125,6 +2138,9 @@ export class CreateClusterRequest extends $tea.Model {
    */
   kubernetesVersion?: string;
   /**
+   * @remarks
+   * Specifies the CLB instance ID for accessing the APIServer. When this parameter is set, an APIServer CLB will no longer be automatically created.
+   * 
    * @example
    * lb-wz9t256gqa3vbouk****
    */
@@ -2793,6 +2809,11 @@ export class CreateClusterRequest extends $tea.Model {
    * @deprecated
    */
   zoneId?: string;
+  /**
+   * @remarks
+   * List of availability zone IDs in the region where the cluster resides. This parameter is specific to ACK managed clusters.
+   * When creating an ACK managed cluster, if `vpc_id` and `vswitch_ids` are not specified, specifying `zone_ids` allows for automatic creation of VPC network resources across multiple availability zones. If `vpc_id` and `vswitch_ids` are specified, this parameter becomes ineffective.
+   */
   zoneIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6254,6 +6275,10 @@ export class DescribeClusterNodePoolDetailResponseBody extends $tea.Model {
    * 10
    */
   maxNodes?: number;
+  /**
+   * @remarks
+   * Node configuration.
+   */
   nodeConfig?: DescribeClusterNodePoolDetailResponseBodyNodeConfig;
   /**
    * @remarks
@@ -6339,6 +6364,9 @@ export class DescribeClusterNodePoolDetailResponse extends $tea.Model {
 
 export class DescribeClusterNodePoolsRequest extends $tea.Model {
   /**
+   * @remarks
+   * Node pool name.
+   * 
    * @example
    * nodepool-test
    */
@@ -7917,6 +7945,9 @@ export class DescribeNodePoolVulsResponseBody extends $tea.Model {
    */
   vulRecords?: DescribeNodePoolVulsResponseBodyVulRecords[];
   /**
+   * @remarks
+   * Whether the Cloud Security CVE Remediation Service has been purchased
+   * 
    * @example
    * false
    */
@@ -10265,6 +10296,9 @@ export class ListClusterChecksRequest extends $tea.Model {
   /**
    * @remarks
    * The targets to check.
+   * 
+   * @example
+   * ngw-bp19ay6nnvd4cexxxx
    */
   target?: string;
   /**
@@ -11270,7 +11304,7 @@ export class ModifyClusterConfigurationResponse extends $tea.Model {
 export class ModifyClusterNodePoolRequest extends $tea.Model {
   /**
    * @remarks
-   * The configuration of auto scaling.
+   * The configurations about auto scaling.
    */
   autoScaling?: ModifyClusterNodePoolRequestAutoScaling;
   /**
@@ -11288,7 +11322,7 @@ export class ModifyClusterNodePoolRequest extends $tea.Model {
   kubernetesConfig?: ModifyClusterNodePoolRequestKubernetesConfig;
   /**
    * @remarks
-   * The configurations of the managed node pool feature.
+   * The configuration of the managed node pool feature.
    */
   management?: ModifyClusterNodePoolRequestManagement;
   /**
@@ -11298,7 +11332,7 @@ export class ModifyClusterNodePoolRequest extends $tea.Model {
   nodepoolInfo?: ModifyClusterNodePoolRequestNodepoolInfo;
   /**
    * @remarks
-   * The configurations of the scaling group that is used by the node pool.
+   * The configuration of the scaling group.
    */
   scalingGroup?: ModifyClusterNodePoolRequestScalingGroup;
   /**
@@ -11888,6 +11922,9 @@ export class RemoveClusterNodesResponse extends $tea.Model {
 
 export class RemoveNodePoolNodesRequest extends $tea.Model {
   /**
+   * @remarks
+   * Whether to remove concurrently.
+   * 
    * @example
    * false
    */
@@ -11953,6 +11990,9 @@ export class RemoveNodePoolNodesRequest extends $tea.Model {
 
 export class RemoveNodePoolNodesShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * Whether to remove concurrently.
+   * 
    * @example
    * false
    */
@@ -12535,10 +12575,10 @@ export class ScaleClusterResponse extends $tea.Model {
 export class ScaleClusterNodePoolRequest extends $tea.Model {
   /**
    * @remarks
-   * The number of worker nodes that you want to add. For example, the current node pool contains two nodes. After the node pool is scaled out, the node pool contains four nodes. Due to the limit of the node quota, you can add at most 500 nodes in each request.
+   * The number of worker nodes that you want to add. For example, the current node pool contains two nodes. After the two node is scaled out, the node pool contains four nodes. Due to the limit of the node quota, you can add at most 500 nodes in each request.
    * 
    * @example
-   * 1
+   * 2
    */
   count?: number;
   static names(): { [key: string]: string } {
@@ -12944,11 +12984,17 @@ export class ScaleOutClusterResponse extends $tea.Model {
 
 export class ScanClusterVulsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 687C5BAA-D103-4993-884B-C35E4314A1E1
    */
   requestId?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * T-xascadasd*****
    */
@@ -14305,6 +14351,9 @@ export class UpdateResourcesDeleteProtectionResponseBody extends $tea.Model {
   /**
    * @remarks
    * Indicates the status of deletion protection. A value of true indicates that deletion protection is enabled and a value of false indicates that deletion protection is disabled.
+   * 
+   * @example
+   * enable
    */
   protection?: string;
   /**
@@ -14318,6 +14367,9 @@ export class UpdateResourcesDeleteProtectionResponseBody extends $tea.Model {
   /**
    * @remarks
    * The type of resource for which deletion protection is enabled or disabled.
+   * 
+   * @example
+   * namespaces
    */
   resourceType?: string;
   /**
@@ -14557,6 +14609,10 @@ export class UpgradeClusterRequest extends $tea.Model {
    * 1.16.9-aliyun.1
    */
   nextVersion?: string;
+  /**
+   * @remarks
+   * Policy of rolling.
+   */
   rollingPolicy?: UpgradeClusterRequestRollingPolicy;
   /**
    * @remarks
@@ -14595,16 +14651,25 @@ export class UpgradeClusterRequest extends $tea.Model {
 
 export class UpgradeClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Cluster ID.
+   * 
    * @example
    * c82e6987e2961451182edacd74faf****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0527ac9a-c899-4341-a21a-****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * T-5faa48fb31b6b8078d00****
    */
@@ -16171,6 +16236,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $tea.Model {
    * customized,aliyun,ip,com
    */
   nodeNameMode?: string;
+  preUserData?: string;
   /**
    * @remarks
    * The name of the container runtime. The following types of runtime are supported by Container Service for Kubernetes (ACK):
@@ -16220,6 +16286,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $tea.Model {
       cpuPolicy: 'cpu_policy',
       labels: 'labels',
       nodeNameMode: 'node_name_mode',
+      preUserData: 'pre_user_data',
       runtime: 'runtime',
       runtimeVersion: 'runtime_version',
       taints: 'taints',
@@ -16234,6 +16301,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $tea.Model {
       cpuPolicy: 'string',
       labels: { 'type': 'array', 'itemType': Tag },
       nodeNameMode: 'string',
+      preUserData: 'string',
       runtime: 'string',
       runtimeVersion: 'string',
       taints: { 'type': 'array', 'itemType': Taint },
@@ -18036,6 +18104,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
    * customized,test.,5,.com
    */
   nodeNameMode?: string;
+  preUserData?: string;
   /**
    * @remarks
    * The name of the container runtime.
@@ -18058,6 +18127,9 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
    */
   taints?: Taint[];
   /**
+   * @remarks
+   * Whether the expanded node is schedulable.
+   * 
    * @example
    * true
    */
@@ -18076,6 +18148,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
       cpuPolicy: 'cpu_policy',
       labels: 'labels',
       nodeNameMode: 'node_name_mode',
+      preUserData: 'pre_user_data',
       runtime: 'runtime',
       runtimeVersion: 'runtime_version',
       taints: 'taints',
@@ -18090,6 +18163,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
       cpuPolicy: 'string',
       labels: { 'type': 'array', 'itemType': Tag },
       nodeNameMode: 'string',
+      preUserData: 'string',
       runtime: 'string',
       runtimeVersion: 'string',
       taints: { 'type': 'array', 'itemType': Taint },
@@ -18105,6 +18179,9 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
 
 export class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy extends $tea.Model {
   /**
+   * @remarks
+   * Whether to allow restarting nodes.
+   * 
    * @example
    * true
    */
@@ -18128,6 +18205,9 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy
 
 export class DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy extends $tea.Model {
   /**
+   * @remarks
+   * Whether to allow automatic upgrading of kubelet.
+   * 
    * @example
    * true
    */
@@ -18151,11 +18231,17 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolic
 
 export class DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy extends $tea.Model {
   /**
+   * @remarks
+   * Whether to allow restarting nodes.
+   * 
    * @example
    * true
    */
   restartNode?: boolean;
   /**
+   * @remarks
+   * The vulnerability levels allowed for auto-fixing, separated by commas.
+   * 
    * @example
    * asap,nntf
    */
@@ -18252,18 +18338,36 @@ export class DescribeClusterNodePoolDetailResponseBodyManagement extends $tea.Mo
    * true
    */
   autoRepair?: boolean;
+  /**
+   * @remarks
+   * Automatic repair node policy.
+   */
   autoRepairPolicy?: DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy;
   /**
+   * @remarks
+   * Whether to automatically upgrade.
+   * 
    * @example
    * true
    */
   autoUpgrade?: boolean;
+  /**
+   * @remarks
+   * Automatic upgrade policy.
+   */
   autoUpgradePolicy?: DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy;
   /**
+   * @remarks
+   * Whether to automatically fix CVEs.
+   * 
    * @example
    * true
    */
   autoVulFix?: boolean;
+  /**
+   * @remarks
+   * Automatically repair CVE policies.
+   */
   autoVulFixPolicy?: DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy;
   /**
    * @remarks
@@ -18313,6 +18417,10 @@ export class DescribeClusterNodePoolDetailResponseBodyManagement extends $tea.Mo
 }
 
 export class DescribeClusterNodePoolDetailResponseBodyNodeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Kubelet parameter configuration.
+   */
   kubeletConfiguration?: KubeletConfig;
   static names(): { [key: string]: string } {
     return {
@@ -18530,6 +18638,9 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
    */
   autoRenewPeriod?: number;
   /**
+   * @remarks
+   * 【The field is deprecated】Please use the parameter security_hardening_os instead.
+   * 
    * @example
    * false
    * 
@@ -18577,6 +18688,9 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
    */
   imageId?: string;
   /**
+   * @remarks
+   * Operating system image type.
+   * 
    * @example
    * AliyunLinux
    */
@@ -18594,7 +18708,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   instanceChargeType?: string;
   /**
    * @remarks
-   * 实例属性
+   * Instance attributes
    */
   instancePatterns?: InstancePatterns[];
   /**
@@ -18627,6 +18741,9 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
    */
   keyPair?: string;
   /**
+   * @remarks
+   * Whether the popped ECS instance uses a non-root user for login.
+   * 
    * @example
    * true
    */
@@ -18725,7 +18842,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   ramPolicy?: string;
   /**
    * @remarks
-   * Worker RAM角色名称。
+   * Worker RAM role name.
    * 
    * @example
    * KubernetesWorkerRole-4a4fa089-80c1-48a5-b3c6-9349311f****
@@ -18769,11 +18886,21 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
    */
   securityGroupIds?: string[];
   /**
+   * @remarks
+   * Alibaba Cloud OS security hardening. Values:
+   * - `true`: Enable Alibaba Cloud OS security hardening. 
+   * - `false`: Do not enable Alibaba Cloud OS security hardening.
+   * 
+   * Default value: `false`.
+   * 
    * @example
    * false
    */
   securityHardeningOs?: boolean;
   /**
+   * @remarks
+   * Indicates whether to enable security reinforcement compliant with the hardening standards. This option is available only when the system image is set to Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3. Alibaba Cloud provides baseline check standards and scanning programs compliant with Grade 3, Version 2.0 of the hardening standards for both Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 images.
+   * 
    * @example
    * false
    */
@@ -18817,6 +18944,9 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
    */
   spotStrategy?: string;
   /**
+   * @remarks
+   * Whether to enable Burst (performance burst) for the node system disk, configured when the disk type is cloud_auto.
+   * 
    * @example
    * true
    */
@@ -18853,6 +18983,9 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
    */
   systemDiskCategory?: string;
   /**
+   * @remarks
+   * Encryption algorithm used for the system disk. Valid values: aes-256.
+   * 
    * @example
    * aes-256
    */
@@ -18869,6 +19002,9 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
    */
   systemDiskEncrypted?: boolean;
   /**
+   * @remarks
+   * System disk\\"s KMS key ID.
+   * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
    */
@@ -18882,6 +19018,9 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
    */
   systemDiskPerformanceLevel?: string;
   /**
+   * @remarks
+   * Pre-configured read and write IOPS for the system disk of the node, configured when the disk type is cloud_auto.
+   * 
    * @example
    * 1000
    */
@@ -19372,6 +19511,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig exten
    * customized,test.,5,.com
    */
   nodeNameMode?: string;
+  preUserData?: string;
   /**
    * @remarks
    * The name of the container runtime.
@@ -19415,6 +19555,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig exten
       cpuPolicy: 'cpu_policy',
       labels: 'labels',
       nodeNameMode: 'node_name_mode',
+      preUserData: 'pre_user_data',
       runtime: 'runtime',
       runtimeVersion: 'runtime_version',
       taints: 'taints',
@@ -19429,6 +19570,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig exten
       cpuPolicy: 'string',
       labels: { 'type': 'array', 'itemType': Tag },
       nodeNameMode: 'string',
+      preUserData: 'string',
       runtime: 'string',
       runtimeVersion: 'string',
       taints: { 'type': 'array', 'itemType': Taint },
@@ -19979,6 +20121,10 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
    * PostPaid
    */
   instanceChargeType?: string;
+  /**
+   * @remarks
+   * Instance attributes
+   */
   instancePatterns?: InstancePatterns[];
   /**
    * @remarks
@@ -20113,6 +20259,9 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
    */
   ramPolicy?: string;
   /**
+   * @remarks
+   * Worker RAM role name.
+   * 
    * @example
    * KubernetesWorkerRole-4a4fa089-80c1-48a5-b3c6-9349311f****
    */
@@ -20154,6 +20303,15 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
    * The IDs of security groups for the node pool.
    */
   securityGroupIds?: string[];
+  /**
+   * @remarks
+   * Alibaba Cloud OS security hardening. Values:
+   * - `true`: Enable Alibaba Cloud OS security hardening. - `false`: Do not enable Alibaba Cloud OS security hardening.
+   * Default value: `false`.
+   * 
+   * @example
+   * false
+   */
   securityHardeningOs?: boolean;
   /**
    * @remarks
@@ -25605,7 +25763,7 @@ export class ModifyClusterNodePoolRequestAutoScaling extends $tea.Model {
   eipBandwidth?: number;
   /**
    * @remarks
-   * The metering method of the elastic IP address (EIP). Valid values:
+   * The billing method of the EIP. Valid values:
    * 
    * *   `PayByBandwidth`: pay-by-bandwidth.
    * *   `PayByTraffic`: pay-by-data-transfer.
@@ -25633,7 +25791,7 @@ export class ModifyClusterNodePoolRequestAutoScaling extends $tea.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Specifies whether to associate an EIP with the node pool. Valid values:
+   * Specifies whether to associate an elastic IP address (EIP) with the node pool. Valid values:
    * 
    * *   `true`: associates an EIP with the node pool.
    * *   `false`: No EIP is associated with the node pool.
@@ -25664,7 +25822,7 @@ export class ModifyClusterNodePoolRequestAutoScaling extends $tea.Model {
   minInstances?: number;
   /**
    * @remarks
-   * The instance type that is used for auto scaling. Valid values:
+   * The instance types that can be used for the auto scaling of the node pool. Valid values:
    * 
    * *   `cpu`: regular instance.
    * *   `gpu`: GPU-accelerated instance.
@@ -25737,12 +25895,13 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $tea.Model {
   cpuPolicy?: string;
   /**
    * @remarks
-   * The labels that you want to add to nodes in the cluster. You must add labels based on the following rules:
+   * The labels of the nodes in the node pool. You can add labels to the nodes in the cluster. You must add labels based on the following rules:
    * 
    * *   A label is a case-sensitive key-value pair. You can add up to 20 labels.
    * *   The key must be unique and cannot exceed 64 characters in length. The value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
    */
   labels?: Tag[];
+  preUserData?: string;
   /**
    * @remarks
    * The name of the container runtime.
@@ -25761,7 +25920,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $tea.Model {
   runtimeVersion?: string;
   /**
    * @remarks
-   * The taints.
+   * The configuration of a node taint.
    */
   taints?: Taint[];
   /**
@@ -25774,7 +25933,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $tea.Model {
   unschedulable?: boolean;
   /**
    * @remarks
-   * The user data on the node. For more information, see [Prepare user data](https://help.aliyun.com/document_detail/49121.html).
+   * The user data of the node pool. For more information, see [Prepare user data](https://help.aliyun.com/document_detail/49121.html).
    * 
    * @example
    * IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi
@@ -25785,6 +25944,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $tea.Model {
       cmsEnabled: 'cms_enabled',
       cpuPolicy: 'cpu_policy',
       labels: 'labels',
+      preUserData: 'pre_user_data',
       runtime: 'runtime',
       runtimeVersion: 'runtime_version',
       taints: 'taints',
@@ -25798,6 +25958,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $tea.Model {
       cmsEnabled: 'boolean',
       cpuPolicy: 'string',
       labels: { 'type': 'array', 'itemType': Tag },
+      preUserData: 'string',
       runtime: 'string',
       runtimeVersion: 'string',
       taints: { 'type': 'array', 'itemType': Taint },
@@ -25814,7 +25975,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $tea.Model {
 export class ModifyClusterNodePoolRequestManagementAutoRepairPolicy extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to allow node restart. Valid values:
+   * Specifies whether ACK is allowed to automatically restart nodes after repairing the nodes. Valid values:
    * 
    * *   `true`: allows node restart.
    * *   `false`: does not allow node restart.
@@ -25843,7 +26004,7 @@ export class ModifyClusterNodePoolRequestManagementAutoRepairPolicy extends $tea
 export class ModifyClusterNodePoolRequestManagementAutoUpgradePolicy extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to allow auto update of the kubelet. Valid values:
+   * Specifies whether ACK is allowed to automatically update the kubelet. Valid values:
    * 
    * *   `true`: allows auto update of the kubelet.
    * *   `false`: does not allow auto update of the kubelet.
@@ -25854,7 +26015,7 @@ export class ModifyClusterNodePoolRequestManagementAutoUpgradePolicy extends $te
   autoUpgradeKubelet?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow auto update of the OS. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
+   * Specifies whether ACK is allowed to automatically update the operating system. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
    * 
    * *   `true`: allows auto update of the OS.
    * *   `false`: does not allow auto update of the OS.
@@ -25864,7 +26025,7 @@ export class ModifyClusterNodePoolRequestManagementAutoUpgradePolicy extends $te
   autoUpgradeOs?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow auto update of the runtime. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
+   * Specifies whether ACK is allowed to automatically update the runtime. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
    * 
    * *   `true`: allows auto update of the runtime.
    * *   `false`: does not allow auto update of the runtime.
@@ -25896,7 +26057,7 @@ export class ModifyClusterNodePoolRequestManagementAutoUpgradePolicy extends $te
 export class ModifyClusterNodePoolRequestManagementAutoVulFixPolicy extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to allow node restart. Valid values:
+   * Specifies whether ACK is allowed to automatically restart nodes after repairing the nodes. Valid values:
    * 
    * *   `true`: allows node restart.
    * *   `false`: does not allow node restart.
@@ -25907,7 +26068,7 @@ export class ModifyClusterNodePoolRequestManagementAutoVulFixPolicy extends $tea
   restartNode?: boolean;
   /**
    * @remarks
-   * The severity levels of CVEs that can be automatically patched. Separate multiple levels with commas (,).
+   * The severity levels of vulnerabilities that ACK is allowed to automatically patch. Multiple severity levels are separated by commas (,).
    * 
    * @example
    * asap,nntf
@@ -25935,7 +26096,7 @@ export class ModifyClusterNodePoolRequestManagementAutoVulFixPolicy extends $tea
 export class ModifyClusterNodePoolRequestManagementUpgradeConfig extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto update. Valid values:
+   * Specifies whether to enable auto update.
    * 
    * *   true: enables auto update.
    * *   false: disables auto update.
@@ -25950,11 +26111,11 @@ export class ModifyClusterNodePoolRequestManagementUpgradeConfig extends $tea.Mo
   autoUpgrade?: boolean;
   /**
    * @remarks
-   * The maximum number of unavailable nodes.
+   * The maximum number of nodes that can be in the Unavailable state.
    * 
    * Valid values: 1 to 1000.
    * 
-   * Default value: 1.
+   * Default value: 1
    * 
    * @example
    * 1
@@ -25962,9 +26123,9 @@ export class ModifyClusterNodePoolRequestManagementUpgradeConfig extends $tea.Mo
   maxUnavailable?: number;
   /**
    * @remarks
-   * The number of additional nodes that are temporarily added to the node pool during an auto update. A node is unavailable during an update. Additional nodes are used to temporarily host the workloads of nodes that are being updated.
+   * The number of nodes that are temporarily added to the node pool during an auto upgrade. Additional nodes are used to host the workloads of nodes that are being updated.
    * 
-   * >  We recommend that you set the number of additional nodes to a value that does not exceed the current number of existing nodes in the node pool.
+   * >  We recommend that you set the number of additional nodes to a value that does not exceed the current number of existing nodes.
    * 
    * @example
    * 5
@@ -25972,7 +26133,7 @@ export class ModifyClusterNodePoolRequestManagementUpgradeConfig extends $tea.Mo
   surge?: number;
   /**
    * @remarks
-   * The percentage of additional nodes that are temporarily added to the node pool during an auto update. You must set this parameter or `surge`.
+   * The percentage of additional nodes to the nodes in the node pool. You must set this parameter or `surge`.
    * 
    * @example
    * 0
@@ -26038,7 +26199,7 @@ export class ModifyClusterNodePoolRequestManagement extends $tea.Model {
   autoUpgradePolicy?: ModifyClusterNodePoolRequestManagementAutoUpgradePolicy;
   /**
    * @remarks
-   * Specifies whether to enable auto Common Vulnerabilities and Exposures (CVE) patching. Valid values:
+   * Specifies whether ACK is allowed to automatically patch CVE vulnerabilities. Valid values:
    * 
    * *   `true`: enables auto CVE patching.
    * *   `true`: disables auto CVE patching.
@@ -26067,7 +26228,7 @@ export class ModifyClusterNodePoolRequestManagement extends $tea.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The configurations of auto update. The configuration takes effect only when you specify `enable=true`.
+   * The configuration of auto update. The configuration takes effect only when `enable=true` is specified.
    * 
    * @deprecated
    */
@@ -26116,7 +26277,7 @@ export class ModifyClusterNodePoolRequestNodepoolInfo extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmyvw3wjm****
@@ -26184,7 +26345,7 @@ export class ModifyClusterNodePoolRequestScalingGroupPrivatePoolOptions extends 
 export class ModifyClusterNodePoolRequestScalingGroupSpotPriceLimit extends $tea.Model {
   /**
    * @remarks
-   * The price cap of a preemptible instance.
+   * The instance type of preemptible instances.
    * 
    * @example
    * ecs.c6.large
@@ -26192,7 +26353,7 @@ export class ModifyClusterNodePoolRequestScalingGroupSpotPriceLimit extends $tea
   instanceType?: string;
   /**
    * @remarks
-   * The price cap of a preemptible instance.
+   * The maximum bid price of a preemptible instance.
    * 
    * Unit: USD/hour.
    * 
@@ -26222,12 +26383,12 @@ export class ModifyClusterNodePoolRequestScalingGroupSpotPriceLimit extends $tea
 export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for nodes in the node pool. This parameter takes effect only when you set `instance_charge_type` to `PrePaid`. Valid values:
+   * Specifies whether to enable auto-renewal for the nodes in the node pool. This parameter takes effect only when you set `instance_charge_type` to `PrePaid`. Valid values:
    * 
    * *   `true`: enables auto-renewal.
    * *   `false`: disables auto-renewal.
    * 
-   * Default value: `true`.
+   * Default value: `false`.
    * 
    * @example
    * true
@@ -26235,7 +26396,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal duration of nodes in the node pool. This parameter takes effect and is required only when you set `instance_charge_type` to `PrePaid`.
+   * The duration of the auto-renewal. This parameter takes effect and is required only when you set `instance_charge_type` to `PrePaid`.
    * 
    * If you specify `PeriodUnit=Month`, the valid values are 1, 2, 3, 6, and 12.
    * 
@@ -26245,7 +26406,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created due to reasons such as cost or insufficient inventory. This parameter takes effect only when you set `multi_az_policy` to `COST_OPTIMIZED`. Valid values:
+   * Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created due to reasons such as the cost or insufficient inventory. This parameter takes effect only when you set `multi_az_policy` to `COST_OPTIMIZED`. Valid values:
    * 
    * *   `true`: automatically creates pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created
    * *   `false`: does not create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created.
@@ -26256,7 +26417,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   compensateWithOnDemand?: boolean;
   /**
    * @remarks
-   * The configurations of the data disks that are mounted to nodes in the node pool. Valid values: 0 to 10. You can mount at most 10 data disks to nodes in the node pool.
+   * The configurations of the data disks that are mounted to the nodes in the node pool. You can mount at most 10 data disks to the nodes in the node pool.
    */
   dataDisks?: DataDisk[];
   /**
@@ -26269,7 +26430,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   desiredSize?: number;
   /**
    * @remarks
-   * The custom image ID. You can call the `DescribeKubernetesVersionMetadata` operation to query the supported images. By default, the latest image provided by the system is used.
+   * The custom image ID. You can call the `DescribeKubernetesVersionMetadata` operation to query the supported images. By default, the latest image is used.
    * 
    * @example
    * aliyun_2_1903_x64_20G_alibase_20200904.vhd
@@ -26281,7 +26442,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
    * 
    * *   `AliyunLinux`: Alibaba Cloud Linux 2.
    * *   `AliyunLinuxSecurity`: Alibaba Cloud Linux 2 (UEFI).
-   * *   `AliyunLinux3`: Alibaba Cloud Linux 3
+   * *   `AliyunLinux3`: Alibaba Cloud Linux 3.
    * *   `AliyunLinux3Arm64`: Alibaba Cloud Linux 3 (ARM).
    * *   `AliyunLinux3Security`: Alibaba Cloud Linux 3 (UEFI).
    * *   `CentOS`: CentOS.
@@ -26306,15 +26467,19 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
    * PostPaid
    */
   instanceChargeType?: string;
+  /**
+   * @remarks
+   * The instance attributes.
+   */
   instancePatterns?: InstancePatterns[];
   /**
    * @remarks
-   * The instance types of nodes in the node pool. When the system adds a node to the node pool, the system selects the most appropriate one from the specified instance types for the node. The instance type that is used to create the node varies based on the actual instance stock.
+   * The instance types. You can specify multiple instance types. A node is assigned the instance type from the first instance type of the list until the node is created. The instance type that is used to create the node varies based on the actual instance stock.
    */
   instanceTypes?: string[];
   /**
    * @remarks
-   * The metering method of the public IP address. Valid values:
+   * The billing method of the public IP address. Valid values:
    * 
    * *   `PayByBandwidth`: pay-by-bandwidth.
    * *   `PayByTraffic`: pay-by-data-transfer.
@@ -26325,7 +26490,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The maximum outbound bandwidth of the public IP address. Unit: Mbit/s. Valid values: 1 to 100.
+   * The maximum outbound bandwidth of the public IP address of the node. Unit: Mbit/s. Valid values: 1 to 100.
    * 
    * @example
    * 5
@@ -26351,15 +26516,15 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
    * @remarks
    * The ECS instance scaling policy for the multi-zone scaling group. Valid values:
    * 
-   * *   `PRIORITY`: ECS instances are scaled based on the VSwitchIds.N parameter. If an ECS instance cannot be created in the zone in which the vSwitch that has the highest priority resides, Auto Scaling creates the ECS instance in the zone in which the vSwitch that has the next highest priority resides.
+   * *   `PRIORITY`: The scaling group is scaled based on the VSwitchIds.N parameter. If an ECS instance cannot be created in the zone in which the vSwitch that has the highest priority resides, Auto Scaling creates the ECS instance in the zone in which the vSwitch that has the next highest priority resides.
    * 
-   * *   `COST_OPTIMIZED`: ECS instances are created based on the vCPU unit price in ascending order. Preemptible instances are preferably created when preemptible instance types are specified in the scaling configurations. You can set `CompensateWithOnDemand` to specify whether to automatically create pay-as-you-go instances when preemptible instances cannot be created due to insufficient inventory.
+   * *   `COST_OPTIMIZED`: ECS instances are created based on the vCPU unit price in ascending order. Preemptible instances are preferably created when preemptible instance types are specified in the scaling configurations. You can specify `CompensateWithOnDemand` to specify whether to automatically create pay-as-you-go instances when preemptible instances cannot be created due to insufficient resources.
    * 
    *     **
    * 
    *     **Note** `COST_OPTIMIZED` is valid only when multiple instance types are specified or at least one preemptible instance type is specified.
    * 
-   * *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to evenly distribute the ECS instances among zones. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
+   * *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to the insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
    * 
    * Default value: `PRIORITY`.
    * 
@@ -26385,7 +26550,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   onDemandPercentageAboveBaseCapacity?: number;
   /**
    * @remarks
-   * The subscription duration of nodes in the node pool. This parameter takes effect and is required if you set `instance_charge_type` to `PrePaid`.
+   * The subscription duration of the nodes in the node pool. This parameter takes effect and is required only when you set `instance_charge_type` to `PrePaid`.
    * 
    * If `PeriodUnit=Month` is specified, the valid values are 1, 2, 3, 6, 12, 24, 36, 48, and 60.
    * 
@@ -26395,7 +26560,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   period?: number;
   /**
    * @remarks
-   * The billing cycle of nodes in the node pool. This parameter is required if you set `instance_charge_type` to `PrePaid`. Valid values:
+   * The billing cycle of the nodes in the node pool. This parameter is required if you set `instance_charge_type` to `PrePaid`. Valid values:
    * 
    * The billing cycle is measured only in months.
    * 
@@ -26451,7 +26616,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   spotInstancePools?: number;
   /**
    * @remarks
-   * Specifies whether to supplement preemptible instances. If you set this parameter to true, when the scaling group receives a system message indicating that a preemptible instance is to be reclaimed, the scaling group creates a new instance to replace this instance. Valid values:
+   * Specifies whether to supplement preemptible instances. If the supplementation of preemptible instances is enabled, when the scaling group receives a system message that a preemptible instance is to be reclaimed, the scaling group attempts to create a new instance to replace this instance. Valid values:
    * 
    * *   `true`: supplements preemptible instances.
    * *   `false`: does not supplement preemptible instances.
@@ -26462,7 +26627,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   spotInstanceRemedy?: boolean;
   /**
    * @remarks
-   * The instance type of preemptible instances and the price cap for the instance type.
+   * The instance type of preemptible instance and the price cap for the instance type.
    */
   spotPriceLimit?: ModifyClusterNodePoolRequestScalingGroupSpotPriceLimit[];
   /**
@@ -26470,10 +26635,10 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
    * The bidding policy of preemptible instances. Valid values:
    * 
    * *   `NoSpot`: non-preemptible instance.
-   * *   `SpotWithPriceLimit`: specifies the highest bid.
+   * *   `SpotWithPriceLimit`: specifies the highest bid for the preemptible instance.
    * *   `SpotAsPriceGo`: automatically submits bids based on the up-to-date market price.
    * 
-   * For more information, see [Preemptible instances](https://help.aliyun.com/document_detail/157759.html).
+   * For more information, see [Create a preemptible elastic container instance](https://help.aliyun.com/document_detail/157759.html).
    * 
    * @example
    * SpotWithPriceLimit
@@ -26481,7 +26646,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * Specifies whether to enable the burst feature for the system disk when the disk type is cloud_auto.
+   * Specifies whether to enable Burst for the system disk when the disk type is cloud_auto.
    * 
    * @example
    * true
@@ -26489,12 +26654,12 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   systemDiskBurstingEnabled?: boolean;
   /**
    * @remarks
-   * The system disk types. The system creates system disks of a disk type with a lower priority if the disk type with a higher priority is unavailable. Valid values: cloud (basic disk), cloud_efficiency (ultra disk), cloud_ssd (standard SSD), and cloud_essd: (ESSD).
+   * The system disk types. The system attempts to create system disks of a disk type with a lower priority if the disk type with a higher priority is unavailable. Valid values: cloud: disk. cloud_efficiency (ultra disk), cloud_ssd: standard SSD. cloud_essd: Enterprise SSD (ESSD).
    */
   systemDiskCategories?: string[];
   /**
    * @remarks
-   * The system disk type. Valid values:
+   * The type of the system disk. Valid values:
    * 
    * *   `cloud_efficiency`: ultra disk.
    * *   `cloud_ssd`: standard SSD.
@@ -26507,7 +26672,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The encryption algorithm that is used to encrypt the system disk. Set the value to aes-256.
+   * The encryption algorithm that is used by the system disk. Set the value to aes-256.
    * 
    * @example
    * aes-256
@@ -26531,7 +26696,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   systemDiskKmsKeyId?: string;
   /**
    * @remarks
-   * The performance level (PL) of the system disk. This parameter takes effect only for an Enterprise SSD (ESSD). You can specify a higher PL if you increase the size of the data disk. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * The performance level (PL) of the system disk that you want to use for the node. This parameter takes effect only for ESSDs. You can specify a higher PL if you increase the size of the data disk. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
    * @example
    * PL1
@@ -26539,7 +26704,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The preset read/write IOPS of the system disk when the disk type is cloud_auto.
+   * The predefined read and write IOPS of the system disk when the disk type is cloud_auto.
    * 
    * @example
    * 1000
@@ -26547,7 +26712,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   systemDiskProvisionedIops?: number;
   /**
    * @remarks
-   * The size of the system disk. Unit: GiB.
+   * The size of the system disk in GiB.
    * 
    * Valid values: 20 to 500.
    * 
@@ -26563,12 +26728,12 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
    * @remarks
    * The labels that you want to add only to ECS instances.
    * 
-   * The label key must be unique and cannot exceed 128 characters in length. The label key and value cannot start with aliyun or acs: and cannot contain https:// or http://.
+   * The label key must be unique and cannot exceed 128 characters in length. The label key and value cannot start with aliyun or acs: or contain https:// or http://.
    */
   tags?: Tag[];
   /**
    * @remarks
-   * The vSwitch IDs. You can specify 1 to 20 vSwitches.
+   * The IDs of vSwitches. You can specify 1 to 20 vSwitches.
    * 
    * >  To ensure high availability, we recommend that you select vSwitches that reside in different zones.
    */
@@ -27019,6 +27184,13 @@ export class UpdateUserPermissionsRequestBody extends $tea.Model {
 }
 
 export class UpgradeClusterRequestRollingPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * Maximum number of executions per batch.
+   * 
+   * @example
+   * 3
+   */
   maxParallelism?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32350,9 +32522,9 @@ export default class Client extends OpenApi {
    * Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
    * 
    * @remarks
-   * You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
-   * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://help.aliyun.com/document_detail/2667944.html).
-   * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://help.aliyun.com/document_detail/199588.html).
+   * You can call this API operation to modify the component parameters of an ACK Basic cluster or the control plane parameters of an ACK Pro cluster:
+   * *   To view the component parameters of an ACK Basic cluster, call the DescribeClusterAddonMetadata API operation. For more information, see [Query the metadata of a cluster component](https://help.aliyun.com/document_detail/2667944.html).
+   * *   To view the control plane parameters of an ACK Pro cluster, see [Customize the control plane parameters of an ACK Pro cluster](https://help.aliyun.com/document_detail/199588.html).
    * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
    * 
    * @param request - ModifyClusterAddonRequest
@@ -32389,9 +32561,9 @@ export default class Client extends OpenApi {
    * Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
    * 
    * @remarks
-   * You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
-   * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://help.aliyun.com/document_detail/2667944.html).
-   * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://help.aliyun.com/document_detail/199588.html).
+   * You can call this API operation to modify the component parameters of an ACK Basic cluster or the control plane parameters of an ACK Pro cluster:
+   * *   To view the component parameters of an ACK Basic cluster, call the DescribeClusterAddonMetadata API operation. For more information, see [Query the metadata of a cluster component](https://help.aliyun.com/document_detail/2667944.html).
+   * *   To view the control plane parameters of an ACK Pro cluster, see [Customize the control plane parameters of an ACK Pro cluster](https://help.aliyun.com/document_detail/199588.html).
    * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
    * 
    * @param request - ModifyClusterAddonRequest
@@ -33602,7 +33774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The cluster ID.
+   * Scans for vulnerabilities in a Container Service for Kubernetes (ACK) cluster, including workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows vulnerabilities. We recommend that you scan your cluster on a regular basis to ensure cluster security.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33627,7 +33799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The cluster ID.
+   * Scans for vulnerabilities in a Container Service for Kubernetes (ACK) cluster, including workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows vulnerabilities. We recommend that you scan your cluster on a regular basis to ensure cluster security.
    * @returns ScanClusterVulsResponse
    */
   async scanClusterVuls(clusterId: string): Promise<ScanClusterVulsResponse> {
@@ -34457,6 +34629,13 @@ export default class Client extends OpenApi {
   /**
    * You can call the UpgradeCluster operation to upgrade a cluster by cluster ID.
    * 
+   * @remarks
+   * After successfully calling the UpgradeCluster interface, this API returns the `task_id` of the upgrade task. You can manage this operation task by calling the following task APIs:
+   * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
+   * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html) 
+   * - [Call ResumeTask to resume a task that has been paused](https://help.aliyun.com/document_detail/2667987.html) 
+   * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html)
+   * 
    * @param request - UpgradeClusterRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34505,6 +34684,13 @@ export default class Client extends OpenApi {
 
   /**
    * You can call the UpgradeCluster operation to upgrade a cluster by cluster ID.
+   * 
+   * @remarks
+   * After successfully calling the UpgradeCluster interface, this API returns the `task_id` of the upgrade task. You can manage this operation task by calling the following task APIs:
+   * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
+   * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html) 
+   * - [Call ResumeTask to resume a task that has been paused](https://help.aliyun.com/document_detail/2667987.html) 
+   * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html)
    * 
    * @param request - UpgradeClusterRequest
    * @returns UpgradeClusterResponse
