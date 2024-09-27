@@ -1301,7 +1301,7 @@ export class ExecuteOperationSyncResponseBody extends $tea.Model {
    * @example
    * op_xxxxxxxxxxxxxxxxxx_dds_modifyInstanceType_BYSOQGWUV6PME412_ERMEZLXNN3K9N3OL
    */
-  data?: string;
+  data?: ExecuteOperationSyncResponseBodyData;
   /**
    * @example
    * Access key ID cannot be null.
@@ -1324,7 +1324,7 @@ export class ExecuteOperationSyncResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: 'string',
+      data: ExecuteOperationSyncResponseBodyData,
       message: 'string',
       requestId: 'string',
     };
@@ -4453,6 +4453,34 @@ export class CreateApplicationRequestInstances extends $tea.Model {
       id: 'string',
       nodeName: 'string',
       nodeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteOperationSyncResponseBodyData extends $tea.Model {
+  arguments?: string;
+  message?: string;
+  operationId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arguments: 'Arguments',
+      message: 'Message',
+      operationId: 'OperationId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arguments: 'string',
+      message: 'string',
+      operationId: 'string',
+      status: 'string',
     };
   }
 
