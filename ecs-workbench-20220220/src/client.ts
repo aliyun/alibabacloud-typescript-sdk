@@ -220,6 +220,125 @@ export class ListInstanceRecordsResponse extends $tea.Model {
   }
 }
 
+export class ListTerminalCommandsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * abc
+   */
+  terminalSessionToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      terminalSessionToken: 'TerminalSessionToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      terminalSessionToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTerminalCommandsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
+  requestId?: string;
+  terminalCommandList?: ListTerminalCommandsResponseBodyTerminalCommandList[];
+  /**
+   * @example
+   * 3
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      terminalCommandList: 'TerminalCommandList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      terminalCommandList: { 'type': 'array', 'itemType': ListTerminalCommandsResponseBodyTerminalCommandList },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTerminalCommandsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTerminalCommandsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTerminalCommandsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LoginInstanceRequest extends $tea.Model {
   instanceLoginInfo?: LoginInstanceRequestInstanceLoginInfo;
   partnerInfo?: LoginInstanceRequestPartnerInfo;
@@ -702,6 +821,50 @@ export class ListInstanceRecordsResponseBodyRoot extends $tea.Model {
     return {
       recordList: { 'type': 'array', 'itemType': ListInstanceRecordsResponseBodyRootRecordList },
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTerminalCommandsResponseBodyTerminalCommandList extends $tea.Model {
+  /**
+   * @example
+   * ls
+   */
+  commandLine?: string;
+  /**
+   * @example
+   * 2024-04-16T03:53:18Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * /root
+   */
+  executePath?: string;
+  /**
+   * @example
+   * root
+   */
+  loginUser?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commandLine: 'CommandLine',
+      createTime: 'CreateTime',
+      executePath: 'ExecutePath',
+      loginUser: 'LoginUser',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandLine: 'string',
+      createTime: 'string',
+      executePath: 'string',
+      loginUser: 'string',
     };
   }
 
@@ -1387,6 +1550,60 @@ export default class Client extends OpenApi {
   async listInstanceRecords(request: ListInstanceRecordsRequest): Promise<ListInstanceRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看实例Workbench登录后执行命令的历史列表。
+   * 
+   * @param request - ListTerminalCommandsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTerminalCommandsResponse
+   */
+  async listTerminalCommandsWithOptions(request: ListTerminalCommandsRequest, runtime: $Util.RuntimeOptions): Promise<ListTerminalCommandsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.terminalSessionToken)) {
+      body["TerminalSessionToken"] = request.terminalSessionToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTerminalCommands",
+      version: "2022-02-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTerminalCommandsResponse>(await this.callApi(params, req, runtime), new ListTerminalCommandsResponse({}));
+  }
+
+  /**
+   * 查看实例Workbench登录后执行命令的历史列表。
+   * 
+   * @param request - ListTerminalCommandsRequest
+   * @returns ListTerminalCommandsResponse
+   */
+  async listTerminalCommands(request: ListTerminalCommandsRequest): Promise<ListTerminalCommandsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTerminalCommandsWithOptions(request, runtime);
   }
 
   /**
