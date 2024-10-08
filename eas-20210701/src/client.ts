@@ -578,6 +578,10 @@ export class Service extends $tea.Model {
 }
 
 export class CloneServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The label of the service to be cloned.
+   */
   labels?: { [key: string]: string };
   /**
    * @remarks
@@ -607,6 +611,10 @@ export class CloneServiceRequest extends $tea.Model {
 }
 
 export class CloneServiceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The label of the service to be cloned.
+   */
   labelsShrink?: string;
   /**
    * @remarks
@@ -798,8 +806,15 @@ export class CommitServiceResponse extends $tea.Model {
 }
 
 export class CreateAclPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
+   */
   aclPolicyList?: CreateAclPolicyRequestAclPolicyList[];
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC). For more information about how to obtain the VPC ID, see DescribeVpcs.
+   * 
    * @example
    * vpc-uf66uio7md****
    */
@@ -824,8 +839,15 @@ export class CreateAclPolicyRequest extends $tea.Model {
 }
 
 export class CreateAclPolicyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
+   */
   aclPolicyListShrink?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC). For more information about how to obtain the VPC ID, see DescribeVpcs.
+   * 
    * @example
    * vpc-uf66uio7md****
    */
@@ -851,16 +873,25 @@ export class CreateAclPolicyShrinkRequest extends $tea.Model {
 
 export class CreateAclPolicyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The private gateway ID.
+   * 
    * @example
    * gw-1uhcqmsc7x22******
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * Successfully add acl policy for gateway
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 40325405-579C-4D82****
    */
@@ -2720,8 +2751,15 @@ export class CreateServiceMirrorResponse extends $tea.Model {
 }
 
 export class DeleteAclPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
+   */
   aclPolicyList?: DeleteAclPolicyRequestAclPolicyList[];
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC). For more information about how to obtain the VPC ID, see DescribeVpcs.
+   * 
    * @example
    * vpc-uf66uio7md****
    */
@@ -2746,8 +2784,15 @@ export class DeleteAclPolicyRequest extends $tea.Model {
 }
 
 export class DeleteAclPolicyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
+   */
   aclPolicyListShrink?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC). For more information about how to obtain the VPC ID, see DescribeVpcs.
+   * 
    * @example
    * vpc-uf66uio7md****
    */
@@ -2773,16 +2818,25 @@ export class DeleteAclPolicyShrinkRequest extends $tea.Model {
 
 export class DeleteAclPolicyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The private gateway ID.
+   * 
    * @example
    * gw-1uhcqmsc7x22******
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * Successfully delete acl policy for gateway
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 40325405-579C-4D82****
    */
@@ -5805,6 +5859,9 @@ export class DevelopServiceResponse extends $tea.Model {
 
 export class ListAclPolicyRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC). For more information about how to obtain the VPC ID, see DescribeVpcs.
+   * 
    * @example
    * vpc-uf66uio7md****
    */
@@ -5828,13 +5885,27 @@ export class ListAclPolicyRequest extends $tea.Model {
 
 export class ListAclPolicyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The private gateway ID.
+   * 
    * @example
    * gw-1uhcqmsc7x22******
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The access control policies of the private gateway over the Internet.
+   */
   internetAclPolicyList?: ListAclPolicyResponseBodyInternetAclPolicyList[];
+  /**
+   * @remarks
+   * The access control policies of the private gateway over the internal network.
+   */
   intranetVpcAclPolicyList?: ListAclPolicyResponseBodyIntranetVpcAclPolicyList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 40325405-579C-4D82****
    */
@@ -6033,21 +6104,33 @@ export class ListBenchmarkTaskResponse extends $tea.Model {
 
 export class ListGatewayRequest extends $tea.Model {
   /**
+   * @remarks
+   * The private gateway ID. To obtain the private gateway ID, see the private_gateway_id parameter in the response parameters of the ListResources operation.
+   * 
    * @example
    * gw-1uhcqmsc7x22******
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The private gateway alias.
+   * 
    * @example
    * mygateway1
    */
   gatewayName?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
    * @example
    * 100
    */
@@ -6076,23 +6159,39 @@ export class ListGatewayRequest extends $tea.Model {
 }
 
 export class ListGatewayResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The private gateways.
+   */
   gateways?: ListGatewayResponseBodyGateways[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 40325405-579C-4D82****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of private gateways returned.
+   * 
    * @example
    * 5
    */
@@ -7766,6 +7865,7 @@ export class ListServicesRequest extends $tea.Model {
    * eas-r-hd0qwy8cxxxx
    */
   resourceName?: string;
+  role?: string;
   /**
    * @remarks
    * The service name.
@@ -8011,6 +8111,7 @@ export class ListServicesRequest extends $tea.Model {
       parentServiceUid: 'ParentServiceUid',
       quotaId: 'QuotaId',
       resourceName: 'ResourceName',
+      role: 'Role',
       serviceName: 'ServiceName',
       serviceStatus: 'ServiceStatus',
       serviceType: 'ServiceType',
@@ -8032,6 +8133,7 @@ export class ListServicesRequest extends $tea.Model {
       parentServiceUid: 'string',
       quotaId: 'string',
       resourceName: 'string',
+      role: 'string',
       serviceName: 'string',
       serviceStatus: 'string',
       serviceType: 'string',
@@ -8127,6 +8229,7 @@ export class ListServicesShrinkRequest extends $tea.Model {
    * eas-r-hd0qwy8cxxxx
    */
   resourceName?: string;
+  role?: string;
   /**
    * @remarks
    * The service name.
@@ -8372,6 +8475,7 @@ export class ListServicesShrinkRequest extends $tea.Model {
       parentServiceUid: 'ParentServiceUid',
       quotaId: 'QuotaId',
       resourceName: 'ResourceName',
+      role: 'Role',
       serviceName: 'ServiceName',
       serviceStatus: 'ServiceStatus',
       serviceType: 'ServiceType',
@@ -8393,6 +8497,7 @@ export class ListServicesShrinkRequest extends $tea.Model {
       parentServiceUid: 'string',
       quotaId: 'string',
       resourceName: 'string',
+      role: 'string',
       serviceName: 'string',
       serviceStatus: 'string',
       serviceType: 'string',
@@ -8496,8 +8601,15 @@ export class ListServicesResponse extends $tea.Model {
 }
 
 export class ListTenantAddonsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the plug-in.
+   */
   addons?: ListTenantAddonsResponseBodyAddons[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 40325405-579C-4D82****
    */
@@ -8548,11 +8660,17 @@ export class ListTenantAddonsResponse extends $tea.Model {
 
 export class ReinstallTenantAddonResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * Addon prometheus_discovery is successfully reinstalled
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 40325405-579C-4D82****
    */
@@ -10538,11 +10656,17 @@ export class ServiceLabels extends $tea.Model {
 
 export class CreateAclPolicyRequestAclPolicyList extends $tea.Model {
   /**
+   * @remarks
+   * The comment on the IP CIDR block in the VPC that can access the private gateway.
+   * 
    * @example
    * default
    */
   comment?: string;
   /**
+   * @remarks
+   * The IP CIDR block in the VPC that can access the private gateway.
+   * 
    * @example
    * 10.23.XX.XX/32
    */
@@ -10918,11 +11042,17 @@ export class CreateServiceCronScalerRequestScaleJobs extends $tea.Model {
 
 export class DeleteAclPolicyRequestAclPolicyList extends $tea.Model {
   /**
+   * @remarks
+   * The comment on the IP CIDR block in the VPC that can access the private gateway.
+   * 
    * @example
    * default
    */
   comment?: string;
   /**
+   * @remarks
+   * The IP CIDR block in the VPC that can access the private gateway.
+   * 
    * @example
    * 10.23.XX.XX/32
    */
@@ -11329,7 +11459,21 @@ export class DescribeSpotDiscountHistoryResponseBodySpotDiscounts extends $tea.M
 }
 
 export class ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList extends $tea.Model {
+  /**
+   * @remarks
+   * The comment on the IP CIDR block in the VPC that can access the private gateway over the Internet.
+   * 
+   * @example
+   * default
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The IP CIDR block in the VPC that can access the private gateway over the Internet.
+   * 
+   * @example
+   * 10.23.XX.XX/32
+   */
   entry?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11351,6 +11495,10 @@ export class ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList extends
 }
 
 export class ListAclPolicyResponseBodyInternetAclPolicyList extends $tea.Model {
+  /**
+   * @remarks
+   * The whitelisted IP CIDR blocks in the VPC that can access the private gateway over the Internet.
+   */
   aclPolicyList?: ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList[];
   static names(): { [key: string]: string } {
     return {
@@ -11370,7 +11518,21 @@ export class ListAclPolicyResponseBodyInternetAclPolicyList extends $tea.Model {
 }
 
 export class ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList extends $tea.Model {
+  /**
+   * @remarks
+   * The comment on the IP CIDR block in the VPC that can access the private gateway over the internal network.
+   * 
+   * @example
+   * Test Entry
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The IP CIDR block in the VPC that can access the private gateway over the internal network.
+   * 
+   * @example
+   * 192.168.XX.XX/24
+   */
   entry?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11392,8 +11554,15 @@ export class ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList exte
 }
 
 export class ListAclPolicyResponseBodyIntranetVpcAclPolicyList extends $tea.Model {
+  /**
+   * @remarks
+   * The whitelisted IP CIDR blocks in the VPC that can access the private gateway over the internal network.
+   */
   aclPolicyList?: ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList[];
   /**
+   * @remarks
+   * The VPC ID. For more information about how to obtain the VPC ID, see DescribeVpcs.
+   * 
    * @example
    * vpc-uf66uio7md****
    */
@@ -11599,56 +11768,99 @@ export class ListBenchmarkTaskResponseBodyTasks extends $tea.Model {
 
 export class ListGatewayResponseBodyGateways extends $tea.Model {
   /**
+   * @remarks
+   * The time when the private gateway was created. The time is displayed in UTC.
+   * 
    * @example
    * 2020-05-19T14:19:42Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The private gateway ID.
+   * 
    * @example
    * gw-1uhcqmsc7x22******
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The private gateway alias.
+   * 
    * @example
    * mygateway1
    */
   gatewayName?: string;
   /**
+   * @remarks
+   * The type of instances used for the private gateway.
+   * 
    * @example
    * 2c4g
    */
   instanceType?: string;
   /**
+   * @remarks
+   * The public endpoint.
+   * 
    * @example
    * gw-1uhcqmsc7x22******-1801786532******.cn-wulanchabu.pai-eas.aliyuncs.com
    */
   internetDomain?: string;
   /**
+   * @remarks
+   * Indicates whether Internet access is enabled.
+   * 
    * @example
    * true
    */
   internetEnabled?: boolean;
   /**
+   * @remarks
+   * The internal endpoint.
+   * 
    * @example
    * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-wulanchabu.pai-eas.aliyuncs.com
    */
   intranetDomain?: string;
   /**
+   * @remarks
+   * Indicates whether it is the default private gateway.
+   * 
    * @example
    * true
    */
   isDefault?: boolean;
   /**
+   * @remarks
+   * The number of nodes in the private gateway.
+   * 
    * @example
    * 2
    */
   replicas?: number;
   /**
+   * @remarks
+   * The state of the private gateway.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * *   Stopped
+   * *   Failed
+   * *   Running
+   * *   Deleted
+   * *   Deleting
+   * *   Waiting
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the private gateway was updated. The time is displayed in UTC.
+   * 
    * @example
    * 2021-02-24T11:52:17Z
    */
@@ -11874,8 +12086,15 @@ export class ListServiceVersionsResponseBodyVersions extends $tea.Model {
 }
 
 export class ListTenantAddonsResponseBodyAddons extends $tea.Model {
+  /**
+   * @remarks
+   * The attributes of the plug-in.
+   */
   attributes?: { [key: string]: string };
   /**
+   * @remarks
+   * The name of the plug-in.
+   * 
    * @example
    * prometheus_discovery
    */
@@ -12351,7 +12570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关访问权限ACL Policy
+   * Creates an access control list (ACL) for a private gateway. The IP CIDR blocks added to the ACL can access the private gateway.
    * 
    * @param tmpReq - CreateAclPolicyRequest
    * @param headers - map
@@ -12394,7 +12613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关访问权限ACL Policy
+   * Creates an access control list (ACL) for a private gateway. The IP CIDR blocks added to the ACL can access the private gateway.
    * 
    * @param request - CreateAclPolicyRequest
    * @returns CreateAclPolicyResponse
@@ -13055,7 +13274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除网关acl policy entry
+   * Deletes an access control list (ACL) for a private gateway. The IP CIDR block that is deleted from the ACL cannot access the private gateway.
    * 
    * @param tmpReq - DeleteAclPolicyRequest
    * @param headers - map
@@ -13098,7 +13317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除网关acl policy entry
+   * Deletes an access control list (ACL) for a private gateway. The IP CIDR block that is deleted from the ACL cannot access the private gateway.
    * 
    * @param request - DeleteAclPolicyRequest
    * @returns DeleteAclPolicyResponse
@@ -14328,7 +14547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网关所有ACL Policy
+   * Queries access control lists (ACLs) created for a private gateway.
    * 
    * @param request - ListAclPolicyRequest
    * @param headers - map
@@ -14361,7 +14580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网关所有ACL Policy
+   * Queries access control lists (ACLs) created for a private gateway.
    * 
    * @param request - ListAclPolicyRequest
    * @returns ListAclPolicyResponse
@@ -14430,7 +14649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举gateway
+   * Queries a list of private gateways.
    * 
    * @param request - ListGatewayRequest
    * @param headers - map
@@ -14475,7 +14694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举gateway
+   * Queries a list of private gateways.
    * 
    * @param request - ListGatewayRequest
    * @returns ListGatewayResponse
@@ -15058,6 +15277,10 @@ export default class Client extends OpenApi {
       query["ResourceName"] = request.resourceName;
     }
 
+    if (!Util.isUnset(request.role)) {
+      query["Role"] = request.role;
+    }
+
     if (!Util.isUnset(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
     }
@@ -15113,7 +15336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取租户配置列表
+   * Queries a list of tenant plug-ins.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15138,7 +15361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取租户配置列表
+   * Queries a list of tenant plug-ins.
    * @returns ListTenantAddonsResponse
    */
   async listTenantAddons(): Promise<ListTenantAddonsResponse> {
@@ -15148,7 +15371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置租户配置
+   * Updates the information about a tenant plug-in.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15173,7 +15396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置租户配置
+   * Updates the information about a tenant plug-in.
    * @returns ReinstallTenantAddonResponse
    */
   async reinstallTenantAddon(ClusterId: string, TenantAddonName: string): Promise<ReinstallTenantAddonResponse> {
