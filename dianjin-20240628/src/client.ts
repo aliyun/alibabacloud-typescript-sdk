@@ -315,6 +315,159 @@ export class CreateLibraryResponse extends $tea.Model {
   }
 }
 
+export class CreatePdfTranslateTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 873648346573245
+   */
+  docId?: string;
+  knowledge?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cjshcxxxx
+   */
+  libraryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qwen-plus
+   */
+  modelId?: string;
+  /**
+   * @example
+   * 中文
+   */
+  translateTo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'docId',
+      knowledge: 'knowledge',
+      libraryId: 'libraryId',
+      modelId: 'modelId',
+      translateTo: 'translateTo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      knowledge: 'string',
+      libraryId: 'string',
+      modelId: 'string',
+      translateTo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePdfTranslateTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  /**
+   * @example
+   * 3284627354
+   */
+  data?: string;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 5E3FBAF1-17AF-53B7-AF0A-CDCEEB6DE658
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: 'string',
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePdfTranslateTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePdfTranslateTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePdfTranslateTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePredefinedDocumentRequest extends $tea.Model {
   chunks?: CreatePredefinedDocumentRequestChunks[];
   /**
@@ -2088,6 +2241,131 @@ export class GetSummaryTaskResultResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetSummaryTaskResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 17071319
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  /**
+   * @example
+   * {
+   *   "file_url": "https://finllmworks.oss-cn-zhangjiakou.aliyuncs.com/render_pdf/5336180997111160501.pdf"
+   * }
+   */
+  data?: { [key: string]: any };
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 9D5D6BB5-BEAE-53C8-A70A-7275CC1F856C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTaskResultResponseBody,
     };
   }
 
@@ -7677,6 +7955,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建PDF翻译任务
+   * 
+   * @param request - CreatePdfTranslateTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePdfTranslateTaskResponse
+   */
+  async createPdfTranslateTaskWithOptions(workspaceId: string, request: CreatePdfTranslateTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePdfTranslateTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.docId)) {
+      body["docId"] = request.docId;
+    }
+
+    if (!Util.isUnset(request.knowledge)) {
+      body["knowledge"] = request.knowledge;
+    }
+
+    if (!Util.isUnset(request.libraryId)) {
+      body["libraryId"] = request.libraryId;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!Util.isUnset(request.translateTo)) {
+      body["translateTo"] = request.translateTo;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePdfTranslateTask",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/task/pdfTranslate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePdfTranslateTaskResponse>(await this.callApi(params, req, runtime), new CreatePdfTranslateTaskResponse({}));
+  }
+
+  /**
+   * 创建PDF翻译任务
+   * 
+   * @param request - CreatePdfTranslateTaskRequest
+   * @returns CreatePdfTranslateTaskResponse
+   */
+  async createPdfTranslateTask(workspaceId: string, request: CreatePdfTranslateTaskRequest): Promise<CreatePdfTranslateTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPdfTranslateTaskWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 创建预定义文档
    * 
    * @param request - CreatePredefinedDocumentRequest
@@ -8401,6 +8740,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取异步任务结果
+   * 
+   * @param request - GetTaskResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskResultResponse
+   */
+  async getTaskResultWithOptions(workspaceId: string, request: GetTaskResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskResultResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTaskResult",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/task/result`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskResultResponse>(await this.callApi(params, req, runtime), new GetTaskResultResponse({}));
+  }
+
+  /**
+   * 获取异步任务结果
+   * 
+   * @param request - GetTaskResultRequest
+   * @returns GetTaskResultResponse
+   */
+  async getTaskResult(workspaceId: string, request: GetTaskResultRequest): Promise<GetTaskResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTaskResultWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 获取财报总结任务结果
    * 
    * @param request - GetTaskStatusRequest
@@ -8585,7 +8969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档召回
+   * 文档召回。
    * 
    * @param request - RecallDocumentRequest
    * @param headers - map
@@ -8630,7 +9014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档召回
+   * 文档召回。
    * 
    * @param request - RecallDocumentRequest
    * @returns RecallDocumentResponse
