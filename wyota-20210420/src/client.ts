@@ -557,6 +557,84 @@ export class AddTerminalResponse extends $tea.Model {
   }
 }
 
+export class AddTerminalsRequest extends $tea.Model {
+  addTerminalParams?: AddTerminalsRequestAddTerminalParams[];
+  static names(): { [key: string]: string } {
+    return {
+      addTerminalParams: 'AddTerminalParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addTerminalParams: { 'type': 'array', 'itemType': AddTerminalsRequestAddTerminalParams },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTerminalsResponseBody extends $tea.Model {
+  code?: string;
+  data?: AddTerminalsResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': AddTerminalsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTerminalsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddTerminalsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddTerminalsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachEndUsersRequest extends $tea.Model {
   /**
    * @remarks
@@ -6054,6 +6132,59 @@ export class UpdateTerminalPolicyResponse extends $tea.Model {
   }
 }
 
+export class AddTerminalsRequestAddTerminalParams extends $tea.Model {
+  alias?: string;
+  clientType?: number;
+  serialNumber?: string;
+  terminalGroupId?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      clientType: 'ClientType',
+      serialNumber: 'SerialNumber',
+      terminalGroupId: 'TerminalGroupId',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      clientType: 'number',
+      serialNumber: 'string',
+      terminalGroupId: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTerminalsResponseBodyData extends $tea.Model {
+  errorCode?: string;
+  serialNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      serialNumber: 'SerialNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      serialNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckUuidValidResponseBodyData extends $tea.Model {
   newUpgrade?: boolean;
   static names(): { [key: string]: string } {
@@ -8604,6 +8735,53 @@ export default class Client extends OpenApi {
   async addTerminal(request: AddTerminalRequest): Promise<AddTerminalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTerminalWithOptions(request, runtime);
+  }
+
+  /**
+   * 添加终端
+   * 
+   * @param request - AddTerminalsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddTerminalsResponse
+   */
+  async addTerminalsWithOptions(request: AddTerminalsRequest, runtime: $Util.RuntimeOptions): Promise<AddTerminalsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.addTerminalParams)) {
+      bodyFlat["AddTerminalParams"] = request.addTerminalParams;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddTerminals",
+      version: "2021-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddTerminalsResponse>(await this.callApi(params, req, runtime), new AddTerminalsResponse({}));
+  }
+
+  /**
+   * 添加终端
+   * 
+   * @param request - AddTerminalsRequest
+   * @returns AddTerminalsResponse
+   */
+  async addTerminals(request: AddTerminalsRequest): Promise<AddTerminalsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addTerminalsWithOptions(request, runtime);
   }
 
   /**
