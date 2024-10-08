@@ -979,6 +979,7 @@ export class CheckUuidValidRequest extends $tea.Model {
    */
   uuid?: string;
   wlan?: string;
+  wosAppVersion?: string;
   static names(): { [key: string]: string } {
     return {
       bluetooth: 'Bluetooth',
@@ -990,6 +991,7 @@ export class CheckUuidValidRequest extends $tea.Model {
       serialNo: 'SerialNo',
       uuid: 'Uuid',
       wlan: 'Wlan',
+      wosAppVersion: 'WosAppVersion',
     };
   }
 
@@ -1004,6 +1006,7 @@ export class CheckUuidValidRequest extends $tea.Model {
       serialNo: 'string',
       uuid: 'string',
       wlan: 'string',
+      wosAppVersion: 'string',
     };
   }
 
@@ -1014,11 +1017,13 @@ export class CheckUuidValidRequest extends $tea.Model {
 
 export class CheckUuidValidResponseBody extends $tea.Model {
   code?: string;
+  data?: CheckUuidValidResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
     };
@@ -1027,6 +1032,7 @@ export class CheckUuidValidResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: CheckUuidValidResponseBodyData,
       message: 'string',
       requestId: 'string',
     };
@@ -3897,6 +3903,7 @@ export class ListTerminalResponse extends $tea.Model {
 }
 
 export class ListTerminalsRequest extends $tea.Model {
+  inManage?: boolean;
   /**
    * @example
    * 200
@@ -3907,6 +3914,7 @@ export class ListTerminalsRequest extends $tea.Model {
    * AAAAAdEdsXbwG2ZlbWCzN4wTTg6wQvfp7u1BJl4bxCAby41POSaYAlCvfULQpkAnb0ff****
    */
   nextToken?: string;
+  passwordFreeLoginUser?: string;
   /**
    * @example
    * DemoDevice
@@ -3919,25 +3927,32 @@ export class ListTerminalsRequest extends $tea.Model {
    */
   terminalGroupId?: string;
   uuids?: string[];
+  withBindUser?: boolean;
   static names(): { [key: string]: string } {
     return {
+      inManage: 'InManage',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      passwordFreeLoginUser: 'PasswordFreeLoginUser',
       searchKeyword: 'SearchKeyword',
       serialNumbers: 'SerialNumbers',
       terminalGroupId: 'TerminalGroupId',
       uuids: 'Uuids',
+      withBindUser: 'WithBindUser',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      inManage: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
+      passwordFreeLoginUser: 'string',
       searchKeyword: 'string',
       serialNumbers: { 'type': 'array', 'itemType': 'string' },
       terminalGroupId: 'string',
       uuids: { 'type': 'array', 'itemType': 'string' },
+      withBindUser: 'boolean',
     };
   }
 
@@ -6039,6 +6054,25 @@ export class UpdateTerminalPolicyResponse extends $tea.Model {
   }
 }
 
+export class CheckUuidValidResponseBodyData extends $tea.Model {
+  newUpgrade?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      newUpgrade: 'NewUpgrade',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newUpgrade: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppOtaTaskResponseBodyData extends $tea.Model {
   taskUid?: string;
   static names(): { [key: string]: string } {
@@ -7632,6 +7666,7 @@ export class ListTerminalsResponseBodyData extends $tea.Model {
    * DemoDevice
    */
   alias?: string;
+  bindUserCount?: number;
   /**
    * @example
    * 7.0.2-RS-20240805.044924
@@ -7657,6 +7692,7 @@ export class ListTerminalsResponseBodyData extends $tea.Model {
    * 192.168.XX.XX
    */
   ipv4?: string;
+  lastLoginUser?: string;
   locationInfo?: string;
   manageTime?: string;
   /**
@@ -7674,6 +7710,7 @@ export class ListTerminalsResponseBodyData extends $tea.Model {
    * alice
    */
   passwordFreeLoginUser?: string;
+  publicIpv4?: string;
   /**
    * @example
    * ODN49YQCPQYC****
@@ -7693,16 +7730,19 @@ export class ListTerminalsResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       alias: 'Alias',
+      bindUserCount: 'BindUserCount',
       buildId: 'BuildId',
       clientType: 'ClientType',
       currentConnectDesktop: 'CurrentConnectDesktop',
       currentLoginUser: 'CurrentLoginUser',
       ipv4: 'Ipv4',
+      lastLoginUser: 'LastLoginUser',
       locationInfo: 'LocationInfo',
       manageTime: 'ManageTime',
       model: 'Model',
       online: 'Online',
       passwordFreeLoginUser: 'PasswordFreeLoginUser',
+      publicIpv4: 'PublicIpv4',
       serialNumber: 'SerialNumber',
       setPasswordFreeLoginUserTime: 'SetPasswordFreeLoginUserTime',
       terminalGroupId: 'TerminalGroupId',
@@ -7713,16 +7753,19 @@ export class ListTerminalsResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alias: 'string',
+      bindUserCount: 'number',
       buildId: 'string',
       clientType: 'number',
       currentConnectDesktop: 'string',
       currentLoginUser: 'string',
       ipv4: 'string',
+      lastLoginUser: 'string',
       locationInfo: 'string',
       manageTime: 'string',
       model: 'string',
       online: 'boolean',
       passwordFreeLoginUser: 'string',
+      publicIpv4: 'string',
       serialNumber: 'string',
       setPasswordFreeLoginUserTime: 'string',
       terminalGroupId: 'string',
@@ -8853,6 +8896,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.wlan)) {
       body["Wlan"] = request.wlan;
+    }
+
+    if (!Util.isUnset(request.wosAppVersion)) {
+      body["WosAppVersion"] = request.wosAppVersion;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -10792,16 +10839,11 @@ export default class Client extends OpenApi {
    */
   async listTerminalsWithOptions(request: ListTerminalsRequest, runtime: $Util.RuntimeOptions): Promise<ListTerminalsResponse> {
     Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.serialNumbers)) {
-      query["SerialNumbers"] = request.serialNumbers;
-    }
-
-    if (!Util.isUnset(request.uuids)) {
-      query["Uuids"] = request.uuids;
-    }
-
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.inManage)) {
+      body["InManage"] = request.inManage;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }
@@ -10810,16 +10852,36 @@ export default class Client extends OpenApi {
       body["NextToken"] = request.nextToken;
     }
 
+    if (!Util.isUnset(request.passwordFreeLoginUser)) {
+      body["PasswordFreeLoginUser"] = request.passwordFreeLoginUser;
+    }
+
     if (!Util.isUnset(request.searchKeyword)) {
       body["SearchKeyword"] = request.searchKeyword;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.serialNumbers)) {
+      bodyFlat["SerialNumbers"] = request.serialNumbers;
     }
 
     if (!Util.isUnset(request.terminalGroupId)) {
       body["TerminalGroupId"] = request.terminalGroupId;
     }
 
+    if (!Util.isUnset(request.uuids)) {
+      bodyFlat["Uuids"] = request.uuids;
+    }
+
+    if (!Util.isUnset(request.withBindUser)) {
+      body["WithBindUser"] = request.withBindUser;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
