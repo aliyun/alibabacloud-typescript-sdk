@@ -10546,6 +10546,7 @@ export class ListDeploymentsRequest extends $tea.Model {
    * 10
    */
   pageSize?: number;
+  sortName?: string;
   /**
    * @remarks
    * The latest status of the deployment.
@@ -10572,6 +10573,7 @@ export class ListDeploymentsRequest extends $tea.Model {
       name: 'name',
       pageIndex: 'pageIndex',
       pageSize: 'pageSize',
+      sortName: 'sortName',
       status: 'status',
     };
   }
@@ -10586,6 +10588,7 @@ export class ListDeploymentsRequest extends $tea.Model {
       name: 'string',
       pageIndex: 'number',
       pageSize: 'number',
+      sortName: 'string',
       status: 'string',
     };
   }
@@ -17240,6 +17243,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortName)) {
+      query["sortName"] = request.sortName;
     }
 
     if (!Util.isUnset(request.status)) {
