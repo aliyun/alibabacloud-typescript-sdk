@@ -743,6 +743,13 @@ export class CreateCustomImageRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-aek2bti7cf7****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -7664,6 +7671,9 @@ export class ListCustomImagesRequest extends $tea.Model {
    */
   imageNames?: string;
   /**
+   * @remarks
+   * The ID of the Simple Application Server instance that the image originates from.
+   * 
    * @example
    * ace0706b2ac4454d984295a94213****
    */
@@ -7706,6 +7716,15 @@ export class ListCustomImagesRequest extends $tea.Model {
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Whether to query shared images. Value range:
+   * 
+   * - False: No. Indicates that shared images are not included in the returned results.
+   * 
+   * - True: Yes. Indicates that only shared images are returned.
+   * 
+   * If not filled, all images are returned by default.
+   * 
    * @example
    * False
    */
@@ -9452,7 +9471,7 @@ export class ListTagResourcesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. You can specify up to 50 resource IDs.
+   * The ID of the resource. You can specify up to 50 resource IDs.
    */
   resourceId?: string[];
   /**
@@ -9474,7 +9493,7 @@ export class ListTagResourcesRequest extends $tea.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags. You can specify up to 20 tags.
+   * The list of tags. You can specify up to 20 tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
@@ -9595,6 +9614,14 @@ export class LoginInstanceRequest extends $tea.Model {
    */
   password?: string;
   /**
+   * @remarks
+   * Remote login instance port number:
+   * 
+   * - Linux Server: Default is 22.
+   * - Windows Server: Default is 3389.
+   * 
+   * > If you need to connect to the server using a custom port, you must first modify the server\\"s default remote port. For more information, see [Set a custom port to connect to a simple application server](https://help.aliyun.com/document_detail/2807402.html).
+   * 
    * @example
    * 3389
    */
@@ -12623,7 +12650,7 @@ export class TagResourcesRequest extends $tea.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags. You can specify up to 20 tags.
+   * The list of tags. You can specify up to 20 tags.
    * 
    * This parameter is required.
    */
@@ -16255,6 +16282,10 @@ export class ListCustomImagesResponseBodyCustomImagesTags extends $tea.Model {
 }
 
 export class ListCustomImagesResponseBodyCustomImages extends $tea.Model {
+  /**
+   * @remarks
+   * The Information about instances created using the image.
+   */
   createInstances?: string[];
   /**
    * @remarks
@@ -16305,6 +16336,9 @@ export class ListCustomImagesResponseBodyCustomImages extends $tea.Model {
    */
   inShare?: boolean;
   /**
+   * @remarks
+   * Whether the custom image is cross-account shared.
+   * 
    * @example
    * False
    */
@@ -16334,6 +16368,27 @@ export class ListCustomImagesResponseBodyCustomImages extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The type of the operating system.
+   * 
+   * Valid values:
+   * 
+   * *   Linux
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Windows
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
    * @example
    * Linux
    */
@@ -16346,6 +16401,8 @@ export class ListCustomImagesResponseBodyCustomImages extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  requiredDataDiskSize?: number;
+  requiredSystemDiskSize?: number;
   /**
    * @remarks
    * The ID of the resource group.
@@ -16354,6 +16411,8 @@ export class ListCustomImagesResponseBodyCustomImages extends $tea.Model {
    * rg-acfm2h2lvp3ublq
    */
   resourceGroupId?: string;
+  sourceImageName?: string;
+  sourceImageVersion?: string;
   /**
    * @remarks
    * The status of the custom image.
@@ -16384,6 +16443,9 @@ export class ListCustomImagesResponseBodyCustomImages extends $tea.Model {
    */
   tags?: ListCustomImagesResponseBodyCustomImagesTags[];
   /**
+   * @remarks
+   * The Primary Alibaba Cloud account ID of the image owner.
+   * 
    * @example
    * 180185828710****
    */
@@ -16403,7 +16465,11 @@ export class ListCustomImagesResponseBodyCustomImages extends $tea.Model {
       name: 'Name',
       osType: 'OsType',
       regionId: 'RegionId',
+      requiredDataDiskSize: 'RequiredDataDiskSize',
+      requiredSystemDiskSize: 'RequiredSystemDiskSize',
       resourceGroupId: 'ResourceGroupId',
+      sourceImageName: 'SourceImageName',
+      sourceImageVersion: 'SourceImageVersion',
       status: 'Status',
       systemSnapshotId: 'SystemSnapshotId',
       systemSnapshotName: 'SystemSnapshotName',
@@ -16427,7 +16493,11 @@ export class ListCustomImagesResponseBodyCustomImages extends $tea.Model {
       name: 'string',
       osType: 'string',
       regionId: 'string',
+      requiredDataDiskSize: 'number',
+      requiredSystemDiskSize: 'number',
       resourceGroupId: 'string',
+      sourceImageName: 'string',
+      sourceImageVersion: 'string',
       status: 'string',
       systemSnapshotId: 'string',
       systemSnapshotName: 'string',
@@ -18280,7 +18350,7 @@ export class ListSnapshotsResponseBodySnapshots extends $tea.Model {
 export class ListTagResourcesRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The key of tag N that you want to add to the simple application server. A tag key can be 1 to 64 characters in length. Valid values of N: 1 to 20.
+   * The key of the tag that you want to add to a resource. The tag key can be 1 to 64 characters in length.
    * 
    * @example
    * TestKey
@@ -18288,7 +18358,7 @@ export class ListTagResourcesRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N that you want to add to the simple application server. A tag value can be up to 64 characters in length. Valid values of N: 1 to 20.
+   * The value of the tag that you want to add to a resource. The tag value can be 1 to 64 characters in length.
    * 
    * @example
    * TestValue
@@ -18466,9 +18536,9 @@ export class ModifyFirewallTemplateRequestFirewallTemplateRule extends $tea.Mode
 export class TagResourcesRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The key of tag N that you want to add to the simple application server. Valid values of N: 1 to 20.
+   * The key of tag N that you want to add to a resource.
    * 
-   * You cannot specify an empty string as a tag key. A tag key can be up to 64 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * You cannot specify an empty string as a tag key. The tag key can be up to 64 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * TestKey
@@ -18476,9 +18546,9 @@ export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N that you want to add to the simple application server. Valid values of N: 1 to 20.
+   * The value of tag N that you want to add to a resource.
    * 
-   * You can specify an empty string as a tag value. A tag value can be up to 64 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * You can specify an empty string as a tag value. The tag value can be up to 64 characters in length and cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -22643,7 +22713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 云产品查标签接口
+   * Queries the tags that are added to simple resources, such as instances, snapshots, disks, images, commands, and firewall rules.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22694,7 +22764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 云产品查标签接口
+   * Queries the tags that are added to simple resources, such as instances, snapshots, disks, images, commands, and firewall rules.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -24251,7 +24321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打标签接口
+   * Adds tags to simple application servers, snapshots, custom images, commands, firewall rules, and disks to facilitate the viewing and management of the preceding resources.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24298,7 +24368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打标签接口
+   * Adds tags to simple application servers, snapshots, custom images, commands, firewall rules, and disks to facilitate the viewing and management of the preceding resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
