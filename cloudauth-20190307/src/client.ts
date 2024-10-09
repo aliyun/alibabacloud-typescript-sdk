@@ -4996,7 +4996,7 @@ export class CredentialVerifyRequestMerchantDetail extends $tea.Model {
 
 export class CredentialVerifyResponseBodyResultObjectVlResult extends $tea.Model {
   success?: boolean;
-  vlContent?: { [key: string]: any };
+  vlContent?: string;
   static names(): { [key: string]: string } {
     return {
       success: 'Success',
@@ -5007,7 +5007,7 @@ export class CredentialVerifyResponseBodyResultObjectVlResult extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       success: 'boolean',
-      vlContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      vlContent: 'string',
     };
   }
 
