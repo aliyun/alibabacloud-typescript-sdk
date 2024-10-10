@@ -756,6 +756,8 @@ export class ExecuteMultiAccountSQLQueryRequest extends $tea.Model {
    * SELECT * FROM resources LIMIT 100;
    */
   expression?: string;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The search scope. The value of this parameter can be one of the following items:
@@ -777,6 +779,8 @@ export class ExecuteMultiAccountSQLQueryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       expression: 'Expression',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       scope: 'Scope',
     };
   }
@@ -784,6 +788,8 @@ export class ExecuteMultiAccountSQLQueryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       expression: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       scope: 'string',
     };
   }
@@ -879,6 +885,8 @@ export class ExecuteSQLQueryRequest extends $tea.Model {
    * SELECT * FROM resources LIMIT 100;
    */
   expression?: string;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The search scope.
@@ -894,6 +902,8 @@ export class ExecuteSQLQueryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       expression: 'Expression',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       scope: 'Scope',
     };
   }
@@ -901,6 +911,8 @@ export class ExecuteSQLQueryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       expression: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       scope: 'string',
     };
   }
@@ -5485,6 +5497,14 @@ export default class Client extends OpenApi {
       query["Expression"] = request.expression;
     }
 
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     if (!Util.isUnset(request.scope)) {
       query["Scope"] = request.scope;
     }
@@ -5529,6 +5549,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.expression)) {
       query["Expression"] = request.expression;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!Util.isUnset(request.scope)) {
