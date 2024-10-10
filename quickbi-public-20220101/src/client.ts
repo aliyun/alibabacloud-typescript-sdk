@@ -3583,6 +3583,97 @@ export class DeleteUserTagMetaResponse extends $tea.Model {
   }
 }
 
+export class GetMailTaskStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * d5a59a898b634d75be5584f8dc159c62
+   */
+  mailId?: string;
+  /**
+   * @example
+   * 7218865303929605212
+   */
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      mailId: 'MailId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mailId: 'string',
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMailTaskStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 38C0FEC8-1510-415C-A9F1-9AE9422BDB65
+   */
+  requestId?: string;
+  result?: GetMailTaskStatusResponseBodyResult[];
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': GetMailTaskStatusResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMailTaskStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMailTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMailTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserGroupInfoRequest extends $tea.Model {
   /**
    * @remarks
@@ -3661,6 +3752,111 @@ export class GetUserGroupInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetUserGroupInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorksEmbedListRequest extends $tea.Model {
+  keyword?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * page
+   */
+  worksType?: string;
+  /**
+   * @example
+   * 919818-***-*****-wdasd
+   */
+  wsId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      worksType: 'WorksType',
+      wsId: 'WsId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      worksType: 'string',
+      wsId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorksEmbedListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 38C0F*****0-415****9F1-*****422BDB65
+   */
+  requestId?: string;
+  result?: GetWorksEmbedListResponseBodyResult;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetWorksEmbedListResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorksEmbedListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWorksEmbedListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWorksEmbedListResponseBody,
     };
   }
 
@@ -5157,6 +5353,94 @@ export class ListWorkspaceRolesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListWorkspaceRolesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualRunMailTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3423423sdfa****sdadw
+   */
+  mailId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mailId: 'MailId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mailId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualRunMailTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * a4d1a221d-41za1-****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  result?: boolean;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualRunMailTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ManualRunMailTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ManualRunMailTaskResponseBody,
     };
   }
 
@@ -11015,6 +11299,50 @@ export class DataSetBloodResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetMailTaskStatusResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 2024-10-09 17:34:11
+   */
+  execTime?: string;
+  /**
+   * @example
+   * c38f73f4c5xxxxxc808c41b3f4d23b7852
+   */
+  mailId?: string;
+  /**
+   * @example
+   * SENT
+   */
+  status?: string;
+  /**
+   * @example
+   * 1282xxx610816
+   */
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      execTime: 'execTime',
+      mailId: 'mailId',
+      status: 'status',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      execTime: 'string',
+      mailId: 'string',
+      status: 'string',
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserGroupInfoResponseBodyResult extends $tea.Model {
   /**
    * @example
@@ -11074,6 +11402,100 @@ export class GetUserGroupInfoResponseBodyResult extends $tea.Model {
       usergroupDesc: 'string',
       usergroupId: 'string',
       usergroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorksEmbedListResponseBodyResultData extends $tea.Model {
+  /**
+   * @example
+   * YYYY-mm-DD hh:MM:ss
+   */
+  embedTime?: string;
+  /**
+   * @example
+   * 897ce25e-****-****-af84-d13c5610****
+   */
+  worksId?: string;
+  worksName?: string;
+  /**
+   * @example
+   * page
+   */
+  worksType?: string;
+  /**
+   * @example
+   * 87c6b145-****-43e1-9426-8f93be23****
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      embedTime: 'EmbedTime',
+      worksId: 'WorksId',
+      worksName: 'WorksName',
+      worksType: 'WorksType',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      embedTime: 'string',
+      worksId: 'string',
+      worksName: 'string',
+      worksType: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorksEmbedListResponseBodyResult extends $tea.Model {
+  data?: GetWorksEmbedListResponseBodyResultData[];
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 18
+   */
+  totalNum?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      totalNum: 'TotalNum',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GetWorksEmbedListResponseBodyResultData },
+      pageNo: 'number',
+      pageSize: 'number',
+      totalNum: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -19137,6 +19559,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 组织内查看邮件任务运行状态
+   * 
+   * @param request - GetMailTaskStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMailTaskStatusResponse
+   */
+  async getMailTaskStatusWithOptions(request: GetMailTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetMailTaskStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mailId)) {
+      query["MailId"] = request.mailId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMailTaskStatus",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMailTaskStatusResponse>(await this.callApi(params, req, runtime), new GetMailTaskStatusResponse({}));
+  }
+
+  /**
+   * 组织内查看邮件任务运行状态
+   * 
+   * @param request - GetMailTaskStatusRequest
+   * @returns GetMailTaskStatusResponse
+   */
+  async getMailTaskStatus(request: GetMailTaskStatusRequest): Promise<GetMailTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMailTaskStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Test description
    * 
    * @param request - GetUserGroupInfoRequest
@@ -19176,6 +19644,64 @@ export default class Client extends OpenApi {
   async getUserGroupInfo(request: GetUserGroupInfoRequest): Promise<GetUserGroupInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserGroupInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询已嵌入报表列表
+   * 
+   * @param request - GetWorksEmbedListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorksEmbedListResponse
+   */
+  async getWorksEmbedListWithOptions(request: GetWorksEmbedListRequest, runtime: $Util.RuntimeOptions): Promise<GetWorksEmbedListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.worksType)) {
+      query["WorksType"] = request.worksType;
+    }
+
+    if (!Util.isUnset(request.wsId)) {
+      query["WsId"] = request.wsId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWorksEmbedList",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWorksEmbedListResponse>(await this.callApi(params, req, runtime), new GetWorksEmbedListResponse({}));
+  }
+
+  /**
+   * 查询已嵌入报表列表
+   * 
+   * @param request - GetWorksEmbedListRequest
+   * @returns GetWorksEmbedListResponse
+   */
+  async getWorksEmbedList(request: GetWorksEmbedListRequest): Promise<GetWorksEmbedListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getWorksEmbedListWithOptions(request, runtime);
   }
 
   /**
@@ -19898,6 +20424,48 @@ export default class Client extends OpenApi {
   async listWorkspaceRoles(request: ListWorkspaceRolesRequest): Promise<ListWorkspaceRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listWorkspaceRolesWithOptions(request, runtime);
+  }
+
+  /**
+   * 手动执行邮件任务
+   * 
+   * @param request - ManualRunMailTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ManualRunMailTaskResponse
+   */
+  async manualRunMailTaskWithOptions(request: ManualRunMailTaskRequest, runtime: $Util.RuntimeOptions): Promise<ManualRunMailTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mailId)) {
+      query["MailId"] = request.mailId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ManualRunMailTask",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ManualRunMailTaskResponse>(await this.callApi(params, req, runtime), new ManualRunMailTaskResponse({}));
+  }
+
+  /**
+   * 手动执行邮件任务
+   * 
+   * @param request - ManualRunMailTaskRequest
+   * @returns ManualRunMailTaskResponse
+   */
+  async manualRunMailTask(request: ManualRunMailTaskRequest): Promise<ManualRunMailTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.manualRunMailTaskWithOptions(request, runtime);
   }
 
   /**
