@@ -509,271 +509,6 @@ export class ActivateClientCertificateResponse extends $tea.Model {
   }
 }
 
-export class AddUserBusinessFormRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  company?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  email?: string;
-  /**
-   * @remarks
-   * 记录名称
-   * 
-   * This parameter is required.
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * 记录类型
-   * 
-   * This parameter is required.
-   */
-  position?: string;
-  remark?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * AddUserBusinessForm
-   */
-  userName?: string;
-  /**
-   * @remarks
-   * 业务场景
-   */
-  website?: string;
-  static names(): { [key: string]: string } {
-    return {
-      company: 'Company',
-      email: 'Email',
-      phoneNumber: 'PhoneNumber',
-      position: 'Position',
-      remark: 'Remark',
-      userName: 'UserName',
-      website: 'Website',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      company: 'string',
-      email: 'string',
-      phoneNumber: 'string',
-      position: 'string',
-      remark: 'string',
-      userName: 'string',
-      website: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddUserBusinessFormResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddUserBusinessFormResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddUserBusinessFormResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddUserBusinessFormResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AdvancePurgeObjectCacheRequest extends $tea.Model {
-  area?: string;
-  content?: AdvancePurgeObjectCacheRequestContent;
-  force?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 123456****
-   */
-  siteId?: number;
-  stations?: string;
-  timeRangeBegin?: number;
-  timeRangeEnd?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      area: 'Area',
-      content: 'Content',
-      force: 'Force',
-      siteId: 'SiteId',
-      stations: 'Stations',
-      timeRangeBegin: 'TimeRangeBegin',
-      timeRangeEnd: 'TimeRangeEnd',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      area: 'string',
-      content: AdvancePurgeObjectCacheRequestContent,
-      force: 'boolean',
-      siteId: 'number',
-      stations: 'string',
-      timeRangeBegin: 'number',
-      timeRangeEnd: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AdvancePurgeObjectCacheShrinkRequest extends $tea.Model {
-  area?: string;
-  contentShrink?: string;
-  force?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 123456****
-   */
-  siteId?: number;
-  stations?: string;
-  timeRangeBegin?: number;
-  timeRangeEnd?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      area: 'Area',
-      contentShrink: 'Content',
-      force: 'Force',
-      siteId: 'SiteId',
-      stations: 'Stations',
-      timeRangeBegin: 'TimeRangeBegin',
-      timeRangeEnd: 'TimeRangeEnd',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      area: 'string',
-      contentShrink: 'string',
-      force: 'boolean',
-      siteId: 'number',
-      stations: 'string',
-      timeRangeBegin: 'number',
-      timeRangeEnd: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AdvancePurgeObjectCacheResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Id of the request
-   */
-  requestId?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AdvancePurgeObjectCacheResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AdvancePurgeObjectCacheResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AdvancePurgeObjectCacheResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class BatchCreateRecordsRequest extends $tea.Model {
   /**
    * @remarks
@@ -7290,6 +7025,60 @@ export class ExportRecordsResponse extends $tea.Model {
   }
 }
 
+export class GetCacheReserveSpecificationResponseBody extends $tea.Model {
+  cacheReserveCapacity?: string[];
+  cacheReserveRegion?: string[];
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheReserveCapacity: 'CacheReserveCapacity',
+      cacheReserveRegion: 'CacheReserveRegion',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheReserveCapacity: { 'type': 'array', 'itemType': 'string' },
+      cacheReserveRegion: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCacheReserveSpecificationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCacheReserveSpecificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCacheReserveSpecificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetKvNamespaceRequest extends $tea.Model {
   /**
    * @remarks
@@ -9508,6 +9297,110 @@ export class GetWafRulesetResponse extends $tea.Model {
   }
 }
 
+export class ListCacheReserveInstancesRequest extends $tea.Model {
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  sortBy?: string;
+  sortOrder?: string;
+  /**
+   * @example
+   * ListCacheReserveInstances
+   * 
+   * **if can be null:**
+   * false
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      sortOrder: 'SortOrder',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+      sortOrder: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCacheReserveInstancesResponseBody extends $tea.Model {
+  instanceInfo?: ListCacheReserveInstancesResponseBodyInstanceInfo[];
+  pageNumber?: number;
+  pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  totalCount?: number;
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceInfo: 'InstanceInfo',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceInfo: { 'type': 'array', 'itemType': ListCacheReserveInstancesResponseBodyInstanceInfo },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCacheReserveInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCacheReserveInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCacheReserveInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEdgeContainerAppRecordsRequest extends $tea.Model {
   /**
    * @remarks
@@ -9633,6 +9526,136 @@ export class ListEdgeContainerAppRecordsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListEdgeContainerAppRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEdgeContainerAppsRequest extends $tea.Model {
+  /**
+   * @example
+   * CreateTime
+   */
+  orderKey?: string;
+  /**
+   * @example
+   * Asc
+   */
+  orderType?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * ver-1005682639679266816
+   */
+  searchKey?: string;
+  /**
+   * @example
+   * Appid
+   */
+  searchType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderKey: 'OrderKey',
+      orderType: 'OrderType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchKey: 'SearchKey',
+      searchType: 'SearchType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderKey: 'string',
+      orderType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      searchKey: 'string',
+      searchType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEdgeContainerAppsResponseBody extends $tea.Model {
+  apps?: ListEdgeContainerAppsResponseBodyApps[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 2430E05E-1340-5773-B5E1-B743929F46F2
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apps: 'Apps',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apps: { 'type': 'array', 'itemType': ListEdgeContainerAppsResponseBodyApps },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEdgeContainerAppsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEdgeContainerAppsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEdgeContainerAppsResponseBody,
     };
   }
 
@@ -9770,6 +9793,88 @@ export class ListEdgeContainerRecordsResponse extends $tea.Model {
   }
 }
 
+export class ListEdgeRoutinePlansResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  planInfo?: ListEdgeRoutinePlansResponseBodyPlanInfo[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 12
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      planInfo: 'PlanInfo',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      planInfo: { 'type': 'array', 'itemType': ListEdgeRoutinePlansResponseBodyPlanInfo },
+      requestId: 'string',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEdgeRoutinePlansResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEdgeRoutinePlansResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEdgeRoutinePlansResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEdgeRoutineRecordsRequest extends $tea.Model {
   /**
    * @example
@@ -9891,6 +9996,228 @@ export class ListEdgeRoutineRecordsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListEdgeRoutineRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceQuotasRequest extends $tea.Model {
+  /**
+   * @example
+   * sp-xcdn-96wblslz****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * preload, free_cert
+   */
+  quotaNames?: string;
+  /**
+   * @example
+   * 2882900****
+   * 
+   * **if can be null:**
+   * false
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      quotaNames: 'QuotaNames',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      quotaNames: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceQuotasResponseBody extends $tea.Model {
+  /**
+   * @example
+   * sp-xcdn-96wblslz****
+   */
+  instanceId?: string;
+  quotas?: ListInstanceQuotasResponseBodyQuotas[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247B78
+   */
+  requestId?: string;
+  /**
+   * @example
+   * online
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      quotas: 'Quotas',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      quotas: { 'type': 'array', 'itemType': ListInstanceQuotasResponseBodyQuotas },
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceQuotasResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstanceQuotasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstanceQuotasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceQuotasWithUsageRequest extends $tea.Model {
+  /**
+   * @example
+   * sp-xcdn-96wblslz****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * customHttpCert
+   */
+  quotaNames?: string;
+  /**
+   * @example
+   * 1232223****
+   * 
+   * **if can be null:**
+   * false
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      quotaNames: 'QuotaNames',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      quotaNames: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceQuotasWithUsageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * sp-xcdn-96wblslz****
+   */
+  instanceId?: string;
+  quotas?: ListInstanceQuotasWithUsageResponseBodyQuotas[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 85H66C7B-671A-4297-9187-2C4477247A74
+   */
+  requestId?: string;
+  /**
+   * @example
+   * online
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      quotas: 'Quotas',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      quotas: { 'type': 'array', 'itemType': ListInstanceQuotasWithUsageResponseBodyQuotas },
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceQuotasWithUsageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstanceQuotasWithUsageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstanceQuotasWithUsageResponseBody,
     };
   }
 
@@ -11526,6 +11853,368 @@ export class ListUserDeliveryTasksResponse extends $tea.Model {
   }
 }
 
+export class ListUserRatePlanInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  checkRemainingSiteQuota?: string;
+  /**
+   * @example
+   * sp-xcdn-96wblslz****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 500
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * CreateTime
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * asc
+   */
+  sortOrder?: string;
+  /**
+   * @example
+   * online
+   * 
+   * **if can be null:**
+   * false
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkRemainingSiteQuota: 'CheckRemainingSiteQuota',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      sortOrder: 'SortOrder',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkRemainingSiteQuota: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+      sortOrder: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserRatePlanInstancesResponseBody extends $tea.Model {
+  instanceInfo?: ListUserRatePlanInstancesResponseBodyInstanceInfo[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * CB1A380B-09F0-41BB-3C82-72F8FD6DA2FE
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 68
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceInfo: 'InstanceInfo',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceInfo: { 'type': 'array', 'itemType': ListUserRatePlanInstancesResponseBodyInstanceInfo },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserRatePlanInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserRatePlanInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserRatePlanInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafManagedRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11
+   */
+  attackType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000001
+   */
+  id?: number;
+  /**
+   * @example
+   * zh
+   */
+  language?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  queryArgs?: ListWafManagedRulesRequestQueryArgs;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attackType: 'AttackType',
+      id: 'Id',
+      language: 'Language',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryArgs: 'QueryArgs',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attackType: 'number',
+      id: 'number',
+      language: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryArgs: ListWafManagedRulesRequestQueryArgs,
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafManagedRulesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11
+   */
+  attackType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000001
+   */
+  id?: number;
+  /**
+   * @example
+   * zh
+   */
+  language?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  queryArgsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attackType: 'AttackType',
+      id: 'Id',
+      language: 'Language',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryArgsShrink: 'QueryArgs',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attackType: 'number',
+      id: 'number',
+      language: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryArgsShrink: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafManagedRulesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  rules?: ListWafManagedRulesResponseBodyRules[];
+  /**
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      rules: 'Rules',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      rules: { 'type': 'array', 'itemType': ListWafManagedRulesResponseBodyRules },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafManagedRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWafManagedRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWafManagedRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWafPhasesRequest extends $tea.Model {
   /**
    * @remarks
@@ -12898,111 +13587,6 @@ export class PutKvResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PutKvResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PutKvAccountRequest extends $tea.Model {
-  /**
-   * @example
-   * prod
-   */
-  accountType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * online
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountType: 'AccountType',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountType: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PutKvAccountResponseBody extends $tea.Model {
-  namespaceList?: PutKvAccountResponseBodyNamespaceList[];
-  /**
-   * @example
-   * 10
-   */
-  namespaceQuota?: number;
-  /**
-   * @example
-   * 1
-   */
-  namespaceUsed?: number;
-  /**
-   * @example
-   * 15C66C7B-671A-4297-9187-2C4477247A74
-   */
-  requestId?: string;
-  /**
-   * @example
-   * online
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      namespaceList: 'NamespaceList',
-      namespaceQuota: 'NamespaceQuota',
-      namespaceUsed: 'NamespaceUsed',
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      namespaceList: { 'type': 'array', 'itemType': PutKvAccountResponseBodyNamespaceList },
-      namespaceQuota: 'number',
-      namespaceUsed: 'number',
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PutKvAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PutKvAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PutKvAccountResponseBody,
     };
   }
 
@@ -17564,40 +18148,6 @@ export class FieldContentValueFieldList extends $tea.Model {
   }
 }
 
-export class AdvancePurgeObjectCacheRequestContent extends $tea.Model {
-  cacheTags?: string[];
-  directories?: string[];
-  files?: any[];
-  hostnames?: string[];
-  ignoreParams?: string[];
-  purgeAll?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      cacheTags: 'CacheTags',
-      directories: 'Directories',
-      files: 'Files',
-      hostnames: 'Hostnames',
-      ignoreParams: 'IgnoreParams',
-      purgeAll: 'PurgeAll',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheTags: { 'type': 'array', 'itemType': 'string' },
-      directories: { 'type': 'array', 'itemType': 'string' },
-      files: { 'type': 'array', 'itemType': 'any' },
-      hostnames: { 'type': 'array', 'itemType': 'string' },
-      ignoreParams: { 'type': 'array', 'itemType': 'string' },
-      purgeAll: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class BatchCreateRecordsRequestRecordListData extends $tea.Model {
   /**
    * @example
@@ -20216,6 +20766,43 @@ export class GetWafQuotaResponseBodyQuota extends $tea.Model {
   }
 }
 
+export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $tea.Model {
+  cacheReserveCapacity?: string;
+  cacheReserveRegion?: string;
+  createTime?: string;
+  duration?: number;
+  expireTime?: string;
+  instanceId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheReserveCapacity: 'CacheReserveCapacity',
+      cacheReserveRegion: 'CacheReserveRegion',
+      createTime: 'CreateTime',
+      duration: 'Duration',
+      expireTime: 'ExpireTime',
+      instanceId: 'InstanceId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheReserveCapacity: 'string',
+      cacheReserveRegion: 'string',
+      createTime: 'string',
+      duration: 'number',
+      expireTime: 'string',
+      instanceId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEdgeContainerAppRecordsResponseBodyRecords extends $tea.Model {
   /**
    * @example
@@ -20295,6 +20882,198 @@ export class ListEdgeContainerAppRecordsResponseBodyRecords extends $tea.Model {
   }
 }
 
+export class ListEdgeContainerAppsResponseBodyAppsHealthCheck extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
+  failTimes?: number;
+  /**
+   * @example
+   * test.com
+   */
+  host?: string;
+  /**
+   * @example
+   * http_2XX
+   */
+  httpCode?: string;
+  /**
+   * @example
+   * 5
+   */
+  interval?: number;
+  /**
+   * @example
+   * GET
+   */
+  method?: string;
+  /**
+   * @example
+   * 8080
+   */
+  port?: number;
+  /**
+   * @example
+   * 1
+   */
+  succTimes?: number;
+  /**
+   * @example
+   * 60
+   */
+  timeout?: number;
+  /**
+   * @example
+   * l7
+   */
+  type?: string;
+  /**
+   * @example
+   * /health_check
+   */
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failTimes: 'FailTimes',
+      host: 'Host',
+      httpCode: 'HttpCode',
+      interval: 'Interval',
+      method: 'Method',
+      port: 'Port',
+      succTimes: 'SuccTimes',
+      timeout: 'Timeout',
+      type: 'Type',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failTimes: 'number',
+      host: 'string',
+      httpCode: 'string',
+      interval: 'number',
+      method: 'string',
+      port: 'number',
+      succTimes: 'number',
+      timeout: 'number',
+      type: 'string',
+      uri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEdgeContainerAppsResponseBodyApps extends $tea.Model {
+  /**
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 2022-12-01T16:16:27.418298794+08:00
+   */
+  createTime?: string;
+  /**
+   * @example
+   * test.com
+   */
+  domainName?: string;
+  /**
+   * @example
+   * l7
+   */
+  gatewayType?: string;
+  healthCheck?: ListEdgeContainerAppsResponseBodyAppsHealthCheck;
+  /**
+   * @example
+   * app-test
+   */
+  name?: string;
+  percentage?: number;
+  /**
+   * @example
+   * false
+   */
+  quicCid?: string;
+  /**
+   * @example
+   * test app
+   */
+  remarks?: string;
+  /**
+   * @example
+   * 80
+   */
+  servicePort?: number;
+  /**
+   * @example
+   * created
+   */
+  status?: string;
+  /**
+   * @example
+   * 80
+   */
+  targetPort?: number;
+  /**
+   * @example
+   * 2023-11-15T12:11:02Z
+   */
+  updateTime?: string;
+  /**
+   * @example
+   * 10
+   */
+  versionCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      createTime: 'CreateTime',
+      domainName: 'DomainName',
+      gatewayType: 'GatewayType',
+      healthCheck: 'HealthCheck',
+      name: 'Name',
+      percentage: 'Percentage',
+      quicCid: 'QuicCid',
+      remarks: 'Remarks',
+      servicePort: 'ServicePort',
+      status: 'Status',
+      targetPort: 'TargetPort',
+      updateTime: 'UpdateTime',
+      versionCount: 'VersionCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      createTime: 'string',
+      domainName: 'string',
+      gatewayType: 'string',
+      healthCheck: ListEdgeContainerAppsResponseBodyAppsHealthCheck,
+      name: 'string',
+      percentage: 'number',
+      quicCid: 'string',
+      remarks: 'string',
+      servicePort: 'number',
+      status: 'string',
+      targetPort: 'number',
+      updateTime: 'string',
+      versionCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEdgeContainerRecordsResponseBodyRecords extends $tea.Model {
   /**
    * @example
@@ -20353,6 +21132,64 @@ export class ListEdgeContainerRecordsResponseBodyRecords extends $tea.Model {
   }
 }
 
+export class ListEdgeRoutinePlansResponseBodyPlanInfo extends $tea.Model {
+  /**
+   * @example
+   * POSTPAY
+   */
+  billingMode?: string;
+  /**
+   * @example
+   * 20
+   */
+  erRoutineCodeVersionQuota?: string;
+  /**
+   * @example
+   * 100
+   */
+  erRoutineQuota?: string;
+  /**
+   * @example
+   * 100
+   */
+  erRoutineRouteSiteCountQuota?: string;
+  /**
+   * @example
+   * er_free
+   */
+  paymentMethod?: string;
+  /**
+   * @example
+   * test_plan
+   */
+  planName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      billingMode: 'BillingMode',
+      erRoutineCodeVersionQuota: 'ErRoutineCodeVersionQuota',
+      erRoutineQuota: 'ErRoutineQuota',
+      erRoutineRouteSiteCountQuota: 'ErRoutineRouteSiteCountQuota',
+      paymentMethod: 'PaymentMethod',
+      planName: 'PlanName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billingMode: 'string',
+      erRoutineCodeVersionQuota: 'string',
+      erRoutineQuota: 'string',
+      erRoutineRouteSiteCountQuota: 'string',
+      paymentMethod: 'string',
+      planName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEdgeRoutineRecordsResponseBodyRecords extends $tea.Model {
   /**
    * @example
@@ -20403,6 +21240,120 @@ export class ListEdgeRoutineRecordsResponseBodyRecords extends $tea.Model {
       siteId: 'number',
       siteName: 'string',
       updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceQuotasResponseBodyQuotas extends $tea.Model {
+  /**
+   * @example
+   * customHttpCert
+   */
+  quotaName?: string;
+  /**
+   * @example
+   * 10
+   */
+  quotaValue?: string;
+  /**
+   * @example
+   * bool
+   */
+  quotaValueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      quotaName: 'QuotaName',
+      quotaValue: 'QuotaValue',
+      quotaValueType: 'QuotaValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      quotaName: 'string',
+      quotaValue: 'string',
+      quotaValueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceQuotasWithUsageResponseBodyQuotasSiteUsage extends $tea.Model {
+  /**
+   * @example
+   * 34818329392****
+   */
+  siteId?: number;
+  /**
+   * @example
+   * test.top
+   */
+  siteName?: string;
+  /**
+   * @example
+   * 1
+   */
+  siteUsage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      siteUsage: 'SiteUsage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      siteId: 'number',
+      siteName: 'string',
+      siteUsage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceQuotasWithUsageResponseBodyQuotas extends $tea.Model {
+  /**
+   * @example
+   * redirect_rules|rule_quota
+   */
+  quotaName?: string;
+  /**
+   * @example
+   * 10
+   */
+  quotaValue?: string;
+  siteUsage?: ListInstanceQuotasWithUsageResponseBodyQuotasSiteUsage[];
+  /**
+   * @example
+   * 3
+   */
+  usage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      quotaName: 'QuotaName',
+      quotaValue: 'QuotaValue',
+      siteUsage: 'SiteUsage',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      quotaName: 'string',
+      quotaValue: 'string',
+      siteUsage: { 'type': 'array', 'itemType': ListInstanceQuotasWithUsageResponseBodyQuotasSiteUsage },
+      usage: 'string',
     };
   }
 
@@ -21528,6 +22479,226 @@ export class ListUserDeliveryTasksResponseBodyTasks extends $tea.Model {
   }
 }
 
+export class ListUserRatePlanInstancesResponseBodyInstanceInfoSites extends $tea.Model {
+  /**
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @example
+   * pending
+   */
+  siteStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      siteStatus: 'SiteStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      siteId: 'number',
+      siteName: 'string',
+      siteStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Model {
+  /**
+   * @example
+   * PREPAY
+   */
+  billingMode?: string;
+  /**
+   * @example
+   * domestic,overseas
+   */
+  coverages?: string;
+  /**
+   * @example
+   * YYYY-MM-DDThh:mm:ssZ
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 3
+   */
+  duration?: number;
+  /**
+   * @example
+   * YYYY-MM-DDThh:mm:ssZ
+   */
+  expireTime?: string;
+  /**
+   * @example
+   * sp-xcdn-96wblslz****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * basic
+   */
+  planName?: string;
+  /**
+   * @example
+   * normal
+   */
+  planType?: string;
+  /**
+   * @example
+   * 1
+   */
+  siteQuota?: string;
+  sites?: ListUserRatePlanInstancesResponseBodyInstanceInfoSites[];
+  /**
+   * @example
+   * online
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      billingMode: 'BillingMode',
+      coverages: 'Coverages',
+      createTime: 'CreateTime',
+      duration: 'Duration',
+      expireTime: 'ExpireTime',
+      instanceId: 'InstanceId',
+      planName: 'PlanName',
+      planType: 'PlanType',
+      siteQuota: 'SiteQuota',
+      sites: 'Sites',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billingMode: 'string',
+      coverages: 'string',
+      createTime: 'string',
+      duration: 'number',
+      expireTime: 'string',
+      instanceId: 'string',
+      planName: 'string',
+      planType: 'string',
+      siteQuota: 'string',
+      sites: { 'type': 'array', 'itemType': ListUserRatePlanInstancesResponseBodyInstanceInfoSites },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafManagedRulesRequestQueryArgs extends $tea.Model {
+  /**
+   * @example
+   * deny
+   */
+  action?: string;
+  /**
+   * @example
+   * example
+   */
+  idNameLike?: string;
+  /**
+   * @example
+   * 1
+   */
+  protectionLevel?: number;
+  protectionLevels?: number[];
+  /**
+   * @example
+   * on
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      idNameLike: 'IdNameLike',
+      protectionLevel: 'ProtectionLevel',
+      protectionLevels: 'ProtectionLevels',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      idNameLike: 'string',
+      protectionLevel: 'number',
+      protectionLevels: { 'type': 'array', 'itemType': 'number' },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafManagedRulesResponseBodyRules extends $tea.Model {
+  /**
+   * @example
+   * deny
+   */
+  action?: string;
+  /**
+   * @example
+   * 100001
+   */
+  id?: number;
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  protectionLevel?: number;
+  /**
+   * @example
+   * on
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      id: 'Id',
+      name: 'Name',
+      protectionLevel: 'ProtectionLevel',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      id: 'number',
+      name: 'string',
+      protectionLevel: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWafPhasesResponseBodyPhasesRulesets extends $tea.Model {
   id?: number;
   name?: string;
@@ -22341,50 +23512,6 @@ export class PurgeCachesRequestContent extends $tea.Model {
   }
 }
 
-export class PutKvAccountResponseBodyNamespaceList extends $tea.Model {
-  /**
-   * @example
-   * the first namespace
-   */
-  description?: string;
-  /**
-   * @example
-   * test_namespace
-   */
-  namespace?: string;
-  /**
-   * @example
-   * 643355322374688768
-   */
-  namespaceId?: string;
-  /**
-   * @example
-   * online
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      namespace: 'Namespace',
-      namespaceId: 'NamespaceId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      namespace: 'string',
-      namespaceId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateRecordRequestAuthConf extends $tea.Model {
   accessKey?: string;
   authType?: string;
@@ -22570,148 +23697,6 @@ export default class Client extends OpenApi {
   async activateClientCertificate(request: ActivateClientCertificateRequest): Promise<ActivateClientCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.activateClientCertificateWithOptions(request, runtime);
-  }
-
-  /**
-   * 新增用户商机单
-   * 
-   * @param request - AddUserBusinessFormRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns AddUserBusinessFormResponse
-   */
-  async addUserBusinessFormWithOptions(request: AddUserBusinessFormRequest, runtime: $Util.RuntimeOptions): Promise<AddUserBusinessFormResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.company)) {
-      query["Company"] = request.company;
-    }
-
-    if (!Util.isUnset(request.email)) {
-      query["Email"] = request.email;
-    }
-
-    if (!Util.isUnset(request.phoneNumber)) {
-      query["PhoneNumber"] = request.phoneNumber;
-    }
-
-    if (!Util.isUnset(request.position)) {
-      query["Position"] = request.position;
-    }
-
-    if (!Util.isUnset(request.remark)) {
-      query["Remark"] = request.remark;
-    }
-
-    if (!Util.isUnset(request.userName)) {
-      query["UserName"] = request.userName;
-    }
-
-    if (!Util.isUnset(request.website)) {
-      query["Website"] = request.website;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "AddUserBusinessForm",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<AddUserBusinessFormResponse>(await this.callApi(params, req, runtime), new AddUserBusinessFormResponse({}));
-  }
-
-  /**
-   * 新增用户商机单
-   * 
-   * @param request - AddUserBusinessFormRequest
-   * @returns AddUserBusinessFormResponse
-   */
-  async addUserBusinessForm(request: AddUserBusinessFormRequest): Promise<AddUserBusinessFormResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addUserBusinessFormWithOptions(request, runtime);
-  }
-
-  /**
-   * 缓存对象缓存
-   * 
-   * @param tmpReq - AdvancePurgeObjectCacheRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns AdvancePurgeObjectCacheResponse
-   */
-  async advancePurgeObjectCacheWithOptions(tmpReq: AdvancePurgeObjectCacheRequest, runtime: $Util.RuntimeOptions): Promise<AdvancePurgeObjectCacheResponse> {
-    Util.validateModel(tmpReq);
-    let request = new AdvancePurgeObjectCacheShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.content)) {
-      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.area)) {
-      query["Area"] = request.area;
-    }
-
-    if (!Util.isUnset(request.contentShrink)) {
-      query["Content"] = request.contentShrink;
-    }
-
-    if (!Util.isUnset(request.force)) {
-      query["Force"] = request.force;
-    }
-
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    if (!Util.isUnset(request.stations)) {
-      query["Stations"] = request.stations;
-    }
-
-    if (!Util.isUnset(request.timeRangeBegin)) {
-      query["TimeRangeBegin"] = request.timeRangeBegin;
-    }
-
-    if (!Util.isUnset(request.timeRangeEnd)) {
-      query["TimeRangeEnd"] = request.timeRangeEnd;
-    }
-
-    if (!Util.isUnset(request.type)) {
-      query["Type"] = request.type;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "AdvancePurgeObjectCache",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<AdvancePurgeObjectCacheResponse>(await this.callApi(params, req, runtime), new AdvancePurgeObjectCacheResponse({}));
-  }
-
-  /**
-   * 缓存对象缓存
-   * 
-   * @param request - AdvancePurgeObjectCacheRequest
-   * @returns AdvancePurgeObjectCacheResponse
-   */
-  async advancePurgeObjectCache(request: AdvancePurgeObjectCacheRequest): Promise<AdvancePurgeObjectCacheResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.advancePurgeObjectCacheWithOptions(request, runtime);
   }
 
   /**
@@ -25781,6 +26766,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询缓存保持实例规格
+   * 
+   * @param request - GetCacheReserveSpecificationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCacheReserveSpecificationResponse
+   */
+  async getCacheReserveSpecificationWithOptions(runtime: $Util.RuntimeOptions): Promise<GetCacheReserveSpecificationResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetCacheReserveSpecification",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCacheReserveSpecificationResponse>(await this.callApi(params, req, runtime), new GetCacheReserveSpecificationResponse({}));
+  }
+
+  /**
+   * 查询缓存保持实例规格
+   * @returns GetCacheReserveSpecificationResponse
+   */
+  async getCacheReserveSpecification(): Promise<GetCacheReserveSpecificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCacheReserveSpecificationWithOptions(runtime);
+  }
+
+  /**
    * 查询Namespace信息
    * 
    * @param request - GetKvNamespaceRequest
@@ -26626,6 +27643,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询缓存保持实例列表
+   * 
+   * @param request - ListCacheReserveInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCacheReserveInstancesResponse
+   */
+  async listCacheReserveInstancesWithOptions(request: ListCacheReserveInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListCacheReserveInstancesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCacheReserveInstances",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCacheReserveInstancesResponse>(await this.callApi(params, req, runtime), new ListCacheReserveInstancesResponse({}));
+  }
+
+  /**
+   * 查询缓存保持实例列表
+   * 
+   * @param request - ListCacheReserveInstancesRequest
+   * @returns ListCacheReserveInstancesResponse
+   */
+  async listCacheReserveInstances(request: ListCacheReserveInstancesRequest): Promise<ListCacheReserveInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCacheReserveInstancesWithOptions(request, runtime);
+  }
+
+  /**
    * 获取一个边缘容器应用的全部域名记录
    * 
    * @param request - ListEdgeContainerAppRecordsRequest
@@ -26661,6 +27716,68 @@ export default class Client extends OpenApi {
   async listEdgeContainerAppRecords(request: ListEdgeContainerAppRecordsRequest): Promise<ListEdgeContainerAppRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEdgeContainerAppRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用户全部边缘容器应用
+   * 
+   * @param request - ListEdgeContainerAppsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEdgeContainerAppsResponse
+   */
+  async listEdgeContainerAppsWithOptions(request: ListEdgeContainerAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListEdgeContainerAppsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.orderKey)) {
+      query["OrderKey"] = request.orderKey;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!Util.isUnset(request.searchType)) {
+      query["SearchType"] = request.searchType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEdgeContainerApps",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEdgeContainerAppsResponse>(await this.callApi(params, req, runtime), new ListEdgeContainerAppsResponse({}));
+  }
+
+  /**
+   * 获取用户全部边缘容器应用
+   * 
+   * @param request - ListEdgeContainerAppsRequest
+   * @returns ListEdgeContainerAppsResponse
+   */
+  async listEdgeContainerApps(request: ListEdgeContainerAppsRequest): Promise<ListEdgeContainerAppsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEdgeContainerAppsWithOptions(request, runtime);
   }
 
   /**
@@ -26702,6 +27819,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询用户可购买的边缘函数的套餐
+   * 
+   * @param request - ListEdgeRoutinePlansRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEdgeRoutinePlansResponse
+   */
+  async listEdgeRoutinePlansWithOptions(runtime: $Util.RuntimeOptions): Promise<ListEdgeRoutinePlansResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListEdgeRoutinePlans",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEdgeRoutinePlansResponse>(await this.callApi(params, req, runtime), new ListEdgeRoutinePlansResponse({}));
+  }
+
+  /**
+   * 查询用户可购买的边缘函数的套餐
+   * @returns ListEdgeRoutinePlansResponse
+   */
+  async listEdgeRoutinePlans(): Promise<ListEdgeRoutinePlansResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEdgeRoutinePlansWithOptions(runtime);
+  }
+
+  /**
    * 查询站点的边缘路由记录
    * 
    * @param request - ListEdgeRoutineRecordsRequest
@@ -26737,6 +27886,82 @@ export default class Client extends OpenApi {
   async listEdgeRoutineRecords(request: ListEdgeRoutineRecordsRequest): Promise<ListEdgeRoutineRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEdgeRoutineRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例或者站点的quota值
+   * 
+   * @param request - ListInstanceQuotasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceQuotasResponse
+   */
+  async listInstanceQuotasWithOptions(request: ListInstanceQuotasRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceQuotasResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstanceQuotas",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceQuotasResponse>(await this.callApi(params, req, runtime), new ListInstanceQuotasResponse({}));
+  }
+
+  /**
+   * 查询实例或者站点的quota值
+   * 
+   * @param request - ListInstanceQuotasRequest
+   * @returns ListInstanceQuotasResponse
+   */
+  async listInstanceQuotas(request: ListInstanceQuotasRequest): Promise<ListInstanceQuotasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInstanceQuotasWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询功能quota和用量
+   * 
+   * @param request - ListInstanceQuotasWithUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceQuotasWithUsageResponse
+   */
+  async listInstanceQuotasWithUsageWithOptions(request: ListInstanceQuotasWithUsageRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceQuotasWithUsageResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstanceQuotasWithUsage",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceQuotasWithUsageResponse>(await this.callApi(params, req, runtime), new ListInstanceQuotasWithUsageResponse({}));
+  }
+
+  /**
+   * 查询功能quota和用量
+   * 
+   * @param request - ListInstanceQuotasWithUsageRequest
+   * @returns ListInstanceQuotasWithUsageResponse
+   */
+  async listInstanceQuotasWithUsage(request: ListInstanceQuotasWithUsageRequest): Promise<ListInstanceQuotasWithUsageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInstanceQuotasWithUsageWithOptions(request, runtime);
   }
 
   /**
@@ -27303,6 +28528,116 @@ export default class Client extends OpenApi {
   async listUserDeliveryTasks(request: ListUserDeliveryTasksRequest): Promise<ListUserDeliveryTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserDeliveryTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询该用户下可用的已购套餐实例
+   * 
+   * @param request - ListUserRatePlanInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserRatePlanInstancesResponse
+   */
+  async listUserRatePlanInstancesWithOptions(request: ListUserRatePlanInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserRatePlanInstancesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUserRatePlanInstances",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserRatePlanInstancesResponse>(await this.callApi(params, req, runtime), new ListUserRatePlanInstancesResponse({}));
+  }
+
+  /**
+   * 查询该用户下可用的已购套餐实例
+   * 
+   * @param request - ListUserRatePlanInstancesRequest
+   * @returns ListUserRatePlanInstancesResponse
+   */
+  async listUserRatePlanInstances(request: ListUserRatePlanInstancesRequest): Promise<ListUserRatePlanInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUserRatePlanInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 列举WAF托管规则
+   * 
+   * @param tmpReq - ListWafManagedRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWafManagedRulesResponse
+   */
+  async listWafManagedRulesWithOptions(tmpReq: ListWafManagedRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListWafManagedRulesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListWafManagedRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.queryArgs)) {
+      request.queryArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryArgs, "QueryArgs", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.attackType)) {
+      query["AttackType"] = request.attackType;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryArgsShrink)) {
+      query["QueryArgs"] = request.queryArgsShrink;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWafManagedRules",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWafManagedRulesResponse>(await this.callApi(params, req, runtime), new ListWafManagedRulesResponse({}));
+  }
+
+  /**
+   * 列举WAF托管规则
+   * 
+   * @param request - ListWafManagedRulesRequest
+   * @returns ListWafManagedRulesResponse
+   */
+  async listWafManagedRules(request: ListWafManagedRulesRequest): Promise<ListWafManagedRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listWafManagedRulesWithOptions(request, runtime);
   }
 
   /**
@@ -27885,52 +29220,6 @@ export default class Client extends OpenApi {
   async putKv(request: PutKvRequest): Promise<PutKvResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putKvWithOptions(request, runtime);
-  }
-
-  /**
-   * 设置账户
-   * 
-   * @param request - PutKvAccountRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns PutKvAccountResponse
-   */
-  async putKvAccountWithOptions(request: PutKvAccountRequest, runtime: $Util.RuntimeOptions): Promise<PutKvAccountResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountType)) {
-      body["AccountType"] = request.accountType;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      body["Status"] = request.status;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "PutKvAccount",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<PutKvAccountResponse>(await this.callApi(params, req, runtime), new PutKvAccountResponse({}));
-  }
-
-  /**
-   * 设置账户
-   * 
-   * @param request - PutKvAccountRequest
-   * @returns PutKvAccountResponse
-   */
-  async putKvAccount(request: PutKvAccountRequest): Promise<PutKvAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.putKvAccountWithOptions(request, runtime);
   }
 
   /**
