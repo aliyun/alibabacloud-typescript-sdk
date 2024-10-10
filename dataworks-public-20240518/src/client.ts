@@ -98,6 +98,590 @@ export class AbolishDeploymentResponse extends $tea.Model {
   }
 }
 
+export class CloneDataSourceRequest extends $tea.Model {
+  /**
+   * @example
+   * demo_holo_datasource
+   */
+  cloneDataSourceName?: string;
+  /**
+   * @example
+   * 16036
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cloneDataSourceName: 'CloneDataSourceName',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloneDataSourceName: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneDataSourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 19715
+   */
+  id?: number;
+  /**
+   * @example
+   * FCD583B9-346B-5E75-82C1-4A7C192C48DB
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneDataSourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloneDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CloneDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequest extends $tea.Model {
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  destinationDataSourceSettings?: CreateDIJobRequestDestinationDataSourceSettings[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Hologres
+   */
+  destinationDataSourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mysql_to_holo_sync_8772
+   */
+  jobName?: string;
+  jobSettings?: CreateDIJobRequestJobSettings;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FullAndRealtimeIncremental
+   */
+  migrationType?: string;
+  /**
+   * @example
+   * 10000
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceSettings?: CreateDIJobRequestResourceSettings;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sourceDataSourceSettings?: CreateDIJobRequestSourceDataSourceSettings[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySQL
+   */
+  sourceDataSourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tableMappings?: CreateDIJobRequestTableMappings[];
+  transformationRules?: CreateDIJobRequestTransformationRules[];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destinationDataSourceSettings: 'DestinationDataSourceSettings',
+      destinationDataSourceType: 'DestinationDataSourceType',
+      jobName: 'JobName',
+      jobSettings: 'JobSettings',
+      migrationType: 'MigrationType',
+      projectId: 'ProjectId',
+      resourceSettings: 'ResourceSettings',
+      sourceDataSourceSettings: 'SourceDataSourceSettings',
+      sourceDataSourceType: 'SourceDataSourceType',
+      tableMappings: 'TableMappings',
+      transformationRules: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destinationDataSourceSettings: { 'type': 'array', 'itemType': CreateDIJobRequestDestinationDataSourceSettings },
+      destinationDataSourceType: 'string',
+      jobName: 'string',
+      jobSettings: CreateDIJobRequestJobSettings,
+      migrationType: 'string',
+      projectId: 'number',
+      resourceSettings: CreateDIJobRequestResourceSettings,
+      sourceDataSourceSettings: { 'type': 'array', 'itemType': CreateDIJobRequestSourceDataSourceSettings },
+      sourceDataSourceType: 'string',
+      tableMappings: { 'type': 'array', 'itemType': CreateDIJobRequestTableMappings },
+      transformationRules: { 'type': 'array', 'itemType': CreateDIJobRequestTransformationRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobShrinkRequest extends $tea.Model {
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  destinationDataSourceSettingsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Hologres
+   */
+  destinationDataSourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mysql_to_holo_sync_8772
+   */
+  jobName?: string;
+  jobSettingsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FullAndRealtimeIncremental
+   */
+  migrationType?: string;
+  /**
+   * @example
+   * 10000
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceSettingsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sourceDataSourceSettingsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySQL
+   */
+  sourceDataSourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tableMappingsShrink?: string;
+  transformationRulesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destinationDataSourceSettingsShrink: 'DestinationDataSourceSettings',
+      destinationDataSourceType: 'DestinationDataSourceType',
+      jobName: 'JobName',
+      jobSettingsShrink: 'JobSettings',
+      migrationType: 'MigrationType',
+      projectId: 'ProjectId',
+      resourceSettingsShrink: 'ResourceSettings',
+      sourceDataSourceSettingsShrink: 'SourceDataSourceSettings',
+      sourceDataSourceType: 'SourceDataSourceType',
+      tableMappingsShrink: 'TableMappings',
+      transformationRulesShrink: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destinationDataSourceSettingsShrink: 'string',
+      destinationDataSourceType: 'string',
+      jobName: 'string',
+      jobSettingsShrink: 'string',
+      migrationType: 'string',
+      projectId: 'number',
+      resourceSettingsShrink: 'string',
+      sourceDataSourceSettingsShrink: 'string',
+      sourceDataSourceType: 'string',
+      tableMappingsShrink: 'string',
+      transformationRulesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 11792
+   */
+  DIJobId?: number;
+  /**
+   * @example
+   * 4F6AB6B3-41FB-5EBB-AFB2-0C98D49DA2BB
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDIJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDIJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataSourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {
+   * 	"envType": "Prod",
+   * 	"regionId": "cn-beijing",
+   *     "instanceId": "hgprecn-cn-x0r3oun4k001",
+   *     "database": "testdb",
+   *     "securityProtocol": "authTypeNone",
+   *     "authType": "Executor",
+   *     "authIdentity": "1107550004253538"
+   * }
+   */
+  connectionProperties?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UrlMode
+   */
+  connectionPropertiesMode?: string;
+  /**
+   * @example
+   * this is a holo datasource
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * demo_holo_datasource
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hologres
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionProperties: 'ConnectionProperties',
+      connectionPropertiesMode: 'ConnectionPropertiesMode',
+      description: 'Description',
+      name: 'Name',
+      projectId: 'ProjectId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionProperties: 'string',
+      connectionPropertiesMode: 'string',
+      description: 'string',
+      name: 'string',
+      projectId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataSourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22130
+   */
+  id?: number;
+  /**
+   * @example
+   * B62EC203-B39E-5DC1-B5B8-EB3C61707009
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataSourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataSourceSharedRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 144544
+   */
+  dataSourceId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dev
+   */
+  envType?: string;
+  /**
+   * @example
+   * 1107550004253538
+   */
+  sharedUser?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 106560
+   */
+  targetProjectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      envType: 'EnvType',
+      sharedUser: 'SharedUser',
+      targetProjectId: 'TargetProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      envType: 'string',
+      sharedUser: 'string',
+      targetProjectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataSourceSharedRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 105412
+   */
+  id?: number;
+  /**
+   * @example
+   * 46F594E6-84AB-5FA5-8144-6F3D149961E1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataSourceSharedRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataSourceSharedRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataSourceSharedRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDeploymentRequest extends $tea.Model {
   description?: string;
   /**
@@ -442,6 +1026,203 @@ export class CreateNodeResponse extends $tea.Model {
   }
 }
 
+export class CreateProjectRequest extends $tea.Model {
+  /**
+   * @example
+   * rg-acfmzbn7pti3zff
+   */
+  aliyunResourceGroupId?: string;
+  aliyunResourceTags?: CreateProjectRequestAliyunResourceTags[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  description?: string;
+  /**
+   * @example
+   * false
+   */
+  devEnvironmentEnabled?: boolean;
+  /**
+   * @example
+   * true
+   */
+  devRoleDisabled?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sora_finance
+   */
+  name?: string;
+  /**
+   * @example
+   * true
+   */
+  paiTaskEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunResourceGroupId: 'AliyunResourceGroupId',
+      aliyunResourceTags: 'AliyunResourceTags',
+      description: 'Description',
+      devEnvironmentEnabled: 'DevEnvironmentEnabled',
+      devRoleDisabled: 'DevRoleDisabled',
+      displayName: 'DisplayName',
+      name: 'Name',
+      paiTaskEnabled: 'PaiTaskEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunResourceGroupId: 'string',
+      aliyunResourceTags: { 'type': 'array', 'itemType': CreateProjectRequestAliyunResourceTags },
+      description: 'string',
+      devEnvironmentEnabled: 'boolean',
+      devRoleDisabled: 'boolean',
+      displayName: 'string',
+      name: 'string',
+      paiTaskEnabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * rg-acfmzbn7pti3zff
+   */
+  aliyunResourceGroupId?: string;
+  aliyunResourceTagsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  description?: string;
+  /**
+   * @example
+   * false
+   */
+  devEnvironmentEnabled?: boolean;
+  /**
+   * @example
+   * true
+   */
+  devRoleDisabled?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sora_finance
+   */
+  name?: string;
+  /**
+   * @example
+   * true
+   */
+  paiTaskEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunResourceGroupId: 'AliyunResourceGroupId',
+      aliyunResourceTagsShrink: 'AliyunResourceTags',
+      description: 'Description',
+      devEnvironmentEnabled: 'DevEnvironmentEnabled',
+      devRoleDisabled: 'DevRoleDisabled',
+      displayName: 'DisplayName',
+      name: 'Name',
+      paiTaskEnabled: 'PaiTaskEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunResourceGroupId: 'string',
+      aliyunResourceTagsShrink: 'string',
+      description: 'string',
+      devEnvironmentEnabled: 'boolean',
+      devRoleDisabled: 'boolean',
+      displayName: 'string',
+      name: 'string',
+      paiTaskEnabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 123456
+   */
+  projectId?: number;
+  /**
+   * @example
+   * AFBB799F-8578-51C5-A766-E922EDB8XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateResourceRequest extends $tea.Model {
   /**
    * @remarks
@@ -612,6 +1393,246 @@ export class CreateWorkflowDefinitionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateWorkflowDefinitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDIJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11126
+   */
+  DIJobId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDIJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * D33D4A51-5845-579A-B4BA-FAADD0F83D53
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDIJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDIJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDIJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceRequest extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * B56432E0-2112-5C97-88D0-AA0AE5C75C74
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceSharedRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 22127
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceSharedRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 64B-587A-8CED-969E1973887FXXX-TT
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceSharedRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDataSourceSharedRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataSourceSharedRuleResponseBody,
     };
   }
 
@@ -794,6 +1815,80 @@ export class DeleteNodeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AFBB799F-8578-51C5-A766-E922EDB8XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteProjectResponseBody,
     };
   }
 
@@ -1085,6 +2180,268 @@ export class ExecDeploymentStageResponse extends $tea.Model {
   }
 }
 
+export class GetDIJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11588
+   */
+  DIJobId?: string;
+  /**
+   * @example
+   * true
+   */
+  withDetails?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      withDetails: 'WithDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'string',
+      withDetails: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBody extends $tea.Model {
+  pagingInfo?: GetDIJobResponseBodyPagingInfo;
+  /**
+   * @remarks
+   * 代表创建时间的资源属性字段
+   * 
+   * @example
+   * C99E2BE6-9DEA-5C2E-8F51-1DDCFEADE490
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: GetDIJobResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDIJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDIJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
+  DIJobId?: number;
+  /**
+   * @example
+   * 10
+   */
+  failoverId?: number;
+  /**
+   * @example
+   * 6153616438
+   */
+  instanceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      failoverId: 'FailoverId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      failoverId: 'number',
+      instanceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobLogResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * @example
+   * >>>>>>>> stdout:n++++++++++++++++++executing sql: create database if not exists jindo_test location \\"oss://pangbei-hdfs/tmp/hive\\" n++n
+   */
+  log?: string;
+  /**
+   * @example
+   * 1AFAE64E-D1BE-432B-A9****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      log: 'Log',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      log: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobLogResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDIJobLogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDIJobLogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataSourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 16035
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataSourceResponseBody extends $tea.Model {
+  dataSource?: GetDataSourceResponseBodyDataSource;
+  /**
+   * @example
+   * 9252F32F-D855-549E-8898-61CF5A733050
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSource: 'DataSource',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSource: GetDataSourceResponseBodyDataSource,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataSourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDeploymentRequest extends $tea.Model {
   /**
    * @remarks
@@ -1340,6 +2697,83 @@ export class GetNodeResponse extends $tea.Model {
   }
 }
 
+export class GetProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponseBody extends $tea.Model {
+  project?: GetProjectResponseBodyProject;
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      project: 'Project',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      project: GetProjectResponseBodyProject,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResourceRequest extends $tea.Model {
   /**
    * @remarks
@@ -1500,6 +2934,700 @@ export class GetWorkflowDefinitionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetWorkflowDefinitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobEventsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11588
+   */
+  DIJobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1717971005
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Alarm
+   */
+  eventType?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1716971005
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      endTime: 'EndTime',
+      eventType: 'EventType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'string',
+      endTime: 'number',
+      eventType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobEventsResponseBody extends $tea.Model {
+  pagingInfo?: ListDIJobEventsResponseBodyPagingInfo;
+  /**
+   * @example
+   * 645F6D68-9C29-5961-80B1-BDD4B794C22D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListDIJobEventsResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobEventsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDIJobEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDIJobEventsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobMetricsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11265
+   */
+  DIJobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1712205941
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  metricName?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1586509407
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      endTime: 'EndTime',
+      metricName: 'MetricName',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'string',
+      endTime: 'number',
+      metricName: { 'type': 'array', 'itemType': 'string' },
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobMetricsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11265
+   */
+  DIJobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1712205941
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  metricNameShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1586509407
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      endTime: 'EndTime',
+      metricNameShrink: 'MetricName',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'string',
+      endTime: 'number',
+      metricNameShrink: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobMetricsResponseBody extends $tea.Model {
+  pagingInfo?: ListDIJobMetricsResponseBodyPagingInfo;
+  /**
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListDIJobMetricsResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobMetricsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDIJobMetricsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDIJobMetricsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * Hologres
+   */
+  destinationDataSourceType?: string;
+  /**
+   * @example
+   * FullAndRealtimeIncremental
+   */
+  migrationType?: string;
+  /**
+   * @example
+   * test_export_01
+   */
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1967
+   */
+  projectId?: number;
+  /**
+   * @example
+   * MySQL
+   */
+  sourceDataSourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationDataSourceType: 'DestinationDataSourceType',
+      migrationType: 'MigrationType',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      sourceDataSourceType: 'SourceDataSourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationDataSourceType: 'string',
+      migrationType: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      sourceDataSourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobsResponseBody extends $tea.Model {
+  pagingInfo?: ListDIJobsResponseBodyPagingInfo;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 7263E4AC-9D2E-5B29-B8AF-7C5012E92A41
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListDIJobsResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDIJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDIJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourceSharedRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  dataSourceId?: number;
+  /**
+   * @example
+   * 1
+   */
+  targetProjectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      targetProjectId: 'TargetProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      targetProjectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourceSharedRulesResponseBody extends $tea.Model {
+  dataSourceSharedRules?: ListDataSourceSharedRulesResponseBodyDataSourceSharedRules[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 0000-ABCD-EFG****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceSharedRules: 'DataSourceSharedRules',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceSharedRules: { 'type': 'array', 'itemType': ListDataSourceSharedRulesResponseBodyDataSourceSharedRules },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourceSharedRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataSourceSharedRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataSourceSharedRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 17820
+   */
+  projectId?: number;
+  /**
+   * @example
+   * Id
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * ["tag1", "tag2", "tag3"]
+   */
+  tags?: string;
+  types?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      envType: 'EnvType',
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      sortBy: 'SortBy',
+      tags: 'Tags',
+      types: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      envType: 'string',
+      name: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      sortBy: 'string',
+      tags: 'string',
+      types: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourcesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 17820
+   */
+  projectId?: number;
+  /**
+   * @example
+   * Id
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * ["tag1", "tag2", "tag3"]
+   */
+  tags?: string;
+  typesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      envType: 'EnvType',
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      sortBy: 'SortBy',
+      tags: 'Tags',
+      typesShrink: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      envType: 'string',
+      name: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      sortBy: 'string',
+      tags: 'string',
+      typesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourcesResponseBody extends $tea.Model {
+  pagingInfo?: ListDataSourcesResponseBodyPagingInfo;
+  /**
+   * @example
+   * 7BE1433F-6D55-5D86-9344-CA6F7DD19B13
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListDataSourcesResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataSourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataSourcesResponseBody,
     };
   }
 
@@ -1930,6 +4058,205 @@ export class ListNodesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListNodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsRequest extends $tea.Model {
+  /**
+   * @example
+   * rg-acfmzbn7pti3zff
+   */
+  aliyunResourceGroupId?: string;
+  aliyunResourceTags?: ListProjectsRequestAliyunResourceTags[];
+  /**
+   * @example
+   * true
+   */
+  devEnvironmentEnabled?: boolean;
+  /**
+   * @example
+   * false
+   */
+  devRoleDisabled?: boolean;
+  ids?: number[];
+  names?: string[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * true
+   */
+  paiTaskEnabled?: boolean;
+  /**
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunResourceGroupId: 'AliyunResourceGroupId',
+      aliyunResourceTags: 'AliyunResourceTags',
+      devEnvironmentEnabled: 'DevEnvironmentEnabled',
+      devRoleDisabled: 'DevRoleDisabled',
+      ids: 'Ids',
+      names: 'Names',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      paiTaskEnabled: 'PaiTaskEnabled',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunResourceGroupId: 'string',
+      aliyunResourceTags: { 'type': 'array', 'itemType': ListProjectsRequestAliyunResourceTags },
+      devEnvironmentEnabled: 'boolean',
+      devRoleDisabled: 'boolean',
+      ids: { 'type': 'array', 'itemType': 'number' },
+      names: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+      paiTaskEnabled: 'boolean',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * rg-acfmzbn7pti3zff
+   */
+  aliyunResourceGroupId?: string;
+  aliyunResourceTagsShrink?: string;
+  /**
+   * @example
+   * true
+   */
+  devEnvironmentEnabled?: boolean;
+  /**
+   * @example
+   * false
+   */
+  devRoleDisabled?: boolean;
+  idsShrink?: string;
+  namesShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * true
+   */
+  paiTaskEnabled?: boolean;
+  /**
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunResourceGroupId: 'AliyunResourceGroupId',
+      aliyunResourceTagsShrink: 'AliyunResourceTags',
+      devEnvironmentEnabled: 'DevEnvironmentEnabled',
+      devRoleDisabled: 'DevRoleDisabled',
+      idsShrink: 'Ids',
+      namesShrink: 'Names',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      paiTaskEnabled: 'PaiTaskEnabled',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunResourceGroupId: 'string',
+      aliyunResourceTagsShrink: 'string',
+      devEnvironmentEnabled: 'boolean',
+      devRoleDisabled: 'boolean',
+      idsShrink: 'string',
+      namesShrink: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      paiTaskEnabled: 'boolean',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsResponseBody extends $tea.Model {
+  pagingInfo?: ListProjectsResponseBodyPagingInfo;
+  /**
+   * @example
+   * 6D24AD9A-652F-59E2-AC1F-05029300F8A4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListProjectsResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProjectsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListProjectsResponseBody,
     };
   }
 
@@ -2944,6 +5271,393 @@ export class RenameWorkflowDefinitionResponse extends $tea.Model {
   }
 }
 
+export class StartDIJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
+  DIJobId?: string;
+  /**
+   * @example
+   * false
+   */
+  forceToRerun?: boolean;
+  realtimeStartSettings?: StartDIJobRequestRealtimeStartSettings;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      forceToRerun: 'ForceToRerun',
+      realtimeStartSettings: 'RealtimeStartSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'string',
+      forceToRerun: 'boolean',
+      realtimeStartSettings: StartDIJobRequestRealtimeStartSettings,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDIJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
+  DIJobId?: string;
+  /**
+   * @example
+   * false
+   */
+  forceToRerun?: boolean;
+  realtimeStartSettingsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      forceToRerun: 'ForceToRerun',
+      realtimeStartSettingsShrink: 'RealtimeStartSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'string',
+      forceToRerun: 'boolean',
+      realtimeStartSettingsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDIJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 999431B2-6013-577F-B684-36F7433C753B
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDIJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartDIJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartDIJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11588
+   */
+  DIJobId?: number;
+  description?: string;
+  jobSettings?: UpdateDIJobRequestJobSettings;
+  resourceSettings?: UpdateDIJobRequestResourceSettings;
+  tableMappings?: UpdateDIJobRequestTableMappings[];
+  transformationRules?: UpdateDIJobRequestTransformationRules[];
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      jobSettings: 'JobSettings',
+      resourceSettings: 'ResourceSettings',
+      tableMappings: 'TableMappings',
+      transformationRules: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      description: 'string',
+      jobSettings: UpdateDIJobRequestJobSettings,
+      resourceSettings: UpdateDIJobRequestResourceSettings,
+      tableMappings: { 'type': 'array', 'itemType': UpdateDIJobRequestTableMappings },
+      transformationRules: { 'type': 'array', 'itemType': UpdateDIJobRequestTransformationRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11588
+   */
+  DIJobId?: number;
+  description?: string;
+  jobSettingsShrink?: string;
+  resourceSettingsShrink?: string;
+  tableMappingsShrink?: string;
+  transformationRulesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      jobSettingsShrink: 'JobSettings',
+      resourceSettingsShrink: 'ResourceSettings',
+      tableMappingsShrink: 'TableMappings',
+      transformationRulesShrink: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      description: 'string',
+      jobSettingsShrink: 'string',
+      resourceSettingsShrink: 'string',
+      tableMappingsShrink: 'string',
+      transformationRulesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AAC30B35-820D-5F3E-A42C-E96BB6379325
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDIJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDIJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataSourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {
+   * 	"envType": "Prod",
+   * 	"regionId": "cn-beijing",
+   *     "instanceId": "hgprecn-cn-x0r3oun4k001",
+   *     "database": "testdb",
+   *     "securityProtocol": "authTypeNone",
+   *     "authType": "Executor",
+   *     "authIdentity": "1107550004253538"
+   * }
+   */
+  connectionProperties?: string;
+  /**
+   * @example
+   * UrlMode
+   */
+  connectionPropertiesMode?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 16033
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5678
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectionProperties: 'ConnectionProperties',
+      connectionPropertiesMode: 'ConnectionPropertiesMode',
+      description: 'Description',
+      id: 'Id',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionProperties: 'string',
+      connectionPropertiesMode: 'string',
+      description: 'string',
+      id: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataSourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 102E8E24-0387-531D-8A75-1C0AE7DD03E5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataSourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateFunctionRequest extends $tea.Model {
   /**
    * @remarks
@@ -3140,6 +5854,114 @@ export class UpdateNodeResponse extends $tea.Model {
   }
 }
 
+export class UpdateProjectRequest extends $tea.Model {
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  devEnvironmentEnabled?: boolean;
+  /**
+   * @example
+   * true
+   */
+  devRoleDisabled?: boolean;
+  displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
+  id?: number;
+  /**
+   * @example
+   * true
+   */
+  paiTaskEnabled?: boolean;
+  /**
+   * @example
+   * Forbidden
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      devEnvironmentEnabled: 'DevEnvironmentEnabled',
+      devRoleDisabled: 'DevRoleDisabled',
+      displayName: 'DisplayName',
+      id: 'Id',
+      paiTaskEnabled: 'PaiTaskEnabled',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      devEnvironmentEnabled: 'boolean',
+      devRoleDisabled: 'boolean',
+      displayName: 'string',
+      id: 'number',
+      paiTaskEnabled: 'boolean',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AFBB799F-8578-51C5-A766-E922EDB8XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateResourceRequest extends $tea.Model {
   /**
    * @remarks
@@ -3328,6 +6150,1219 @@ export class UpdateWorkflowDefinitionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateWorkflowDefinitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestDestinationDataSourceSettings extends $tea.Model {
+  /**
+   * @example
+   * holo_datasource_1
+   */
+  dataSourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceName: 'DataSourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestJobSettingsColumnDataTypeSettings extends $tea.Model {
+  /**
+   * @example
+   * text
+   */
+  destinationDataType?: string;
+  /**
+   * @example
+   * bigint
+   */
+  sourceDataType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationDataType: 'DestinationDataType',
+      sourceDataType: 'SourceDataType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationDataType: 'string',
+      sourceDataType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestJobSettingsCycleScheduleSettings extends $tea.Model {
+  /**
+   * @example
+   * Full
+   */
+  cycleMigrationType?: string;
+  /**
+   * @example
+   * bizdate=$bizdate
+   */
+  scheduleParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cycleMigrationType: 'CycleMigrationType',
+      scheduleParameters: 'ScheduleParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleMigrationType: 'string',
+      scheduleParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestJobSettingsDdlHandlingSettings extends $tea.Model {
+  /**
+   * @example
+   * Critical
+   */
+  action?: string;
+  /**
+   * @example
+   * AddColumn
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestJobSettingsRuntimeSettings extends $tea.Model {
+  /**
+   * @example
+   * runtime.offline.concurrent
+   */
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestJobSettings extends $tea.Model {
+  /**
+   * @example
+   * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
+   */
+  channelSettings?: string;
+  columnDataTypeSettings?: CreateDIJobRequestJobSettingsColumnDataTypeSettings[];
+  cycleScheduleSettings?: CreateDIJobRequestJobSettingsCycleScheduleSettings;
+  ddlHandlingSettings?: CreateDIJobRequestJobSettingsDdlHandlingSettings[];
+  runtimeSettings?: CreateDIJobRequestJobSettingsRuntimeSettings[];
+  static names(): { [key: string]: string } {
+    return {
+      channelSettings: 'ChannelSettings',
+      columnDataTypeSettings: 'ColumnDataTypeSettings',
+      cycleScheduleSettings: 'CycleScheduleSettings',
+      ddlHandlingSettings: 'DdlHandlingSettings',
+      runtimeSettings: 'RuntimeSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelSettings: 'string',
+      columnDataTypeSettings: { 'type': 'array', 'itemType': CreateDIJobRequestJobSettingsColumnDataTypeSettings },
+      cycleScheduleSettings: CreateDIJobRequestJobSettingsCycleScheduleSettings,
+      ddlHandlingSettings: { 'type': 'array', 'itemType': CreateDIJobRequestJobSettingsDdlHandlingSettings },
+      runtimeSettings: { 'type': 'array', 'itemType': CreateDIJobRequestJobSettingsRuntimeSettings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestResourceSettingsOfflineResourceSettings extends $tea.Model {
+  /**
+   * @example
+   * 2.0
+   */
+  requestedCu?: number;
+  /**
+   * @example
+   * S_res_group_111_222
+   */
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestedCu: 'RequestedCu',
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestedCu: 'number',
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestResourceSettingsRealtimeResourceSettings extends $tea.Model {
+  /**
+   * @example
+   * 2.0
+   */
+  requestedCu?: number;
+  /**
+   * @example
+   * S_res_group_111_222
+   */
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestedCu: 'RequestedCu',
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestedCu: 'number',
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestResourceSettingsScheduleResourceSettings extends $tea.Model {
+  /**
+   * @example
+   * 2.0
+   */
+  requestedCu?: number;
+  /**
+   * @example
+   * S_res_group_235454102432001_1579085295030
+   */
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestedCu: 'RequestedCu',
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestedCu: 'number',
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestResourceSettings extends $tea.Model {
+  offlineResourceSettings?: CreateDIJobRequestResourceSettingsOfflineResourceSettings;
+  realtimeResourceSettings?: CreateDIJobRequestResourceSettingsRealtimeResourceSettings;
+  scheduleResourceSettings?: CreateDIJobRequestResourceSettingsScheduleResourceSettings;
+  static names(): { [key: string]: string } {
+    return {
+      offlineResourceSettings: 'OfflineResourceSettings',
+      realtimeResourceSettings: 'RealtimeResourceSettings',
+      scheduleResourceSettings: 'ScheduleResourceSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offlineResourceSettings: CreateDIJobRequestResourceSettingsOfflineResourceSettings,
+      realtimeResourceSettings: CreateDIJobRequestResourceSettingsRealtimeResourceSettings,
+      scheduleResourceSettings: CreateDIJobRequestResourceSettingsScheduleResourceSettings,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties extends $tea.Model {
+  /**
+   * @example
+   * UTF-8
+   */
+  encoding?: string;
+  /**
+   * @example
+   * GMT+8
+   */
+  timezone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encoding: 'Encoding',
+      timezone: 'Timezone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encoding: 'string',
+      timezone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestSourceDataSourceSettings extends $tea.Model {
+  /**
+   * @example
+   * mysql_datasource_1
+   */
+  dataSourceName?: string;
+  dataSourceProperties?: CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceName: 'DataSourceName',
+      dataSourceProperties: 'DataSourceProperties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceName: 'string',
+      dataSourceProperties: CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestTableMappingsSourceObjectSelectionRules extends $tea.Model {
+  /**
+   * @example
+   * Include
+   */
+  action?: string;
+  /**
+   * @example
+   * mysql_table_1
+   */
+  expression?: string;
+  /**
+   * @example
+   * Exact
+   */
+  expressionType?: string;
+  /**
+   * @example
+   * Table
+   */
+  objectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      expression: 'Expression',
+      expressionType: 'ExpressionType',
+      objectType: 'ObjectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      expression: 'string',
+      expressionType: 'string',
+      objectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestTableMappingsTransformationRules extends $tea.Model {
+  /**
+   * @example
+   * Rename
+   */
+  ruleActionType?: string;
+  /**
+   * @example
+   * rename_rule_1
+   */
+  ruleName?: string;
+  /**
+   * @example
+   * Table
+   */
+  ruleTargetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleActionType: 'RuleActionType',
+      ruleName: 'RuleName',
+      ruleTargetType: 'RuleTargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleActionType: 'string',
+      ruleName: 'string',
+      ruleTargetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestTableMappings extends $tea.Model {
+  sourceObjectSelectionRules?: CreateDIJobRequestTableMappingsSourceObjectSelectionRules[];
+  transformationRules?: CreateDIJobRequestTableMappingsTransformationRules[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceObjectSelectionRules: 'SourceObjectSelectionRules',
+      transformationRules: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceObjectSelectionRules: { 'type': 'array', 'itemType': CreateDIJobRequestTableMappingsSourceObjectSelectionRules },
+      transformationRules: { 'type': 'array', 'itemType': CreateDIJobRequestTableMappingsTransformationRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestTransformationRules extends $tea.Model {
+  /**
+   * @example
+   * Rename
+   */
+  ruleActionType?: string;
+  /**
+   * @example
+   * {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
+   */
+  ruleExpression?: string;
+  /**
+   * @example
+   * rename_rule_1
+   */
+  ruleName?: string;
+  /**
+   * @example
+   * Table
+   */
+  ruleTargetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleActionType: 'RuleActionType',
+      ruleExpression: 'RuleExpression',
+      ruleName: 'RuleName',
+      ruleTargetType: 'RuleTargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleActionType: 'string',
+      ruleExpression: 'string',
+      ruleName: 'string',
+      ruleTargetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectRequestAliyunResourceTags extends $tea.Model {
+  /**
+   * @example
+   * batch
+   */
+  key?: string;
+  /**
+   * @example
+   * blue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings extends $tea.Model {
+  /**
+   * @example
+   * dw_mysql
+   */
+  dataSourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceName: 'DataSourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoJobSettingsColumnDataTypeSettings extends $tea.Model {
+  /**
+   * @example
+   * text
+   */
+  destinationDataType?: string;
+  /**
+   * @example
+   * bigint
+   */
+  sourceDataType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationDataType: 'DestinationDataType',
+      sourceDataType: 'SourceDataType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationDataType: 'string',
+      sourceDataType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoJobSettingsCycleScheduleSettings extends $tea.Model {
+  /**
+   * @example
+   * Full
+   */
+  cycleMigrationType?: string;
+  /**
+   * @example
+   * bizdate=$bizdate
+   */
+  scheduleParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cycleMigrationType: 'CycleMigrationType',
+      scheduleParameters: 'ScheduleParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleMigrationType: 'string',
+      scheduleParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoJobSettingsDdlHandlingSettings extends $tea.Model {
+  /**
+   * @example
+   * Ignore
+   */
+  action?: string;
+  /**
+   * @example
+   * CreateTable
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoJobSettingsRuntimeSettings extends $tea.Model {
+  /**
+   * @example
+   * runtime.offline.concurrent
+   */
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoJobSettings extends $tea.Model {
+  /**
+   * @example
+   * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
+   */
+  channelSettings?: string;
+  columnDataTypeSettings?: GetDIJobResponseBodyPagingInfoJobSettingsColumnDataTypeSettings[];
+  cycleScheduleSettings?: GetDIJobResponseBodyPagingInfoJobSettingsCycleScheduleSettings;
+  ddlHandlingSettings?: GetDIJobResponseBodyPagingInfoJobSettingsDdlHandlingSettings[];
+  runtimeSettings?: GetDIJobResponseBodyPagingInfoJobSettingsRuntimeSettings[];
+  static names(): { [key: string]: string } {
+    return {
+      channelSettings: 'ChannelSettings',
+      columnDataTypeSettings: 'ColumnDataTypeSettings',
+      cycleScheduleSettings: 'CycleScheduleSettings',
+      ddlHandlingSettings: 'DdlHandlingSettings',
+      runtimeSettings: 'RuntimeSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelSettings: 'string',
+      columnDataTypeSettings: { 'type': 'array', 'itemType': GetDIJobResponseBodyPagingInfoJobSettingsColumnDataTypeSettings },
+      cycleScheduleSettings: GetDIJobResponseBodyPagingInfoJobSettingsCycleScheduleSettings,
+      ddlHandlingSettings: { 'type': 'array', 'itemType': GetDIJobResponseBodyPagingInfoJobSettingsDdlHandlingSettings },
+      runtimeSettings: { 'type': 'array', 'itemType': GetDIJobResponseBodyPagingInfoJobSettingsRuntimeSettings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoResourceSettingsOfflineResourceSettings extends $tea.Model {
+  /**
+   * @example
+   * 2.0
+   */
+  requestedCu?: number;
+  /**
+   * @example
+   * S_res_group_7708_1667792816832
+   */
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestedCu: 'RequestedCu',
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestedCu: 'number',
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoResourceSettingsRealtimeResourceSettings extends $tea.Model {
+  /**
+   * @example
+   * 2.0
+   */
+  requestedCu?: number;
+  /**
+   * @example
+   * S_res_group_235454102432001_1579085295030
+   */
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestedCu: 'RequestedCu',
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestedCu: 'number',
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoResourceSettingsScheduleResourceSettings extends $tea.Model {
+  /**
+   * @example
+   * 2.0
+   */
+  requestedCu?: number;
+  /**
+   * @example
+   * S_res_group_235454102432001_1718359176885
+   */
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestedCu: 'RequestedCu',
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestedCu: 'number',
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoResourceSettings extends $tea.Model {
+  offlineResourceSettings?: GetDIJobResponseBodyPagingInfoResourceSettingsOfflineResourceSettings;
+  realtimeResourceSettings?: GetDIJobResponseBodyPagingInfoResourceSettingsRealtimeResourceSettings;
+  scheduleResourceSettings?: GetDIJobResponseBodyPagingInfoResourceSettingsScheduleResourceSettings;
+  static names(): { [key: string]: string } {
+    return {
+      offlineResourceSettings: 'OfflineResourceSettings',
+      realtimeResourceSettings: 'RealtimeResourceSettings',
+      scheduleResourceSettings: 'ScheduleResourceSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offlineResourceSettings: GetDIJobResponseBodyPagingInfoResourceSettingsOfflineResourceSettings,
+      realtimeResourceSettings: GetDIJobResponseBodyPagingInfoResourceSettingsRealtimeResourceSettings,
+      scheduleResourceSettings: GetDIJobResponseBodyPagingInfoResourceSettingsScheduleResourceSettings,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoSourceDataSourceSettingsDataSourceProperties extends $tea.Model {
+  /**
+   * @example
+   * UTF-8
+   */
+  encoding?: string;
+  /**
+   * @example
+   * GMT+8
+   */
+  timezone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encoding: 'Encoding',
+      timezone: 'Timezone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encoding: 'string',
+      timezone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoSourceDataSourceSettings extends $tea.Model {
+  /**
+   * @example
+   * dw_mysql
+   */
+  dataSourceName?: string;
+  dataSourceProperties?: GetDIJobResponseBodyPagingInfoSourceDataSourceSettingsDataSourceProperties;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceName: 'DataSourceName',
+      dataSourceProperties: 'DataSourceProperties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceName: 'string',
+      dataSourceProperties: GetDIJobResponseBodyPagingInfoSourceDataSourceSettingsDataSourceProperties,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoTableMappingsSourceObjectSelectionRules extends $tea.Model {
+  /**
+   * @example
+   * Include
+   */
+  action?: string;
+  /**
+   * @example
+   * mysql_table_1
+   */
+  expression?: string;
+  /**
+   * @example
+   * Exact
+   */
+  expressionType?: string;
+  /**
+   * @example
+   * Table
+   */
+  objectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      expression: 'Expression',
+      expressionType: 'ExpressionType',
+      objectType: 'ObjectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      expression: 'string',
+      expressionType: 'string',
+      objectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoTableMappingsTransformationRules extends $tea.Model {
+  /**
+   * @example
+   * AddColumn
+   */
+  ruleActionType?: string;
+  /**
+   * @example
+   * rename_rule_1
+   */
+  ruleName?: string;
+  /**
+   * @example
+   * Table
+   */
+  ruleTargetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleActionType: 'RuleActionType',
+      ruleName: 'RuleName',
+      ruleTargetType: 'RuleTargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleActionType: 'string',
+      ruleName: 'string',
+      ruleTargetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoTableMappings extends $tea.Model {
+  sourceObjectSelectionRules?: GetDIJobResponseBodyPagingInfoTableMappingsSourceObjectSelectionRules[];
+  transformationRules?: GetDIJobResponseBodyPagingInfoTableMappingsTransformationRules[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceObjectSelectionRules: 'SourceObjectSelectionRules',
+      transformationRules: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceObjectSelectionRules: { 'type': 'array', 'itemType': GetDIJobResponseBodyPagingInfoTableMappingsSourceObjectSelectionRules },
+      transformationRules: { 'type': 'array', 'itemType': GetDIJobResponseBodyPagingInfoTableMappingsTransformationRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfoTransformationRules extends $tea.Model {
+  /**
+   * @example
+   * Rename
+   */
+  ruleActionType?: string;
+  /**
+   * @example
+   * {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
+   */
+  ruleExpression?: string;
+  /**
+   * @example
+   * rename_rule_1
+   */
+  ruleName?: string;
+  /**
+   * @example
+   * Table
+   */
+  ruleTargetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleActionType: 'RuleActionType',
+      ruleExpression: 'RuleExpression',
+      ruleName: 'RuleName',
+      ruleTargetType: 'RuleTargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleActionType: 'string',
+      ruleExpression: 'string',
+      ruleName: 'string',
+      ruleTargetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @example
+   * 32601
+   */
+  DIJobId?: string;
+  /**
+   * @example
+   * description
+   */
+  description?: string;
+  destinationDataSourceSettings?: GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings[];
+  /**
+   * @example
+   * Hologres
+   */
+  destinationDataSourceType?: string;
+  /**
+   * @example
+   * imp_ods_dms_det_dealer_info_df
+   */
+  jobName?: string;
+  jobSettings?: GetDIJobResponseBodyPagingInfoJobSettings;
+  /**
+   * @example
+   * FullAndRealtimeIncremental
+   */
+  migrationType?: string;
+  /**
+   * @example
+   * 98330
+   */
+  projectId?: number;
+  resourceSettings?: GetDIJobResponseBodyPagingInfoResourceSettings;
+  sourceDataSourceSettings?: GetDIJobResponseBodyPagingInfoSourceDataSourceSettings[];
+  /**
+   * @example
+   * Mysql
+   */
+  sourceDataSourceType?: string;
+  tableMappings?: GetDIJobResponseBodyPagingInfoTableMappings[];
+  transformationRules?: GetDIJobResponseBodyPagingInfoTransformationRules[];
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      destinationDataSourceSettings: 'DestinationDataSourceSettings',
+      destinationDataSourceType: 'DestinationDataSourceType',
+      jobName: 'JobName',
+      jobSettings: 'JobSettings',
+      migrationType: 'MigrationType',
+      projectId: 'ProjectId',
+      resourceSettings: 'ResourceSettings',
+      sourceDataSourceSettings: 'SourceDataSourceSettings',
+      sourceDataSourceType: 'SourceDataSourceType',
+      tableMappings: 'TableMappings',
+      transformationRules: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'string',
+      description: 'string',
+      destinationDataSourceSettings: { 'type': 'array', 'itemType': GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings },
+      destinationDataSourceType: 'string',
+      jobName: 'string',
+      jobSettings: GetDIJobResponseBodyPagingInfoJobSettings,
+      migrationType: 'string',
+      projectId: 'number',
+      resourceSettings: GetDIJobResponseBodyPagingInfoResourceSettings,
+      sourceDataSourceSettings: { 'type': 'array', 'itemType': GetDIJobResponseBodyPagingInfoSourceDataSourceSettings },
+      sourceDataSourceType: 'string',
+      tableMappings: { 'type': 'array', 'itemType': GetDIJobResponseBodyPagingInfoTableMappings },
+      transformationRules: { 'type': 'array', 'itemType': GetDIJobResponseBodyPagingInfoTransformationRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataSourceResponseBodyDataSource extends $tea.Model {
+  /**
+   * @example
+   * {
+   * 	"envType": "Prod",
+   * 	"regionId": "cn-beijing",
+   *     "instanceId": "hgprecn-cn-x0r3oun4k001",
+   *     "database": "testdb",
+   *     "securityProtocol": "authTypeNone",
+   *     "authType": "Executor",
+   *     "authIdentity": "1107550004253538"
+   * }
+   */
+  connectionProperties?: any;
+  /**
+   * @example
+   * UrlMode
+   */
+  connectionPropertiesMode?: string;
+  /**
+   * @example
+   * 1698286929333
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1107550004253538
+   */
+  createUser?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 16738
+   */
+  id?: number;
+  /**
+   * @example
+   * 1698286929333
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1107550004253538
+   */
+  modifyUser?: string;
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * 52660
+   */
+  projectId?: number;
+  /**
+   * @example
+   * 1107550004253538:cn-beijing:holo:hgprecn-cn-x0r3oun4k001:testdb
+   */
+  qualifiedName?: string;
+  /**
+   * @example
+   * hologres
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionProperties: 'ConnectionProperties',
+      connectionPropertiesMode: 'ConnectionPropertiesMode',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      description: 'Description',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      name: 'Name',
+      projectId: 'ProjectId',
+      qualifiedName: 'QualifiedName',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionProperties: 'any',
+      connectionPropertiesMode: 'string',
+      createTime: 'number',
+      createUser: 'string',
+      description: 'string',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      name: 'string',
+      projectId: 'number',
+      qualifiedName: 'string',
+      type: 'string',
     };
   }
 
@@ -3613,6 +7648,117 @@ export class GetNodeResponseBodyNode extends $tea.Model {
   }
 }
 
+export class GetProjectResponseBodyProjectAliyunResourceTags extends $tea.Model {
+  /**
+   * @example
+   * batch
+   */
+  key?: string;
+  /**
+   * @example
+   * blue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponseBodyProject extends $tea.Model {
+  /**
+   * @example
+   * rg-acfmzbn7pti3zfa
+   */
+  aliyunResourceGroupId?: string;
+  aliyunResourceTags?: GetProjectResponseBodyProjectAliyunResourceTags[];
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  devEnvironmentEnabled?: boolean;
+  /**
+   * @example
+   * false
+   */
+  devRoleDisabled?: boolean;
+  displayName?: string;
+  /**
+   * @example
+   * 28477242
+   */
+  id?: number;
+  /**
+   * @example
+   * sora_finance
+   */
+  name?: string;
+  /**
+   * @example
+   * 207947397706614299
+   */
+  owner?: string;
+  /**
+   * @example
+   * true
+   */
+  paiTaskEnabled?: boolean;
+  /**
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunResourceGroupId: 'AliyunResourceGroupId',
+      aliyunResourceTags: 'AliyunResourceTags',
+      description: 'Description',
+      devEnvironmentEnabled: 'DevEnvironmentEnabled',
+      devRoleDisabled: 'DevRoleDisabled',
+      displayName: 'DisplayName',
+      id: 'Id',
+      name: 'Name',
+      owner: 'Owner',
+      paiTaskEnabled: 'PaiTaskEnabled',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunResourceGroupId: 'string',
+      aliyunResourceTags: { 'type': 'array', 'itemType': GetProjectResponseBodyProjectAliyunResourceTags },
+      description: 'string',
+      devEnvironmentEnabled: 'boolean',
+      devRoleDisabled: 'boolean',
+      displayName: 'string',
+      id: 'number',
+      name: 'string',
+      owner: 'string',
+      paiTaskEnabled: 'boolean',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResourceResponseBodyResource extends $tea.Model {
   /**
    * @example
@@ -3719,6 +7865,570 @@ export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $tea.Mo
       owner: 'string',
       projectId: 'string',
       spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobEventsResponseBodyPagingInfoDIJobEvent extends $tea.Model {
+  /**
+   * @example
+   * Ignore
+   */
+  action?: string;
+  /**
+   * @example
+   * Phone
+   */
+  channels?: string;
+  /**
+   * @example
+   * 1663573162
+   */
+  createTime?: string;
+  detail?: string;
+  /**
+   * @example
+   * alter table table2 ***
+   */
+  dstSql?: string;
+  /**
+   * @example
+   * table2
+   */
+  dstTable?: string;
+  /**
+   * @example
+   * 2024-05-29 15:11:31,377 [main] INFO com.*.**.di.core.metrics.:21 []  {****} 
+   * 2024-05-29 15:11:31,384 [main] INFO *.aliyun.*.di.*.*.metrics.*:27 [] - Open MarioDiReporter 
+   * 2024-05-29 15:11:33,248 [flink-akka.*.*-dispatcher-17] INFO
+   */
+  failoverMessage?: string;
+  /**
+   * @example
+   * 1
+   */
+  id?: string;
+  /**
+   * @example
+   * Warning
+   */
+  severity?: string;
+  /**
+   * @example
+   * alter table table1 ***
+   */
+  srcSql?: string;
+  /**
+   * @example
+   * table1
+   */
+  srcTable?: string;
+  /**
+   * @example
+   * Success
+   */
+  status?: string;
+  /**
+   * @example
+   * Delay
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      channels: 'Channels',
+      createTime: 'CreateTime',
+      detail: 'Detail',
+      dstSql: 'DstSql',
+      dstTable: 'DstTable',
+      failoverMessage: 'FailoverMessage',
+      id: 'Id',
+      severity: 'Severity',
+      srcSql: 'SrcSql',
+      srcTable: 'SrcTable',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      channels: 'string',
+      createTime: 'string',
+      detail: 'string',
+      dstSql: 'string',
+      dstTable: 'string',
+      failoverMessage: 'string',
+      id: 'string',
+      severity: 'string',
+      srcSql: 'string',
+      srcTable: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobEventsResponseBodyPagingInfo extends $tea.Model {
+  DIJobEvent?: ListDIJobEventsResponseBodyPagingInfoDIJobEvent[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 2524
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobEvent: 'DIJobEvent',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobEvent: { 'type': 'array', 'itemType': ListDIJobEventsResponseBodyPagingInfoDIJobEvent },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobMetricsResponseBodyPagingInfoJobMetricsSeriesList extends $tea.Model {
+  /**
+   * @example
+   * 1716881141
+   */
+  time?: number;
+  /**
+   * @example
+   * 10
+   */
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      time: 'Time',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      time: 'number',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobMetricsResponseBodyPagingInfoJobMetrics extends $tea.Model {
+  /**
+   * @example
+   * JobDelay
+   */
+  name?: string;
+  seriesList?: ListDIJobMetricsResponseBodyPagingInfoJobMetricsSeriesList[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      seriesList: 'SeriesList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      seriesList: { 'type': 'array', 'itemType': ListDIJobMetricsResponseBodyPagingInfoJobMetricsSeriesList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobMetricsResponseBodyPagingInfo extends $tea.Model {
+  jobMetrics?: ListDIJobMetricsResponseBodyPagingInfoJobMetrics[];
+  static names(): { [key: string]: string } {
+    return {
+      jobMetrics: 'JobMetrics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobMetrics: { 'type': 'array', 'itemType': ListDIJobMetricsResponseBodyPagingInfoJobMetrics },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobsResponseBodyPagingInfoDIJobs extends $tea.Model {
+  /**
+   * @example
+   * 32599
+   */
+  DIJobId?: number;
+  /**
+   * @example
+   * Hologres
+   */
+  destinationDataSourceType?: string;
+  /**
+   * @example
+   * mysql_to_holo_sync_35197
+   */
+  jobName?: string;
+  /**
+   * @example
+   * Running
+   */
+  jobStatus?: string;
+  /**
+   * @example
+   * FullAndRealtimeIncremental
+   */
+  migrationType?: string;
+  /**
+   * @example
+   * 26442
+   */
+  projectId?: number;
+  /**
+   * @example
+   * Mysql
+   */
+  sourceDataSourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      destinationDataSourceType: 'DestinationDataSourceType',
+      jobName: 'JobName',
+      jobStatus: 'JobStatus',
+      migrationType: 'MigrationType',
+      projectId: 'ProjectId',
+      sourceDataSourceType: 'SourceDataSourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      destinationDataSourceType: 'string',
+      jobName: 'string',
+      jobStatus: 'string',
+      migrationType: 'string',
+      projectId: 'number',
+      sourceDataSourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobsResponseBodyPagingInfo extends $tea.Model {
+  DIJobs?: ListDIJobsResponseBodyPagingInfoDIJobs[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 12
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobs: 'DIJobs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobs: { 'type': 'array', 'itemType': ListDIJobsResponseBodyPagingInfoDIJobs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourceSharedRulesResponseBodyDataSourceSharedRules extends $tea.Model {
+  /**
+   * @example
+   * 1724379762000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1
+   */
+  createUser?: string;
+  /**
+   * @example
+   * 1
+   */
+  dataSourceId?: number;
+  /**
+   * @example
+   * Dev
+   */
+  envType?: string;
+  /**
+   * @example
+   * 1
+   */
+  id?: number;
+  /**
+   * @example
+   * targetProject.datasource
+   */
+  sharedDataSourceName?: string;
+  /**
+   * @example
+   * 1
+   */
+  sharedUser?: string;
+  /**
+   * @example
+   * 1
+   */
+  sourceProjectId?: number;
+  /**
+   * @example
+   * 1
+   */
+  targetProjectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      dataSourceId: 'DataSourceId',
+      envType: 'EnvType',
+      id: 'Id',
+      sharedDataSourceName: 'SharedDataSourceName',
+      sharedUser: 'SharedUser',
+      sourceProjectId: 'SourceProjectId',
+      targetProjectId: 'TargetProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      createUser: 'string',
+      dataSourceId: 'number',
+      envType: 'string',
+      id: 'number',
+      sharedDataSourceName: 'string',
+      sharedUser: 'string',
+      sourceProjectId: 'number',
+      targetProjectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourcesResponseBodyPagingInfoDataSourcesDataSource extends $tea.Model {
+  /**
+   * @example
+   * {
+   * 	"envType": "Prod",
+   * 	"regionId": "cn-beijing",
+   *     "instanceId": "hgprecn-cn-x0r3oun4k001",
+   *     "database": "testdb",
+   *     "securityProtocol": "authTypeNone",
+   *     "authType": "Executor",
+   *     "authIdentity": "1107550004253538"
+   * }
+   */
+  connectionProperties?: any;
+  /**
+   * @example
+   * UrlMode
+   */
+  connectionPropertiesMode?: string;
+  /**
+   * @example
+   * 1648711113000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1624387842781448
+   */
+  createUser?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 16035
+   */
+  id?: number;
+  /**
+   * @example
+   * 1648711113000
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1624387842781448
+   */
+  modifyUser?: string;
+  /**
+   * @example
+   * 1648711121000:cn-beijing:odps:yongxunQA_beijing_standard
+   */
+  qualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionProperties: 'ConnectionProperties',
+      connectionPropertiesMode: 'ConnectionPropertiesMode',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      description: 'Description',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      qualifiedName: 'QualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionProperties: 'any',
+      connectionPropertiesMode: 'string',
+      createTime: 'number',
+      createUser: 'string',
+      description: 'string',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      qualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourcesResponseBodyPagingInfoDataSources extends $tea.Model {
+  dataSource?: ListDataSourcesResponseBodyPagingInfoDataSourcesDataSource[];
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * mysql
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSource: 'DataSource',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSource: { 'type': 'array', 'itemType': ListDataSourcesResponseBodyPagingInfoDataSourcesDataSource },
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourcesResponseBodyPagingInfo extends $tea.Model {
+  dataSources?: ListDataSourcesResponseBodyPagingInfoDataSources[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 131
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSources: 'DataSources',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSources: { 'type': 'array', 'itemType': ListDataSourcesResponseBodyPagingInfoDataSources },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -6104,6 +10814,187 @@ export class ListNodesResponseBodyPagingInfo extends $tea.Model {
   }
 }
 
+export class ListProjectsRequestAliyunResourceTags extends $tea.Model {
+  /**
+   * @example
+   * batch
+   */
+  key?: string;
+  /**
+   * @example
+   * blue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsResponseBodyPagingInfoProjectsAliyunResourceTags extends $tea.Model {
+  /**
+   * @example
+   * batch
+   */
+  key?: string;
+  /**
+   * @example
+   * blue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsResponseBodyPagingInfoProjects extends $tea.Model {
+  /**
+   * @example
+   * rg-acfmzbn7pti3zfa
+   */
+  aliyunResourceGroupId?: string;
+  aliyunResourceTags?: ListProjectsResponseBodyPagingInfoProjectsAliyunResourceTags[];
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  devEnvironmentEnabled?: boolean;
+  /**
+   * @example
+   * false
+   */
+  devRoleDisabled?: boolean;
+  displayName?: string;
+  /**
+   * @example
+   * 123456
+   */
+  id?: number;
+  /**
+   * @example
+   * sora_finance
+   */
+  name?: string;
+  /**
+   * @example
+   * 123532153125
+   */
+  owner?: string;
+  /**
+   * @example
+   * true
+   */
+  paiTaskEnabled?: boolean;
+  /**
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunResourceGroupId: 'AliyunResourceGroupId',
+      aliyunResourceTags: 'AliyunResourceTags',
+      description: 'Description',
+      devEnvironmentEnabled: 'DevEnvironmentEnabled',
+      devRoleDisabled: 'DevRoleDisabled',
+      displayName: 'DisplayName',
+      id: 'Id',
+      name: 'Name',
+      owner: 'Owner',
+      paiTaskEnabled: 'PaiTaskEnabled',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunResourceGroupId: 'string',
+      aliyunResourceTags: { 'type': 'array', 'itemType': ListProjectsResponseBodyPagingInfoProjectsAliyunResourceTags },
+      description: 'string',
+      devEnvironmentEnabled: 'boolean',
+      devRoleDisabled: 'boolean',
+      displayName: 'string',
+      id: 'number',
+      name: 'string',
+      owner: 'string',
+      paiTaskEnabled: 'boolean',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageSize?: number;
+  projects?: ListProjectsResponseBodyPagingInfoProjects[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projects: 'Projects',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      projects: { 'type': 'array', 'itemType': ListProjectsResponseBodyPagingInfoProjects },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListResourcesResponseBodyPagingInfoResourcesDataSource extends $tea.Model {
   /**
    * @remarks
@@ -6591,6 +11482,472 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfo extends $tea.Model {
   }
 }
 
+export class StartDIJobRequestRealtimeStartSettingsFailoverSettings extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  interval?: number;
+  /**
+   * @example
+   * 30
+   */
+  upperLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interval: 'Interval',
+      upperLimit: 'UpperLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interval: 'number',
+      upperLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDIJobRequestRealtimeStartSettings extends $tea.Model {
+  failoverSettings?: StartDIJobRequestRealtimeStartSettingsFailoverSettings;
+  /**
+   * @example
+   * 1671516776
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failoverSettings: 'FailoverSettings',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failoverSettings: StartDIJobRequestRealtimeStartSettingsFailoverSettings,
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestJobSettingsColumnDataTypeSettings extends $tea.Model {
+  /**
+   * @example
+   * text
+   */
+  destinationDataType?: string;
+  /**
+   * @example
+   * bigint
+   */
+  sourceDataType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationDataType: 'DestinationDataType',
+      sourceDataType: 'SourceDataType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationDataType: 'string',
+      sourceDataType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestJobSettingsCycleScheduleSettings extends $tea.Model {
+  /**
+   * @example
+   * bizdate=$bizdate
+   */
+  scheduleParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scheduleParameters: 'ScheduleParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scheduleParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestJobSettingsDdlHandlingSettings extends $tea.Model {
+  /**
+   * @example
+   * Critical
+   */
+  action?: string;
+  /**
+   * @example
+   * AddColumn
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestJobSettingsRuntimeSettings extends $tea.Model {
+  /**
+   * @example
+   * runtime.offline.concurrent
+   */
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestJobSettings extends $tea.Model {
+  /**
+   * @example
+   * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
+   */
+  channelSettings?: string;
+  columnDataTypeSettings?: UpdateDIJobRequestJobSettingsColumnDataTypeSettings[];
+  cycleScheduleSettings?: UpdateDIJobRequestJobSettingsCycleScheduleSettings;
+  ddlHandlingSettings?: UpdateDIJobRequestJobSettingsDdlHandlingSettings[];
+  runtimeSettings?: UpdateDIJobRequestJobSettingsRuntimeSettings[];
+  static names(): { [key: string]: string } {
+    return {
+      channelSettings: 'ChannelSettings',
+      columnDataTypeSettings: 'ColumnDataTypeSettings',
+      cycleScheduleSettings: 'CycleScheduleSettings',
+      ddlHandlingSettings: 'DdlHandlingSettings',
+      runtimeSettings: 'RuntimeSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelSettings: 'string',
+      columnDataTypeSettings: { 'type': 'array', 'itemType': UpdateDIJobRequestJobSettingsColumnDataTypeSettings },
+      cycleScheduleSettings: UpdateDIJobRequestJobSettingsCycleScheduleSettings,
+      ddlHandlingSettings: { 'type': 'array', 'itemType': UpdateDIJobRequestJobSettingsDdlHandlingSettings },
+      runtimeSettings: { 'type': 'array', 'itemType': UpdateDIJobRequestJobSettingsRuntimeSettings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestResourceSettingsOfflineResourceSettings extends $tea.Model {
+  /**
+   * @example
+   * 2.0
+   */
+  requestedCu?: number;
+  /**
+   * @example
+   * S_res_group_111_222
+   */
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestedCu: 'RequestedCu',
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestedCu: 'number',
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestResourceSettingsRealtimeResourceSettings extends $tea.Model {
+  /**
+   * @example
+   * 2.0
+   */
+  requestedCu?: number;
+  /**
+   * @example
+   * S_res_group_111_222
+   */
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestedCu: 'RequestedCu',
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestedCu: 'number',
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestResourceSettingsScheduleResourceSettings extends $tea.Model {
+  /**
+   * @example
+   * 2.0
+   */
+  requestedCu?: number;
+  /**
+   * @example
+   * S_res_group_235454102432001_1721021993437
+   */
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestedCu: 'RequestedCu',
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestedCu: 'number',
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestResourceSettings extends $tea.Model {
+  offlineResourceSettings?: UpdateDIJobRequestResourceSettingsOfflineResourceSettings;
+  realtimeResourceSettings?: UpdateDIJobRequestResourceSettingsRealtimeResourceSettings;
+  scheduleResourceSettings?: UpdateDIJobRequestResourceSettingsScheduleResourceSettings;
+  static names(): { [key: string]: string } {
+    return {
+      offlineResourceSettings: 'OfflineResourceSettings',
+      realtimeResourceSettings: 'RealtimeResourceSettings',
+      scheduleResourceSettings: 'ScheduleResourceSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offlineResourceSettings: UpdateDIJobRequestResourceSettingsOfflineResourceSettings,
+      realtimeResourceSettings: UpdateDIJobRequestResourceSettingsRealtimeResourceSettings,
+      scheduleResourceSettings: UpdateDIJobRequestResourceSettingsScheduleResourceSettings,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestTableMappingsSourceObjectSelectionRules extends $tea.Model {
+  /**
+   * @example
+   * Include
+   */
+  action?: string;
+  /**
+   * @example
+   * mysql_table_1
+   */
+  expression?: string;
+  /**
+   * @example
+   * Exact
+   */
+  expressionType?: string;
+  /**
+   * @example
+   * Table
+   */
+  objectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      expression: 'Expression',
+      expressionType: 'ExpressionType',
+      objectType: 'ObjectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      expression: 'string',
+      expressionType: 'string',
+      objectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestTableMappingsTransformationRules extends $tea.Model {
+  /**
+   * @example
+   * Rename
+   */
+  ruleActionType?: string;
+  /**
+   * @example
+   * rename_rule_1
+   */
+  ruleName?: string;
+  /**
+   * @example
+   * Table
+   */
+  ruleTargetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleActionType: 'RuleActionType',
+      ruleName: 'RuleName',
+      ruleTargetType: 'RuleTargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleActionType: 'string',
+      ruleName: 'string',
+      ruleTargetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestTableMappings extends $tea.Model {
+  sourceObjectSelectionRules?: UpdateDIJobRequestTableMappingsSourceObjectSelectionRules[];
+  transformationRules?: UpdateDIJobRequestTableMappingsTransformationRules[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceObjectSelectionRules: 'SourceObjectSelectionRules',
+      transformationRules: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceObjectSelectionRules: { 'type': 'array', 'itemType': UpdateDIJobRequestTableMappingsSourceObjectSelectionRules },
+      transformationRules: { 'type': 'array', 'itemType': UpdateDIJobRequestTableMappingsTransformationRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestTransformationRules extends $tea.Model {
+  /**
+   * @example
+   * Rename
+   */
+  ruleActionType?: string;
+  /**
+   * @example
+   * {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
+   */
+  ruleExpression?: string;
+  /**
+   * @example
+   * rename_rule_1
+   */
+  ruleName?: string;
+  /**
+   * @example
+   * Table
+   */
+  ruleTargetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleActionType: 'RuleActionType',
+      ruleExpression: 'RuleExpression',
+      ruleName: 'RuleName',
+      ruleTargetType: 'RuleTargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleActionType: 'string',
+      ruleExpression: 'string',
+      ruleName: 'string',
+      ruleTargetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -6684,6 +12041,232 @@ export default class Client extends OpenApi {
   async abolishDeployment(request: AbolishDeploymentRequest): Promise<AbolishDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.abolishDeploymentWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - CloneDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloneDataSourceResponse
+   */
+  async cloneDataSourceWithOptions(request: CloneDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CloneDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cloneDataSourceName)) {
+      query["CloneDataSourceName"] = request.cloneDataSourceName;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CloneDataSource",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CloneDataSourceResponse>(await this.callApi(params, req, runtime), new CloneDataSourceResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - CloneDataSourceRequest
+   * @returns CloneDataSourceResponse
+   */
+  async cloneDataSource(request: CloneDataSourceRequest): Promise<CloneDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cloneDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据集成任务
+   * 
+   * @param tmpReq - CreateDIJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDIJobResponse
+   */
+  async createDIJobWithOptions(tmpReq: CreateDIJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateDIJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDIJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.destinationDataSourceSettings)) {
+      request.destinationDataSourceSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.destinationDataSourceSettings, "DestinationDataSourceSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.jobSettings)) {
+      request.jobSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobSettings, "JobSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.resourceSettings)) {
+      request.resourceSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSettings, "ResourceSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sourceDataSourceSettings)) {
+      request.sourceDataSourceSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceDataSourceSettings, "SourceDataSourceSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tableMappings)) {
+      request.tableMappingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tableMappings, "TableMappings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.transformationRules)) {
+      request.transformationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transformationRules, "TransformationRules", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDIJob",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDIJobResponse>(await this.callApi(params, req, runtime), new CreateDIJobResponse({}));
+  }
+
+  /**
+   * 创建数据集成任务
+   * 
+   * @param request - CreateDIJobRequest
+   * @returns CreateDIJobResponse
+   */
+  async createDIJob(request: CreateDIJobRequest): Promise<CreateDIJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDIJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - CreateDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataSourceResponse
+   */
+  async createDataSourceWithOptions(request: CreateDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.connectionProperties)) {
+      query["ConnectionProperties"] = request.connectionProperties;
+    }
+
+    if (!Util.isUnset(request.connectionPropertiesMode)) {
+      query["ConnectionPropertiesMode"] = request.connectionPropertiesMode;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataSource",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataSourceResponse>(await this.callApi(params, req, runtime), new CreateDataSourceResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - CreateDataSourceRequest
+   * @returns CreateDataSourceResponse
+   */
+  async createDataSource(request: CreateDataSourceRequest): Promise<CreateDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - CreateDataSourceSharedRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataSourceSharedRuleResponse
+   */
+  async createDataSourceSharedRuleWithOptions(request: CreateDataSourceSharedRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataSourceSharedRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.sharedUser)) {
+      query["SharedUser"] = request.sharedUser;
+    }
+
+    if (!Util.isUnset(request.targetProjectId)) {
+      query["TargetProjectId"] = request.targetProjectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataSourceSharedRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataSourceSharedRuleResponse>(await this.callApi(params, req, runtime), new CreateDataSourceSharedRuleResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - CreateDataSourceSharedRuleRequest
+   * @returns CreateDataSourceSharedRuleResponse
+   */
+  async createDataSourceSharedRule(request: CreateDataSourceSharedRuleRequest): Promise<CreateDataSourceSharedRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataSourceSharedRuleWithOptions(request, runtime);
   }
 
   /**
@@ -6847,6 +12430,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建工作空间
+   * 
+   * @param tmpReq - CreateProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProjectResponse
+   */
+  async createProjectWithOptions(tmpReq: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateProjectShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.aliyunResourceTags)) {
+      request.aliyunResourceTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aliyunResourceTags, "AliyunResourceTags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aliyunResourceGroupId)) {
+      body["AliyunResourceGroupId"] = request.aliyunResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.aliyunResourceTagsShrink)) {
+      body["AliyunResourceTags"] = request.aliyunResourceTagsShrink;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.devEnvironmentEnabled)) {
+      body["DevEnvironmentEnabled"] = request.devEnvironmentEnabled;
+    }
+
+    if (!Util.isUnset(request.devRoleDisabled)) {
+      body["DevRoleDisabled"] = request.devRoleDisabled;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.paiTaskEnabled)) {
+      body["PaiTaskEnabled"] = request.paiTaskEnabled;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateProject",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
+  }
+
+  /**
+   * 创建工作空间
+   * 
+   * @param request - CreateProjectRequest
+   * @returns CreateProjectResponse
+   */
+  async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createProjectWithOptions(request, runtime);
+  }
+
+  /**
    * 创建资源文件
    * 
    * @param request - CreateResourceRequest
@@ -6939,6 +12598,124 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除数据集成任务
+   * 
+   * @param request - DeleteDIJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDIJobResponse
+   */
+  async deleteDIJobWithOptions(request: DeleteDIJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDIJobResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDIJob",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDIJobResponse>(await this.callApi(params, req, runtime), new DeleteDIJobResponse({}));
+  }
+
+  /**
+   * 删除数据集成任务
+   * 
+   * @param request - DeleteDIJobRequest
+   * @returns DeleteDIJobResponse
+   */
+  async deleteDIJob(request: DeleteDIJobRequest): Promise<DeleteDIJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDIJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - DeleteDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataSourceResponse
+   */
+  async deleteDataSourceWithOptions(request: DeleteDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataSourceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataSource",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataSourceResponse>(await this.callApi(params, req, runtime), new DeleteDataSourceResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - DeleteDataSourceRequest
+   * @returns DeleteDataSourceResponse
+   */
+  async deleteDataSource(request: DeleteDataSourceRequest): Promise<DeleteDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - DeleteDataSourceSharedRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataSourceSharedRuleResponse
+   */
+  async deleteDataSourceSharedRuleWithOptions(request: DeleteDataSourceSharedRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataSourceSharedRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataSourceSharedRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataSourceSharedRuleResponse>(await this.callApi(params, req, runtime), new DeleteDataSourceSharedRuleResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - DeleteDataSourceSharedRuleRequest
+   * @returns DeleteDataSourceSharedRuleResponse
+   */
+  async deleteDataSourceSharedRule(request: DeleteDataSourceSharedRuleRequest): Promise<DeleteDataSourceSharedRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataSourceSharedRuleWithOptions(request, runtime);
+  }
+
+  /**
    * 删除udf函数
    * 
    * @param request - DeleteFunctionRequest
@@ -7028,6 +12805,48 @@ export default class Client extends OpenApi {
   async deleteNode(request: DeleteNodeRequest): Promise<DeleteNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 销毁工作空间
+   * 
+   * @param request - DeleteProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectResponse
+   */
+  async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteProject",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
+  }
+
+  /**
+   * 销毁工作空间
+   * 
+   * @param request - DeleteProjectRequest
+   * @returns DeleteProjectResponse
+   */
+  async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteProjectWithOptions(request, runtime);
   }
 
   /**
@@ -7175,6 +12994,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看数据集成任务
+   * 
+   * @param request - GetDIJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDIJobResponse
+   */
+  async getDIJobWithOptions(request: GetDIJobRequest, runtime: $Util.RuntimeOptions): Promise<GetDIJobResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDIJob",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDIJobResponse>(await this.callApi(params, req, runtime), new GetDIJobResponse({}));
+  }
+
+  /**
+   * 查看数据集成任务
+   * 
+   * @param request - GetDIJobRequest
+   * @returns GetDIJobResponse
+   */
+  async getDIJob(request: GetDIJobRequest): Promise<GetDIJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDIJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据集成任务日志
+   * 
+   * @param request - GetDIJobLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDIJobLogResponse
+   */
+  async getDIJobLogWithOptions(request: GetDIJobLogRequest, runtime: $Util.RuntimeOptions): Promise<GetDIJobLogResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDIJobLog",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDIJobLogResponse>(await this.callApi(params, req, runtime), new GetDIJobLogResponse({}));
+  }
+
+  /**
+   * 获取数据集成任务日志
+   * 
+   * @param request - GetDIJobLogRequest
+   * @returns GetDIJobLogResponse
+   */
+  async getDIJobLog(request: GetDIJobLogRequest): Promise<GetDIJobLogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDIJobLogWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - GetDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataSourceResponse
+   */
+  async getDataSourceWithOptions(request: GetDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<GetDataSourceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataSource",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataSourceResponse>(await this.callApi(params, req, runtime), new GetDataSourceResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - GetDataSourceRequest
+   * @returns GetDataSourceResponse
+   */
+  async getDataSource(request: GetDataSourceRequest): Promise<GetDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataSourceWithOptions(request, runtime);
+  }
+
+  /**
    * 获取发布流程详情
    * 
    * @param request - GetDeploymentRequest
@@ -7285,6 +13218,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询工作空间详情
+   * 
+   * @param request - GetProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProjectResponse
+   */
+  async getProjectWithOptions(request: GetProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetProject",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetProjectResponse>(await this.callApi(params, req, runtime), new GetProjectResponse({}));
+  }
+
+  /**
+   * 查询工作空间详情
+   * 
+   * @param request - GetProjectRequest
+   * @returns GetProjectResponse
+   */
+  async getProject(request: GetProjectRequest): Promise<GetProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getProjectWithOptions(request, runtime);
+  }
+
+  /**
    * 获取资源文件
    * 
    * @param request - GetResourceRequest
@@ -7358,6 +13329,208 @@ export default class Client extends OpenApi {
   async getWorkflowDefinition(request: GetWorkflowDefinitionRequest): Promise<GetWorkflowDefinitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据集成任务事件
+   * 
+   * @param request - ListDIJobEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDIJobEventsResponse
+   */
+  async listDIJobEventsWithOptions(request: ListDIJobEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListDIJobEventsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDIJobEvents",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDIJobEventsResponse>(await this.callApi(params, req, runtime), new ListDIJobEventsResponse({}));
+  }
+
+  /**
+   * 获取数据集成任务事件
+   * 
+   * @param request - ListDIJobEventsRequest
+   * @returns ListDIJobEventsResponse
+   */
+  async listDIJobEvents(request: ListDIJobEventsRequest): Promise<ListDIJobEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDIJobEventsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据集成任务指标
+   * 
+   * @param tmpReq - ListDIJobMetricsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDIJobMetricsResponse
+   */
+  async listDIJobMetricsWithOptions(tmpReq: ListDIJobMetricsRequest, runtime: $Util.RuntimeOptions): Promise<ListDIJobMetricsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListDIJobMetricsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.metricName)) {
+      request.metricNameShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metricName, "MetricName", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDIJobMetrics",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDIJobMetricsResponse>(await this.callApi(params, req, runtime), new ListDIJobMetricsResponse({}));
+  }
+
+  /**
+   * 获取数据集成任务指标
+   * 
+   * @param request - ListDIJobMetricsRequest
+   * @returns ListDIJobMetricsResponse
+   */
+  async listDIJobMetrics(request: ListDIJobMetricsRequest): Promise<ListDIJobMetricsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDIJobMetricsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据集成任务
+   * 
+   * @param request - ListDIJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDIJobsResponse
+   */
+  async listDIJobsWithOptions(request: ListDIJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListDIJobsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDIJobs",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDIJobsResponse>(await this.callApi(params, req, runtime), new ListDIJobsResponse({}));
+  }
+
+  /**
+   * 获取数据集成任务
+   * 
+   * @param request - ListDIJobsRequest
+   * @returns ListDIJobsResponse
+   */
+  async listDIJobs(request: ListDIJobsRequest): Promise<ListDIJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDIJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - ListDataSourceSharedRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataSourceSharedRulesResponse
+   */
+  async listDataSourceSharedRulesWithOptions(request: ListDataSourceSharedRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListDataSourceSharedRulesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataSourceSharedRules",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataSourceSharedRulesResponse>(await this.callApi(params, req, runtime), new ListDataSourceSharedRulesResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - ListDataSourceSharedRulesRequest
+   * @returns ListDataSourceSharedRulesResponse
+   */
+  async listDataSourceSharedRules(request: ListDataSourceSharedRulesRequest): Promise<ListDataSourceSharedRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataSourceSharedRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param tmpReq - ListDataSourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataSourcesResponse
+   */
+  async listDataSourcesWithOptions(tmpReq: ListDataSourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListDataSourcesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListDataSourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.types)) {
+      request.typesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.types, "Types", "simple");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataSources",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataSourcesResponse>(await this.callApi(params, req, runtime), new ListDataSourcesResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - ListDataSourcesRequest
+   * @returns ListDataSourcesResponse
+   */
+  async listDataSources(request: ListDataSourcesRequest): Promise<ListDataSourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataSourcesWithOptions(request, runtime);
   }
 
   /**
@@ -7510,6 +13683,98 @@ export default class Client extends OpenApi {
   async listNodes(request: ListNodesRequest): Promise<ListNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询工作空间详情
+   * 
+   * @param tmpReq - ListProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectsResponse
+   */
+  async listProjectsWithOptions(tmpReq: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListProjectsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.aliyunResourceTags)) {
+      request.aliyunResourceTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aliyunResourceTags, "AliyunResourceTags", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.names)) {
+      request.namesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.names, "Names", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aliyunResourceGroupId)) {
+      body["AliyunResourceGroupId"] = request.aliyunResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.aliyunResourceTagsShrink)) {
+      body["AliyunResourceTags"] = request.aliyunResourceTagsShrink;
+    }
+
+    if (!Util.isUnset(request.devEnvironmentEnabled)) {
+      body["DevEnvironmentEnabled"] = request.devEnvironmentEnabled;
+    }
+
+    if (!Util.isUnset(request.devRoleDisabled)) {
+      body["DevRoleDisabled"] = request.devRoleDisabled;
+    }
+
+    if (!Util.isUnset(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    if (!Util.isUnset(request.namesShrink)) {
+      body["Names"] = request.namesShrink;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.paiTaskEnabled)) {
+      body["PaiTaskEnabled"] = request.paiTaskEnabled;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProjects",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
+  }
+
+  /**
+   * 分页查询工作空间详情
+   * 
+   * @param request - ListProjectsRequest
+   * @returns ListProjectsResponse
+   */
+  async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listProjectsWithOptions(request, runtime);
   }
 
   /**
@@ -7989,6 +14254,164 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动数据集成任务
+   * 
+   * @param tmpReq - StartDIJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartDIJobResponse
+   */
+  async startDIJobWithOptions(tmpReq: StartDIJobRequest, runtime: $Util.RuntimeOptions): Promise<StartDIJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StartDIJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.realtimeStartSettings)) {
+      request.realtimeStartSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.realtimeStartSettings, "RealtimeStartSettings", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartDIJob",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartDIJobResponse>(await this.callApi(params, req, runtime), new StartDIJobResponse({}));
+  }
+
+  /**
+   * 启动数据集成任务
+   * 
+   * @param request - StartDIJobRequest
+   * @returns StartDIJobResponse
+   */
+  async startDIJob(request: StartDIJobRequest): Promise<StartDIJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startDIJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据集成任务
+   * 
+   * @param tmpReq - UpdateDIJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDIJobResponse
+   */
+  async updateDIJobWithOptions(tmpReq: UpdateDIJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDIJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDIJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.jobSettings)) {
+      request.jobSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobSettings, "JobSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.resourceSettings)) {
+      request.resourceSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSettings, "ResourceSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tableMappings)) {
+      request.tableMappingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tableMappings, "TableMappings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.transformationRules)) {
+      request.transformationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transformationRules, "TransformationRules", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDIJob",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDIJobResponse>(await this.callApi(params, req, runtime), new UpdateDIJobResponse({}));
+  }
+
+  /**
+   * 更新数据集成任务
+   * 
+   * @param request - UpdateDIJobRequest
+   * @returns UpdateDIJobResponse
+   */
+  async updateDIJob(request: UpdateDIJobRequest): Promise<UpdateDIJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDIJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - UpdateDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataSourceResponse
+   */
+  async updateDataSourceWithOptions(request: UpdateDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.connectionProperties)) {
+      query["ConnectionProperties"] = request.connectionProperties;
+    }
+
+    if (!Util.isUnset(request.connectionPropertiesMode)) {
+      query["ConnectionPropertiesMode"] = request.connectionPropertiesMode;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDataSource",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDataSourceResponse>(await this.callApi(params, req, runtime), new UpdateDataSourceResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - UpdateDataSourceRequest
+   * @returns UpdateDataSourceResponse
+   */
+  async updateDataSource(request: UpdateDataSourceRequest): Promise<UpdateDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDataSourceWithOptions(request, runtime);
+  }
+
+  /**
    * 更新udf函数
    * 
    * @param request - UpdateFunctionRequest
@@ -8086,6 +14509,72 @@ export default class Client extends OpenApi {
   async updateNode(request: UpdateNodeRequest): Promise<UpdateNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新工作空间
+   * 
+   * @param request - UpdateProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProjectResponse
+   */
+  async updateProjectWithOptions(request: UpdateProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.devEnvironmentEnabled)) {
+      body["DevEnvironmentEnabled"] = request.devEnvironmentEnabled;
+    }
+
+    if (!Util.isUnset(request.devRoleDisabled)) {
+      body["DevRoleDisabled"] = request.devRoleDisabled;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.paiTaskEnabled)) {
+      body["PaiTaskEnabled"] = request.paiTaskEnabled;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateProject",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateProjectResponse>(await this.callApi(params, req, runtime), new UpdateProjectResponse({}));
+  }
+
+  /**
+   * 更新工作空间
+   * 
+   * @param request - UpdateProjectRequest
+   * @returns UpdateProjectResponse
+   */
+  async updateProject(request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateProjectWithOptions(request, runtime);
   }
 
   /**
