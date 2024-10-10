@@ -3179,6 +3179,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
    * > If you specify SecurityGroupId, you cannot specify SecurityGroupIds.
    */
   securityGroupIds?: string[];
+  securityOptions?: CreateScalingConfigurationRequestSecurityOptions;
   /**
    * @remarks
    * The retention period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
@@ -3329,6 +3330,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       securityGroupIds: 'SecurityGroupIds',
+      securityOptions: 'SecurityOptions',
       spotDuration: 'SpotDuration',
       spotInterruptionBehavior: 'SpotInterruptionBehavior',
       spotPriceLimits: 'SpotPriceLimits',
@@ -3391,6 +3393,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      securityOptions: CreateScalingConfigurationRequestSecurityOptions,
       spotDuration: 'number',
       spotInterruptionBehavior: 'string',
       spotPriceLimits: { 'type': 'array', 'itemType': CreateScalingConfigurationRequestSpotPriceLimits },
@@ -3781,6 +3784,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
    * > If you specify SecurityGroupId, you cannot specify SecurityGroupIds.
    */
   securityGroupIds?: string[];
+  securityOptions?: CreateScalingConfigurationShrinkRequestSecurityOptions;
   /**
    * @remarks
    * The retention period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
@@ -3931,6 +3935,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       securityGroupIds: 'SecurityGroupIds',
+      securityOptions: 'SecurityOptions',
       spotDuration: 'SpotDuration',
       spotInterruptionBehavior: 'SpotInterruptionBehavior',
       spotPriceLimits: 'SpotPriceLimits',
@@ -3993,6 +3998,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      securityOptions: CreateScalingConfigurationShrinkRequestSecurityOptions,
       spotDuration: 'number',
       spotInterruptionBehavior: 'string',
       spotPriceLimits: { 'type': 'array', 'itemType': CreateScalingConfigurationShrinkRequestSpotPriceLimits },
@@ -13834,6 +13840,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
    * The IDs of the security groups.
    */
   securityGroupIds?: string[];
+  securityOptions?: ModifyScalingConfigurationRequestSecurityOptions;
   /**
    * @remarks
    * The protection period of preemptible instances. Unit: hours. Valid values:
@@ -13979,6 +13986,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
       schedulerOptions: 'SchedulerOptions',
       securityGroupId: 'SecurityGroupId',
       securityGroupIds: 'SecurityGroupIds',
+      securityOptions: 'SecurityOptions',
       spotDuration: 'SpotDuration',
       spotInterruptionBehavior: 'SpotInterruptionBehavior',
       spotPriceLimits: 'SpotPriceLimits',
@@ -14038,6 +14046,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
       schedulerOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      securityOptions: ModifyScalingConfigurationRequestSecurityOptions,
       spotDuration: 'number',
       spotInterruptionBehavior: 'string',
       spotPriceLimits: { 'type': 'array', 'itemType': ModifyScalingConfigurationRequestSpotPriceLimits },
@@ -14402,6 +14411,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
    * The IDs of the security groups.
    */
   securityGroupIds?: string[];
+  securityOptions?: ModifyScalingConfigurationShrinkRequestSecurityOptions;
   /**
    * @remarks
    * The protection period of preemptible instances. Unit: hours. Valid values:
@@ -14547,6 +14557,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
       schedulerOptionsShrink: 'SchedulerOptions',
       securityGroupId: 'SecurityGroupId',
       securityGroupIds: 'SecurityGroupIds',
+      securityOptions: 'SecurityOptions',
       spotDuration: 'SpotDuration',
       spotInterruptionBehavior: 'SpotInterruptionBehavior',
       spotPriceLimits: 'SpotPriceLimits',
@@ -14606,6 +14617,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
       schedulerOptionsShrink: 'string',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      securityOptions: ModifyScalingConfigurationShrinkRequestSecurityOptions,
       spotDuration: 'number',
       spotInterruptionBehavior: 'string',
       spotPriceLimits: { 'type': 'array', 'itemType': ModifyScalingConfigurationShrinkRequestSpotPriceLimits },
@@ -20673,6 +20685,25 @@ export class CreateScalingConfigurationRequestNetworkInterfaces extends $tea.Mod
   }
 }
 
+export class CreateScalingConfigurationRequestSecurityOptions extends $tea.Model {
+  confidentialComputingMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidentialComputingMode: 'ConfidentialComputingMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidentialComputingMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScalingConfigurationRequestSpotPriceLimits extends $tea.Model {
   /**
    * @remarks
@@ -21569,6 +21600,25 @@ export class CreateScalingConfigurationShrinkRequestNetworkInterfaces extends $t
       ipv6AddressCount: 'number',
       networkInterfaceTrafficMode: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScalingConfigurationShrinkRequestSecurityOptions extends $tea.Model {
+  confidentialComputingMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidentialComputingMode: 'ConfidentialComputingMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidentialComputingMode: 'string',
     };
   }
 
@@ -28196,6 +28246,25 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSched
   }
 }
 
+export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions extends $tea.Model {
+  confidentialComputingMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidentialComputingMode: 'ConfidentialComputingMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidentialComputingMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSpotPriceLimits extends $tea.Model {
   /**
    * @remarks
@@ -28658,6 +28727,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
    * The IDs of the security groups to which the ECS instances belong. ECS instances that belong to the same security group can communicate with each other.
    */
   securityGroupIds?: string[];
+  securityOptions?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions;
   /**
    * @remarks
    * The protection period of the preemptible instances. Unit: hours.
@@ -28912,6 +28982,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       securityGroupIds: 'SecurityGroupIds',
+      securityOptions: 'SecurityOptions',
       spotDuration: 'SpotDuration',
       spotInterruptionBehavior: 'SpotInterruptionBehavior',
       spotPriceLimits: 'SpotPriceLimits',
@@ -28986,6 +29057,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      securityOptions: DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions,
       spotDuration: 'number',
       spotInterruptionBehavior: 'string',
       spotPriceLimits: { 'type': 'array', 'itemType': DescribeScalingConfigurationsResponseBodyScalingConfigurationsSpotPriceLimits },
@@ -34952,6 +35024,25 @@ export class ModifyScalingConfigurationRequestNetworkInterfaces extends $tea.Mod
   }
 }
 
+export class ModifyScalingConfigurationRequestSecurityOptions extends $tea.Model {
+  confidentialComputingMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidentialComputingMode: 'ConfidentialComputingMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidentialComputingMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyScalingConfigurationRequestSpotPriceLimits extends $tea.Model {
   /**
    * @remarks
@@ -35866,6 +35957,25 @@ export class ModifyScalingConfigurationShrinkRequestNetworkInterfaces extends $t
       ipv6AddressCount: 'number',
       networkInterfaceTrafficMode: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyScalingConfigurationShrinkRequestSecurityOptions extends $tea.Model {
+  confidentialComputingMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidentialComputingMode: 'ConfidentialComputingMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidentialComputingMode: 'string',
     };
   }
 
@@ -38095,6 +38205,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityGroupIds)) {
       query["SecurityGroupIds"] = request.securityGroupIds;
+    }
+
+    if (!Util.isUnset(request.securityOptions)) {
+      query["SecurityOptions"] = request.securityOptions;
     }
 
     if (!Util.isUnset(request.spotDuration)) {
@@ -42788,6 +42902,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityGroupIds)) {
       query["SecurityGroupIds"] = request.securityGroupIds;
+    }
+
+    if (!Util.isUnset(request.securityOptions)) {
+      query["SecurityOptions"] = request.securityOptions;
     }
 
     if (!Util.isUnset(request.spotDuration)) {
