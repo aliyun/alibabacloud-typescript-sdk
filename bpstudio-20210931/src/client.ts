@@ -5138,6 +5138,7 @@ export class GetResource4ModifyRecordResponseBodyData extends $tea.Model {
    * {\\"InstanceId\\": \\"\\", \\"AttributeName\\": \\"drmCommand\\", \\"Id\\": 16800, \\"Desc\\": \\"test\\"}
    */
   attribute?: string;
+  error?: string;
   /**
    * @example
    * 1726645341000
@@ -5161,6 +5162,7 @@ export class GetResource4ModifyRecordResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       attribute: 'Attribute',
+      error: 'Error',
       modifyTime: 'ModifyTime',
       resourceId: 'ResourceId',
       status: 'Status',
@@ -5171,6 +5173,7 @@ export class GetResource4ModifyRecordResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       attribute: 'string',
+      error: 'string',
       modifyTime: 'string',
       resourceId: 'string',
       status: 'string',
