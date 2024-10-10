@@ -1268,8 +1268,12 @@ export class PushRequest extends $tea.Model {
   expireTime?: string;
   harmonyAction?: string;
   harmonyActionType?: string;
+  harmonyBadgeAddNum?: number;
+  harmonyBadgeSetNum?: number;
   harmonyCategory?: string;
   harmonyExtParameters?: string;
+  harmonyExtensionExtraData?: string;
+  harmonyExtensionPush?: boolean;
   harmonyImageUrl?: string;
   harmonyInboxContent?: string;
   harmonyNotificationSlotType?: string;
@@ -1480,8 +1484,12 @@ export class PushRequest extends $tea.Model {
       expireTime: 'ExpireTime',
       harmonyAction: 'HarmonyAction',
       harmonyActionType: 'HarmonyActionType',
+      harmonyBadgeAddNum: 'HarmonyBadgeAddNum',
+      harmonyBadgeSetNum: 'HarmonyBadgeSetNum',
       harmonyCategory: 'HarmonyCategory',
       harmonyExtParameters: 'HarmonyExtParameters',
+      harmonyExtensionExtraData: 'HarmonyExtensionExtraData',
+      harmonyExtensionPush: 'HarmonyExtensionPush',
       harmonyImageUrl: 'HarmonyImageUrl',
       harmonyInboxContent: 'HarmonyInboxContent',
       harmonyNotificationSlotType: 'HarmonyNotificationSlotType',
@@ -1576,8 +1584,12 @@ export class PushRequest extends $tea.Model {
       expireTime: 'string',
       harmonyAction: 'string',
       harmonyActionType: 'string',
+      harmonyBadgeAddNum: 'number',
+      harmonyBadgeSetNum: 'number',
       harmonyCategory: 'string',
       harmonyExtParameters: 'string',
+      harmonyExtensionExtraData: 'string',
+      harmonyExtensionPush: 'boolean',
       harmonyImageUrl: 'string',
       harmonyInboxContent: 'string',
       harmonyNotificationSlotType: 'string',
@@ -4023,8 +4035,12 @@ export class MassPushRequestPushTask extends $tea.Model {
   expireTime?: string;
   harmonyAction?: string;
   harmonyActionType?: string;
+  harmonyBadgeAddNum?: number;
+  harmonyBadgeSetNum?: number;
   harmonyCategory?: string;
   harmonyExtParameters?: string;
+  harmonyExtensionExtraData?: string;
+  harmonyExtensionPush?: boolean;
   harmonyImageUrl?: string;
   harmonyInboxContent?: string;
   harmonyNotificationSlotType?: string;
@@ -4217,8 +4233,12 @@ export class MassPushRequestPushTask extends $tea.Model {
       expireTime: 'ExpireTime',
       harmonyAction: 'HarmonyAction',
       harmonyActionType: 'HarmonyActionType',
+      harmonyBadgeAddNum: 'HarmonyBadgeAddNum',
+      harmonyBadgeSetNum: 'HarmonyBadgeSetNum',
       harmonyCategory: 'HarmonyCategory',
       harmonyExtParameters: 'HarmonyExtParameters',
+      harmonyExtensionExtraData: 'HarmonyExtensionExtraData',
+      harmonyExtensionPush: 'HarmonyExtensionPush',
       harmonyImageUrl: 'HarmonyImageUrl',
       harmonyInboxContent: 'HarmonyInboxContent',
       harmonyNotificationSlotType: 'HarmonyNotificationSlotType',
@@ -4307,8 +4327,12 @@ export class MassPushRequestPushTask extends $tea.Model {
       expireTime: 'string',
       harmonyAction: 'string',
       harmonyActionType: 'string',
+      harmonyBadgeAddNum: 'number',
+      harmonyBadgeSetNum: 'number',
       harmonyCategory: 'string',
       harmonyExtParameters: 'string',
+      harmonyExtensionExtraData: 'string',
+      harmonyExtensionPush: 'boolean',
       harmonyImageUrl: 'string',
       harmonyInboxContent: 'string',
       harmonyNotificationSlotType: 'string',
@@ -5819,12 +5843,28 @@ export default class Client extends OpenApi {
       query["HarmonyActionType"] = request.harmonyActionType;
     }
 
+    if (!Util.isUnset(request.harmonyBadgeAddNum)) {
+      query["HarmonyBadgeAddNum"] = request.harmonyBadgeAddNum;
+    }
+
+    if (!Util.isUnset(request.harmonyBadgeSetNum)) {
+      query["HarmonyBadgeSetNum"] = request.harmonyBadgeSetNum;
+    }
+
     if (!Util.isUnset(request.harmonyCategory)) {
       query["HarmonyCategory"] = request.harmonyCategory;
     }
 
     if (!Util.isUnset(request.harmonyExtParameters)) {
       query["HarmonyExtParameters"] = request.harmonyExtParameters;
+    }
+
+    if (!Util.isUnset(request.harmonyExtensionExtraData)) {
+      query["HarmonyExtensionExtraData"] = request.harmonyExtensionExtraData;
+    }
+
+    if (!Util.isUnset(request.harmonyExtensionPush)) {
+      query["HarmonyExtensionPush"] = request.harmonyExtensionPush;
     }
 
     if (!Util.isUnset(request.harmonyImageUrl)) {
