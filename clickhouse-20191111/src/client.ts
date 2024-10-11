@@ -6984,6 +6984,7 @@ export class ModifyDBClusterRequest extends $tea.Model {
    */
   DBNodeStorage?: string;
   dbNodeStorageType?: string;
+  disableWriteWindows?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -7005,6 +7006,7 @@ export class ModifyDBClusterRequest extends $tea.Model {
       DBNodeGroupCount: 'DBNodeGroupCount',
       DBNodeStorage: 'DBNodeStorage',
       dbNodeStorageType: 'DbNodeStorageType',
+      disableWriteWindows: 'DisableWriteWindows',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -7020,6 +7022,7 @@ export class ModifyDBClusterRequest extends $tea.Model {
       DBNodeGroupCount: 'string',
       DBNodeStorage: 'string',
       dbNodeStorageType: 'string',
+      disableWriteWindows: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -11085,6 +11088,7 @@ export class DescribeDBClustersResponseBodyDBClustersDBCluster extends $tea.Mode
    * rg-4690g37929****
    */
   resourceGroupId?: string;
+  scaleOutDisableWriteWindows?: string;
   /**
    * @remarks
    * The status of a data migration task.
@@ -11167,6 +11171,7 @@ export class DescribeDBClustersResponseBodyDBClustersDBCluster extends $tea.Mode
       port: 'Port',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      scaleOutDisableWriteWindows: 'ScaleOutDisableWriteWindows',
       scaleOutStatus: 'ScaleOutStatus',
       storageType: 'StorageType',
       tags: 'Tags',
@@ -11204,6 +11209,7 @@ export class DescribeDBClustersResponseBodyDBClustersDBCluster extends $tea.Mode
       port: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
+      scaleOutDisableWriteWindows: 'string',
       scaleOutStatus: DescribeDBClustersResponseBodyDBClustersDBClusterScaleOutStatus,
       storageType: 'string',
       tags: DescribeDBClustersResponseBodyDBClustersDBClusterTags,
@@ -12768,6 +12774,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建账号及权限
+   * 
    * @param request - CreateAccountAndAuthorityRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAccountAndAuthorityResponse
@@ -12853,6 +12861,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建账号及权限
+   * 
    * @param request - CreateAccountAndAuthorityRequest
    * @returns CreateAccountAndAuthorityResponse
    */
@@ -14074,6 +14084,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看备份集
+   * 
    * @param request - DescribeBackupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupsResponse
@@ -14139,6 +14151,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看备份集
+   * 
    * @param request - DescribeBackupsRequest
    * @returns DescribeBackupsResponse
    */
@@ -15737,6 +15751,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dbNodeStorageType)) {
       query["DbNodeStorageType"] = request.dbNodeStorageType;
+    }
+
+    if (!Util.isUnset(request.disableWriteWindows)) {
+      query["DisableWriteWindows"] = request.disableWriteWindows;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
