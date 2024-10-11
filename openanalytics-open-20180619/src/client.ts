@@ -1,44 +1,40 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class AddAccountRequest extends $tea.Model {
-  regionId?: string;
-  accountName?: string;
-  password?: string;
-  isShort?: boolean;
-  enableKMS?: boolean;
-  remark?: string;
-  ramUid?: string;
-  useRandomPassword?: boolean;
+export class CancelSparkStatementRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * j202106071620hangzhou****
+   */
+  jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2026****
+   */
+  statementId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      accountName: 'AccountName',
-      password: 'Password',
-      isShort: 'IsShort',
-      enableKMS: 'EnableKMS',
-      remark: 'Remark',
-      ramUid: 'RamUid',
-      useRandomPassword: 'UseRandomPassword',
+      jobId: 'JobId',
+      statementId: 'StatementId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      accountName: 'string',
-      password: 'string',
-      isShort: 'boolean',
-      enableKMS: 'boolean',
-      remark: 'string',
-      ramUid: 'string',
-      useRandomPassword: 'boolean',
+      jobId: 'string',
+      statementId: 'string',
     };
   }
 
@@ -47,23 +43,28 @@ export class AddAccountRequest extends $tea.Model {
   }
 }
 
-export class AddAccountResponseBody extends $tea.Model {
-  account?: AddAccountResponseBodyAccount;
+export class CancelSparkStatementResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  data?: string;
+  /**
+   * @example
+   * 341ADFA1-4A68-4707-9CA7-FA86523A5F14
+   */
   requestId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      account: 'Account',
+      data: 'Data',
       requestId: 'RequestId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      account: AddAccountResponseBodyAccount,
+      data: 'string',
       requestId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -72,12 +73,14 @@ export class AddAccountResponseBody extends $tea.Model {
   }
 }
 
-export class AddAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddAccountResponseBody;
+export class CancelSparkStatementResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelSparkStatementResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -85,88 +88,8 @@ export class AddAccountResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AddAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddEndPointRequest extends $tea.Model {
-  regionId?: string;
-  networkType?: string;
-  vpcID?: string;
-  vswitch?: string;
-  zone?: string;
-  product?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      networkType: 'NetworkType',
-      vpcID: 'VpcID',
-      vswitch: 'Vswitch',
-      zone: 'Zone',
-      product: 'Product',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      networkType: 'string',
-      vpcID: 'string',
-      vswitch: 'string',
-      zone: 'string',
-      product: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddEndPointResponseBody extends $tea.Model {
-  requestId?: string;
-  endPointInfo?: AddEndPointResponseBodyEndPointInfo;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      endPointInfo: 'EndPointInfo',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      endPointInfo: AddEndPointResponseBodyEndPointInfo,
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddEndPointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddEndPointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AddEndPointResponseBody,
+      statusCode: 'number',
+      body: CancelSparkStatementResponseBody,
     };
   }
 
@@ -176,25 +99,50 @@ export class AddEndPointResponse extends $tea.Model {
 }
 
 export class CreateInstanceRequest extends $tea.Model {
-  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * POSTPAY
+   */
   chargeType?: string;
-  instanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * "{\\"operable\\":\\"false\\",\\"max_cu\\":\\"8\\",\\"instance_name\\":\\"api-test-9\\",\\"min_cu\\":\\"0\\",\\"engine\\":\\"spark\\",\\"region\\":\\"cn-hangzhou\\",\\"app_name\\":\\"xx\\",\\"app_version_name\\":\\"xx\\"}"
+   */
   component?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CU_PRESTO
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       chargeType: 'ChargeType',
-      instanceType: 'InstanceType',
       component: 'Component',
+      instanceType: 'InstanceType',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       chargeType: 'string',
-      instanceType: 'string',
       component: 'string',
+      instanceType: 'string',
+      regionId: 'string',
     };
   }
 
@@ -204,28 +152,48 @@ export class CreateInstanceRequest extends $tea.Model {
 }
 
 export class CreateInstanceResponseBody extends $tea.Model {
-  requestId?: string;
-  errorInfo?: string;
+  /**
+   * @example
+   * 600
+   */
   errorCode?: string;
-  success?: boolean;
+  /**
+   * @example
+   * An internal error occurred
+   */
+  errorInfo?: string;
+  /**
+   * @example
+   * 312F48C7-AFA0-46AA-B8F6-1B16B8808045
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      errorInfo: 'ErrorInfo',
       errorCode: 'ErrorCode',
-      success: 'Success',
+      errorInfo: 'ErrorInfo',
+      requestId: 'RequestId',
       result: 'Result',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      errorInfo: 'string',
       errorCode: 'string',
-      success: 'boolean',
+      errorInfo: 'string',
+      requestId: 'string',
       result: 'string',
+      success: 'boolean',
     };
   }
 
@@ -235,11 +203,13 @@ export class CreateInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -247,6 +217,7 @@ export class CreateInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateInstanceResponseBody,
     };
   }
@@ -256,26 +227,41 @@ export class CreateInstanceResponse extends $tea.Model {
   }
 }
 
-export class DeleteAccountRequest extends $tea.Model {
-  regionId?: string;
-  accountName?: string;
-  isShort?: boolean;
-  isServiceUser?: boolean;
+export class ExecuteSparkStatementRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * print(2+2)\\n
+   */
+  code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * j202106071620hangzhou****
+   */
+  jobId?: string;
+  /**
+   * @example
+   * sql
+   */
+  kind?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      accountName: 'AccountName',
-      isShort: 'IsShort',
-      isServiceUser: 'IsServiceUser',
+      code: 'Code',
+      jobId: 'JobId',
+      kind: 'Kind',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      accountName: 'string',
-      isShort: 'boolean',
-      isServiceUser: 'boolean',
+      code: 'string',
+      jobId: 'string',
+      kind: 'string',
     };
   }
 
@@ -284,20 +270,28 @@ export class DeleteAccountRequest extends $tea.Model {
   }
 }
 
-export class DeleteAccountResponseBody extends $tea.Model {
+export class ExecuteSparkStatementResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
+  data?: string;
+  /**
+   * @example
+   * 0DC5B6F080E8-0DC5B6F080E8-0DC5B
+   */
   requestId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      data: 'Data',
       requestId: 'RequestId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      data: 'string',
       requestId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -306,12 +300,14 @@ export class DeleteAccountResponseBody extends $tea.Model {
   }
 }
 
-export class DeleteAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteAccountResponseBody;
+export class ExecuteSparkStatementResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteSparkStatementResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -319,7 +315,8 @@ export class DeleteAccountResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteAccountResponseBody,
+      statusCode: 'number',
+      body: ExecuteSparkStatementResponseBody,
     };
   }
 
@@ -328,23 +325,44 @@ export class DeleteAccountResponse extends $tea.Model {
   }
 }
 
-export class GetAllowIPRequest extends $tea.Model {
-  regionId?: string;
-  networkType?: string;
-  product?: string;
+export class GetJobAttemptLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * j202105272322hangzhou5d64f1560000128-0001
+   */
+  jobAttemptId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * j202105272322hangzhou5d64f1560000128
+   */
+  jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * release-test
+   */
+  vcName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      networkType: 'NetworkType',
-      product: 'Product',
+      jobAttemptId: 'JobAttemptId',
+      jobId: 'JobId',
+      vcName: 'VcName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      networkType: 'string',
-      product: 'string',
+      jobAttemptId: 'string',
+      jobId: 'string',
+      vcName: 'string',
     };
   }
 
@@ -353,23 +371,28 @@ export class GetAllowIPRequest extends $tea.Model {
   }
 }
 
-export class GetAllowIPResponseBody extends $tea.Model {
+export class GetJobAttemptLogResponseBody extends $tea.Model {
+  /**
+   * @example
+   * local:///opt/spark/jars/offline-sql.jar, main_file\\n+ exec /usr/bin/tini -s -- /jdk/jdk8/bin/java -cp \\"/opt/tools/exec-wrapper.jar:.:::/opt/spark/jars/*\\" com.aliyun.dla.spark.SparkJobWrapper /opt/spark/bin/spark-submit --conf spark.driver.host=172.16.6.205 --conf spark.ui.port=4040 --conf \\"spark.driver.extraJavaOptions=-Dlog4j.configuration=file:///opt/spark/log-conf/log4j.properties -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/dump.hprof -XX:OnOutOfMemoryError=\\"bash /opt/tools/oss-cp.sh /tmp/dump.hprof oss://dla-test-cn-hangzhou/spark-logs/release-test/j202105272322hangzhou5d64f1560000128-0001/driver/dump.hprof; bash /opt/tools/job-stop.sh\\" \\"
+   */
+  data?: string;
+  /**
+   * @example
+   * 9CE8F271-F918-43B6-8F58-F9F1C2DCFDB8
+   */
   requestId?: string;
-  allowIP?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      data: 'Data',
       requestId: 'RequestId',
-      allowIP: 'AllowIP',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      data: 'string',
       requestId: 'string',
-      allowIP: 'string',
-      regionId: 'string',
     };
   }
 
@@ -378,12 +401,14 @@ export class GetAllowIPResponseBody extends $tea.Model {
   }
 }
 
-export class GetAllowIPResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAllowIPResponseBody;
+export class GetJobAttemptLogResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobAttemptLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -391,148 +416,8 @@ export class GetAllowIPResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAllowIPResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEndPointRequest extends $tea.Model {
-  regionId?: string;
-  endPointID?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      endPointID: 'EndPointID',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      endPointID: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEndPointResponseBody extends $tea.Model {
-  requestId?: string;
-  endPointInfo?: GetEndPointResponseBodyEndPointInfo;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      endPointInfo: 'EndPointInfo',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      endPointInfo: GetEndPointResponseBodyEndPointInfo,
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEndPointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetEndPointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetEndPointResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEndPointByDomainRequest extends $tea.Model {
-  regionId?: string;
-  domainURL?: string;
-  regionID?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      domainURL: 'DomainURL',
-      regionID: 'RegionID',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      domainURL: 'string',
-      regionID: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEndPointByDomainResponseBody extends $tea.Model {
-  requestId?: string;
-  endPointInfo?: GetEndPointByDomainResponseBodyEndPointInfo;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      endPointInfo: 'EndPointInfo',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      endPointInfo: GetEndPointByDomainResponseBodyEndPointInfo,
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEndPointByDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetEndPointByDomainResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetEndPointByDomainResponseBody,
+      statusCode: 'number',
+      body: GetJobAttemptLogResponseBody,
     };
   }
 
@@ -542,7 +427,21 @@ export class GetEndPointByDomainResponse extends $tea.Model {
 }
 
 export class GetJobDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * j202010271622hangzhouf742a4330000923
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyCluster
+   */
   vcName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -565,6 +464,10 @@ export class GetJobDetailRequest extends $tea.Model {
 
 export class GetJobDetailResponseBody extends $tea.Model {
   jobDetail?: GetJobDetailResponseBodyJobDetail;
+  /**
+   * @example
+   * 5F10AB6E-8984-4E32-B821-4E1512711B8C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -586,11 +489,13 @@ export class GetJobDetailResponseBody extends $tea.Model {
 }
 
 export class GetJobDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetJobDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -598,6 +503,7 @@ export class GetJobDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetJobDetailResponseBody,
     };
   }
@@ -608,7 +514,21 @@ export class GetJobDetailResponse extends $tea.Model {
 }
 
 export class GetJobLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * j202010271622hangzhouf742a4330000923
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyCluster
+   */
   vcName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -630,19 +550,27 @@ export class GetJobLogRequest extends $tea.Model {
 }
 
 export class GetJobLogResponseBody extends $tea.Model {
-  requestId?: string;
+  /**
+   * @example
+   * INFO SparkContext: Running Spark version 2.x
+   */
   data?: string;
+  /**
+   * @example
+   * EC031B4B-3E07-40D2-9BC5-xxxx
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -652,11 +580,13 @@ export class GetJobLogResponseBody extends $tea.Model {
 }
 
 export class GetJobLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetJobLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -664,6 +594,7 @@ export class GetJobLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetJobLogResponseBody,
     };
   }
@@ -674,7 +605,21 @@ export class GetJobLogResponse extends $tea.Model {
 }
 
 export class GetJobStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * j202011031935hangzhouf742a4330003667
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyCluster
+   */
   vcName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -696,19 +641,27 @@ export class GetJobStatusRequest extends $tea.Model {
 }
 
 export class GetJobStatusResponseBody extends $tea.Model {
-  status?: string;
+  /**
+   * @example
+   * 5C3F9ADD-2350-4C21-A3A1-A906F8DF8016
+   */
   requestId?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
       requestId: 'string',
+      status: 'string',
     };
   }
 
@@ -718,11 +671,13 @@ export class GetJobStatusResponseBody extends $tea.Model {
 }
 
 export class GetJobStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetJobStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -730,6 +685,7 @@ export class GetJobStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetJobStatusResponseBody,
     };
   }
@@ -739,19 +695,23 @@ export class GetJobStatusResponse extends $tea.Model {
   }
 }
 
-export class KillSparkJobRequest extends $tea.Model {
-  vcName?: string;
+export class GetSparkSessionStateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * j202104171040zjkb4cc449d0000000
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      vcName: 'VcName',
       jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      vcName: 'string',
       jobId: 'string',
     };
   }
@@ -761,20 +721,206 @@ export class KillSparkJobRequest extends $tea.Model {
   }
 }
 
-export class KillSparkJobResponseBody extends $tea.Model {
+export class GetSparkSessionStateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 9AD49396-8F80-5511-9268-A6360B205136
+   */
   requestId?: string;
-  data?: string;
+  /**
+   * @example
+   * killed
+   */
+  state?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSparkSessionStateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSparkSessionStateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSparkSessionStateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSparkStatementRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * j202106071620hangzhou00000000001
+   */
+  jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  statementId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      statementId: 'StatementId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      statementId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSparkStatementResponseBody extends $tea.Model {
+  data?: GetSparkStatementResponseBodyData;
+  /**
+   * @example
+   * C5DB60E0-6EB3-493C-8956-DA0D3A2EE656
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetSparkStatementResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSparkStatementResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSparkStatementResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSparkStatementResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KillSparkJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * j202011031935hangzhouf742a4330003667
+   */
+  jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyCluster
+   */
+  vcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      vcName: 'VcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      vcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KillSparkJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * deleted
+   */
+  data?: string;
+  /**
+   * @example
+   * 3970ACB5-3E30-4A3A-B63A-1790FCC261F4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -784,11 +930,13 @@ export class KillSparkJobResponseBody extends $tea.Model {
 }
 
 export class KillSparkJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: KillSparkJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: KillSparkJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -796,6 +944,7 @@ export class KillSparkJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: KillSparkJobResponseBody,
     };
   }
@@ -806,22 +955,103 @@ export class KillSparkJobResponse extends $tea.Model {
 }
 
 export class ListSparkJobRequest extends $tea.Model {
-  vcName?: string;
+  /**
+   * @example
+   * {   "createTime":"2020-12-28 09:00:00",   "jobName":"SparkPi" }
+   */
+  condition?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySparkCluster
+   */
+  vcName?: string;
   static names(): { [key: string]: string } {
     return {
-      vcName: 'VcName',
+      condition: 'Condition',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      vcName: 'VcName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      vcName: 'string',
+      condition: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       pageNumber: 'number',
       pageSize: 'number',
+      vcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSparkJobShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * {   "createTime":"2020-12-28 09:00:00",   "jobName":"SparkPi" }
+   */
+  conditionShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySparkCluster
+   */
+  vcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionShrink: 'Condition',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      vcName: 'VcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionShrink: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      vcName: 'string',
     };
   }
 
@@ -832,6 +1062,10 @@ export class ListSparkJobRequest extends $tea.Model {
 
 export class ListSparkJobResponseBody extends $tea.Model {
   dataResult?: ListSparkJobResponseBodyDataResult;
+  /**
+   * @example
+   * E18B0634-F003-486A-90B9-4AA6932DA3AA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -853,11 +1087,13 @@ export class ListSparkJobResponseBody extends $tea.Model {
 }
 
 export class ListSparkJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListSparkJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSparkJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -865,6 +1101,7 @@ export class ListSparkJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListSparkJobResponseBody,
     };
   }
@@ -874,467 +1111,61 @@ export class ListSparkJobResponse extends $tea.Model {
   }
 }
 
-export class QueryAccountListRequest extends $tea.Model {
-  regionId?: string;
-  pageSize?: number;
+export class ListSparkJobAttemptRequest extends $tea.Model {
+  /**
+   * @example
+   * {"status":"success", "createTime":"2021-05-27 11:00:00", "timeZone":"Asia/Shanghai"}
+   */
+  condition?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * j202105272322hangzhou5d64f1560000128
+   */
+  jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAccountListResponseBody extends $tea.Model {
-  totalCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
-  requestId?: string;
-  pageNumber?: number;
-  data?: QueryAccountListResponseBodyData[];
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': QueryAccountListResponseBodyData },
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAccountListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryAccountListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryAccountListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEndPointListRequest extends $tea.Model {
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEndPointListResponseBody extends $tea.Model {
-  requestId?: string;
-  endPointList?: QueryEndPointListResponseBodyEndPointList[];
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      endPointList: 'EndPointList',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      endPointList: { 'type': 'array', 'itemType': QueryEndPointListResponseBodyEndPointList },
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEndPointListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryEndPointListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryEndPointListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseInstanceRequest extends $tea.Model {
-  regionId?: string;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseInstanceResponseBody extends $tea.Model {
-  requestId?: string;
-  errorInfo?: string;
-  errorCode?: string;
-  success?: boolean;
-  result?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      errorInfo: 'ErrorInfo',
-      errorCode: 'ErrorCode',
-      success: 'Success',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      errorInfo: 'string',
-      errorCode: 'string',
-      success: 'boolean',
-      result: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ReleaseInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ReleaseInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveEndPointRequest extends $tea.Model {
-  regionId?: string;
-  endPointID?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      endPointID: 'EndPointID',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      endPointID: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveEndPointResponseBody extends $tea.Model {
-  requestId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveEndPointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RemoveEndPointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RemoveEndPointResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetMainPasswordRequest extends $tea.Model {
-  regionId?: string;
-  useRandomPassword?: boolean;
-  initPassword?: string;
-  enableKMS?: boolean;
-  externalUid?: string;
-  externalAliyunUid?: string;
-  externalBizAliyunUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      useRandomPassword: 'UseRandomPassword',
-      initPassword: 'InitPassword',
-      enableKMS: 'EnableKMS',
-      externalUid: 'ExternalUid',
-      externalAliyunUid: 'ExternalAliyunUid',
-      externalBizAliyunUid: 'ExternalBizAliyunUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      useRandomPassword: 'boolean',
-      initPassword: 'string',
-      enableKMS: 'boolean',
-      externalUid: 'string',
-      externalAliyunUid: 'string',
-      externalBizAliyunUid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetMainPasswordResponseBody extends $tea.Model {
-  account?: ResetMainPasswordResponseBodyAccount;
-  requestId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      requestId: 'RequestId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: ResetMainPasswordResponseBodyAccount,
-      requestId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetMainPasswordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ResetMainPasswordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ResetMainPasswordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAllowIPRequest extends $tea.Model {
-  regionId?: string;
-  networkType?: string;
-  product?: string;
-  allowIP?: string;
-  append?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      networkType: 'NetworkType',
-      product: 'Product',
-      allowIP: 'AllowIP',
-      append: 'Append',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      networkType: 'string',
-      product: 'string',
-      allowIP: 'string',
-      append: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAllowIPResponseBody extends $tea.Model {
-  requestId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAllowIPResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SetAllowIPResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SetAllowIPResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitSparkJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * release-test
+   */
   vcName?: string;
-  configJson?: string;
   static names(): { [key: string]: string } {
     return {
+      condition: 'Condition',
+      jobId: 'JobId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       vcName: 'VcName',
-      configJson: 'ConfigJson',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      condition: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      jobId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       vcName: 'string',
-      configJson: 'string',
     };
   }
 
@@ -1343,19 +1174,137 @@ export class SubmitSparkJobRequest extends $tea.Model {
   }
 }
 
-export class SubmitSparkJobResponseBody extends $tea.Model {
+export class ListSparkJobAttemptShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * {"status":"success", "createTime":"2021-05-27 11:00:00", "timeZone":"Asia/Shanghai"}
+   */
+  conditionShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * j202105272322hangzhou5d64f1560000128
+   */
+  jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * release-test
+   */
+  vcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionShrink: 'Condition',
+      jobId: 'JobId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      vcName: 'VcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionShrink: 'string',
+      jobId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      vcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSparkJobAttemptResponseBody extends $tea.Model {
+  dataResult?: ListSparkJobAttemptResponseBodyDataResult;
+  /**
+   * @example
+   * 4A839055-70C7-423D-A6F2-E714EA4502DB
+   */
   requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataResult: 'DataResult',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataResult: ListSparkJobAttemptResponseBodyDataResult,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSparkJobAttemptResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSparkJobAttemptResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSparkJobAttemptResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSparkStatementsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * j202106071620hangzhou00000000001
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       jobId: 'string',
     };
   }
@@ -1365,12 +1314,40 @@ export class SubmitSparkJobResponseBody extends $tea.Model {
   }
 }
 
-export class SubmitSparkJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitSparkJobResponseBody;
+export class ListSparkStatementsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C2AB7692-B9EF-4A50-BCFF-0DC5B6F080E8
+   */
+  requestId?: string;
+  statements?: ListSparkStatementsResponseBodyStatements[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      statements: 'Statements',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      statements: { 'type': 'array', 'itemType': ListSparkStatementsResponseBodyStatements },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSparkStatementsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSparkStatementsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1378,6 +1355,207 @@ export class SubmitSparkJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSparkStatementsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dla-3qntmdtbqklsbsmceu****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 600
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * An internal error occurred
+   */
+  errorInfo?: string;
+  /**
+   * @example
+   * 312F48C7-AFA0-46AA-B8F6-1B16B8808045
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  result?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorInfo: 'ErrorInfo',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorInfo: 'string',
+      requestId: 'string',
+      result: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSparkJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {     "name": "SparkPi",     "file": "local:///tmp/spark-examples.jar",     "className": "org.apache.spark.examples.SparkPi",     "args": [         "100"     ],     "conf": {         "spark.driver.resourceSpec": "medium",         "spark.executor.instances": 5,         "spark.executor.resourceSpec": "medium"     } }
+   */
+  configJson?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyCluster
+   */
+  vcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configJson: 'ConfigJson',
+      vcName: 'VcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configJson: 'string',
+      vcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSparkJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * j202011032013hangzhouf742a4330003679
+   */
+  jobId?: string;
+  /**
+   * @example
+   * C039FD4D-2F3C-4556-AF09-864D3A6485B2
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSparkJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitSparkJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubmitSparkJobResponseBody,
     };
   }
@@ -1387,17 +1565,34 @@ export class SubmitSparkJobResponse extends $tea.Model {
   }
 }
 
-export class UnSubscribeRegionRequest extends $tea.Model {
-  regionId?: string;
+export class SubmitSparkSQLRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * set spark.driver.resourceSpec=medium;set spark.executor.instances=5;  set spark.executor.resourceSpec=medium;  set spark.app.name=sparksqltest;  show databases;
+   */
+  sql?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySparkCluster
+   */
+  vcName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      sql: 'Sql',
+      vcName: 'VcName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      sql: 'string',
+      vcName: 'string',
     };
   }
 
@@ -1406,20 +1601,28 @@ export class UnSubscribeRegionRequest extends $tea.Model {
   }
 }
 
-export class UnSubscribeRegionResponseBody extends $tea.Model {
+export class SubmitSparkSQLResponseBody extends $tea.Model {
+  /**
+   * @example
+   * j202104261729hangzhou224ee5230000930
+   */
+  jobId?: string;
+  /**
+   * @example
+   * B570310A-8A49-461B-B81D-AE0B58D63DA4
+   */
   requestId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      jobId: 'JobId',
       requestId: 'RequestId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      jobId: 'string',
       requestId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1428,12 +1631,14 @@ export class UnSubscribeRegionResponseBody extends $tea.Model {
   }
 }
 
-export class UnSubscribeRegionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UnSubscribeRegionResponseBody;
+export class SubmitSparkSQLResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitSparkSQLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1441,172 +1646,8 @@ export class UnSubscribeRegionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UnSubscribeRegionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAccountPasswordRequest extends $tea.Model {
-  regionId?: string;
-  accountName?: string;
-  isShort?: boolean;
-  password?: string;
-  enableKMS?: boolean;
-  useRandomPassword?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      accountName: 'AccountName',
-      isShort: 'IsShort',
-      password: 'Password',
-      enableKMS: 'EnableKMS',
-      useRandomPassword: 'UseRandomPassword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      accountName: 'string',
-      isShort: 'boolean',
-      password: 'string',
-      enableKMS: 'boolean',
-      useRandomPassword: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAccountPasswordResponseBody extends $tea.Model {
-  account?: UpdateAccountPasswordResponseBodyAccount;
-  requestId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      requestId: 'RequestId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: UpdateAccountPasswordResponseBodyAccount,
-      requestId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAccountPasswordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateAccountPasswordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateAccountPasswordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeInstanceRequest extends $tea.Model {
-  regionId?: string;
-  instanceId?: string;
-  chargeType?: string;
-  instanceType?: string;
-  component?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      instanceId: 'InstanceId',
-      chargeType: 'ChargeType',
-      instanceType: 'InstanceType',
-      component: 'Component',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      instanceId: 'string',
-      chargeType: 'string',
-      instanceType: 'string',
-      component: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeInstanceResponseBody extends $tea.Model {
-  requestId?: string;
-  errorInfo?: string;
-  errorCode?: string;
-  success?: boolean;
-  result?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      errorInfo: 'ErrorInfo',
-      errorCode: 'ErrorCode',
-      success: 'Success',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      errorInfo: 'string',
-      errorCode: 'string',
-      success: 'boolean',
-      result: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpgradeInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpgradeInstanceResponseBody,
+      statusCode: 'number',
+      body: SubmitSparkSQLResponseBody,
     };
   }
 
@@ -1616,6 +1657,10 @@ export class UpgradeInstanceResponse extends $tea.Model {
 }
 
 export class ValidateVirtualClusterNameRequest extends $tea.Model {
+  /**
+   * @example
+   * abc123
+   */
   vcName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1635,19 +1680,23 @@ export class ValidateVirtualClusterNameRequest extends $tea.Model {
 }
 
 export class ValidateVirtualClusterNameResponseBody extends $tea.Model {
-  requestId?: string;
   data?: ValidateVirtualClusterNameResponseBodyData;
+  /**
+   * @example
+   * C039FD4D-2F3C-4556-AF09-864D3A6485B2
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: ValidateVirtualClusterNameResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -1657,11 +1706,13 @@ export class ValidateVirtualClusterNameResponseBody extends $tea.Model {
 }
 
 export class ValidateVirtualClusterNameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ValidateVirtualClusterNameResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ValidateVirtualClusterNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1669,6 +1720,7 @@ export class ValidateVirtualClusterNameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ValidateVirtualClusterNameResponseBody,
     };
   }
@@ -1678,228 +1730,191 @@ export class ValidateVirtualClusterNameResponse extends $tea.Model {
   }
 }
 
-export class AddAccountResponseBodyAccount extends $tea.Model {
-  password?: string;
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      password: 'Password',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      password: 'string',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddEndPointResponseBodyEndPointInfo extends $tea.Model {
-  product?: string;
-  zone?: string;
-  domainURL?: string;
-  vSwitch?: string;
-  host?: string;
-  status?: string;
-  endPointID?: string;
-  allowIP?: string;
-  vpcID?: string;
-  networkType?: string;
-  port?: string;
-  static names(): { [key: string]: string } {
-    return {
-      product: 'product',
-      zone: 'zone',
-      domainURL: 'domainURL',
-      vSwitch: 'vSwitch',
-      host: 'host',
-      status: 'status',
-      endPointID: 'endPointID',
-      allowIP: 'allowIP',
-      vpcID: 'vpcID',
-      networkType: 'networkType',
-      port: 'port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      product: 'string',
-      zone: 'string',
-      domainURL: 'string',
-      vSwitch: 'string',
-      host: 'string',
-      status: 'string',
-      endPointID: 'string',
-      allowIP: 'string',
-      vpcID: 'string',
-      networkType: 'string',
-      port: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEndPointResponseBodyEndPointInfo extends $tea.Model {
-  product?: string;
-  zone?: string;
-  domainURL?: string;
-  vSwitch?: string;
-  host?: string;
-  status?: string;
-  allowIP?: string;
-  vpcID?: string;
-  endPointID?: string;
-  networkType?: string;
-  port?: string;
-  static names(): { [key: string]: string } {
-    return {
-      product: 'product',
-      zone: 'zone',
-      domainURL: 'domainURL',
-      vSwitch: 'vSwitch',
-      host: 'host',
-      status: 'status',
-      allowIP: 'allowIP',
-      vpcID: 'vpcID',
-      endPointID: 'endPointID',
-      networkType: 'networkType',
-      port: 'port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      product: 'string',
-      zone: 'string',
-      domainURL: 'string',
-      vSwitch: 'string',
-      host: 'string',
-      status: 'string',
-      allowIP: 'string',
-      vpcID: 'string',
-      endPointID: 'string',
-      networkType: 'string',
-      port: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEndPointByDomainResponseBodyEndPointInfo extends $tea.Model {
-  product?: string;
-  cloudInstanceID?: string;
-  zone?: string;
-  domainURL?: string;
-  vSwitch?: string;
-  host?: string;
-  allowIP?: string;
-  vpcID?: string;
-  endPointID?: string;
-  networkType?: string;
-  port?: string;
-  static names(): { [key: string]: string } {
-    return {
-      product: 'product',
-      cloudInstanceID: 'cloudInstanceID',
-      zone: 'zone',
-      domainURL: 'domainURL',
-      vSwitch: 'vSwitch',
-      host: 'host',
-      allowIP: 'allowIP',
-      vpcID: 'vpcID',
-      endPointID: 'endPointID',
-      networkType: 'networkType',
-      port: 'port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      product: 'string',
-      cloudInstanceID: 'string',
-      zone: 'string',
-      domainURL: 'string',
-      vSwitch: 'string',
-      host: 'string',
-      allowIP: 'string',
-      vpcID: 'string',
-      endPointID: 'string',
-      networkType: 'string',
-      port: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetJobDetailResponseBodyJobDetail extends $tea.Model {
-  status?: string;
-  updateTime?: string;
-  executorResourceSpec?: string;
+  /**
+   * @example
+   * 2020-10-27 16:23:16
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1603786996000
+   */
   createTimeValue?: string;
-  driverResourceSpec?: string;
-  updateTimeValue?: string;
-  sparkUI?: string;
-  submitTimeValue?: string;
-  jobName?: string;
-  jobId?: string;
-  executorInstances?: string;
-  vcName?: string;
-  submitTime?: string;
+  /**
+   * @example
+   * {\\"args\\":[\\"100\\"],\\"name\\":\\"SparkPi\\",\\"className\\":\\"org.apache.spark.examples.SparkPi\\",\\"conf\\":{\\"spark.driver.resourceSpec\\":\\"medium\\",\\"spark.executor.instances\\":5,\\"spark.executor.resourceSpec\\":\\"medium\\"},\\"file\\":\\"local:///tmp/spark-examples.jar\\"}
+   */
   detail?: string;
+  /**
+   * @example
+   * small
+   */
+  driverResourceSpec?: string;
+  /**
+   * @example
+   * 1
+   */
+  executorInstances?: string;
+  /**
+   * @example
+   * small
+   */
+  executorResourceSpec?: string;
+  /**
+   * @example
+   * j202010271622hangzhouf742a4330000923
+   */
+  jobId?: string;
+  /**
+   * @example
+   * SparkPi
+   */
+  jobName?: string;
+  /**
+   * @example
+   * 202105251618hzslot9906b0b40000005-0001
+   */
+  lastJobAttemptId?: string;
+  /**
+   * @example
+   * https://dlaui-cn-hangzhou.aliyuncs.com/?token=xxx
+   */
+  sparkUI?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @example
+   * 2020-10-27 16:23:16
+   */
+  submitTime?: string;
+  /**
+   * @example
+   * 1603786996000
+   */
+  submitTimeValue?: string;
+  /**
+   * @example
+   * 2020-10-27 16:23:16
+   */
+  updateTime?: string;
+  /**
+   * @example
+   * 1603786996000
+   */
+  updateTimeValue?: string;
+  /**
+   * @example
+   * MyCluster
+   */
+  vcName?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      updateTime: 'UpdateTime',
-      executorResourceSpec: 'ExecutorResourceSpec',
       createTime: 'CreateTime',
       createTimeValue: 'CreateTimeValue',
-      driverResourceSpec: 'DriverResourceSpec',
-      updateTimeValue: 'UpdateTimeValue',
-      sparkUI: 'SparkUI',
-      submitTimeValue: 'SubmitTimeValue',
-      jobName: 'JobName',
-      jobId: 'JobId',
-      executorInstances: 'ExecutorInstances',
-      vcName: 'VcName',
-      submitTime: 'SubmitTime',
       detail: 'Detail',
+      driverResourceSpec: 'DriverResourceSpec',
+      executorInstances: 'ExecutorInstances',
+      executorResourceSpec: 'ExecutorResourceSpec',
+      jobId: 'JobId',
+      jobName: 'JobName',
+      lastJobAttemptId: 'LastJobAttemptId',
+      sparkUI: 'SparkUI',
+      status: 'Status',
+      submitTime: 'SubmitTime',
+      submitTimeValue: 'SubmitTimeValue',
+      updateTime: 'UpdateTime',
+      updateTimeValue: 'UpdateTimeValue',
+      vcName: 'VcName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      updateTime: 'string',
-      executorResourceSpec: 'string',
       createTime: 'string',
       createTimeValue: 'string',
-      driverResourceSpec: 'string',
-      updateTimeValue: 'string',
-      sparkUI: 'string',
-      submitTimeValue: 'string',
-      jobName: 'string',
-      jobId: 'string',
-      executorInstances: 'string',
-      vcName: 'string',
-      submitTime: 'string',
       detail: 'string',
+      driverResourceSpec: 'string',
+      executorInstances: 'string',
+      executorResourceSpec: 'string',
+      jobId: 'string',
+      jobName: 'string',
+      lastJobAttemptId: 'string',
+      sparkUI: 'string',
+      status: 'string',
+      submitTime: 'string',
+      submitTimeValue: 'string',
+      updateTime: 'string',
+      updateTimeValue: 'string',
+      vcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSparkStatementResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * print(2+2)
+   */
+  code?: string;
+  /**
+   * @example
+   * 1623033200754
+   */
+  completedTime?: number;
+  /**
+   * @example
+   * 1
+   */
+  id?: number;
+  /**
+   * @example
+   * "{\\"status\\":\\"ok\\",\\"execution_count\\":1,\\"data\\":{\\"text/plain\\":\\"4\\"}}"
+   */
+  output?: string;
+  /**
+   * @example
+   * 0.5
+   */
+  process?: number;
+  /**
+   * @example
+   * 1623033200750
+   */
+  startedTime?: number;
+  /**
+   * @example
+   * running
+   */
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      completedTime: 'CompletedTime',
+      id: 'Id',
+      output: 'Output',
+      process: 'Process',
+      startedTime: 'StartedTime',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      completedTime: 'number',
+      id: 'number',
+      output: 'string',
+      process: 'number',
+      startedTime: 'number',
+      state: 'string',
     };
   }
 
@@ -1909,58 +1924,118 @@ export class GetJobDetailResponseBodyJobDetail extends $tea.Model {
 }
 
 export class ListSparkJobResponseBodyDataResultJobList extends $tea.Model {
-  status?: string;
-  updateTime?: string;
-  executorResourceSpec?: string;
+  /**
+   * @example
+   * 2020-10-27 17:51:05
+   */
   createTime?: string;
-  driverResourceSpec?: string;
+  /**
+   * @example
+   * 1603792267000
+   */
   createTimeValue?: string;
-  updateTimeValue?: string;
-  sparkUI?: string;
-  submitTimeValue?: string;
-  jobName?: string;
-  jobId?: string;
-  vcName?: string;
-  executorInstances?: string;
-  submitTime?: string;
+  /**
+   * @example
+   * {"args":["100"],"name":...}
+   */
   detail?: string;
+  /**
+   * @example
+   * small
+   */
+  driverResourceSpec?: string;
+  /**
+   * @example
+   * 100
+   */
+  executorInstances?: string;
+  /**
+   * @example
+   * small
+   */
+  executorResourceSpec?: string;
+  /**
+   * @example
+   * j202010271750hangzhouf742a4330000950
+   */
+  jobId?: string;
+  /**
+   * @example
+   * SparkPi
+   */
+  jobName?: string;
+  /**
+   * @example
+   * https://dlaui-cn-hangzhou.aliyuncs.com/?token=xxx
+   */
+  sparkUI?: string;
+  /**
+   * @example
+   * running
+   */
+  status?: string;
+  /**
+   * @example
+   * 2020-10-27 17:51:05
+   */
+  submitTime?: string;
+  /**
+   * @example
+   * 1603792267000
+   */
+  submitTimeValue?: string;
+  /**
+   * @example
+   * 2020-10-27 17:51:05
+   */
+  updateTime?: string;
+  /**
+   * @example
+   * 1603792267000
+   */
+  updateTimeValue?: string;
+  /**
+   * @example
+   * MyCluster
+   */
+  vcName?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      updateTime: 'UpdateTime',
-      executorResourceSpec: 'ExecutorResourceSpec',
       createTime: 'CreateTime',
-      driverResourceSpec: 'DriverResourceSpec',
       createTimeValue: 'CreateTimeValue',
-      updateTimeValue: 'UpdateTimeValue',
-      sparkUI: 'SparkUI',
-      submitTimeValue: 'SubmitTimeValue',
-      jobName: 'JobName',
-      jobId: 'JobId',
-      vcName: 'VcName',
-      executorInstances: 'ExecutorInstances',
-      submitTime: 'SubmitTime',
       detail: 'Detail',
+      driverResourceSpec: 'DriverResourceSpec',
+      executorInstances: 'ExecutorInstances',
+      executorResourceSpec: 'ExecutorResourceSpec',
+      jobId: 'JobId',
+      jobName: 'JobName',
+      sparkUI: 'SparkUI',
+      status: 'Status',
+      submitTime: 'SubmitTime',
+      submitTimeValue: 'SubmitTimeValue',
+      updateTime: 'UpdateTime',
+      updateTimeValue: 'UpdateTimeValue',
+      vcName: 'VcName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      updateTime: 'string',
-      executorResourceSpec: 'string',
       createTime: 'string',
-      driverResourceSpec: 'string',
       createTimeValue: 'string',
-      updateTimeValue: 'string',
-      sparkUI: 'string',
-      submitTimeValue: 'string',
-      jobName: 'string',
-      jobId: 'string',
-      vcName: 'string',
-      executorInstances: 'string',
-      submitTime: 'string',
       detail: 'string',
+      driverResourceSpec: 'string',
+      executorInstances: 'string',
+      executorResourceSpec: 'string',
+      jobId: 'string',
+      jobName: 'string',
+      sparkUI: 'string',
+      status: 'string',
+      submitTime: 'string',
+      submitTimeValue: 'string',
+      updateTime: 'string',
+      updateTimeValue: 'string',
+      vcName: 'string',
     };
   }
 
@@ -1971,8 +2046,20 @@ export class ListSparkJobResponseBodyDataResultJobList extends $tea.Model {
 
 export class ListSparkJobResponseBodyDataResult extends $tea.Model {
   jobList?: ListSparkJobResponseBodyDataResultJobList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @example
+   * 4998
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1997,78 +2084,105 @@ export class ListSparkJobResponseBodyDataResult extends $tea.Model {
   }
 }
 
-export class QueryAccountListResponseBodyData extends $tea.Model {
-  remark?: string;
-  ramUid?: string;
-  shortName?: string;
-  role?: string;
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      remark: 'Remark',
-      ramUid: 'RamUid',
-      shortName: 'ShortName',
-      role: 'Role',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      remark: 'string',
-      ramUid: 'string',
-      shortName: 'string',
-      role: 'string',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEndPointListResponseBodyEndPointList extends $tea.Model {
-  product?: string;
-  domainURL?: string;
-  zone?: string;
-  vSwitch?: string;
-  host?: string;
-  allowIP?: string;
-  vpcID?: string;
+export class ListSparkJobAttemptResponseBodyDataResultJobAttemptList extends $tea.Model {
+  /**
+   * @example
+   * 2021-05-27 23:22:08
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 1622128928000
+   */
+  createTimeValue?: string;
+  /**
+   * @example
+   * {"xxx":"xxx"}
+   */
+  detail?: string;
+  /**
+   * @example
+   * 00:01:12
+   */
+  durationTime?: string;
+  /**
+   * @example
+   * 72000
+   */
+  durationTimeValue?: string;
+  /**
+   * @example
+   * j202105272322hangzhou5d64f1560000128-0001
+   */
+  jobAttemptId?: string;
+  /**
+   * @example
+   * j202105272322hangzhou5d64f1560000128
+   */
+  jobId?: string;
+  /**
+   * @example
+   * xxx
+   */
+  jobName?: string;
+  /**
+   * @example
+   * xxx
+   */
+  sparkUI?: string;
+  /**
+   * @example
+   * success
+   */
   status?: string;
-  endPointID?: string;
-  networkType?: string;
-  port?: string;
+  /**
+   * @example
+   * 2021-05-27 23:23:20
+   */
+  terminatedTime?: string;
+  /**
+   * @example
+   * 1622129000000
+   */
+  terminatedTimeValue?: string;
+  /**
+   * @example
+   * release-test
+   */
+  vcName?: string;
   static names(): { [key: string]: string } {
     return {
-      product: 'product',
-      domainURL: 'domainURL',
-      zone: 'zone',
-      vSwitch: 'vSwitch',
-      host: 'host',
-      allowIP: 'allowIP',
-      vpcID: 'vpcID',
-      status: 'status',
-      endPointID: 'endPointID',
-      networkType: 'networkType',
-      port: 'port',
+      createTime: 'CreateTime',
+      createTimeValue: 'CreateTimeValue',
+      detail: 'Detail',
+      durationTime: 'DurationTime',
+      durationTimeValue: 'DurationTimeValue',
+      jobAttemptId: 'JobAttemptId',
+      jobId: 'JobId',
+      jobName: 'JobName',
+      sparkUI: 'SparkUI',
+      status: 'Status',
+      terminatedTime: 'TerminatedTime',
+      terminatedTimeValue: 'TerminatedTimeValue',
+      vcName: 'VcName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      product: 'string',
-      domainURL: 'string',
-      zone: 'string',
-      vSwitch: 'string',
-      host: 'string',
-      allowIP: 'string',
-      vpcID: 'string',
+      createTime: 'string',
+      createTimeValue: 'string',
+      detail: 'string',
+      durationTime: 'string',
+      durationTimeValue: 'string',
+      jobAttemptId: 'string',
+      jobId: 'string',
+      jobName: 'string',
+      sparkUI: 'string',
       status: 'string',
-      endPointID: 'string',
-      networkType: 'string',
-      port: 'string',
+      terminatedTime: 'string',
+      terminatedTimeValue: 'string',
+      vcName: 'string',
     };
   }
 
@@ -2077,20 +2191,38 @@ export class QueryEndPointListResponseBodyEndPointList extends $tea.Model {
   }
 }
 
-export class ResetMainPasswordResponseBodyAccount extends $tea.Model {
-  password?: string;
-  userName?: string;
+export class ListSparkJobAttemptResponseBodyDataResult extends $tea.Model {
+  jobAttemptList?: ListSparkJobAttemptResponseBodyDataResultJobAttemptList[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      password: 'Password',
-      userName: 'UserName',
+      jobAttemptList: 'JobAttemptList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      password: 'string',
-      userName: 'string',
+      jobAttemptList: { 'type': 'array', 'itemType': ListSparkJobAttemptResponseBodyDataResultJobAttemptList },
+      pageNumber: 'string',
+      pageSize: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -2099,20 +2231,63 @@ export class ResetMainPasswordResponseBodyAccount extends $tea.Model {
   }
 }
 
-export class UpdateAccountPasswordResponseBodyAccount extends $tea.Model {
-  password?: string;
-  userName?: string;
+export class ListSparkStatementsResponseBodyStatements extends $tea.Model {
+  /**
+   * @example
+   * print(2 + 2)
+   */
+  code?: string;
+  /**
+   * @example
+   * 1623033200754
+   */
+  completedTime?: number;
+  /**
+   * @example
+   * 2
+   */
+  id?: number;
+  /**
+   * @example
+   * {\\"status\\":\\"ok\\",\\"execution_count\\":1,\\"data\\":{\\"text/plain\\":\\"4\\"}}
+   */
+  output?: string;
+  /**
+   * @example
+   * 1
+   */
+  progress?: number;
+  /**
+   * @example
+   * 1623033200750
+   */
+  startedTime?: number;
+  /**
+   * @example
+   * running
+   */
+  state?: string;
   static names(): { [key: string]: string } {
     return {
-      password: 'Password',
-      userName: 'UserName',
+      code: 'Code',
+      completedTime: 'CompletedTime',
+      id: 'Id',
+      output: 'Output',
+      progress: 'Progress',
+      startedTime: 'StartedTime',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      password: 'string',
-      userName: 'string',
+      code: 'string',
+      completedTime: 'number',
+      id: 'number',
+      output: 'string',
+      progress: 'number',
+      startedTime: 'number',
+      state: 'string',
     };
   }
 
@@ -2122,19 +2297,27 @@ export class UpdateAccountPasswordResponseBodyAccount extends $tea.Model {
 }
 
 export class ValidateVirtualClusterNameResponseBodyData extends $tea.Model {
-  message?: string;
+  /**
+   * @example
+   * true
+   */
   legal?: string;
+  /**
+   * @example
+   * null
+   */
+  message?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
       legal: 'Legal',
+      message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
       legal: 'string',
+      message: 'string',
     };
   }
 
@@ -2222,300 +2405,751 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async addAccountWithOptions(request: AddAccountRequest, runtime: $Util.RuntimeOptions): Promise<AddAccountResponse> {
+  /**
+   * @param request - CancelSparkStatementRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelSparkStatementResponse
+   */
+  async cancelSparkStatementWithOptions(request: CancelSparkStatementRequest, runtime: $Util.RuntimeOptions): Promise<CancelSparkStatementResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.statementId)) {
+      body["StatementId"] = request.statementId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<AddAccountResponse>(await this.doRPCRequest("AddAccount", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new AddAccountResponse({}));
-  }
-
-  async addAccount(request: AddAccountRequest): Promise<AddAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addAccountWithOptions(request, runtime);
-  }
-
-  async addEndPointWithOptions(request: AddEndPointRequest, runtime: $Util.RuntimeOptions): Promise<AddEndPointResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApi.Params({
+      action: "CancelSparkStatement",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<AddEndPointResponse>(await this.doRPCRequest("AddEndPoint", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new AddEndPointResponse({}));
+    return $tea.cast<CancelSparkStatementResponse>(await this.callApi(params, req, runtime), new CancelSparkStatementResponse({}));
   }
 
-  async addEndPoint(request: AddEndPointRequest): Promise<AddEndPointResponse> {
+  /**
+   * @param request - CancelSparkStatementRequest
+   * @returns CancelSparkStatementResponse
+   */
+  async cancelSparkStatement(request: CancelSparkStatementRequest): Promise<CancelSparkStatementResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.addEndPointWithOptions(request, runtime);
+    return await this.cancelSparkStatementWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - CreateInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceResponse
+   */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.chargeType)) {
+      body["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.component)) {
+      body["Component"] = request.component;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      body["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateInstanceResponse>(await this.doRPCRequest("CreateInstance", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new CreateInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateInstance",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
+  /**
+   * @param request - CreateInstanceRequest
+   * @returns CreateInstanceResponse
+   */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
   }
 
-  async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
+  /**
+   * @param request - ExecuteSparkStatementRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteSparkStatementResponse
+   */
+  async executeSparkStatementWithOptions(request: ExecuteSparkStatementRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteSparkStatementResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.code)) {
+      body["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.kind)) {
+      body["Kind"] = request.kind;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DeleteAccountResponse>(await this.doRPCRequest("DeleteAccount", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExecuteSparkStatement",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteSparkStatementResponse>(await this.callApi(params, req, runtime), new ExecuteSparkStatementResponse({}));
   }
 
-  async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
+  /**
+   * @param request - ExecuteSparkStatementRequest
+   * @returns ExecuteSparkStatementResponse
+   */
+  async executeSparkStatement(request: ExecuteSparkStatementRequest): Promise<ExecuteSparkStatementResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteAccountWithOptions(request, runtime);
+    return await this.executeSparkStatementWithOptions(request, runtime);
   }
 
-  async getAllowIPWithOptions(request: GetAllowIPRequest, runtime: $Util.RuntimeOptions): Promise<GetAllowIPResponse> {
+  /**
+   * @param request - GetJobAttemptLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobAttemptLogResponse
+   */
+  async getJobAttemptLogWithOptions(request: GetJobAttemptLogRequest, runtime: $Util.RuntimeOptions): Promise<GetJobAttemptLogResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobAttemptId)) {
+      body["JobAttemptId"] = request.jobAttemptId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.vcName)) {
+      body["VcName"] = request.vcName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetAllowIPResponse>(await this.doRPCRequest("GetAllowIP", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new GetAllowIPResponse({}));
-  }
-
-  async getAllowIP(request: GetAllowIPRequest): Promise<GetAllowIPResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAllowIPWithOptions(request, runtime);
-  }
-
-  async getEndPointWithOptions(request: GetEndPointRequest, runtime: $Util.RuntimeOptions): Promise<GetEndPointResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApi.Params({
+      action: "GetJobAttemptLog",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<GetEndPointResponse>(await this.doRPCRequest("GetEndPoint", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new GetEndPointResponse({}));
+    return $tea.cast<GetJobAttemptLogResponse>(await this.callApi(params, req, runtime), new GetJobAttemptLogResponse({}));
   }
 
-  async getEndPoint(request: GetEndPointRequest): Promise<GetEndPointResponse> {
+  /**
+   * @param request - GetJobAttemptLogRequest
+   * @returns GetJobAttemptLogResponse
+   */
+  async getJobAttemptLog(request: GetJobAttemptLogRequest): Promise<GetJobAttemptLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getEndPointWithOptions(request, runtime);
+    return await this.getJobAttemptLogWithOptions(request, runtime);
   }
 
-  async getEndPointByDomainWithOptions(request: GetEndPointByDomainRequest, runtime: $Util.RuntimeOptions): Promise<GetEndPointByDomainResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetEndPointByDomainResponse>(await this.doRPCRequest("GetEndPointByDomain", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new GetEndPointByDomainResponse({}));
-  }
-
-  async getEndPointByDomain(request: GetEndPointByDomainRequest): Promise<GetEndPointByDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getEndPointByDomainWithOptions(request, runtime);
-  }
-
+  /**
+   * @param request - GetJobDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobDetailResponse
+   */
   async getJobDetailWithOptions(request: GetJobDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetJobDetailResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.vcName)) {
+      body["VcName"] = request.vcName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetJobDetailResponse>(await this.doRPCRequest("GetJobDetail", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new GetJobDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetJobDetail",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetJobDetailResponse>(await this.callApi(params, req, runtime), new GetJobDetailResponse({}));
   }
 
+  /**
+   * @param request - GetJobDetailRequest
+   * @returns GetJobDetailResponse
+   */
   async getJobDetail(request: GetJobDetailRequest): Promise<GetJobDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getJobDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetJobLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobLogResponse
+   */
   async getJobLogWithOptions(request: GetJobLogRequest, runtime: $Util.RuntimeOptions): Promise<GetJobLogResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.vcName)) {
+      body["VcName"] = request.vcName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetJobLogResponse>(await this.doRPCRequest("GetJobLog", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new GetJobLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetJobLog",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetJobLogResponse>(await this.callApi(params, req, runtime), new GetJobLogResponse({}));
   }
 
+  /**
+   * @param request - GetJobLogRequest
+   * @returns GetJobLogResponse
+   */
   async getJobLog(request: GetJobLogRequest): Promise<GetJobLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getJobLogWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetJobStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobStatusResponse
+   */
   async getJobStatusWithOptions(request: GetJobStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetJobStatusResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.vcName)) {
+      body["VcName"] = request.vcName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetJobStatusResponse>(await this.doRPCRequest("GetJobStatus", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new GetJobStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetJobStatus",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetJobStatusResponse>(await this.callApi(params, req, runtime), new GetJobStatusResponse({}));
   }
 
+  /**
+   * @param request - GetJobStatusRequest
+   * @returns GetJobStatusResponse
+   */
   async getJobStatus(request: GetJobStatusRequest): Promise<GetJobStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getJobStatusWithOptions(request, runtime);
   }
 
-  async killSparkJobWithOptions(request: KillSparkJobRequest, runtime: $Util.RuntimeOptions): Promise<KillSparkJobResponse> {
+  /**
+   * @param request - GetSparkSessionStateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSparkSessionStateResponse
+   */
+  async getSparkSessionStateWithOptions(request: GetSparkSessionStateRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkSessionStateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<KillSparkJobResponse>(await this.doRPCRequest("KillSparkJob", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new KillSparkJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSparkSessionState",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSparkSessionStateResponse>(await this.callApi(params, req, runtime), new GetSparkSessionStateResponse({}));
   }
 
+  /**
+   * @param request - GetSparkSessionStateRequest
+   * @returns GetSparkSessionStateResponse
+   */
+  async getSparkSessionState(request: GetSparkSessionStateRequest): Promise<GetSparkSessionStateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSparkSessionStateWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetSparkStatementRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSparkStatementResponse
+   */
+  async getSparkStatementWithOptions(request: GetSparkStatementRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkStatementResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.statementId)) {
+      body["StatementId"] = request.statementId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSparkStatement",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSparkStatementResponse>(await this.callApi(params, req, runtime), new GetSparkStatementResponse({}));
+  }
+
+  /**
+   * @param request - GetSparkStatementRequest
+   * @returns GetSparkStatementResponse
+   */
+  async getSparkStatement(request: GetSparkStatementRequest): Promise<GetSparkStatementResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSparkStatementWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - KillSparkJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns KillSparkJobResponse
+   */
+  async killSparkJobWithOptions(request: KillSparkJobRequest, runtime: $Util.RuntimeOptions): Promise<KillSparkJobResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.vcName)) {
+      body["VcName"] = request.vcName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "KillSparkJob",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<KillSparkJobResponse>(await this.callApi(params, req, runtime), new KillSparkJobResponse({}));
+  }
+
+  /**
+   * @param request - KillSparkJobRequest
+   * @returns KillSparkJobResponse
+   */
   async killSparkJob(request: KillSparkJobRequest): Promise<KillSparkJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.killSparkJobWithOptions(request, runtime);
   }
 
-  async listSparkJobWithOptions(request: ListSparkJobRequest, runtime: $Util.RuntimeOptions): Promise<ListSparkJobResponse> {
-    Util.validateModel(request);
+  /**
+   * @param tmpReq - ListSparkJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSparkJobResponse
+   */
+  async listSparkJobWithOptions(tmpReq: ListSparkJobRequest, runtime: $Util.RuntimeOptions): Promise<ListSparkJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListSparkJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.condition)) {
+      request.conditionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.condition, "Condition", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.conditionShrink)) {
+      query["Condition"] = request.conditionShrink;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.vcName)) {
+      query["VcName"] = request.vcName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListSparkJobResponse>(await this.doRPCRequest("ListSparkJob", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new ListSparkJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSparkJob",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSparkJobResponse>(await this.callApi(params, req, runtime), new ListSparkJobResponse({}));
   }
 
+  /**
+   * @param request - ListSparkJobRequest
+   * @returns ListSparkJobResponse
+   */
   async listSparkJob(request: ListSparkJobRequest): Promise<ListSparkJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSparkJobWithOptions(request, runtime);
   }
 
-  async queryAccountListWithOptions(request: QueryAccountListRequest, runtime: $Util.RuntimeOptions): Promise<QueryAccountListResponse> {
-    Util.validateModel(request);
+  /**
+   * @param tmpReq - ListSparkJobAttemptRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSparkJobAttemptResponse
+   */
+  async listSparkJobAttemptWithOptions(tmpReq: ListSparkJobAttemptRequest, runtime: $Util.RuntimeOptions): Promise<ListSparkJobAttemptResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListSparkJobAttemptShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.condition)) {
+      request.conditionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.condition, "Condition", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.conditionShrink)) {
+      query["Condition"] = request.conditionShrink;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.vcName)) {
+      query["VcName"] = request.vcName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryAccountListResponse>(await this.doRPCRequest("QueryAccountList", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new QueryAccountListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSparkJobAttempt",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSparkJobAttemptResponse>(await this.callApi(params, req, runtime), new ListSparkJobAttemptResponse({}));
   }
 
-  async queryAccountList(request: QueryAccountListRequest): Promise<QueryAccountListResponse> {
+  /**
+   * @param request - ListSparkJobAttemptRequest
+   * @returns ListSparkJobAttemptResponse
+   */
+  async listSparkJobAttempt(request: ListSparkJobAttemptRequest): Promise<ListSparkJobAttemptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryAccountListWithOptions(request, runtime);
+    return await this.listSparkJobAttemptWithOptions(request, runtime);
   }
 
-  async queryEndPointListWithOptions(request: QueryEndPointListRequest, runtime: $Util.RuntimeOptions): Promise<QueryEndPointListResponse> {
+  /**
+   * @param request - ListSparkStatementsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSparkStatementsResponse
+   */
+  async listSparkStatementsWithOptions(request: ListSparkStatementsRequest, runtime: $Util.RuntimeOptions): Promise<ListSparkStatementsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<QueryEndPointListResponse>(await this.doRPCRequest("QueryEndPointList", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new QueryEndPointListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSparkStatements",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSparkStatementsResponse>(await this.callApi(params, req, runtime), new ListSparkStatementsResponse({}));
   }
 
-  async queryEndPointList(request: QueryEndPointListRequest): Promise<QueryEndPointListResponse> {
+  /**
+   * @param request - ListSparkStatementsRequest
+   * @returns ListSparkStatementsResponse
+   */
+  async listSparkStatements(request: ListSparkStatementsRequest): Promise<ListSparkStatementsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryEndPointListWithOptions(request, runtime);
+    return await this.listSparkStatementsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ReleaseInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseInstanceResponse
+   */
   async releaseInstanceWithOptions(request: ReleaseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ReleaseInstanceResponse>(await this.doRPCRequest("ReleaseInstance", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new ReleaseInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ReleaseInstance",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseInstanceResponse({}));
   }
 
+  /**
+   * @param request - ReleaseInstanceRequest
+   * @returns ReleaseInstanceResponse
+   */
   async releaseInstance(request: ReleaseInstanceRequest): Promise<ReleaseInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseInstanceWithOptions(request, runtime);
   }
 
-  async removeEndPointWithOptions(request: RemoveEndPointRequest, runtime: $Util.RuntimeOptions): Promise<RemoveEndPointResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RemoveEndPointResponse>(await this.doRPCRequest("RemoveEndPoint", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveEndPointResponse({}));
-  }
-
-  async removeEndPoint(request: RemoveEndPointRequest): Promise<RemoveEndPointResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.removeEndPointWithOptions(request, runtime);
-  }
-
-  async resetMainPasswordWithOptions(request: ResetMainPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetMainPasswordResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ResetMainPasswordResponse>(await this.doRPCRequest("ResetMainPassword", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new ResetMainPasswordResponse({}));
-  }
-
-  async resetMainPassword(request: ResetMainPasswordRequest): Promise<ResetMainPasswordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.resetMainPasswordWithOptions(request, runtime);
-  }
-
-  async setAllowIPWithOptions(request: SetAllowIPRequest, runtime: $Util.RuntimeOptions): Promise<SetAllowIPResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SetAllowIPResponse>(await this.doRPCRequest("SetAllowIP", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new SetAllowIPResponse({}));
-  }
-
-  async setAllowIP(request: SetAllowIPRequest): Promise<SetAllowIPResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setAllowIPWithOptions(request, runtime);
-  }
-
+  /**
+   * @param request - SubmitSparkJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSparkJobResponse
+   */
   async submitSparkJobWithOptions(request: SubmitSparkJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSparkJobResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configJson)) {
+      body["ConfigJson"] = request.configJson;
+    }
+
+    if (!Util.isUnset(request.vcName)) {
+      body["VcName"] = request.vcName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<SubmitSparkJobResponse>(await this.doRPCRequest("SubmitSparkJob", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitSparkJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitSparkJob",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitSparkJobResponse>(await this.callApi(params, req, runtime), new SubmitSparkJobResponse({}));
   }
 
+  /**
+   * @param request - SubmitSparkJobRequest
+   * @returns SubmitSparkJobResponse
+   */
   async submitSparkJob(request: SubmitSparkJobRequest): Promise<SubmitSparkJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitSparkJobWithOptions(request, runtime);
   }
 
-  async unSubscribeRegionWithOptions(request: UnSubscribeRegionRequest, runtime: $Util.RuntimeOptions): Promise<UnSubscribeRegionResponse> {
+  /**
+   * @param request - SubmitSparkSQLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSparkSQLResponse
+   */
+  async submitSparkSQLWithOptions(request: SubmitSparkSQLRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSparkSQLResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sql)) {
+      body["Sql"] = request.sql;
+    }
+
+    if (!Util.isUnset(request.vcName)) {
+      body["VcName"] = request.vcName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UnSubscribeRegionResponse>(await this.doRPCRequest("UnSubscribeRegion", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new UnSubscribeRegionResponse({}));
-  }
-
-  async unSubscribeRegion(request: UnSubscribeRegionRequest): Promise<UnSubscribeRegionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.unSubscribeRegionWithOptions(request, runtime);
-  }
-
-  async updateAccountPasswordWithOptions(request: UpdateAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccountPasswordResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApi.Params({
+      action: "SubmitSparkSQL",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<UpdateAccountPasswordResponse>(await this.doRPCRequest("UpdateAccountPassword", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAccountPasswordResponse({}));
+    return $tea.cast<SubmitSparkSQLResponse>(await this.callApi(params, req, runtime), new SubmitSparkSQLResponse({}));
   }
 
-  async updateAccountPassword(request: UpdateAccountPasswordRequest): Promise<UpdateAccountPasswordResponse> {
+  /**
+   * @param request - SubmitSparkSQLRequest
+   * @returns SubmitSparkSQLResponse
+   */
+  async submitSparkSQL(request: SubmitSparkSQLRequest): Promise<SubmitSparkSQLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateAccountPasswordWithOptions(request, runtime);
+    return await this.submitSparkSQLWithOptions(request, runtime);
   }
 
-  async upgradeInstanceWithOptions(request: UpgradeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeInstanceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpgradeInstanceResponse>(await this.doRPCRequest("UpgradeInstance", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new UpgradeInstanceResponse({}));
-  }
-
-  async upgradeInstance(request: UpgradeInstanceRequest): Promise<UpgradeInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.upgradeInstanceWithOptions(request, runtime);
-  }
-
+  /**
+   * @param request - ValidateVirtualClusterNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateVirtualClusterNameResponse
+   */
   async validateVirtualClusterNameWithOptions(request: ValidateVirtualClusterNameRequest, runtime: $Util.RuntimeOptions): Promise<ValidateVirtualClusterNameResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.vcName)) {
+      body["VcName"] = request.vcName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ValidateVirtualClusterNameResponse>(await this.doRPCRequest("ValidateVirtualClusterName", "2018-06-19", "HTTPS", "POST", "AK", "json", req, runtime), new ValidateVirtualClusterNameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ValidateVirtualClusterName",
+      version: "2018-06-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ValidateVirtualClusterNameResponse>(await this.callApi(params, req, runtime), new ValidateVirtualClusterNameResponse({}));
   }
 
+  /**
+   * @param request - ValidateVirtualClusterNameRequest
+   * @returns ValidateVirtualClusterNameResponse
+   */
   async validateVirtualClusterName(request: ValidateVirtualClusterNameRequest): Promise<ValidateVirtualClusterNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.validateVirtualClusterNameWithOptions(request, runtime);
