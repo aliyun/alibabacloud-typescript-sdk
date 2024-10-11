@@ -5515,7 +5515,7 @@ export class BatchStopApplicationsRequest extends $tea.Model {
    * The ID of the request.
    * 
    * @example
-   * ebf491f0-c1a5-45e2-b2c4-710dbe2a****，ebf491f0-c1a5-45e2-b2c4-71025e2a****
+   * ebf491f0-c1a5-45e2-b2c4-710dbe2a****
    */
   appIds?: string;
   /**
@@ -6135,6 +6135,7 @@ export class CreateApplicationRequest extends $tea.Model {
    * 3.5.3
    */
   edasContainerVersion?: string;
+  enableCpuBurst?: boolean;
   enableEbpf?: string;
   enableNewArms?: boolean;
   /**
@@ -6471,6 +6472,7 @@ export class CreateApplicationRequest extends $tea.Model {
       deploy: 'Deploy',
       dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
+      enableCpuBurst: 'EnableCpuBurst',
       enableEbpf: 'EnableEbpf',
       enableNewArms: 'EnableNewArms',
       envs: 'Envs',
@@ -6539,6 +6541,7 @@ export class CreateApplicationRequest extends $tea.Model {
       deploy: 'boolean',
       dotnet: 'string',
       edasContainerVersion: 'string',
+      enableCpuBurst: 'boolean',
       enableEbpf: 'string',
       enableNewArms: 'boolean',
       envs: 'string',
@@ -10301,6 +10304,7 @@ export class DeployApplicationRequest extends $tea.Model {
    * false
    */
   enableAhas?: string;
+  enableCpuBurst?: boolean;
   /**
    * @remarks
    * Indicates whether canary release rules are enabled. Canary release rules apply only to applications in Spring Cloud and Dubbo frameworks. Take note of the following rules:
@@ -10758,6 +10762,7 @@ export class DeployApplicationRequest extends $tea.Model {
       dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
       enableAhas: 'EnableAhas',
+      enableCpuBurst: 'EnableCpuBurst',
       enableGreyTagRoute: 'EnableGreyTagRoute',
       enableNewArms: 'EnableNewArms',
       envs: 'Envs',
@@ -10825,6 +10830,7 @@ export class DeployApplicationRequest extends $tea.Model {
       dotnet: 'string',
       edasContainerVersion: 'string',
       enableAhas: 'string',
+      enableCpuBurst: 'boolean',
       enableGreyTagRoute: 'boolean',
       enableNewArms: 'boolean',
       envs: 'string',
@@ -15592,6 +15598,110 @@ export class DisableApplicationScalingRuleResponse extends $tea.Model {
   }
 }
 
+export class DowngradeApplicationApmServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DowngradeApplicationApmServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  data?: DowngradeApplicationApmServiceResponseBodyData;
+  errorCode?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 01CF26C7-00A3-4AA6-BA76-7E95F2A3****
+   */
+  requestId?: string;
+  success?: boolean;
+  /**
+   * @example
+   * 0a98a02315955564772843261e****
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DowngradeApplicationApmServiceResponseBodyData,
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DowngradeApplicationApmServiceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DowngradeApplicationApmServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DowngradeApplicationApmServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnableApplicationScalingRuleRequest extends $tea.Model {
   /**
    * @remarks
@@ -15902,6 +16012,108 @@ export class ExecJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ExecJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationRequest extends $tea.Model {
+  /**
+   * @example
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+   */
+  appId?: string;
+  /**
+   * @example
+   * test
+   */
+  appName?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBody extends $tea.Model {
+  application?: GetApplicationResponseBodyApplication;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 01CF26C7-00A3-4AA6-BA76-7E95F2A3****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * ac1a0b2215622920113732501e****
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      application: 'Application',
+      message: 'Message',
+      requestId: 'RequestId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      application: GetApplicationResponseBodyApplication,
+      message: 'string',
+      requestId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetApplicationResponseBody,
     };
   }
 
@@ -24834,6 +25046,114 @@ export class UpdateWebCustomDomainResponse extends $tea.Model {
   }
 }
 
+export class UpgradeApplicationApmServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeApplicationApmServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  data?: UpgradeApplicationApmServiceResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
+  requestId?: string;
+  success?: boolean;
+  /**
+   * @example
+   * 0a98a02315955564772843261e****
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpgradeApplicationApmServiceResponseBodyData,
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeApplicationApmServiceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradeApplicationApmServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpgradeApplicationApmServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AppStackInstanceEndpoints extends $tea.Model {
   /**
    * @example
@@ -27389,6 +27709,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
    * true
    */
   enableAhas?: string;
+  enableCpuBurst?: string;
   /**
    * @remarks
    * Indicates whether canary release rules are enabled. Canary release rules apply only to applications in Spring Cloud and Dubbo frameworks. Valid values:
@@ -27913,6 +28234,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
       enableAhas: 'EnableAhas',
+      enableCpuBurst: 'EnableCpuBurst',
       enableGreyTagRoute: 'EnableGreyTagRoute',
       enableIdle: 'EnableIdle',
       enableNewArms: 'EnableNewArms',
@@ -27988,6 +28310,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       dotnet: 'string',
       edasContainerVersion: 'string',
       enableAhas: 'string',
+      enableCpuBurst: 'string',
       enableGreyTagRoute: 'boolean',
       enableIdle: 'boolean',
       enableNewArms: 'boolean',
@@ -30018,7 +30341,7 @@ export class DescribeApplicationSlbsResponseBodyData extends $tea.Model {
    * The ID of the Internet-facing SLB instance.
    * 
    * @example
-   * 59.74.\*\*.**
+   * ``59.74.**.**``
    */
   internetIp?: string;
   internetSlbChargeType?: string;
@@ -33871,7 +34194,7 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $tea.Mode
    * The error message returned when the task could not be executed. If the task is successfully executed, this parameter is not returned.
    * 
    * @example
-   * EDAS-10022 \\<a target=\\"_blank\\" href=\\"https://help.aliyun.com/knowledge_detail/106573.html#EDAS-10022\\">READINESS check failed during the application startup.\\</a>
+   * EDAS-10022
    */
   errorMessage?: string;
   /**
@@ -34384,6 +34707,29 @@ export class DescribeSecretResponseBodyData extends $tea.Model {
   }
 }
 
+export class DowngradeApplicationApmServiceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExecJobResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -34420,6 +34766,116 @@ export class ExecJobResponseBodyData extends $tea.Model {
       data: 'string',
       msg: 'string',
       success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBodyApplication extends $tea.Model {
+  appDescription?: string;
+  /**
+   * @example
+   * 443d638a-ef76-47c4-b707-61197d******
+   */
+  appId?: string;
+  /**
+   * @example
+   * test
+   */
+  appName?: string;
+  /**
+   * @example
+   * ee99cce6-1c8e-4bfa-96c3-3e2fa9******
+   */
+  baseAppId?: string;
+  /**
+   * @example
+   * 2000
+   */
+  cpu?: number;
+  /**
+   * @example
+   * i-8ps2o182102o1jv05bys
+   */
+  instances?: number;
+  /**
+   * @example
+   * 4096
+   */
+  mem?: number;
+  /**
+   * @example
+   * true
+   */
+  mseEnabled?: boolean;
+  /**
+   * @example
+   * test
+   */
+  mseNamespaceId?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
+  namespaceId?: string;
+  /**
+   * @example
+   * java
+   */
+  programmingLanguage?: string;
+  /**
+   * @example
+   * 1
+   */
+  runningInstances?: number;
+  /**
+   * @example
+   * true
+   */
+  scaleRuleEnabled?: string;
+  /**
+   * @example
+   * timing
+   */
+  scaleRuleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appDescription: 'AppDescription',
+      appId: 'AppId',
+      appName: 'AppName',
+      baseAppId: 'BaseAppId',
+      cpu: 'Cpu',
+      instances: 'Instances',
+      mem: 'Mem',
+      mseEnabled: 'MseEnabled',
+      mseNamespaceId: 'MseNamespaceId',
+      namespaceId: 'NamespaceId',
+      programmingLanguage: 'ProgrammingLanguage',
+      runningInstances: 'RunningInstances',
+      scaleRuleEnabled: 'ScaleRuleEnabled',
+      scaleRuleType: 'ScaleRuleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appDescription: 'string',
+      appId: 'string',
+      appName: 'string',
+      baseAppId: 'string',
+      cpu: 'number',
+      instances: 'number',
+      mem: 'number',
+      mseEnabled: 'boolean',
+      mseNamespaceId: 'string',
+      namespaceId: 'string',
+      programmingLanguage: 'string',
+      runningInstances: 'number',
+      scaleRuleEnabled: 'string',
+      scaleRuleType: 'string',
     };
   }
 
@@ -38553,6 +39009,29 @@ export class UpdateSecretResponseBodyData extends $tea.Model {
   }
 }
 
+export class UpgradeApplicationApmServiceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -38933,6 +39412,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.edasContainerVersion)) {
       query["EdasContainerVersion"] = request.edasContainerVersion;
+    }
+
+    if (!Util.isUnset(request.enableCpuBurst)) {
+      query["EnableCpuBurst"] = request.enableCpuBurst;
     }
 
     if (!Util.isUnset(request.enableEbpf)) {
@@ -40561,6 +41044,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableAhas)) {
       query["EnableAhas"] = request.enableAhas;
+    }
+
+    if (!Util.isUnset(request.enableCpuBurst)) {
+      query["EnableCpuBurst"] = request.enableCpuBurst;
     }
 
     if (!Util.isUnset(request.enableGreyTagRoute)) {
@@ -42464,6 +42951,47 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DowngradeApplicationApmServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DowngradeApplicationApmServiceResponse
+   */
+  async downgradeApplicationApmServiceWithOptions(request: DowngradeApplicationApmServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DowngradeApplicationApmServiceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DowngradeApplicationApmService",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/app/applicationApmService`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DowngradeApplicationApmServiceResponse>(await this.callApi(params, req, runtime), new DowngradeApplicationApmServiceResponse({}));
+  }
+
+  /**
+   * @param request - DowngradeApplicationApmServiceRequest
+   * @returns DowngradeApplicationApmServiceResponse
+   */
+  async downgradeApplicationApmService(request: DowngradeApplicationApmServiceRequest): Promise<DowngradeApplicationApmServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.downgradeApplicationApmServiceWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Enables an auto scaling policy for an application.
    * 
    * @param request - EnableApplicationScalingRuleRequest
@@ -42587,6 +43115,59 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.execJobWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询应用基本信息
+   * 
+   * @param request - GetApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApplicationResponse
+   */
+  async getApplicationWithOptions(request: GetApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetApplication",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/app/getApplication`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
+  }
+
+  /**
+   * 查询应用基本信息
+   * 
+   * @param request - GetApplicationRequest
+   * @returns GetApplicationResponse
+   */
+  async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getApplicationWithOptions(request, headers, runtime);
   }
 
   /**
@@ -45900,6 +46481,47 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateWebCustomDomainWithOptions(DomainName, request, headers, runtime);
+  }
+
+  /**
+   * @param request - UpgradeApplicationApmServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeApplicationApmServiceResponse
+   */
+  async upgradeApplicationApmServiceWithOptions(request: UpgradeApplicationApmServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeApplicationApmServiceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpgradeApplicationApmService",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/app/applicationApmService`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeApplicationApmServiceResponse>(await this.callApi(params, req, runtime), new UpgradeApplicationApmServiceResponse({}));
+  }
+
+  /**
+   * @param request - UpgradeApplicationApmServiceRequest
+   * @returns UpgradeApplicationApmServiceResponse
+   */
+  async upgradeApplicationApmService(request: UpgradeApplicationApmServiceRequest): Promise<UpgradeApplicationApmServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.upgradeApplicationApmServiceWithOptions(request, headers, runtime);
   }
 
 }
