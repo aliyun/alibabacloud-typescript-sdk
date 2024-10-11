@@ -4818,6 +4818,167 @@ export class DeleteCustomScenePolicyResponse extends $tea.Model {
   }
 }
 
+export class DeleteKvRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_namespace
+   */
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteKvResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteKvResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteKvResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteKvResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteKvNamespaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_namespace
+   */
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteKvNamespaceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteKvNamespaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteKvNamespaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteKvNamespaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteListRequest extends $tea.Model {
   /**
    * @remarks
@@ -6386,6 +6547,61 @@ export class DescribeIPRangeListResponse extends $tea.Model {
   }
 }
 
+export class DescribeKvAccountStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * online
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeKvAccountStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeKvAccountStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeKvAccountStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePreloadTasksRequest extends $tea.Model {
   /**
    * @example
@@ -7071,6 +7287,204 @@ export class GetCacheReserveSpecificationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCacheReserveSpecificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKvRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  base64?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_namespace
+   */
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      base64: 'Base64',
+      key: 'Key',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      base64: 'boolean',
+      key: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKvResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * test_value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKvResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetKvResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetKvResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKvAccountResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1073741824
+   */
+  capacity?: number;
+  /**
+   * @example
+   * 1 GB
+   */
+  capacityString?: string;
+  /**
+   * @example
+   * 10048576
+   */
+  capacityUsed?: number;
+  /**
+   * @example
+   * 100 MB
+   */
+  capacityUsedString?: string;
+  namespaceList?: GetKvAccountResponseBodyNamespaceList[];
+  /**
+   * @example
+   * 10
+   */
+  namespaceQuota?: number;
+  /**
+   * @example
+   * 1
+   */
+  namespaceUsed?: number;
+  /**
+   * @example
+   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * online
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      capacityString: 'CapacityString',
+      capacityUsed: 'CapacityUsed',
+      capacityUsedString: 'CapacityUsedString',
+      namespaceList: 'NamespaceList',
+      namespaceQuota: 'NamespaceQuota',
+      namespaceUsed: 'NamespaceUsed',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'number',
+      capacityString: 'string',
+      capacityUsed: 'number',
+      capacityUsedString: 'string',
+      namespaceList: { 'type': 'array', 'itemType': GetKvAccountResponseBodyNamespaceList },
+      namespaceQuota: 'number',
+      namespaceUsed: 'number',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKvAccountResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetKvAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetKvAccountResponseBody,
     };
   }
 
@@ -19959,6 +20373,78 @@ export class DescribePurgeTasksResponseBodyTasks extends $tea.Model {
   }
 }
 
+export class GetKvAccountResponseBodyNamespaceList extends $tea.Model {
+  /**
+   * @example
+   * 1073741824
+   */
+  capacity?: number;
+  /**
+   * @example
+   * 1 GB
+   */
+  capacityString?: string;
+  /**
+   * @example
+   * 100048576
+   */
+  capacityUsed?: number;
+  /**
+   * @example
+   * 100 MB
+   */
+  capacityUsedString?: string;
+  /**
+   * @example
+   * the first namespace
+   */
+  description?: string;
+  /**
+   * @example
+   * test_namespace
+   */
+  namespace?: string;
+  /**
+   * @example
+   * 643355322374688768
+   */
+  namespaceId?: string;
+  /**
+   * @example
+   * online
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      capacityString: 'CapacityString',
+      capacityUsed: 'CapacityUsed',
+      capacityUsedString: 'CapacityUsedString',
+      description: 'Description',
+      namespace: 'Namespace',
+      namespaceId: 'NamespaceId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'number',
+      capacityString: 'string',
+      capacityUsed: 'number',
+      capacityUsedString: 'string',
+      description: 'string',
+      namespace: 'string',
+      namespaceId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRecordResponseBodyRecordModelAuthConf extends $tea.Model {
   /**
    * @example
@@ -25692,6 +26178,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除Namespace的Key-Value对
+   * 
+   * @param request - DeleteKvRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKvResponse
+   */
+  async deleteKvWithOptions(request: DeleteKvRequest, runtime: $Util.RuntimeOptions): Promise<DeleteKvResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteKv",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteKvResponse>(await this.callApi(params, req, runtime), new DeleteKvResponse({}));
+  }
+
+  /**
+   * 删除Namespace的Key-Value对
+   * 
+   * @param request - DeleteKvRequest
+   * @returns DeleteKvResponse
+   */
+  async deleteKv(request: DeleteKvRequest): Promise<DeleteKvResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteKvWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Namespace
+   * 
+   * @param request - DeleteKvNamespaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKvNamespaceResponse
+   */
+  async deleteKvNamespaceWithOptions(request: DeleteKvNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteKvNamespaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteKvNamespace",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteKvNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteKvNamespaceResponse({}));
+  }
+
+  /**
+   * 删除Namespace
+   * 
+   * @param request - DeleteKvNamespaceRequest
+   * @returns DeleteKvNamespaceResponse
+   */
+  async deleteKvNamespace(request: DeleteKvNamespaceRequest): Promise<DeleteKvNamespaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteKvNamespaceWithOptions(request, runtime);
+  }
+
+  /**
    * 删除自定义列表
    * 
    * @param request - DeleteListRequest
@@ -26510,6 +27076,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询账户的KV状态信
+   * 
+   * @param request - DescribeKvAccountStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKvAccountStatusResponse
+   */
+  async describeKvAccountStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeKvAccountStatusResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeKvAccountStatus",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeKvAccountStatusResponse>(await this.callApi(params, req, runtime), new DescribeKvAccountStatusResponse({}));
+  }
+
+  /**
+   * 查询账户的KV状态信
+   * @returns DescribeKvAccountStatusResponse
+   */
+  async describeKvAccountStatus(): Promise<DescribeKvAccountStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeKvAccountStatusWithOptions(runtime);
+  }
+
+  /**
    * 预热任务查询接口
    * 
    * @param request - DescribePreloadTasksRequest
@@ -26795,6 +27393,76 @@ export default class Client extends OpenApi {
   async getCacheReserveSpecification(): Promise<GetCacheReserveSpecificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCacheReserveSpecificationWithOptions(runtime);
+  }
+
+  /**
+   * 查询Key-Value对的某个Key值
+   * 
+   * @param request - GetKvRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKvResponse
+   */
+  async getKvWithOptions(request: GetKvRequest, runtime: $Util.RuntimeOptions): Promise<GetKvResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetKv",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetKvResponse>(await this.callApi(params, req, runtime), new GetKvResponse({}));
+  }
+
+  /**
+   * 查询Key-Value对的某个Key值
+   * 
+   * @param request - GetKvRequest
+   * @returns GetKvResponse
+   */
+  async getKv(request: GetKvRequest): Promise<GetKvResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getKvWithOptions(request, runtime);
+  }
+
+  /**
+   * 列出账号下的NS
+   * 
+   * @param request - GetKvAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKvAccountResponse
+   */
+  async getKvAccountWithOptions(runtime: $Util.RuntimeOptions): Promise<GetKvAccountResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetKvAccount",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetKvAccountResponse>(await this.callApi(params, req, runtime), new GetKvAccountResponse({}));
+  }
+
+  /**
+   * 列出账号下的NS
+   * @returns GetKvAccountResponse
+   */
+  async getKvAccount(): Promise<GetKvAccountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getKvAccountWithOptions(runtime);
   }
 
   /**
