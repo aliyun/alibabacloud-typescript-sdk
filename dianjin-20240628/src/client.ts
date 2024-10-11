@@ -12,6 +12,146 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CreateDocsSummaryTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  docInfos?: CreateDocsSummaryTaskRequestDocInfos[];
+  /**
+   * @example
+   * true
+   */
+  enableTable?: boolean;
+  instruction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qwen-plus
+   */
+  modelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docInfos: 'docInfos',
+      enableTable: 'enableTable',
+      instruction: 'instruction',
+      modelId: 'modelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docInfos: { 'type': 'array', 'itemType': CreateDocsSummaryTaskRequestDocInfos },
+      enableTable: 'boolean',
+      instruction: 'string',
+      modelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDocsSummaryTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  /**
+   * @example
+   * 765675376
+   */
+  data?: string;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 32FFC91D-0A9F-585A-B84F-8A54C5187035
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: 'string',
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDocsSummaryTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDocsSummaryTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDocsSummaryTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFinReportSummaryTaskRequest extends $tea.Model {
   /**
    * @remarks
@@ -597,6 +737,158 @@ export class CreatePredefinedDocumentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreatePredefinedDocumentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateQualityCheckTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  conversationList?: CreateQualityCheckTaskRequestConversationList;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-09-27 11:23:20
+   */
+  gmtService?: string;
+  metaData?: { [key: string]: string };
+  qualityGroup?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0FC6636E-380A-5369-AE01-D1C15BB9B254
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conversationList: 'conversationList',
+      gmtService: 'gmtService',
+      metaData: 'metaData',
+      qualityGroup: 'qualityGroup',
+      requestId: 'requestId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conversationList: CreateQualityCheckTaskRequestConversationList,
+      gmtService: 'string',
+      metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      qualityGroup: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateQualityCheckTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: CreateQualityCheckTaskResponseBodyData;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * EF4B5C9B-3BC8-5171-A47B-4C5CF3DC3258
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: CreateQualityCheckTaskResponseBodyData,
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateQualityCheckTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateQualityCheckTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateQualityCheckTaskResponseBody,
     };
   }
 
@@ -2122,6 +2414,125 @@ export class GetParseResultResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetParseResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityCheckTaskResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 17071319
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityCheckTaskResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: GetQualityCheckTaskResultResponseBodyData;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 67C7021A-D268-553D-8C15-A087B9604028
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: GetQualityCheckTaskResultResponseBodyData,
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityCheckTaskResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQualityCheckTaskResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetQualityCheckTaskResultResponseBody,
     };
   }
 
@@ -3962,6 +4373,56 @@ export class UploadDocumentResponse extends $tea.Model {
   }
 }
 
+export class CreateDocsSummaryTaskRequestDocInfos extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 198386463432
+   */
+  docId?: string;
+  /**
+   * @example
+   * 2
+   */
+  endPage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rdxrmo6amk
+   */
+  libraryId?: string;
+  /**
+   * @example
+   * 1
+   */
+  startPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'docId',
+      endPage: 'endPage',
+      libraryId: 'libraryId',
+      startPage: 'startPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      endPage: 'number',
+      libraryId: 'string',
+      startPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateLibraryRequestIndexSettingChunkStrategy extends $tea.Model {
   /**
    * @example
@@ -4348,6 +4809,174 @@ export class CreatePredefinedDocumentRequestChunks extends $tea.Model {
       chunkOrder: 'number',
       chunkText: 'string',
       chunkType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateQualityCheckTaskRequestConversationListDialogueList extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  begin?: number;
+  /**
+   * @example
+   * 2024-05-23 14:57:50
+   */
+  beginTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  /**
+   * @example
+   * 2348234
+   */
+  customerId?: string;
+  /**
+   * @example
+   * 23874627346
+   */
+  customerServiceId?: string;
+  /**
+   * @example
+   * 0
+   */
+  customerServiceType?: string;
+  /**
+   * @example
+   * 0
+   */
+  end?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * TEXT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      begin: 'begin',
+      beginTime: 'beginTime',
+      content: 'content',
+      customerId: 'customerId',
+      customerServiceId: 'customerServiceId',
+      customerServiceType: 'customerServiceType',
+      end: 'end',
+      role: 'role',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      begin: 'number',
+      beginTime: 'string',
+      content: 'string',
+      customerId: 'string',
+      customerServiceId: 'string',
+      customerServiceType: 'string',
+      end: 'number',
+      role: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateQualityCheckTaskRequestConversationList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  callType?: string;
+  /**
+   * @example
+   * 1
+   */
+  customerId?: string;
+  customerName?: string;
+  /**
+   * @example
+   * xxx
+   */
+  customerServiceId?: string;
+  customerServiceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dialogueList?: CreateQualityCheckTaskRequestConversationListDialogueList[];
+  /**
+   * @example
+   * 2024-09-27 11:23:20
+   */
+  gmtService?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callType: 'callType',
+      customerId: 'customerId',
+      customerName: 'customerName',
+      customerServiceId: 'customerServiceId',
+      customerServiceName: 'customerServiceName',
+      dialogueList: 'dialogueList',
+      gmtService: 'gmtService',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callType: 'string',
+      customerId: 'string',
+      customerName: 'string',
+      customerServiceId: 'string',
+      customerServiceName: 'string',
+      dialogueList: { 'type': 'array', 'itemType': CreateQualityCheckTaskRequestConversationListDialogueList },
+      gmtService: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateQualityCheckTaskResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * taskId
+   * 
+   * @example
+   * 172373500521
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
     };
   }
 
@@ -5935,6 +6564,353 @@ export class GetParseResultResponseBodyData extends $tea.Model {
       requestId: 'string',
       result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityCheckTaskResultResponseBodyDataConversationListDialogueList extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  begin?: number;
+  /**
+   * @example
+   * 2024-09-27 11:23:20
+   */
+  beginTime?: string;
+  content?: string;
+  /**
+   * @example
+   * null
+   */
+  customerId?: string;
+  customerServiceId?: string;
+  /**
+   * @example
+   * 0
+   */
+  customerServiceType?: string;
+  /**
+   * @example
+   * 0
+   */
+  end?: number;
+  /**
+   * @example
+   * 1
+   */
+  id?: number;
+  /**
+   * @example
+   * 0
+   */
+  role?: string;
+  /**
+   * @example
+   * TEXT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      begin: 'begin',
+      beginTime: 'beginTime',
+      content: 'content',
+      customerId: 'customerId',
+      customerServiceId: 'customerServiceId',
+      customerServiceType: 'customerServiceType',
+      end: 'end',
+      id: 'id',
+      role: 'role',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      begin: 'number',
+      beginTime: 'string',
+      content: 'string',
+      customerId: 'string',
+      customerServiceId: 'string',
+      customerServiceType: 'string',
+      end: 'number',
+      id: 'number',
+      role: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityCheckTaskResultResponseBodyDataConversationList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  callType?: string;
+  /**
+   * @example
+   * 234234
+   */
+  customerId?: string;
+  customerName?: string;
+  /**
+   * @example
+   * 23984763826
+   */
+  customerServiceId?: string;
+  customerServiceName?: string;
+  dialogueList?: GetQualityCheckTaskResultResponseBodyDataConversationListDialogueList[];
+  /**
+   * @example
+   * 2024-09-27 11:23:20
+   */
+  gmtService?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callType: 'callType',
+      customerId: 'customerId',
+      customerName: 'customerName',
+      customerServiceId: 'customerServiceId',
+      customerServiceName: 'customerServiceName',
+      dialogueList: 'dialogueList',
+      gmtService: 'gmtService',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callType: 'string',
+      customerId: 'string',
+      customerName: 'string',
+      customerServiceId: 'string',
+      customerServiceName: 'string',
+      dialogueList: { 'type': 'array', 'itemType': GetQualityCheckTaskResultResponseBodyDataConversationListDialogueList },
+      gmtService: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDialogue extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  begin?: number;
+  /**
+   * @example
+   * 2024-05-23 14:57:50
+   */
+  beginTime?: string;
+  content?: string;
+  /**
+   * @example
+   * xxx
+   */
+  customerId?: string;
+  /**
+   * @example
+   * 23876432
+   */
+  customerServiceId?: string;
+  /**
+   * @example
+   * 0
+   */
+  customerServiceType?: string;
+  /**
+   * @example
+   * 0
+   */
+  end?: number;
+  /**
+   * @example
+   * 1
+   */
+  id?: number;
+  /**
+   * @example
+   * 0
+   */
+  role?: string;
+  /**
+   * @example
+   * TEXT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      begin: 'begin',
+      beginTime: 'beginTime',
+      content: 'content',
+      customerId: 'customerId',
+      customerServiceId: 'customerServiceId',
+      customerServiceType: 'customerServiceType',
+      end: 'end',
+      id: 'id',
+      role: 'role',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      begin: 'number',
+      beginTime: 'string',
+      content: 'string',
+      customerId: 'string',
+      customerServiceId: 'string',
+      customerServiceType: 'string',
+      end: 'number',
+      id: 'number',
+      role: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $tea.Model {
+  checkExplanation?: string;
+  /**
+   * @example
+   * PASSED
+   */
+  checkPassed?: string;
+  checkProcess?: string;
+  /**
+   * @example
+   * HIT
+   */
+  checked?: string;
+  /**
+   * @example
+   * 2024-05-23 14:57:50
+   */
+  gmtEnd?: string;
+  /**
+   * @example
+   * 2024-05-23 14:57:50
+   */
+  gmtStart?: string;
+  /**
+   * @example
+   * 0
+   */
+  mode?: string;
+  originDialogue?: GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDialogue[];
+  /**
+   * @example
+   * warning_customers
+   */
+  qualityGroupId?: string;
+  ruleDescription?: string;
+  /**
+   * @example
+   * wcm_start
+   */
+  ruleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkExplanation: 'checkExplanation',
+      checkPassed: 'checkPassed',
+      checkProcess: 'checkProcess',
+      checked: 'checked',
+      gmtEnd: 'gmtEnd',
+      gmtStart: 'gmtStart',
+      mode: 'mode',
+      originDialogue: 'originDialogue',
+      qualityGroupId: 'qualityGroupId',
+      ruleDescription: 'ruleDescription',
+      ruleId: 'ruleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkExplanation: 'string',
+      checkPassed: 'string',
+      checkProcess: 'string',
+      checked: 'string',
+      gmtEnd: 'string',
+      gmtStart: 'string',
+      mode: 'string',
+      originDialogue: { 'type': 'array', 'itemType': GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDialogue },
+      qualityGroupId: 'string',
+      ruleDescription: 'string',
+      ruleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityCheckTaskResultResponseBodyData extends $tea.Model {
+  conversationList?: GetQualityCheckTaskResultResponseBodyDataConversationList;
+  /**
+   * @example
+   * 2024-09-27 11:23:20
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-09-27 11:23:20
+   */
+  gmtEnd?: string;
+  /**
+   * @example
+   * 2024-09-27 11:23:20
+   */
+  gmtStart?: string;
+  qualityCheckList?: GetQualityCheckTaskResultResponseBodyDataQualityCheckList[];
+  /**
+   * @example
+   * INIT
+   */
+  status?: string;
+  /**
+   * @example
+   * 1703557101831
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conversationList: 'conversationList',
+      gmtCreate: 'gmtCreate',
+      gmtEnd: 'gmtEnd',
+      gmtStart: 'gmtStart',
+      qualityCheckList: 'qualityCheckList',
+      status: 'status',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conversationList: GetQualityCheckTaskResultResponseBodyDataConversationList,
+      gmtCreate: 'string',
+      gmtEnd: 'string',
+      gmtStart: 'string',
+      qualityCheckList: { 'type': 'array', 'itemType': GetQualityCheckTaskResultResponseBodyDataQualityCheckList },
+      status: 'string',
+      taskId: 'string',
     };
   }
 
@@ -7831,6 +8807,63 @@ export default class Client extends OpenApi {
   /**
    * 创建财报总结任务
    * 
+   * @param request - CreateDocsSummaryTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDocsSummaryTaskResponse
+   */
+  async createDocsSummaryTaskWithOptions(workspaceId: string, request: CreateDocsSummaryTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDocsSummaryTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.docInfos)) {
+      body["docInfos"] = request.docInfos;
+    }
+
+    if (!Util.isUnset(request.enableTable)) {
+      body["enableTable"] = request.enableTable;
+    }
+
+    if (!Util.isUnset(request.instruction)) {
+      body["instruction"] = request.instruction;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDocsSummaryTask",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/task/summary/docs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDocsSummaryTaskResponse>(await this.callApi(params, req, runtime), new CreateDocsSummaryTaskResponse({}));
+  }
+
+  /**
+   * 创建财报总结任务
+   * 
+   * @param request - CreateDocsSummaryTaskRequest
+   * @returns CreateDocsSummaryTaskResponse
+   */
+  async createDocsSummaryTask(workspaceId: string, request: CreateDocsSummaryTaskRequest): Promise<CreateDocsSummaryTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDocsSummaryTaskWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建财报总结任务
+   * 
    * @param request - CreateFinReportSummaryTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8070,6 +9103,71 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createPredefinedDocumentWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建财报总结的任务
+   * 
+   * @param request - CreateQualityCheckTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateQualityCheckTaskResponse
+   */
+  async createQualityCheckTaskWithOptions(workspaceId: string, request: CreateQualityCheckTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateQualityCheckTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conversationList)) {
+      body["conversationList"] = request.conversationList;
+    }
+
+    if (!Util.isUnset(request.gmtService)) {
+      body["gmtService"] = request.gmtService;
+    }
+
+    if (!Util.isUnset(request.metaData)) {
+      body["metaData"] = request.metaData;
+    }
+
+    if (!Util.isUnset(request.qualityGroup)) {
+      body["qualityGroup"] = request.qualityGroup;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["requestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateQualityCheckTask",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/qualitycheck/task/submit`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateQualityCheckTaskResponse>(await this.callApi(params, req, runtime), new CreateQualityCheckTaskResponse({}));
+  }
+
+  /**
+   * 创建财报总结的任务
+   * 
+   * @param request - CreateQualityCheckTaskRequest
+   * @returns CreateQualityCheckTaskResponse
+   */
+  async createQualityCheckTask(workspaceId: string, request: CreateQualityCheckTaskRequest): Promise<CreateQualityCheckTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createQualityCheckTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -8692,6 +9790,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getParseResultWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取异步任务的结果
+   * 
+   * @param request - GetQualityCheckTaskResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityCheckTaskResultResponse
+   */
+  async getQualityCheckTaskResultWithOptions(workspaceId: string, request: GetQualityCheckTaskResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetQualityCheckTaskResultResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetQualityCheckTaskResult",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/qualitycheck/task/query`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetQualityCheckTaskResultResponse>(await this.callApi(params, req, runtime), new GetQualityCheckTaskResultResponse({}));
+  }
+
+  /**
+   * 获取异步任务的结果
+   * 
+   * @param request - GetQualityCheckTaskResultRequest
+   * @returns GetQualityCheckTaskResultResponse
+   */
+  async getQualityCheckTaskResult(workspaceId: string, request: GetQualityCheckTaskResultRequest): Promise<GetQualityCheckTaskResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getQualityCheckTaskResultWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
