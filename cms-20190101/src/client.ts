@@ -43711,6 +43711,16 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsIspCitiesIspCit
    * The carrier name.
    */
   ispName?: string;
+  /**
+   * @remarks
+   * 探测点网络类型。取值：
+   * IDC: IDC机房
+   * LASTMILE: 网民家宽
+   * MOBILE: 移动蜂窝网
+   * 
+   * @example
+   * IDC
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44296,6 +44306,13 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * 0
    */
   retryDelay?: number;
+  /**
+   * @remarks
+   * 是否开启页面截图
+   * 
+   * @example
+   * false
+   */
   screenShot?: boolean;
   /**
    * @example
@@ -44442,9 +44459,28 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
 }
 
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 内网拨测任务的目标站点所在地域。
+   * 
+   * @example
+   * cn-beijing
+   */
   region?: string;
+  /**
+   * @example
+   * sg-xxxxxx
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * vpc-xxxxxx
+   */
   vpcId?: string;
+  /**
+   * @example
+   * vsw-xxxxxx
+   */
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
