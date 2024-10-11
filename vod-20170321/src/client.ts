@@ -7,6 +7,93 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AppInfoDTO extends $tea.Model {
+  appName?: string;
+  /**
+   * @example
+   * 1-普通应用，2-内嵌SDK.
+   */
+  appType?: number;
+  gmtCreate?: string;
+  itemId?: string;
+  platforms?: AppInfoDTOPlatforms[];
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      appType: 'AppType',
+      gmtCreate: 'GmtCreate',
+      itemId: 'ItemId',
+      platforms: 'Platforms',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      appType: 'number',
+      gmtCreate: 'string',
+      itemId: 'string',
+      platforms: { 'type': 'array', 'itemType': AppInfoDTOPlatforms },
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LicenseInstanceAppDTO extends $tea.Model {
+  appId?: string;
+  beginOn?: string;
+  contractNo?: string;
+  creationTime?: string;
+  expiredOn?: string;
+  instanceId?: string;
+  itemId?: string;
+  licenseConfigs?: LicenseInstanceAppDTOLicenseConfigs[];
+  modificationTime?: string;
+  status?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      beginOn: 'BeginOn',
+      contractNo: 'ContractNo',
+      creationTime: 'CreationTime',
+      expiredOn: 'ExpiredOn',
+      instanceId: 'InstanceId',
+      itemId: 'ItemId',
+      licenseConfigs: 'LicenseConfigs',
+      modificationTime: 'ModificationTime',
+      status: 'Status',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      beginOn: 'string',
+      contractNo: 'string',
+      creationTime: 'string',
+      expiredOn: 'string',
+      instanceId: 'string',
+      itemId: 'string',
+      licenseConfigs: { 'type': 'array', 'itemType': LicenseInstanceAppDTOLicenseConfigs },
+      modificationTime: 'string',
+      status: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddAITemplateRequest extends $tea.Model {
   /**
    * @remarks
@@ -383,7 +470,7 @@ export class AddEditingProjectResponse extends $tea.Model {
 export class AddEditingProjectMaterialsRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the material. Separate multiple material IDs with commas (,). You can specify up to 10 IDs.
+   * Separate multiple material IDs with commas (,). You can specify up to 10 IDs.
    * 
    * >  If you specify multiple materials, make sure that the materials are of the same type as specified in MaterialType.
    * 
@@ -1663,6 +1750,110 @@ export class CancelUrlUploadJobsResponse extends $tea.Model {
   }
 }
 
+export class ChangeResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rg-aekzko7fsuj****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-xxxxxxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  resourceRegionId?: string;
+  /**
+   * @example
+   * AppInfo
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceRegionId: 'ResourceRegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceId: 'string',
+      resourceRegionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 25818875-5F78-4A*****F6-D7393642CA58
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppInfoRequest extends $tea.Model {
   /**
    * @remarks
@@ -1688,6 +1879,13 @@ export class CreateAppInfoRequest extends $tea.Model {
    * myfirstapp
    */
   description?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-aekzko7fsuj****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2696,6 +2894,9 @@ export class DecryptKMSDataKeyResponseBody extends $tea.Model {
    */
   plaintext?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 25818875-5F78-4A*****F6-D7393642CA58
    */
@@ -3358,6 +3559,8 @@ export class DeleteEditingProjectResponse extends $tea.Model {
 export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
   /**
    * @remarks
+   * The material ID. Separate multiple material IDs with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3366,6 +3569,12 @@ export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
   materialIds?: string;
   /**
    * @remarks
+   * The type of the material. Valid values:
+   * 
+   * *   **video**
+   * *   **audio**
+   * *   **image**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3376,6 +3585,8 @@ export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
   ownerId?: string;
   /**
    * @remarks
+   * The ID of the online editing project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3415,6 +3626,9 @@ export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
 
 export class DeleteEditingProjectMaterialsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 746FFA07-8BBB-46*****B1-3E94E3B2915E
    */
@@ -5670,7 +5884,7 @@ export class DescribeVodDomainCertificateInfoRequest extends $tea.Model {
 export class DescribeVodDomainCertificateInfoResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The certificate information about the domain name.
+   * The certificate information.
    */
   certInfos?: DescribeVodDomainCertificateInfoResponseBodyCertInfos;
   /**
@@ -8634,7 +8848,6 @@ export class DescribeVodMediaPlayDataRequest extends $tea.Model {
    * *   **ap-southeast-1**: Singapore
    * *   **ap-southeast-5**: Indonesia (Jakarta)
    * *   **eu-central-1**: Germany (Frankfurt)
-   * *   **ap-south-1**: India (Mumbai) (disabled)
    * 
    * @example
    * cn-beijing
@@ -8851,6 +9064,9 @@ export class DescribeVodRangeDataByLocateAndIspServiceResponseBody extends $tea.
   /**
    * @remarks
    * The returned result. The value is in the JSON format. These parameters indicate the following information in sequence: UNIX time, region, ISP, distribution of HTTP status codes, response time, bandwidth (bit/s), average response rate, page views, cache hit ratio, and request hit ratio.
+   * 
+   * @example
+   * {"1472659200":{"tianjin":{"unicom":{"http_codes":{"000":0,"200":6,"400":0},"rt":4183,"bandwidth":46639,"avg_speed":7773,"pv":6,"hit_rate":0.93,"request_hit_rate":0.66}}}}
    */
   jsonResult?: string;
   /**
@@ -9373,6 +9589,11 @@ export class DescribeVodSSLCertificateListResponse extends $tea.Model {
 
 export class DescribeVodStorageDataRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the application. 
+   * 
+   * *   Default value: **app-1000000**.
+   * 
    * @example
    * app-1000000
    */
@@ -10992,7 +11213,7 @@ export class GetAppInfosRequest extends $tea.Model {
 export class GetAppInfosResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details of each application.
+   * The details of applications.
    */
   appInfoList?: GetAppInfosResponseBodyAppInfoList[];
   /**
@@ -14704,7 +14925,7 @@ export class ListAITemplateResponse extends $tea.Model {
 export class ListAppInfoRequest extends $tea.Model {
   /**
    * @remarks
-   * The number of the page to return. By default, pages start from page 1.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -14712,16 +14933,23 @@ export class ListAppInfoRequest extends $tea.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**. Maximum value: **100**.
+   * The number of entries per page. Default value: **10**. Maximum value: **100**.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aekzko7fsuj****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the application. After an application is created, it enters the **Normal** state. Valid values:
+   * The status of the application. You can specify the status of the applications that you want to query. After an application is created, it enters the **Normal** state. Valid values:
    * 
    * *   **Normal**
    * *   **Disable**
@@ -14756,7 +14984,7 @@ export class ListAppInfoRequest extends $tea.Model {
 export class ListAppInfoResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details of each application.
+   * The details of applications.
    */
   appInfoList?: ListAppInfoResponseBodyAppInfoList[];
   /**
@@ -15749,6 +15977,9 @@ export class ListWatermarkRequest extends $tea.Model {
 
 export class ListWatermarkResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 25818875-5F78-4A*****F6-D7393642CA58
    */
@@ -15924,7 +16155,27 @@ export class MoveAppResourceResponse extends $tea.Model {
 }
 
 export class PreloadVodObjectCachesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The acceleration region in which you want to prefetch content. If you do not specify a region, the value overseas is used.
+   * 
+   * *   **domestic**: Chinese mainland
+   * *   **overseas**: outside the Chinese mainland
+   * 
+   * @example
+   * domestic
+   */
   area?: string;
+  /**
+   * @remarks
+   * Specifies whether to prefetch content to POPs. Valid values:
+   * 
+   * *   **true**: prefetches content to nodes that include L2 DCDN nodes.
+   * *   **false**: prefetches content to L2 POPs or L3 POPs.
+   * 
+   * @example
+   * true
+   */
   l2Preload?: boolean;
   /**
    * @remarks
@@ -15938,6 +16189,17 @@ export class PreloadVodObjectCachesRequest extends $tea.Model {
   objectPath?: string;
   ownerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The custom header for prefetch in the JSON format.
+   * 
+   * @example
+   * {
+   *       "Accept-Encoding": [
+   *             "gzip, deflate, br"
+   *       ]
+   * }
+   */
   withHeader?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17555,6 +17817,8 @@ export class SetCrossdomainContentResponse extends $tea.Model {
 export class SetDefaultAITemplateRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the AI template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17580,11 +17844,17 @@ export class SetDefaultAITemplateRequest extends $tea.Model {
 
 export class SetDefaultAITemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8E70E3F8-E2EE-47BC-4677-379D6F28****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the AI template.
+   * 
    * @example
    * 1706a0063dd733f6a823ef32e0a5****
    */
@@ -17930,7 +18200,7 @@ export class SetMessageCallbackRequest extends $tea.Model {
    * The callback method. Valid values:
    * 
    * *   **HTTP**
-   * *   **MNS**
+   * *   **Simple Message Queue(formerly MNS)**
    * 
    * @example
    * HTTP
@@ -17954,7 +18224,7 @@ export class SetMessageCallbackRequest extends $tea.Model {
   eventTypeList?: string;
   /**
    * @remarks
-   * The public endpoint of Message Service (MNS). This parameter only takes effect when the CallbackType parameter is set to **MNS**. To obtain the public endpoint, log on to the [MNS console](https://account.aliyun.com/login/login.html) and click **Get Endpoint** in the upper-right corner of the Topics page. For more information, see [Endpoint](https://help.aliyun.com/document_detail/27480.html).
+   * The public endpoint of Message Service (MNS). This parameter only takes effect when the CallbackType parameter is set to **Simple Message Queue(formerly MNS)**. To obtain the public endpoint, log on to the [Simple Message Queue(formerly MNS) console](https://account.aliyun.com/login/login.html) and click **Get Endpoint** in the upper-right corner of the Topics page. For more information, see [Endpoint](https://help.aliyun.com/document_detail/27480.html).
    * 
    * @example
    * http://****.mns.cn-shanghai.aliyuncs.com/
@@ -17962,7 +18232,7 @@ export class SetMessageCallbackRequest extends $tea.Model {
   mnsEndpoint?: string;
   /**
    * @remarks
-   * The name of the MNS queue. You can obtain the name of the MNS queue on the **Queues** page in the [MNS console](https://account.aliyun.com/login/login.html). This parameter is required when you set CallbackType to **MNS**.
+   * The name of the Simple Message Queue(formerly MNS). You can obtain the name of the Simple Message Queue(formerly MNS) on the **Queues** page in the [Simple Message Queue(formerly MNS) console](https://account.aliyun.com/login/login.html). This parameter is required when you set CallbackType to **Simple Message Queue(formerly MNS)**.
    * 
    * @example
    * quene_name
@@ -21086,6 +21356,8 @@ export class UpdateVideoInfosResponse extends $tea.Model {
 export class UpdateVodDomainRequest extends $tea.Model {
   /**
    * @remarks
+   * The domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21095,11 +21367,17 @@ export class UpdateVodDomainRequest extends $tea.Model {
   ownerId?: number;
   securityToken?: string;
   /**
+   * @remarks
+   * The information about the addresses of origin servers.
+   * 
    * @example
    * [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80}]
    */
   sources?: string;
   /**
+   * @remarks
+   * The top-level domain.
+   * 
    * @example
    * example.com
    */
@@ -21131,6 +21409,9 @@ export class UpdateVodDomainRequest extends $tea.Model {
 
 export class UpdateVodDomainResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 15C66C7B-671A-4297-****-2C4477247A74
    */
@@ -21885,6 +22166,77 @@ export class VerifyVodDomainOwnerResponse extends $tea.Model {
   }
 }
 
+export class AppInfoDTOPlatforms extends $tea.Model {
+  itemId?: string;
+  licenseItemIds?: string[];
+  pkgName?: string;
+  pkgSignature?: string;
+  platformType?: number;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      itemId: 'ItemId',
+      licenseItemIds: 'LicenseItemIds',
+      pkgName: 'PkgName',
+      pkgSignature: 'PkgSignature',
+      platformType: 'PlatformType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemId: 'string',
+      licenseItemIds: { 'type': 'array', 'itemType': 'string' },
+      pkgName: 'string',
+      pkgSignature: 'string',
+      platformType: 'number',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LicenseInstanceAppDTOLicenseConfigs extends $tea.Model {
+  businessType?: string;
+  featureIds?: string;
+  sdkId?: number;
+  sdkName?: string;
+  subscription?: string;
+  subscriptionImp?: string;
+  subscriptionPkg?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      featureIds: 'FeatureIds',
+      sdkId: 'SdkId',
+      sdkName: 'SdkName',
+      subscription: 'Subscription',
+      subscriptionImp: 'SubscriptionImp',
+      subscriptionPkg: 'SubscriptionPkg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      featureIds: 'string',
+      sdkId: 'number',
+      sdkName: 'string',
+      subscription: 'string',
+      subscriptionImp: 'string',
+      subscriptionPkg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddCategoryResponseBodyCategory extends $tea.Model {
   /**
    * @remarks
@@ -22051,6 +22403,9 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $tea.Mod
   /**
    * @remarks
    * The category name of the material.
+   * 
+   * @example
+   * cate1
    */
   cateName?: string;
   /**
@@ -22068,7 +22423,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $tea.Mod
   createTime?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 1234751840694470
@@ -22077,6 +22432,9 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $tea.Mod
   /**
    * @remarks
    * The description of the material.
+   * 
+   * @example
+   * test material
    */
   description?: string;
   /**
@@ -22860,6 +23218,13 @@ export class DescribeVodAIDataResponseBodyAIData extends $tea.Model {
 }
 
 export class DescribeVodCertificateListResponseBodyCertificateListModelCertListCert extends $tea.Model {
+  /**
+   * @remarks
+   * The algorithm.
+   * 
+   * @example
+   * RSA
+   */
   algorithm?: string;
   /**
    * @remarks
@@ -22869,6 +23234,13 @@ export class DescribeVodCertificateListResponseBodyCertificateListModelCertListC
    * 235437
    */
   certId?: number;
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * 14173772-cn-hangzhou
+   */
   certIdentifier?: string;
   /**
    * @remarks
@@ -22886,8 +23258,29 @@ export class DescribeVodCertificateListResponseBodyCertificateListModelCertListC
    * test
    */
   common?: string;
+  /**
+   * @remarks
+   * The time when the certificate was created.
+   * 
+   * @example
+   * 1725206400000
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * DomainMatchCert.
+   * 
+   * @example
+   * false
+   */
   domainMatchCert?: boolean;
+  /**
+   * @remarks
+   * The time when the certificate expired.
+   * 
+   * @example
+   * 1759507200000
+   */
   endTime?: number;
   /**
    * @remarks
@@ -22897,6 +23290,13 @@ export class DescribeVodCertificateListResponseBodyCertificateListModelCertListC
    * ****
    */
   fingerprint?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * cert-cn-cd806ae0fdfbfa60
+   */
   instanceId?: string;
   /**
    * @remarks
@@ -22914,6 +23314,13 @@ export class DescribeVodCertificateListResponseBodyCertificateListModelCertListC
    * 1512388610
    */
   lastTime?: number;
+  /**
+   * @remarks
+   * The signAlgorithm.
+   * 
+   * @example
+   * sha256withrsa
+   */
   signAlgorithm?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23195,6 +23602,13 @@ export class DescribeVodDomainCertificateInfoResponseBodyCertInfosCertInfo exten
    * 2018-06-03T13:03:39Z
    */
   certExpireTime?: string;
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * 13227737-cn-hangzhou
+   */
   certId?: string;
   /**
    * @remarks
@@ -23220,7 +23634,21 @@ export class DescribeVodDomainCertificateInfoResponseBodyCertInfosCertInfo exten
    * Let\\"s Encrypt
    */
   certOrg?: string;
+  /**
+   * @remarks
+   * The region where the certificate is used.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   certRegion?: string;
+  /**
+   * @remarks
+   * The time when the certificate became effective.
+   * 
+   * @example
+   * 2023-04-26T20:23:38Z
+   */
   certStartTime?: string;
   /**
    * @remarks
@@ -23234,7 +23662,26 @@ export class DescribeVodDomainCertificateInfoResponseBodyCertInfosCertInfo exten
    * free
    */
   certType?: string;
+  /**
+   * @remarks
+   * The time at which the certificate was updated.
+   * 
+   * @example
+   * 2023-04-26T20:23:38Z
+   */
   certUpdateTime?: string;
+  /**
+   * @remarks
+   * The CNAME status of the domain name.
+   * 
+   * *   **ok**: The domain name points to the CNAME assigned by Alibaba Cloud CDN.
+   * *   **cname_error**: An error occurred and the domain name cannot point to the CNAME.
+   * *   **op_domain_cname_error** : An error occurred to the CNAME of the top-level domain. The domain name cannot point to the CNAME.
+   * *   **unsupport_wildcard**: The wildcard domain name is not supported.
+   * 
+   * @example
+   * ok
+   */
   domainCnameStatus?: string;
   /**
    * @remarks
@@ -23244,6 +23691,13 @@ export class DescribeVodDomainCertificateInfoResponseBodyCertInfosCertInfo exten
    * example.com
    */
   domainName?: string;
+  /**
+   * @remarks
+   * The public key of the certificate.
+   * 
+   * @example
+   * ****
+   */
   serverCertificate?: string;
   /**
    * @remarks
@@ -25014,6 +25468,9 @@ export class DescribeVodMediaPlayDataResponseBodyQoeInfoList extends $tea.Model 
   /**
    * @remarks
    * The name of the audio or video file.
+   * 
+   * @example
+   * title
    */
   videoTitle?: string;
   static names(): { [key: string]: string } {
@@ -27945,6 +28402,13 @@ export class GetAppInfosResponseBodyAppInfoList extends $tea.Model {
    * 2019-03-01T09:00:00Z
    */
   modificationTime?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-aekzko7fsuj****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -32379,6 +32843,13 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $tea.Model {
    * oss
    */
   outputType?: string;
+  /**
+   * @remarks
+   * The preprocess status od the media.
+   * 
+   * @example
+   * UnPreprocess
+   */
   preprocessStatus?: string;
   /**
    * @remarks
@@ -32574,6 +33045,7 @@ export class GetPlayInfoResponseBodyPlayInfoListPlayInfo extends $tea.Model {
    * 1
    */
   encrypt?: number;
+  encryptMode?: string;
   /**
    * @remarks
    * The encryption type of the media stream. Valid values:
@@ -32740,6 +33212,7 @@ export class GetPlayInfoResponseBodyPlayInfoListPlayInfo extends $tea.Model {
       definition: 'Definition',
       duration: 'Duration',
       encrypt: 'Encrypt',
+      encryptMode: 'EncryptMode',
       encryptType: 'EncryptType',
       format: 'Format',
       fps: 'Fps',
@@ -32768,6 +33241,7 @@ export class GetPlayInfoResponseBodyPlayInfoListPlayInfo extends $tea.Model {
       definition: 'string',
       duration: 'string',
       encrypt: 'number',
+      encryptMode: 'string',
       encryptType: 'string',
       format: 'string',
       fps: 'string',
@@ -35600,7 +36074,21 @@ export class ListAppInfoResponseBodyAppInfoList extends $tea.Model {
    * 2019-03-01T09:00:00Z
    */
   modificationTime?: string;
+  /**
+   * @remarks
+   * 地域。
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aekzko7fsuj****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -36656,6 +37144,9 @@ export class ListWatermarkResponseBodyWatermarkInfos extends $tea.Model {
   /**
    * @remarks
    * The name of the watermark template.
+   * 
+   * @example
+   * testName
    */
   name?: string;
   /**
@@ -36672,6 +37163,9 @@ export class ListWatermarkResponseBodyWatermarkInfos extends $tea.Model {
   /**
    * @remarks
    * The configuration information of the watermark such as the display position and special effects. The value is a JSON string. The configuration parameters for image and text watermarks are different. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
+   * 
+   * @example
+   * {"FontColor": "Blue","FontSize": 80,"Content": "test watermark"}
    */
   watermarkConfig?: string;
   /**
@@ -39600,6 +40094,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an application.
    * 
    * @remarks
@@ -41993,15 +42541,16 @@ export default class Client extends OpenApi {
    * Queries the number of queries per second (QPS) for one or more accelerated domain names. Data is collected every 5 minutes. You can query data collected in the last 90 days.
    * 
    * @remarks
-   * You can call this operation up to 100 times per second per account.
+   * This operation is available only in the China (Shanghai) region.
+   * * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
-   * The time granularity varies with the time range specified by the Interval parameter. The following table describes the time period within which historical data is available and the data delay.
+   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
    * |---|---|---|---|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|3 to 4 hours|
-   * |1 day|366 days|366 days|4 hours in most cases, not more than 24 hours|
+   * |1 day|366 days|366 days|4 to 24 hours|
    * ---
    * 
    * @param request - DescribeVodDomainQpsDataRequest
@@ -42060,15 +42609,16 @@ export default class Client extends OpenApi {
    * Queries the number of queries per second (QPS) for one or more accelerated domain names. Data is collected every 5 minutes. You can query data collected in the last 90 days.
    * 
    * @remarks
-   * You can call this operation up to 100 times per second per account.
+   * This operation is available only in the China (Shanghai) region.
+   * * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
-   * The time granularity varies with the time range specified by the Interval parameter. The following table describes the time period within which historical data is available and the data delay.
+   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
    * |---|---|---|---|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|3 to 4 hours|
-   * |1 day|366 days|366 days|4 hours in most cases, not more than 24 hours|
+   * |1 day|366 days|366 days|4 to 24 hours|
    * ---
    * 
    * @param request - DescribeVodDomainQpsDataRequest
@@ -46041,7 +46591,10 @@ export default class Client extends OpenApi {
    * Queries the applications that you are authorized to manage based on query conditions.
    * 
    * @remarks
-   * Supports filtering queries by application status.
+   * ### [](#)Usage notes
+   * You can query applications based on states.
+   * ### [](#qps-)QPS limit
+   * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations](https://help.aliyun.com/document_detail/342790.html).
    * 
    * @param request - ListAppInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -46087,7 +46640,10 @@ export default class Client extends OpenApi {
    * Queries the applications that you are authorized to manage based on query conditions.
    * 
    * @remarks
-   * Supports filtering queries by application status.
+   * ### [](#)Usage notes
+   * You can query applications based on states.
+   * ### [](#qps-)QPS limit
+   * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations](https://help.aliyun.com/document_detail/342790.html).
    * 
    * @param request - ListAppInfoRequest
    * @returns ListAppInfoResponse
