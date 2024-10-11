@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,9 +8,34 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddTagsBatchRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["dbfs-nUy1tb********BQ4X8Gpw","dbfs-v0WvA********tVEVcgJLg"]
+   */
   dbfsList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"TagKey":"k1","TagValue":"v1"},{"TagKey":"k2","TagValue":"v2"}]
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,6 +61,10 @@ export class AddTagsBatchRequest extends $tea.Model {
 }
 
 export class AddTagsBatchResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,9 +84,9 @@ export class AddTagsBatchResponseBody extends $tea.Model {
 }
 
 export class AddTagsBatchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddTagsBatchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddTagsBatchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -81,8 +109,26 @@ export class AddTagsBatchResponse extends $tea.Model {
 }
 
 export class ApplyAutoSnapshotPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   dbfsIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sp-z5siir3iq3m**********
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -106,8 +152,26 @@ export class ApplyAutoSnapshotPolicyRequest extends $tea.Model {
 }
 
 export class ApplyAutoSnapshotPolicyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   dbfsIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sp-z5siir3iq3m**********
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -131,6 +195,10 @@ export class ApplyAutoSnapshotPolicyShrinkRequest extends $tea.Model {
 }
 
 export class ApplyAutoSnapshotPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -150,9 +218,9 @@ export class ApplyAutoSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class ApplyAutoSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ApplyAutoSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -175,11 +243,44 @@ export class ApplyAutoSnapshotPolicyResponse extends $tea.Model {
 }
 
 export class AttachDbfsRequest extends $tea.Model {
+  /**
+   * @example
+   * create_new_mount_point
+   */
   attachMode?: string;
+  /**
+   * @example
+   * /mnt/dbfs/dbfs-001
+   */
   attachPoint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp1ecr********5go2go
+   */
   ECSInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dbfs-v0WvA********tVEVcgJLg
+   */
   fsId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * dbfs-pkg-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com
+   */
   serverUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -209,6 +310,10 @@ export class AttachDbfsRequest extends $tea.Model {
 }
 
 export class AttachDbfsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -228,9 +333,9 @@ export class AttachDbfsResponseBody extends $tea.Model {
 }
 
 export class AttachDbfsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachDbfsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachDbfsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -253,8 +358,26 @@ export class AttachDbfsResponse extends $tea.Model {
 }
 
 export class CancelAutoSnapshotPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   dbfsIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sp-z5siir3iq3m**********
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -278,8 +401,26 @@ export class CancelAutoSnapshotPolicyRequest extends $tea.Model {
 }
 
 export class CancelAutoSnapshotPolicyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   dbfsIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sp-z5siir3iq3m**********
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -303,6 +444,10 @@ export class CancelAutoSnapshotPolicyShrinkRequest extends $tea.Model {
 }
 
 export class CancelAutoSnapshotPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -322,9 +467,9 @@ export class CancelAutoSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class CancelAutoSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelAutoSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -347,10 +492,39 @@ export class CancelAutoSnapshotPolicyResponse extends $tea.Model {
 }
 
 export class CreateAutoSnapshotPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * policyTest
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   repeatWeekdays?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   retentionDays?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   timePoints?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -378,10 +552,39 @@ export class CreateAutoSnapshotPolicyRequest extends $tea.Model {
 }
 
 export class CreateAutoSnapshotPolicyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * policyTest
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   repeatWeekdaysShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   retentionDays?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   timePointsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -409,7 +612,15 @@ export class CreateAutoSnapshotPolicyShrinkRequest extends $tea.Model {
 }
 
 export class CreateAutoSnapshotPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * sp-z5siir3iq3m**********
+   */
   policyId?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -431,9 +642,9 @@ export class CreateAutoSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class CreateAutoSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAutoSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -456,21 +667,96 @@ export class CreateAutoSnapshotPolicyResponse extends $tea.Model {
 }
 
 export class CreateDbfsRequest extends $tea.Model {
+  /**
+   * @example
+   * {"cpuCoreCount":0.5,"memorySize":512,"pageCacheSize":128}
+   */
   advancedFeatures?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * standard
+   */
   category?: string;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   deleteSnapshot?: boolean;
+  /**
+   * @example
+   * false
+   */
   enableRaid?: boolean;
+  /**
+   * @example
+   * false
+   */
   encryption?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testdbfs-001
+   */
   fsName?: string;
+  /**
+   * @example
+   * dbfs.small
+   */
   instanceType?: string;
+  /**
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d3fb40826X
+   */
   KMSKeyId?: string;
+  /**
+   * @example
+   * PL1
+   */
   performanceLevel?: string;
   raidStripeUnitNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 200
+   */
   sizeG?: number;
+  /**
+   * @example
+   * s-y2vZ3********vvMilZ2hQ
+   */
   snapshotId?: string;
+  /**
+   * @example
+   * PostgreSQL
+   */
   usedScene?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -520,7 +806,15 @@ export class CreateDbfsRequest extends $tea.Model {
 }
 
 export class CreateDbfsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * dbfs-GOrr********Yd0VLOyBpg
+   */
   fsId?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -542,9 +836,9 @@ export class CreateDbfsResponseBody extends $tea.Model {
 }
 
 export class CreateDbfsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDbfsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDbfsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -567,7 +861,18 @@ export class CreateDbfsResponse extends $tea.Model {
 }
 
 export class CreateServiceLinkedRoleRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -589,6 +894,10 @@ export class CreateServiceLinkedRoleRequest extends $tea.Model {
 }
 
 export class CreateServiceLinkedRoleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -608,9 +917,9 @@ export class CreateServiceLinkedRoleResponseBody extends $tea.Model {
 }
 
 export class CreateServiceLinkedRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateServiceLinkedRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceLinkedRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -633,11 +942,41 @@ export class CreateServiceLinkedRoleResponse extends $tea.Model {
 }
 
 export class CreateSnapshotRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * testDescription
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * d-bp131n0q38u3a4zi*****
+   */
   fsId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 30
+   */
   retentionDays?: number;
+  /**
+   * @example
+   * testSnapshotName
+   */
   snapshotName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -667,7 +1006,15 @@ export class CreateSnapshotRequest extends $tea.Model {
 }
 
 export class CreateSnapshotResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * s-Q2greuDZTvWeS8bfKZ****
+   */
   snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -689,9 +1036,9 @@ export class CreateSnapshotResponseBody extends $tea.Model {
 }
 
 export class CreateSnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSnapshotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -714,7 +1061,21 @@ export class CreateSnapshotResponse extends $tea.Model {
 }
 
 export class DeleteAutoSnapshotPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sp-z5siir3iq3m**********
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -736,6 +1097,10 @@ export class DeleteAutoSnapshotPolicyRequest extends $tea.Model {
 }
 
 export class DeleteAutoSnapshotPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC********
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -755,9 +1120,9 @@ export class DeleteAutoSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class DeleteAutoSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAutoSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -780,8 +1145,30 @@ export class DeleteAutoSnapshotPolicyResponse extends $tea.Model {
 }
 
 export class DeleteDbfsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 是否强制删除数据库文件系统。
+   * 默认值：false。
+   * 
+   * @example
+   * false
+   */
   force?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * d-bp131n0q38u3a4zi*****
+   */
   fsId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -805,6 +1192,10 @@ export class DeleteDbfsRequest extends $tea.Model {
 }
 
 export class DeleteDbfsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -824,9 +1215,9 @@ export class DeleteDbfsResponseBody extends $tea.Model {
 }
 
 export class DeleteDbfsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDbfsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDbfsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -849,8 +1240,23 @@ export class DeleteDbfsResponse extends $tea.Model {
 }
 
 export class DeleteSnapshotRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   force?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -874,6 +1280,10 @@ export class DeleteSnapshotRequest extends $tea.Model {
 }
 
 export class DeleteSnapshotResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -893,9 +1303,9 @@ export class DeleteSnapshotResponseBody extends $tea.Model {
 }
 
 export class DeleteSnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSnapshotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -918,8 +1328,29 @@ export class DeleteSnapshotResponse extends $tea.Model {
 }
 
 export class DeleteTagsBatchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["dbfs-nUy1tb********BQ4X8Gpw","dbfs-v0WvA********tVEVcgJLg"]
+   */
   dbfsList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"TagKey":"k1","TagValue":"v1"},{"TagKey":"k2","TagValue":"v2"}]
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -943,6 +1374,10 @@ export class DeleteTagsBatchRequest extends $tea.Model {
 }
 
 export class DeleteTagsBatchResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -962,9 +1397,9 @@ export class DeleteTagsBatchResponseBody extends $tea.Model {
 }
 
 export class DeleteTagsBatchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTagsBatchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTagsBatchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -987,8 +1422,29 @@ export class DeleteTagsBatchResponse extends $tea.Model {
 }
 
 export class DescribeDbfsSpecificationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * enterprise
+   */
   category?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ecs.g7se
+   */
   ecsInstanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1012,7 +1468,15 @@ export class DescribeDbfsSpecificationsRequest extends $tea.Model {
 }
 
 export class DescribeDbfsSpecificationsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   maxDbfsNumberPerEcs?: { [key: string]: any };
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   supportedEcsInstanceTypeFamily?: string[];
   static names(): { [key: string]: string } {
@@ -1037,9 +1501,9 @@ export class DescribeDbfsSpecificationsResponseBody extends $tea.Model {
 }
 
 export class DescribeDbfsSpecificationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDbfsSpecificationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDbfsSpecificationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1062,6 +1526,13 @@ export class DescribeDbfsSpecificationsResponse extends $tea.Model {
 }
 
 export class DescribeInstanceTypesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1082,6 +1553,10 @@ export class DescribeInstanceTypesRequest extends $tea.Model {
 
 export class DescribeInstanceTypesResponseBody extends $tea.Model {
   instanceTypes?: DescribeInstanceTypesResponseBodyInstanceTypes[];
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1103,9 +1578,9 @@ export class DescribeInstanceTypesResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceTypesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceTypesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceTypesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1128,8 +1603,29 @@ export class DescribeInstanceTypesResponse extends $tea.Model {
 }
 
 export class DetachDbfsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp67acfmxazb4ph***
+   */
   ECSInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * d-bp131n0q38u3a4zi*****
+   */
   fsId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1153,6 +1649,10 @@ export class DetachDbfsRequest extends $tea.Model {
 }
 
 export class DetachDbfsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1172,9 +1672,9 @@ export class DetachDbfsResponseBody extends $tea.Model {
 }
 
 export class DetachDbfsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachDbfsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachDbfsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1197,7 +1697,21 @@ export class DetachDbfsResponse extends $tea.Model {
 }
 
 export class GetAutoSnapshotPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sp-z5siir3iq3m**********
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1220,6 +1734,10 @@ export class GetAutoSnapshotPolicyRequest extends $tea.Model {
 
 export class GetAutoSnapshotPolicyResponseBody extends $tea.Model {
   data?: GetAutoSnapshotPolicyResponseBodyData;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1241,9 +1759,9 @@ export class GetAutoSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class GetAutoSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAutoSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1266,7 +1784,21 @@ export class GetAutoSnapshotPolicyResponse extends $tea.Model {
 }
 
 export class GetDbfsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dbfs-GOrr********Yd0VLOyBpg
+   */
   fsId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1289,6 +1821,10 @@ export class GetDbfsRequest extends $tea.Model {
 
 export class GetDbfsResponseBody extends $tea.Model {
   DBFSInfo?: GetDbfsResponseBodyDBFSInfo;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1310,9 +1846,9 @@ export class GetDbfsResponseBody extends $tea.Model {
 }
 
 export class GetDbfsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDbfsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDbfsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1335,6 +1871,13 @@ export class GetDbfsResponse extends $tea.Model {
 }
 
 export class GetServiceLinkedRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1354,9 +1897,25 @@ export class GetServiceLinkedRoleRequest extends $tea.Model {
 }
 
 export class GetServiceLinkedRoleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1352345930******
+   */
   accountId?: string;
+  /**
+   * @example
+   * true
+   */
   dbfsLinkedRole?: boolean;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1382,9 +1941,9 @@ export class GetServiceLinkedRoleResponseBody extends $tea.Model {
 }
 
 export class GetServiceLinkedRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceLinkedRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceLinkedRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1407,7 +1966,18 @@ export class GetServiceLinkedRoleResponse extends $tea.Model {
 }
 
 export class GetSnapshotLinkRequest extends $tea.Model {
+  /**
+   * @example
+   * sl-b3zlgraysgcs9jy********
+   */
   linkId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1430,6 +2000,10 @@ export class GetSnapshotLinkRequest extends $tea.Model {
 
 export class GetSnapshotLinkResponseBody extends $tea.Model {
   data?: GetSnapshotLinkResponseBodyData;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1451,9 +2025,9 @@ export class GetSnapshotLinkResponseBody extends $tea.Model {
 }
 
 export class GetSnapshotLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSnapshotLinkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSnapshotLinkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1476,10 +2050,33 @@ export class GetSnapshotLinkResponse extends $tea.Model {
 }
 
 export class ListAutoSnapshotPoliciesRequest extends $tea.Model {
+  /**
+   * @example
+   * PolicyName
+   */
   filterKey?: string;
+  /**
+   * @example
+   * policyTest
+   */
   filterValue?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1507,10 +2104,26 @@ export class ListAutoSnapshotPoliciesRequest extends $tea.Model {
 }
 
 export class ListAutoSnapshotPoliciesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   snapshotPolicies?: ListAutoSnapshotPoliciesResponseBodySnapshotPolicies[];
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1538,9 +2151,9 @@ export class ListAutoSnapshotPoliciesResponseBody extends $tea.Model {
 }
 
 export class ListAutoSnapshotPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAutoSnapshotPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAutoSnapshotPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1563,11 +2176,41 @@ export class ListAutoSnapshotPoliciesResponse extends $tea.Model {
 }
 
 export class ListAutoSnapshotPolicyAppliedDbfsRequest extends $tea.Model {
+  /**
+   * @example
+   * FsName
+   */
   filterKey?: string;
+  /**
+   * @example
+   * DBFS1
+   */
   filterValue?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sp-z5siir3iq3m**********
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1598,9 +2241,25 @@ export class ListAutoSnapshotPolicyAppliedDbfsRequest extends $tea.Model {
 
 export class ListAutoSnapshotPolicyAppliedDbfsResponseBody extends $tea.Model {
   dbfsList?: ListAutoSnapshotPolicyAppliedDbfsResponseBodyDbfsList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1628,9 +2287,9 @@ export class ListAutoSnapshotPolicyAppliedDbfsResponseBody extends $tea.Model {
 }
 
 export class ListAutoSnapshotPolicyAppliedDbfsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAutoSnapshotPolicyAppliedDbfsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAutoSnapshotPolicyAppliedDbfsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1653,10 +2312,33 @@ export class ListAutoSnapshotPolicyAppliedDbfsResponse extends $tea.Model {
 }
 
 export class ListAutoSnapshotPolicyUnappliedDbfsRequest extends $tea.Model {
+  /**
+   * @example
+   * FsName
+   */
   filterKey?: string;
+  /**
+   * @example
+   * DBFS1
+   */
   filterValue?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1685,9 +2367,25 @@ export class ListAutoSnapshotPolicyUnappliedDbfsRequest extends $tea.Model {
 
 export class ListAutoSnapshotPolicyUnappliedDbfsResponseBody extends $tea.Model {
   dbfsList?: ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1715,9 +2413,9 @@ export class ListAutoSnapshotPolicyUnappliedDbfsResponseBody extends $tea.Model 
 }
 
 export class ListAutoSnapshotPolicyUnappliedDbfsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAutoSnapshotPolicyUnappliedDbfsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAutoSnapshotPolicyUnappliedDbfsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1740,13 +2438,48 @@ export class ListAutoSnapshotPolicyUnappliedDbfsResponse extends $tea.Model {
 }
 
 export class ListDbfsRequest extends $tea.Model {
+  /**
+   * @example
+   * FsName
+   */
   filterKey?: string;
+  /**
+   * @example
+   * dbfs-test-01
+   */
   filterValue?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * SizeG
+   */
   sortKey?: string;
+  /**
+   * @example
+   * desc
+   */
   sortType?: string;
+  /**
+   * @example
+   * [{"TagKey":"k1","TagValue":"v1"},{"TagKey":"k2","TagValue":"v2"}]
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1781,9 +2514,25 @@ export class ListDbfsRequest extends $tea.Model {
 
 export class ListDbfsResponseBody extends $tea.Model {
   DBFSInfo?: ListDbfsResponseBodyDBFSInfo[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * 32
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1811,9 +2560,9 @@ export class ListDbfsResponseBody extends $tea.Model {
 }
 
 export class ListDbfsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDbfsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDbfsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1836,10 +2585,33 @@ export class ListDbfsResponse extends $tea.Model {
 }
 
 export class ListDbfsAttachableEcsInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * InstanceName
+   */
   filterKey?: string;
+  /**
+   * @example
+   * autotest1
+   */
   filterValue?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1868,7 +2640,15 @@ export class ListDbfsAttachableEcsInstancesRequest extends $tea.Model {
 
 export class ListDbfsAttachableEcsInstancesResponseBody extends $tea.Model {
   ecsLabelInfo?: ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo[];
+  /**
+   * @example
+   * 3724CFEF-02DA-578B-AED6-67EE80671B4A
+   */
   requestId?: string;
+  /**
+   * @example
+   * 32
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1892,9 +2672,9 @@ export class ListDbfsAttachableEcsInstancesResponseBody extends $tea.Model {
 }
 
 export class ListDbfsAttachableEcsInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDbfsAttachableEcsInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDbfsAttachableEcsInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1917,7 +2697,21 @@ export class ListDbfsAttachableEcsInstancesResponse extends $tea.Model {
 }
 
 export class ListDbfsAttachedEcsInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dbfs-nUy1tb********BQ4X8Gpw
+   */
   fsId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1940,6 +2734,10 @@ export class ListDbfsAttachedEcsInstancesRequest extends $tea.Model {
 
 export class ListDbfsAttachedEcsInstancesResponseBody extends $tea.Model {
   ecsLabelInfo?: ListDbfsAttachedEcsInstancesResponseBodyEcsLabelInfo[];
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1961,9 +2759,9 @@ export class ListDbfsAttachedEcsInstancesResponseBody extends $tea.Model {
 }
 
 export class ListDbfsAttachedEcsInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDbfsAttachedEcsInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDbfsAttachedEcsInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1986,17 +2784,68 @@ export class ListDbfsAttachedEcsInstancesResponse extends $tea.Model {
 }
 
 export class ListSnapshotRequest extends $tea.Model {
+  /**
+   * @example
+   * SnapshotId
+   */
   filterKey?: string;
+  /**
+   * @example
+   * s-bp67acfmxazb4p****
+   */
   filterValue?: string;
+  /**
+   * @example
+   * dbfs-GOrr********Yd0VLOyBpg
+   */
   fsId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * ["s-bp67acfmxazb4p****", "s-bp67acfmxazb5p****", … "s-bp67acfmxazb6p****"]
+   */
   snapshotIds?: string;
+  /**
+   * @example
+   * testSnapshotName
+   */
   snapshotName?: string;
+  /**
+   * @example
+   * user
+   */
   snapshotType?: string;
+  /**
+   * @example
+   * SnapshotSize
+   */
   sortKey?: string;
+  /**
+   * @example
+   * desc
+   */
   sortType?: string;
+  /**
+   * @example
+   * accomplished
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2038,10 +2887,26 @@ export class ListSnapshotRequest extends $tea.Model {
 }
 
 export class ListSnapshotResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   snapshots?: ListSnapshotResponseBodySnapshots[];
+  /**
+   * @example
+   * 32
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2069,9 +2934,9 @@ export class ListSnapshotResponseBody extends $tea.Model {
 }
 
 export class ListSnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSnapshotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2094,12 +2959,43 @@ export class ListSnapshotResponse extends $tea.Model {
 }
 
 export class ListSnapshotLinksRequest extends $tea.Model {
+  /**
+   * @example
+   * FsId
+   */
   filterKey?: string;
+  /**
+   * @example
+   * dbfs-kwziq4dpsle********
+   */
   filterValue?: string;
+  /**
+   * @example
+   * ["dbfs-kwziq4dpsle********","dbfs-vuaqvfcjqsg********"]
+   */
   fsIds?: string;
+  /**
+   * @example
+   * ["sl-bp1grgphbcc9brb5****","sl-bp1c4izumvq0i5bs****","sl-bp1akk7isz866dds****"]
+   */
   linkIds?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2131,10 +3027,26 @@ export class ListSnapshotLinksRequest extends $tea.Model {
 }
 
 export class ListSnapshotLinksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   snapshotLinks?: ListSnapshotLinksResponseBodySnapshotLinks[];
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2162,9 +3074,9 @@ export class ListSnapshotLinksResponseBody extends $tea.Model {
 }
 
 export class ListSnapshotLinksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSnapshotLinksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSnapshotLinksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2187,6 +3099,13 @@ export class ListSnapshotLinksResponse extends $tea.Model {
 }
 
 export class ListTagKeysRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2206,6 +3125,10 @@ export class ListTagKeysRequest extends $tea.Model {
 }
 
 export class ListTagKeysResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   tagKeys?: string[];
   static names(): { [key: string]: string } {
@@ -2228,9 +3151,9 @@ export class ListTagKeysResponseBody extends $tea.Model {
 }
 
 export class ListTagKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagKeysResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2253,7 +3176,21 @@ export class ListTagKeysResponse extends $tea.Model {
 }
 
 export class ListTagValuesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tagKey1
+   */
   tagKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2275,6 +3212,10 @@ export class ListTagValuesRequest extends $tea.Model {
 }
 
 export class ListTagValuesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -2297,9 +3238,9 @@ export class ListTagValuesResponseBody extends $tea.Model {
 }
 
 export class ListTagValuesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagValuesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagValuesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2322,10 +3263,32 @@ export class ListTagValuesResponse extends $tea.Model {
 }
 
 export class ModifyAutoSnapshotPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sp-z5siir3iq3m**********
+   */
   policyId?: string;
+  /**
+   * @example
+   * policyTest
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   repeatWeekdays?: string[];
+  /**
+   * @example
+   * 30
+   */
   retentionDays?: number;
   timePoints?: string[];
   static names(): { [key: string]: string } {
@@ -2356,10 +3319,32 @@ export class ModifyAutoSnapshotPolicyRequest extends $tea.Model {
 }
 
 export class ModifyAutoSnapshotPolicyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sp-z5siir3iq3m**********
+   */
   policyId?: string;
+  /**
+   * @example
+   * policyTest
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   repeatWeekdaysShrink?: string;
+  /**
+   * @example
+   * 30
+   */
   retentionDays?: number;
   timePointsShrink?: string;
   static names(): { [key: string]: string } {
@@ -2390,6 +3375,10 @@ export class ModifyAutoSnapshotPolicyShrinkRequest extends $tea.Model {
 }
 
 export class ModifyAutoSnapshotPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2409,9 +3398,9 @@ export class ModifyAutoSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class ModifyAutoSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAutoSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2434,9 +3423,31 @@ export class ModifyAutoSnapshotPolicyResponse extends $tea.Model {
 }
 
 export class ModifySnapshotAttributeRequest extends $tea.Model {
+  /**
+   * @example
+   * testDescription
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * s-y2vZ3********vvMilZ2hQ
+   */
   snapshotId?: string;
+  /**
+   * @example
+   * testSnapshotName
+   */
   snapshotName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2462,6 +3473,10 @@ export class ModifySnapshotAttributeRequest extends $tea.Model {
 }
 
 export class ModifySnapshotAttributeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2481,9 +3496,9 @@ export class ModifySnapshotAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifySnapshotAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifySnapshotAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySnapshotAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2506,8 +3521,29 @@ export class ModifySnapshotAttributeResponse extends $tea.Model {
 }
 
 export class RenameDbfsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dbfs-GOrr********Yd0VLOyBpg
+   */
   fsId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * NewDbfsName
+   */
   fsName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2531,6 +3567,10 @@ export class RenameDbfsRequest extends $tea.Model {
 }
 
 export class RenameDbfsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2550,9 +3590,9 @@ export class RenameDbfsResponseBody extends $tea.Model {
 }
 
 export class RenameDbfsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenameDbfsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenameDbfsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2575,8 +3615,29 @@ export class RenameDbfsResponse extends $tea.Model {
 }
 
 export class ResizeDbfsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dbfs-GOrr********Yd0VLOyBpg
+   */
   fsId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 40
+   */
   newSizeG?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2600,6 +3661,10 @@ export class ResizeDbfsRequest extends $tea.Model {
 }
 
 export class ResizeDbfsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2619,9 +3684,9 @@ export class ResizeDbfsResponseBody extends $tea.Model {
 }
 
 export class ResizeDbfsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResizeDbfsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResizeDbfsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2644,8 +3709,29 @@ export class ResizeDbfsResponse extends $tea.Model {
 }
 
 export class TagDbfsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dbfs-nUy1tb********BQ4X8Gpw
+   */
   dbfsId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"TagKey":"k1","TagValue":"v1"},{"TagKey":"k2","TagValue":"v2"}]
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2669,6 +3755,10 @@ export class TagDbfsRequest extends $tea.Model {
 }
 
 export class TagDbfsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2688,9 +3778,9 @@ export class TagDbfsResponseBody extends $tea.Model {
 }
 
 export class TagDbfsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagDbfsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagDbfsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2713,10 +3803,36 @@ export class TagDbfsResponse extends $tea.Model {
 }
 
 export class UpdateDbfsRequest extends $tea.Model {
+  /**
+   * @example
+   * {"cpuCoreCount":0.5,"memorySize":512,"pageCacheSize":128}
+   */
   advancedFeatures?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dbfs-GOrr********Yd0VLOyBpg
+   */
   fsId?: string;
+  /**
+   * @example
+   * dbfs.medium
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * MySQL 5.7
+   */
   usedScene?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2744,6 +3860,10 @@ export class UpdateDbfsRequest extends $tea.Model {
 }
 
 export class UpdateDbfsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2763,9 +3883,9 @@ export class UpdateDbfsResponseBody extends $tea.Model {
 }
 
 export class UpdateDbfsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateDbfsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDbfsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2788,9 +3908,25 @@ export class UpdateDbfsResponse extends $tea.Model {
 }
 
 export class DescribeInstanceTypesResponseBodyInstanceTypes extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
   cpuCoreCount?: number;
+  /**
+   * @example
+   * dbfs.small
+   */
   instanceTypeDescription?: string;
+  /**
+   * @example
+   * dbfs.small
+   */
   instanceTypeId?: string;
+  /**
+   * @example
+   * 0.5
+   */
   memorySize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2816,16 +3952,56 @@ export class DescribeInstanceTypesResponseBodyInstanceTypes extends $tea.Model {
 }
 
 export class GetAutoSnapshotPolicyResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 13523459********
+   */
   accountId?: string;
+  /**
+   * @example
+   * 1
+   */
   appliedDbfsNumber?: number;
+  /**
+   * @example
+   * 1670998784000
+   */
   createdTime?: string;
+  /**
+   * @example
+   * 1670998784000
+   */
   lastModified?: string;
+  /**
+   * @example
+   * sp-z5siir3iq3m**********
+   */
   policyId?: string;
+  /**
+   * @example
+   * PolicyTest
+   */
   policyName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   repeatWeekdays?: string[];
+  /**
+   * @example
+   * 30
+   */
   retentionDays?: number;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * -
+   */
   statusDetail?: string;
   timePoints?: string[];
   static names(): { [key: string]: string } {
@@ -2868,7 +4044,15 @@ export class GetAutoSnapshotPolicyResponseBodyData extends $tea.Model {
 }
 
 export class GetDbfsResponseBodyDBFSInfoEbsList extends $tea.Model {
+  /**
+   * @example
+   * d-bp1hq4******qi7gy1th
+   */
   ebsId?: string;
+  /**
+   * @example
+   * 20
+   */
   sizeG?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2890,6 +4074,10 @@ export class GetDbfsResponseBodyDBFSInfoEbsList extends $tea.Model {
 }
 
 export class GetDbfsResponseBodyDBFSInfoEcsList extends $tea.Model {
+  /**
+   * @example
+   * i-y2vZ3********vvMilZ2hQ
+   */
   ecsId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2909,9 +4097,25 @@ export class GetDbfsResponseBodyDBFSInfoEcsList extends $tea.Model {
 }
 
 export class GetDbfsResponseBodyDBFSInfoSnapshotInfo extends $tea.Model {
+  /**
+   * @example
+   * sl-9zskwvgoqqqvzxa*******
+   */
   linkId?: string;
+  /**
+   * @example
+   * sp-ehuhzlfetb2jiwz*******
+   */
   policyId?: string;
+  /**
+   * @example
+   * 1
+   */
   snapshotCount?: number;
+  /**
+   * @example
+   * 50331648
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2937,8 +4141,20 @@ export class GetDbfsResponseBodyDBFSInfoSnapshotInfo extends $tea.Model {
 }
 
 export class GetDbfsResponseBodyDBFSInfoTags extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * TestTagKey1
+   */
   tagKey?: string;
+  /**
+   * @example
+   * TestTagValue1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2962,34 +4178,125 @@ export class GetDbfsResponseBodyDBFSInfoTags extends $tea.Model {
 }
 
 export class GetDbfsResponseBodyDBFSInfo extends $tea.Model {
+  advancedFeatures?: string;
+  /**
+   * @example
+   * 1
+   */
   attachNodeNumber?: number;
+  /**
+   * @example
+   * standard
+   */
   category?: string;
+  /**
+   * @example
+   * 1609330367000
+   */
   createdTime?: string;
+  /**
+   * @example
+   * c39EcDBf-2Ecb-C3C6-6526-018d4Dcf63eD
+   */
   DBFSClusterId?: string;
+  /**
+   * @example
+   * desc
+   */
   description?: string;
   ebsList?: GetDbfsResponseBodyDBFSInfoEbsList[];
   ecsList?: GetDbfsResponseBodyDBFSInfoEcsList[];
+  /**
+   * @example
+   * false
+   */
   enableRaid?: boolean;
+  /**
+   * @example
+   * false
+   */
   encryption?: boolean;
+  /**
+   * @example
+   * dbfs-GOrr********Yd0VLOyBpg
+   */
   fsId?: string;
+  /**
+   * @example
+   * dbfs-test-01
+   */
   fsName?: string;
+  /**
+   * @example
+   * dbfs.small
+   */
   instanceType?: string;
+  /**
+   * @example
+   * c39EcDBf-2Ecb-C3C6-6526-018d4D******
+   */
   KMSKeyId?: string;
+  /**
+   * @example
+   * TargetIsBusy.DBFS
+   */
   lastFailed?: string;
+  /**
+   * @example
+   * 1644915400000
+   */
   lastMountTime?: string;
+  /**
+   * @example
+   * 1644915319000
+   */
   lastUmountTime?: string;
+  /**
+   * @example
+   * postpaid
+   */
   payType?: string;
+  /**
+   * @example
+   * PL1
+   */
   performanceLevel?: string;
+  /**
+   * @example
+   * 2
+   */
   raidStrip?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 20
+   */
   sizeG?: number;
+  snapshotId?: string;
   snapshotInfo?: GetDbfsResponseBodyDBFSInfoSnapshotInfo;
+  /**
+   * @example
+   * attached
+   */
   status?: string;
   tags?: GetDbfsResponseBodyDBFSInfoTags[];
+  /**
+   * @example
+   * MySQL 5.7
+   */
   usedScene?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      advancedFeatures: 'AdvancedFeatures',
       attachNodeNumber: 'AttachNodeNumber',
       category: 'Category',
       createdTime: 'CreatedTime',
@@ -3011,6 +4318,7 @@ export class GetDbfsResponseBodyDBFSInfo extends $tea.Model {
       raidStrip: 'RaidStrip',
       regionId: 'RegionId',
       sizeG: 'SizeG',
+      snapshotId: 'SnapshotId',
       snapshotInfo: 'SnapshotInfo',
       status: 'Status',
       tags: 'Tags',
@@ -3021,6 +4329,7 @@ export class GetDbfsResponseBodyDBFSInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      advancedFeatures: 'string',
       attachNodeNumber: 'number',
       category: 'string',
       createdTime: 'string',
@@ -3042,6 +4351,7 @@ export class GetDbfsResponseBodyDBFSInfo extends $tea.Model {
       raidStrip: 'number',
       regionId: 'string',
       sizeG: 'number',
+      snapshotId: 'string',
       snapshotInfo: GetDbfsResponseBodyDBFSInfoSnapshotInfo,
       status: 'string',
       tags: { 'type': 'array', 'itemType': GetDbfsResponseBodyDBFSInfoTags },
@@ -3056,6 +4366,10 @@ export class GetDbfsResponseBodyDBFSInfo extends $tea.Model {
 }
 
 export class GetSnapshotLinkResponseBodyDataEcsList extends $tea.Model {
+  /**
+   * @example
+   * i-bp19mogqud1w1*******
+   */
   ecsId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3075,14 +4389,46 @@ export class GetSnapshotLinkResponseBodyDataEcsList extends $tea.Model {
 }
 
 export class GetSnapshotLinkResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * standard
+   */
   category?: string;
   ecsList?: GetSnapshotLinkResponseBodyDataEcsList[];
+  /**
+   * @example
+   * dbfs-194j6u20sp2gisx*******
+   */
   fsId?: string;
+  /**
+   * @example
+   * test
+   */
   fsName?: string;
+  /**
+   * @example
+   * sl-b3zlgraysgcs9jy*******
+   */
   linkId?: string;
+  /**
+   * @example
+   * 1
+   */
   snapshotCount?: number;
+  /**
+   * @example
+   * 20
+   */
   sourceSize?: number;
+  /**
+   * @example
+   * attached
+   */
   status?: string;
+  /**
+   * @example
+   * 50331648
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3118,16 +4464,52 @@ export class GetSnapshotLinkResponseBodyData extends $tea.Model {
 }
 
 export class ListAutoSnapshotPoliciesResponseBodySnapshotPolicies extends $tea.Model {
+  /**
+   * @example
+   * 13523459********
+   */
   accountId?: string;
+  /**
+   * @example
+   * 1
+   */
   appliedDbfsNumber?: number;
+  /**
+   * @example
+   * 1670998784000
+   */
   createdTime?: string;
+  /**
+   * @example
+   * 1670998784000
+   */
   lastModified?: string;
+  /**
+   * @example
+   * sp-z5siir3iq3m**********
+   */
   policyId?: string;
+  /**
+   * @example
+   * policyTest
+   */
   policyName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   repeatWeekdays?: string[];
+  /**
+   * @example
+   * 30
+   */
   retentionDays?: number;
   status?: string;
+  /**
+   * @example
+   * -
+   */
   statusDetail?: string;
   timePoints?: string[];
   static names(): { [key: string]: string } {
@@ -3170,12 +4552,40 @@ export class ListAutoSnapshotPoliciesResponseBodySnapshotPolicies extends $tea.M
 }
 
 export class ListAutoSnapshotPolicyAppliedDbfsResponseBodyDbfsList extends $tea.Model {
+  /**
+   * @example
+   * dbfs-ejdvesb0qvuywvg*******
+   */
   fsId?: string;
+  /**
+   * @example
+   * test
+   */
   fsName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 20
+   */
   sizeG?: number;
+  /**
+   * @example
+   * 1
+   */
   snapshotCount?: number;
+  /**
+   * @example
+   * attached
+   */
   status?: string;
+  /**
+   * @example
+   * 50331648
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3207,12 +4617,40 @@ export class ListAutoSnapshotPolicyAppliedDbfsResponseBodyDbfsList extends $tea.
 }
 
 export class ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList extends $tea.Model {
+  /**
+   * @example
+   * dbfs-ejdvesb0qvuywvg*******
+   */
   fsId?: string;
+  /**
+   * @example
+   * test
+   */
   fsName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 20
+   */
   sizeG?: number;
+  /**
+   * @example
+   * 1
+   */
   snapshotCount?: number;
+  /**
+   * @example
+   * attached
+   */
   status?: string;
+  /**
+   * @example
+   * 50331648
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3244,7 +4682,15 @@ export class ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList extends $te
 }
 
 export class ListDbfsResponseBodyDBFSInfoEbsList extends $tea.Model {
+  /**
+   * @example
+   * d-bp1383******3uir001r
+   */
   ebsId?: string;
+  /**
+   * @example
+   * 20
+   */
   sizeG?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3266,6 +4712,10 @@ export class ListDbfsResponseBodyDBFSInfoEbsList extends $tea.Model {
 }
 
 export class ListDbfsResponseBodyDBFSInfoEcsList extends $tea.Model {
+  /**
+   * @example
+   * i-y2vZ3********vvMilZ2hQ
+   */
   ecsId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3285,9 +4735,25 @@ export class ListDbfsResponseBodyDBFSInfoEcsList extends $tea.Model {
 }
 
 export class ListDbfsResponseBodyDBFSInfoSnapshotInfo extends $tea.Model {
+  /**
+   * @example
+   * sl-b3zlgraysgcs9jy*******
+   */
   linkId?: string;
+  /**
+   * @example
+   * sp-ehuhzlfetb2jiwz*******
+   */
   policyId?: string;
+  /**
+   * @example
+   * 1
+   */
   snapshotCount?: number;
+  /**
+   * @example
+   * 50331648
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3313,8 +4779,20 @@ export class ListDbfsResponseBodyDBFSInfoSnapshotInfo extends $tea.Model {
 }
 
 export class ListDbfsResponseBodyDBFSInfoTags extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * TestTagKey1
+   */
   tagKey?: string;
+  /**
+   * @example
+   * TestTagValue1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3338,30 +4816,114 @@ export class ListDbfsResponseBodyDBFSInfoTags extends $tea.Model {
 }
 
 export class ListDbfsResponseBodyDBFSInfo extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   attachNodeNumber?: number;
+  /**
+   * @example
+   * standard
+   */
   category?: string;
+  /**
+   * @example
+   * 1609330367000
+   */
   createdTime?: string;
+  /**
+   * @example
+   * c39EcDBf-2Ecb-C3C6-6526-018d4Dcf63eD
+   */
   DBFSClusterId?: string;
   ebsList?: ListDbfsResponseBodyDBFSInfoEbsList[];
   ecsList?: ListDbfsResponseBodyDBFSInfoEcsList[];
+  /**
+   * @example
+   * false
+   */
   enableRaid?: boolean;
+  /**
+   * @example
+   * false
+   */
   encryption?: boolean;
+  /**
+   * @example
+   * dbfs-GOrr********Yd0VLOyBpg
+   */
   fsId?: string;
+  /**
+   * @example
+   * dbfs-test-01
+   */
   fsName?: string;
+  /**
+   * @example
+   * dbfs.small
+   */
   instanceType?: string;
+  /**
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d3fb408***
+   */
   KMSKeyId?: string;
+  /**
+   * @example
+   * TargetIsBusy.DBFS
+   */
   lastFailed?: string;
+  /**
+   * @example
+   * 1644915400000
+   */
   lastMountTime?: string;
+  /**
+   * @example
+   * 1644915319000
+   */
   lastUmountTime?: string;
+  /**
+   * @example
+   * postpaid
+   */
   payType?: string;
+  /**
+   * @example
+   * PL1
+   */
   performanceLevel?: string;
+  /**
+   * @example
+   * 2
+   */
   raidStrip?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 20
+   */
   sizeG?: number;
   snapshotInfo?: ListDbfsResponseBodyDBFSInfoSnapshotInfo;
+  /**
+   * @example
+   * attached
+   */
   status?: string;
   tags?: ListDbfsResponseBodyDBFSInfoTags[];
+  /**
+   * @example
+   * MySQL 5.7
+   */
   usedScene?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3429,12 +4991,40 @@ export class ListDbfsResponseBodyDBFSInfo extends $tea.Model {
 }
 
 export class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo extends $tea.Model {
+  /**
+   * @example
+   * m-bp67acfmxazb4p****
+   */
   imageId?: string;
+  /**
+   * @example
+   * ecs.g7se
+   */
   instanceTypeFamily?: string;
+  /**
+   * @example
+   * Alibaba Cloud Linux 2.1903 LTS 64 bit
+   */
   OSName?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
+  /**
+   * @example
+   * dbfs-test-01
+   */
   label?: string;
+  /**
+   * @example
+   * i-bp10jb8mqajkmrejgo00
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3466,11 +5056,35 @@ export class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo extends $tea
 }
 
 export class ListDbfsAttachedEcsInstancesResponseBodyEcsLabelInfo extends $tea.Model {
+  /**
+   * @example
+   * ecs.g7se
+   */
   instanceTypeFamily?: string;
+  /**
+   * @example
+   * /mnt/dbfs/dbfs-nUy1tb********BQ4X8Gpw
+   */
   mountPoint?: string;
+  /**
+   * @example
+   * 1606290930000
+   */
   mountedTime?: string;
+  /**
+   * @example
+   * Alibaba Cloud Linux 2.1903 LTS 64 bit
+   */
   OSName?: string;
+  /**
+   * @example
+   * dbfs-test-01
+   */
   label?: string;
+  /**
+   * @example
+   * i-bp10jb8mqajkmrejgo00
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3500,19 +5114,75 @@ export class ListDbfsAttachedEcsInstancesResponseBodyEcsLabelInfo extends $tea.M
 }
 
 export class ListSnapshotResponseBodySnapshots extends $tea.Model {
+  /**
+   * @example
+   * standard
+   */
   category?: string;
+  /**
+   * @example
+   * 1609330367000
+   */
   creationTime?: string;
+  /**
+   * @example
+   * testDescription
+   */
   description?: string;
+  /**
+   * @example
+   * 1609330367000
+   */
   lastModifiedTime?: string;
+  /**
+   * @example
+   * 100%
+   */
   progress?: string;
+  /**
+   * @example
+   * 38
+   */
   remainTime?: number;
+  /**
+   * @example
+   * 30
+   */
   retentionDays?: number;
+  /**
+   * @example
+   * s-bp67acfmxazb4p****
+   */
   snapshotId?: string;
+  /**
+   * @example
+   * testSnapshotName
+   */
   snapshotName?: string;
+  /**
+   * @example
+   * user
+   */
   snapshotType?: string;
+  /**
+   * @example
+   * dbfs-bp67acfmxazb4p****
+   */
   sourceFsId?: string;
+  /**
+   * @example
+   * 20
+   */
   sourceFsSize?: number;
+  /**
+   * @example
+   * 1
+   */
   sourceFsStripeWidth?: number;
+  /**
+   * @example
+   * accomplished
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3558,6 +5228,10 @@ export class ListSnapshotResponseBodySnapshots extends $tea.Model {
 }
 
 export class ListSnapshotLinksResponseBodySnapshotLinksEcsList extends $tea.Model {
+  /**
+   * @example
+   * i-bp1f4eo2biro*******
+   */
   ecsId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3578,12 +5252,40 @@ export class ListSnapshotLinksResponseBodySnapshotLinksEcsList extends $tea.Mode
 
 export class ListSnapshotLinksResponseBodySnapshotLinks extends $tea.Model {
   ecsList?: ListSnapshotLinksResponseBodySnapshotLinksEcsList[];
+  /**
+   * @example
+   * dbfs-q7qsgyqptjk******
+   */
   fsId?: string;
+  /**
+   * @example
+   * test
+   */
   fsName?: string;
+  /**
+   * @example
+   * sl-b3zlgraysgcs9jy*******
+   */
   linkId?: string;
+  /**
+   * @example
+   * 1
+   */
   snapshotCount?: number;
+  /**
+   * @example
+   * 20
+   */
   sourceSize?: number;
+  /**
+   * @example
+   * attached
+   */
   status?: string;
+  /**
+   * @example
+   * 50331648
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3678,6 +5380,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request - AddTagsBatchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddTagsBatchResponse
+   */
   async addTagsBatchWithOptions(request: AddTagsBatchRequest, runtime: $Util.RuntimeOptions): Promise<AddTagsBatchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3714,11 +5421,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AddTagsBatchResponse>(await this.callApi(params, req, runtime), new AddTagsBatchResponse({}));
   }
 
+  /**
+   * @param request - AddTagsBatchRequest
+   * @returns AddTagsBatchResponse
+   */
   async addTagsBatch(request: AddTagsBatchRequest): Promise<AddTagsBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTagsBatchWithOptions(request, runtime);
   }
 
+  /**
+   * 设置自动快照策略
+   * 
+   * @param tmpReq - ApplyAutoSnapshotPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyAutoSnapshotPolicyResponse
+   */
   async applyAutoSnapshotPolicyWithOptions(tmpReq: ApplyAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ApplyAutoSnapshotPolicyResponse> {
     Util.validateModel(tmpReq);
     let request = new ApplyAutoSnapshotPolicyShrinkRequest({ });
@@ -3757,11 +5475,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new ApplyAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+   * 设置自动快照策略
+   * 
+   * @param request - ApplyAutoSnapshotPolicyRequest
+   * @returns ApplyAutoSnapshotPolicyResponse
+   */
   async applyAutoSnapshotPolicy(request: ApplyAutoSnapshotPolicyRequest): Promise<ApplyAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - AttachDbfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachDbfsResponse
+   */
   async attachDbfsWithOptions(request: AttachDbfsRequest, runtime: $Util.RuntimeOptions): Promise<AttachDbfsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3806,11 +5535,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachDbfsResponse>(await this.callApi(params, req, runtime), new AttachDbfsResponse({}));
   }
 
+  /**
+   * @param request - AttachDbfsRequest
+   * @returns AttachDbfsResponse
+   */
   async attachDbfs(request: AttachDbfsRequest): Promise<AttachDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachDbfsWithOptions(request, runtime);
   }
 
+  /**
+   * 取消自动快照策略
+   * 
+   * @param tmpReq - CancelAutoSnapshotPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelAutoSnapshotPolicyResponse
+   */
   async cancelAutoSnapshotPolicyWithOptions(tmpReq: CancelAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CancelAutoSnapshotPolicyResponse> {
     Util.validateModel(tmpReq);
     let request = new CancelAutoSnapshotPolicyShrinkRequest({ });
@@ -3849,11 +5589,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new CancelAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+   * 取消自动快照策略
+   * 
+   * @param request - CancelAutoSnapshotPolicyRequest
+   * @returns CancelAutoSnapshotPolicyResponse
+   */
   async cancelAutoSnapshotPolicy(request: CancelAutoSnapshotPolicyRequest): Promise<CancelAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * 创建自动快照策略
+   * 
+   * @param tmpReq - CreateAutoSnapshotPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAutoSnapshotPolicyResponse
+   */
   async createAutoSnapshotPolicyWithOptions(tmpReq: CreateAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAutoSnapshotPolicyResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateAutoSnapshotPolicyShrinkRequest({ });
@@ -3904,11 +5657,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new CreateAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+   * 创建自动快照策略
+   * 
+   * @param request - CreateAutoSnapshotPolicyRequest
+   * @returns CreateAutoSnapshotPolicyResponse
+   */
   async createAutoSnapshotPolicy(request: CreateAutoSnapshotPolicyRequest): Promise<CreateAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - CreateDbfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDbfsResponse
+   */
   async createDbfsWithOptions(request: CreateDbfsRequest, runtime: $Util.RuntimeOptions): Promise<CreateDbfsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3993,11 +5757,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDbfsResponse>(await this.callApi(params, req, runtime), new CreateDbfsResponse({}));
   }
 
+  /**
+   * @param request - CreateDbfsRequest
+   * @returns CreateDbfsResponse
+   */
   async createDbfs(request: CreateDbfsRequest): Promise<CreateDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDbfsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - CreateServiceLinkedRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceLinkedRoleResponse
+   */
   async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4026,11 +5799,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleResponse({}));
   }
 
+  /**
+   * @param request - CreateServiceLinkedRoleRequest
+   * @returns CreateServiceLinkedRoleResponse
+   */
   async createServiceLinkedRole(request: CreateServiceLinkedRoleRequest): Promise<CreateServiceLinkedRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceLinkedRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - CreateSnapshotRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSnapshotResponse
+   */
   async createSnapshotWithOptions(request: CreateSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4075,11 +5857,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSnapshotResponse>(await this.callApi(params, req, runtime), new CreateSnapshotResponse({}));
   }
 
+  /**
+   * @param request - CreateSnapshotRequest
+   * @returns CreateSnapshotResponse
+   */
   async createSnapshot(request: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSnapshotWithOptions(request, runtime);
   }
 
+  /**
+   * 删除自动快照策略
+   * 
+   * @param request - DeleteAutoSnapshotPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAutoSnapshotPolicyResponse
+   */
   async deleteAutoSnapshotPolicyWithOptions(request: DeleteAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4108,11 +5901,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new DeleteAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+   * 删除自动快照策略
+   * 
+   * @param request - DeleteAutoSnapshotPolicyRequest
+   * @returns DeleteAutoSnapshotPolicyResponse
+   */
   async deleteAutoSnapshotPolicy(request: DeleteAutoSnapshotPolicyRequest): Promise<DeleteAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DeleteDbfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDbfsResponse
+   */
   async deleteDbfsWithOptions(request: DeleteDbfsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDbfsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4145,11 +5949,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDbfsResponse>(await this.callApi(params, req, runtime), new DeleteDbfsResponse({}));
   }
 
+  /**
+   * @param request - DeleteDbfsRequest
+   * @returns DeleteDbfsResponse
+   */
   async deleteDbfs(request: DeleteDbfsRequest): Promise<DeleteDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDbfsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DeleteSnapshotRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSnapshotResponse
+   */
   async deleteSnapshotWithOptions(request: DeleteSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4182,11 +5995,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSnapshotResponse>(await this.callApi(params, req, runtime), new DeleteSnapshotResponse({}));
   }
 
+  /**
+   * @param request - DeleteSnapshotRequest
+   * @returns DeleteSnapshotResponse
+   */
   async deleteSnapshot(request: DeleteSnapshotRequest): Promise<DeleteSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSnapshotWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DeleteTagsBatchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTagsBatchResponse
+   */
   async deleteTagsBatchWithOptions(request: DeleteTagsBatchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagsBatchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4219,11 +6041,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTagsBatchResponse>(await this.callApi(params, req, runtime), new DeleteTagsBatchResponse({}));
   }
 
+  /**
+   * @param request - DeleteTagsBatchRequest
+   * @returns DeleteTagsBatchResponse
+   */
   async deleteTagsBatch(request: DeleteTagsBatchRequest): Promise<DeleteTagsBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTagsBatchWithOptions(request, runtime);
   }
 
+  /**
+   * 查询DBFS支持的ECS实例类型，根据ECS实例规格返回ECS可挂载的最大DBFS数量
+   * 
+   * @param request - DescribeDbfsSpecificationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDbfsSpecificationsResponse
+   */
   async describeDbfsSpecificationsWithOptions(request: DescribeDbfsSpecificationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDbfsSpecificationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4256,11 +6089,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDbfsSpecificationsResponse>(await this.callApi(params, req, runtime), new DescribeDbfsSpecificationsResponse({}));
   }
 
+  /**
+   * 查询DBFS支持的ECS实例类型，根据ECS实例规格返回ECS可挂载的最大DBFS数量
+   * 
+   * @param request - DescribeDbfsSpecificationsRequest
+   * @returns DescribeDbfsSpecificationsResponse
+   */
   async describeDbfsSpecifications(request: DescribeDbfsSpecificationsRequest): Promise<DescribeDbfsSpecificationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDbfsSpecificationsWithOptions(request, runtime);
   }
 
+  /**
+   * 查询DBFS实例规格
+   * 
+   * @param request - DescribeInstanceTypesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceTypesResponse
+   */
   async describeInstanceTypesWithOptions(request: DescribeInstanceTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTypesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4285,11 +6131,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceTypesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceTypesResponse({}));
   }
 
+  /**
+   * 查询DBFS实例规格
+   * 
+   * @param request - DescribeInstanceTypesRequest
+   * @returns DescribeInstanceTypesResponse
+   */
   async describeInstanceTypes(request: DescribeInstanceTypesRequest): Promise<DescribeInstanceTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceTypesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DetachDbfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachDbfsResponse
+   */
   async detachDbfsWithOptions(request: DetachDbfsRequest, runtime: $Util.RuntimeOptions): Promise<DetachDbfsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4322,11 +6179,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachDbfsResponse>(await this.callApi(params, req, runtime), new DetachDbfsResponse({}));
   }
 
+  /**
+   * @param request - DetachDbfsRequest
+   * @returns DetachDbfsResponse
+   */
   async detachDbfs(request: DetachDbfsRequest): Promise<DetachDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachDbfsWithOptions(request, runtime);
   }
 
+  /**
+   * 查询某条自动快照策略
+   * 
+   * @param request - GetAutoSnapshotPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAutoSnapshotPolicyResponse
+   */
   async getAutoSnapshotPolicyWithOptions(request: GetAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4355,11 +6223,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new GetAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+   * 查询某条自动快照策略
+   * 
+   * @param request - GetAutoSnapshotPolicyRequest
+   * @returns GetAutoSnapshotPolicyResponse
+   */
   async getAutoSnapshotPolicy(request: GetAutoSnapshotPolicyRequest): Promise<GetAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetDbfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDbfsResponse
+   */
   async getDbfsWithOptions(request: GetDbfsRequest, runtime: $Util.RuntimeOptions): Promise<GetDbfsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4388,11 +6267,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDbfsResponse>(await this.callApi(params, req, runtime), new GetDbfsResponse({}));
   }
 
+  /**
+   * @param request - GetDbfsRequest
+   * @returns GetDbfsResponse
+   */
   async getDbfs(request: GetDbfsRequest): Promise<GetDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDbfsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetServiceLinkedRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceLinkedRoleResponse
+   */
   async getServiceLinkedRoleWithOptions(request: GetServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceLinkedRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4417,11 +6305,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new GetServiceLinkedRoleResponse({}));
   }
 
+  /**
+   * @param request - GetServiceLinkedRoleRequest
+   * @returns GetServiceLinkedRoleResponse
+   */
   async getServiceLinkedRole(request: GetServiceLinkedRoleRequest): Promise<GetServiceLinkedRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceLinkedRoleWithOptions(request, runtime);
   }
 
+  /**
+   * 获取快照链
+   * 
+   * @param request - GetSnapshotLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSnapshotLinkResponse
+   */
   async getSnapshotLinkWithOptions(request: GetSnapshotLinkRequest, runtime: $Util.RuntimeOptions): Promise<GetSnapshotLinkResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4442,11 +6341,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSnapshotLinkResponse>(await this.callApi(params, req, runtime), new GetSnapshotLinkResponse({}));
   }
 
+  /**
+   * 获取快照链
+   * 
+   * @param request - GetSnapshotLinkRequest
+   * @returns GetSnapshotLinkResponse
+   */
   async getSnapshotLink(request: GetSnapshotLinkRequest): Promise<GetSnapshotLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSnapshotLinkWithOptions(request, runtime);
   }
 
+  /**
+   * 列出自动快照策略
+   * 
+   * @param request - ListAutoSnapshotPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAutoSnapshotPoliciesResponse
+   */
   async listAutoSnapshotPoliciesWithOptions(request: ListAutoSnapshotPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListAutoSnapshotPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4487,11 +6399,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAutoSnapshotPoliciesResponse>(await this.callApi(params, req, runtime), new ListAutoSnapshotPoliciesResponse({}));
   }
 
+  /**
+   * 列出自动快照策略
+   * 
+   * @param request - ListAutoSnapshotPoliciesRequest
+   * @returns ListAutoSnapshotPoliciesResponse
+   */
   async listAutoSnapshotPolicies(request: ListAutoSnapshotPoliciesRequest): Promise<ListAutoSnapshotPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAutoSnapshotPoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * 列出已设置自动快照策略的DBFS
+   * 
+   * @param request - ListAutoSnapshotPolicyAppliedDbfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAutoSnapshotPolicyAppliedDbfsResponse
+   */
   async listAutoSnapshotPolicyAppliedDbfsWithOptions(request: ListAutoSnapshotPolicyAppliedDbfsRequest, runtime: $Util.RuntimeOptions): Promise<ListAutoSnapshotPolicyAppliedDbfsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4536,11 +6461,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAutoSnapshotPolicyAppliedDbfsResponse>(await this.callApi(params, req, runtime), new ListAutoSnapshotPolicyAppliedDbfsResponse({}));
   }
 
+  /**
+   * 列出已设置自动快照策略的DBFS
+   * 
+   * @param request - ListAutoSnapshotPolicyAppliedDbfsRequest
+   * @returns ListAutoSnapshotPolicyAppliedDbfsResponse
+   */
   async listAutoSnapshotPolicyAppliedDbfs(request: ListAutoSnapshotPolicyAppliedDbfsRequest): Promise<ListAutoSnapshotPolicyAppliedDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAutoSnapshotPolicyAppliedDbfsWithOptions(request, runtime);
   }
 
+  /**
+   * 列出未设置自动快照策略的DBFS
+   * 
+   * @param request - ListAutoSnapshotPolicyUnappliedDbfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAutoSnapshotPolicyUnappliedDbfsResponse
+   */
   async listAutoSnapshotPolicyUnappliedDbfsWithOptions(request: ListAutoSnapshotPolicyUnappliedDbfsRequest, runtime: $Util.RuntimeOptions): Promise<ListAutoSnapshotPolicyUnappliedDbfsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4581,11 +6519,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAutoSnapshotPolicyUnappliedDbfsResponse>(await this.callApi(params, req, runtime), new ListAutoSnapshotPolicyUnappliedDbfsResponse({}));
   }
 
+  /**
+   * 列出未设置自动快照策略的DBFS
+   * 
+   * @param request - ListAutoSnapshotPolicyUnappliedDbfsRequest
+   * @returns ListAutoSnapshotPolicyUnappliedDbfsResponse
+   */
   async listAutoSnapshotPolicyUnappliedDbfs(request: ListAutoSnapshotPolicyUnappliedDbfsRequest): Promise<ListAutoSnapshotPolicyUnappliedDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAutoSnapshotPolicyUnappliedDbfsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ListDbfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDbfsResponse
+   */
   async listDbfsWithOptions(request: ListDbfsRequest, runtime: $Util.RuntimeOptions): Promise<ListDbfsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4638,11 +6587,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDbfsResponse>(await this.callApi(params, req, runtime), new ListDbfsResponse({}));
   }
 
+  /**
+   * @param request - ListDbfsRequest
+   * @returns ListDbfsResponse
+   */
   async listDbfs(request: ListDbfsRequest): Promise<ListDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDbfsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ListDbfsAttachableEcsInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDbfsAttachableEcsInstancesResponse
+   */
   async listDbfsAttachableEcsInstancesWithOptions(request: ListDbfsAttachableEcsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListDbfsAttachableEcsInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4683,11 +6641,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDbfsAttachableEcsInstancesResponse>(await this.callApi(params, req, runtime), new ListDbfsAttachableEcsInstancesResponse({}));
   }
 
+  /**
+   * @param request - ListDbfsAttachableEcsInstancesRequest
+   * @returns ListDbfsAttachableEcsInstancesResponse
+   */
   async listDbfsAttachableEcsInstances(request: ListDbfsAttachableEcsInstancesRequest): Promise<ListDbfsAttachableEcsInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDbfsAttachableEcsInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * 查询数据库文件系统被挂载的ECS实例列表
+   * 
+   * @param request - ListDbfsAttachedEcsInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDbfsAttachedEcsInstancesResponse
+   */
   async listDbfsAttachedEcsInstancesWithOptions(request: ListDbfsAttachedEcsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListDbfsAttachedEcsInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4716,11 +6685,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDbfsAttachedEcsInstancesResponse>(await this.callApi(params, req, runtime), new ListDbfsAttachedEcsInstancesResponse({}));
   }
 
+  /**
+   * 查询数据库文件系统被挂载的ECS实例列表
+   * 
+   * @param request - ListDbfsAttachedEcsInstancesRequest
+   * @returns ListDbfsAttachedEcsInstancesResponse
+   */
   async listDbfsAttachedEcsInstances(request: ListDbfsAttachedEcsInstancesRequest): Promise<ListDbfsAttachedEcsInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDbfsAttachedEcsInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ListSnapshotRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSnapshotResponse
+   */
   async listSnapshotWithOptions(request: ListSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<ListSnapshotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4789,11 +6769,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSnapshotResponse>(await this.callApi(params, req, runtime), new ListSnapshotResponse({}));
   }
 
+  /**
+   * @param request - ListSnapshotRequest
+   * @returns ListSnapshotResponse
+   */
   async listSnapshot(request: ListSnapshotRequest): Promise<ListSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSnapshotWithOptions(request, runtime);
   }
 
+  /**
+   * 列出快照链
+   * 
+   * @param request - ListSnapshotLinksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSnapshotLinksResponse
+   */
   async listSnapshotLinksWithOptions(request: ListSnapshotLinksRequest, runtime: $Util.RuntimeOptions): Promise<ListSnapshotLinksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4842,11 +6833,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSnapshotLinksResponse>(await this.callApi(params, req, runtime), new ListSnapshotLinksResponse({}));
   }
 
+  /**
+   * 列出快照链
+   * 
+   * @param request - ListSnapshotLinksRequest
+   * @returns ListSnapshotLinksResponse
+   */
   async listSnapshotLinks(request: ListSnapshotLinksRequest): Promise<ListSnapshotLinksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSnapshotLinksWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ListTagKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagKeysResponse
+   */
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4871,11 +6873,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
   }
 
+  /**
+   * @param request - ListTagKeysRequest
+   * @returns ListTagKeysResponse
+   */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ListTagValuesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagValuesResponse
+   */
   async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4904,11 +6915,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
   }
 
+  /**
+   * @param request - ListTagValuesRequest
+   * @returns ListTagValuesResponse
+   */
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
   }
 
+  /**
+   * 修改自动快照策略
+   * 
+   * @param tmpReq - ModifyAutoSnapshotPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAutoSnapshotPolicyResponse
+   */
   async modifyAutoSnapshotPolicyWithOptions(tmpReq: ModifyAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAutoSnapshotPolicyResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyAutoSnapshotPolicyShrinkRequest({ });
@@ -4963,11 +6985,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new ModifyAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+   * 修改自动快照策略
+   * 
+   * @param request - ModifyAutoSnapshotPolicyRequest
+   * @returns ModifyAutoSnapshotPolicyResponse
+   */
   async modifyAutoSnapshotPolicy(request: ModifyAutoSnapshotPolicyRequest): Promise<ModifyAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * 修改快照属性
+   * 
+   * @param request - ModifySnapshotAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySnapshotAttributeResponse
+   */
   async modifySnapshotAttributeWithOptions(request: ModifySnapshotAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifySnapshotAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5004,11 +7039,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySnapshotAttributeResponse>(await this.callApi(params, req, runtime), new ModifySnapshotAttributeResponse({}));
   }
 
+  /**
+   * 修改快照属性
+   * 
+   * @param request - ModifySnapshotAttributeRequest
+   * @returns ModifySnapshotAttributeResponse
+   */
   async modifySnapshotAttribute(request: ModifySnapshotAttributeRequest): Promise<ModifySnapshotAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySnapshotAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - RenameDbfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenameDbfsResponse
+   */
   async renameDbfsWithOptions(request: RenameDbfsRequest, runtime: $Util.RuntimeOptions): Promise<RenameDbfsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5041,11 +7087,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RenameDbfsResponse>(await this.callApi(params, req, runtime), new RenameDbfsResponse({}));
   }
 
+  /**
+   * @param request - RenameDbfsRequest
+   * @returns RenameDbfsResponse
+   */
   async renameDbfs(request: RenameDbfsRequest): Promise<RenameDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renameDbfsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ResizeDbfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResizeDbfsResponse
+   */
   async resizeDbfsWithOptions(request: ResizeDbfsRequest, runtime: $Util.RuntimeOptions): Promise<ResizeDbfsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5078,11 +7133,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ResizeDbfsResponse>(await this.callApi(params, req, runtime), new ResizeDbfsResponse({}));
   }
 
+  /**
+   * @param request - ResizeDbfsRequest
+   * @returns ResizeDbfsResponse
+   */
   async resizeDbfs(request: ResizeDbfsRequest): Promise<ResizeDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resizeDbfsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - TagDbfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagDbfsResponse
+   */
   async tagDbfsWithOptions(request: TagDbfsRequest, runtime: $Util.RuntimeOptions): Promise<TagDbfsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5115,11 +7179,22 @@ export default class Client extends OpenApi {
     return $tea.cast<TagDbfsResponse>(await this.callApi(params, req, runtime), new TagDbfsResponse({}));
   }
 
+  /**
+   * @param request - TagDbfsRequest
+   * @returns TagDbfsResponse
+   */
   async tagDbfs(request: TagDbfsRequest): Promise<TagDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagDbfsWithOptions(request, runtime);
   }
 
+  /**
+   * 修改DBFS实例，包括使用场景、实例规格等。
+   * 
+   * @param request - UpdateDbfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDbfsResponse
+   */
   async updateDbfsWithOptions(request: UpdateDbfsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDbfsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5160,6 +7235,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDbfsResponse>(await this.callApi(params, req, runtime), new UpdateDbfsResponse({}));
   }
 
+  /**
+   * 修改DBFS实例，包括使用场景、实例规格等。
+   * 
+   * @param request - UpdateDbfsRequest
+   * @returns UpdateDbfsResponse
+   */
   async updateDbfs(request: UpdateDbfsRequest): Promise<UpdateDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDbfsWithOptions(request, runtime);
