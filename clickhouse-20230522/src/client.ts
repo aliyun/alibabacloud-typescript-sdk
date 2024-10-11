@@ -5519,7 +5519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建链接地址
+   * 申请外网地址
    * 
    * @param request - CreateEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5562,7 +5562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建链接地址
+   * 申请外网地址
    * 
    * @param request - CreateEndpointRequest
    * @returns CreateEndpointResponse
