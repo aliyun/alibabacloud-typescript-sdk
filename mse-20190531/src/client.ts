@@ -22139,6 +22139,115 @@ export class ImportZookeeperDataResponse extends $tea.Model {
   }
 }
 
+export class InitializeServiceLinkRoleRequest extends $tea.Model {
+  /**
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @example
+   * AliyunServiceRoleForMSE
+   */
+  roleName?: string;
+  /**
+   * @example
+   * ""
+   */
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      roleName: 'RoleName',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      roleName: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitializeServiceLinkRoleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  data?: InitializeServiceLinkRoleResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * A5E7D4E3-D30C-56C1-817F-F2B8CE6BXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: InitializeServiceLinkRoleResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitializeServiceLinkRoleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InitializeServiceLinkRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InitializeServiceLinkRoleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAnsInstancesRequest extends $tea.Model {
   /**
    * @remarks
@@ -47491,6 +47600,7 @@ export class AddGatewayAuthRequestExternalAuthZJSON extends $tea.Model {
    * Authorization
    */
   tokenKey?: string;
+  withRematchRoute?: boolean;
   /**
    * @example
    * true
@@ -47506,6 +47616,7 @@ export class AddGatewayAuthRequestExternalAuthZJSON extends $tea.Model {
       serviceId: 'ServiceId',
       timeout: 'Timeout',
       tokenKey: 'TokenKey',
+      withRematchRoute: 'WithRematchRoute',
       withRequestBody: 'WithRequestBody',
     };
   }
@@ -47520,6 +47631,7 @@ export class AddGatewayAuthRequestExternalAuthZJSON extends $tea.Model {
       serviceId: 'number',
       timeout: 'number',
       tokenKey: 'string',
+      withRematchRoute: 'boolean',
       withRequestBody: 'boolean',
     };
   }
@@ -53108,6 +53220,7 @@ export class GetGatewayAuthDetailResponseBodyDataExternalAuthZ extends $tea.Mode
    * Authorization
    */
   tokenKey?: string;
+  withRematchRoute?: boolean;
   /**
    * @example
    * true
@@ -53124,6 +53237,7 @@ export class GetGatewayAuthDetailResponseBodyDataExternalAuthZ extends $tea.Mode
       serviceId: 'ServiceId',
       timeout: 'Timeout',
       tokenKey: 'TokenKey',
+      withRematchRoute: 'WithRematchRoute',
       withRequestBody: 'WithRequestBody',
     };
   }
@@ -53139,6 +53253,7 @@ export class GetGatewayAuthDetailResponseBodyDataExternalAuthZ extends $tea.Mode
       serviceId: 'number',
       timeout: 'number',
       tokenKey: 'string',
+      withRematchRoute: 'boolean',
       withRequestBody: 'boolean',
     };
   }
@@ -57924,6 +58039,43 @@ export class ImportServicesRequestServiceList extends $tea.Model {
       namespace: 'string',
       servicePort: 'number',
       serviceProtocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitializeServiceLinkRoleResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ram:CreateServiceLinkedRole
+   */
+  requiredPermission?: string;
+  /**
+   * @example
+   * AliyunServiceRoleForMSE
+   */
+  roleName?: string;
+  /**
+   * @example
+   * mse.aliyuncs.com
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requiredPermission: 'RequiredPermission',
+      roleName: 'RoleName',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requiredPermission: 'string',
+      roleName: 'string',
+      serviceName: 'string',
     };
   }
 
@@ -80430,6 +80582,56 @@ export default class Client extends OpenApi {
   async importZookeeperData(request: ImportZookeeperDataRequest): Promise<ImportZookeeperDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importZookeeperDataWithOptions(request, runtime);
+  }
+
+  /**
+   * 用户授权mseSLR
+   * 
+   * @param request - InitializeServiceLinkRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitializeServiceLinkRoleResponse
+   */
+  async initializeServiceLinkRoleWithOptions(request: InitializeServiceLinkRoleRequest, runtime: $Util.RuntimeOptions): Promise<InitializeServiceLinkRoleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InitializeServiceLinkRole",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InitializeServiceLinkRoleResponse>(await this.callApi(params, req, runtime), new InitializeServiceLinkRoleResponse({}));
+  }
+
+  /**
+   * 用户授权mseSLR
+   * 
+   * @param request - InitializeServiceLinkRoleRequest
+   * @returns InitializeServiceLinkRoleResponse
+   */
+  async initializeServiceLinkRole(request: InitializeServiceLinkRoleRequest): Promise<InitializeServiceLinkRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.initializeServiceLinkRoleWithOptions(request, runtime);
   }
 
   /**
