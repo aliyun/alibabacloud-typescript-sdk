@@ -293,6 +293,121 @@ export class CreateConversationAnalysisTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateTaskRequest extends $tea.Model {
+  dialogue?: CreateTaskRequestDialogue;
+  examples?: CreateTaskRequestExamples;
+  fields?: CreateTaskRequestFields[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tyxmTurbo
+   */
+  modelCode?: string;
+  resultTypes?: string[];
+  serviceInspection?: CreateTaskRequestServiceInspection;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * text
+   */
+  taskType?: string;
+  templateIds?: string[];
+  transcription?: CreateTaskRequestTranscription;
+  static names(): { [key: string]: string } {
+    return {
+      dialogue: 'dialogue',
+      examples: 'examples',
+      fields: 'fields',
+      modelCode: 'modelCode',
+      resultTypes: 'resultTypes',
+      serviceInspection: 'serviceInspection',
+      taskType: 'taskType',
+      templateIds: 'templateIds',
+      transcription: 'transcription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogue: CreateTaskRequestDialogue,
+      examples: CreateTaskRequestExamples,
+      fields: { 'type': 'array', 'itemType': CreateTaskRequestFields },
+      modelCode: 'string',
+      resultTypes: { 'type': 'array', 'itemType': 'string' },
+      serviceInspection: CreateTaskRequestServiceInspection,
+      taskType: 'string',
+      templateIds: { 'type': 'array', 'itemType': 'string' },
+      transcription: CreateTaskRequestTranscription,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskResponseBody extends $tea.Model {
+  data?: CreateTaskResponseBodyData;
+  /**
+   * @example
+   * 9F1DB065-AE0D-5EE3-B1AF-48632CB0831C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateTaskResponseBodyData,
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTaskResultRequest extends $tea.Model {
   /**
    * @example
@@ -1106,6 +1221,352 @@ export class CreateConversationAnalysisTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateTaskRequestDialogueSentences extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      role: 'role',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      role: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestDialogue extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sentences?: CreateTaskRequestDialogueSentences[];
+  /**
+   * @example
+   * session-01
+   */
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sentences: 'sentences',
+      sessionId: 'sessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sentences: { 'type': 'array', 'itemType': CreateTaskRequestDialogueSentences },
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestExamplesSentences extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      role: 'role',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      role: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestExamples extends $tea.Model {
+  output?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sentences?: CreateTaskRequestExamplesSentences[];
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      sentences: 'sentences',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+      sentences: { 'type': 'array', 'itemType': CreateTaskRequestExamplesSentences },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestFieldsEnumValues extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  enumValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      enumValue: 'enumValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      enumValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestFields extends $tea.Model {
+  /**
+   * @example
+   * phoneNumber
+   */
+  code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  enumValues?: CreateTaskRequestFieldsEnumValues[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      desc: 'desc',
+      enumValues: 'enumValues',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      desc: 'string',
+      enumValues: { 'type': 'array', 'itemType': CreateTaskRequestFieldsEnumValues },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestServiceInspectionInspectionContents extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestServiceInspection extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inspectionContents?: CreateTaskRequestServiceInspectionInspectionContents[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inspectionIntroduction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sceneIntroduction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inspectionContents: 'inspectionContents',
+      inspectionIntroduction: 'inspectionIntroduction',
+      sceneIntroduction: 'sceneIntroduction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inspectionContents: { 'type': 'array', 'itemType': CreateTaskRequestServiceInspectionInspectionContents },
+      inspectionIntroduction: 'string',
+      sceneIntroduction: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestTranscription extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  autoSplit?: number;
+  /**
+   * @example
+   * 1
+   */
+  clientChannel?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sss.mp3
+   */
+  fileName?: string;
+  /**
+   * @example
+   * 1
+   */
+  serviceChannel?: number;
+  serviceChannelKeywords?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * http://1111.com/sss.mp3
+   */
+  voiceFileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoSplit: 'autoSplit',
+      clientChannel: 'clientChannel',
+      fileName: 'fileName',
+      serviceChannel: 'serviceChannel',
+      serviceChannelKeywords: 'serviceChannelKeywords',
+      voiceFileUrl: 'voiceFileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSplit: 'number',
+      clientChannel: 'number',
+      fileName: 'string',
+      serviceChannel: 'number',
+      serviceChannelKeywords: { 'type': 'array', 'itemType': 'string' },
+      voiceFileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 20240905-********-93E9-5D45-B4EF-045743A34071
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTaskResultResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -1542,6 +2003,83 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createConversationAnalysisTaskWithOptions(workspaceId, appId, request, headers, runtime);
+  }
+
+  /**
+   * 创建语音文件调用llm任务
+   * 
+   * @param request - CreateTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTaskResponse
+   */
+  async createTaskWithOptions(workspaceId: string, appId: string, request: CreateTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dialogue)) {
+      body["dialogue"] = request.dialogue;
+    }
+
+    if (!Util.isUnset(request.examples)) {
+      body["examples"] = request.examples;
+    }
+
+    if (!Util.isUnset(request.fields)) {
+      body["fields"] = request.fields;
+    }
+
+    if (!Util.isUnset(request.modelCode)) {
+      body["modelCode"] = request.modelCode;
+    }
+
+    if (!Util.isUnset(request.resultTypes)) {
+      body["resultTypes"] = request.resultTypes;
+    }
+
+    if (!Util.isUnset(request.serviceInspection)) {
+      body["serviceInspection"] = request.serviceInspection;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      body["taskType"] = request.taskType;
+    }
+
+    if (!Util.isUnset(request.templateIds)) {
+      body["templateIds"] = request.templateIds;
+    }
+
+    if (!Util.isUnset(request.transcription)) {
+      body["transcription"] = request.transcription;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTask",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/ccai/app/${OpenApiUtil.getEncodeParam(appId)}/createTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
+  }
+
+  /**
+   * 创建语音文件调用llm任务
+   * 
+   * @param request - CreateTaskRequest
+   * @returns CreateTaskResponse
+   */
+  async createTask(workspaceId: string, appId: string, request: CreateTaskRequest): Promise<CreateTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTaskWithOptions(workspaceId, appId, request, headers, runtime);
   }
 
   /**
