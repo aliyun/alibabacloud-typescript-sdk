@@ -13872,6 +13872,7 @@ export class ListCallDetailRecordsV2Request extends $tea.Model {
    * agent@ccc-test
    */
   agentId?: string;
+  analyticsReportReady?: boolean;
   /**
    * @example
    * 021****4972
@@ -13992,6 +13993,7 @@ export class ListCallDetailRecordsV2Request extends $tea.Model {
     return {
       accessChannelTypeList: 'AccessChannelTypeList',
       agentId: 'AgentId',
+      analyticsReportReady: 'AnalyticsReportReady',
       broker: 'Broker',
       calledNumber: 'CalledNumber',
       callingNumber: 'CallingNumber',
@@ -14023,6 +14025,7 @@ export class ListCallDetailRecordsV2Request extends $tea.Model {
     return {
       accessChannelTypeList: 'string',
       agentId: 'string',
+      analyticsReportReady: 'boolean',
       broker: 'string',
       calledNumber: 'string',
       callingNumber: 'string',
@@ -32178,6 +32181,149 @@ export class GetCallDetailRecordResponseBodyDataAgentEvents extends $tea.Model {
   }
 }
 
+export class GetCallDetailRecordResponseBodyDataAnalyticsReportEmotion extends $tea.Model {
+  confidence?: number;
+  remark?: string;
+  success?: boolean;
+  taskId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      remark: 'Remark',
+      success: 'Success',
+      taskId: 'TaskId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      remark: 'string',
+      success: 'boolean',
+      taskId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCallDetailRecordResponseBodyDataAnalyticsReportProblemSolving extends $tea.Model {
+  problem?: string;
+  solution?: string;
+  solved?: boolean;
+  success?: boolean;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      problem: 'Problem',
+      solution: 'Solution',
+      solved: 'Solved',
+      success: 'Success',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      problem: 'string',
+      solution: 'string',
+      solved: 'boolean',
+      success: 'boolean',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCallDetailRecordResponseBodyDataAnalyticsReportSatisfaction extends $tea.Model {
+  remark?: string;
+  satisfactionDescription?: string;
+  success?: boolean;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      remark: 'Remark',
+      satisfactionDescription: 'SatisfactionDescription',
+      success: 'Success',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remark: 'string',
+      satisfactionDescription: 'string',
+      success: 'boolean',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCallDetailRecordResponseBodyDataAnalyticsReportTodoList extends $tea.Model {
+  success?: boolean;
+  taskId?: string;
+  tasks?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      taskId: 'TaskId',
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      taskId: 'string',
+      tasks: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCallDetailRecordResponseBodyDataAnalyticsReport extends $tea.Model {
+  emotion?: GetCallDetailRecordResponseBodyDataAnalyticsReportEmotion;
+  problemSolving?: GetCallDetailRecordResponseBodyDataAnalyticsReportProblemSolving;
+  satisfaction?: GetCallDetailRecordResponseBodyDataAnalyticsReportSatisfaction;
+  todoList?: GetCallDetailRecordResponseBodyDataAnalyticsReportTodoList;
+  static names(): { [key: string]: string } {
+    return {
+      emotion: 'Emotion',
+      problemSolving: 'ProblemSolving',
+      satisfaction: 'Satisfaction',
+      todoList: 'TodoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      emotion: GetCallDetailRecordResponseBodyDataAnalyticsReportEmotion,
+      problemSolving: GetCallDetailRecordResponseBodyDataAnalyticsReportProblemSolving,
+      satisfaction: GetCallDetailRecordResponseBodyDataAnalyticsReportSatisfaction,
+      todoList: GetCallDetailRecordResponseBodyDataAnalyticsReportTodoList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCallDetailRecordResponseBodyDataCustomerEventsEventSequence extends $tea.Model {
   /**
    * @example
@@ -32382,6 +32528,8 @@ export class GetCallDetailRecordResponseBodyData extends $tea.Model {
    * agent1,agent2
    */
   agentNames?: string;
+  analyticsReport?: GetCallDetailRecordResponseBodyDataAnalyticsReport;
+  analyticsReportReady?: boolean;
   /**
    * @example
    * 50
@@ -32479,6 +32627,8 @@ export class GetCallDetailRecordResponseBodyData extends $tea.Model {
       agentEvents: 'AgentEvents',
       agentIds: 'AgentIds',
       agentNames: 'AgentNames',
+      analyticsReport: 'AnalyticsReport',
+      analyticsReportReady: 'AnalyticsReportReady',
       callDuration: 'CallDuration',
       calledNumber: 'CalledNumber',
       calleeLocation: 'CalleeLocation',
@@ -32511,6 +32661,8 @@ export class GetCallDetailRecordResponseBodyData extends $tea.Model {
       agentEvents: { 'type': 'array', 'itemType': GetCallDetailRecordResponseBodyDataAgentEvents },
       agentIds: 'string',
       agentNames: 'string',
+      analyticsReport: GetCallDetailRecordResponseBodyDataAnalyticsReport,
+      analyticsReportReady: 'boolean',
       callDuration: 'number',
       calledNumber: 'string',
       calleeLocation: 'string',
@@ -38491,6 +38643,149 @@ export class ListCallDetailRecordsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReportEmotion extends $tea.Model {
+  confidence?: number;
+  remark?: string;
+  success?: boolean;
+  taskId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      remark: 'Remark',
+      success: 'Success',
+      taskId: 'TaskId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      remark: 'string',
+      success: 'boolean',
+      taskId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReportProblemSolving extends $tea.Model {
+  problem?: string;
+  solution?: string;
+  solved?: boolean;
+  success?: boolean;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      problem: 'Problem',
+      solution: 'Solution',
+      solved: 'Solved',
+      success: 'Success',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      problem: 'string',
+      solution: 'string',
+      solved: 'boolean',
+      success: 'boolean',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReportSatisfaction extends $tea.Model {
+  remark?: string;
+  satisfactionDescription?: string;
+  success?: boolean;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      remark: 'Remark',
+      satisfactionDescription: 'SatisfactionDescription',
+      success: 'Success',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remark: 'string',
+      satisfactionDescription: 'string',
+      success: 'boolean',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReportTodoList extends $tea.Model {
+  success?: boolean;
+  taskId?: string;
+  tasks?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      taskId: 'TaskId',
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      taskId: 'string',
+      tasks: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReport extends $tea.Model {
+  emotion?: ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReportEmotion;
+  problemSolving?: ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReportProblemSolving;
+  satisfaction?: ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReportSatisfaction;
+  todoList?: ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReportTodoList;
+  static names(): { [key: string]: string } {
+    return {
+      emotion: 'Emotion',
+      problemSolving: 'ProblemSolving',
+      satisfaction: 'Satisfaction',
+      todoList: 'TodoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      emotion: ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReportEmotion,
+      problemSolving: ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReportProblemSolving,
+      satisfaction: ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReportSatisfaction,
+      todoList: ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReportTodoList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCallDetailRecordsV2ResponseBodyDataList extends $tea.Model {
   accessChannelName?: string;
   /**
@@ -38515,6 +38810,8 @@ export class ListCallDetailRecordsV2ResponseBodyDataList extends $tea.Model {
    */
   agentIds?: string;
   agentNames?: string;
+  analyticsReport?: ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReport;
+  analyticsReportReady?: boolean;
   /**
    * @example
    * 053xxxx3127
@@ -38726,6 +39023,8 @@ export class ListCallDetailRecordsV2ResponseBodyDataList extends $tea.Model {
       additionalBroker: 'AdditionalBroker',
       agentIds: 'AgentIds',
       agentNames: 'AgentNames',
+      analyticsReport: 'AnalyticsReport',
+      analyticsReportReady: 'AnalyticsReportReady',
       broker: 'Broker',
       callDuration: 'CallDuration',
       callIds: 'CallIds',
@@ -38784,6 +39083,8 @@ export class ListCallDetailRecordsV2ResponseBodyDataList extends $tea.Model {
       additionalBroker: 'string',
       agentIds: 'string',
       agentNames: 'string',
+      analyticsReport: ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReport,
+      analyticsReportReady: 'boolean',
       broker: 'string',
       callDuration: 'string',
       callIds: 'string',
@@ -61321,6 +61622,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.agentId)) {
       query["AgentId"] = request.agentId;
+    }
+
+    if (!Util.isUnset(request.analyticsReportReady)) {
+      query["AnalyticsReportReady"] = request.analyticsReportReady;
     }
 
     if (!Util.isUnset(request.broker)) {
