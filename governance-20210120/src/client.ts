@@ -2,7 +2,6 @@
 /**
  */
 import Util, * as $Util from '@alicloud/tea-util';
-import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -350,6 +349,7 @@ export class EnrollAccountRequest extends $tea.Model {
    * resell
    */
   resellAccountType?: string;
+  tag?: EnrollAccountRequestTag[];
   static names(): { [key: string]: string } {
     return {
       accountNamePrefix: 'AccountNamePrefix',
@@ -361,6 +361,7 @@ export class EnrollAccountRequest extends $tea.Model {
       payerAccountUid: 'PayerAccountUid',
       regionId: 'RegionId',
       resellAccountType: 'ResellAccountType',
+      tag: 'Tag',
     };
   }
 
@@ -375,6 +376,137 @@ export class EnrollAccountRequest extends $tea.Model {
       payerAccountUid: 'number',
       regionId: 'string',
       resellAccountType: 'string',
+      tag: { 'type': 'array', 'itemType': EnrollAccountRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnrollAccountShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The prefix for the account name of the member.
+   * 
+   * *   If the account baseline is applied to an account that is newly created, you must configure this parameter.
+   * *   If the account baseline is applied to an existing account, you do not need to configure this parameter.
+   * 
+   * @example
+   * test-account
+   */
+  accountNamePrefix?: string;
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * *   If the account baseline is applied to an account that is newly created, you do not need to configure this parameter.
+   * *   If the account baseline is applied to an existing account, you must configure this parameter.
+   * 
+   * @example
+   * 12868156179****
+   */
+  accountUid?: number;
+  /**
+   * @remarks
+   * The baseline ID.
+   * 
+   * If this parameter is left empty, the default baseline is used.
+   * 
+   * @example
+   * afb-bp1durvn3lgqe28v****
+   */
+  baselineId?: string;
+  /**
+   * @remarks
+   * An array that contains baseline items.
+   * 
+   * If this parameter is specified, the configurations of the baseline items are merged with the baseline of the specified account. The configurations of the same baseline items are subject to the configuration of this parameter. We recommend that you leave this parameter empty and configure the `BaselineId` parameter to specify an account baseline and apply the configuration of the account baseline to the account.
+   */
+  baselineItems?: EnrollAccountShrinkRequestBaselineItems[];
+  /**
+   * @remarks
+   * The display name of the account.
+   * 
+   * *   If the account baseline is applied to an account that is newly created, you must configure this parameter.
+   * *   If the account baseline is applied to an existing account, you do not need to configure this parameter.
+   * 
+   * @example
+   * test-account
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
+   * *   If the account baseline is applied to an account that is newly created, you need to specify a parent folder. If you do not configure this parameter, the account is created in the Root folder.
+   * *   If the account baseline is applied to an existing account, you do not need to configure this parameter.
+   * 
+   * @example
+   * fd-5ESoku****
+   */
+  folderId?: string;
+  /**
+   * @remarks
+   * The ID of the billing account.
+   * 
+   * *   If the account baseline is applied to an account that is newly created, you need to specify a billing account. If you do not configure this parameter, the self-pay settlement method is used for the account.
+   * *   If the account baseline is applied to an existing account, you do not need to configure this parameter.
+   * 
+   * @example
+   * 19534534552****
+   */
+  payerAccountUid?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The identity type of the member. Valid values:
+   * 
+   * *   resell (default): The member is an account for a reseller. A relationship is automatically established between the member and the reseller. The management account of the resource directory must be used as the billing account of the member.
+   * *   non_resell: The member is not an account for a reseller. The member is an account that is not associated with a reseller. You can directly use the account to purchase Alibaba Cloud resources. The member is used as its own billing account.
+   * 
+   * > This parameter is available only for resellers at the international site (alibabacloud.com).
+   * 
+   * @example
+   * resell
+   */
+  resellAccountType?: string;
+  tagShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountNamePrefix: 'AccountNamePrefix',
+      accountUid: 'AccountUid',
+      baselineId: 'BaselineId',
+      baselineItems: 'BaselineItems',
+      displayName: 'DisplayName',
+      folderId: 'FolderId',
+      payerAccountUid: 'PayerAccountUid',
+      regionId: 'RegionId',
+      resellAccountType: 'ResellAccountType',
+      tagShrink: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountNamePrefix: 'string',
+      accountUid: 'number',
+      baselineId: 'string',
+      baselineItems: { 'type': 'array', 'itemType': EnrollAccountShrinkRequestBaselineItems },
+      displayName: 'string',
+      folderId: 'string',
+      payerAccountUid: 'number',
+      regionId: 'string',
+      resellAccountType: 'string',
+      tagShrink: 'string',
     };
   }
 
@@ -1892,6 +2024,87 @@ export class EnrollAccountRequestBaselineItems extends $tea.Model {
   }
 }
 
+export class EnrollAccountRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnrollAccountShrinkRequestBaselineItems extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the baseline item.
+   * 
+   * @example
+   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Specifies whether to skip the baseline item. Valid values:
+   * 
+   * *   false: The baseline item is not skipped.
+   * *   true: The baseline item is skipped.
+   * 
+   * @example
+   * false
+   */
+  skip?: boolean;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      skip: 'Skip',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      skip: 'boolean',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAccountFactoryBaselineResponseBodyBaselineItems extends $tea.Model {
   /**
    * @remarks
@@ -2114,6 +2327,28 @@ export class GetEnrolledAccountResponseBodyInputsBaselineItems extends $tea.Mode
   }
 }
 
+export class GetEnrolledAccountResponseBodyInputsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEnrolledAccountResponseBodyInputs extends $tea.Model {
   /**
    * @remarks
@@ -2160,6 +2395,7 @@ export class GetEnrolledAccountResponseBodyInputs extends $tea.Model {
    * 19534534552*****
    */
   payerAccountUid?: number;
+  tag?: GetEnrolledAccountResponseBodyInputsTag[];
   static names(): { [key: string]: string } {
     return {
       accountNamePrefix: 'AccountNamePrefix',
@@ -2168,6 +2404,7 @@ export class GetEnrolledAccountResponseBodyInputs extends $tea.Model {
       displayName: 'DisplayName',
       folderId: 'FolderId',
       payerAccountUid: 'PayerAccountUid',
+      tag: 'Tag',
     };
   }
 
@@ -2179,6 +2416,7 @@ export class GetEnrolledAccountResponseBodyInputs extends $tea.Model {
       displayName: 'string',
       folderId: 'string',
       payerAccountUid: 'number',
+      tag: { 'type': 'array', 'itemType': GetEnrolledAccountResponseBodyInputsTag },
     };
   }
 
@@ -3136,9 +3374,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._productId = "governance";
-    let gatewayClient = new GatewayClient();
-    this._spi = gatewayClient;
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("governance", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -3197,12 +3433,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<BatchEnrollAccountsResponse>(await this.callApi(params, req, runtime), new BatchEnrollAccountsResponse({}));
-    } else {
-      return $tea.cast<BatchEnrollAccountsResponse>(await this.execute(params, req, runtime), new BatchEnrollAccountsResponse({}));
-    }
-
+    return $tea.cast<BatchEnrollAccountsResponse>(await this.callApi(params, req, runtime), new BatchEnrollAccountsResponse({}));
   }
 
   /**
@@ -3256,12 +3487,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new CreateAccountFactoryBaselineResponse({}));
-    } else {
-      return $tea.cast<CreateAccountFactoryBaselineResponse>(await this.execute(params, req, runtime), new CreateAccountFactoryBaselineResponse({}));
-    }
-
+    return $tea.cast<CreateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new CreateAccountFactoryBaselineResponse({}));
   }
 
   /**
@@ -3307,12 +3533,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new DeleteAccountFactoryBaselineResponse({}));
-    } else {
-      return $tea.cast<DeleteAccountFactoryBaselineResponse>(await this.execute(params, req, runtime), new DeleteAccountFactoryBaselineResponse({}));
-    }
-
+    return $tea.cast<DeleteAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new DeleteAccountFactoryBaselineResponse({}));
   }
 
   /**
@@ -3333,12 +3554,18 @@ export default class Client extends OpenApi {
    * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
    * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
    * 
-   * @param request - EnrollAccountRequest
+   * @param tmpReq - EnrollAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnrollAccountResponse
    */
-  async enrollAccountWithOptions(request: EnrollAccountRequest, runtime: $Util.RuntimeOptions): Promise<EnrollAccountResponse> {
-    Util.validateModel(request);
+  async enrollAccountWithOptions(tmpReq: EnrollAccountRequest, runtime: $Util.RuntimeOptions): Promise<EnrollAccountResponse> {
+    Util.validateModel(tmpReq);
+    let request = new EnrollAccountShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.accountNamePrefix)) {
       query["AccountNamePrefix"] = request.accountNamePrefix;
@@ -3376,6 +3603,10 @@ export default class Client extends OpenApi {
       query["ResellAccountType"] = request.resellAccountType;
     }
 
+    if (!Util.isUnset(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3390,12 +3621,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<EnrollAccountResponse>(await this.callApi(params, req, runtime), new EnrollAccountResponse({}));
-    } else {
-      return $tea.cast<EnrollAccountResponse>(await this.execute(params, req, runtime), new EnrollAccountResponse({}));
-    }
-
+    return $tea.cast<EnrollAccountResponse>(await this.callApi(params, req, runtime), new EnrollAccountResponse({}));
   }
 
   /**
@@ -3445,12 +3671,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new GetAccountFactoryBaselineResponse({}));
-    } else {
-      return $tea.cast<GetAccountFactoryBaselineResponse>(await this.execute(params, req, runtime), new GetAccountFactoryBaselineResponse({}));
-    }
-
+    return $tea.cast<GetAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new GetAccountFactoryBaselineResponse({}));
   }
 
   /**
@@ -3496,12 +3717,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetEnrolledAccountResponse>(await this.callApi(params, req, runtime), new GetEnrolledAccountResponse({}));
-    } else {
-      return $tea.cast<GetEnrolledAccountResponse>(await this.execute(params, req, runtime), new GetEnrolledAccountResponse({}));
-    }
-
+    return $tea.cast<GetEnrolledAccountResponse>(await this.callApi(params, req, runtime), new GetEnrolledAccountResponse({}));
   }
 
   /**
@@ -3563,12 +3779,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListAccountFactoryBaselineItemsResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselineItemsResponse({}));
-    } else {
-      return $tea.cast<ListAccountFactoryBaselineItemsResponse>(await this.execute(params, req, runtime), new ListAccountFactoryBaselineItemsResponse({}));
-    }
-
+    return $tea.cast<ListAccountFactoryBaselineItemsResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselineItemsResponse({}));
   }
 
   /**
@@ -3618,12 +3829,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListAccountFactoryBaselinesResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselinesResponse({}));
-    } else {
-      return $tea.cast<ListAccountFactoryBaselinesResponse>(await this.execute(params, req, runtime), new ListAccountFactoryBaselinesResponse({}));
-    }
-
+    return $tea.cast<ListAccountFactoryBaselinesResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselinesResponse({}));
   }
 
   /**
@@ -3673,12 +3879,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListEnrolledAccountsResponse>(await this.callApi(params, req, runtime), new ListEnrolledAccountsResponse({}));
-    } else {
-      return $tea.cast<ListEnrolledAccountsResponse>(await this.execute(params, req, runtime), new ListEnrolledAccountsResponse({}));
-    }
-
+    return $tea.cast<ListEnrolledAccountsResponse>(await this.callApi(params, req, runtime), new ListEnrolledAccountsResponse({}));
   }
 
   /**
@@ -3724,12 +3925,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListEvaluationMetadataResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetadataResponse({}));
-    } else {
-      return $tea.cast<ListEvaluationMetadataResponse>(await this.execute(params, req, runtime), new ListEvaluationMetadataResponse({}));
-    }
-
+    return $tea.cast<ListEvaluationMetadataResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetadataResponse({}));
   }
 
   /**
@@ -3787,12 +3983,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListEvaluationMetricDetailsResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetricDetailsResponse({}));
-    } else {
-      return $tea.cast<ListEvaluationMetricDetailsResponse>(await this.execute(params, req, runtime), new ListEvaluationMetricDetailsResponse({}));
-    }
-
+    return $tea.cast<ListEvaluationMetricDetailsResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetricDetailsResponse({}));
   }
 
   /**
@@ -3838,12 +4029,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListEvaluationResultsResponse>(await this.callApi(params, req, runtime), new ListEvaluationResultsResponse({}));
-    } else {
-      return $tea.cast<ListEvaluationResultsResponse>(await this.execute(params, req, runtime), new ListEvaluationResultsResponse({}));
-    }
-
+    return $tea.cast<ListEvaluationResultsResponse>(await this.callApi(params, req, runtime), new ListEvaluationResultsResponse({}));
   }
 
   /**
@@ -3897,12 +4083,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListEvaluationScoreHistoryResponse>(await this.callApi(params, req, runtime), new ListEvaluationScoreHistoryResponse({}));
-    } else {
-      return $tea.cast<ListEvaluationScoreHistoryResponse>(await this.execute(params, req, runtime), new ListEvaluationScoreHistoryResponse({}));
-    }
-
+    return $tea.cast<ListEvaluationScoreHistoryResponse>(await this.callApi(params, req, runtime), new ListEvaluationScoreHistoryResponse({}));
   }
 
   /**
@@ -3952,12 +4133,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunEvaluationResponse>(await this.callApi(params, req, runtime), new RunEvaluationResponse({}));
-    } else {
-      return $tea.cast<RunEvaluationResponse>(await this.execute(params, req, runtime), new RunEvaluationResponse({}));
-    }
-
+    return $tea.cast<RunEvaluationResponse>(await this.callApi(params, req, runtime), new RunEvaluationResponse({}));
   }
 
   /**
@@ -4015,12 +4191,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new UpdateAccountFactoryBaselineResponse({}));
-    } else {
-      return $tea.cast<UpdateAccountFactoryBaselineResponse>(await this.execute(params, req, runtime), new UpdateAccountFactoryBaselineResponse({}));
-    }
-
+    return $tea.cast<UpdateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new UpdateAccountFactoryBaselineResponse({}));
   }
 
   /**
