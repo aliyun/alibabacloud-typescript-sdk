@@ -305,25 +305,31 @@ export class DatasetLabel extends $tea.Model {
 }
 
 export class Experiment extends $tea.Model {
+  accessibility?: string;
   artifactUri?: string;
   experimentId?: string;
   gmtCreateTime?: string;
   gmtModifiedTime?: string;
-  labels?: { [key: string]: any }[];
+  labels?: ExperimentLabel[];
+  latestRun?: Run;
   name?: string;
   ownerId?: string;
+  requestId?: string;
   tensorboardLogUri?: string;
   userId?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       artifactUri: 'ArtifactUri',
       experimentId: 'ExperimentId',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       labels: 'Labels',
+      latestRun: 'LatestRun',
       name: 'Name',
       ownerId: 'OwnerId',
+      requestId: 'RequestId',
       tensorboardLogUri: 'TensorboardLogUri',
       userId: 'UserId',
       workspaceId: 'WorkspaceId',
@@ -332,13 +338,16 @@ export class Experiment extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       artifactUri: 'string',
       experimentId: 'string',
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
-      labels: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      labels: { 'type': 'array', 'itemType': ExperimentLabel },
+      latestRun: Run,
       name: 'string',
       ownerId: 'string',
+      requestId: 'string',
       tensorboardLogUri: 'string',
       userId: 'string',
       workspaceId: 'string',
@@ -690,77 +699,88 @@ export class ModelVersion extends $tea.Model {
   }
 }
 
-export class ServiceTemplate extends $tea.Model {
-  /**
-   * @example
-   * 2021-01-21T17:12:35Z
-   */
+export class Run extends $tea.Model {
+  accessibility?: string;
+  experimentId?: string;
   gmtCreateTime?: string;
-  /**
-   * @example
-   * 2021-01-21T17:12:35Z
-   */
+  gmtModifiedTime?: string;
+  labels?: RunLabel[];
+  metrics?: RunMetric[];
+  name?: string;
+  ownerId?: string;
+  params?: RunParam[];
+  requestId?: string;
+  runId?: string;
+  sourceId?: string;
+  sourceType?: string;
+  userId?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessibility: 'Accessibility',
+      experimentId: 'ExperimentId',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      labels: 'Labels',
+      metrics: 'Metrics',
+      name: 'Name',
+      ownerId: 'OwnerId',
+      params: 'Params',
+      requestId: 'RequestId',
+      runId: 'RunId',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
+      userId: 'UserId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessibility: 'string',
+      experimentId: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      labels: { 'type': 'array', 'itemType': RunLabel },
+      metrics: { 'type': 'array', 'itemType': RunMetric },
+      name: 'string',
+      ownerId: 'string',
+      params: { 'type': 'array', 'itemType': RunParam },
+      requestId: 'string',
+      runId: 'string',
+      sourceId: 'string',
+      sourceType: 'string',
+      userId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunLabel extends $tea.Model {
+  gmtCreateTime?: string;
   gmtModifiedTime?: string;
   /**
-   * @example
-   * {     "processor": "tensorflow_gpu_1.12" }
+   * @remarks
+   * This parameter is required.
    */
-  inferenceSpec?: { [key: string]: any };
-  labels?: Label[];
+  key?: string;
+  runId?: string;
   /**
-   * @example
-   * 1
+   * @remarks
+   * This parameter is required.
    */
-  orderNumber?: number;
-  /**
-   * @example
-   * 155770209****904
-   */
-  ownerId?: string;
-  /**
-   * @example
-   * pai
-   */
-  provider?: string;
-  /**
-   * @example
-   * 这里是一个描述。
-   */
-  serviceTemplateDescription?: string;
-  /**
-   * @example
-   * https://***.md
-   */
-  serviceTemplateDoc?: string;
-  /**
-   * @example
-   * st-asdkjf**skdhh
-   */
-  serviceTemplateId?: string;
-  /**
-   * @example
-   * foo
-   */
-  serviceTemplateName?: string;
-  /**
-   * @example
-   * 155770209****904
-   */
-  userId?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
-      inferenceSpec: 'InferenceSpec',
-      labels: 'Labels',
-      orderNumber: 'OrderNumber',
-      ownerId: 'OwnerId',
-      provider: 'Provider',
-      serviceTemplateDescription: 'ServiceTemplateDescription',
-      serviceTemplateDoc: 'ServiceTemplateDoc',
-      serviceTemplateId: 'ServiceTemplateId',
-      serviceTemplateName: 'ServiceTemplateName',
-      userId: 'UserId',
+      key: 'Key',
+      runId: 'RunId',
+      value: 'Value',
     };
   }
 
@@ -768,16 +788,75 @@ export class ServiceTemplate extends $tea.Model {
     return {
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
-      inferenceSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      labels: { 'type': 'array', 'itemType': Label },
-      orderNumber: 'number',
-      ownerId: 'string',
-      provider: 'string',
-      serviceTemplateDescription: 'string',
-      serviceTemplateDoc: 'string',
-      serviceTemplateId: 'string',
-      serviceTemplateName: 'string',
-      userId: 'string',
+      key: 'string',
+      runId: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMetric extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  key?: string;
+  step?: number;
+  timestamp?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      step: 'Step',
+      timestamp: 'Timestamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      step: 'number',
+      timestamp: 'number',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunParam extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -1506,6 +1585,121 @@ export class CreateDatasetLabelsResponse extends $tea.Model {
   }
 }
 
+export class CreateExperimentRequest extends $tea.Model {
+  /**
+   * @example
+   * PRIVATE
+   */
+  accessibility?: string;
+  /**
+   * @remarks
+   * Artifact的OSS存储路径
+   * 
+   * @example
+   * oss://test-bucket.oss-cn-hangzhou.aliyuncs.com/test
+   */
+  artifactUri?: string;
+  /**
+   * @remarks
+   * 标签
+   */
+  labels?: LabelInfo[];
+  /**
+   * @remarks
+   * 名称
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * exp-test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 工作空间ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 478**
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessibility: 'Accessibility',
+      artifactUri: 'ArtifactUri',
+      labels: 'Labels',
+      name: 'Name',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessibility: 'string',
+      artifactUri: 'string',
+      labels: { 'type': 'array', 'itemType': LabelInfo },
+      name: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExperimentResponseBody extends $tea.Model {
+  experimentId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      experimentId: 'ExperimentId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      experimentId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExperimentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateExperimentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateExperimentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMemberRequest extends $tea.Model {
   /**
    * @remarks
@@ -2132,6 +2326,117 @@ export class CreateProductOrdersResponse extends $tea.Model {
   }
 }
 
+export class CreateRunRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * exp-6thbb5xrbmp*****
+   */
+  experimentId?: string;
+  labels?: Label[];
+  /**
+   * @example
+   * myName
+   */
+  name?: string;
+  params?: RunParam[];
+  /**
+   * @example
+   * job-jdnhf***fnrimv
+   */
+  sourceId?: string;
+  /**
+   * @example
+   * DLC
+   */
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      experimentId: 'ExperimentId',
+      labels: 'Labels',
+      name: 'Name',
+      params: 'Params',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      experimentId: 'string',
+      labels: { 'type': 'array', 'itemType': Label },
+      name: 'string',
+      params: { 'type': 'array', 'itemType': RunParam },
+      sourceId: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBody extends $tea.Model {
+  /**
+   * @example
+   * run-1meoz7VJd2C6f****
+   */
+  runId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      runId: 'RunId',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      runId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRunResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRunResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkspaceRequest extends $tea.Model {
   /**
    * @remarks
@@ -2499,6 +2804,102 @@ export class DeleteDatasetLabelsResponse extends $tea.Model {
   }
 }
 
+export class DeleteExperimentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 8D7B2E70-F770-505B-A672-09F1D8F2EC1E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExperimentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteExperimentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteExperimentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExperimentLabelResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5A14FA81-DD4E-******-6343FE44B941
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExperimentLabelResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteExperimentLabelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteExperimentLabelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteMembersRequest extends $tea.Model {
   /**
    * @remarks
@@ -2809,6 +3210,108 @@ export class DeleteModelVersionLabelsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteModelVersionLabelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRunResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRunResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRunResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRunResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRunLabelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRunLabelResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRunLabelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRunLabelResponseBody,
     };
   }
 
@@ -3403,6 +3906,54 @@ export class GetDefaultWorkspaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDefaultWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetExperimentRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  verbose?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      verbose: 'Verbose',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      verbose: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetExperimentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Experiment;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Experiment,
     };
   }
 
@@ -4092,96 +4643,21 @@ export class GetPermissionResponse extends $tea.Model {
   }
 }
 
-export class GetServiceTemplateResponseBody extends $tea.Model {
+export class GetRunRequest extends $tea.Model {
   /**
    * @example
-   * 2021-01-30T12:51:33.028Z
+   * true
    */
-  gmtCreateTime?: string;
-  /**
-   * @example
-   * 2021-01-30T12:51:33.028Z
-   */
-  gmtModifiedTime?: string;
-  /**
-   * @example
-   * {
-   *       "processor": "tensorflow_gpu_1.12"
-   * }
-   */
-  inferenceSpec?: { [key: string]: any };
-  labels?: Label[];
-  /**
-   * @example
-   * 1234567890******
-   */
-  ownerId?: string;
-  /**
-   * @example
-   * pai
-   */
-  provider?: string;
-  /**
-   * @example
-   * 40325405-579C-4D82****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * stable diffusion 1.5
-   */
-  serviceTemplateDescription?: string;
-  /**
-   * @example
-   * https://***.md
-   */
-  serviceTemplateDoc?: string;
-  /**
-   * @example
-   * st-rbvg5wzlj****9ks92
-   */
-  serviceTemplateId?: string;
-  /**
-   * @example
-   * stable_diffusion_aigc
-   */
-  serviceTemplateName?: string;
-  /**
-   * @example
-   * 1234567890******
-   */
-  userId?: string;
+  verbose?: boolean;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTime: 'GmtCreateTime',
-      gmtModifiedTime: 'GmtModifiedTime',
-      inferenceSpec: 'InferenceSpec',
-      labels: 'Labels',
-      ownerId: 'OwnerId',
-      provider: 'Provider',
-      requestId: 'RequestId',
-      serviceTemplateDescription: 'ServiceTemplateDescription',
-      serviceTemplateDoc: 'ServiceTemplateDoc',
-      serviceTemplateId: 'ServiceTemplateId',
-      serviceTemplateName: 'ServiceTemplateName',
-      userId: 'UserId',
+      verbose: 'Verbose',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
-      inferenceSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      labels: { 'type': 'array', 'itemType': Label },
-      ownerId: 'string',
-      provider: 'string',
-      requestId: 'string',
-      serviceTemplateDescription: 'string',
-      serviceTemplateDoc: 'string',
-      serviceTemplateId: 'string',
-      serviceTemplateName: 'string',
-      userId: 'string',
+      verbose: 'boolean',
     };
   }
 
@@ -4190,10 +4666,10 @@ export class GetServiceTemplateResponseBody extends $tea.Model {
   }
 }
 
-export class GetServiceTemplateResponse extends $tea.Model {
+export class GetRunResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: GetServiceTemplateResponseBody;
+  body?: Run;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4206,7 +4682,7 @@ export class GetServiceTemplateResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: GetServiceTemplateResponseBody,
+      body: Run,
     };
   }
 
@@ -4635,6 +5111,263 @@ export class ListDatasetsResponse extends $tea.Model {
   }
 }
 
+export class ListExperimentRequest extends $tea.Model {
+  /**
+   * @example
+   * is_evaluation:true
+   */
+  labels?: string;
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * exp-test
+   */
+  name?: string;
+  options?: ListExperimentRequestOptions;
+  /**
+   * @example
+   * DESC
+   */
+  order?: string;
+  /**
+   * @example
+   * GmtCreateTime DESC,Name ASC
+   */
+  orderBy?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 0
+   */
+  pageToken?: number;
+  /**
+   * @example
+   * GmtCreateTime
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * false
+   */
+  verbose?: boolean;
+  /**
+   * @example
+   * 151739
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labels: 'Labels',
+      maxResults: 'MaxResults',
+      name: 'Name',
+      options: 'Options',
+      order: 'Order',
+      orderBy: 'OrderBy',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      pageToken: 'PageToken',
+      sortBy: 'SortBy',
+      verbose: 'Verbose',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labels: 'string',
+      maxResults: 'number',
+      name: 'string',
+      options: ListExperimentRequestOptions,
+      order: 'string',
+      orderBy: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      pageToken: 'number',
+      sortBy: 'string',
+      verbose: 'boolean',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExperimentShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * is_evaluation:true
+   */
+  labels?: string;
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * exp-test
+   */
+  name?: string;
+  optionsShrink?: string;
+  /**
+   * @example
+   * DESC
+   */
+  order?: string;
+  /**
+   * @example
+   * GmtCreateTime DESC,Name ASC
+   */
+  orderBy?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 0
+   */
+  pageToken?: number;
+  /**
+   * @example
+   * GmtCreateTime
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * false
+   */
+  verbose?: boolean;
+  /**
+   * @example
+   * 151739
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labels: 'Labels',
+      maxResults: 'MaxResults',
+      name: 'Name',
+      optionsShrink: 'Options',
+      order: 'Order',
+      orderBy: 'OrderBy',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      pageToken: 'PageToken',
+      sortBy: 'SortBy',
+      verbose: 'Verbose',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labels: 'string',
+      maxResults: 'number',
+      name: 'string',
+      optionsShrink: 'string',
+      order: 'string',
+      orderBy: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      pageToken: 'number',
+      sortBy: 'string',
+      verbose: 'boolean',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExperimentResponseBody extends $tea.Model {
+  experiments?: Experiment[];
+  /**
+   * @example
+   * 0
+   */
+  nextPageToken?: number;
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 0C6835C5-A424-5AFB-ACC2-F1E3CA1ABF7C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      experiments: 'Experiments',
+      nextPageToken: 'NextPageToken',
+      totalCount: 'TotalCount',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      experiments: { 'type': 'array', 'itemType': Experiment },
+      nextPageToken: 'number',
+      totalCount: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExperimentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListExperimentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListExperimentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListImageLabelsRequest extends $tea.Model {
   /**
    * @example
@@ -4746,6 +5479,7 @@ export class ListImageLabelsResponse extends $tea.Model {
 
 export class ListImagesRequest extends $tea.Model {
   accessibility?: string;
+  imageUri?: string;
   /**
    * @example
    * system.framework=XGBoost 1.6.0,system.official=true
@@ -4800,6 +5534,7 @@ export class ListImagesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      imageUri: 'ImageUri',
       labels: 'Labels',
       name: 'Name',
       order: 'Order',
@@ -4817,6 +5552,7 @@ export class ListImagesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      imageUri: 'string',
       labels: 'string',
       name: 'string',
       order: 'string',
@@ -5683,70 +6419,38 @@ export class ListResourcesResponse extends $tea.Model {
   }
 }
 
-export class ListServiceTemplatesRequest extends $tea.Model {
+export class ListRunMetricsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * loss
+   */
+  key?: string;
   /**
    * @example
-   * aigc
+   * 100
    */
-  label?: string;
+  maxResults?: number;
   /**
    * @example
-   * DESC
+   * 0
    */
-  order?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * pai
-   */
-  provider?: string;
-  /**
-   * @example
-   * aigc
-   */
-  query?: string;
-  /**
-   * @example
-   * stable_diffusion_aigc
-   */
-  serviceTemplateName?: string;
-  /**
-   * @example
-   * GmtCreateTime
-   */
-  sortBy?: string;
+  pageToken?: number;
   static names(): { [key: string]: string } {
     return {
-      label: 'Label',
-      order: 'Order',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      provider: 'Provider',
-      query: 'Query',
-      serviceTemplateName: 'ServiceTemplateName',
-      sortBy: 'SortBy',
+      key: 'Key',
+      maxResults: 'MaxResults',
+      pageToken: 'PageToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      label: 'string',
-      order: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      provider: 'string',
-      query: 'string',
-      serviceTemplateName: 'string',
-      sortBy: 'string',
+      key: 'string',
+      maxResults: 'number',
+      pageToken: 'number',
     };
   }
 
@@ -5755,31 +6459,34 @@ export class ListServiceTemplatesRequest extends $tea.Model {
   }
 }
 
-export class ListServiceTemplatesResponseBody extends $tea.Model {
+export class ListRunMetricsResponseBody extends $tea.Model {
+  metrics?: RunMetric[];
   /**
    * @example
-   * 40325405-579C-4D82****
+   * 0
+   */
+  nextPageToken?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
    */
   requestId?: string;
-  serviceTemplates?: ServiceTemplate[];
-  /**
-   * @example
-   * 15
-   */
-  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      serviceTemplates: 'ServiceTemplates',
-      totalCount: 'TotalCount',
+      metrics: 'Metrics',
+      nextPageToken: 'NextPageToken',
+      requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      metrics: { 'type': 'array', 'itemType': RunMetric },
+      nextPageToken: 'number',
       requestId: 'string',
-      serviceTemplates: { 'type': 'array', 'itemType': ServiceTemplate },
-      totalCount: 'number',
     };
   }
 
@@ -5788,10 +6495,10 @@ export class ListServiceTemplatesResponseBody extends $tea.Model {
   }
 }
 
-export class ListServiceTemplatesResponse extends $tea.Model {
+export class ListRunMetricsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: ListServiceTemplatesResponseBody;
+  body?: ListRunMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5804,7 +6511,196 @@ export class ListServiceTemplatesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: ListServiceTemplatesResponseBody,
+      body: ListRunMetricsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRunsRequest extends $tea.Model {
+  /**
+   * @example
+   * exp-1zpfthdx******
+   */
+  experimentId?: string;
+  /**
+   * @example
+   * 2021-01-30T12:51:33.028Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @example
+   * is_evaluation:true
+   */
+  labels?: string;
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * myName
+   */
+  name?: string;
+  /**
+   * @example
+   * DESC
+   */
+  order?: string;
+  /**
+   * @example
+   * GmtCreateTime DESC,Name ASC
+   */
+  orderBy?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 0
+   */
+  pageToken?: number;
+  /**
+   * @example
+   * GmtCreateTime
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * job-rbvg5wzlj****
+   */
+  sourceId?: string;
+  /**
+   * @example
+   * TrainingService
+   */
+  sourceType?: string;
+  /**
+   * @example
+   * true
+   */
+  verbose?: boolean;
+  /**
+   * @example
+   * 22840
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      experimentId: 'ExperimentId',
+      gmtCreateTime: 'GmtCreateTime',
+      labels: 'Labels',
+      maxResults: 'MaxResults',
+      name: 'Name',
+      order: 'Order',
+      orderBy: 'OrderBy',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      pageToken: 'PageToken',
+      sortBy: 'SortBy',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
+      verbose: 'Verbose',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      experimentId: 'string',
+      gmtCreateTime: 'string',
+      labels: 'string',
+      maxResults: 'number',
+      name: 'string',
+      order: 'string',
+      orderBy: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      pageToken: 'number',
+      sortBy: 'string',
+      sourceId: 'string',
+      sourceType: 'string',
+      verbose: 'boolean',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRunsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  nextPageToken?: number;
+  runs?: Run[];
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextPageToken: 'NextPageToken',
+      runs: 'Runs',
+      totalCount: 'TotalCount',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextPageToken: 'number',
+      runs: { 'type': 'array', 'itemType': Run },
+      totalCount: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRunsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRunsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRunsResponseBody,
     };
   }
 
@@ -6044,6 +6940,76 @@ export class ListWorkspacesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListWorkspacesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogRunMetricsRequest extends $tea.Model {
+  metrics?: RunMetric[];
+  static names(): { [key: string]: string } {
+    return {
+      metrics: 'Metrics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metrics: { 'type': 'array', 'itemType': RunMetric },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogRunMetricsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogRunMetricsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LogRunMetricsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LogRunMetricsResponseBody,
     };
   }
 
@@ -6354,6 +7320,73 @@ export class RemoveMemberRoleResponse extends $tea.Model {
   }
 }
 
+export class SetExperimentLabelsRequest extends $tea.Model {
+  labels?: LabelInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labels: { 'type': 'array', 'itemType': LabelInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetExperimentLabelsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5A14FA81-DD4E-******-6343FE44B941
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetExperimentLabelsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetExperimentLabelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetExperimentLabelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDatasetRequest extends $tea.Model {
   description?: string;
   /**
@@ -6500,6 +7533,87 @@ export class UpdateDefaultWorkspaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateDefaultWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExperimentRequest extends $tea.Model {
+  /**
+   * @example
+   * PRIVATE
+   */
+  accessibility?: string;
+  /**
+   * @remarks
+   * 名称
+   * 
+   * @example
+   * myName
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessibility: 'Accessibility',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessibility: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExperimentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5A14FA81-DD4E-******-6343FE44B941
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExperimentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateExperimentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateExperimentResponseBody,
     };
   }
 
@@ -6759,6 +7873,86 @@ export class UpdateModelVersionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateModelVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRunRequest extends $tea.Model {
+  labels?: Label[];
+  /**
+   * @example
+   * myName
+   */
+  name?: string;
+  params?: RunParam[];
+  static names(): { [key: string]: string } {
+    return {
+      labels: 'Labels',
+      name: 'Name',
+      params: 'Params',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labels: { 'type': 'array', 'itemType': Label },
+      name: 'string',
+      params: { 'type': 'array', 'itemType': RunParam },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRunResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRunResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRunResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateRunResponseBody,
     };
   }
 
@@ -7492,6 +8686,29 @@ export class GetWorkspaceResponseBodyOwner extends $tea.Model {
       userId: 'string',
       userKp: 'string',
       userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExperimentRequestOptions extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  matchNameExactly?: string;
+  static names(): { [key: string]: string } {
+    return {
+      matchNameExactly: 'match_name_exactly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchNameExactly: 'string',
     };
   }
 
@@ -8727,6 +9944,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建实验
+   * 
+   * @param request - CreateExperimentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateExperimentResponse
+   */
+  async createExperimentWithOptions(request: CreateExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateExperimentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
+    if (!Util.isUnset(request.artifactUri)) {
+      body["ArtifactUri"] = request.artifactUri;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateExperiment",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experiments`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateExperimentResponse>(await this.callApi(params, req, runtime), new CreateExperimentResponse({}));
+  }
+
+  /**
+   * 创建实验
+   * 
+   * @param request - CreateExperimentRequest
+   * @returns CreateExperimentResponse
+   */
+  async createExperiment(request: CreateExperimentRequest): Promise<CreateExperimentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createExperimentWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建成员
    * 
    * @param request - CreateMemberRequest
@@ -9105,6 +10383,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建一次运行
+   * 
+   * @param request - CreateRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRunResponse
+   */
+  async createRunWithOptions(request: CreateRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRunResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.experimentId)) {
+      body["ExperimentId"] = request.experimentId;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      body["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      body["SourceId"] = request.sourceId;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      body["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRun",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/runs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRunResponse>(await this.callApi(params, req, runtime), new CreateRunResponse({}));
+  }
+
+  /**
+   * 创建一次运行
+   * 
+   * @param request - CreateRunRequest
+   * @returns CreateRunResponse
+   */
+  async createRun(request: CreateRunRequest): Promise<CreateRunResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createRunWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建工作空间
    * 
    * @param request - CreateWorkspaceRequest
@@ -9326,6 +10669,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除实验
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteExperimentResponse
+   */
+  async deleteExperimentWithOptions(ExperimentId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteExperimentResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteExperiment",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experiments/${OpenApiUtil.getEncodeParam(ExperimentId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteExperimentResponse>(await this.callApi(params, req, runtime), new DeleteExperimentResponse({}));
+  }
+
+  /**
+   * 删除实验
+   * @returns DeleteExperimentResponse
+   */
+  async deleteExperiment(ExperimentId: string): Promise<DeleteExperimentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteExperimentWithOptions(ExperimentId, headers, runtime);
+  }
+
+  /**
+   * 删除实验标签
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteExperimentLabelResponse
+   */
+  async deleteExperimentLabelWithOptions(ExperimentId: string, Key: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteExperimentLabelResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteExperimentLabel",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experiments/${OpenApiUtil.getEncodeParam(ExperimentId)}/labels/${OpenApiUtil.getEncodeParam(Key)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteExperimentLabelResponse>(await this.callApi(params, req, runtime), new DeleteExperimentLabelResponse({}));
+  }
+
+  /**
+   * 删除实验标签
+   * @returns DeleteExperimentLabelResponse
+   */
+  async deleteExperimentLabel(ExperimentId: string, Key: string): Promise<DeleteExperimentLabelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteExperimentLabelWithOptions(ExperimentId, Key, headers, runtime);
+  }
+
+  /**
    * 删除工作空间成员
    * 
    * @param request - DeleteMembersRequest
@@ -9528,6 +10941,76 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteModelVersionLabelsWithOptions(ModelId, VersionName, request, headers, runtime);
+  }
+
+  /**
+   * 删除Run
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRunResponse
+   */
+  async deleteRunWithOptions(RunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRunResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRun",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/runs/${OpenApiUtil.getEncodeParam(RunId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRunResponse>(await this.callApi(params, req, runtime), new DeleteRunResponse({}));
+  }
+
+  /**
+   * 删除Run
+   * @returns DeleteRunResponse
+   */
+  async deleteRun(RunId: string): Promise<DeleteRunResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteRunWithOptions(RunId, headers, runtime);
+  }
+
+  /**
+   * 删除Run标签
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRunLabelResponse
+   */
+  async deleteRunLabelWithOptions(RunId: string, Key: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRunLabelResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRunLabel",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/runs/${OpenApiUtil.getEncodeParam(RunId)}/labels/${OpenApiUtil.getEncodeParam(Key)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRunLabelResponse>(await this.callApi(params, req, runtime), new DeleteRunLabelResponse({}));
+  }
+
+  /**
+   * 删除Run标签
+   * @returns DeleteRunLabelResponse
+   */
+  async deleteRunLabel(RunId: string, Key: string): Promise<DeleteRunLabelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteRunLabelWithOptions(RunId, Key, headers, runtime);
   }
 
   /**
@@ -9743,6 +11226,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDefaultWorkspaceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取实验
+   * 
+   * @param request - GetExperimentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetExperimentResponse
+   */
+  async getExperimentWithOptions(ExperimentId: string, request: GetExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetExperimentResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.verbose)) {
+      query["Verbose"] = request.verbose;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetExperiment",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experiments/${OpenApiUtil.getEncodeParam(ExperimentId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetExperimentResponse>(await this.callApi(params, req, runtime), new GetExperimentResponse({}));
+  }
+
+  /**
+   * 获取实验
+   * 
+   * @param request - GetExperimentRequest
+   * @returns GetExperimentResponse
+   */
+  async getExperiment(ExperimentId: string, request: GetExperimentRequest): Promise<GetExperimentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getExperimentWithOptions(ExperimentId, request, headers, runtime);
   }
 
   /**
@@ -9967,38 +11495,48 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务模版
+   * 获取Run详情
    * 
+   * @param request - GetRunRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetServiceTemplateResponse
+   * @returns GetRunResponse
    */
-  async getServiceTemplateWithOptions(ServiceTemplateId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceTemplateResponse> {
+  async getRunWithOptions(RunId: string, request: GetRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRunResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.verbose)) {
+      query["Verbose"] = request.verbose;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "GetServiceTemplate",
+      action: "GetRun",
       version: "2021-02-04",
       protocol: "HTTPS",
-      pathname: `/api/v1/servicetemplates/${OpenApiUtil.getEncodeParam(ServiceTemplateId)}`,
+      pathname: `/api/v1/runs/${OpenApiUtil.getEncodeParam(RunId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetServiceTemplateResponse>(await this.callApi(params, req, runtime), new GetServiceTemplateResponse({}));
+    return $tea.cast<GetRunResponse>(await this.callApi(params, req, runtime), new GetRunResponse({}));
   }
 
   /**
-   * 获取服务模版
-   * @returns GetServiceTemplateResponse
+   * 获取Run详情
+   * 
+   * @param request - GetRunRequest
+   * @returns GetRunResponse
    */
-  async getServiceTemplate(ServiceTemplateId: string): Promise<GetServiceTemplateResponse> {
+  async getRun(RunId: string, request: GetRunRequest): Promise<GetRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getServiceTemplateWithOptions(ServiceTemplateId, headers, runtime);
+    return await this.getRunWithOptions(RunId, request, headers, runtime);
   }
 
   /**
@@ -10201,6 +11739,101 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取实验列表
+   * 
+   * @param tmpReq - ListExperimentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExperimentResponse
+   */
+  async listExperimentWithOptions(tmpReq: ListExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListExperimentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListExperimentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.options)) {
+      request.optionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.options, "Options", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.optionsShrink)) {
+      query["Options"] = request.optionsShrink;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.pageToken)) {
+      query["PageToken"] = request.pageToken;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.verbose)) {
+      query["Verbose"] = request.verbose;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListExperiment",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experiments`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListExperimentResponse>(await this.callApi(params, req, runtime), new ListExperimentResponse({}));
+  }
+
+  /**
+   * 获取实验列表
+   * 
+   * @param request - ListExperimentRequest
+   * @returns ListExperimentResponse
+   */
+  async listExperiment(request: ListExperimentRequest): Promise<ListExperimentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listExperimentWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 列举标签
    * 
    * @param request - ListImageLabelsRequest
@@ -10274,6 +11907,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessibility)) {
       query["Accessibility"] = request.accessibility;
+    }
+
+    if (!Util.isUnset(request.imageUri)) {
+      query["ImageUri"] = request.imageUri;
     }
 
     if (!Util.isUnset(request.labels)) {
@@ -10812,22 +12449,95 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务模版列表
+   * 获取Run的指标记录列表
    * 
-   * @param request - ListServiceTemplatesRequest
+   * @param request - ListRunMetricsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListServiceTemplatesResponse
+   * @returns ListRunMetricsResponse
    */
-  async listServiceTemplatesWithOptions(request: ListServiceTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceTemplatesResponse> {
+  async listRunMetricsWithOptions(RunId: string, request: ListRunMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRunMetricsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.label)) {
-      query["Label"] = request.label;
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.pageToken)) {
+      query["PageToken"] = request.pageToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRunMetrics",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/runs/${OpenApiUtil.getEncodeParam(RunId)}/metrics`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRunMetricsResponse>(await this.callApi(params, req, runtime), new ListRunMetricsResponse({}));
+  }
+
+  /**
+   * 获取Run的指标记录列表
+   * 
+   * @param request - ListRunMetricsRequest
+   * @returns ListRunMetricsResponse
+   */
+  async listRunMetrics(RunId: string, request: ListRunMetricsRequest): Promise<ListRunMetricsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRunMetricsWithOptions(RunId, request, headers, runtime);
+  }
+
+  /**
+   * 获取Run列表
+   * 
+   * @param request - ListRunsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRunsResponse
+   */
+  async listRunsWithOptions(request: ListRunsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRunsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.experimentId)) {
+      query["ExperimentId"] = request.experimentId;
+    }
+
+    if (!Util.isUnset(request.gmtCreateTime)) {
+      query["GmtCreateTime"] = request.gmtCreateTime;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
     }
 
     if (!Util.isUnset(request.order)) {
       query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -10838,20 +12548,28 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.provider)) {
-      query["Provider"] = request.provider;
-    }
-
-    if (!Util.isUnset(request.query)) {
-      query["Query"] = request.query;
-    }
-
-    if (!Util.isUnset(request.serviceTemplateName)) {
-      query["ServiceTemplateName"] = request.serviceTemplateName;
+    if (!Util.isUnset(request.pageToken)) {
+      query["PageToken"] = request.pageToken;
     }
 
     if (!Util.isUnset(request.sortBy)) {
       query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.verbose)) {
+      query["Verbose"] = request.verbose;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -10859,29 +12577,29 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "ListServiceTemplates",
+      action: "ListRuns",
       version: "2021-02-04",
       protocol: "HTTPS",
-      pathname: `/api/v1/servicetemplates`,
+      pathname: `/api/v1/runs`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListServiceTemplatesResponse>(await this.callApi(params, req, runtime), new ListServiceTemplatesResponse({}));
+    return $tea.cast<ListRunsResponse>(await this.callApi(params, req, runtime), new ListRunsResponse({}));
   }
 
   /**
-   * 获取服务模版列表
+   * 获取Run列表
    * 
-   * @param request - ListServiceTemplatesRequest
-   * @returns ListServiceTemplatesResponse
+   * @param request - ListRunsRequest
+   * @returns ListRunsResponse
    */
-  async listServiceTemplates(request: ListServiceTemplatesRequest): Promise<ListServiceTemplatesResponse> {
+  async listRuns(request: ListRunsRequest): Promise<ListRunsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listServiceTemplatesWithOptions(request, headers, runtime);
+    return await this.listRunsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -11012,6 +12730,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listWorkspacesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量记录Run的指标
+   * 
+   * @param request - LogRunMetricsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LogRunMetricsResponse
+   */
+  async logRunMetricsWithOptions(RunId: string, request: LogRunMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<LogRunMetricsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.metrics)) {
+      body["Metrics"] = request.metrics;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "LogRunMetrics",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/runs/${OpenApiUtil.getEncodeParam(RunId)}/metrics/action/log`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<LogRunMetricsResponse>(await this.callApi(params, req, runtime), new LogRunMetricsResponse({}));
+  }
+
+  /**
+   * 批量记录Run的指标
+   * 
+   * @param request - LogRunMetricsRequest
+   * @returns LogRunMetricsResponse
+   */
+  async logRunMetrics(RunId: string, request: LogRunMetricsRequest): Promise<LogRunMetricsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.logRunMetricsWithOptions(RunId, request, headers, runtime);
   }
 
   /**
@@ -11225,6 +12988,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新实验标签
+   * 
+   * @param request - SetExperimentLabelsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetExperimentLabelsResponse
+   */
+  async setExperimentLabelsWithOptions(ExperimentId: string, request: SetExperimentLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SetExperimentLabelsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetExperimentLabels",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experiments/${OpenApiUtil.getEncodeParam(ExperimentId)}/labels`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SetExperimentLabelsResponse>(await this.callApi(params, req, runtime), new SetExperimentLabelsResponse({}));
+  }
+
+  /**
+   * 更新实验标签
+   * 
+   * @param request - SetExperimentLabelsRequest
+   * @returns SetExperimentLabelsResponse
+   */
+  async setExperimentLabels(ExperimentId: string, request: SetExperimentLabelsRequest): Promise<SetExperimentLabelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.setExperimentLabelsWithOptions(ExperimentId, request, headers, runtime);
+  }
+
+  /**
    * 更新数据集
    * 
    * @param request - UpdateDatasetRequest
@@ -11320,6 +13128,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateDefaultWorkspaceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新实验
+   * 
+   * @param request - UpdateExperimentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateExperimentResponse
+   */
+  async updateExperimentWithOptions(ExperimentId: string, request: UpdateExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateExperimentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateExperiment",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experiments/${OpenApiUtil.getEncodeParam(ExperimentId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateExperimentResponse>(await this.callApi(params, req, runtime), new UpdateExperimentResponse({}));
+  }
+
+  /**
+   * 更新实验
+   * 
+   * @param request - UpdateExperimentRequest
+   * @returns UpdateExperimentResponse
+   */
+  async updateExperiment(ExperimentId: string, request: UpdateExperimentRequest): Promise<UpdateExperimentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateExperimentWithOptions(ExperimentId, request, headers, runtime);
   }
 
   /**
@@ -11486,6 +13343,59 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateModelVersionWithOptions(ModelId, VersionName, request, headers, runtime);
+  }
+
+  /**
+   * 更新Run
+   * 
+   * @param request - UpdateRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRunResponse
+   */
+  async updateRunWithOptions(RunId: string, request: UpdateRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRunResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      body["Params"] = request.params;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateRun",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/runs/${OpenApiUtil.getEncodeParam(RunId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRunResponse>(await this.callApi(params, req, runtime), new UpdateRunResponse({}));
+  }
+
+  /**
+   * 更新Run
+   * 
+   * @param request - UpdateRunRequest
+   * @returns UpdateRunResponse
+   */
+  async updateRun(RunId: string, request: UpdateRunRequest): Promise<UpdateRunResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateRunWithOptions(RunId, request, headers, runtime);
   }
 
   /**
