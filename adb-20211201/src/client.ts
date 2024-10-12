@@ -2,7 +2,6 @@
 /**
  */
 import Util, * as $Util from '@alicloud/tea-util';
-import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -2114,6 +2113,15 @@ export class CreateDBClusterRequest extends $tea.Model {
    * 1880808684
    */
   backupSetId?: string;
+  /**
+   * @remarks
+   * The region ID of the source cluster.
+   * 
+   * >  This parameter must be specified for cloning clusters across regions.
+   * 
+   * @example
+   * cn-beijing
+   */
   cloneSourceRegionId?: string;
   /**
    * @remarks
@@ -3206,6 +3214,9 @@ export class CreateOssSubDirectoryResponse extends $tea.Model {
 
 export class CreatePerformanceViewRequest extends $tea.Model {
   /**
+   * @remarks
+   * The type of the view.
+   * 
    * @example
    * Basic
    */
@@ -3258,7 +3269,12 @@ export class CreatePerformanceViewRequest extends $tea.Model {
   viewDetail?: CreatePerformanceViewRequestViewDetail;
   /**
    * @remarks
+   * The name of the view.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * viewname
    */
   viewName?: string;
   static names(): { [key: string]: string } {
@@ -3298,6 +3314,9 @@ export class CreatePerformanceViewRequest extends $tea.Model {
 
 export class CreatePerformanceViewShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The type of the view.
+   * 
    * @example
    * Basic
    */
@@ -3350,7 +3369,12 @@ export class CreatePerformanceViewShrinkRequest extends $tea.Model {
   viewDetailShrink?: string;
   /**
    * @remarks
+   * The name of the view.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * viewname
    */
   viewName?: string;
   static names(): { [key: string]: string } {
@@ -3390,6 +3414,11 @@ export class CreatePerformanceViewShrinkRequest extends $tea.Model {
 
 export class CreatePerformanceViewResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * 
    * @example
    * {
    *     "PolicyType": "AccountLevelIdentityBasedPolicy",
@@ -3414,6 +3443,9 @@ export class CreatePerformanceViewResponseBody extends $tea.Model {
    */
   createStatus?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E031AABF-BD56-5966-A063-4283EF18DB45
    */
@@ -4023,7 +4055,12 @@ export class DeletePerformanceViewRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The name of the view.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * view_dwd_plan_double_term
    */
   viewName?: string;
   static names(): { [key: string]: string } {
@@ -4075,11 +4112,17 @@ export class DeletePerformanceViewResponseBody extends $tea.Model {
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The delete status.
+   * 
    * @example
    * SUCCESS
    */
   deleteStatus?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
    */
@@ -5724,7 +5767,7 @@ export class DescribeApsActionLogsRequest extends $tea.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format. The time must be in UTC.
+   * The end time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mmZ** format. The time must be in UTC.
    * 
    * >  The end time must be later than the start time. The maximum time range that can be specified is 30 days.
    * 
@@ -5794,7 +5837,7 @@ export class DescribeApsActionLogsRequest extends $tea.Model {
   stage?: string;
   /**
    * @remarks
-   * The start time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format. The time must be in UTC.
+   * The start time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mmZ** format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -6730,6 +6773,7 @@ export class DescribeBackupsRequest extends $tea.Model {
 }
 
 export class DescribeBackupsResponseBody extends $tea.Model {
+  freeBackupSize?: number;
   /**
    * @remarks
    * The queried backup sets.
@@ -6759,6 +6803,7 @@ export class DescribeBackupsResponseBody extends $tea.Model {
    * CE17270B-F8F8-5A31-9DB4-DADDFDAD7940
    */
   requestId?: string;
+  totalBackupSize?: number;
   /**
    * @remarks
    * The total number of entries returned.
@@ -6769,20 +6814,24 @@ export class DescribeBackupsResponseBody extends $tea.Model {
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
+      freeBackupSize: 'FreeBackupSize',
       items: 'Items',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalBackupSize: 'TotalBackupSize',
       totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      freeBackupSize: 'number',
       items: DescribeBackupsResponseBodyItems,
       pageNumber: 'string',
       pageSize: 'string',
       requestId: 'string',
+      totalBackupSize: 'number',
       totalCount: 'string',
     };
   }
@@ -6820,7 +6869,7 @@ export class DescribeBackupsResponse extends $tea.Model {
 export class DescribeClusterAccessWhiteListRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -10633,7 +10682,12 @@ export class DescribePerformanceViewAttributeRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The name of the view.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Basic
    */
   viewName?: string;
   static names(): { [key: string]: string } {
@@ -10667,6 +10721,11 @@ export class DescribePerformanceViewAttributeRequest extends $tea.Model {
 
 export class DescribePerformanceViewAttributeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * 
    * @example
    * {
    *     "PolicyType": "AccountLevelIdentityBasedPolicy",
@@ -10680,26 +10739,54 @@ export class DescribePerformanceViewAttributeResponseBody extends $tea.Model {
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The type of the view.
+   * 
    * @example
    * Basic
    */
   createFromViewType?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+   * 
    * @example
    * amv-bp198m028ih55xxxx
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * Specifies whether to populate the names of the metrics in the original monitoring view when you view the monitoring view. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   fillOriginViewKeys?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E031AABF-BD56-5966-A063-4283EF18DB45
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the monitoring view.
+   */
   viewDetail?: DescribePerformanceViewAttributeResponseBodyViewDetail;
+  /**
+   * @remarks
+   * The name of the view.
+   * 
+   * @example
+   * Basic
+   */
   viewName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10813,6 +10900,11 @@ export class DescribePerformanceViewsRequest extends $tea.Model {
 
 export class DescribePerformanceViewsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * 
    * @example
    * {
    *     "PolicyType": "AccountLevelIdentityBasedPolicy",
@@ -10826,10 +10918,17 @@ export class DescribePerformanceViewsResponseBody extends $tea.Model {
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3A8F6106-6AFD-5A34-9C80-8DE2C42D06E8
    */
   requestId?: string;
+  /**
+   * @remarks
+   * the list of view.
+   */
   views?: DescribePerformanceViewsResponseBodyViews[];
   static names(): { [key: string]: string } {
     return {
@@ -17124,8 +17223,6 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * 
    * >  To ensure data security, we recommend that you specify at least two values.
    * 
-   * This parameter is required.
-   * 
    * @example
    * Monday,Wednesday,Friday,Sunday
    */
@@ -17512,9 +17609,9 @@ export class ModifyDBClusterRequest extends $tea.Model {
   computeResource?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
    * 
    * This parameter is required.
    * 
@@ -17551,6 +17648,10 @@ export class ModifyDBClusterRequest extends $tea.Model {
    */
   regionId?: string;
   reservedNodeCount?: number;
+  /**
+   * @example
+   * LegacyForm
+   */
   reservedNodeSize?: string;
   resourceOwnerAccount?: string;
   /**
@@ -17603,7 +17704,7 @@ export class ModifyDBClusterRequest extends $tea.Model {
 export class ModifyDBClusterResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * @example
    * amv-bp1r053byu48p****
@@ -18439,6 +18540,9 @@ export class ModifyPerformanceViewRequest extends $tea.Model {
    * The name of the monitoring view.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Basic
    */
   viewName?: string;
   static names(): { [key: string]: string } {
@@ -18513,6 +18617,9 @@ export class ModifyPerformanceViewShrinkRequest extends $tea.Model {
    * The name of the monitoring view.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Basic
    */
   viewName?: string;
   static names(): { [key: string]: string } {
@@ -21336,6 +21443,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
    * 2022-06-02T16:00Z
    */
   backupEndTime?: string;
+  backupExpiredTime?: string;
   /**
    * @remarks
    * The backup set ID.
@@ -21390,6 +21498,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       backupEndTime: 'BackupEndTime',
+      backupExpiredTime: 'BackupExpiredTime',
       backupId: 'BackupId',
       backupMethod: 'BackupMethod',
       backupSize: 'BackupSize',
@@ -21402,6 +21511,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backupEndTime: 'string',
+      backupExpiredTime: 'string',
       backupId: 'string',
       backupMethod: 'string',
       backupSize: 'number',
@@ -25178,11 +25288,17 @@ export class DescribeExcessivePrimaryKeysResponseBodyDetectionItems extends $tea
   /**
    * @remarks
    * The detection result.
+   * 
+   * @example
+   * OK
    */
   message?: string;
   /**
    * @remarks
    * The name of the detection item.
+   * 
+   * @example
+   * test
    */
   name?: string;
   /**
@@ -25334,11 +25450,17 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
    */
   reservedAcuNumber?: number;
   /**
+   * @remarks
+   * The number of spot ACUs.
+   * 
    * @example
    * 16ACU
    */
   spotAcuNumber?: number;
   /**
+   * @remarks
+   * The percent of spot ACUs.
+   * 
    * @example
    * 0.9
    */
@@ -25603,11 +25725,20 @@ export class DescribePatternPerformanceResponseBodyPerformances extends $tea.Mod
 
 export class DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKeys extends $tea.Model {
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * AnalyticDB_CPU
    */
   keyName?: string;
   /**
+   * @remarks
+   * Specifies whether to select the metric. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -25633,10 +25764,22 @@ export class DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKey
 
 export class DescribePerformanceViewAttributeResponseBodyViewDetailCategories extends $tea.Model {
   /**
+   * @remarks
+   * The name of the metric category. Valid values:
+   * 
+   * *   **Node**
+   * *   **DiskData**
+   * *   **WorkLoad**
+   * *   **ResourceGroup**
+   * 
    * @example
    * Node
    */
   category?: string;
+  /**
+   * @remarks
+   * The metrics.
+   */
   keys?: DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKeys[];
   static names(): { [key: string]: string } {
     return {
@@ -25658,13 +25801,26 @@ export class DescribePerformanceViewAttributeResponseBodyViewDetailCategories ex
 }
 
 export class DescribePerformanceViewAttributeResponseBodyViewDetail extends $tea.Model {
+  /**
+   * @remarks
+   * The metric category.
+   */
   categories?: DescribePerformanceViewAttributeResponseBodyViewDetailCategories[];
   /**
+   * @remarks
+   * Specifies whether to enable the filter interaction feature. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   chartLinked?: boolean;
   /**
+   * @remarks
+   * The number of charts to display in each row.
+   * 
    * @example
    * 2
    */
@@ -25692,15 +25848,28 @@ export class DescribePerformanceViewAttributeResponseBodyViewDetail extends $tea
 
 export class DescribePerformanceViewsResponseBodyViews extends $tea.Model {
   /**
+   * @remarks
+   * The time when created.
+   * 
    * @example
    * 2024-06-18T07:06:53.000+00:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when updated.
+   * 
    * @example
    * 2024-06-18T07:07:32.000+00:00
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The name of the view.
+   * 
+   * @example
+   * Basic
+   */
   viewName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28283,9 +28452,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._productId = "adb";
-    let gatewayClient = new GatewayClient();
-    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-qingdao': "adb.aliyuncs.com",
@@ -28389,12 +28555,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<AllocateClusterPublicConnectionResponse>(await this.callApi(params, req, runtime), new AllocateClusterPublicConnectionResponse({}));
-    } else {
-      return $tea.cast<AllocateClusterPublicConnectionResponse>(await this.execute(params, req, runtime), new AllocateClusterPublicConnectionResponse({}));
-    }
-
+    return $tea.cast<AllocateClusterPublicConnectionResponse>(await this.callApi(params, req, runtime), new AllocateClusterPublicConnectionResponse({}));
   }
 
   /**
@@ -28442,12 +28603,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<AttachUserENIResponse>(await this.callApi(params, req, runtime), new AttachUserENIResponse({}));
-    } else {
-      return $tea.cast<AttachUserENIResponse>(await this.execute(params, req, runtime), new AttachUserENIResponse({}));
-    }
-
+    return $tea.cast<AttachUserENIResponse>(await this.callApi(params, req, runtime), new AttachUserENIResponse({}));
   }
 
   /**
@@ -28503,12 +28659,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<BindAccountResponse>(await this.callApi(params, req, runtime), new BindAccountResponse({}));
-    } else {
-      return $tea.cast<BindAccountResponse>(await this.execute(params, req, runtime), new BindAccountResponse({}));
-    }
-
+    return $tea.cast<BindAccountResponse>(await this.callApi(params, req, runtime), new BindAccountResponse({}));
   }
 
   /**
@@ -28564,12 +28715,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<BindDBResourceGroupWithUserResponse>(await this.callApi(params, req, runtime), new BindDBResourceGroupWithUserResponse({}));
-    } else {
-      return $tea.cast<BindDBResourceGroupWithUserResponse>(await this.execute(params, req, runtime), new BindDBResourceGroupWithUserResponse({}));
-    }
-
+    return $tea.cast<BindDBResourceGroupWithUserResponse>(await this.callApi(params, req, runtime), new BindDBResourceGroupWithUserResponse({}));
   }
 
   /**
@@ -28621,12 +28767,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CheckBindRamUserResponse>(await this.callApi(params, req, runtime), new CheckBindRamUserResponse({}));
-    } else {
-      return $tea.cast<CheckBindRamUserResponse>(await this.execute(params, req, runtime), new CheckBindRamUserResponse({}));
-    }
-
+    return $tea.cast<CheckBindRamUserResponse>(await this.callApi(params, req, runtime), new CheckBindRamUserResponse({}));
   }
 
   /**
@@ -28672,12 +28813,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CheckSampleDataSetResponse>(await this.callApi(params, req, runtime), new CheckSampleDataSetResponse({}));
-    } else {
-      return $tea.cast<CheckSampleDataSetResponse>(await this.execute(params, req, runtime), new CheckSampleDataSetResponse({}));
-    }
-
+    return $tea.cast<CheckSampleDataSetResponse>(await this.callApi(params, req, runtime), new CheckSampleDataSetResponse({}));
   }
 
   /**
@@ -28743,12 +28879,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
-    } else {
-      return $tea.cast<CreateAccountResponse>(await this.execute(params, req, runtime), new CreateAccountResponse({}));
-    }
-
+    return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
   }
 
   /**
@@ -28892,12 +29023,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateDBClusterResponse>(await this.callApi(params, req, runtime), new CreateDBClusterResponse({}));
-    } else {
-      return $tea.cast<CreateDBClusterResponse>(await this.execute(params, req, runtime), new CreateDBClusterResponse({}));
-    }
-
+    return $tea.cast<CreateDBClusterResponse>(await this.callApi(params, req, runtime), new CreateDBClusterResponse({}));
   }
 
   /**
@@ -29023,12 +29149,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateDBResourceGroupResponse>(await this.callApi(params, req, runtime), new CreateDBResourceGroupResponse({}));
-    } else {
-      return $tea.cast<CreateDBResourceGroupResponse>(await this.execute(params, req, runtime), new CreateDBResourceGroupResponse({}));
-    }
-
+    return $tea.cast<CreateDBResourceGroupResponse>(await this.callApi(params, req, runtime), new CreateDBResourceGroupResponse({}));
   }
 
   /**
@@ -29112,12 +29233,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateElasticPlanResponse>(await this.callApi(params, req, runtime), new CreateElasticPlanResponse({}));
-    } else {
-      return $tea.cast<CreateElasticPlanResponse>(await this.execute(params, req, runtime), new CreateElasticPlanResponse({}));
-    }
-
+    return $tea.cast<CreateElasticPlanResponse>(await this.callApi(params, req, runtime), new CreateElasticPlanResponse({}));
   }
 
   /**
@@ -29171,12 +29287,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateOssSubDirectoryResponse>(await this.callApi(params, req, runtime), new CreateOssSubDirectoryResponse({}));
-    } else {
-      return $tea.cast<CreateOssSubDirectoryResponse>(await this.execute(params, req, runtime), new CreateOssSubDirectoryResponse({}));
-    }
-
+    return $tea.cast<CreateOssSubDirectoryResponse>(await this.callApi(params, req, runtime), new CreateOssSubDirectoryResponse({}));
   }
 
   /**
@@ -29196,6 +29307,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a custom monitoring view.
+   * 
    * @param tmpReq - CreatePerformanceViewRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePerformanceViewResponse
@@ -29263,15 +29376,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreatePerformanceViewResponse>(await this.callApi(params, req, runtime), new CreatePerformanceViewResponse({}));
-    } else {
-      return $tea.cast<CreatePerformanceViewResponse>(await this.execute(params, req, runtime), new CreatePerformanceViewResponse({}));
-    }
-
+    return $tea.cast<CreatePerformanceViewResponse>(await this.callApi(params, req, runtime), new CreatePerformanceViewResponse({}));
   }
 
   /**
+   * Creates a custom monitoring view.
+   * 
    * @param request - CreatePerformanceViewRequest
    * @returns CreatePerformanceViewResponse
    */
@@ -29329,12 +29439,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateSparkTemplateResponse>(await this.callApi(params, req, runtime), new CreateSparkTemplateResponse({}));
-    } else {
-      return $tea.cast<CreateSparkTemplateResponse>(await this.execute(params, req, runtime), new CreateSparkTemplateResponse({}));
-    }
-
+    return $tea.cast<CreateSparkTemplateResponse>(await this.callApi(params, req, runtime), new CreateSparkTemplateResponse({}));
   }
 
   /**
@@ -29392,12 +29497,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
-    } else {
-      return $tea.cast<DeleteAccountResponse>(await this.execute(params, req, runtime), new DeleteAccountResponse({}));
-    }
-
+    return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
   }
 
   /**
@@ -29447,12 +29547,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteDBClusterResponse>(await this.callApi(params, req, runtime), new DeleteDBClusterResponse({}));
-    } else {
-      return $tea.cast<DeleteDBClusterResponse>(await this.execute(params, req, runtime), new DeleteDBClusterResponse({}));
-    }
-
+    return $tea.cast<DeleteDBClusterResponse>(await this.callApi(params, req, runtime), new DeleteDBClusterResponse({}));
   }
 
   /**
@@ -29506,12 +29601,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteDBResourceGroupResponse>(await this.callApi(params, req, runtime), new DeleteDBResourceGroupResponse({}));
-    } else {
-      return $tea.cast<DeleteDBResourceGroupResponse>(await this.execute(params, req, runtime), new DeleteDBResourceGroupResponse({}));
-    }
-
+    return $tea.cast<DeleteDBResourceGroupResponse>(await this.callApi(params, req, runtime), new DeleteDBResourceGroupResponse({}));
   }
 
   /**
@@ -29563,12 +29653,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteElasticPlanResponse>(await this.callApi(params, req, runtime), new DeleteElasticPlanResponse({}));
-    } else {
-      return $tea.cast<DeleteElasticPlanResponse>(await this.execute(params, req, runtime), new DeleteElasticPlanResponse({}));
-    }
-
+    return $tea.cast<DeleteElasticPlanResponse>(await this.callApi(params, req, runtime), new DeleteElasticPlanResponse({}));
   }
 
   /**
@@ -29586,6 +29671,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a monitoring view.
+   * 
    * @param request - DeletePerformanceViewRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePerformanceViewResponse
@@ -29635,15 +29722,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeletePerformanceViewResponse>(await this.callApi(params, req, runtime), new DeletePerformanceViewResponse({}));
-    } else {
-      return $tea.cast<DeletePerformanceViewResponse>(await this.execute(params, req, runtime), new DeletePerformanceViewResponse({}));
-    }
-
+    return $tea.cast<DeletePerformanceViewResponse>(await this.callApi(params, req, runtime), new DeletePerformanceViewResponse({}));
   }
 
   /**
+   * Deletes a monitoring view.
+   * 
    * @param request - DeletePerformanceViewRequest
    * @returns DeletePerformanceViewResponse
    */
@@ -29696,12 +29780,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteProcessInstanceResponse>(await this.callApi(params, req, runtime), new DeleteProcessInstanceResponse({}));
-    } else {
-      return $tea.cast<DeleteProcessInstanceResponse>(await this.execute(params, req, runtime), new DeleteProcessInstanceResponse({}));
-    }
-
+    return $tea.cast<DeleteProcessInstanceResponse>(await this.callApi(params, req, runtime), new DeleteProcessInstanceResponse({}));
   }
 
   /**
@@ -29756,12 +29835,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteSparkTemplateResponse>(await this.callApi(params, req, runtime), new DeleteSparkTemplateResponse({}));
-    } else {
-      return $tea.cast<DeleteSparkTemplateResponse>(await this.execute(params, req, runtime), new DeleteSparkTemplateResponse({}));
-    }
-
+    return $tea.cast<DeleteSparkTemplateResponse>(await this.callApi(params, req, runtime), new DeleteSparkTemplateResponse({}));
   }
 
   /**
@@ -29817,12 +29891,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteSparkTemplateFileResponse>(await this.callApi(params, req, runtime), new DeleteSparkTemplateFileResponse({}));
-    } else {
-      return $tea.cast<DeleteSparkTemplateFileResponse>(await this.execute(params, req, runtime), new DeleteSparkTemplateFileResponse({}));
-    }
-
+    return $tea.cast<DeleteSparkTemplateFileResponse>(await this.callApi(params, req, runtime), new DeleteSparkTemplateFileResponse({}));
   }
 
   /**
@@ -29884,12 +29953,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeAccountAllPrivilegesResponse>(await this.callApi(params, req, runtime), new DescribeAccountAllPrivilegesResponse({}));
-    } else {
-      return $tea.cast<DescribeAccountAllPrivilegesResponse>(await this.execute(params, req, runtime), new DescribeAccountAllPrivilegesResponse({}));
-    }
-
+    return $tea.cast<DescribeAccountAllPrivilegesResponse>(await this.callApi(params, req, runtime), new DescribeAccountAllPrivilegesResponse({}));
   }
 
   /**
@@ -29969,12 +30033,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeAccountPrivilegeObjectsResponse>(await this.callApi(params, req, runtime), new DescribeAccountPrivilegeObjectsResponse({}));
-    } else {
-      return $tea.cast<DescribeAccountPrivilegeObjectsResponse>(await this.execute(params, req, runtime), new DescribeAccountPrivilegeObjectsResponse({}));
-    }
-
+    return $tea.cast<DescribeAccountPrivilegeObjectsResponse>(await this.callApi(params, req, runtime), new DescribeAccountPrivilegeObjectsResponse({}));
   }
 
   /**
@@ -30051,12 +30110,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeAccountPrivilegesResponse>(await this.callApi(params, req, runtime), new DescribeAccountPrivilegesResponse({}));
-    } else {
-      return $tea.cast<DescribeAccountPrivilegesResponse>(await this.execute(params, req, runtime), new DescribeAccountPrivilegesResponse({}));
-    }
-
+    return $tea.cast<DescribeAccountPrivilegesResponse>(await this.callApi(params, req, runtime), new DescribeAccountPrivilegesResponse({}));
   }
 
   /**
@@ -30113,12 +30167,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeAccountsResponse>(await this.callApi(params, req, runtime), new DescribeAccountsResponse({}));
-    } else {
-      return $tea.cast<DescribeAccountsResponse>(await this.execute(params, req, runtime), new DescribeAccountsResponse({}));
-    }
-
+    return $tea.cast<DescribeAccountsResponse>(await this.callApi(params, req, runtime), new DescribeAccountsResponse({}));
   }
 
   /**
@@ -30179,12 +30228,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeAdbMySqlColumnsResponse>(await this.callApi(params, req, runtime), new DescribeAdbMySqlColumnsResponse({}));
-    } else {
-      return $tea.cast<DescribeAdbMySqlColumnsResponse>(await this.execute(params, req, runtime), new DescribeAdbMySqlColumnsResponse({}));
-    }
-
+    return $tea.cast<DescribeAdbMySqlColumnsResponse>(await this.callApi(params, req, runtime), new DescribeAdbMySqlColumnsResponse({}));
   }
 
   /**
@@ -30238,12 +30282,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeAdbMySqlSchemasResponse>(await this.callApi(params, req, runtime), new DescribeAdbMySqlSchemasResponse({}));
-    } else {
-      return $tea.cast<DescribeAdbMySqlSchemasResponse>(await this.execute(params, req, runtime), new DescribeAdbMySqlSchemasResponse({}));
-    }
-
+    return $tea.cast<DescribeAdbMySqlSchemasResponse>(await this.callApi(params, req, runtime), new DescribeAdbMySqlSchemasResponse({}));
   }
 
   /**
@@ -30301,12 +30340,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeAdbMySqlTablesResponse>(await this.callApi(params, req, runtime), new DescribeAdbMySqlTablesResponse({}));
-    } else {
-      return $tea.cast<DescribeAdbMySqlTablesResponse>(await this.execute(params, req, runtime), new DescribeAdbMySqlTablesResponse({}));
-    }
-
+    return $tea.cast<DescribeAdbMySqlTablesResponse>(await this.callApi(params, req, runtime), new DescribeAdbMySqlTablesResponse({}));
   }
 
   /**
@@ -30368,12 +30402,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeAllDataSourceResponse>(await this.callApi(params, req, runtime), new DescribeAllDataSourceResponse({}));
-    } else {
-      return $tea.cast<DescribeAllDataSourceResponse>(await this.execute(params, req, runtime), new DescribeAllDataSourceResponse({}));
-    }
-
+    return $tea.cast<DescribeAllDataSourceResponse>(await this.callApi(params, req, runtime), new DescribeAllDataSourceResponse({}));
   }
 
   /**
@@ -30476,12 +30505,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeApsActionLogsResponse>(await this.callApi(params, req, runtime), new DescribeApsActionLogsResponse({}));
-    } else {
-      return $tea.cast<DescribeApsActionLogsResponse>(await this.execute(params, req, runtime), new DescribeApsActionLogsResponse({}));
-    }
-
+    return $tea.cast<DescribeApsActionLogsResponse>(await this.callApi(params, req, runtime), new DescribeApsActionLogsResponse({}));
   }
 
   /**
@@ -30540,12 +30564,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeApsResourceGroupsResponse>(await this.callApi(params, req, runtime), new DescribeApsResourceGroupsResponse({}));
-    } else {
-      return $tea.cast<DescribeApsResourceGroupsResponse>(await this.execute(params, req, runtime), new DescribeApsResourceGroupsResponse({}));
-    }
-
+    return $tea.cast<DescribeApsResourceGroupsResponse>(await this.callApi(params, req, runtime), new DescribeApsResourceGroupsResponse({}));
   }
 
   /**
@@ -30667,12 +30686,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeAuditLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeAuditLogRecordsResponse({}));
-    } else {
-      return $tea.cast<DescribeAuditLogRecordsResponse>(await this.execute(params, req, runtime), new DescribeAuditLogRecordsResponse({}));
-    }
-
+    return $tea.cast<DescribeAuditLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeAuditLogRecordsResponse({}));
   }
 
   /**
@@ -30735,12 +30749,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
-    } else {
-      return $tea.cast<DescribeBackupPolicyResponse>(await this.execute(params, req, runtime), new DescribeBackupPolicyResponse({}));
-    }
-
+    return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
   }
 
   /**
@@ -30820,12 +30829,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeBackupsResponse>(await this.callApi(params, req, runtime), new DescribeBackupsResponse({}));
-    } else {
-      return $tea.cast<DescribeBackupsResponse>(await this.execute(params, req, runtime), new DescribeBackupsResponse({}));
-    }
-
+    return $tea.cast<DescribeBackupsResponse>(await this.callApi(params, req, runtime), new DescribeBackupsResponse({}));
   }
 
   /**
@@ -30879,12 +30883,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeClusterAccessWhiteListResponse>(await this.callApi(params, req, runtime), new DescribeClusterAccessWhiteListResponse({}));
-    } else {
-      return $tea.cast<DescribeClusterAccessWhiteListResponse>(await this.execute(params, req, runtime), new DescribeClusterAccessWhiteListResponse({}));
-    }
-
+    return $tea.cast<DescribeClusterAccessWhiteListResponse>(await this.callApi(params, req, runtime), new DescribeClusterAccessWhiteListResponse({}));
   }
 
   /**
@@ -30936,12 +30935,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeClusterNetInfoResponse>(await this.callApi(params, req, runtime), new DescribeClusterNetInfoResponse({}));
-    } else {
-      return $tea.cast<DescribeClusterNetInfoResponse>(await this.execute(params, req, runtime), new DescribeClusterNetInfoResponse({}));
-    }
-
+    return $tea.cast<DescribeClusterNetInfoResponse>(await this.callApi(params, req, runtime), new DescribeClusterNetInfoResponse({}));
   }
 
   /**
@@ -30989,12 +30983,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeClusterResourceDetailResponse>(await this.callApi(params, req, runtime), new DescribeClusterResourceDetailResponse({}));
-    } else {
-      return $tea.cast<DescribeClusterResourceDetailResponse>(await this.execute(params, req, runtime), new DescribeClusterResourceDetailResponse({}));
-    }
-
+    return $tea.cast<DescribeClusterResourceDetailResponse>(await this.callApi(params, req, runtime), new DescribeClusterResourceDetailResponse({}));
   }
 
   /**
@@ -31035,12 +31024,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeClusterResourceUsageResponse>(await this.callApi(params, req, runtime), new DescribeClusterResourceUsageResponse({}));
-    } else {
-      return $tea.cast<DescribeClusterResourceUsageResponse>(await this.execute(params, req, runtime), new DescribeClusterResourceUsageResponse({}));
-    }
-
+    return $tea.cast<DescribeClusterResourceUsageResponse>(await this.callApi(params, req, runtime), new DescribeClusterResourceUsageResponse({}));
   }
 
   /**
@@ -31098,12 +31082,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeColumnsResponse>(await this.callApi(params, req, runtime), new DescribeColumnsResponse({}));
-    } else {
-      return $tea.cast<DescribeColumnsResponse>(await this.execute(params, req, runtime), new DescribeColumnsResponse({}));
-    }
-
+    return $tea.cast<DescribeColumnsResponse>(await this.callApi(params, req, runtime), new DescribeColumnsResponse({}));
   }
 
   /**
@@ -31164,12 +31143,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeComputeResourceUsageResponse>(await this.callApi(params, req, runtime), new DescribeComputeResourceUsageResponse({}));
-    } else {
-      return $tea.cast<DescribeComputeResourceUsageResponse>(await this.execute(params, req, runtime), new DescribeComputeResourceUsageResponse({}));
-    }
-
+    return $tea.cast<DescribeComputeResourceUsageResponse>(await this.callApi(params, req, runtime), new DescribeComputeResourceUsageResponse({}));
   }
 
   /**
@@ -31217,12 +31191,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDBClusterAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterAttributeResponse({}));
-    } else {
-      return $tea.cast<DescribeDBClusterAttributeResponse>(await this.execute(params, req, runtime), new DescribeDBClusterAttributeResponse({}));
-    }
-
+    return $tea.cast<DescribeDBClusterAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterAttributeResponse({}));
   }
 
   /**
@@ -31274,12 +31243,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDBClusterHealthStatusResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterHealthStatusResponse({}));
-    } else {
-      return $tea.cast<DescribeDBClusterHealthStatusResponse>(await this.execute(params, req, runtime), new DescribeDBClusterHealthStatusResponse({}));
-    }
-
+    return $tea.cast<DescribeDBClusterHealthStatusResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterHealthStatusResponse({}));
   }
 
   /**
@@ -31347,12 +31311,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDBClusterPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterPerformanceResponse({}));
-    } else {
-      return $tea.cast<DescribeDBClusterPerformanceResponse>(await this.execute(params, req, runtime), new DescribeDBClusterPerformanceResponse({}));
-    }
-
+    return $tea.cast<DescribeDBClusterPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterPerformanceResponse({}));
   }
 
   /**
@@ -31420,12 +31379,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDBClusterSpaceSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterSpaceSummaryResponse({}));
-    } else {
-      return $tea.cast<DescribeDBClusterSpaceSummaryResponse>(await this.execute(params, req, runtime), new DescribeDBClusterSpaceSummaryResponse({}));
-    }
-
+    return $tea.cast<DescribeDBClusterSpaceSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterSpaceSummaryResponse({}));
   }
 
   /**
@@ -31473,12 +31427,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDBClusterStatusResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterStatusResponse({}));
-    } else {
-      return $tea.cast<DescribeDBClusterStatusResponse>(await this.execute(params, req, runtime), new DescribeDBClusterStatusResponse({}));
-    }
-
+    return $tea.cast<DescribeDBClusterStatusResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterStatusResponse({}));
   }
 
   /**
@@ -31562,12 +31511,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDBClustersResponse>(await this.callApi(params, req, runtime), new DescribeDBClustersResponse({}));
-    } else {
-      return $tea.cast<DescribeDBClustersResponse>(await this.execute(params, req, runtime), new DescribeDBClustersResponse({}));
-    }
-
+    return $tea.cast<DescribeDBClustersResponse>(await this.callApi(params, req, runtime), new DescribeDBClustersResponse({}));
   }
 
   /**
@@ -31631,12 +31575,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDBResourceGroupResponse>(await this.callApi(params, req, runtime), new DescribeDBResourceGroupResponse({}));
-    } else {
-      return $tea.cast<DescribeDBResourceGroupResponse>(await this.execute(params, req, runtime), new DescribeDBResourceGroupResponse({}));
-    }
-
+    return $tea.cast<DescribeDBResourceGroupResponse>(await this.callApi(params, req, runtime), new DescribeDBResourceGroupResponse({}));
   }
 
   /**
@@ -31704,12 +31643,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDiagnosisDimensionsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisDimensionsResponse({}));
-    } else {
-      return $tea.cast<DescribeDiagnosisDimensionsResponse>(await this.execute(params, req, runtime), new DescribeDiagnosisDimensionsResponse({}));
-    }
-
+    return $tea.cast<DescribeDiagnosisDimensionsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisDimensionsResponse({}));
   }
 
   /**
@@ -31829,12 +31763,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDiagnosisRecordsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisRecordsResponse({}));
-    } else {
-      return $tea.cast<DescribeDiagnosisRecordsResponse>(await this.execute(params, req, runtime), new DescribeDiagnosisRecordsResponse({}));
-    }
-
+    return $tea.cast<DescribeDiagnosisRecordsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisRecordsResponse({}));
   }
 
   /**
@@ -31878,12 +31807,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDiagnosisSQLInfoResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisSQLInfoResponse({}));
-    } else {
-      return $tea.cast<DescribeDiagnosisSQLInfoResponse>(await this.execute(params, req, runtime), new DescribeDiagnosisSQLInfoResponse({}));
-    }
-
+    return $tea.cast<DescribeDiagnosisSQLInfoResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisSQLInfoResponse({}));
   }
 
   /**
@@ -31939,12 +31863,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDownloadRecordsResponse>(await this.callApi(params, req, runtime), new DescribeDownloadRecordsResponse({}));
-    } else {
-      return $tea.cast<DescribeDownloadRecordsResponse>(await this.execute(params, req, runtime), new DescribeDownloadRecordsResponse({}));
-    }
-
+    return $tea.cast<DescribeDownloadRecordsResponse>(await this.callApi(params, req, runtime), new DescribeDownloadRecordsResponse({}));
   }
 
   /**
@@ -31996,12 +31915,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeElasticPlanAttributeResponse>(await this.callApi(params, req, runtime), new DescribeElasticPlanAttributeResponse({}));
-    } else {
-      return $tea.cast<DescribeElasticPlanAttributeResponse>(await this.execute(params, req, runtime), new DescribeElasticPlanAttributeResponse({}));
-    }
-
+    return $tea.cast<DescribeElasticPlanAttributeResponse>(await this.callApi(params, req, runtime), new DescribeElasticPlanAttributeResponse({}));
   }
 
   /**
@@ -32073,12 +31987,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeElasticPlanJobsResponse>(await this.callApi(params, req, runtime), new DescribeElasticPlanJobsResponse({}));
-    } else {
-      return $tea.cast<DescribeElasticPlanJobsResponse>(await this.execute(params, req, runtime), new DescribeElasticPlanJobsResponse({}));
-    }
-
+    return $tea.cast<DescribeElasticPlanJobsResponse>(await this.callApi(params, req, runtime), new DescribeElasticPlanJobsResponse({}));
   }
 
   /**
@@ -32134,12 +32043,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeElasticPlanSpecificationsResponse>(await this.callApi(params, req, runtime), new DescribeElasticPlanSpecificationsResponse({}));
-    } else {
-      return $tea.cast<DescribeElasticPlanSpecificationsResponse>(await this.execute(params, req, runtime), new DescribeElasticPlanSpecificationsResponse({}));
-    }
-
+    return $tea.cast<DescribeElasticPlanSpecificationsResponse>(await this.callApi(params, req, runtime), new DescribeElasticPlanSpecificationsResponse({}));
   }
 
   /**
@@ -32211,12 +32115,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeElasticPlansResponse>(await this.callApi(params, req, runtime), new DescribeElasticPlansResponse({}));
-    } else {
-      return $tea.cast<DescribeElasticPlansResponse>(await this.execute(params, req, runtime), new DescribeElasticPlansResponse({}));
-    }
-
+    return $tea.cast<DescribeElasticPlansResponse>(await this.callApi(params, req, runtime), new DescribeElasticPlansResponse({}));
   }
 
   /**
@@ -32257,12 +32156,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeEnabledPrivilegesResponse>(await this.callApi(params, req, runtime), new DescribeEnabledPrivilegesResponse({}));
-    } else {
-      return $tea.cast<DescribeEnabledPrivilegesResponse>(await this.execute(params, req, runtime), new DescribeEnabledPrivilegesResponse({}));
-    }
-
+    return $tea.cast<DescribeEnabledPrivilegesResponse>(await this.callApi(params, req, runtime), new DescribeEnabledPrivilegesResponse({}));
   }
 
   /**
@@ -32348,12 +32242,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeExcessivePrimaryKeysResponse>(await this.callApi(params, req, runtime), new DescribeExcessivePrimaryKeysResponse({}));
-    } else {
-      return $tea.cast<DescribeExcessivePrimaryKeysResponse>(await this.execute(params, req, runtime), new DescribeExcessivePrimaryKeysResponse({}));
-    }
-
+    return $tea.cast<DescribeExcessivePrimaryKeysResponse>(await this.callApi(params, req, runtime), new DescribeExcessivePrimaryKeysResponse({}));
   }
 
   /**
@@ -32406,12 +32295,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeJobResourceUsageResponse>(await this.callApi(params, req, runtime), new DescribeJobResourceUsageResponse({}));
-    } else {
-      return $tea.cast<DescribeJobResourceUsageResponse>(await this.execute(params, req, runtime), new DescribeJobResourceUsageResponse({}));
-    }
-
+    return $tea.cast<DescribeJobResourceUsageResponse>(await this.callApi(params, req, runtime), new DescribeJobResourceUsageResponse({}));
   }
 
   /**
@@ -32477,12 +32361,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribePatternPerformanceResponse>(await this.callApi(params, req, runtime), new DescribePatternPerformanceResponse({}));
-    } else {
-      return $tea.cast<DescribePatternPerformanceResponse>(await this.execute(params, req, runtime), new DescribePatternPerformanceResponse({}));
-    }
-
+    return $tea.cast<DescribePatternPerformanceResponse>(await this.callApi(params, req, runtime), new DescribePatternPerformanceResponse({}));
   }
 
   /**
@@ -32502,6 +32381,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a monitoring view.
+   * 
    * @param request - DescribePerformanceViewAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePerformanceViewAttributeResponse
@@ -32551,15 +32432,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribePerformanceViewAttributeResponse>(await this.callApi(params, req, runtime), new DescribePerformanceViewAttributeResponse({}));
-    } else {
-      return $tea.cast<DescribePerformanceViewAttributeResponse>(await this.execute(params, req, runtime), new DescribePerformanceViewAttributeResponse({}));
-    }
-
+    return $tea.cast<DescribePerformanceViewAttributeResponse>(await this.callApi(params, req, runtime), new DescribePerformanceViewAttributeResponse({}));
   }
 
   /**
+   * Queries the information about a monitoring view.
+   * 
    * @param request - DescribePerformanceViewAttributeRequest
    * @returns DescribePerformanceViewAttributeResponse
    */
@@ -32569,6 +32447,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of monitoring views.
+   * 
    * @param request - DescribePerformanceViewsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePerformanceViewsResponse
@@ -32614,15 +32494,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribePerformanceViewsResponse>(await this.callApi(params, req, runtime), new DescribePerformanceViewsResponse({}));
-    } else {
-      return $tea.cast<DescribePerformanceViewsResponse>(await this.execute(params, req, runtime), new DescribePerformanceViewsResponse({}));
-    }
-
+    return $tea.cast<DescribePerformanceViewsResponse>(await this.callApi(params, req, runtime), new DescribePerformanceViewsResponse({}));
   }
 
   /**
+   * Queries a list of monitoring views.
+   * 
    * @param request - DescribePerformanceViewsRequest
    * @returns DescribePerformanceViewsResponse
    */
@@ -32682,12 +32559,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
-    } else {
-      return $tea.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
-    }
-
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   /**
@@ -32769,12 +32641,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeSQLPatternsResponse>(await this.callApi(params, req, runtime), new DescribeSQLPatternsResponse({}));
-    } else {
-      return $tea.cast<DescribeSQLPatternsResponse>(await this.execute(params, req, runtime), new DescribeSQLPatternsResponse({}));
-    }
-
+    return $tea.cast<DescribeSQLPatternsResponse>(await this.callApi(params, req, runtime), new DescribeSQLPatternsResponse({}));
   }
 
   /**
@@ -32829,12 +32696,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeSchemasResponse>(await this.callApi(params, req, runtime), new DescribeSchemasResponse({}));
-    } else {
-      return $tea.cast<DescribeSchemasResponse>(await this.execute(params, req, runtime), new DescribeSchemasResponse({}));
-    }
-
+    return $tea.cast<DescribeSchemasResponse>(await this.callApi(params, req, runtime), new DescribeSchemasResponse({}));
   }
 
   /**
@@ -32892,12 +32754,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeSparkCodeLogResponse>(await this.callApi(params, req, runtime), new DescribeSparkCodeLogResponse({}));
-    } else {
-      return $tea.cast<DescribeSparkCodeLogResponse>(await this.execute(params, req, runtime), new DescribeSparkCodeLogResponse({}));
-    }
-
+    return $tea.cast<DescribeSparkCodeLogResponse>(await this.callApi(params, req, runtime), new DescribeSparkCodeLogResponse({}));
   }
 
   /**
@@ -32955,12 +32812,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeSparkCodeOutputResponse>(await this.callApi(params, req, runtime), new DescribeSparkCodeOutputResponse({}));
-    } else {
-      return $tea.cast<DescribeSparkCodeOutputResponse>(await this.execute(params, req, runtime), new DescribeSparkCodeOutputResponse({}));
-    }
-
+    return $tea.cast<DescribeSparkCodeOutputResponse>(await this.callApi(params, req, runtime), new DescribeSparkCodeOutputResponse({}));
   }
 
   /**
@@ -33018,12 +32870,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeSparkCodeWebUiResponse>(await this.callApi(params, req, runtime), new DescribeSparkCodeWebUiResponse({}));
-    } else {
-      return $tea.cast<DescribeSparkCodeWebUiResponse>(await this.execute(params, req, runtime), new DescribeSparkCodeWebUiResponse({}));
-    }
-
+    return $tea.cast<DescribeSparkCodeWebUiResponse>(await this.callApi(params, req, runtime), new DescribeSparkCodeWebUiResponse({}));
   }
 
   /**
@@ -33100,12 +32947,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeSqlPatternResponse>(await this.callApi(params, req, runtime), new DescribeSqlPatternResponse({}));
-    } else {
-      return $tea.cast<DescribeSqlPatternResponse>(await this.execute(params, req, runtime), new DescribeSqlPatternResponse({}));
-    }
-
+    return $tea.cast<DescribeSqlPatternResponse>(await this.callApi(params, req, runtime), new DescribeSqlPatternResponse({}));
   }
 
   /**
@@ -33161,12 +33003,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeStorageResourceUsageResponse>(await this.callApi(params, req, runtime), new DescribeStorageResourceUsageResponse({}));
-    } else {
-      return $tea.cast<DescribeStorageResourceUsageResponse>(await this.execute(params, req, runtime), new DescribeStorageResourceUsageResponse({}));
-    }
-
+    return $tea.cast<DescribeStorageResourceUsageResponse>(await this.callApi(params, req, runtime), new DescribeStorageResourceUsageResponse({}));
   }
 
   /**
@@ -33238,12 +33075,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeTableAccessCountResponse>(await this.callApi(params, req, runtime), new DescribeTableAccessCountResponse({}));
-    } else {
-      return $tea.cast<DescribeTableAccessCountResponse>(await this.execute(params, req, runtime), new DescribeTableAccessCountResponse({}));
-    }
-
+    return $tea.cast<DescribeTableAccessCountResponse>(await this.callApi(params, req, runtime), new DescribeTableAccessCountResponse({}));
   }
 
   /**
@@ -33300,12 +33132,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeTablesResponse>(await this.callApi(params, req, runtime), new DescribeTablesResponse({}));
-    } else {
-      return $tea.cast<DescribeTablesResponse>(await this.execute(params, req, runtime), new DescribeTablesResponse({}));
-    }
-
+    return $tea.cast<DescribeTablesResponse>(await this.callApi(params, req, runtime), new DescribeTablesResponse({}));
   }
 
   /**
@@ -33350,12 +33177,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeUserQuotaResponse>(await this.callApi(params, req, runtime), new DescribeUserQuotaResponse({}));
-    } else {
-      return $tea.cast<DescribeUserQuotaResponse>(await this.execute(params, req, runtime), new DescribeUserQuotaResponse({}));
-    }
-
+    return $tea.cast<DescribeUserQuotaResponse>(await this.callApi(params, req, runtime), new DescribeUserQuotaResponse({}));
   }
 
   /**
@@ -33401,12 +33223,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DetachUserENIResponse>(await this.callApi(params, req, runtime), new DetachUserENIResponse({}));
-    } else {
-      return $tea.cast<DetachUserENIResponse>(await this.execute(params, req, runtime), new DetachUserENIResponse({}));
-    }
-
+    return $tea.cast<DetachUserENIResponse>(await this.callApi(params, req, runtime), new DetachUserENIResponse({}));
   }
 
   /**
@@ -33456,12 +33273,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DisableElasticPlanResponse>(await this.callApi(params, req, runtime), new DisableElasticPlanResponse({}));
-    } else {
-      return $tea.cast<DisableElasticPlanResponse>(await this.execute(params, req, runtime), new DisableElasticPlanResponse({}));
-    }
-
+    return $tea.cast<DisableElasticPlanResponse>(await this.callApi(params, req, runtime), new DisableElasticPlanResponse({}));
   }
 
   /**
@@ -33565,12 +33377,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DownloadDiagnosisRecordsResponse>(await this.callApi(params, req, runtime), new DownloadDiagnosisRecordsResponse({}));
-    } else {
-      return $tea.cast<DownloadDiagnosisRecordsResponse>(await this.execute(params, req, runtime), new DownloadDiagnosisRecordsResponse({}));
-    }
-
+    return $tea.cast<DownloadDiagnosisRecordsResponse>(await this.callApi(params, req, runtime), new DownloadDiagnosisRecordsResponse({}));
   }
 
   /**
@@ -33622,12 +33429,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<EnableElasticPlanResponse>(await this.callApi(params, req, runtime), new EnableElasticPlanResponse({}));
-    } else {
-      return $tea.cast<EnableElasticPlanResponse>(await this.execute(params, req, runtime), new EnableElasticPlanResponse({}));
-    }
-
+    return $tea.cast<EnableElasticPlanResponse>(await this.callApi(params, req, runtime), new EnableElasticPlanResponse({}));
   }
 
   /**
@@ -33681,12 +33483,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ExistRunningSQLEngineResponse>(await this.callApi(params, req, runtime), new ExistRunningSQLEngineResponse({}));
-    } else {
-      return $tea.cast<ExistRunningSQLEngineResponse>(await this.execute(params, req, runtime), new ExistRunningSQLEngineResponse({}));
-    }
-
+    return $tea.cast<ExistRunningSQLEngineResponse>(await this.callApi(params, req, runtime), new ExistRunningSQLEngineResponse({}));
   }
 
   /**
@@ -33761,12 +33558,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetDatabaseObjectsResponse>(await this.callApi(params, req, runtime), new GetDatabaseObjectsResponse({}));
-    } else {
-      return $tea.cast<GetDatabaseObjectsResponse>(await this.execute(params, req, runtime), new GetDatabaseObjectsResponse({}));
-    }
-
+    return $tea.cast<GetDatabaseObjectsResponse>(await this.callApi(params, req, runtime), new GetDatabaseObjectsResponse({}));
   }
 
   /**
@@ -33831,12 +33623,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSparkAppAttemptLogResponse>(await this.callApi(params, req, runtime), new GetSparkAppAttemptLogResponse({}));
-    } else {
-      return $tea.cast<GetSparkAppAttemptLogResponse>(await this.execute(params, req, runtime), new GetSparkAppAttemptLogResponse({}));
-    }
-
+    return $tea.cast<GetSparkAppAttemptLogResponse>(await this.callApi(params, req, runtime), new GetSparkAppAttemptLogResponse({}));
   }
 
   /**
@@ -33894,12 +33681,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSparkAppInfoResponse>(await this.callApi(params, req, runtime), new GetSparkAppInfoResponse({}));
-    } else {
-      return $tea.cast<GetSparkAppInfoResponse>(await this.execute(params, req, runtime), new GetSparkAppInfoResponse({}));
-    }
-
+    return $tea.cast<GetSparkAppInfoResponse>(await this.callApi(params, req, runtime), new GetSparkAppInfoResponse({}));
   }
 
   /**
@@ -33969,12 +33751,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSparkAppLogResponse>(await this.callApi(params, req, runtime), new GetSparkAppLogResponse({}));
-    } else {
-      return $tea.cast<GetSparkAppLogResponse>(await this.execute(params, req, runtime), new GetSparkAppLogResponse({}));
-    }
-
+    return $tea.cast<GetSparkAppLogResponse>(await this.callApi(params, req, runtime), new GetSparkAppLogResponse({}));
   }
 
   /**
@@ -34032,12 +33809,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSparkAppMetricsResponse>(await this.callApi(params, req, runtime), new GetSparkAppMetricsResponse({}));
-    } else {
-      return $tea.cast<GetSparkAppMetricsResponse>(await this.execute(params, req, runtime), new GetSparkAppMetricsResponse({}));
-    }
-
+    return $tea.cast<GetSparkAppMetricsResponse>(await this.callApi(params, req, runtime), new GetSparkAppMetricsResponse({}));
   }
 
   /**
@@ -34095,12 +33867,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSparkAppStateResponse>(await this.callApi(params, req, runtime), new GetSparkAppStateResponse({}));
-    } else {
-      return $tea.cast<GetSparkAppStateResponse>(await this.execute(params, req, runtime), new GetSparkAppStateResponse({}));
-    }
-
+    return $tea.cast<GetSparkAppStateResponse>(await this.callApi(params, req, runtime), new GetSparkAppStateResponse({}));
   }
 
   /**
@@ -34158,12 +33925,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSparkAppWebUiAddressResponse>(await this.callApi(params, req, runtime), new GetSparkAppWebUiAddressResponse({}));
-    } else {
-      return $tea.cast<GetSparkAppWebUiAddressResponse>(await this.execute(params, req, runtime), new GetSparkAppWebUiAddressResponse({}));
-    }
-
+    return $tea.cast<GetSparkAppWebUiAddressResponse>(await this.callApi(params, req, runtime), new GetSparkAppWebUiAddressResponse({}));
   }
 
   /**
@@ -34215,12 +33977,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSparkConfigLogPathResponse>(await this.callApi(params, req, runtime), new GetSparkConfigLogPathResponse({}));
-    } else {
-      return $tea.cast<GetSparkConfigLogPathResponse>(await this.execute(params, req, runtime), new GetSparkConfigLogPathResponse({}));
-    }
-
+    return $tea.cast<GetSparkConfigLogPathResponse>(await this.callApi(params, req, runtime), new GetSparkConfigLogPathResponse({}));
   }
 
   /**
@@ -34272,12 +34029,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSparkDefinitionsResponse>(await this.callApi(params, req, runtime), new GetSparkDefinitionsResponse({}));
-    } else {
-      return $tea.cast<GetSparkDefinitionsResponse>(await this.execute(params, req, runtime), new GetSparkDefinitionsResponse({}));
-    }
-
+    return $tea.cast<GetSparkDefinitionsResponse>(await this.callApi(params, req, runtime), new GetSparkDefinitionsResponse({}));
   }
 
   /**
@@ -34329,12 +34081,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSparkLogAnalyzeTaskResponse>(await this.callApi(params, req, runtime), new GetSparkLogAnalyzeTaskResponse({}));
-    } else {
-      return $tea.cast<GetSparkLogAnalyzeTaskResponse>(await this.execute(params, req, runtime), new GetSparkLogAnalyzeTaskResponse({}));
-    }
-
+    return $tea.cast<GetSparkLogAnalyzeTaskResponse>(await this.callApi(params, req, runtime), new GetSparkLogAnalyzeTaskResponse({}));
   }
 
   /**
@@ -34390,12 +34137,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSparkSQLEngineStateResponse>(await this.callApi(params, req, runtime), new GetSparkSQLEngineStateResponse({}));
-    } else {
-      return $tea.cast<GetSparkSQLEngineStateResponse>(await this.execute(params, req, runtime), new GetSparkSQLEngineStateResponse({}));
-    }
-
+    return $tea.cast<GetSparkSQLEngineStateResponse>(await this.callApi(params, req, runtime), new GetSparkSQLEngineStateResponse({}));
   }
 
   /**
@@ -34451,12 +34193,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSparkTemplateFileContentResponse>(await this.callApi(params, req, runtime), new GetSparkTemplateFileContentResponse({}));
-    } else {
-      return $tea.cast<GetSparkTemplateFileContentResponse>(await this.execute(params, req, runtime), new GetSparkTemplateFileContentResponse({}));
-    }
-
+    return $tea.cast<GetSparkTemplateFileContentResponse>(await this.callApi(params, req, runtime), new GetSparkTemplateFileContentResponse({}));
   }
 
   /**
@@ -34508,12 +34245,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSparkTemplateFolderTreeResponse>(await this.callApi(params, req, runtime), new GetSparkTemplateFolderTreeResponse({}));
-    } else {
-      return $tea.cast<GetSparkTemplateFolderTreeResponse>(await this.execute(params, req, runtime), new GetSparkTemplateFolderTreeResponse({}));
-    }
-
+    return $tea.cast<GetSparkTemplateFolderTreeResponse>(await this.callApi(params, req, runtime), new GetSparkTemplateFolderTreeResponse({}));
   }
 
   /**
@@ -34565,12 +34297,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSparkTemplateFullTreeResponse>(await this.callApi(params, req, runtime), new GetSparkTemplateFullTreeResponse({}));
-    } else {
-      return $tea.cast<GetSparkTemplateFullTreeResponse>(await this.execute(params, req, runtime), new GetSparkTemplateFullTreeResponse({}));
-    }
-
+    return $tea.cast<GetSparkTemplateFullTreeResponse>(await this.callApi(params, req, runtime), new GetSparkTemplateFullTreeResponse({}));
   }
 
   /**
@@ -34629,12 +34356,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetTableResponse>(await this.callApi(params, req, runtime), new GetTableResponse({}));
-    } else {
-      return $tea.cast<GetTableResponse>(await this.execute(params, req, runtime), new GetTableResponse({}));
-    }
-
+    return $tea.cast<GetTableResponse>(await this.callApi(params, req, runtime), new GetTableResponse({}));
   }
 
   /**
@@ -34704,12 +34426,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetTableColumnsResponse>(await this.callApi(params, req, runtime), new GetTableColumnsResponse({}));
-    } else {
-      return $tea.cast<GetTableColumnsResponse>(await this.execute(params, req, runtime), new GetTableColumnsResponse({}));
-    }
-
+    return $tea.cast<GetTableColumnsResponse>(await this.callApi(params, req, runtime), new GetTableColumnsResponse({}));
   }
 
   /**
@@ -34771,12 +34488,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetTableDDLResponse>(await this.callApi(params, req, runtime), new GetTableDDLResponse({}));
-    } else {
-      return $tea.cast<GetTableDDLResponse>(await this.execute(params, req, runtime), new GetTableDDLResponse({}));
-    }
-
+    return $tea.cast<GetTableDDLResponse>(await this.callApi(params, req, runtime), new GetTableDDLResponse({}));
   }
 
   /**
@@ -34858,12 +34570,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetTableObjectsResponse>(await this.callApi(params, req, runtime), new GetTableObjectsResponse({}));
-    } else {
-      return $tea.cast<GetTableObjectsResponse>(await this.execute(params, req, runtime), new GetTableObjectsResponse({}));
-    }
-
+    return $tea.cast<GetTableObjectsResponse>(await this.callApi(params, req, runtime), new GetTableObjectsResponse({}));
   }
 
   /**
@@ -34921,12 +34628,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetViewDDLResponse>(await this.callApi(params, req, runtime), new GetViewDDLResponse({}));
-    } else {
-      return $tea.cast<GetViewDDLResponse>(await this.execute(params, req, runtime), new GetViewDDLResponse({}));
-    }
-
+    return $tea.cast<GetViewDDLResponse>(await this.callApi(params, req, runtime), new GetViewDDLResponse({}));
   }
 
   /**
@@ -35008,12 +34710,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetViewObjectsResponse>(await this.callApi(params, req, runtime), new GetViewObjectsResponse({}));
-    } else {
-      return $tea.cast<GetViewObjectsResponse>(await this.execute(params, req, runtime), new GetViewObjectsResponse({}));
-    }
-
+    return $tea.cast<GetViewObjectsResponse>(await this.callApi(params, req, runtime), new GetViewObjectsResponse({}));
   }
 
   /**
@@ -35070,12 +34767,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<KillSparkAppResponse>(await this.callApi(params, req, runtime), new KillSparkAppResponse({}));
-    } else {
-      return $tea.cast<KillSparkAppResponse>(await this.execute(params, req, runtime), new KillSparkAppResponse({}));
-    }
-
+    return $tea.cast<KillSparkAppResponse>(await this.callApi(params, req, runtime), new KillSparkAppResponse({}));
   }
 
   /**
@@ -35127,12 +34819,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<KillSparkLogAnalyzeTaskResponse>(await this.callApi(params, req, runtime), new KillSparkLogAnalyzeTaskResponse({}));
-    } else {
-      return $tea.cast<KillSparkLogAnalyzeTaskResponse>(await this.execute(params, req, runtime), new KillSparkLogAnalyzeTaskResponse({}));
-    }
-
+    return $tea.cast<KillSparkLogAnalyzeTaskResponse>(await this.callApi(params, req, runtime), new KillSparkLogAnalyzeTaskResponse({}));
   }
 
   /**
@@ -35188,12 +34875,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<KillSparkSQLEngineResponse>(await this.callApi(params, req, runtime), new KillSparkSQLEngineResponse({}));
-    } else {
-      return $tea.cast<KillSparkSQLEngineResponse>(await this.execute(params, req, runtime), new KillSparkSQLEngineResponse({}));
-    }
-
+    return $tea.cast<KillSparkSQLEngineResponse>(await this.callApi(params, req, runtime), new KillSparkSQLEngineResponse({}));
   }
 
   /**
@@ -35257,12 +34939,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListSparkAppAttemptsResponse>(await this.callApi(params, req, runtime), new ListSparkAppAttemptsResponse({}));
-    } else {
-      return $tea.cast<ListSparkAppAttemptsResponse>(await this.execute(params, req, runtime), new ListSparkAppAttemptsResponse({}));
-    }
-
+    return $tea.cast<ListSparkAppAttemptsResponse>(await this.callApi(params, req, runtime), new ListSparkAppAttemptsResponse({}));
   }
 
   /**
@@ -35321,12 +34998,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListSparkAppsResponse>(await this.callApi(params, req, runtime), new ListSparkAppsResponse({}));
-    } else {
-      return $tea.cast<ListSparkAppsResponse>(await this.execute(params, req, runtime), new ListSparkAppsResponse({}));
-    }
-
+    return $tea.cast<ListSparkAppsResponse>(await this.callApi(params, req, runtime), new ListSparkAppsResponse({}));
   }
 
   /**
@@ -35381,12 +35053,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListSparkLogAnalyzeTasksResponse>(await this.callApi(params, req, runtime), new ListSparkLogAnalyzeTasksResponse({}));
-    } else {
-      return $tea.cast<ListSparkLogAnalyzeTasksResponse>(await this.execute(params, req, runtime), new ListSparkLogAnalyzeTasksResponse({}));
-    }
-
+    return $tea.cast<ListSparkLogAnalyzeTasksResponse>(await this.callApi(params, req, runtime), new ListSparkLogAnalyzeTasksResponse({}));
   }
 
   /**
@@ -35438,12 +35105,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListSparkTemplateFileIdsResponse>(await this.callApi(params, req, runtime), new ListSparkTemplateFileIdsResponse({}));
-    } else {
-      return $tea.cast<ListSparkTemplateFileIdsResponse>(await this.execute(params, req, runtime), new ListSparkTemplateFileIdsResponse({}));
-    }
-
+    return $tea.cast<ListSparkTemplateFileIdsResponse>(await this.callApi(params, req, runtime), new ListSparkTemplateFileIdsResponse({}));
   }
 
   /**
@@ -35493,12 +35155,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<LoadSampleDataSetResponse>(await this.callApi(params, req, runtime), new LoadSampleDataSetResponse({}));
-    } else {
-      return $tea.cast<LoadSampleDataSetResponse>(await this.execute(params, req, runtime), new LoadSampleDataSetResponse({}));
-    }
-
+    return $tea.cast<LoadSampleDataSetResponse>(await this.callApi(params, req, runtime), new LoadSampleDataSetResponse({}));
   }
 
   /**
@@ -35558,12 +35215,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyAccountDescriptionResponse({}));
-    } else {
-      return $tea.cast<ModifyAccountDescriptionResponse>(await this.execute(params, req, runtime), new ModifyAccountDescriptionResponse({}));
-    }
-
+    return $tea.cast<ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyAccountDescriptionResponse({}));
   }
 
   /**
@@ -35629,12 +35281,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyAccountPrivilegesResponse>(await this.callApi(params, req, runtime), new ModifyAccountPrivilegesResponse({}));
-    } else {
-      return $tea.cast<ModifyAccountPrivilegesResponse>(await this.execute(params, req, runtime), new ModifyAccountPrivilegesResponse({}));
-    }
-
+    return $tea.cast<ModifyAccountPrivilegesResponse>(await this.callApi(params, req, runtime), new ModifyAccountPrivilegesResponse({}));
   }
 
   /**
@@ -35710,12 +35357,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyAuditLogConfigResponse>(await this.callApi(params, req, runtime), new ModifyAuditLogConfigResponse({}));
-    } else {
-      return $tea.cast<ModifyAuditLogConfigResponse>(await this.execute(params, req, runtime), new ModifyAuditLogConfigResponse({}));
-    }
-
+    return $tea.cast<ModifyAuditLogConfigResponse>(await this.callApi(params, req, runtime), new ModifyAuditLogConfigResponse({}));
   }
 
   /**
@@ -35799,12 +35441,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyResponse({}));
-    } else {
-      return $tea.cast<ModifyBackupPolicyResponse>(await this.execute(params, req, runtime), new ModifyBackupPolicyResponse({}));
-    }
-
+    return $tea.cast<ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyResponse({}));
   }
 
   /**
@@ -35868,12 +35505,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyClusterAccessWhiteListResponse>(await this.callApi(params, req, runtime), new ModifyClusterAccessWhiteListResponse({}));
-    } else {
-      return $tea.cast<ModifyClusterAccessWhiteListResponse>(await this.execute(params, req, runtime), new ModifyClusterAccessWhiteListResponse({}));
-    }
-
+    return $tea.cast<ModifyClusterAccessWhiteListResponse>(await this.callApi(params, req, runtime), new ModifyClusterAccessWhiteListResponse({}));
   }
 
   /**
@@ -35933,12 +35565,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyClusterConnectionStringResponse>(await this.callApi(params, req, runtime), new ModifyClusterConnectionStringResponse({}));
-    } else {
-      return $tea.cast<ModifyClusterConnectionStringResponse>(await this.execute(params, req, runtime), new ModifyClusterConnectionStringResponse({}));
-    }
-
+    return $tea.cast<ModifyClusterConnectionStringResponse>(await this.callApi(params, req, runtime), new ModifyClusterConnectionStringResponse({}));
   }
 
   /**
@@ -35965,7 +35592,7 @@ export default class Client extends OpenApi {
    * *   If the cluster has a built-in dataset loaded, make sure that the cluster has reserved storage resources of at least 24 AnalyticDB compute units (ACUs). Otherwise, the built-in dataset cannot be used.
    * *   When the scaling process is about to end, transient connections may occur. We recommend that you scale your cluster during off-peak hours or make sure that your application is configured to automatically reconnect to your cluster.
    * *   You can change an AnalyticDB for MySQL cluster from Data Warehouse Edition to Data Lakehouse Edition, but not the other way around. For more information, see Change a cluster from Data Warehouse Edition to Data Lakehouse Edition.
-   * *   For information about the endpoints of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36032,12 +35659,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyDBClusterResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterResponse({}));
-    } else {
-      return $tea.cast<ModifyDBClusterResponse>(await this.execute(params, req, runtime), new ModifyDBClusterResponse({}));
-    }
-
+    return $tea.cast<ModifyDBClusterResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterResponse({}));
   }
 
   /**
@@ -36050,7 +35672,7 @@ export default class Client extends OpenApi {
    * *   If the cluster has a built-in dataset loaded, make sure that the cluster has reserved storage resources of at least 24 AnalyticDB compute units (ACUs). Otherwise, the built-in dataset cannot be used.
    * *   When the scaling process is about to end, transient connections may occur. We recommend that you scale your cluster during off-peak hours or make sure that your application is configured to automatically reconnect to your cluster.
    * *   You can change an AnalyticDB for MySQL cluster from Data Warehouse Edition to Data Lakehouse Edition, but not the other way around. For more information, see Change a cluster from Data Warehouse Edition to Data Lakehouse Edition.
-   * *   For information about the endpoints of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyDBClusterRequest
    * @returns ModifyDBClusterResponse
@@ -36095,12 +35717,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyDBClusterDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterDescriptionResponse({}));
-    } else {
-      return $tea.cast<ModifyDBClusterDescriptionResponse>(await this.execute(params, req, runtime), new ModifyDBClusterDescriptionResponse({}));
-    }
-
+    return $tea.cast<ModifyDBClusterDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterDescriptionResponse({}));
   }
 
   /**
@@ -36152,12 +35769,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyDBClusterMaintainTimeResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterMaintainTimeResponse({}));
-    } else {
-      return $tea.cast<ModifyDBClusterMaintainTimeResponse>(await this.execute(params, req, runtime), new ModifyDBClusterMaintainTimeResponse({}));
-    }
-
+    return $tea.cast<ModifyDBClusterMaintainTimeResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterMaintainTimeResponse({}));
   }
 
   /**
@@ -36279,12 +35891,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyDBResourceGroupResponse>(await this.callApi(params, req, runtime), new ModifyDBResourceGroupResponse({}));
-    } else {
-      return $tea.cast<ModifyDBResourceGroupResponse>(await this.execute(params, req, runtime), new ModifyDBResourceGroupResponse({}));
-    }
-
+    return $tea.cast<ModifyDBResourceGroupResponse>(await this.callApi(params, req, runtime), new ModifyDBResourceGroupResponse({}));
   }
 
   /**
@@ -36352,12 +35959,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyElasticPlanResponse>(await this.callApi(params, req, runtime), new ModifyElasticPlanResponse({}));
-    } else {
-      return $tea.cast<ModifyElasticPlanResponse>(await this.execute(params, req, runtime), new ModifyElasticPlanResponse({}));
-    }
-
+    return $tea.cast<ModifyElasticPlanResponse>(await this.callApi(params, req, runtime), new ModifyElasticPlanResponse({}));
   }
 
   /**
@@ -36436,12 +36038,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyPerformanceViewResponse>(await this.callApi(params, req, runtime), new ModifyPerformanceViewResponse({}));
-    } else {
-      return $tea.cast<ModifyPerformanceViewResponse>(await this.execute(params, req, runtime), new ModifyPerformanceViewResponse({}));
-    }
-
+    return $tea.cast<ModifyPerformanceViewResponse>(await this.callApi(params, req, runtime), new ModifyPerformanceViewResponse({}));
   }
 
   /**
@@ -36494,12 +36091,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<PreloadSparkAppMetricsResponse>(await this.callApi(params, req, runtime), new PreloadSparkAppMetricsResponse({}));
-    } else {
-      return $tea.cast<PreloadSparkAppMetricsResponse>(await this.execute(params, req, runtime), new PreloadSparkAppMetricsResponse({}));
-    }
-
+    return $tea.cast<PreloadSparkAppMetricsResponse>(await this.callApi(params, req, runtime), new PreloadSparkAppMetricsResponse({}));
   }
 
   /**
@@ -36553,12 +36145,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ReleaseClusterPublicConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseClusterPublicConnectionResponse({}));
-    } else {
-      return $tea.cast<ReleaseClusterPublicConnectionResponse>(await this.execute(params, req, runtime), new ReleaseClusterPublicConnectionResponse({}));
-    }
-
+    return $tea.cast<ReleaseClusterPublicConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseClusterPublicConnectionResponse({}));
   }
 
   /**
@@ -36616,12 +36203,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RenameSparkTemplateFileResponse>(await this.callApi(params, req, runtime), new RenameSparkTemplateFileResponse({}));
-    } else {
-      return $tea.cast<RenameSparkTemplateFileResponse>(await this.execute(params, req, runtime), new RenameSparkTemplateFileResponse({}));
-    }
-
+    return $tea.cast<RenameSparkTemplateFileResponse>(await this.callApi(params, req, runtime), new RenameSparkTemplateFileResponse({}));
   }
 
   /**
@@ -36687,12 +36269,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new ResetAccountPasswordResponse({}));
-    } else {
-      return $tea.cast<ResetAccountPasswordResponse>(await this.execute(params, req, runtime), new ResetAccountPasswordResponse({}));
-    }
-
+    return $tea.cast<ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new ResetAccountPasswordResponse({}));
   }
 
   /**
@@ -36750,12 +36327,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SetSparkAppLogRootPathResponse>(await this.callApi(params, req, runtime), new SetSparkAppLogRootPathResponse({}));
-    } else {
-      return $tea.cast<SetSparkAppLogRootPathResponse>(await this.execute(params, req, runtime), new SetSparkAppLogRootPathResponse({}));
-    }
-
+    return $tea.cast<SetSparkAppLogRootPathResponse>(await this.callApi(params, req, runtime), new SetSparkAppLogRootPathResponse({}));
   }
 
   /**
@@ -36831,12 +36403,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<StartSparkSQLEngineResponse>(await this.callApi(params, req, runtime), new StartSparkSQLEngineResponse({}));
-    } else {
-      return $tea.cast<StartSparkSQLEngineResponse>(await this.execute(params, req, runtime), new StartSparkSQLEngineResponse({}));
-    }
-
+    return $tea.cast<StartSparkSQLEngineResponse>(await this.callApi(params, req, runtime), new StartSparkSQLEngineResponse({}));
   }
 
   /**
@@ -36916,12 +36483,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SubmitSparkAppResponse>(await this.callApi(params, req, runtime), new SubmitSparkAppResponse({}));
-    } else {
-      return $tea.cast<SubmitSparkAppResponse>(await this.execute(params, req, runtime), new SubmitSparkAppResponse({}));
-    }
-
+    return $tea.cast<SubmitSparkAppResponse>(await this.callApi(params, req, runtime), new SubmitSparkAppResponse({}));
   }
 
   /**
@@ -36973,12 +36535,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SubmitSparkLogAnalyzeTaskResponse>(await this.callApi(params, req, runtime), new SubmitSparkLogAnalyzeTaskResponse({}));
-    } else {
-      return $tea.cast<SubmitSparkLogAnalyzeTaskResponse>(await this.execute(params, req, runtime), new SubmitSparkLogAnalyzeTaskResponse({}));
-    }
-
+    return $tea.cast<SubmitSparkLogAnalyzeTaskResponse>(await this.callApi(params, req, runtime), new SubmitSparkLogAnalyzeTaskResponse({}));
   }
 
   /**
@@ -37032,12 +36589,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UnbindAccountResponse>(await this.callApi(params, req, runtime), new UnbindAccountResponse({}));
-    } else {
-      return $tea.cast<UnbindAccountResponse>(await this.execute(params, req, runtime), new UnbindAccountResponse({}));
-    }
-
+    return $tea.cast<UnbindAccountResponse>(await this.callApi(params, req, runtime), new UnbindAccountResponse({}));
   }
 
   /**
@@ -37093,12 +36645,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UnbindDBResourceGroupWithUserResponse>(await this.callApi(params, req, runtime), new UnbindDBResourceGroupWithUserResponse({}));
-    } else {
-      return $tea.cast<UnbindDBResourceGroupWithUserResponse>(await this.execute(params, req, runtime), new UnbindDBResourceGroupWithUserResponse({}));
-    }
-
+    return $tea.cast<UnbindDBResourceGroupWithUserResponse>(await this.callApi(params, req, runtime), new UnbindDBResourceGroupWithUserResponse({}));
   }
 
   /**
@@ -37160,12 +36707,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateSparkTemplateFileResponse>(await this.callApi(params, req, runtime), new UpdateSparkTemplateFileResponse({}));
-    } else {
-      return $tea.cast<UpdateSparkTemplateFileResponse>(await this.execute(params, req, runtime), new UpdateSparkTemplateFileResponse({}));
-    }
-
+    return $tea.cast<UpdateSparkTemplateFileResponse>(await this.callApi(params, req, runtime), new UpdateSparkTemplateFileResponse({}));
   }
 
   /**
