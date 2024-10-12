@@ -12,6 +12,153 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CreateAnnualDocSummaryTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  anaYears?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  docInfos?: CreateAnnualDocSummaryTaskRequestDocInfos[];
+  /**
+   * @example
+   * true
+   */
+  enableTable?: boolean;
+  instruction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qwen-plus
+   */
+  modelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      anaYears: 'anaYears',
+      docInfos: 'docInfos',
+      enableTable: 'enableTable',
+      instruction: 'instruction',
+      modelId: 'modelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      anaYears: { 'type': 'array', 'itemType': 'number' },
+      docInfos: { 'type': 'array', 'itemType': CreateAnnualDocSummaryTaskRequestDocInfos },
+      enableTable: 'boolean',
+      instruction: 'string',
+      modelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAnnualDocSummaryTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  /**
+   * @example
+   * 3284627354
+   */
+  data?: string;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 32FFC91D-0A9F-585A-B84F-8A54C5187035
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: 'string',
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAnnualDocSummaryTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAnnualDocSummaryTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAnnualDocSummaryTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDocsSummaryTaskRequest extends $tea.Model {
   /**
    * @remarks
@@ -4365,6 +4512,66 @@ export class UploadDocumentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UploadDocumentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAnnualDocSummaryTaskRequestDocInfos extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 198386463432
+   */
+  docId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023
+   */
+  docYear?: number;
+  /**
+   * @example
+   * 2
+   */
+  endPage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rdxrmo6amk
+   */
+  libraryId?: string;
+  /**
+   * @example
+   * 1
+   */
+  startPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'docId',
+      docYear: 'docYear',
+      endPage: 'endPage',
+      libraryId: 'libraryId',
+      startPage: 'startPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docYear: 'number',
+      endPage: 'number',
+      libraryId: 'string',
+      startPage: 'number',
     };
   }
 
@@ -8802,6 +9009,67 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * 创建按年文档总结任务
+   * 
+   * @param request - CreateAnnualDocSummaryTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAnnualDocSummaryTaskResponse
+   */
+  async createAnnualDocSummaryTaskWithOptions(workspaceId: string, request: CreateAnnualDocSummaryTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAnnualDocSummaryTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.anaYears)) {
+      body["anaYears"] = request.anaYears;
+    }
+
+    if (!Util.isUnset(request.docInfos)) {
+      body["docInfos"] = request.docInfos;
+    }
+
+    if (!Util.isUnset(request.enableTable)) {
+      body["enableTable"] = request.enableTable;
+    }
+
+    if (!Util.isUnset(request.instruction)) {
+      body["instruction"] = request.instruction;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAnnualDocSummaryTask",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/task/summary/doc/annual`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAnnualDocSummaryTaskResponse>(await this.callApi(params, req, runtime), new CreateAnnualDocSummaryTaskResponse({}));
+  }
+
+  /**
+   * 创建按年文档总结任务
+   * 
+   * @param request - CreateAnnualDocSummaryTaskRequest
+   * @returns CreateAnnualDocSummaryTaskResponse
+   */
+  async createAnnualDocSummaryTask(workspaceId: string, request: CreateAnnualDocSummaryTaskRequest): Promise<CreateAnnualDocSummaryTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAnnualDocSummaryTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
