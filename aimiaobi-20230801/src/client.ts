@@ -21103,12 +21103,35 @@ export class SubmitDocClusterTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments extends $tea.Model {
+  text?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocuments extends $tea.Model {
   /**
    * @example
    * 作者
    */
   author?: string;
+  comments?: SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments[];
   /**
    * @remarks
    * This parameter is required.
@@ -21145,6 +21168,7 @@ export class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocuments extends
   static names(): { [key: string]: string } {
     return {
       author: 'Author',
+      comments: 'Comments',
       content: 'Content',
       pubTime: 'PubTime',
       source: 'Source',
@@ -21157,6 +21181,7 @@ export class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocuments extends
   static types(): { [key: string]: any } {
     return {
       author: 'string',
+      comments: { 'type': 'array', 'itemType': SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments },
       content: 'string',
       pubTime: 'string',
       source: 'string',
