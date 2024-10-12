@@ -9815,6 +9815,132 @@ export class ListCacheReserveInstancesResponse extends $tea.Model {
   }
 }
 
+export class ListClientCertificatesRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientCertificatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A74
+   */
+  requestId?: string;
+  result?: ListClientCertificatesResponseBodyResult[];
+  /**
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      result: 'Result',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListClientCertificatesResponseBodyResult },
+      siteId: 'number',
+      siteName: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientCertificatesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListClientCertificatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListClientCertificatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEdgeContainerAppRecordsRequest extends $tea.Model {
   /**
    * @remarks
@@ -21289,6 +21415,120 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $tea.Mode
   }
 }
 
+export class ListClientCertificatesResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
+  CACertificateId?: string;
+  /**
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @example
+   * 2024-06-24 07:48:51
+   */
+  createTime?: string;
+  /**
+   * @example
+   * babab9db65ee5efcca9f3d41d4b50d66
+   */
+  id?: string;
+  /**
+   * @example
+   * GlobalSign nv-sa
+   */
+  issuer?: string;
+  /**
+   * @example
+   * yourCertName
+   */
+  name?: string;
+  /**
+   * @example
+   * 2024-03-31 02:08:00
+   */
+  notAfter?: string;
+  /**
+   * @example
+   * 2023-03-31 02:08:00
+   */
+  notBefore?: string;
+  /**
+   * @example
+   * RSA
+   */
+  pubkeyAlgorithm?: string;
+  /**
+   * @example
+   * www.example.com,*.example.com
+   */
+  SAN?: string;
+  /**
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @example
+   * active
+   */
+  status?: string;
+  /**
+   * @example
+   * dcdn
+   */
+  type?: string;
+  /**
+   * @example
+   * 2024-07-20 06:18:42
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CACertificateId: 'CACertificateId',
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      id: 'Id',
+      issuer: 'Issuer',
+      name: 'Name',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      pubkeyAlgorithm: 'PubkeyAlgorithm',
+      SAN: 'SAN',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CACertificateId: 'string',
+      commonName: 'string',
+      createTime: 'string',
+      id: 'string',
+      issuer: 'string',
+      name: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      pubkeyAlgorithm: 'string',
+      SAN: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEdgeContainerAppRecordsResponseBodyRecords extends $tea.Model {
   /**
    * @example
@@ -28346,6 +28586,44 @@ export default class Client extends OpenApi {
   async listCacheReserveInstances(request: ListCacheReserveInstancesRequest): Promise<ListCacheReserveInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCacheReserveInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询站点下客户端证书列表
+   * 
+   * @param request - ListClientCertificatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClientCertificatesResponse
+   */
+  async listClientCertificatesWithOptions(request: ListClientCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListClientCertificatesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListClientCertificates",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListClientCertificatesResponse>(await this.callApi(params, req, runtime), new ListClientCertificatesResponse({}));
+  }
+
+  /**
+   * 查询站点下客户端证书列表
+   * 
+   * @param request - ListClientCertificatesRequest
+   * @returns ListClientCertificatesResponse
+   */
+  async listClientCertificates(request: ListClientCertificatesRequest): Promise<ListClientCertificatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listClientCertificatesWithOptions(request, runtime);
   }
 
   /**
