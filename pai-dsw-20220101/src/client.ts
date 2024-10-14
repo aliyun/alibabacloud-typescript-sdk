@@ -1286,6 +1286,25 @@ export class GetIdleInstanceCullerResponse extends $tea.Model {
   }
 }
 
+export class GetInstanceRequest extends $tea.Model {
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBody extends $tea.Model {
   /**
    * @example
@@ -1646,11 +1665,13 @@ export class GetInstanceEventsRequest extends $tea.Model {
    * 2020-11-08T15:00:00Z
    */
   startTime?: string;
+  token?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       maxEventsNum: 'MaxEventsNum',
       startTime: 'StartTime',
+      token: 'Token',
     };
   }
 
@@ -1659,6 +1680,7 @@ export class GetInstanceEventsRequest extends $tea.Model {
       endTime: 'string',
       maxEventsNum: 'number',
       startTime: 'string',
+      token: 'string',
     };
   }
 
@@ -2179,6 +2201,7 @@ export class GetLifecycleRequest extends $tea.Model {
    * 2020-11-08T15:00:00Z
    */
   startTime?: string;
+  token?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
@@ -2186,6 +2209,7 @@ export class GetLifecycleRequest extends $tea.Model {
       order: 'Order',
       sessionNumber: 'SessionNumber',
       startTime: 'StartTime',
+      token: 'Token',
     };
   }
 
@@ -2196,6 +2220,7 @@ export class GetLifecycleRequest extends $tea.Model {
       order: 'string',
       sessionNumber: 'number',
       startTime: 'string',
+      token: 'string',
     };
   }
 
@@ -4357,6 +4382,9 @@ export class CreateInstanceRequestDatasets extends $tea.Model {
    * /mnt/data
    */
   mountPath?: string;
+  /**
+   * @deprecated
+   */
   optionType?: string;
   options?: string;
   /**
@@ -6500,6 +6528,9 @@ export class UpdateInstanceRequestDatasets extends $tea.Model {
    * /mnt/data
    */
   mountPath?: string;
+  /**
+   * @deprecated
+   */
   optionType?: string;
   options?: string;
   /**
@@ -7197,13 +7228,21 @@ export default class Client extends OpenApi {
   /**
    * 获取实例详情
    * 
+   * @param request - GetInstanceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceResponse
    */
-  async getInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
+  async getInstanceWithOptions(InstanceId: string, request: GetInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetInstance",
@@ -7221,12 +7260,14 @@ export default class Client extends OpenApi {
 
   /**
    * 获取实例详情
+   * 
+   * @param request - GetInstanceRequest
    * @returns GetInstanceResponse
    */
-  async getInstance(InstanceId: string): Promise<GetInstanceResponse> {
+  async getInstance(InstanceId: string, request: GetInstanceRequest): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getInstanceWithOptions(InstanceId, headers, runtime);
+    return await this.getInstanceWithOptions(InstanceId, request, headers, runtime);
   }
 
   /**
@@ -7248,6 +7289,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7428,6 +7473,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
     }
 
     let req = new $OpenApi.OpenApiRequest({
