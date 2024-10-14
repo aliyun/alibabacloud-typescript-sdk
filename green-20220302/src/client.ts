@@ -1467,13 +1467,20 @@ export class VideoModerationResultRequest extends $tea.Model {
    * @remarks
    * The type of the moderation service.
    * 
+   * Valid values:
+   * 
+   * *   liveStreamDetection: live stream moderation
+   * *   videoDetection: video file moderation
+   * *   liveStreamDetection_cb: live stream moderation_For regions outside the Chinese mainland
+   * *   videoDetection_cb: video file moderation_For regions outside the Chinese mainland.
+   * 
    * @example
    * videoDetection
    */
   service?: string;
   /**
    * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
+   * The parameters required by the moderation service. The ID of the task that you want to query. You can specify one task ID at a time.
    * 
    * @example
    * {\\"taskId\\":\\"au_f_8PoWiZKoLbczp5HRn69VdT-1y8@U5\\"}
@@ -1501,7 +1508,7 @@ export class VideoModerationResultRequest extends $tea.Model {
 export class VideoModerationResultResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The returned HTTP status code.
+   * The returned HTTP status code. The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -1509,7 +1516,7 @@ export class VideoModerationResultResponseBody extends $tea.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The moderation results.
    */
   data?: VideoModerationResultResponseBodyData;
   /**
@@ -1522,7 +1529,7 @@ export class VideoModerationResultResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
@@ -4623,7 +4630,7 @@ export class VideoModerationResponseBodyData extends $tea.Model {
 export class VideoModerationResultResponseBodyDataAudioResultAudioSummarys extends $tea.Model {
   /**
    * @remarks
-   * Voice label.
+   * The voice label.
    * 
    * @example
    * profanity
@@ -4689,6 +4696,13 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
    * porn
    */
   labels?: string;
+  /**
+   * @remarks
+   * Risk Level.
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
   /**
    * @remarks
@@ -4708,7 +4722,7 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
   riskWords?: string;
   /**
    * @remarks
-   * Risk score, default range 0-99.
+   * The risk score. Default range: 0 to 99.
    * 
    * @example
    * 5
@@ -4740,7 +4754,7 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
   text?: string;
   /**
    * @remarks
-   * If the moderation object is a voice stream, this parameter indicates the temporary access URL of the voice stream to which the text entry corresponds. The validity period of the URL is 30 minutes. You must prepare another URL to store the audio stream at the earliest opportunity.
+   * If the moderation object is a voice stream, this parameter indicates the temporary access URL of the voice stream to which the text entry corresponds. The validity period of the URL is 30 minutes. You must prepare another URL to store the voice stream at the earliest opportunity.
    * 
    * @example
    * http://xxxx.abc.img
@@ -4791,6 +4805,13 @@ export class VideoModerationResultResponseBodyDataAudioResult extends $tea.Model
    * Summary of voice labels.
    */
   audioSummarys?: VideoModerationResultResponseBodyDataAudioResultAudioSummarys[];
+  /**
+   * @remarks
+   * Risk Level.
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
   /**
    * @remarks
@@ -4819,6 +4840,13 @@ export class VideoModerationResultResponseBodyDataAudioResult extends $tea.Model
 }
 
 export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the result.
+   * 
+   * @example
+   * no risk
+   */
   description?: string;
   /**
    * @remarks
@@ -4860,7 +4888,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys exten
 export class VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage extends $tea.Model {
   /**
    * @remarks
-   * The ID of the hit custom image.
+   * The ID of the custom image that is hit.
    * 
    * @example
    * 1234
@@ -4868,7 +4896,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsCustom
   imageId?: string;
   /**
    * @remarks
-   * The custom image library ID of the hit.
+   * The ID of the custom image library that is hit.
    * 
    * @example
    * 12345678
@@ -4896,7 +4924,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsCustom
 export class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure extends $tea.Model {
   /**
    * @remarks
-   * Identified person coding information.
+   * The information about the code of the identified figure.
    * 
    * @example
    * xxx001
@@ -4928,6 +4956,13 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult
    * 50
    */
   confidence?: number;
+  /**
+   * @remarks
+   * The description of the result.
+   * 
+   * @example
+   * no risk
+   */
   description?: string;
   /**
    * @remarks
@@ -4961,12 +4996,12 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult
 export class VideoModerationResultResponseBodyDataFrameResultFramesResults extends $tea.Model {
   /**
    * @remarks
-   * If a custom image library is hit, information about the hit custom image library is returned.
+   * If a custom image library is hit, information about the custom image library is returned.
    */
   customImage?: VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage[];
   /**
    * @remarks
-   * If the video contains a specific person, the recognized person code is returned.
+   * If the video contains a specific figure, the code of the identified figure is returned.
    */
   publicFigure?: VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure[];
   /**
@@ -4984,7 +5019,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
   service?: string;
   /**
    * @remarks
-   * Returns the text information in the hit image.
+   * The information about the text hit in the image is returned.
    */
   textInImage?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -5026,10 +5061,17 @@ export class VideoModerationResultResponseBodyDataFrameResultFrames extends $tea
    * The results of frame moderation parameters such as the label parameter and the confidence parameter.
    */
   results?: VideoModerationResultResponseBodyDataFrameResultFramesResults[];
+  /**
+   * @remarks
+   * Risk Level.
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
   /**
    * @remarks
-   * The temporary URL of a captured frame. This URL is valid for 30 minutes.
+   * The temporary URL of a captured frame.
    * 
    * @example
    * http://xxxx.abc.jpg
@@ -5087,6 +5129,13 @@ export class VideoModerationResultResponseBodyDataFrameResult extends $tea.Model
    * The information about the frames that match the labels.
    */
   frames?: VideoModerationResultResponseBodyDataFrameResultFrames[];
+  /**
+   * @remarks
+   * Risk Level.
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5119,7 +5168,7 @@ export class VideoModerationResultResponseBodyData extends $tea.Model {
   audioResult?: VideoModerationResultResponseBodyDataAudioResult;
   /**
    * @remarks
-   * The ID of the moderated object.
+   * The value of dataId that is specified in the API request. If this parameter is not specified in the API request, the dataId field is not available in the response.
    * 
    * @example
    * product_content-2055763
@@ -5138,6 +5187,13 @@ export class VideoModerationResultResponseBodyData extends $tea.Model {
    * liveId
    */
   liveId?: string;
+  /**
+   * @remarks
+   * Risk Level.
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
   /**
    * @remarks
@@ -5251,6 +5307,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
    * {}
    */
   originAlgoResult?: { [key: string]: any };
+  riskLevel?: string;
   /**
    * @remarks
    * The risk details that are hit.
@@ -5314,6 +5371,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
       extend: 'Extend',
       labels: 'Labels',
       originAlgoResult: 'OriginAlgoResult',
+      riskLevel: 'RiskLevel',
       riskTips: 'RiskTips',
       riskWords: 'RiskWords',
       score: 'Score',
@@ -5331,6 +5389,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
       extend: 'string',
       labels: 'string',
       originAlgoResult: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      riskLevel: 'string',
       riskTips: 'string',
       riskWords: 'string',
       score: 'number',
@@ -5363,6 +5422,7 @@ export class VoiceModerationResultResponseBodyData extends $tea.Model {
    * liveId
    */
   liveId?: string;
+  riskLevel?: string;
   /**
    * @remarks
    * The details about the audio segments.
@@ -5388,6 +5448,7 @@ export class VoiceModerationResultResponseBodyData extends $tea.Model {
     return {
       dataId: 'DataId',
       liveId: 'LiveId',
+      riskLevel: 'RiskLevel',
       sliceDetails: 'SliceDetails',
       taskId: 'TaskId',
       url: 'Url',
@@ -5398,6 +5459,7 @@ export class VoiceModerationResultResponseBodyData extends $tea.Model {
     return {
       dataId: 'string',
       liveId: 'string',
+      riskLevel: 'string',
       sliceDetails: { 'type': 'array', 'itemType': VoiceModerationResultResponseBodyDataSliceDetails },
       taskId: 'string',
       url: 'string',
@@ -6059,7 +6121,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取视频检测结果
+   * Obtains the moderation results of a Video Moderation 2.0 task
+   * 
+   * @remarks
+   * This operation is free of charge. We recommend that you query moderation results at least 30 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for at most 24 hours. After 24 hours, the results are deleted.
    * 
    * @param request - VideoModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6094,7 +6159,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取视频检测结果
+   * Obtains the moderation results of a Video Moderation 2.0 task
+   * 
+   * @remarks
+   * This operation is free of charge. We recommend that you query moderation results at least 30 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for at most 24 hours. After 24 hours, the results are deleted.
    * 
    * @param request - VideoModerationResultRequest
    * @returns VideoModerationResultResponse
