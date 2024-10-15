@@ -3601,6 +3601,7 @@ export class AddressGetRequest extends $tea.Model {
    * 460e254b5a5b4bd0801744a2790e5d78
    */
   itineraryId?: string;
+  middlePage?: number;
   orderId?: string;
   phone?: string;
   subCorpId?: string;
@@ -3609,6 +3610,7 @@ export class AddressGetRequest extends $tea.Model {
    * https://alibtrip.open.com
    */
   taobaoCallbackUrl?: string;
+  thirdpartApplyId?: string;
   travelerId?: string;
   /**
    * @example
@@ -3631,10 +3633,12 @@ export class AddressGetRequest extends $tea.Model {
       depCityName: 'dep_city_name',
       depDate: 'dep_date',
       itineraryId: 'itinerary_id',
+      middlePage: 'middle_page',
       orderId: 'order_Id',
       phone: 'phone',
       subCorpId: 'sub_corp_id',
       taobaoCallbackUrl: 'taobao_callback_url',
+      thirdpartApplyId: 'thirdpart_apply_id',
       travelerId: 'traveler_id',
       type: 'type',
       useBookingProxy: 'use_booking_proxy',
@@ -3652,10 +3656,12 @@ export class AddressGetRequest extends $tea.Model {
       depCityName: 'string',
       depDate: 'string',
       itineraryId: 'string',
+      middlePage: 'number',
       orderId: 'string',
       phone: 'string',
       subCorpId: 'string',
       taobaoCallbackUrl: 'string',
+      thirdpartApplyId: 'string',
       travelerId: 'string',
       type: 'number',
       useBookingProxy: 'number',
@@ -8667,6 +8673,333 @@ export class CooperatorHotelBillSettlementQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CooperatorHotelBillSettlementQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorHotelEventPushHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * feth00jqwls
+   */
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorHotelEventPushRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11
+   */
+  changeOrderStatus?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  changeOrderStatusDesc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * coop_123456
+   */
+  cooperatorOrderId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * USER_LEAVE
+   */
+  event?: string;
+  eventDesc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 204-09-01 10:55:20
+   */
+  eventTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeOrderStatus: 'change_order_status',
+      changeOrderStatusDesc: 'change_order_status_desc',
+      cooperatorOrderId: 'cooperator_order_id',
+      event: 'event',
+      eventDesc: 'event_desc',
+      eventTime: 'event_time',
+      orderId: 'order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeOrderStatus: 'number',
+      changeOrderStatusDesc: 'string',
+      cooperatorOrderId: 'string',
+      event: 'string',
+      eventDesc: 'string',
+      eventTime: 'string',
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorHotelEventPushResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  /**
+   * @example
+   * true
+   */
+  module?: boolean;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: 'boolean',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorHotelEventPushResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CooperatorHotelEventPushResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CooperatorHotelEventPushResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorSyncPayStatusHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * feth00jqwis
+   */
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorSyncPayStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  cooperatorOrderId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
+  cooperatorPayNo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1017018197205925373
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SUCCESS
+   */
+  payStatus?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1726022215000
+   */
+  payTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cooperatorOrderId: 'cooperator_order_id',
+      cooperatorPayNo: 'cooperator_pay_no',
+      orderId: 'order_id',
+      payStatus: 'pay_status',
+      payTime: 'pay_time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cooperatorOrderId: 'string',
+      cooperatorPayNo: 'string',
+      orderId: 'string',
+      payStatus: 'string',
+      payTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorSyncPayStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * System.Error
+   */
+  code?: string;
+  message?: string;
+  /**
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * false
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorSyncPayStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CooperatorSyncPayStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CooperatorSyncPayStatusResponseBody,
     };
   }
 
@@ -40666,6 +40999,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
    * 0
    */
   trainInvoiceFee?: string;
+  vasMallSpecialInvoiceFee?: string;
   /**
    * @example
    * 100
@@ -40695,6 +41029,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
       telephone: 'telephone',
       trainAccelerationPackageInvoiceFee: 'train_acceleration_package_invoice_fee',
       trainInvoiceFee: 'train_invoice_fee',
+      vasMallSpecialInvoiceFee: 'vas_mall_special_invoice_fee',
       vehicleInvoiceFee: 'vehicle_invoice_fee',
       vehicleNormalInvoiceFee: 'vehicle_normal_invoice_fee',
     };
@@ -40723,6 +41058,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
       telephone: 'string',
       trainAccelerationPackageInvoiceFee: 'string',
       trainInvoiceFee: 'string',
+      vasMallSpecialInvoiceFee: 'string',
       vehicleInvoiceFee: 'string',
       vehicleNormalInvoiceFee: 'string',
     };
@@ -43561,6 +43897,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
    * 2022-05-15T22:27Z
    */
   billRecordTime?: string;
+  billingEntity?: string;
   bookModel?: string;
   /**
    * @example
@@ -43680,6 +44017,8 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
   realFromAddr?: string;
   realToAddr?: string;
   remark?: string;
+  sceneId?: string;
+  sceneName?: string;
   /**
    * @example
    * 12.7
@@ -43757,6 +44096,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       arrLocation: 'arr_location',
       arrTime: 'arr_time',
       billRecordTime: 'bill_record_time',
+      billingEntity: 'billing_entity',
       bookModel: 'book_model',
       bookTime: 'book_time',
       bookerId: 'booker_id',
@@ -43800,6 +44140,8 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       realFromAddr: 'real_from_addr',
       realToAddr: 'real_to_addr',
       remark: 'remark',
+      sceneId: 'scene_id',
+      sceneName: 'scene_name',
       serviceFee: 'service_fee',
       settlementFee: 'settlement_fee',
       settlementGrantFee: 'settlement_grant_fee',
@@ -43837,6 +44179,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       arrLocation: 'string',
       arrTime: 'string',
       billRecordTime: 'string',
+      billingEntity: 'string',
       bookModel: 'string',
       bookTime: 'string',
       bookerId: 'string',
@@ -43880,6 +44223,8 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       realFromAddr: 'string',
       realToAddr: 'string',
       remark: 'string',
+      sceneId: 'string',
+      sceneName: 'string',
       serviceFee: 'number',
       settlementFee: 'number',
       settlementGrantFee: 'number',
@@ -47601,6 +47946,8 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
    */
   projectCode?: string;
   projectName?: string;
+  refundAffiliateNo?: string;
+  refundApplyId?: string;
   /**
    * @example
    * 23.9
@@ -47614,6 +47961,8 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
   refundUpgradeCost?: number;
   remark?: string;
   repeatRefund?: string;
+  sceneId?: string;
+  sceneName?: string;
   /**
    * @example
    * 410
@@ -47759,11 +48108,15 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       primaryId: 'primary_id',
       projectCode: 'project_code',
       projectName: 'project_name',
+      refundAffiliateNo: 'refund_affiliate_no',
+      refundApplyId: 'refund_apply_id',
       refundFee: 'refund_fee',
       refundResult: 'refund_result',
       refundUpgradeCost: 'refund_upgrade_cost',
       remark: 'remark',
       repeatRefund: 'repeat_refund',
+      sceneId: 'scene_id',
+      sceneName: 'scene_name',
       sealPrice: 'seal_price',
       serviceFee: 'service_fee',
       settlementFee: 'settlement_fee',
@@ -47861,11 +48214,15 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       primaryId: 'number',
       projectCode: 'string',
       projectName: 'string',
+      refundAffiliateNo: 'string',
+      refundApplyId: 'string',
       refundFee: 'number',
       refundResult: 'string',
       refundUpgradeCost: 'number',
       remark: 'string',
       repeatRefund: 'string',
+      sceneId: 'string',
+      sceneName: 'string',
       sealPrice: 'number',
       serviceFee: 'number',
       settlementFee: 'number',
@@ -48915,6 +49272,7 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $tea.Model 
    */
   insurance?: string;
   invoiceTitle?: string;
+  invoiceType?: number;
   /**
    * @remarks
    * 填开单位
@@ -48933,6 +49291,7 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $tea.Model 
    * 6666666666
    */
   itineraryNum?: string;
+  ofdOssUrl?: string;
   /**
    * @example
    * 4801105714092
@@ -48950,6 +49309,8 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $tea.Model 
    * 提示信息
    */
   promptMessage?: string;
+  purchaserName?: string;
+  purchaserType?: number;
   /**
    * @example
    * 108.17
@@ -48996,14 +49357,18 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $tea.Model 
       id: 'id',
       insurance: 'insurance',
       invoiceTitle: 'invoice_title',
+      invoiceType: 'invoice_type',
       issueCompany: 'issue_company',
       issueDate: 'issue_date',
       itineraryNum: 'itinerary_num',
+      ofdOssUrl: 'ofd_oss_url',
       orderId: 'order_id',
       ossUrl: 'oss_url',
       passengerName: 'passenger_name',
       project: 'project',
       promptMessage: 'prompt_message',
+      purchaserName: 'purchaser_name',
+      purchaserType: 'purchaser_type',
       taxAmount: 'tax_amount',
       taxRate: 'tax_rate',
       ticketNo: 'ticket_no',
@@ -49026,14 +49391,18 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $tea.Model 
       id: 'string',
       insurance: 'string',
       invoiceTitle: 'string',
+      invoiceType: 'number',
       issueCompany: 'string',
       issueDate: 'string',
       itineraryNum: 'string',
+      ofdOssUrl: 'string',
       orderId: 'number',
       ossUrl: 'string',
       passengerName: 'string',
       project: 'string',
       promptMessage: 'string',
+      purchaserName: 'string',
+      purchaserType: 'number',
       taxAmount: 'string',
       taxRate: 'string',
       ticketNo: 'string',
@@ -51047,6 +51416,7 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListItemListSubItems extends $tea.Model {
   shoppingItemMap?: { [key: string]: ModuleFlightItemListItemListSubItemsShoppingItemMapValue };
+  tag?: string;
   /**
    * @example
    * 07df0bd9-f803-4a50-8449-f4bd675d9939
@@ -51055,6 +51425,7 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListItemListSubIte
   static names(): { [key: string]: string } {
     return {
       shoppingItemMap: 'shopping_item_map',
+      tag: 'tag',
       uniqKey: 'uniq_key',
     };
   }
@@ -51062,6 +51433,7 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListItemListSubIte
   static types(): { [key: string]: any } {
     return {
       shoppingItemMap: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListItemListSubItemsShoppingItemMapValue },
+      tag: 'string',
       uniqKey: 'string',
     };
   }
@@ -52560,6 +52932,37 @@ export class FlightModifyListingSearchV2ResponseBodyModule extends $tea.Model {
   }
 }
 
+export class FlightModifyOrderDetailV2ResponseBodyModuleAttributes extends $tea.Model {
+  baggageRule?: string;
+  changeRule?: string;
+  latestPayTime?: any;
+  latestPayTimeStr?: string;
+  refundRule?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baggageRule: 'baggage_rule',
+      changeRule: 'change_rule',
+      latestPayTime: 'latest_pay_time',
+      latestPayTimeStr: 'latest_pay_time_str',
+      refundRule: 'refund_rule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baggageRule: 'string',
+      changeRule: 'string',
+      latestPayTime: 'any',
+      latestPayTimeStr: 'string',
+      refundRule: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FlightModifyOrderDetailV2ResponseBodyModuleContactInfoDTO extends $tea.Model {
   /**
    * @example
@@ -52592,6 +52995,37 @@ export class FlightModifyOrderDetailV2ResponseBodyModuleContactInfoDTO extends $
       contactName: 'string',
       contactPhone: 'string',
       sendMsgToPassenger: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOSFlightChange extends $tea.Model {
+  changeDesc?: string;
+  changeStatus?: string;
+  changeStatusCode?: string;
+  newSegment?: any;
+  passengerNames?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      changeDesc: 'change_desc',
+      changeStatus: 'change_status',
+      changeStatusCode: 'change_status_code',
+      newSegment: 'new_segment',
+      passengerNames: 'passenger_names',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeDesc: 'string',
+      changeStatus: 'string',
+      changeStatusCode: 'string',
+      newSegment: 'any',
+      passengerNames: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -52694,6 +53128,7 @@ export class FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOS exten
    * 2023-10-03 07:30:00
    */
   depTime?: string;
+  flightChange?: FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOSFlightChange;
   /**
    * @example
    * MU5193
@@ -52735,6 +53170,7 @@ export class FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOS exten
       depCityName: 'dep_city_name',
       depTerminal: 'dep_terminal',
       depTime: 'dep_time',
+      flightChange: 'flight_change',
       flightNo: 'flight_no',
       flightType: 'flight_type',
       mealDesc: 'meal_desc',
@@ -52771,6 +53207,7 @@ export class FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOS exten
       depCityName: 'string',
       depTerminal: 'string',
       depTime: 'string',
+      flightChange: FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOSFlightChange,
       flightNo: 'string',
       flightType: 'string',
       mealDesc: 'string',
@@ -52902,6 +53339,7 @@ export class FlightModifyOrderDetailV2ResponseBodyModule extends $tea.Model {
    * 2023-08-14 11:28:01
    */
   applyTime?: string;
+  attributes?: FlightModifyOrderDetailV2ResponseBodyModuleAttributes;
   /**
    * @example
    * 17635462345@163.com
@@ -52971,6 +53409,7 @@ export class FlightModifyOrderDetailV2ResponseBodyModule extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       applyTime: 'apply_time',
+      attributes: 'attributes',
       bookUserEmail: 'book_user_email',
       bookUserName: 'book_user_name',
       bookuserPhone: 'bookuser_phone',
@@ -52995,6 +53434,7 @@ export class FlightModifyOrderDetailV2ResponseBodyModule extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       applyTime: 'string',
+      attributes: FlightModifyOrderDetailV2ResponseBodyModuleAttributes,
       bookUserEmail: 'string',
       bookUserName: 'string',
       bookuserPhone: 'string',
@@ -60363,6 +60803,7 @@ export class FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfos extends $tea.
 
 export class FlightOtaSearchV2ResponseBodyModuleItemListSubItems extends $tea.Model {
   shoppingItemMap?: { [key: string]: ModuleItemListSubItemsShoppingItemMapValue };
+  tag?: string;
   /**
    * @example
    * 07df0bd9-f803-4a50-8449-f4bd675d9939
@@ -60371,6 +60812,7 @@ export class FlightOtaSearchV2ResponseBodyModuleItemListSubItems extends $tea.Mo
   static names(): { [key: string]: string } {
     return {
       shoppingItemMap: 'shopping_item_map',
+      tag: 'tag',
       uniqKey: 'uniq_key',
     };
   }
@@ -60378,6 +60820,7 @@ export class FlightOtaSearchV2ResponseBodyModuleItemListSubItems extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       shoppingItemMap: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleItemListSubItemsShoppingItemMapValue },
+      tag: 'string',
       uniqKey: 'string',
     };
   }
@@ -65180,6 +65623,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    * 2022-07-20T10:40Z
    */
   billRecordTime?: string;
+  billingEntity?: string;
   bookReason?: string;
   /**
    * @example
@@ -65192,6 +65636,8 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   brandGroup?: string;
   brandName?: string;
   businessTripResult?: string;
+  cancelOrModifyReason?: string;
+  cancelOrModifyScene?: string;
   /**
    * @example
    * 1
@@ -65281,6 +65727,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    */
   orderPrice?: number;
   orderType?: string;
+  originalReserveRule?: string;
   /**
    * @example
    * 4234324
@@ -65328,6 +65775,8 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
    */
   roomPrice?: number;
   roomType?: string;
+  sceneId?: string;
+  sceneName?: string;
   /**
    * @example
    * 0
@@ -65398,6 +65847,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       applyId: 'apply_id',
       averageNights: 'average_nights',
       billRecordTime: 'bill_record_time',
+      billingEntity: 'billing_entity',
       bookReason: 'book_reason',
       bookTime: 'book_time',
       bookerId: 'booker_id',
@@ -65406,6 +65856,8 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       brandGroup: 'brand_group',
       brandName: 'brand_name',
       businessTripResult: 'business_trip_result',
+      cancelOrModifyReason: 'cancel_or_modify_reason',
+      cancelOrModifyScene: 'cancel_or_modify_scene',
       capitalDirection: 'capital_direction',
       cascadeDepartment: 'cascade_department',
       checkInDate: 'check_in_date',
@@ -65439,6 +65891,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       orderId: 'order_id',
       orderPrice: 'order_price',
       orderType: 'order_type',
+      originalReserveRule: 'original_reserve_rule',
       overApplyId: 'over_apply_id',
       paymentDepartmentId: 'payment_department_id',
       paymentDepartmentName: 'payment_department_name',
@@ -65454,6 +65907,8 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       roomNumber: 'room_number',
       roomPrice: 'room_price',
       roomType: 'room_type',
+      sceneId: 'scene_id',
+      sceneName: 'scene_name',
       serviceFee: 'service_fee',
       settlementFee: 'settlement_fee',
       settlementGrantFee: 'settlement_grant_fee',
@@ -65484,6 +65939,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       applyId: 'string',
       averageNights: 'string',
       billRecordTime: 'string',
+      billingEntity: 'string',
       bookReason: 'string',
       bookTime: 'string',
       bookerId: 'string',
@@ -65492,6 +65948,8 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       brandGroup: 'string',
       brandName: 'string',
       businessTripResult: 'string',
+      cancelOrModifyReason: 'string',
+      cancelOrModifyScene: 'string',
       capitalDirection: 'string',
       cascadeDepartment: 'string',
       checkInDate: 'string',
@@ -65525,6 +65983,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       orderId: 'string',
       orderPrice: 'number',
       orderType: 'string',
+      originalReserveRule: 'string',
       overApplyId: 'string',
       paymentDepartmentId: 'string',
       paymentDepartmentName: 'string',
@@ -65540,6 +65999,8 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       roomNumber: 'number',
       roomPrice: 'number',
       roomType: 'string',
+      sceneId: 'string',
+      sceneName: 'string',
       serviceFee: 'number',
       settlementFee: 'number',
       settlementGrantFee: 'number',
@@ -71905,6 +72366,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
    * 4564547
    */
   index?: string;
+  insOrderId?: string;
   /**
    * @example
    * 23.9
@@ -71915,6 +72377,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
    * 15548214852
    */
   insuranceNumber?: string;
+  insuranceProductName?: string;
   invoiceTitle?: string;
   /**
    * @example
@@ -72065,6 +72528,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
    * 11
    */
   voucherType?: number;
+  voyageName?: string;
   static names(): { [key: string]: string } {
     return {
       advanceDay: 'advance_day',
@@ -72118,8 +72582,10 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       feeType: 'fee_type',
       flightNo: 'flight_no',
       index: 'index',
+      insOrderId: 'ins_order_id',
       insuranceFee: 'insurance_fee',
       insuranceNumber: 'insurance_number',
+      insuranceProductName: 'insurance_product_name',
       invoiceTitle: 'invoice_title',
       mostDifferenceDeptTime: 'most_difference_dept_time',
       mostDifferenceDiscount: 'most_difference_discount',
@@ -72159,6 +72625,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       travelerJobNo: 'traveler_job_no',
       travelerName: 'traveler_name',
       voucherType: 'voucher_type',
+      voyageName: 'voyage_name',
     };
   }
 
@@ -72215,8 +72682,10 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       feeType: 'string',
       flightNo: 'string',
       index: 'string',
+      insOrderId: 'string',
       insuranceFee: 'number',
       insuranceNumber: 'string',
+      insuranceProductName: 'string',
       invoiceTitle: 'string',
       mostDifferenceDeptTime: 'string',
       mostDifferenceDiscount: 'string',
@@ -72256,6 +72725,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       travelerJobNo: 'string',
       travelerName: 'string',
       voucherType: 'number',
+      voyageName: 'string',
     };
   }
 
@@ -72489,6 +72959,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
    */
   orderStatusDesc?: string;
   orderType?: string;
+  originalReserveRule?: string;
   /**
    * @example
    * 534545345
@@ -72679,6 +73150,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
       orderPrice: 'order_price',
       orderStatusDesc: 'order_status_desc',
       orderType: 'order_type',
+      originalReserveRule: 'original_reserve_rule',
       overApplyId: 'over_apply_id',
       paymentDepartmentId: 'payment_department_id',
       paymentDepartmentName: 'payment_department_name',
@@ -72768,6 +73240,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
       orderPrice: 'number',
       orderStatusDesc: 'string',
       orderType: 'string',
+      originalReserveRule: 'string',
       overApplyId: 'string',
       paymentDepartmentId: 'string',
       paymentDepartmentName: 'string',
@@ -83611,6 +84084,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   bookerJobNo?: string;
   bookerName?: string;
   businessTripResult?: string;
+  cabinMaxPrice?: number;
   /**
    * @example
    * 1
@@ -83665,6 +84139,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   index?: string;
   invoiceTitle?: string;
   isTransferOrder?: string;
+  maxCabin?: string;
   /**
    * @example
    * 23432692343243432
@@ -83705,6 +84180,8 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   remark?: string;
   reserveMode?: string;
   runTime?: string;
+  sceneId?: string;
+  sceneName?: string;
   /**
    * @example
    * 004F
@@ -83799,6 +84276,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       bookerJobNo: 'booker_job_no',
       bookerName: 'booker_name',
       businessTripResult: 'business_trip_result',
+      cabinMaxPrice: 'cabin_max_price',
       capitalDirection: 'capital_direction',
       cascadeDepartment: 'cascade_department',
       changeAffiliateNo: 'change_affiliate_no',
@@ -83821,6 +84299,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       index: 'index',
       invoiceTitle: 'invoice_title',
       isTransferOrder: 'is_transfer_order',
+      maxCabin: 'max_cabin',
       orderId: 'order_id',
       orderPrice: 'order_price',
       overApplyId: 'over_apply_id',
@@ -83837,6 +84316,8 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       remark: 'remark',
       reserveMode: 'reserve_mode',
       runTime: 'run_time',
+      sceneId: 'scene_id',
+      sceneName: 'scene_name',
       seatNo: 'seat_no',
       seatType: 'seat_type',
       serviceFee: 'service_fee',
@@ -83883,6 +84364,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       bookerJobNo: 'string',
       bookerName: 'string',
       businessTripResult: 'string',
+      cabinMaxPrice: 'number',
       capitalDirection: 'string',
       cascadeDepartment: 'string',
       changeAffiliateNo: 'string',
@@ -83905,6 +84387,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       index: 'string',
       invoiceTitle: 'string',
       isTransferOrder: 'string',
+      maxCabin: 'string',
       orderId: 'string',
       orderPrice: 'number',
       overApplyId: 'string',
@@ -83921,6 +84404,8 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       remark: 'string',
       reserveMode: 'string',
       runTime: 'string',
+      sceneId: 'string',
+      sceneName: 'string',
       seatNo: 'string',
       seatType: 'string',
       serviceFee: 'number',
@@ -90151,6 +90636,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $tea.Mode
    * 0
    */
   trainInvoiceFee?: string;
+  vasMallSpecialInvoiceFee?: string;
   /**
    * @example
    * 100
@@ -90180,6 +90666,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $tea.Mode
       telephone: 'telephone',
       trainAccelerationPackageInvoiceFee: 'train_acceleration_package_invoice_fee',
       trainInvoiceFee: 'train_invoice_fee',
+      vasMallSpecialInvoiceFee: 'vas_mall_special_invoice_fee',
       vehicleInvoiceFee: 'vehicle_invoice_fee',
       vehicleNormalInvoiceFee: 'vehicle_normal_invoice_fee',
     };
@@ -90208,6 +90695,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $tea.Mode
       telephone: 'string',
       trainAccelerationPackageInvoiceFee: 'string',
       trainInvoiceFee: 'string',
+      vasMallSpecialInvoiceFee: 'string',
       vehicleInvoiceFee: 'string',
       vehicleNormalInvoiceFee: 'string',
     };
@@ -90677,6 +91165,10 @@ export default class Client extends OpenApi {
       query["itinerary_id"] = request.itineraryId;
     }
 
+    if (!Util.isUnset(request.middlePage)) {
+      query["middle_page"] = request.middlePage;
+    }
+
     if (!Util.isUnset(request.orderId)) {
       query["order_Id"] = request.orderId;
     }
@@ -90691,6 +91183,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.taobaoCallbackUrl)) {
       query["taobao_callback_url"] = request.taobaoCallbackUrl;
+    }
+
+    if (!Util.isUnset(request.thirdpartApplyId)) {
+      query["thirdpart_apply_id"] = request.thirdpartApplyId;
     }
 
     if (!Util.isUnset(request.travelerId)) {
@@ -92842,6 +93338,154 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CooperatorHotelBillSettlementQueryHeaders({ });
     return await this.cooperatorHotelBillSettlementQueryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 酒店订单事件推送
+   * 
+   * @param request - CooperatorHotelEventPushRequest
+   * @param headers - CooperatorHotelEventPushHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CooperatorHotelEventPushResponse
+   */
+  async cooperatorHotelEventPushWithOptions(request: CooperatorHotelEventPushRequest, headers: CooperatorHotelEventPushHeaders, runtime: $Util.RuntimeOptions): Promise<CooperatorHotelEventPushResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.changeOrderStatus)) {
+      body["change_order_status"] = request.changeOrderStatus;
+    }
+
+    if (!Util.isUnset(request.changeOrderStatusDesc)) {
+      body["change_order_status_desc"] = request.changeOrderStatusDesc;
+    }
+
+    if (!Util.isUnset(request.cooperatorOrderId)) {
+      body["cooperator_order_id"] = request.cooperatorOrderId;
+    }
+
+    if (!Util.isUnset(request.event)) {
+      body["event"] = request.event;
+    }
+
+    if (!Util.isUnset(request.eventDesc)) {
+      body["event_desc"] = request.eventDesc;
+    }
+
+    if (!Util.isUnset(request.eventTime)) {
+      body["event_time"] = request.eventTime;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CooperatorHotelEventPush",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/coop-hotel/v1/orders/events`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CooperatorHotelEventPushResponse>(await this.callApi(params, req, runtime), new CooperatorHotelEventPushResponse({}));
+  }
+
+  /**
+   * 酒店订单事件推送
+   * 
+   * @param request - CooperatorHotelEventPushRequest
+   * @returns CooperatorHotelEventPushResponse
+   */
+  async cooperatorHotelEventPush(request: CooperatorHotelEventPushRequest): Promise<CooperatorHotelEventPushResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CooperatorHotelEventPushHeaders({ });
+    return await this.cooperatorHotelEventPushWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 个人支付结果推送
+   * 
+   * @param request - CooperatorSyncPayStatusRequest
+   * @param headers - CooperatorSyncPayStatusHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CooperatorSyncPayStatusResponse
+   */
+  async cooperatorSyncPayStatusWithOptions(request: CooperatorSyncPayStatusRequest, headers: CooperatorSyncPayStatusHeaders, runtime: $Util.RuntimeOptions): Promise<CooperatorSyncPayStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cooperatorOrderId)) {
+      body["cooperator_order_id"] = request.cooperatorOrderId;
+    }
+
+    if (!Util.isUnset(request.cooperatorPayNo)) {
+      body["cooperator_pay_no"] = request.cooperatorPayNo;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.payStatus)) {
+      body["pay_status"] = request.payStatus;
+    }
+
+    if (!Util.isUnset(request.payTime)) {
+      body["pay_time"] = request.payTime;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CooperatorSyncPayStatus",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/coop-pay/v1/cashiers/status`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CooperatorSyncPayStatusResponse>(await this.callApi(params, req, runtime), new CooperatorSyncPayStatusResponse({}));
+  }
+
+  /**
+   * 个人支付结果推送
+   * 
+   * @param request - CooperatorSyncPayStatusRequest
+   * @returns CooperatorSyncPayStatusResponse
+   */
+  async cooperatorSyncPayStatus(request: CooperatorSyncPayStatusRequest): Promise<CooperatorSyncPayStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CooperatorSyncPayStatusHeaders({ });
+    return await this.cooperatorSyncPayStatusWithOptions(request, headers, runtime);
   }
 
   /**
