@@ -356,7 +356,7 @@ export class MaintenanceWindow extends $tea.Model {
   enable?: boolean;
   /**
    * @example
-   * 03:00:00Z
+   * 2020-10-15T12:31:00.000+08:00
    */
   maintenanceTime?: string;
   /**
@@ -2178,6 +2178,7 @@ export class CreateClusterRequest extends $tea.Model {
    * Hello@1234
    */
   loginPassword?: string;
+  maintenanceWindow?: MaintenanceWindow;
   /**
    * @remarks
    * Specifies whether to enable auto-renewal for master nodes. This parameter takes effect only when `master_instance_charge_type` is set to `PrePaid`. Valid values:
@@ -2375,6 +2376,7 @@ export class CreateClusterRequest extends $tea.Model {
    * @deprecated
    */
   numOfNodes?: number;
+  operationPolicy?: CreateClusterRequestOperationPolicy;
   /**
    * @remarks
    * The type of OS. Valid values:
@@ -2852,6 +2854,7 @@ export class CreateClusterRequest extends $tea.Model {
       loadBalancerSpec: 'load_balancer_spec',
       loggingType: 'logging_type',
       loginPassword: 'login_password',
+      maintenanceWindow: 'maintenance_window',
       masterAutoRenew: 'master_auto_renew',
       masterAutoRenewPeriod: 'master_auto_renew_period',
       masterCount: 'master_count',
@@ -2871,6 +2874,7 @@ export class CreateClusterRequest extends $tea.Model {
       nodePortRange: 'node_port_range',
       nodepools: 'nodepools',
       numOfNodes: 'num_of_nodes',
+      operationPolicy: 'operation_policy',
       osType: 'os_type',
       period: 'period',
       periodUnit: 'period_unit',
@@ -2952,6 +2956,7 @@ export class CreateClusterRequest extends $tea.Model {
       loadBalancerSpec: 'string',
       loggingType: 'string',
       loginPassword: 'string',
+      maintenanceWindow: MaintenanceWindow,
       masterAutoRenew: 'boolean',
       masterAutoRenewPeriod: 'number',
       masterCount: 'number',
@@ -2971,6 +2976,7 @@ export class CreateClusterRequest extends $tea.Model {
       nodePortRange: 'string',
       nodepools: { 'type': 'array', 'itemType': Nodepool },
       numOfNodes: 'number',
+      operationPolicy: CreateClusterRequestOperationPolicy,
       osType: 'string',
       period: 'number',
       periodUnit: 'string',
@@ -5878,6 +5884,7 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
    * 1.18.8-aliyun.1
    */
   nextVersion?: string;
+  operationPolicy?: DescribeClusterDetailResponseBodyOperationPolicy;
   /**
    * @remarks
    * The ROS parameters of the cluster.
@@ -6029,6 +6036,7 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
       name: 'name',
       networkMode: 'network_mode',
       nextVersion: 'next_version',
+      operationPolicy: 'operation_policy',
       parameters: 'parameters',
       privateZone: 'private_zone',
       profile: 'profile',
@@ -6064,6 +6072,7 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
       name: 'string',
       networkMode: 'string',
       nextVersion: 'string',
+      operationPolicy: DescribeClusterDetailResponseBodyOperationPolicy,
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       privateZone: 'boolean',
       profile: 'string',
@@ -15916,6 +15925,47 @@ export class CheckServiceRoleResponseBodyRoles extends $tea.Model {
   }
 }
 
+export class CreateClusterRequestOperationPolicyClusterAutoUpgrade extends $tea.Model {
+  channel?: string;
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'channel',
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: 'string',
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestOperationPolicy extends $tea.Model {
+  clusterAutoUpgrade?: CreateClusterRequestOperationPolicyClusterAutoUpgrade;
+  static names(): { [key: string]: string } {
+    return {
+      clusterAutoUpgrade: 'cluster_auto_upgrade',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterAutoUpgrade: CreateClusterRequestOperationPolicyClusterAutoUpgrade,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterRequestWorkerDataDisks extends $tea.Model {
   /**
    * @remarks
@@ -17619,6 +17669,47 @@ export class DescribeAddonsResponseBodyComponentGroups extends $tea.Model {
     return {
       groupName: 'string',
       items: { 'type': 'array', 'itemType': DescribeAddonsResponseBodyComponentGroupsItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade extends $tea.Model {
+  channel?: string;
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'channel',
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: 'string',
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterDetailResponseBodyOperationPolicy extends $tea.Model {
+  clusterAutoUpgrade?: DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade;
+  static names(): { [key: string]: string } {
+    return {
+      clusterAutoUpgrade: 'cluster_auto_upgrade',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterAutoUpgrade: DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade,
     };
   }
 
@@ -21714,6 +21805,47 @@ export class DescribeClustersResponseBody extends $tea.Model {
   }
 }
 
+export class DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpgrade extends $tea.Model {
+  channel?: string;
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'channel',
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: 'string',
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClustersV1ResponseBodyClustersOperationPolicy extends $tea.Model {
+  clusterAutoUpgrade?: DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpgrade;
+  static names(): { [key: string]: string } {
+    return {
+      clusterAutoUpgrade: 'cluster_auto_upgrade',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterAutoUpgrade: DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpgrade,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
   /**
    * @remarks
@@ -21851,6 +21983,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
    * 1.18.8-aliyun.1
    */
   nextVersion?: string;
+  operationPolicy?: DescribeClustersV1ResponseBodyClustersOperationPolicy;
   /**
    * @remarks
    * Indicates whether Alibaba Cloud DNS PrivateZone is enabled. Valid values:
@@ -22004,6 +22137,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
       name: 'name',
       networkMode: 'network_mode',
       nextVersion: 'next_version',
+      operationPolicy: 'operation_policy',
       privateZone: 'private_zone',
       profile: 'profile',
       regionId: 'region_id',
@@ -22038,6 +22172,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
       name: 'string',
       networkMode: 'string',
       nextVersion: 'string',
+      operationPolicy: DescribeClustersV1ResponseBodyClustersOperationPolicy,
       privateZone: 'boolean',
       profile: 'string',
       regionId: 'string',
@@ -28200,6 +28335,10 @@ export default class Client extends OpenApi {
       body["login_password"] = request.loginPassword;
     }
 
+    if (!Util.isUnset(request.maintenanceWindow)) {
+      body["maintenance_window"] = request.maintenanceWindow;
+    }
+
     if (!Util.isUnset(request.masterAutoRenew)) {
       body["master_auto_renew"] = request.masterAutoRenew;
     }
@@ -28274,6 +28413,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.numOfNodes)) {
       body["num_of_nodes"] = request.numOfNodes;
+    }
+
+    if (!Util.isUnset(request.operationPolicy)) {
+      body["operation_policy"] = request.operationPolicy;
     }
 
     if (!Util.isUnset(request.osType)) {
