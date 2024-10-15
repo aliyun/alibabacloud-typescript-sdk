@@ -66592,6 +66592,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $tea.Model {
    * true
    */
   instantConfirm?: boolean;
+  inventoryDesc?: string;
   /**
    * @example
    * 100
@@ -66728,6 +66729,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $tea.Model {
       endTimeDaily: 'end_time_daily',
       hotelDetailRatePriceDTO: 'hotel_detail_rate_price_d_t_o',
       instantConfirm: 'instant_confirm',
+      inventoryDesc: 'inventory_desc',
       inventoryPrice: 'inventory_price',
       isBusinessPay4Goods: 'is_business_pay4_goods',
       isGuarantee: 'is_guarantee',
@@ -66775,6 +66777,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $tea.Model {
       endTimeDaily: 'string',
       hotelDetailRatePriceDTO: { 'type': 'array', 'itemType': HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO },
       instantConfirm: 'boolean',
+      inventoryDesc: 'string',
       inventoryPrice: 'string',
       isBusinessPay4Goods: 'boolean',
       isGuarantee: 'number',
