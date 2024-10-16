@@ -26,26 +26,83 @@ export class AgentBaseQuery extends $tea.Model {
   }
 }
 
+export class CommonAgentQuery extends $tea.Model {
+  query?: string;
+  querySceneEnumCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      query: 'query',
+      querySceneEnumCode: 'querySceneEnumCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      query: 'string',
+      querySceneEnumCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryResult extends $tea.Model {
   data?: QueryResultData[];
-  errorCode?: string;
-  errorMessage?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      success: 'success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       data: { 'type': 'array', 'itemType': QueryResultData },
-      errorCode: 'string',
-      errorMessage: 'string',
-      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommonQueryBySceneRequest extends $tea.Model {
+  body?: CommonAgentQuery;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: CommonAgentQuery,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommonQueryBySceneResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryResult,
     };
   }
 
@@ -414,6 +471,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 自然语言通用查询
+   * 
+   * @param request - CommonQueryBySceneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CommonQueryBySceneResponse
+   */
+  async commonQueryBySceneWithOptions(request: CommonQueryBySceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CommonQueryBySceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CommonQueryByScene",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/amap-function-call-agent/iqs-agent-service/v2/nl/common`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CommonQueryBySceneResponse>(await this.callApi(params, req, runtime), new CommonQueryBySceneResponse({}));
+  }
+
+  /**
+   * 自然语言通用查询
+   * 
+   * @param request - CommonQueryBySceneRequest
+   * @returns CommonQueryBySceneResponse
+   */
+  async commonQueryByScene(request: CommonQueryBySceneRequest): Promise<CommonQueryBySceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.commonQueryBySceneWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 景点查询
    * 
    * @param request - QueryAttractionsRequest
@@ -454,7 +551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 餐厅查询
+   * 酒店查询
    * 
    * @param request - QueryHotelsRequest
    * @param headers - map
@@ -482,7 +579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 餐厅查询
+   * 酒店查询
    * 
    * @param request - QueryHotelsRequest
    * @returns QueryHotelsResponse
