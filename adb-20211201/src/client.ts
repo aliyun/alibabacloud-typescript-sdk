@@ -2462,6 +2462,7 @@ export class CreateDBClusterResponse extends $tea.Model {
 }
 
 export class CreateDBResourceGroupRequest extends $tea.Model {
+  autoStopInterval?: string;
   /**
    * @remarks
    * A reserved parameter.
@@ -2589,6 +2590,7 @@ export class CreateDBResourceGroupRequest extends $tea.Model {
   targetResourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      autoStopInterval: 'AutoStopInterval',
       clusterMode: 'ClusterMode',
       clusterSizeResource: 'ClusterSizeResource',
       DBClusterId: 'DBClusterId',
@@ -2612,6 +2614,7 @@ export class CreateDBResourceGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoStopInterval: 'string',
       clusterMode: 'string',
       clusterSizeResource: 'string',
       DBClusterId: 'string',
@@ -2639,6 +2642,7 @@ export class CreateDBResourceGroupRequest extends $tea.Model {
 }
 
 export class CreateDBResourceGroupShrinkRequest extends $tea.Model {
+  autoStopInterval?: string;
   /**
    * @remarks
    * A reserved parameter.
@@ -2766,6 +2770,7 @@ export class CreateDBResourceGroupShrinkRequest extends $tea.Model {
   targetResourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      autoStopInterval: 'AutoStopInterval',
       clusterMode: 'ClusterMode',
       clusterSizeResource: 'ClusterSizeResource',
       DBClusterId: 'DBClusterId',
@@ -2789,6 +2794,7 @@ export class CreateDBResourceGroupShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoStopInterval: 'string',
       clusterMode: 'string',
       clusterSizeResource: 'string',
       DBClusterId: 'string',
@@ -17960,6 +17966,7 @@ export class ModifyDBClusterMaintainTimeResponse extends $tea.Model {
 }
 
 export class ModifyDBResourceGroupRequest extends $tea.Model {
+  autoStopInterval?: string;
   /**
    * @remarks
    * A reserved parameter.
@@ -18081,9 +18088,11 @@ export class ModifyDBResourceGroupRequest extends $tea.Model {
    */
   rules?: ModifyDBResourceGroupRequestRules[];
   specName?: string;
+  status?: string;
   targetResourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      autoStopInterval: 'AutoStopInterval',
       clusterMode: 'ClusterMode',
       clusterSizeResource: 'ClusterSizeResource',
       DBClusterId: 'DBClusterId',
@@ -18100,12 +18109,14 @@ export class ModifyDBResourceGroupRequest extends $tea.Model {
       regionId: 'RegionId',
       rules: 'Rules',
       specName: 'SpecName',
+      status: 'Status',
       targetResourceGroupName: 'TargetResourceGroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoStopInterval: 'string',
       clusterMode: 'string',
       clusterSizeResource: 'string',
       DBClusterId: 'string',
@@ -18122,6 +18133,7 @@ export class ModifyDBResourceGroupRequest extends $tea.Model {
       regionId: 'string',
       rules: { 'type': 'array', 'itemType': ModifyDBResourceGroupRequestRules },
       specName: 'string',
+      status: 'string',
       targetResourceGroupName: 'string',
     };
   }
@@ -18132,6 +18144,7 @@ export class ModifyDBResourceGroupRequest extends $tea.Model {
 }
 
 export class ModifyDBResourceGroupShrinkRequest extends $tea.Model {
+  autoStopInterval?: string;
   /**
    * @remarks
    * A reserved parameter.
@@ -18253,9 +18266,11 @@ export class ModifyDBResourceGroupShrinkRequest extends $tea.Model {
    */
   rulesShrink?: string;
   specName?: string;
+  status?: string;
   targetResourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      autoStopInterval: 'AutoStopInterval',
       clusterMode: 'ClusterMode',
       clusterSizeResource: 'ClusterSizeResource',
       DBClusterId: 'DBClusterId',
@@ -18272,12 +18287,14 @@ export class ModifyDBResourceGroupShrinkRequest extends $tea.Model {
       regionId: 'RegionId',
       rulesShrink: 'Rules',
       specName: 'SpecName',
+      status: 'Status',
       targetResourceGroupName: 'TargetResourceGroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoStopInterval: 'string',
       clusterMode: 'string',
       clusterSizeResource: 'string',
       DBClusterId: 'string',
@@ -18294,6 +18311,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $tea.Model {
       regionId: 'string',
       rulesShrink: 'string',
       specName: 'string',
+      status: 'string',
       targetResourceGroupName: 'string',
     };
   }
@@ -24169,6 +24187,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRules extends $tea.Mod
 }
 
 export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
+  autoStopInterval?: string;
   /**
    * @remarks
    * A reserved parameter.
@@ -24321,6 +24340,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      autoStopInterval: 'AutoStopInterval',
       clusterMode: 'ClusterMode',
       clusterSizeResource: 'ClusterSizeResource',
       createTime: 'CreateTime',
@@ -24349,6 +24369,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoStopInterval: 'string',
       clusterMode: 'string',
       clusterSizeResource: 'string',
       createTime: 'string',
@@ -25724,6 +25745,9 @@ export class DescribePatternPerformanceResponseBodyPerformances extends $tea.Mod
 }
 
 export class DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKeys extends $tea.Model {
+  enableAutoMc?: boolean;
+  engine?: string[];
+  groupType?: string[];
   /**
    * @remarks
    * The name of the metric.
@@ -25745,6 +25769,9 @@ export class DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKey
   selected?: boolean;
   static names(): { [key: string]: string } {
     return {
+      enableAutoMc: 'EnableAutoMc',
+      engine: 'Engine',
+      groupType: 'GroupType',
       keyName: 'KeyName',
       selected: 'Selected',
     };
@@ -25752,6 +25779,9 @@ export class DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKey
 
   static types(): { [key: string]: any } {
     return {
+      enableAutoMc: 'boolean',
+      engine: { 'type': 'array', 'itemType': 'string' },
+      groupType: { 'type': 'array', 'itemType': 'string' },
       keyName: 'string',
       selected: 'boolean',
     };
@@ -29063,6 +29093,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.autoStopInterval)) {
+      query["AutoStopInterval"] = request.autoStopInterval;
+    }
+
     if (!Util.isUnset(request.clusterMode)) {
       query["ClusterMode"] = request.clusterMode;
     }
@@ -35809,6 +35843,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.autoStopInterval)) {
+      query["AutoStopInterval"] = request.autoStopInterval;
+    }
+
     if (!Util.isUnset(request.clusterMode)) {
       query["ClusterMode"] = request.clusterMode;
     }
@@ -35871,6 +35909,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.specName)) {
       query["SpecName"] = request.specName;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
     }
 
     if (!Util.isUnset(request.targetResourceGroupName)) {
