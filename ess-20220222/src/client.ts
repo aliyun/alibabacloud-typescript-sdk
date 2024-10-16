@@ -4486,6 +4486,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
    * true
    */
   spotInstanceRemedy?: boolean;
+  stopInstanceTimeout?: number;
   /**
    * @remarks
    * > This parameter is unavailable.
@@ -4569,6 +4570,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
       spotAllocationStrategy: 'SpotAllocationStrategy',
       spotInstancePools: 'SpotInstancePools',
       spotInstanceRemedy: 'SpotInstanceRemedy',
+      stopInstanceTimeout: 'StopInstanceTimeout',
       syncAlarmRuleToCms: 'SyncAlarmRuleToCms',
       tags: 'Tags',
       VServerGroups: 'VServerGroups',
@@ -4619,6 +4621,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
       spotAllocationStrategy: 'string',
       spotInstancePools: 'number',
       spotInstanceRemedy: 'boolean',
+      stopInstanceTimeout: 'number',
       syncAlarmRuleToCms: 'boolean',
       tags: { 'type': 'array', 'itemType': CreateScalingGroupRequestTags },
       VServerGroups: { 'type': 'array', 'itemType': CreateScalingGroupRequestVServerGroups },
@@ -14988,6 +14991,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
    * true
    */
   spotInstanceRemedy?: boolean;
+  stopInstanceTimeout?: number;
   /**
    * @remarks
    * The IDs of vSwitches.
@@ -15030,6 +15034,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
       spotAllocationStrategy: 'SpotAllocationStrategy',
       spotInstancePools: 'SpotInstancePools',
       spotInstanceRemedy: 'SpotInstanceRemedy',
+      stopInstanceTimeout: 'StopInstanceTimeout',
       vSwitchIds: 'VSwitchIds',
     };
   }
@@ -15067,6 +15072,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
       spotAllocationStrategy: 'string',
       spotInstancePools: 'number',
       spotInstanceRemedy: 'boolean',
+      stopInstanceTimeout: 'number',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -16017,6 +16023,7 @@ export class RemoveInstancesRequest extends $tea.Model {
    * asg-bp18p2yfxow2dloq****
    */
   scalingGroupId?: string;
+  stopInstanceTimeout?: number;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -16030,6 +16037,7 @@ export class RemoveInstancesRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       scalingGroupId: 'ScalingGroupId',
+      stopInstanceTimeout: 'StopInstanceTimeout',
     };
   }
 
@@ -16046,6 +16054,7 @@ export class RemoveInstancesRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       scalingGroupId: 'string',
+      stopInstanceTimeout: 'number',
     };
   }
 
@@ -30888,6 +30897,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
    * 1
    */
   standbyCapacity?: number;
+  stopInstanceTimeout?: number;
   /**
    * @remarks
    * The number of instances that was stopped in Economical Mode in the scaling group.
@@ -31018,6 +31028,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
       spotInstancePools: 'SpotInstancePools',
       spotInstanceRemedy: 'SpotInstanceRemedy',
       standbyCapacity: 'StandbyCapacity',
+      stopInstanceTimeout: 'StopInstanceTimeout',
       stoppedCapacity: 'StoppedCapacity',
       suspendedProcesses: 'SuspendedProcesses',
       systemSuspended: 'SystemSuspended',
@@ -31084,6 +31095,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
       spotInstancePools: 'number',
       spotInstanceRemedy: 'boolean',
       standbyCapacity: 'number',
+      stopInstanceTimeout: 'number',
       stoppedCapacity: 'number',
       suspendedProcesses: { 'type': 'array', 'itemType': 'string' },
       systemSuspended: 'boolean',
@@ -38498,6 +38510,10 @@ export default class Client extends OpenApi {
       query["SpotInstanceRemedy"] = request.spotInstanceRemedy;
     }
 
+    if (!Util.isUnset(request.stopInstanceTimeout)) {
+      query["StopInstanceTimeout"] = request.stopInstanceTimeout;
+    }
+
     if (!Util.isUnset(request.syncAlarmRuleToCms)) {
       query["SyncAlarmRuleToCms"] = request.syncAlarmRuleToCms;
     }
@@ -43147,6 +43163,10 @@ export default class Client extends OpenApi {
       query["SpotInstanceRemedy"] = request.spotInstanceRemedy;
     }
 
+    if (!Util.isUnset(request.stopInstanceTimeout)) {
+      query["StopInstanceTimeout"] = request.stopInstanceTimeout;
+    }
+
     if (!Util.isUnset(request.vSwitchIds)) {
       query["VSwitchIds"] = request.vSwitchIds;
     }
@@ -43674,6 +43694,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.scalingGroupId)) {
       query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    if (!Util.isUnset(request.stopInstanceTimeout)) {
+      query["StopInstanceTimeout"] = request.stopInstanceTimeout;
     }
 
     let req = new $OpenApi.OpenApiRequest({
