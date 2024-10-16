@@ -138,10 +138,11 @@ export class AddMediaRequest extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * The path of the input file. You can query the path of the input file in the MPS or OSS console. For more information, see the **Triggering and matching rules for a workflow** section of this topic.
+   * The URL of the input file. You can obtain the URL in the MPS or OSS console. For more information, see the **Triggering and matching rule for a workflow** section of this topic.
    * 
-   * *   The value can be up to 3,200 bytes in length.
-   * *   The URL complies with RFC 2396 and is encoded in UTF-8, with reserved characters being percent-encoded. For more information, see [URL encoding](https://help.aliyun.com/document_detail/423796.html).
+   * *   Only OSS HTTP URLs are supported. Alibaba Cloud CDN URLs and HTTPS URLs are not supported.
+   * *   The value can be up to 3,200 bytes in size.
+   * *   The URL complies with RFC 2396 and is encoded in UTF-8. For more information, see [URL encoding](https://help.aliyun.com/document_detail/423796.html).
    * 
    * This parameter is required.
    * 
@@ -2940,6 +2941,9 @@ export class ImAuditRequest extends $tea.Model {
    * 
    * *   The image size cannot exceed 20 MB, the height or width of the image cannot exceed 30,000 pixels, and the image cannot exceed 0.25 billion pixels.
    * *   We recommend that you upload images of at least 256 × 256 pixels to ensure required moderation result.
+   * 
+   * @example
+   * ["http://``127.66.**.**``/image.jpeg","http://``127.66.**.**``/photo.jpeg"]
    */
   images?: string;
   ownerId?: number;
@@ -6620,6 +6624,7 @@ export class QuerySmarttagJobResponseBody extends $tea.Model {
    * Success
    */
   jobStatus?: string;
+  message?: string;
   /**
    * @example
    * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
@@ -6634,6 +6639,7 @@ export class QuerySmarttagJobResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       jobStatus: 'JobStatus',
+      message: 'Message',
       requestId: 'RequestId',
       results: 'Results',
       userData: 'UserData',
@@ -6643,6 +6649,7 @@ export class QuerySmarttagJobResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       jobStatus: 'string',
+      message: 'string',
       requestId: 'string',
       results: QuerySmarttagJobResponseBodyResults,
       userData: 'string',
@@ -7511,6 +7518,7 @@ export class RegisterCustomFaceRequest extends $tea.Model {
    * PersonId001-****
    */
   personId?: string;
+  personName?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -7520,6 +7528,7 @@ export class RegisterCustomFaceRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       personId: 'PersonId',
+      personName: 'PersonName',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -7532,6 +7541,7 @@ export class RegisterCustomFaceRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       personId: 'string',
+      personName: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -7631,6 +7641,9 @@ export class RegisterCustomViewRequest extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * http://``127.66.**.**``/image.jpeg
    */
   imageUrl?: string;
   ownerAccount?: string;
@@ -9524,7 +9537,7 @@ export class SubmitJobsRequest extends $tea.Model {
    * The ID of the MPS queue. For more information, see [Terms](https://help.aliyun.com/document_detail/31827.html).
    * 
    * *   To obtain the ID of an MPS queue, you can log on to the [MPS console](https://mps.console.aliyun.com/overview) and choose **Global Settings** > **MPS Queue and Callback** in the left-side navigation pane.
-   * *   If you want to receive asynchronous message notifications, associate an MNS queue or topic with the MPS queue. For more information, see [Receive notifications](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/receive-message-notifications).
+   * *   If you want to receive asynchronous message notifications, associate an MNS queue or topic with the MPS queue. For more information, see [Receive notifications](https://help.aliyun.com/document_detail/42618.html).
    * 
    * This parameter is required.
    * 
@@ -9878,7 +9891,10 @@ export class SubmitMediaInfoJobRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the MPS queue to which the analysis job is submitted. To view the ID of the MPS queue, log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane.
+   * The ID of the MPS queue to which the job was submitted. For more information, see [Terms](https://help.aliyun.com/document_detail/29197.html).
+   * 
+   * *   To view the ID of the MPS queue, log on to the [MPS console](https://mps.console.aliyun.com/overview) and choose **Global Settings** > **MPS queue and Callback** in the left-side navigation pane. On the MPS queue and Callback page, you can view the ID of an MPS queue or create an MPS queue.
+   * *   If you want to receive asynchronous message notifications, associate an MNS queue or topic with the MPS queue. For more information, see [Receive message notifications](https://www.alibabacloud.com/help/en/mps/receive-message-notifications/?spm=a2c63.p38356.0.0.b48576d2jxNSca).
    * 
    * @example
    * 88c6ca184c0e432bbf5b665e2a15****
@@ -15778,6 +15794,10 @@ export class ListCustomViewsResponseBodyCustomViewsCustomView extends $tea.Model
    * 1
    */
   customViewId?: string;
+  /**
+   * @example
+   * http://``127.66.**.**``/photo.jpeg
+   */
   imageUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41108,7 +41128,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesFormat extends 
   formatLongName?: string;
   /**
    * @remarks
-   * The short name of the container format. For more information about the parameters, see [Parameter details](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/parameter-details-a).
+   * The short name of the container format. For more information about the parameters, see [Parameter details](https://help.aliyun.com/document_detail/29253.html).
    * 
    * @example
    * mov
@@ -48595,6 +48615,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询智能标签任务
+   * 
    * @param request - QuerySmarttagJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySmarttagJobResponse
@@ -48644,6 +48666,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询智能标签任务
+   * 
    * @param request - QuerySmarttagJobRequest
    * @returns QuerySmarttagJobResponse
    */
@@ -49128,6 +49152,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.personId)) {
       query["PersonId"] = request.personId;
+    }
+
+    if (!Util.isUnset(request.personName)) {
+      query["PersonName"] = request.personName;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -50176,7 +50204,7 @@ export default class Client extends OpenApi {
    * Submits transcoding jobs. If the transcoding jobs and workflows created in the ApsaraVideo Media Processing (MPS) console cannot meet your business requirements, you can call the SubmitJobs operation to submit transcoding jobs. Specify transcoding parameters as required when you call the SubmitJobs operation.
    * 
    * @remarks
-   *   SubmitJobs is an asynchronous operation. After you submit transcoding jobs, the jobs are added to an MPS queue to be scheduled and run. The transcoding jobs may not have been complete when the response is returned. After you call this operation, you can call the [QueryJobList](https://help.aliyun.com/document_detail/602836.html) operation to query the job results. You can also associate a Message Service (MNS) queue or topic with the MPS queue to receive notifications on the jobs. For more information, see [Receive notifications](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/receive-message-notifications).
+   *   SubmitJobs is an asynchronous operation. After you submit transcoding jobs, the jobs are added to an MPS queue to be scheduled and run. The transcoding jobs may not have been complete when the response is returned. After you call this operation, you can call the [QueryJobList](https://help.aliyun.com/document_detail/602836.html) operation to query the job results. You can also associate a Message Service (MNS) queue or topic with the MPS queue to receive notifications on the jobs. For more information, see [Receive notifications](https://help.aliyun.com/document_detail/42618.html).
    * *   An input file can be up to 100 GB in size. If the size of the input file exceeds this limit, the job may fail.
    * *   If you use an **intelligent preset template** to transcode an input file, you must first call the [SubmitAnalysisJob](https://help.aliyun.com/document_detail/29223.html) operation to submit a preset template analysis job. After the analysis job is complete, you can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html)operation to obtain the available preset templates for the input file. When you submit a transcoding job, set TemplateId to the ID of an available preset template. If you specify a preset template that is not in the available preset templates, the transcoding job fails.
    * *   If you use a **static preset template** to transcode an input file, you do not need to submit a preset template analysis job.
@@ -50249,7 +50277,7 @@ export default class Client extends OpenApi {
    * Submits transcoding jobs. If the transcoding jobs and workflows created in the ApsaraVideo Media Processing (MPS) console cannot meet your business requirements, you can call the SubmitJobs operation to submit transcoding jobs. Specify transcoding parameters as required when you call the SubmitJobs operation.
    * 
    * @remarks
-   *   SubmitJobs is an asynchronous operation. After you submit transcoding jobs, the jobs are added to an MPS queue to be scheduled and run. The transcoding jobs may not have been complete when the response is returned. After you call this operation, you can call the [QueryJobList](https://help.aliyun.com/document_detail/602836.html) operation to query the job results. You can also associate a Message Service (MNS) queue or topic with the MPS queue to receive notifications on the jobs. For more information, see [Receive notifications](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/receive-message-notifications).
+   *   SubmitJobs is an asynchronous operation. After you submit transcoding jobs, the jobs are added to an MPS queue to be scheduled and run. The transcoding jobs may not have been complete when the response is returned. After you call this operation, you can call the [QueryJobList](https://help.aliyun.com/document_detail/602836.html) operation to query the job results. You can also associate a Message Service (MNS) queue or topic with the MPS queue to receive notifications on the jobs. For more information, see [Receive notifications](https://help.aliyun.com/document_detail/42618.html).
    * *   An input file can be up to 100 GB in size. If the size of the input file exceeds this limit, the job may fail.
    * *   If you use an **intelligent preset template** to transcode an input file, you must first call the [SubmitAnalysisJob](https://help.aliyun.com/document_detail/29223.html) operation to submit a preset template analysis job. After the analysis job is complete, you can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html)operation to obtain the available preset templates for the input file. When you submit a transcoding job, set TemplateId to the ID of an available preset template. If you specify a preset template that is not in the available preset templates, the transcoding job fails.
    * *   If you use a **static preset template** to transcode an input file, you do not need to submit a preset template analysis job.
@@ -50370,10 +50398,11 @@ export default class Client extends OpenApi {
    * Submits a media information analysis job.
    * 
    * @remarks
-   * After you call the SubmitMediaInfoJob operation, ApsaraVideo Media Processing (MPS) analyzes the input media file and generates the analysis results. You can call the [QueryMediaInfoJobList](https://help.aliyun.com/document_detail/29221.html) operation to query the analysis results.
-   * > We recommend that you submit a media information analysis job after you confirm that the media file is uploaded to Object Storage Service (OSS). You can configure upload callbacks to be notified of the upload status of files.
-   * ### QPS limit
-   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *   Before you submit a media information analysis job, make sure that the input file is uploaded to an Object Storage Service (OSS) bucket. Otherwise, the job fails. You can configure upload callbacks to be notified of the upload status of files.****
+   * *   A media information analysis job can be run in synchronous or asynchronous mode.
+   * *   In asynchronous mode, the media information analysis job is submitted to and scheduled in an ApsaraVideo Media Processing (MPS) queue. In this case, the media information analysis job may be queued. The media information analysis job may not be generated when the response to the SubmitMediaInfoJob operation is returned. After the execution is complete, you can call the [QueryMediaInfoJobList](https://help.aliyun.com/document_detail/602828.html) operation to poll the execution results, or associate a Message Service (MNS) queue or topic with the MPS queue to receive the execution results. For more information, see [Receive message notifications](https://www.alibabacloud.com/help/en/mps/receive-message-notifications/?spm=a2c63.p38356.0.0.b48576d2jxNSca).
+   * ### QPS limits
+   * You can call this operation up to 50 times per second per account. If the number of requests that you send to call this operation within one second reaches the request limit of this operation, new requests fail and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
    * 
    * @param request - SubmitMediaInfoJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50435,10 +50464,11 @@ export default class Client extends OpenApi {
    * Submits a media information analysis job.
    * 
    * @remarks
-   * After you call the SubmitMediaInfoJob operation, ApsaraVideo Media Processing (MPS) analyzes the input media file and generates the analysis results. You can call the [QueryMediaInfoJobList](https://help.aliyun.com/document_detail/29221.html) operation to query the analysis results.
-   * > We recommend that you submit a media information analysis job after you confirm that the media file is uploaded to Object Storage Service (OSS). You can configure upload callbacks to be notified of the upload status of files.
-   * ### QPS limit
-   * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   *   Before you submit a media information analysis job, make sure that the input file is uploaded to an Object Storage Service (OSS) bucket. Otherwise, the job fails. You can configure upload callbacks to be notified of the upload status of files.****
+   * *   A media information analysis job can be run in synchronous or asynchronous mode.
+   * *   In asynchronous mode, the media information analysis job is submitted to and scheduled in an ApsaraVideo Media Processing (MPS) queue. In this case, the media information analysis job may be queued. The media information analysis job may not be generated when the response to the SubmitMediaInfoJob operation is returned. After the execution is complete, you can call the [QueryMediaInfoJobList](https://help.aliyun.com/document_detail/602828.html) operation to poll the execution results, or associate a Message Service (MNS) queue or topic with the MPS queue to receive the execution results. For more information, see [Receive message notifications](https://www.alibabacloud.com/help/en/mps/receive-message-notifications/?spm=a2c63.p38356.0.0.b48576d2jxNSca).
+   * ### QPS limits
+   * You can call this operation up to 50 times per second per account. If the number of requests that you send to call this operation within one second reaches the request limit of this operation, new requests fail and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
    * 
    * @param request - SubmitMediaInfoJobRequest
    * @returns SubmitMediaInfoJobResponse
