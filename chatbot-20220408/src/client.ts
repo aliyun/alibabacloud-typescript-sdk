@@ -1475,6 +1475,7 @@ export class CreateDocRequest extends $tea.Model {
    */
   config?: string;
   content?: string;
+  docMetadata?: CreateDocRequestDocMetadata[];
   /**
    * @example
    * 2032-05-25T16:28:36Z
@@ -1507,6 +1508,7 @@ export class CreateDocRequest extends $tea.Model {
       categoryId: 'CategoryId',
       config: 'Config',
       content: 'Content',
+      docMetadata: 'DocMetadata',
       endDate: 'EndDate',
       meta: 'Meta',
       startDate: 'StartDate',
@@ -1522,6 +1524,7 @@ export class CreateDocRequest extends $tea.Model {
       categoryId: 'number',
       config: 'string',
       content: 'string',
+      docMetadata: { 'type': 'array', 'itemType': CreateDocRequestDocMetadata },
       endDate: 'string',
       meta: 'string',
       startDate: 'string',
@@ -1556,6 +1559,7 @@ export class CreateDocShrinkRequest extends $tea.Model {
    */
   config?: string;
   content?: string;
+  docMetadataShrink?: string;
   /**
    * @example
    * 2032-05-25T16:28:36Z
@@ -1588,6 +1592,7 @@ export class CreateDocShrinkRequest extends $tea.Model {
       categoryId: 'CategoryId',
       config: 'Config',
       content: 'Content',
+      docMetadataShrink: 'DocMetadata',
       endDate: 'EndDate',
       meta: 'Meta',
       startDate: 'StartDate',
@@ -1603,6 +1608,7 @@ export class CreateDocShrinkRequest extends $tea.Model {
       categoryId: 'number',
       config: 'string',
       content: 'string',
+      docMetadataShrink: 'string',
       endDate: 'string',
       meta: 'string',
       startDate: 'string',
@@ -4399,6 +4405,7 @@ export class DescribeDocResponseBody extends $tea.Model {
   createUserId?: number;
   createUserName?: string;
   docInfo?: DescribeDocResponseBodyDocInfo;
+  docMetadata?: DescribeDocResponseBodyDocMetadata[];
   docName?: string;
   docTags?: DescribeDocResponseBodyDocTags[];
   /**
@@ -4472,6 +4479,7 @@ export class DescribeDocResponseBody extends $tea.Model {
       createUserId: 'CreateUserId',
       createUserName: 'CreateUserName',
       docInfo: 'DocInfo',
+      docMetadata: 'DocMetadata',
       docName: 'DocName',
       docTags: 'DocTags',
       effectStatus: 'EffectStatus',
@@ -4501,6 +4509,7 @@ export class DescribeDocResponseBody extends $tea.Model {
       createUserId: 'number',
       createUserName: 'string',
       docInfo: DescribeDocResponseBodyDocInfo,
+      docMetadata: { 'type': 'array', 'itemType': DescribeDocResponseBodyDocMetadata },
       docName: 'string',
       docTags: { 'type': 'array', 'itemType': DescribeDocResponseBodyDocTags },
       effectStatus: 'number',
@@ -7551,6 +7560,107 @@ export class ListTongyiChatHistorysResponse extends $tea.Model {
   }
 }
 
+export class ListTongyiConversationLogsRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
+  agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-7QuUfaqMQe
+   */
+  robotInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7c3cec23cc8940bc9db4a318c8f4f0aa
+   */
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      robotInstanceId: 'RobotInstanceId',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      robotInstanceId: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTongyiConversationLogsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 66
+   */
+  costTime?: string;
+  datas?: { [key: string]: any }[];
+  /**
+   * @example
+   * 28805A7C-D695-548C-A31B-67E52C2C274F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTime: 'CostTime',
+      datas: 'Datas',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTime: 'string',
+      datas: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTongyiConversationLogsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTongyiConversationLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTongyiConversationLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUserSayRequest extends $tea.Model {
   /**
    * @example
@@ -9101,6 +9211,7 @@ export class UpdateDocRequest extends $tea.Model {
    */
   config?: string;
   content?: string;
+  docMetadata?: UpdateDocRequestDocMetadata[];
   docName?: string;
   /**
    * @example
@@ -9133,6 +9244,7 @@ export class UpdateDocRequest extends $tea.Model {
       categoryId: 'CategoryId',
       config: 'Config',
       content: 'Content',
+      docMetadata: 'DocMetadata',
       docName: 'DocName',
       endDate: 'EndDate',
       knowledgeId: 'KnowledgeId',
@@ -9149,6 +9261,7 @@ export class UpdateDocRequest extends $tea.Model {
       categoryId: 'number',
       config: 'string',
       content: 'string',
+      docMetadata: { 'type': 'array', 'itemType': UpdateDocRequestDocMetadata },
       docName: 'string',
       endDate: 'string',
       knowledgeId: 'number',
@@ -9181,6 +9294,7 @@ export class UpdateDocShrinkRequest extends $tea.Model {
    */
   config?: string;
   content?: string;
+  docMetadataShrink?: string;
   docName?: string;
   /**
    * @example
@@ -9213,6 +9327,7 @@ export class UpdateDocShrinkRequest extends $tea.Model {
       categoryId: 'CategoryId',
       config: 'Config',
       content: 'Content',
+      docMetadataShrink: 'DocMetadata',
       docName: 'DocName',
       endDate: 'EndDate',
       knowledgeId: 'KnowledgeId',
@@ -9229,6 +9344,7 @@ export class UpdateDocShrinkRequest extends $tea.Model {
       categoryId: 'number',
       config: 'string',
       content: 'string',
+      docMetadataShrink: 'string',
       docName: 'string',
       endDate: 'string',
       knowledgeId: 'number',
@@ -10605,6 +10721,56 @@ export class CreateCategoryResponseBodyCategory extends $tea.Model {
   }
 }
 
+export class CreateDocRequestDocMetadataMetaCellInfoDTOList extends $tea.Model {
+  fieldCode?: string;
+  fieldName?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldCode: 'FieldCode',
+      fieldName: 'FieldName',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldCode: 'string',
+      fieldName: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDocRequestDocMetadata extends $tea.Model {
+  businessViewId?: string;
+  businessViewName?: string;
+  metaCellInfoDTOList?: CreateDocRequestDocMetadataMetaCellInfoDTOList[];
+  static names(): { [key: string]: string } {
+    return {
+      businessViewId: 'BusinessViewId',
+      businessViewName: 'BusinessViewName',
+      metaCellInfoDTOList: 'MetaCellInfoDTOList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessViewId: 'string',
+      businessViewName: 'string',
+      metaCellInfoDTOList: { 'type': 'array', 'itemType': CreateDocRequestDocMetadataMetaCellInfoDTOList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIntentRequestIntentDefinitionSlotInfos extends $tea.Model {
   /**
    * @example
@@ -10895,6 +11061,56 @@ export class DescribeDocResponseBodyDocInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       docParas: { 'type': 'array', 'itemType': DescribeDocResponseBodyDocInfoDocParas },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList extends $tea.Model {
+  fieldCode?: string;
+  fieldName?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldCode: 'FieldCode',
+      fieldName: 'FieldName',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldCode: 'string',
+      fieldName: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocResponseBodyDocMetadata extends $tea.Model {
+  businessViewId?: string;
+  businessViewName?: string;
+  metaCellInfoDTOList?: DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList[];
+  static names(): { [key: string]: string } {
+    return {
+      businessViewId: 'BusinessViewId',
+      businessViewName: 'BusinessViewName',
+      metaCellInfoDTOList: 'MetaCellInfoDTOList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessViewId: 'string',
+      businessViewName: 'string',
+      metaCellInfoDTOList: { 'type': 'array', 'itemType': DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList },
     };
   }
 
@@ -12574,6 +12790,56 @@ export class SearchFaqResponseBodyFaqHits extends $tea.Model {
   }
 }
 
+export class UpdateDocRequestDocMetadataMetaCellInfoDTOList extends $tea.Model {
+  fieldCode?: string;
+  fieldName?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldCode: 'FieldCode',
+      fieldName: 'FieldName',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldCode: 'string',
+      fieldName: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDocRequestDocMetadata extends $tea.Model {
+  businessViewId?: string;
+  businessViewName?: string;
+  metaCellInfoDTOList?: UpdateDocRequestDocMetadataMetaCellInfoDTOList[];
+  static names(): { [key: string]: string } {
+    return {
+      businessViewId: 'BusinessViewId',
+      businessViewName: 'BusinessViewName',
+      metaCellInfoDTOList: 'MetaCellInfoDTOList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessViewId: 'string',
+      businessViewName: 'string',
+      metaCellInfoDTOList: { 'type': 'array', 'itemType': UpdateDocRequestDocMetadataMetaCellInfoDTOList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateIntentRequestIntentDefinitionSlotInfos extends $tea.Model {
   /**
    * @example
@@ -13426,6 +13692,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateDocShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.docMetadata)) {
+      request.docMetadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docMetadata, "DocMetadata", "json");
+    }
+
     if (!Util.isUnset(tmpReq.tagIds)) {
       request.tagIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIds, "TagIds", "json");
     }
@@ -13445,6 +13715,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.content)) {
       query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.docMetadataShrink)) {
+      query["DocMetadata"] = request.docMetadataShrink;
     }
 
     if (!Util.isUnset(request.endDate)) {
@@ -16212,6 +16486,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询通义晓蜜的单个会话对话记录
+   * 
+   * @param request - ListTongyiConversationLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTongyiConversationLogsResponse
+   */
+  async listTongyiConversationLogsWithOptions(request: ListTongyiConversationLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListTongyiConversationLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTongyiConversationLogs",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTongyiConversationLogsResponse>(await this.callApi(params, req, runtime), new ListTongyiConversationLogsResponse({}));
+  }
+
+  /**
+   * 查询通义晓蜜的单个会话对话记录
+   * 
+   * @param request - ListTongyiConversationLogsRequest
+   * @returns ListTongyiConversationLogsResponse
+   */
+  async listTongyiConversationLogs(request: ListTongyiConversationLogsRequest): Promise<ListTongyiConversationLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTongyiConversationLogsWithOptions(request, runtime);
+  }
+
+  /**
    * 话术-列表
    * 
    * @param request - ListUserSayRequest
@@ -16896,6 +17220,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateDocShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.docMetadata)) {
+      request.docMetadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docMetadata, "DocMetadata", "json");
+    }
+
     if (!Util.isUnset(tmpReq.tagIds)) {
       request.tagIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIds, "TagIds", "json");
     }
@@ -16915,6 +17243,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.content)) {
       query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.docMetadataShrink)) {
+      query["DocMetadata"] = request.docMetadataShrink;
     }
 
     if (!Util.isUnset(request.docName)) {
