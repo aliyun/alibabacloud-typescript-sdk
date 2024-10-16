@@ -2029,6 +2029,7 @@ export class GetFeatureViewResponse extends $tea.Model {
 }
 
 export class GetInstanceResponseBody extends $tea.Model {
+  featureDBInstanceInfo?: GetInstanceResponseBodyFeatureDBInstanceInfo;
   /**
    * @example
    * 2023-07-04T11:26:09.036+08:00
@@ -2071,6 +2072,7 @@ export class GetInstanceResponseBody extends $tea.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      featureDBInstanceInfo: 'FeatureDBInstanceInfo',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       message: 'Message',
@@ -2084,6 +2086,7 @@ export class GetInstanceResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      featureDBInstanceInfo: GetInstanceResponseBodyFeatureDBInstanceInfo,
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       message: 'string',
@@ -5853,6 +5856,25 @@ export class GetFeatureViewResponseBodyFields extends $tea.Model {
   }
 }
 
+export class GetInstanceResponseBodyFeatureDBInstanceInfo extends $tea.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLabelTableResponseBodyFields extends $tea.Model {
   attributes?: string[];
   /**
@@ -6644,7 +6666,27 @@ export class ListFeatureViewsResponseBodyFeatureViews extends $tea.Model {
   }
 }
 
+export class ListInstancesResponseBodyInstancesFeatureDBInstanceInfo extends $tea.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancesResponseBodyInstances extends $tea.Model {
+  featureDBInstanceInfo?: ListInstancesResponseBodyInstancesFeatureDBInstanceInfo;
   /**
    * @example
    * 2023-07-04T11:26:09.036+08:00
@@ -6677,6 +6719,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      featureDBInstanceInfo: 'FeatureDBInstanceInfo',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       instanceId: 'InstanceId',
@@ -6688,6 +6731,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      featureDBInstanceInfo: ListInstancesResponseBodyInstancesFeatureDBInstanceInfo,
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       instanceId: 'string',
