@@ -132,6 +132,8 @@ export class AddCategoryResponse extends $tea.Model {
 export class AddFileRequest extends $tea.Model {
   /**
    * @remarks
+   * The primary key ID of the category to which the document is uploaded. This parameter corresponds to the `CategoryId` returned by the [AddCategory](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addcategory) operation. You can also click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page to view the ID. You can set the parameter to default, which specifies the Default Category created by the system.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -140,6 +142,8 @@ export class AddFileRequest extends $tea.Model {
   categoryId?: string;
   /**
    * @remarks
+   * The lease ID, which corresponds to the `FileUploadLeaseId` parameter returned by the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -148,12 +152,20 @@ export class AddFileRequest extends $tea.Model {
   leaseId?: string;
   /**
    * @remarks
+   * The parser. Valid value:
+   * 
+   * *   DASHSCOPE_DOCMIND: Intelligent document parsing by Alibaba Cloud.
+   * 
    * This parameter is required.
    * 
    * @example
    * DASHSCOPE_DOCMIND
    */
   parser?: string;
+  /**
+   * @remarks
+   * A list of tags associated with the document. The default value is null, which means no tags. You can specify up to 10 tags.
+   */
   tags?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -181,6 +193,8 @@ export class AddFileRequest extends $tea.Model {
 export class AddFileShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The primary key ID of the category to which the document is uploaded. This parameter corresponds to the `CategoryId` returned by the [AddCategory](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addcategory) operation. You can also click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page to view the ID. You can set the parameter to default, which specifies the Default Category created by the system.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -189,6 +203,8 @@ export class AddFileShrinkRequest extends $tea.Model {
   categoryId?: string;
   /**
    * @remarks
+   * The lease ID, which corresponds to the `FileUploadLeaseId` parameter returned by the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -197,12 +213,20 @@ export class AddFileShrinkRequest extends $tea.Model {
   leaseId?: string;
   /**
    * @remarks
+   * The parser. Valid value:
+   * 
+   * *   DASHSCOPE_DOCMIND: Intelligent document parsing by Alibaba Cloud.
+   * 
    * This parameter is required.
    * 
    * @example
    * DASHSCOPE_DOCMIND
    */
   parser?: string;
+  /**
+   * @remarks
+   * A list of tags associated with the document. The default value is null, which means no tags. You can specify up to 10 tags.
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -229,27 +253,49 @@ export class AddFileShrinkRequest extends $tea.Model {
 
 export class AddFileResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * DataCenter.FileTooLarge
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data fields.
+   */
   data?: AddFileResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * User not authorized to operate on the specified resource.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 778C0B3B-xxxx-5FC1-A947-36EDD13606AB
    */
   requestId?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indications whether the call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -309,11 +355,15 @@ export class AddFileResponse extends $tea.Model {
 export class ApplyFileUploadLeaseRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the uploaded document, including the extension. Supported formats: pdf, doc, docx, md, txt, ppt, and pptx. The document name must be 4 to 128 characters in length.
+   * 
    * This parameter is required.
    */
   fileName?: string;
   /**
    * @remarks
+   * The MD5 value of the uploaded document. This parameter is verified by the server (not in the current version).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -322,6 +372,8 @@ export class ApplyFileUploadLeaseRequest extends $tea.Model {
   md5?: string;
   /**
    * @remarks
+   * The size of the uploaded document, in bytes. This parameter is verified by the server (not in the current version). Valid values: 1 to 100000000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -351,27 +403,49 @@ export class ApplyFileUploadLeaseRequest extends $tea.Model {
 
 export class ApplyFileUploadLeaseResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * DataCenter.FileTooLarge
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data fields.
+   */
   data?: ApplyFileUploadLeaseResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * User not authorized to operate on the specified resource
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 778C0B3B-xxxx-5FC1-A947-36EDD13606AB
    */
   requestId?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indications whether the call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -544,58 +618,140 @@ export class CreateAndPulishAgentResponse extends $tea.Model {
 }
 
 export class CreateIndexRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of primary key IDs of the categories to be imported into the knowledge base.
+   */
   categoryIds?: string[];
   /**
+   * @remarks
+   * The estimated length of chunks. The maximum number of characters for a chunk. Texts exceeding this limit are splited. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [1-2048].
+   * 
+   * The default value is empty, which means using the intelligent splitting method.
+   * 
+   * >  If you specify the `ChunkSize` parameter, you must also specify the `OverlapSize` and `Separator` parameters. If you do not specify these three parameters, the system uses the intelligent splitting method by default.
+   * 
    * @example
    * 128
    */
   chunkSize?: number;
   columns?: CreateIndexRequestColumns[];
+  /**
+   * @remarks
+   * >  This parameter is not available. Do not specify this parameter.
+   */
   dataSource?: CreateIndexRequestDataSource;
+  /**
+   * @remarks
+   * The description of the knowledge base. The description must be 0 to 1,000 characters in length. This parameter is empty by default.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The list of primary key IDs of the documents to be imported into the knowledge base.
+   */
   documentIds?: string[];
   /**
+   * @remarks
+   * The name of the embedding model. The embedding model converts the original input prompt and knowledge text into numerical vectors for similarity comparison. The default and only model available is DashScope text-embedding-v2. It supports multiple languages including Chinese and English and normalizes the vector results. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid value:
+   * 
+   * *   text-embedding-v2
+   * 
+   * The default value is null, which means using the text-embedding-v2 model.
+   * 
    * @example
    * text-embedding-v2
    */
   embeddingModelName?: string;
   /**
    * @remarks
+   * The name of the knowledge base. The name must be 1 to 20 characters in length and can contain characters classified as letter in Unicode, including English letters, Chinese characters, digits, among others. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * 
    * This parameter is required.
    */
   name?: string;
   /**
+   * @remarks
+   * The overlap length. The number of overlapping characters between two consecutive chunks. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: 0 to 1024.
+   * 
+   * The default value is empty, which means using the intelligent splitting method.
+   * 
    * @example
    * 16
    */
   overlapSize?: number;
   /**
+   * @remarks
+   * Similarity Threshold. The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00].
+   * 
+   * Default value: 0.20.
+   * 
    * @example
    * 0.20
    */
   rerankMinScore?: number;
   /**
+   * @remarks
+   * The name of the rank model. The rank model is a scoring system outside the knowledge base. It calculates the similarity score of each text chunk in the input question and knowledge base and ranks them in descending order. Then, the model returns the top K chunks with the highest scores. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * 
+   * *   gte-rerank-hybrid
+   * *   gte-rerank
+   * 
+   * The default value is empty, which means using the official gte-rerank-hybrid model.
+   * 
+   * >  If you need only semantic ranking, we recommend that you use gte-rerank. If you need both semantic ranking and text matching features to ensure relevance, we recommend that you use gte-rerank-hybrid.
+   * 
    * @example
    * gte-rerank-hybrid
    */
   rerankModelName?: string;
   /**
+   * @remarks
+   * The clause identifier. The document is split into chunks based on this identifier. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). You can specify multiple identifiers and do not need to add any other characters to separate them. For example: !,\\\\\\n. Valid values:
+   * 
+   * *   \\n: line break
+   * *   ，: Chinese comma
+   * *   ,: English comma
+   * *   。 : Chinese full stop
+   * *   .: English full stop
+   * *   ！ : Chinese exclamation point
+   * *   ! : English exclamation point
+   * *   ；: Chinese semicolon
+   * *   ;: English semicolon
+   * *   ？ : Chinese question mark
+   * *   ?: English question mark
+   * 
+   * The default value is empty, which means using the intelligent splitting method.
+   * 
    * @example
    * ,
    */
   separator?: string;
   /**
+   * @remarks
+   * The ID of the vector storage instance. This parameter is available only when SinkType is set to ADB. You can view the ID on the [Instances](https://gpdbnext.console.aliyun.com/gpdb/list) page of AnalyticDB for PostgreSQL.
+   * 
    * @example
    * gp-bp321093j84
    */
   sinkInstanceId?: string;
   /**
+   * @remarks
+   * The region of the vector storage instance. This parameter is available only when SinkType is set to ADB. You can call the [DescribeRegions](https://help.aliyun.com/zh/analyticdb-for-postgresql/developer-reference/api-gpdb-2016-05-03-describeregions) operation to query the most recent region list.
+   * 
    * @example
    * cn-hangzhou
    */
   sinkRegion?: string;
   /**
    * @remarks
+   * The vector storage type of the knowledge base. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * 
+   * *   DEFAULT: The built-in vector database.
+   * *   ADB: AnalyticDB for PostgreSQL database. If you need advanced features, such as managing, auditing, and monitoring, we recommend that you specify ADB.
+   * 
+   * >  If you have not used AnalyticDB for AnalyticDB in Model Studio before, go to the [Create Knowledge Base](https://bailian.console.aliyun.com/#/knowledge-base/create) page, select ADB-PG as Vector Storage Type, and follow the instructions to grant permissions. If you specify ADB, you must also specify the `SinkInstanceId` and `SinkRegion` parameters.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -604,6 +760,15 @@ export class CreateIndexRequest extends $tea.Model {
   sinkType?: string;
   /**
    * @remarks
+   * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * 
+   * *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
+   * *   DATA_CENTER_FILE: The document type. Import one or more documents from Data Center.
+   * 
+   * >  If this parameter is set to DATA_CENTER_CATEGORY, you must specify the `CategoryIds` parameter. If this parameter is set to DATA_CENTER_FILE, you must specify the `DocumentIds` parameter.
+   * 
+   * >  If you want to create an empty knowledge base, you can use an empty category. Set this parameter to DATA_CENTER_CATEGORY. And specify the ID of an empty category for the `CategoryIds` parameter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -615,6 +780,12 @@ export class CreateIndexRequest extends $tea.Model {
   sourceType?: string;
   /**
    * @remarks
+   * The data type of the knowledge base. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid value:
+   * 
+   * *   unstructured
+   * 
+   * >  After a knowledge base is created, its data type cannot be changed. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -671,58 +842,140 @@ export class CreateIndexRequest extends $tea.Model {
 }
 
 export class CreateIndexShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of primary key IDs of the categories to be imported into the knowledge base.
+   */
   categoryIdsShrink?: string;
   /**
+   * @remarks
+   * The estimated length of chunks. The maximum number of characters for a chunk. Texts exceeding this limit are splited. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [1-2048].
+   * 
+   * The default value is empty, which means using the intelligent splitting method.
+   * 
+   * >  If you specify the `ChunkSize` parameter, you must also specify the `OverlapSize` and `Separator` parameters. If you do not specify these three parameters, the system uses the intelligent splitting method by default.
+   * 
    * @example
    * 128
    */
   chunkSize?: number;
   columnsShrink?: string;
+  /**
+   * @remarks
+   * >  This parameter is not available. Do not specify this parameter.
+   */
   dataSourceShrink?: string;
+  /**
+   * @remarks
+   * The description of the knowledge base. The description must be 0 to 1,000 characters in length. This parameter is empty by default.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The list of primary key IDs of the documents to be imported into the knowledge base.
+   */
   documentIdsShrink?: string;
   /**
+   * @remarks
+   * The name of the embedding model. The embedding model converts the original input prompt and knowledge text into numerical vectors for similarity comparison. The default and only model available is DashScope text-embedding-v2. It supports multiple languages including Chinese and English and normalizes the vector results. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid value:
+   * 
+   * *   text-embedding-v2
+   * 
+   * The default value is null, which means using the text-embedding-v2 model.
+   * 
    * @example
    * text-embedding-v2
    */
   embeddingModelName?: string;
   /**
    * @remarks
+   * The name of the knowledge base. The name must be 1 to 20 characters in length and can contain characters classified as letter in Unicode, including English letters, Chinese characters, digits, among others. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * 
    * This parameter is required.
    */
   name?: string;
   /**
+   * @remarks
+   * The overlap length. The number of overlapping characters between two consecutive chunks. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: 0 to 1024.
+   * 
+   * The default value is empty, which means using the intelligent splitting method.
+   * 
    * @example
    * 16
    */
   overlapSize?: number;
   /**
+   * @remarks
+   * Similarity Threshold. The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00].
+   * 
+   * Default value: 0.20.
+   * 
    * @example
    * 0.20
    */
   rerankMinScore?: number;
   /**
+   * @remarks
+   * The name of the rank model. The rank model is a scoring system outside the knowledge base. It calculates the similarity score of each text chunk in the input question and knowledge base and ranks them in descending order. Then, the model returns the top K chunks with the highest scores. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * 
+   * *   gte-rerank-hybrid
+   * *   gte-rerank
+   * 
+   * The default value is empty, which means using the official gte-rerank-hybrid model.
+   * 
+   * >  If you need only semantic ranking, we recommend that you use gte-rerank. If you need both semantic ranking and text matching features to ensure relevance, we recommend that you use gte-rerank-hybrid.
+   * 
    * @example
    * gte-rerank-hybrid
    */
   rerankModelName?: string;
   /**
+   * @remarks
+   * The clause identifier. The document is split into chunks based on this identifier. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). You can specify multiple identifiers and do not need to add any other characters to separate them. For example: !,\\\\\\n. Valid values:
+   * 
+   * *   \\n: line break
+   * *   ，: Chinese comma
+   * *   ,: English comma
+   * *   。 : Chinese full stop
+   * *   .: English full stop
+   * *   ！ : Chinese exclamation point
+   * *   ! : English exclamation point
+   * *   ；: Chinese semicolon
+   * *   ;: English semicolon
+   * *   ？ : Chinese question mark
+   * *   ?: English question mark
+   * 
+   * The default value is empty, which means using the intelligent splitting method.
+   * 
    * @example
    * ,
    */
   separator?: string;
   /**
+   * @remarks
+   * The ID of the vector storage instance. This parameter is available only when SinkType is set to ADB. You can view the ID on the [Instances](https://gpdbnext.console.aliyun.com/gpdb/list) page of AnalyticDB for PostgreSQL.
+   * 
    * @example
    * gp-bp321093j84
    */
   sinkInstanceId?: string;
   /**
+   * @remarks
+   * The region of the vector storage instance. This parameter is available only when SinkType is set to ADB. You can call the [DescribeRegions](https://help.aliyun.com/zh/analyticdb-for-postgresql/developer-reference/api-gpdb-2016-05-03-describeregions) operation to query the most recent region list.
+   * 
    * @example
    * cn-hangzhou
    */
   sinkRegion?: string;
   /**
    * @remarks
+   * The vector storage type of the knowledge base. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * 
+   * *   DEFAULT: The built-in vector database.
+   * *   ADB: AnalyticDB for PostgreSQL database. If you need advanced features, such as managing, auditing, and monitoring, we recommend that you specify ADB.
+   * 
+   * >  If you have not used AnalyticDB for AnalyticDB in Model Studio before, go to the [Create Knowledge Base](https://bailian.console.aliyun.com/#/knowledge-base/create) page, select ADB-PG as Vector Storage Type, and follow the instructions to grant permissions. If you specify ADB, you must also specify the `SinkInstanceId` and `SinkRegion` parameters.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -731,6 +984,15 @@ export class CreateIndexShrinkRequest extends $tea.Model {
   sinkType?: string;
   /**
    * @remarks
+   * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * 
+   * *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
+   * *   DATA_CENTER_FILE: The document type. Import one or more documents from Data Center.
+   * 
+   * >  If this parameter is set to DATA_CENTER_CATEGORY, you must specify the `CategoryIds` parameter. If this parameter is set to DATA_CENTER_FILE, you must specify the `DocumentIds` parameter.
+   * 
+   * >  If you want to create an empty knowledge base, you can use an empty category. Set this parameter to DATA_CENTER_CATEGORY. And specify the ID of an empty category for the `CategoryIds` parameter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -742,6 +1004,12 @@ export class CreateIndexShrinkRequest extends $tea.Model {
   sourceType?: string;
   /**
    * @remarks
+   * The data type of the knowledge base. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid value:
+   * 
+   * *   unstructured
+   * 
+   * >  After a knowledge base is created, its data type cannot be changed. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -799,30 +1067,49 @@ export class CreateIndexShrinkRequest extends $tea.Model {
 
 export class CreateIndexResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * Forbidden
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateIndexResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Invalid input, variable name is missing
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 17204B98-7734-4F9A-8464-2446A84821CA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indications whether the API call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -1023,6 +1310,91 @@ export class CreateMemoryNodeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateMemoryNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePromptTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePromptTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6e49109bfeb94a39bb268f4e483ccxxx
+   */
+  promptTemplateId?: string;
+  /**
+   * @example
+   * FE9B6CBF-47E6-5D76-9C5D-B814DD5ABxxx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      promptTemplateId: 'promptTemplateId',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      promptTemplateId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePromptTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePromptTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePromptTemplateResponseBody,
     };
   }
 
@@ -1261,6 +1633,8 @@ export class DeleteFileResponse extends $tea.Model {
 export class DeleteIndexRequest extends $tea.Model {
   /**
    * @remarks
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1286,29 +1660,44 @@ export class DeleteIndexRequest extends $tea.Model {
 
 export class DeleteIndexResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * Index.InvalidParameter
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Required parameter(%s) missing or invalid, please check the request parameters.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 17204B98-xxxx-4F9A-8464-2446A84821CA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indications whether the API call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -1366,11 +1755,15 @@ export class DeleteIndexResponse extends $tea.Model {
 export class DeleteIndexDocumentRequest extends $tea.Model {
   /**
    * @remarks
+   * The list of the primary key IDs of the documents.
+   * 
    * This parameter is required.
    */
   documentIds?: string[];
   /**
    * @remarks
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1399,11 +1792,15 @@ export class DeleteIndexDocumentRequest extends $tea.Model {
 export class DeleteIndexDocumentShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The list of the primary key IDs of the documents.
+   * 
    * This parameter is required.
    */
   documentIdsShrink?: string;
   /**
    * @remarks
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1431,30 +1828,49 @@ export class DeleteIndexDocumentShrinkRequest extends $tea.Model {
 
 export class DeleteIndexDocumentResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * Index.InvalidParameter
    */
   code?: string;
+  /**
+   * @remarks
+   * The parameters returned by the operation.
+   */
   data?: DeleteIndexDocumentResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Required parameter(%s) missing or invalid, please check the request parameters.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 17204B98-xxxx-4F9A-8464-2446A84821CA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indications whether the API call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -1607,29 +2023,99 @@ export class DeleteMemoryNodeResponse extends $tea.Model {
   }
 }
 
+export class DeletePromptTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FE9B6CBF-47E6-5D76-9C5D-B814DD5ABxxx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePromptTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePromptTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePromptTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFileResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data fields.
+   */
   data?: DescribeFileResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Requests throttling triggered.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 17204B98-xxxx-4F9A-8464-2446A84821CA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indications whether the API call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -1689,6 +2175,8 @@ export class DescribeFileResponse extends $tea.Model {
 export class GetIndexJobStatusRequest extends $tea.Model {
   /**
    * @remarks
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1697,13 +2185,29 @@ export class GetIndexJobStatusRequest extends $tea.Model {
   indexId?: string;
   /**
    * @remarks
+   * The knowledge base job ID, which is the `Data.Id` parameter returned by the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) or [SubmitIndexAddDocumentsJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operations.
+   * 
    * This parameter is required.
    * 
    * @example
    * 20230718xxxx-146c93bf
    */
   jobId?: string;
+  /**
+   * @remarks
+   * Both the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) and [SubmitIndexAddDocumentsJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operations support batch import of documents. This operation returns both the overall `Status` of the job and the `Document.Status` of each document. If there are a large number of documents, you can use the `PageNumber` parameter to perform a paged query. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of document import jobs that are displayed on each page. No maximum value. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1730,27 +2234,49 @@ export class GetIndexJobStatusRequest extends $tea.Model {
 
 export class GetIndexJobStatusResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * Index.Forbidden
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetIndexJobStatusResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * User not authorized to operate on the specified resource.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 17204B98-xxxx-4F9A-8464-2446A84821CA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indications whether the API call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -1936,6 +2462,81 @@ export class GetMemoryNodeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetMemoryNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPromptTemplateResponseBody extends $tea.Model {
+  content?: string;
+  name?: string;
+  /**
+   * @example
+   * 6e49109bfeb94a39bb268f4e483ccxxx
+   */
+  promptTemplateId?: string;
+  /**
+   * @example
+   * 8C56C7AF-6573-19CE-B018-E05E1EDCF4C5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * ["theme"]
+   */
+  variables?: string[];
+  /**
+   * @example
+   * llm-us9hjmt32nysdxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      name: 'name',
+      promptTemplateId: 'promptTemplateId',
+      requestId: 'requestId',
+      variables: 'variables',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      name: 'string',
+      promptTemplateId: 'string',
+      requestId: 'string',
+      variables: { 'type': 'array', 'itemType': 'string' },
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPromptTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPromptTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPromptTemplateResponseBody,
     };
   }
 
@@ -2133,14 +2734,23 @@ export class ListCategoryResponse extends $tea.Model {
 }
 
 export class ListChunksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array of field names. This parameter is used to filter non-private fields (prefixed with_underscores) in the Metadata parameter returned by this operation. By default, this parameter is left empty, which means all non-private fields in the Metadata parameter are returned. If you only want specified non-private fields, such as title, set this parameter to title.
+   */
   fields?: string[];
   /**
+   * @remarks
+   * The primary key ID of the document, which is the `FieldID` parameter returned by the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation. This parameter is not required for structured knowledge base, but is required for unstructured knowledge base. To view the ID, you can click the ID icon next to the file name on the [Data Management](https://bailian.console.aliyun.com/#/data-center) page. You can filter returned chunks by the document ID. This parameter is left empty by default.
+   * 
    * @example
    * file_5f03dfea56da4050ab68d61871fc4cb3_10151493
    */
   filed?: string;
   /**
    * @remarks
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2148,11 +2758,17 @@ export class ListChunksRequest extends $tea.Model {
    */
   indexId?: string;
   /**
+   * @remarks
+   * The number of the pages to return. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of chunks to display on each page. Maximum value: 100. Default value: 10.
+   * 
    * @example
    * 10
    */
@@ -2184,30 +2800,49 @@ export class ListChunksRequest extends $tea.Model {
 
 export class ListChunksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Index.InvalidParameter
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListChunksResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Required parameter(%s) missing or invalid, please check the request parameters.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 8F97A63B-55F1-527F-9D6E-467B6A7E8CF1
    */
   requestId?: string;
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indications whether the API call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -2273,6 +2908,7 @@ export class ListFileRequest extends $tea.Model {
    * cate_cdd11b1b79a74e8bbd675c356a91ee3510024405
    */
   categoryId?: string;
+  fileName?: string;
   /**
    * @example
    * 20
@@ -2286,6 +2922,7 @@ export class ListFileRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       categoryId: 'CategoryId',
+      fileName: 'FileName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
     };
@@ -2294,6 +2931,7 @@ export class ListFileRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       categoryId: 'string',
+      fileName: 'string',
       maxResults: 'number',
       nextToken: 'string',
     };
@@ -2387,14 +3025,30 @@ export class ListFileResponse extends $tea.Model {
 }
 
 export class ListIndexDocumentsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The names of the queried documents. The default value is null, which means the names are not used to filter the results.
+   */
   documentName?: string;
   /**
+   * @remarks
+   * The import status of the documents to be queried. Valid values:
+   * 
+   * *   INSERT_ERROR
+   * *   RUNNING
+   * *   DELETED
+   * *   FINISH
+   * 
+   * The default value is null, which means the import status is not used to filter the results.
+   * 
    * @example
    * FINISH
    */
   documentStatus?: string;
   /**
    * @remarks
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2402,11 +3056,17 @@ export class ListIndexDocumentsRequest extends $tea.Model {
    */
   indexId?: string;
   /**
+   * @remarks
+   * The page numbers of the pages to return. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of documents displayed on each page. No maximum value. Default value: 10.
+   * 
    * @example
    * 10
    */
@@ -2438,30 +3098,49 @@ export class ListIndexDocumentsRequest extends $tea.Model {
 
 export class ListIndexDocumentsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * InvalidParameter
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListIndexDocumentsResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Required parameter(%s) missing or invalid, please check the request parameters.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 35A267BF-xxxx-54DB-8394-AA3B0742D833
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indications whether the API call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -2520,16 +3199,27 @@ export class ListIndexDocumentsResponse extends $tea.Model {
 
 export class ListIndicesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The name of the knowledge base. You can query knowledge base by name. The name must be 1 to 20 characters in length and can contain characters classified as letter in Unicode, including English letters, Chinese characters, digits, among others. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * 
+   * This parameter is left empty by default, which means that all knowledge bases in the specified workspace are queried.
+   * 
    * @example
    * idx_status_score
    */
   indexName?: string;
   /**
+   * @remarks
+   * The number of the pages to return. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of knowledge bases to display on each page. No maximum value. Default value: 10.
+   * 
    * @example
    * 10
    */
@@ -2557,30 +3247,49 @@ export class ListIndicesRequest extends $tea.Model {
 
 export class ListIndicesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * Index.InvalidParameter
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListIndicesResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Required parameter(%s) missing or invalid, please check the request parameters.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 17204B98-xxxx-4F9A-8464-2446A84821CA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indications whether the API call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -2848,6 +3557,125 @@ export class ListMemoryNodesResponse extends $tea.Model {
   }
 }
 
+export class ListPromptTemplatesRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  name?: string;
+  /**
+   * @example
+   * dc270401186b433f975d7e1faaa34e0e
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * System
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      name: 'name',
+      nextToken: 'nextToken',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      name: 'string',
+      nextToken: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPromptTemplatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * dc270401186b433f975d7e1faaa34e0e
+   */
+  nextToken?: string;
+  promptTemplates?: ListPromptTemplatesResponseBodyPromptTemplates[];
+  /**
+   * @example
+   * FE9B6CBF-47E6-5D76-9C5D-B814DD5AB071
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 15
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * llm-us9hjmt32nysdxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      promptTemplates: 'promptTemplates',
+      requestId: 'requestId',
+      totalCount: 'totalCount',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      promptTemplates: { 'type': 'array', 'itemType': ListPromptTemplatesResponseBodyPromptTemplates },
+      requestId: 'string',
+      totalCount: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPromptTemplatesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPromptTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPromptTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPublishedAgentRequest extends $tea.Model {
   pageNo?: number;
   pageSize?: number;
@@ -2931,16 +3759,37 @@ export class ListPublishedAgentResponse extends $tea.Model {
 
 export class RetrieveRequest extends $tea.Model {
   /**
+   * @remarks
+   * Vector retrieval top K. After generating vectors based on input text, the top K chunks in the knowledge base that are most similar to the vector representation of the input text are retrieved. Valid values: 0 to 100. The sum of the `DenseSimilarityTopK` and `SparseSimilarityTopK` parameters must be less than or equal to 200.
+   * 
+   * Default value: 100.
+   * 
    * @example
    * 100
    */
   denseSimilarityTopK?: number;
   /**
+   * @remarks
+   * Specifies whether to enable reranking. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: true.
+   * 
    * @example
    * true
    */
   enableReranking?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable multi-round conversation rewriting. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
    * @example
    * false
    */
@@ -2948,32 +3797,71 @@ export class RetrieveRequest extends $tea.Model {
   images?: string[];
   /**
    * @remarks
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * 5pwe0m2g6t
    */
   indexId?: string;
+  /**
+   * @remarks
+   * The input query prompt. The length and characters of the query are not limited.
+   */
   query?: string;
+  /**
+   * @remarks
+   * Ranking configurations.
+   */
   rerank?: RetrieveRequestRerank[];
   /**
+   * @remarks
+   * Similarity Threshold The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00]. The priority of this parameter is greater than the similarity threshold configured for the knowledge base.
+   * 
+   * By default, this parameter is left empty. In this case, the similarity threshold of the knowledge base is used.
+   * 
    * @example
    * 0.20
    */
   rerankMinScore?: number;
   /**
+   * @remarks
+   * The top N return data after reranking. Valid values: 1 to 20. Default value: 5.
+   * 
    * @example
    * 5
    */
   rerankTopN?: number;
+  /**
+   * @remarks
+   * Conversation rewriting configurations.
+   */
   rewrite?: RetrieveRequestRewrite[];
   /**
+   * @remarks
+   * Specifies whether to save the retrieve test history. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
    * @example
    * false
    */
   saveRetrieverHistory?: boolean;
+  /**
+   * @remarks
+   * Specifies complex filter conditions. For more information about the syntax of SearchFilters, see the SearchFilter syntax section of this topic.
+   */
   searchFilters?: { [key: string]: string }[];
   /**
+   * @remarks
+   * The top K of keyword retrieval. Chunks that exactly match the keywords of the input text are retrieved from the knowledge base. This filters out irrelevant chunks and boosts accuracy. Valid values: 0 to 100. The sum of the `DenseSimilarityTopK` and `SparseSimilarityTopK` parameters must be less than or equal to 200.
+   * 
+   * Default value: 100.
+   * 
    * @example
    * 100
    */
@@ -3021,16 +3909,37 @@ export class RetrieveRequest extends $tea.Model {
 
 export class RetrieveShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * Vector retrieval top K. After generating vectors based on input text, the top K chunks in the knowledge base that are most similar to the vector representation of the input text are retrieved. Valid values: 0 to 100. The sum of the `DenseSimilarityTopK` and `SparseSimilarityTopK` parameters must be less than or equal to 200.
+   * 
+   * Default value: 100.
+   * 
    * @example
    * 100
    */
   denseSimilarityTopK?: number;
   /**
+   * @remarks
+   * Specifies whether to enable reranking. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: true.
+   * 
    * @example
    * true
    */
   enableReranking?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable multi-round conversation rewriting. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
    * @example
    * false
    */
@@ -3038,32 +3947,71 @@ export class RetrieveShrinkRequest extends $tea.Model {
   imagesShrink?: string;
   /**
    * @remarks
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * 5pwe0m2g6t
    */
   indexId?: string;
+  /**
+   * @remarks
+   * The input query prompt. The length and characters of the query are not limited.
+   */
   query?: string;
+  /**
+   * @remarks
+   * Ranking configurations.
+   */
   rerankShrink?: string;
   /**
+   * @remarks
+   * Similarity Threshold The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00]. The priority of this parameter is greater than the similarity threshold configured for the knowledge base.
+   * 
+   * By default, this parameter is left empty. In this case, the similarity threshold of the knowledge base is used.
+   * 
    * @example
    * 0.20
    */
   rerankMinScore?: number;
   /**
+   * @remarks
+   * The top N return data after reranking. Valid values: 1 to 20. Default value: 5.
+   * 
    * @example
    * 5
    */
   rerankTopN?: number;
+  /**
+   * @remarks
+   * Conversation rewriting configurations.
+   */
   rewriteShrink?: string;
   /**
+   * @remarks
+   * Specifies whether to save the retrieve test history. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
    * @example
    * false
    */
   saveRetrieverHistory?: boolean;
+  /**
+   * @remarks
+   * Specifies complex filter conditions. For more information about the syntax of SearchFilters, see the SearchFilter syntax section of this topic.
+   */
   searchFiltersShrink?: string;
   /**
+   * @remarks
+   * The top K of keyword retrieval. Chunks that exactly match the keywords of the input text are retrieved from the knowledge base. This filters out irrelevant chunks and boosts accuracy. Valid values: 0 to 100. The sum of the `DenseSimilarityTopK` and `SparseSimilarityTopK` parameters must be less than or equal to 200.
+   * 
+   * Default value: 100.
+   * 
    * @example
    * 100
    */
@@ -3111,30 +4059,49 @@ export class RetrieveShrinkRequest extends $tea.Model {
 
 export class RetrieveResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * Index.InvalidParameter
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: RetrieveResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Required parameter(%s) missing or invalid, please check the request parameters.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 17204B98-7734-4F9A-8464-2446A84821CA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indications whether the API call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -3192,10 +4159,20 @@ export class RetrieveResponse extends $tea.Model {
 }
 
 export class SubmitIndexAddDocumentsJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of primary key IDs of the category.
+   */
   categoryIds?: string[];
+  /**
+   * @remarks
+   * The list of the primary key IDs of the documents.
+   */
   documentIds?: string[];
   /**
    * @remarks
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3204,6 +4181,13 @@ export class SubmitIndexAddDocumentsJobRequest extends $tea.Model {
   indexId?: string;
   /**
    * @remarks
+   * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * 
+   * *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
+   * *   DATA_CENTER_FILE: The document type. Import one or more documents from Data Center.
+   * 
+   * >  If this parameter is set to DATA_CENTER_CATEGORY, you must specify the `CategoryIds` parameter. If this parameter is set to DATA_CENTER_FILE, you must specify the `DocumentIds` parameter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3234,10 +4218,20 @@ export class SubmitIndexAddDocumentsJobRequest extends $tea.Model {
 }
 
 export class SubmitIndexAddDocumentsJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of primary key IDs of the category.
+   */
   categoryIdsShrink?: string;
+  /**
+   * @remarks
+   * The list of the primary key IDs of the documents.
+   */
   documentIdsShrink?: string;
   /**
    * @remarks
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3246,6 +4240,13 @@ export class SubmitIndexAddDocumentsJobShrinkRequest extends $tea.Model {
   indexId?: string;
   /**
    * @remarks
+   * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * 
+   * *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
+   * *   DATA_CENTER_FILE: The document type. Import one or more documents from Data Center.
+   * 
+   * >  If this parameter is set to DATA_CENTER_CATEGORY, you must specify the `CategoryIds` parameter. If this parameter is set to DATA_CENTER_FILE, you must specify the `DocumentIds` parameter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3277,30 +4278,49 @@ export class SubmitIndexAddDocumentsJobShrinkRequest extends $tea.Model {
 
 export class SubmitIndexAddDocumentsJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * Index.InvalidParameter
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: SubmitIndexAddDocumentsJobResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Required parameter(%s) missing or invalid, please check the request parameters.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 778C0B3B-03C1-5FC1-A947-36EDD13606AB
    */
   requestId?: string;
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indications whether the API call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -3360,6 +4380,8 @@ export class SubmitIndexAddDocumentsJobResponse extends $tea.Model {
 export class SubmitIndexJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3385,30 +4407,49 @@ export class SubmitIndexJobRequest extends $tea.Model {
 
 export class SubmitIndexJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * InvalidParameter
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: SubmitIndexJobResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Required parameter(%s) missing or invalid, please check the request parameters.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 17204B98-xxxx-4F9A-8464-2446A84821CA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * Indications whether the API call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * True
    */
@@ -3718,6 +4759,76 @@ export class UpdateMemoryNodeResponse extends $tea.Model {
   }
 }
 
+export class UpdatePromptTemplateRequest extends $tea.Model {
+  content?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePromptTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FE9B6CBF-47E6-5D76-9C5D-B814DD5ABxxx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePromptTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePromptTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePromptTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddCategoryResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -3746,11 +4857,19 @@ export class AddCategoryResponseBodyData extends $tea.Model {
 
 export class AddFileResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The primary key ID of the document. We recommend that you store the ID because it is required for all subsequent API operations related to this document.
+   * 
    * @example
    * file_9a65732555b54d5ea10796ca5742ba22_XXXXXXXX
    */
   fileId?: string;
   /**
+   * @remarks
+   * The parser that is used to parse the document. Valid value:
+   * 
+   * *   DASHSCOPE_DOCMIND: Intelligent document parsing by Alibaba Cloud.
+   * 
    * @example
    * DASHSCOPE_DOCMIND
    */
@@ -3776,17 +4895,29 @@ export class AddFileResponseBodyData extends $tea.Model {
 
 export class ApplyFileUploadLeaseResponseBodyDataParam extends $tea.Model {
   /**
+   * @remarks
+   * The key-value pair to be placed in the Header. Both the key and the value are strings.
+   * 
    * @example
    * "X-bailian-extra": "MTAwNTQyNjQ5NTE2OTE3OA==",
    *         "Content-Type": "application/pdf"
    */
   headers?: any;
   /**
+   * @remarks
+   * The HTTP call method. Valid values:
+   * 
+   * *   PUT
+   * *   POST
+   * 
    * @example
    * PUT
    */
   method?: string;
   /**
+   * @remarks
+   * The upload URL of the document.
+   * 
    * @example
    * https://bailian-datahub-data-origin-prod.oss-cn-hangzhou.aliyuncs.com/1005426495169178/10024405/68abd1dea7b6404d8f7d7b9f7fbd332d.1716698936847.pdf?Expires=1716699536&OSSAccessKeyId=TestID&Signature=HfwPUZo4pR6DatSDym0zFKVh9Wg%3D
    */
@@ -3814,12 +4945,25 @@ export class ApplyFileUploadLeaseResponseBodyDataParam extends $tea.Model {
 
 export class ApplyFileUploadLeaseResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The unique ID of the lease. You need to specify this parameter when you call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation.
+   * 
    * @example
    * 1e6a159107384782be5e45ac4759b247.1719325231035
    */
   fileUploadLeaseId?: string;
+  /**
+   * @remarks
+   * The HTTP request parameters used to upload the document.
+   */
   param?: ApplyFileUploadLeaseResponseBodyDataParam;
   /**
+   * @remarks
+   * The upload method of the document. Valid values:
+   * 
+   * *   OSS.PreSignedURL
+   * *   HTTP
+   * 
    * @example
    * HTTP
    */
@@ -4074,15 +5218,55 @@ export class CreateIndexRequestColumns extends $tea.Model {
 }
 
 export class CreateIndexRequestDataSource extends $tea.Model {
+  /**
+   * @remarks
+   * >  This parameter is not available. Do not specify this parameter.
+   */
   credentialId?: string;
+  /**
+   * @remarks
+   * >  This parameter is not available. Do not specify this parameter.
+   */
   credentialKey?: string;
+  /**
+   * @remarks
+   * >  This parameter is not available. Do not specify this parameter.
+   */
   database?: string;
+  /**
+   * @remarks
+   * >  This parameter is not available. Do not specify this parameter.
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * >  This parameter is not available. Do not specify this parameter.
+   */
   isPrivateLink?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is not available. Do not specify this parameter.
+   */
   region?: string;
+  /**
+   * @remarks
+   * >  This parameter is not available. Do not specify this parameter.
+   */
   subPath?: string;
+  /**
+   * @remarks
+   * >  This parameter is not available. Do not specify this parameter.
+   */
   subType?: string;
+  /**
+   * @remarks
+   * >  This parameter is not available. Do not specify this parameter.
+   */
   table?: string;
+  /**
+   * @remarks
+   * >  This parameter is not available. Do not specify this parameter.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4121,6 +5305,11 @@ export class CreateIndexRequestDataSource extends $tea.Model {
 
 export class CreateIndexResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The primary key ID of the knowledge base, `IndexId`.
+   * 
+   * >  We recommend that you store this ID. It is required for all subsequent API operations related to this knowledge base.
+   * 
    * @example
    * jkurxhju6b
    */
@@ -4189,6 +5378,10 @@ export class DeleteFileResponseBodyData extends $tea.Model {
 }
 
 export class DeleteIndexDocumentResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The list of primary key IDs of documents that are deleted.
+   */
   deletedDocument?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4209,45 +5402,80 @@ export class DeleteIndexDocumentResponseBodyData extends $tea.Model {
 
 export class DescribeFileResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the category to which the document belongs.
+   * 
    * @example
    * cate_cdd11b1b79a74e8bbd675c356a91ee3XXXXXXXX
    */
   categoryId?: string;
   /**
+   * @remarks
+   * The timestamp when the document was uploaded to Model Studio. Format: yyyy-MM-dd HH:mm:ss. Time zone: UTC + 8.
+   * 
    * @example
    * 2024-05-26 12:45:43
    */
   createTime?: string;
   /**
+   * @remarks
+   * The primary key ID of the document.
+   * 
    * @example
    * file_9a65732555b54d5ea10796ca5742ba22_XXXXXXXX
    */
   fileId?: string;
   /**
+   * @remarks
+   * The name of the document.
+   * 
    * @example
    * test.pdf
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file type of the document. The value is an extension. Valid values: pdf, docx, doc, txt, md, pptx, and ppt.
+   * 
    * @example
    * pdf
    */
   fileType?: string;
   /**
+   * @remarks
+   * The parser that is used to parse the document. Valid value:
+   * 
+   * *   DASHSCOPE_DOCMIND: The default document parser.
+   * 
    * @example
    * DASHSCOPE_DOCMIND
    */
   parser?: string;
   /**
+   * @remarks
+   * The size of the document. Unit: bytes.
+   * 
    * @example
    * 1234
    */
   sizeInBytes?: number;
   /**
+   * @remarks
+   * The status of the document. Valid values:
+   * 
+   * *   INIT: pending parsing.
+   * *   PARSING
+   * *   PARSE_SUCCESS
+   * *   PARSE_FAILED
+   * 
    * @example
    * PARSE_SUCCESS
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags that are associated with the document. A document can be associated with multiple tags.
+   */
   tags?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4284,22 +5512,43 @@ export class DescribeFileResponseBodyData extends $tea.Model {
 
 export class GetIndexJobStatusResponseBodyDataDocuments extends $tea.Model {
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * Index.Document.ChunkError
    */
   code?: string;
   /**
+   * @remarks
+   * The primary key ID of the document.
+   * 
    * @example
    * file_9a65732555b54d5ea10796ca5742ba22_XXXXXXXX
    */
   docId?: string;
+  /**
+   * @remarks
+   * The name of the document.
+   */
   docName?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * document parse error
    */
   message?: string;
   /**
+   * @remarks
+   * The import status of the document. Valid values:
+   * 
+   * *   INSERT_ERROR
+   * *   RUNNING
+   * *   DELETED
+   * *   FINISH
+   * 
    * @example
    * RUNNING
    */
@@ -4330,13 +5579,28 @@ export class GetIndexJobStatusResponseBodyDataDocuments extends $tea.Model {
 }
 
 export class GetIndexJobStatusResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The list of imported documents.
+   */
   documents?: GetIndexJobStatusResponseBodyDataDocuments[];
   /**
+   * @remarks
+   * The ID of the job.
+   * 
    * @example
    * 66122af12a4e45ddae6bd6c845556647
    */
   jobId?: string;
   /**
+   * @remarks
+   * The status of the knowledge base job. Valid values:
+   * 
+   * *   COMPLETED
+   * *   FAILED
+   * *   RUNNING
+   * *   PENDING
+   * 
    * @example
    * PENDING
    */
@@ -4685,12 +5949,23 @@ export class ListCategoryResponseBodyData extends $tea.Model {
 }
 
 export class ListChunksResponseBodyDataNodes extends $tea.Model {
+  /**
+   * @remarks
+   * The metadata map of the chunk.
+   */
   metadata?: any;
   /**
+   * @remarks
+   * The similarity score of the chunk.
+   * 
    * @example
    * 0.3
    */
   score?: number;
+  /**
+   * @remarks
+   * The text of the chunk.
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4714,8 +5989,15 @@ export class ListChunksResponseBodyDataNodes extends $tea.Model {
 }
 
 export class ListChunksResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The list of chunks.
+   */
   nodes?: ListChunksResponseBodyDataNodes[];
   /**
+   * @remarks
+   * The total number of chunks returned.
+   * 
    * @example
    * 16
    */
@@ -4863,37 +6145,69 @@ export class ListFileResponseBodyData extends $tea.Model {
 
 export class ListIndexDocumentsResponseBodyDataDocuments extends $tea.Model {
   /**
+   * @remarks
+   * The error status code of document import.
+   * 
    * @example
    * 110002
    */
   code?: string;
   /**
+   * @remarks
+   * The format of the document. Valid values: pdf, docx, doc, txt, md, pptx, ppt, and EXCEL.
+   * 
    * @example
    * pdf
    */
   documentType?: string;
   /**
+   * @remarks
+   * The primary key ID of the document.
+   * 
    * @example
    * doc_c134aa2073204a5d936d870bf960f56a10024701
    */
   id?: string;
   /**
+   * @remarks
+   * The error message of document import.
+   * 
    * @example
    * check fileUrlKey[file_path] / fileNameKey[null] / fileExtensionKey[file_extension] is invalid
    */
   message?: string;
+  /**
+   * @remarks
+   * The name of the document.
+   */
   name?: string;
   /**
+   * @remarks
+   * The size of the document. Unit: bytes.
+   * 
    * @example
    * 996764
    */
   size?: number;
   /**
+   * @remarks
+   * For unstructured knowledge base, this parameter is the category ID, which is the `CategoryId` returned by the [AddCategory](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addcategory) interface. To view the category ID, you can click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+   * 
+   * For structured knowledge base, this parameter is the data table ID. To view the table ID, you can click the ID icon next to the table name on the Structured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+   * 
    * @example
    * cate_21a407a3372c4ba7aedc649709143f0c10021401
    */
   sourceId?: string;
   /**
+   * @remarks
+   * The import status of the document. Valid values:
+   * 
+   * *   INSERT_ERROR
+   * *   RUNNING
+   * *   DELETED
+   * *   FINISH
+   * 
    * @example
    * RUNNING
    */
@@ -4930,23 +6244,39 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $tea.Model {
 }
 
 export class ListIndexDocumentsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The list of documents in the knowledge base.
+   */
   documents?: ListIndexDocumentsResponseBodyDataDocuments[];
   /**
+   * @remarks
+   * The primary key ID of the knowledge base.
+   * 
    * @example
    * pno97tn8iu
    */
   indexId?: string;
   /**
+   * @remarks
+   * The specified page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The specified number of documents on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of documents returned.
+   * 
    * @example
    * 2437
    */
@@ -4978,72 +6308,148 @@ export class ListIndexDocumentsResponseBodyData extends $tea.Model {
 
 export class ListIndicesResponseBodyDataIndices extends $tea.Model {
   /**
+   * @remarks
+   * The estimated length of chunks. Valid values: [1-2048].
+   * 
    * @example
    * 5
    */
   chunkSize?: number;
   /**
+   * @remarks
+   * The description of the knowledge base.
+   * 
    * @example
    * If each RAM user belongs to a RAM group, the configuration is considered compliant.
    */
   description?: string;
+  /**
+   * @remarks
+   * The list of the primary key IDs of the documents.
+   */
   documentIds?: string[];
   /**
+   * @remarks
+   * The name of the embedding model. Valid values:
+   * 
+   * *   text-embedding-v2
+   * 
    * @example
    * conv-rewrite-qwen-1.8b
    */
   embeddingModelName?: string;
   /**
+   * @remarks
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * 
    * @example
    * 259899
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the knowledge base.
+   * 
    * @example
    * temp_mUB4j
    */
   name?: string;
   /**
+   * @remarks
+   * The overlap length. Valid values: [0-1024].
+   * 
    * @example
    * 10
    */
   overlapSize?: number;
   /**
+   * @remarks
+   * Similarity Threshold Valid values: [0.01-1.00].
+   * 
    * @example
    * 0.01
    */
   rerankMinScore?: string;
   /**
+   * @remarks
+   * The name of the rank model. Valid values:
+   * 
+   * *   gte-rerank-hybrid
+   * *   gte-rerank
+   * 
    * @example
    * gte-rerank-hybrid
    */
   rerankModelName?: string;
   /**
+   * @remarks
+   * The clause identifier. Separate multiple clause identifiers with |. Valid values:
+   * 
+   * *   \\n: line break
+   * *   ，: Chinese comma
+   * *   ,: English comma
+   * *   。 : Chinese full stop
+   * *   .: English full stop
+   * *   ！ : Chinese exclamation point
+   * *   ! : English exclamation point
+   * *   ；: Chinese semicolon
+   * *   ;: English semicolon
+   * *   ？ : Chinese question mark
+   * *   ?: English question mark
+   * 
    * @example
    * \\n
    */
   separator?: string;
   /**
+   * @remarks
+   * The ID of the vector storage instance.
+   * 
    * @example
    * gp-bp1gq62t1788yw2ol
    */
   sinkInstanceId?: string;
   /**
+   * @remarks
+   * The region of the vector storage instance.
+   * 
    * @example
    * cn-hangzhou
    */
   sinkRegion?: string;
   /**
+   * @remarks
+   * The vector storage type of the knowledge base. Valid values:
+   * 
+   * *   ES: Built-in vector database.
+   * *   BUILT_IN: Built-in vector database.
+   * *   ADB: AnalyticDB for PostgreSQL database.
+   * 
    * @example
    * es
    */
   sinkType?: string;
   /**
+   * @remarks
+   * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For unstructured knowledge base, possible values:
+   * 
+   * *   DATA_CENTER_CATEGORY: The category type.
+   * *   DATA_CENTER_FILE: The document type.
+   * 
+   * For structured knowledge base, possible values:
+   * 
+   * *   DATA_CENTER_STRUCTURED_TABLE: The data table type.
+   * 
    * @example
    * DATA_CENTER_FILE
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The vector storage type of the knowledge base. Valid values:
+   * 
+   * *   UNSTRUCTURED
+   * 
    * @example
    * structured
    */
@@ -5094,18 +6500,31 @@ export class ListIndicesResponseBodyDataIndices extends $tea.Model {
 }
 
 export class ListIndicesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The list of knowledge bases.
+   */
   indices?: ListIndicesResponseBodyDataIndices[];
   /**
+   * @remarks
+   * The specified page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The specified number of documents on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of knowledge bases returned.
+   * 
    * @example
    * 48
    */
@@ -5177,6 +6596,45 @@ export class ListMemoryNodesResponseBodyMemoryNodes extends $tea.Model {
     return {
       content: 'string',
       memoryNodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPromptTemplatesResponseBodyPromptTemplates extends $tea.Model {
+  content?: string;
+  name?: string;
+  /**
+   * @example
+   * d6935b7efbe34d11b13df9307151cf8c
+   */
+  promptTemplateId?: string;
+  /**
+   * @example
+   * "System"
+   */
+  type?: string;
+  variables?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      name: 'name',
+      promptTemplateId: 'promptTemplateId',
+      type: 'type',
+      variables: 'variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      name: 'string',
+      promptTemplateId: 'string',
+      type: 'string',
+      variables: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5443,6 +6901,12 @@ export class ListPublishedAgentResponseBodyData extends $tea.Model {
 
 export class RetrieveRequestRerank extends $tea.Model {
   /**
+   * @remarks
+   * The name of the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * 
+   * *   gte-rerank-hybrid: Recommended official model.
+   * *   gte-rerank
+   * 
    * @example
    * gte-rerank-hybrid
    */
@@ -5465,6 +6929,17 @@ export class RetrieveRequestRerank extends $tea.Model {
 }
 
 export class RetrieveRequestRewrite extends $tea.Model {
+  /**
+   * @remarks
+   * Conversation rewriting model name. The query rewriting model automatically adjusts the original prompt based on the context to improve retrieval performance. Valid value:
+   * 
+   * *   conv-rewrite-qwen-1.8b
+   * 
+   * By default, this parameter is left empty, which means conv-rewrite-qwen-1.8b is used.
+   * 
+   * @example
+   * conv-rewrite-qwen-1.8b
+   */
   modelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5484,12 +6959,23 @@ export class RetrieveRequestRewrite extends $tea.Model {
 }
 
 export class RetrieveResponseBodyDataNodes extends $tea.Model {
+  /**
+   * @remarks
+   * The metadata map of the chunk.
+   */
   metadata?: any;
   /**
+   * @remarks
+   * The similarity score of the chunk. Valid values:[0-1].
+   * 
    * @example
    * 0.3
    */
   score?: number;
+  /**
+   * @remarks
+   * The text of the chunk.
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5513,6 +6999,10 @@ export class RetrieveResponseBodyDataNodes extends $tea.Model {
 }
 
 export class RetrieveResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The list of queried chunks.
+   */
   nodes?: RetrieveResponseBodyDataNodes[];
   static names(): { [key: string]: string } {
     return {
@@ -5533,6 +7023,9 @@ export class RetrieveResponseBodyData extends $tea.Model {
 
 export class SubmitIndexAddDocumentsJobResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The primary key ID of the task, `JobId`.
+   * 
    * @example
    * 42687eb254a34802bed398357f5498ae
    */
@@ -5556,11 +7049,17 @@ export class SubmitIndexAddDocumentsJobResponseBodyData extends $tea.Model {
 
 export class SubmitIndexJobResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The primary key ID of the job, which is the `JobId` parameter of the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+   * 
    * @example
    * eFDr2fGRzP9gdDZWAdo3YQ==
    */
   id?: string;
   /**
+   * @remarks
+   * The primary key ID of the knowledge base.
+   * 
    * @example
    * khdyak1uuj
    */
@@ -5854,7 +7353,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将临时上传的文档导入百炼数据中心，导入成功之后会自动触发文档解析。
+   * Imports an unstructured document stored in the temporary storage space to Data Management.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://help.aliyun.com/zh/model-studio/developer-reference/upload-files-by-calling-api).
+   * >  After you call this operation, the used lease ID expires immediately. Do not use the same lease ID to submit new requests.
+   * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
+   * *   After you call this operation, the system parses and imports your document. The process takes some time.
+   * *   This interface is not idempotent.
    * 
    * @param tmpReq - AddFileRequest
    * @param headers - map
@@ -5905,7 +7411,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将临时上传的文档导入百炼数据中心，导入成功之后会自动触发文档解析。
+   * Imports an unstructured document stored in the temporary storage space to Data Management.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://help.aliyun.com/zh/model-studio/developer-reference/upload-files-by-calling-api).
+   * >  After you call this operation, the used lease ID expires immediately. Do not use the same lease ID to submit new requests.
+   * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
+   * *   After you call this operation, the system parses and imports your document. The process takes some time.
+   * *   This interface is not idempotent.
    * 
    * @param request - AddFileRequest
    * @returns AddFileResponse
@@ -5917,7 +7430,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 请求文档上传租约，进行文档上传。
+   * Applies for a document upload lease to upload a document.
+   * 
+   * @remarks
+   *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
+   * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
+   * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours. Call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) interface in time to import the document to the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+   * *   This interface is not idempotent.
    * 
    * @param request - ApplyFileUploadLeaseRequest
    * @param headers - map
@@ -5958,7 +7477,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 请求文档上传租约，进行文档上传。
+   * Applies for a document upload lease to upload a document.
+   * 
+   * @remarks
+   *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
+   * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
+   * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours. Call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) interface in time to import the document to the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+   * *   This interface is not idempotent.
    * 
    * @param request - ApplyFileUploadLeaseRequest
    * @returns ApplyFileUploadLeaseResponse
@@ -6033,7 +7558,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建并运行pipeline
+   * Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
+   * 
+   * @remarks
+   * 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. To upload documents, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation.
+   * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
+   * 3.  This interface is not idempotent.
    * 
    * @param tmpReq - CreateIndexRequest
    * @param headers - map
@@ -6148,7 +7678,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建并运行pipeline
+   * Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
+   * 
+   * @remarks
+   * 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. To upload documents, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation.
+   * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
+   * 3.  This interface is not idempotent.
    * 
    * @param request - CreateIndexRequest
    * @returns CreateIndexResponse
@@ -6247,6 +7782,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createMemoryNodeWithOptions(workspaceId, memoryId, request, headers, runtime);
+  }
+
+  /**
+   * 创建Prompt模板
+   * 
+   * @param request - CreatePromptTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePromptTemplateResponse
+   */
+  async createPromptTemplateWithOptions(workspaceId: string, request: CreatePromptTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePromptTemplateResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      query["content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePromptTemplate",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/promptTemplates`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePromptTemplateResponse>(await this.callApi(params, req, runtime), new CreatePromptTemplateResponse({}));
+  }
+
+  /**
+   * 创建Prompt模板
+   * 
+   * @param request - CreatePromptTemplateRequest
+   * @returns CreatePromptTemplateResponse
+   */
+  async createPromptTemplate(workspaceId: string, request: CreatePromptTemplateRequest): Promise<CreatePromptTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPromptTemplateWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -6352,7 +7936,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Index
+   * Deletes a specified knowledge base permanently.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base).
+   * *   After you delete a knowledge base, it cannot be recovered. We recommend that you proceed with caution.
+   * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
+   * *   This interface is idempotent.
    * 
    * @param request - DeleteIndexRequest
    * @param headers - map
@@ -6385,7 +7976,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Index
+   * Deletes a specified knowledge base permanently.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base).
+   * *   After you delete a knowledge base, it cannot be recovered. We recommend that you proceed with caution.
+   * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
+   * *   This interface is idempotent.
    * 
    * @param request - DeleteIndexRequest
    * @returns DeleteIndexResponse
@@ -6397,7 +7995,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除index doc
+   * Deletes one or more documents from a specified unstructured knowledge base permanently.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
+   * *   After you delete a document, it cannot be recovered and the [Retrieve](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
+   * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
+   * *   This interface is idempotent.
    * 
    * @param tmpReq - DeleteIndexDocumentRequest
    * @param headers - map
@@ -6440,7 +8045,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除index doc
+   * Deletes one or more documents from a specified unstructured knowledge base permanently.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
+   * *   After you delete a document, it cannot be recovered and the [Retrieve](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
+   * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
+   * *   This interface is idempotent.
    * 
    * @param request - DeleteIndexDocumentRequest
    * @returns DeleteIndexDocumentResponse
@@ -6522,7 +8134,49 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文档基本信息，包括文档名称、类型、状态等。
+   * 基于模板Id删除Prompt模板。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePromptTemplateResponse
+   */
+  async deletePromptTemplateWithOptions(workspaceId: string, promptTemplateId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePromptTemplateResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePromptTemplate",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/promptTemplates/${OpenApiUtil.getEncodeParam(promptTemplateId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePromptTemplateResponse>(await this.callApi(params, req, runtime), new DeletePromptTemplateResponse({}));
+  }
+
+  /**
+   * 基于模板Id删除Prompt模板。
+   * @returns DeletePromptTemplateResponse
+   */
+  async deletePromptTemplate(workspaceId: string, promptTemplateId: string): Promise<DeletePromptTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deletePromptTemplateWithOptions(workspaceId, promptTemplateId, headers, runtime);
+  }
+
+  /**
+   * Queries the details of an unstructured document.
+   * 
+   * @remarks
+   * Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
+   * *   If you upload the document by calling an API, make sure that you have called the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to obtain `FileId`.
+   * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
+   * *   This operation is idempotent.
+   * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6547,7 +8201,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文档基本信息，包括文档名称、类型、状态等。
+   * Queries the details of an unstructured document.
+   * 
+   * @remarks
+   * Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
+   * *   If you upload the document by calling an API, make sure that you have called the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to obtain `FileId`.
+   * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
+   * *   This operation is idempotent.
+   * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
    * @returns DescribeFileResponse
    */
   async describeFile(WorkspaceId: string, FileId: string): Promise<DescribeFileResponse> {
@@ -6557,7 +8218,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Index运行状态
+   * Queries the current status of a specified knowledge base creation or add document job.
+   * 
+   * @remarks
+   * 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
+   * 2.  We recommend that you call this operation at intervals of more than 5 seconds.
+   * 3.  This interface is idempotent.
    * 
    * @param request - GetIndexJobStatusRequest
    * @param headers - map
@@ -6602,7 +8268,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Index运行状态
+   * Queries the current status of a specified knowledge base creation or add document job.
+   * 
+   * @remarks
+   * 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
+   * 2.  We recommend that you call this operation at intervals of more than 5 seconds.
+   * 3.  This interface is idempotent.
    * 
    * @param request - GetIndexJobStatusRequest
    * @returns GetIndexJobStatusResponse
@@ -6681,6 +8352,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, headers, runtime);
+  }
+
+  /**
+   * 基于模板Id获取Prompt模板。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPromptTemplateResponse
+   */
+  async getPromptTemplateWithOptions(workspaceId: string, promptTemplateId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPromptTemplateResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPromptTemplate",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/promptTemplates/${OpenApiUtil.getEncodeParam(promptTemplateId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPromptTemplateResponse>(await this.callApi(params, req, runtime), new GetPromptTemplateResponse({}));
+  }
+
+  /**
+   * 基于模板Id获取Prompt模板。
+   * @returns GetPromptTemplateResponse
+   */
+  async getPromptTemplate(workspaceId: string, promptTemplateId: string): Promise<GetPromptTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPromptTemplateWithOptions(workspaceId, promptTemplateId, headers, runtime);
   }
 
   /**
@@ -6776,7 +8482,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Chunk
+   * For unstructured knowledge base, obtains the details of all chunks of a specified document; for structured knowledge base, obtains the details of all chunks.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   This interface is idempotent.
    * 
    * @param request - ListChunksRequest
    * @param headers - map
@@ -6825,7 +8535,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Chunk
+   * For unstructured knowledge base, obtains the details of all chunks of a specified document; for structured knowledge base, obtains the details of all chunks.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   This interface is idempotent.
    * 
    * @param request - ListChunksRequest
    * @returns ListChunksResponse
@@ -6849,6 +8563,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.categoryId)) {
       query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
     }
 
     if (!Util.isUnset(request.maxResults)) {
@@ -6890,7 +8608,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Index文件
+   * Queries the details of one or more documents in a specified knowledge base.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   This interface is idempotent.
    * 
    * @param request - ListIndexDocumentsRequest
    * @param headers - map
@@ -6939,7 +8661,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Index文件
+   * Queries the details of one or more documents in a specified knowledge base.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   This interface is idempotent.
    * 
    * @param request - ListIndexDocumentsRequest
    * @returns ListIndexDocumentsResponse
@@ -6951,7 +8677,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询pipeline
+   * Lists knowledge bases in a specified workspace.
+   * 
+   * @remarks
+   * This interface is idempotent.
    * 
    * @param request - ListIndicesRequest
    * @param headers - map
@@ -6992,7 +8721,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询pipeline
+   * Lists knowledge bases in a specified workspace.
+   * 
+   * @remarks
+   * This interface is idempotent.
    * 
    * @param request - ListIndicesRequest
    * @returns ListIndicesResponse
@@ -7102,6 +8834,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取Prompt模板列表。
+   * 
+   * @param request - ListPromptTemplatesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPromptTemplatesResponse
+   */
+  async listPromptTemplatesWithOptions(workspaceId: string, request: ListPromptTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPromptTemplatesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPromptTemplates",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/promptTemplates`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPromptTemplatesResponse>(await this.callApi(params, req, runtime), new ListPromptTemplatesResponse({}));
+  }
+
+  /**
+   * 获取Prompt模板列表。
+   * 
+   * @param request - ListPromptTemplatesRequest
+   * @returns ListPromptTemplatesResponse
+   */
+  async listPromptTemplates(workspaceId: string, request: ListPromptTemplatesRequest): Promise<ListPromptTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPromptTemplatesWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 查询已发布的智能体应用列表
    * 
    * @param request - ListPublishedAgentRequest
@@ -7151,7 +8940,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 召回测试
+   * Queries information from a specified knowledge base.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   The response time may be long because this operation involves complex retrieval and matching. We recommend that you set appropriate timeout and retry policy for requests.
+   * *   This interface is idempotent.
    * 
    * @param tmpReq - RetrieveRequest
    * @param headers - map
@@ -7250,7 +9044,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 召回测试
+   * Queries information from a specified knowledge base.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   The response time may be long because this operation involves complex retrieval and matching. We recommend that you set appropriate timeout and retry policy for requests.
+   * *   This interface is idempotent.
    * 
    * @param request - RetrieveRequest
    * @returns RetrieveResponse
@@ -7262,7 +9061,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 知识索引
+   * Adds parsed documents to an unstructured knowledge base.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   Before you call this operation, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to upload the documents to Model Studio.
+   * *   After you call this operation, you can call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
+   * *   Execution takes a period of time after this operation is called. Do not make new request before the request is returned. This interface is not idempotent.
    * 
    * @param tmpReq - SubmitIndexAddDocumentsJobRequest
    * @param headers - map
@@ -7317,7 +9122,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 知识索引
+   * Adds parsed documents to an unstructured knowledge base.
+   * 
+   * @remarks
+   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   Before you call this operation, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to upload the documents to Model Studio.
+   * *   After you call this operation, you can call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
+   * *   Execution takes a period of time after this operation is called. Do not make new request before the request is returned. This interface is not idempotent.
    * 
    * @param request - SubmitIndexAddDocumentsJobRequest
    * @returns SubmitIndexAddDocumentsJobResponse
@@ -7329,7 +9140,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交索引任务
+   * Submits a specified CreateIndex job to complete knowledge base creation.
+   * 
+   * @remarks
+   * 1.  Before you call this operation, you must call the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
+   * 2.  Execution takes a period of time after this operation is called. Do not make new request before the request is returned.
+   * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+   * 4.  This interface is not idempotent.
    * 
    * @param request - SubmitIndexJobRequest
    * @param headers - map
@@ -7362,7 +9179,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交索引任务
+   * Submits a specified CreateIndex job to complete knowledge base creation.
+   * 
+   * @remarks
+   * 1.  Before you call this operation, you must call the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
+   * 2.  Execution takes a period of time after this operation is called. Do not make new request before the request is returned.
+   * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+   * 4.  This interface is not idempotent.
    * 
    * @param request - SubmitIndexJobRequest
    * @returns SubmitIndexJobResponse
@@ -7524,6 +9347,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, request, headers, runtime);
+  }
+
+  /**
+   * 基于模板Id增量更新Prompt模板。
+   * 
+   * @param request - UpdatePromptTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePromptTemplateResponse
+   */
+  async updatePromptTemplateWithOptions(workspaceId: string, promptTemplateId: string, request: UpdatePromptTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePromptTemplateResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      query["content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePromptTemplate",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/promptTemplates/${OpenApiUtil.getEncodeParam(promptTemplateId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePromptTemplateResponse>(await this.callApi(params, req, runtime), new UpdatePromptTemplateResponse({}));
+  }
+
+  /**
+   * 基于模板Id增量更新Prompt模板。
+   * 
+   * @param request - UpdatePromptTemplateRequest
+   * @returns UpdatePromptTemplateResponse
+   */
+  async updatePromptTemplate(workspaceId: string, promptTemplateId: string, request: UpdatePromptTemplateRequest): Promise<UpdatePromptTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updatePromptTemplateWithOptions(workspaceId, promptTemplateId, request, headers, runtime);
   }
 
 }
