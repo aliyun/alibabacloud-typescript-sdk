@@ -2064,6 +2064,83 @@ export class CheckUserProjectNameResponse extends $tea.Model {
   }
 }
 
+export class CommitRoutineStagingCodeRequest extends $tea.Model {
+  codeDescription?: string;
+  /**
+   * @example
+   * CommitRoutineStagingCode
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeDescription: 'CodeDescription',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeDescription: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitRoutineStagingCodeResponseBody extends $tea.Model {
+  codeVersion?: string;
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVersion: 'CodeVersion',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVersion: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitRoutineStagingCodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CommitRoutineStagingCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CommitRoutineStagingCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomScenePolicyRequest extends $tea.Model {
   /**
    * @remarks
@@ -2850,6 +2927,261 @@ export class CreateRecordResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineRequest extends $tea.Model {
+  /**
+   * @example
+   * the description of this routine
+   */
+  description?: string;
+  /**
+   * @example
+   * test-routine1
+   */
+  name?: string;
+  /**
+   * @example
+   * 5ms
+   */
+  specName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+      specName: 'SpecName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      specName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+   */
+  requestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRoutineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRoutineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineRelatedRecordRequest extends $tea.Model {
+  /**
+   * @example
+   * CreateRoutineRelatedRecord
+   */
+  name?: string;
+  recordName?: string;
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      recordName: 'RecordName',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      recordName: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineRelatedRecordResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineRelatedRecordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRoutineRelatedRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRoutineRelatedRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineRelatedRouteRequest extends $tea.Model {
+  /**
+   * @example
+   * CreateRoutineRelatedRoute
+   */
+  name?: string;
+  route?: string;
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      route: 'Route',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      route: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineRelatedRouteResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineRelatedRouteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRoutineRelatedRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRoutineRelatedRouteResponseBody,
     };
   }
 
@@ -5206,6 +5538,344 @@ export class DeleteRecordResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineRequest extends $tea.Model {
+  /**
+   * @example
+   * test-routine1
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+   */
+  requestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRoutineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRoutineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineCodeVersionRequest extends $tea.Model {
+  /**
+   * @example
+   * 1710120201067203242
+   */
+  codeVersion?: string;
+  /**
+   * @example
+   * test-routine1
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVersion: 'CodeVersion',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVersion: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineCodeVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+   */
+  requestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineCodeVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRoutineCodeVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRoutineCodeVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineRelatedRecordRequest extends $tea.Model {
+  /**
+   * @example
+   * DeleteRoutineRelatedRecord
+   */
+  name?: string;
+  recordId?: number;
+  recordName?: string;
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      recordId: 'RecordId',
+      recordName: 'RecordName',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      recordId: 'number',
+      recordName: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineRelatedRecordResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+   */
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineRelatedRecordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRoutineRelatedRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRoutineRelatedRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineRelatedRouteRequest extends $tea.Model {
+  /**
+   * @example
+   * DeleteRoutineRelatedRoute
+   */
+  name?: string;
+  route?: string;
+  routeId?: string;
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      route: 'Route',
+      routeId: 'RouteId',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      route: 'string',
+      routeId: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineRelatedRouteResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineRelatedRouteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRoutineRelatedRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRoutineRelatedRouteResponseBody,
     };
   }
 
@@ -8224,6 +8894,283 @@ export class GetRecordResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineRequest extends $tea.Model {
+  /**
+   * @example
+   * GetRoutine
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineResponseBody extends $tea.Model {
+  codeVersions?: GetRoutineResponseBodyCodeVersions[];
+  createTime?: string;
+  defaultRelatedRecord?: string;
+  description?: string;
+  envs?: GetRoutineResponseBodyEnvs[];
+  relatedRecords?: GetRoutineResponseBodyRelatedRecords[];
+  relatedRoutes?: GetRoutineResponseBodyRelatedRoutes[];
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVersions: 'CodeVersions',
+      createTime: 'CreateTime',
+      defaultRelatedRecord: 'DefaultRelatedRecord',
+      description: 'Description',
+      envs: 'Envs',
+      relatedRecords: 'RelatedRecords',
+      relatedRoutes: 'RelatedRoutes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVersions: { 'type': 'array', 'itemType': GetRoutineResponseBodyCodeVersions },
+      createTime: 'string',
+      defaultRelatedRecord: 'string',
+      description: 'string',
+      envs: { 'type': 'array', 'itemType': GetRoutineResponseBodyEnvs },
+      relatedRecords: { 'type': 'array', 'itemType': GetRoutineResponseBodyRelatedRecords },
+      relatedRoutes: { 'type': 'array', 'itemType': GetRoutineResponseBodyRelatedRoutes },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRoutineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRoutineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineStagingCodeUploadInfoRequest extends $tea.Model {
+  codeDescription?: string;
+  /**
+   * @example
+   * GetRoutineStagingCodeUploadInfo
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeDescription: 'CodeDescription',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeDescription: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineStagingCodeUploadInfoResponseBody extends $tea.Model {
+  codeVersion?: string;
+  ossPostConfig?: { [key: string]: any };
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVersion: 'CodeVersion',
+      ossPostConfig: 'OssPostConfig',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVersion: 'string',
+      ossPostConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineStagingCodeUploadInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRoutineStagingCodeUploadInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRoutineStagingCodeUploadInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineStagingEnvIpResponseBody extends $tea.Model {
+  IPV4?: string[];
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      IPV4: 'IPV4',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IPV4: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineStagingEnvIpResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRoutineStagingEnvIpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRoutineStagingEnvIpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineUserInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  routines?: GetRoutineUserInfoResponseBodyRoutines[];
+  subdomains?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      routines: 'Routines',
+      subdomains: 'Subdomains',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      routines: { 'type': 'array', 'itemType': GetRoutineUserInfoResponseBodyRoutines },
+      subdomains: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineUserInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRoutineUserInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRoutineUserInfoResponseBody,
     };
   }
 
@@ -11614,6 +12561,111 @@ export class ListRecordsResponse extends $tea.Model {
   }
 }
 
+export class ListRoutineCanaryAreasResponseBody extends $tea.Model {
+  canaryAreas?: string[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canaryAreas: 'CanaryAreas',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canaryAreas: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoutineCanaryAreasResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRoutineCanaryAreasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRoutineCanaryAreasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoutineOptionalSpecsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  specs?: ListRoutineOptionalSpecsResponseBodySpecs[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      specs: 'Specs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      specs: { 'type': 'array', 'itemType': ListRoutineOptionalSpecsResponseBodySpecs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoutineOptionalSpecsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRoutineOptionalSpecsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRoutineOptionalSpecsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListScheduledPreloadExecutionsRequest extends $tea.Model {
   /**
    * @remarks
@@ -13924,6 +14976,127 @@ export class PreloadCachesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PreloadCachesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishRoutineCodeVersionRequest extends $tea.Model {
+  canaryAreaList?: string[];
+  canaryCodeVersion?: string;
+  codeVersion?: string;
+  env?: string;
+  /**
+   * @example
+   * PublishRoutineCodeVersion
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canaryAreaList: 'CanaryAreaList',
+      canaryCodeVersion: 'CanaryCodeVersion',
+      codeVersion: 'CodeVersion',
+      env: 'Env',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canaryAreaList: { 'type': 'array', 'itemType': 'string' },
+      canaryCodeVersion: 'string',
+      codeVersion: 'string',
+      env: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishRoutineCodeVersionShrinkRequest extends $tea.Model {
+  canaryAreaListShrink?: string;
+  canaryCodeVersion?: string;
+  codeVersion?: string;
+  env?: string;
+  /**
+   * @example
+   * PublishRoutineCodeVersion
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canaryAreaListShrink: 'CanaryAreaList',
+      canaryCodeVersion: 'CanaryCodeVersion',
+      codeVersion: 'CodeVersion',
+      env: 'Env',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canaryAreaListShrink: 'string',
+      canaryCodeVersion: 'string',
+      codeVersion: 'string',
+      env: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishRoutineCodeVersionResponseBody extends $tea.Model {
+  codeVersion?: string;
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVersion: 'CodeVersion',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVersion: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishRoutineCodeVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PublishRoutineCodeVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PublishRoutineCodeVersionResponseBody,
     };
   }
 
@@ -20939,6 +22112,143 @@ export class GetRecordResponseBodyRecordModel extends $tea.Model {
   }
 }
 
+export class GetRoutineResponseBodyCodeVersions extends $tea.Model {
+  codeDescription?: string;
+  codeVersion?: string;
+  createTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeDescription: 'CodeDescription',
+      codeVersion: 'CodeVersion',
+      createTime: 'CreateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeDescription: 'string',
+      codeVersion: 'string',
+      createTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineResponseBodyEnvs extends $tea.Model {
+  canaryAreaList?: string[];
+  canaryCodeVersion?: string;
+  codeVersion?: string;
+  env?: string;
+  specName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canaryAreaList: 'CanaryAreaList',
+      canaryCodeVersion: 'CanaryCodeVersion',
+      codeVersion: 'CodeVersion',
+      env: 'Env',
+      specName: 'SpecName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canaryAreaList: { 'type': 'array', 'itemType': 'string' },
+      canaryCodeVersion: 'string',
+      codeVersion: 'string',
+      env: 'string',
+      specName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineResponseBodyRelatedRecords extends $tea.Model {
+  recordId?: number;
+  recordName?: string;
+  siteId?: number;
+  siteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      recordId: 'RecordId',
+      recordName: 'RecordName',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recordId: 'number',
+      recordName: 'string',
+      siteId: 'number',
+      siteName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineResponseBodyRelatedRoutes extends $tea.Model {
+  route?: string;
+  routeId?: string;
+  siteId?: number;
+  siteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      route: 'Route',
+      routeId: 'RouteId',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      route: 'string',
+      routeId: 'string',
+      siteId: 'number',
+      siteName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineUserInfoResponseBodyRoutines extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  routineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      routineName: 'RoutineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      routineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSiteResponseBodySiteModel extends $tea.Model {
   /**
    * @example
@@ -22788,6 +24098,28 @@ export class ListRecordsResponseBodyRecords extends $tea.Model {
       siteName: 'string',
       ttl: 'number',
       updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoutineOptionalSpecsResponseBodySpecs extends $tea.Model {
+  isAvailable?: boolean;
+  specName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isAvailable: 'IsAvailable',
+      specName: 'SpecName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isAvailable: 'boolean',
+      specName: 'string',
     };
   }
 
@@ -25353,6 +26685,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提交Routine测试版本代码
+   * 
+   * @param request - CommitRoutineStagingCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CommitRoutineStagingCodeResponse
+   */
+  async commitRoutineStagingCodeWithOptions(request: CommitRoutineStagingCodeRequest, runtime: $Util.RuntimeOptions): Promise<CommitRoutineStagingCodeResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.codeDescription)) {
+      body["CodeDescription"] = request.codeDescription;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CommitRoutineStagingCode",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CommitRoutineStagingCodeResponse>(await this.callApi(params, req, runtime), new CommitRoutineStagingCodeResponse({}));
+  }
+
+  /**
+   * 提交Routine测试版本代码
+   * 
+   * @param request - CommitRoutineStagingCodeRequest
+   * @returns CommitRoutineStagingCodeResponse
+   */
+  async commitRoutineStagingCode(request: CommitRoutineStagingCodeRequest): Promise<CommitRoutineStagingCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.commitRoutineStagingCodeWithOptions(request, runtime);
+  }
+
+  /**
    * 创建定制场景策略
    * 
    * @param request - CreateCustomScenePolicyRequest
@@ -25660,6 +27038,156 @@ export default class Client extends OpenApi {
   async createRecord(request: CreateRecordRequest): Promise<CreateRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建routine
+   * 
+   * @param request - CreateRoutineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRoutineResponse
+   */
+  async createRoutineWithOptions(request: CreateRoutineRequest, runtime: $Util.RuntimeOptions): Promise<CreateRoutineResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.specName)) {
+      body["SpecName"] = request.specName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRoutine",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRoutineResponse>(await this.callApi(params, req, runtime), new CreateRoutineResponse({}));
+  }
+
+  /**
+   * 创建routine
+   * 
+   * @param request - CreateRoutineRequest
+   * @returns CreateRoutineResponse
+   */
+  async createRoutine(request: CreateRoutineRequest): Promise<CreateRoutineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRoutineWithOptions(request, runtime);
+  }
+
+  /**
+   * 添加Routine关联域名
+   * 
+   * @param request - CreateRoutineRelatedRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRoutineRelatedRecordResponse
+   */
+  async createRoutineRelatedRecordWithOptions(request: CreateRoutineRelatedRecordRequest, runtime: $Util.RuntimeOptions): Promise<CreateRoutineRelatedRecordResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.recordName)) {
+      body["RecordName"] = request.recordName;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      body["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRoutineRelatedRecord",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRoutineRelatedRecordResponse>(await this.callApi(params, req, runtime), new CreateRoutineRelatedRecordResponse({}));
+  }
+
+  /**
+   * 添加Routine关联域名
+   * 
+   * @param request - CreateRoutineRelatedRecordRequest
+   * @returns CreateRoutineRelatedRecordResponse
+   */
+  async createRoutineRelatedRecord(request: CreateRoutineRelatedRecordRequest): Promise<CreateRoutineRelatedRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRoutineRelatedRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 添加Routine关联路由
+   * 
+   * @param request - CreateRoutineRelatedRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRoutineRelatedRouteResponse
+   */
+  async createRoutineRelatedRouteWithOptions(request: CreateRoutineRelatedRouteRequest, runtime: $Util.RuntimeOptions): Promise<CreateRoutineRelatedRouteResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.route)) {
+      body["Route"] = request.route;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      body["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRoutineRelatedRoute",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRoutineRelatedRouteResponse>(await this.callApi(params, req, runtime), new CreateRoutineRelatedRouteResponse({}));
+  }
+
+  /**
+   * 添加Routine关联路由
+   * 
+   * @param request - CreateRoutineRelatedRouteRequest
+   * @returns CreateRoutineRelatedRouteResponse
+   */
+  async createRoutineRelatedRoute(request: CreateRoutineRelatedRouteRequest): Promise<CreateRoutineRelatedRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRoutineRelatedRouteWithOptions(request, runtime);
   }
 
   /**
@@ -26708,6 +28236,204 @@ export default class Client extends OpenApi {
   async deleteRecord(request: DeleteRecordRequest): Promise<DeleteRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Routine
+   * 
+   * @param request - DeleteRoutineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRoutineResponse
+   */
+  async deleteRoutineWithOptions(request: DeleteRoutineRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoutineResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRoutine",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRoutineResponse>(await this.callApi(params, req, runtime), new DeleteRoutineResponse({}));
+  }
+
+  /**
+   * 删除Routine
+   * 
+   * @param request - DeleteRoutineRequest
+   * @returns DeleteRoutineResponse
+   */
+  async deleteRoutine(request: DeleteRoutineRequest): Promise<DeleteRoutineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRoutineWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Routine某版本代码
+   * 
+   * @param request - DeleteRoutineCodeVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRoutineCodeVersionResponse
+   */
+  async deleteRoutineCodeVersionWithOptions(request: DeleteRoutineCodeVersionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoutineCodeVersionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.codeVersion)) {
+      body["CodeVersion"] = request.codeVersion;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRoutineCodeVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRoutineCodeVersionResponse>(await this.callApi(params, req, runtime), new DeleteRoutineCodeVersionResponse({}));
+  }
+
+  /**
+   * 删除Routine某版本代码
+   * 
+   * @param request - DeleteRoutineCodeVersionRequest
+   * @returns DeleteRoutineCodeVersionResponse
+   */
+  async deleteRoutineCodeVersion(request: DeleteRoutineCodeVersionRequest): Promise<DeleteRoutineCodeVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRoutineCodeVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Routine关联域名
+   * 
+   * @param request - DeleteRoutineRelatedRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRoutineRelatedRecordResponse
+   */
+  async deleteRoutineRelatedRecordWithOptions(request: DeleteRoutineRelatedRecordRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoutineRelatedRecordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.recordId)) {
+      body["RecordId"] = request.recordId;
+    }
+
+    if (!Util.isUnset(request.recordName)) {
+      body["RecordName"] = request.recordName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRoutineRelatedRecord",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRoutineRelatedRecordResponse>(await this.callApi(params, req, runtime), new DeleteRoutineRelatedRecordResponse({}));
+  }
+
+  /**
+   * 删除Routine关联域名
+   * 
+   * @param request - DeleteRoutineRelatedRecordRequest
+   * @returns DeleteRoutineRelatedRecordResponse
+   */
+  async deleteRoutineRelatedRecord(request: DeleteRoutineRelatedRecordRequest): Promise<DeleteRoutineRelatedRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRoutineRelatedRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Routine关联路由
+   * 
+   * @param request - DeleteRoutineRelatedRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRoutineRelatedRouteResponse
+   */
+  async deleteRoutineRelatedRouteWithOptions(request: DeleteRoutineRelatedRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoutineRelatedRouteResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.route)) {
+      body["Route"] = request.route;
+    }
+
+    if (!Util.isUnset(request.routeId)) {
+      body["RouteId"] = request.routeId;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      body["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRoutineRelatedRoute",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRoutineRelatedRouteResponse>(await this.callApi(params, req, runtime), new DeleteRoutineRelatedRouteResponse({}));
+  }
+
+  /**
+   * 删除Routine关联路由
+   * 
+   * @param request - DeleteRoutineRelatedRouteRequest
+   * @returns DeleteRoutineRelatedRouteResponse
+   */
+  async deleteRoutineRelatedRoute(request: DeleteRoutineRelatedRouteRequest): Promise<DeleteRoutineRelatedRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRoutineRelatedRouteWithOptions(request, runtime);
   }
 
   /**
@@ -28067,6 +29793,158 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Routine配置信息
+   * 
+   * @param request - GetRoutineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRoutineResponse
+   */
+  async getRoutineWithOptions(request: GetRoutineRequest, runtime: $Util.RuntimeOptions): Promise<GetRoutineResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRoutine",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRoutineResponse>(await this.callApi(params, req, runtime), new GetRoutineResponse({}));
+  }
+
+  /**
+   * 查询Routine配置信息
+   * 
+   * @param request - GetRoutineRequest
+   * @returns GetRoutineResponse
+   */
+  async getRoutine(request: GetRoutineRequest): Promise<GetRoutineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRoutineWithOptions(request, runtime);
+  }
+
+  /**
+   * 上传Routine的测试版本代码, 返回上传代码到OSS的参数
+   * 
+   * @param request - GetRoutineStagingCodeUploadInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRoutineStagingCodeUploadInfoResponse
+   */
+  async getRoutineStagingCodeUploadInfoWithOptions(request: GetRoutineStagingCodeUploadInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetRoutineStagingCodeUploadInfoResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.codeDescription)) {
+      body["CodeDescription"] = request.codeDescription;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRoutineStagingCodeUploadInfo",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRoutineStagingCodeUploadInfoResponse>(await this.callApi(params, req, runtime), new GetRoutineStagingCodeUploadInfoResponse({}));
+  }
+
+  /**
+   * 上传Routine的测试版本代码, 返回上传代码到OSS的参数
+   * 
+   * @param request - GetRoutineStagingCodeUploadInfoRequest
+   * @returns GetRoutineStagingCodeUploadInfoResponse
+   */
+  async getRoutineStagingCodeUploadInfo(request: GetRoutineStagingCodeUploadInfoRequest): Promise<GetRoutineStagingCodeUploadInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRoutineStagingCodeUploadInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询边缘函数测试环境IP
+   * 
+   * @param request - GetRoutineStagingEnvIpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRoutineStagingEnvIpResponse
+   */
+  async getRoutineStagingEnvIpWithOptions(runtime: $Util.RuntimeOptions): Promise<GetRoutineStagingEnvIpResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetRoutineStagingEnvIp",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRoutineStagingEnvIpResponse>(await this.callApi(params, req, runtime), new GetRoutineStagingEnvIpResponse({}));
+  }
+
+  /**
+   * 查询边缘函数测试环境IP
+   * @returns GetRoutineStagingEnvIpResponse
+   */
+  async getRoutineStagingEnvIp(): Promise<GetRoutineStagingEnvIpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRoutineStagingEnvIpWithOptions(runtime);
+  }
+
+  /**
+   * 查询用户的Routine列表
+   * 
+   * @param request - GetRoutineUserInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRoutineUserInfoResponse
+   */
+  async getRoutineUserInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<GetRoutineUserInfoResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetRoutineUserInfo",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRoutineUserInfoResponse>(await this.callApi(params, req, runtime), new GetRoutineUserInfoResponse({}));
+  }
+
+  /**
+   * 查询用户的Routine列表
+   * @returns GetRoutineUserInfoResponse
+   */
+  async getRoutineUserInfo(): Promise<GetRoutineUserInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRoutineUserInfoWithOptions(runtime);
+  }
+
+  /**
    * 查询单个定时预热任务
    * 
    * @param request - GetScheduledPreloadJobRequest
@@ -29298,6 +31176,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Routine灰度环境列表
+   * 
+   * @param request - ListRoutineCanaryAreasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRoutineCanaryAreasResponse
+   */
+  async listRoutineCanaryAreasWithOptions(runtime: $Util.RuntimeOptions): Promise<ListRoutineCanaryAreasResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListRoutineCanaryAreas",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRoutineCanaryAreasResponse>(await this.callApi(params, req, runtime), new ListRoutineCanaryAreasResponse({}));
+  }
+
+  /**
+   * 查询Routine灰度环境列表
+   * @returns ListRoutineCanaryAreasResponse
+   */
+  async listRoutineCanaryAreas(): Promise<ListRoutineCanaryAreasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRoutineCanaryAreasWithOptions(runtime);
+  }
+
+  /**
+   * 查询Routine可选择规格列表
+   * 
+   * @param request - ListRoutineOptionalSpecsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRoutineOptionalSpecsResponse
+   */
+  async listRoutineOptionalSpecsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListRoutineOptionalSpecsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListRoutineOptionalSpecs",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRoutineOptionalSpecsResponse>(await this.callApi(params, req, runtime), new ListRoutineOptionalSpecsResponse({}));
+  }
+
+  /**
+   * 查询Routine可选择规格列表
+   * @returns ListRoutineOptionalSpecsResponse
+   */
+  async listRoutineOptionalSpecs(): Promise<ListRoutineOptionalSpecsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRoutineOptionalSpecsWithOptions(runtime);
+  }
+
+  /**
    * 列出指定任务下的执行计划
    * 
    * @param request - ListScheduledPreloadExecutionsRequest
@@ -30163,6 +32105,70 @@ export default class Client extends OpenApi {
   async preloadCaches(request: PreloadCachesRequest): Promise<PreloadCachesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.preloadCachesWithOptions(request, runtime);
+  }
+
+  /**
+   * 发布Routine某版本代码
+   * 
+   * @param tmpReq - PublishRoutineCodeVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishRoutineCodeVersionResponse
+   */
+  async publishRoutineCodeVersionWithOptions(tmpReq: PublishRoutineCodeVersionRequest, runtime: $Util.RuntimeOptions): Promise<PublishRoutineCodeVersionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PublishRoutineCodeVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.canaryAreaList)) {
+      request.canaryAreaListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.canaryAreaList, "CanaryAreaList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.canaryAreaListShrink)) {
+      body["CanaryAreaList"] = request.canaryAreaListShrink;
+    }
+
+    if (!Util.isUnset(request.canaryCodeVersion)) {
+      body["CanaryCodeVersion"] = request.canaryCodeVersion;
+    }
+
+    if (!Util.isUnset(request.codeVersion)) {
+      body["CodeVersion"] = request.codeVersion;
+    }
+
+    if (!Util.isUnset(request.env)) {
+      body["Env"] = request.env;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PublishRoutineCodeVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishRoutineCodeVersionResponse>(await this.callApi(params, req, runtime), new PublishRoutineCodeVersionResponse({}));
+  }
+
+  /**
+   * 发布Routine某版本代码
+   * 
+   * @param request - PublishRoutineCodeVersionRequest
+   * @returns PublishRoutineCodeVersionResponse
+   */
+  async publishRoutineCodeVersion(request: PublishRoutineCodeVersionRequest): Promise<PublishRoutineCodeVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.publishRoutineCodeVersionWithOptions(request, runtime);
   }
 
   /**
