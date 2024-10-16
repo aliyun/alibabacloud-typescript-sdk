@@ -1837,6 +1837,16 @@ export class CloneDBInstanceRequest extends $tea.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
+   * The instance name. The value must be 2 to 255 characters in length The value can contain letters, digits, underscores (_), and hyphens (-), and must start with a letter.
+   * 
+   * >  The value cannot start with http:// or https://.
+   * 
+   * @example
+   * testInstance
+   */
+  DBInstanceDescription?: string;
+  /**
+   * @remarks
    * The instance ID.
    * 
    * This parameter is required.
@@ -2067,6 +2077,7 @@ export class CloneDBInstanceRequest extends $tea.Model {
       category: 'Category',
       clientToken: 'ClientToken',
       DBInstanceClass: 'DBInstanceClass',
+      DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceId: 'DBInstanceId',
       DBInstanceStorage: 'DBInstanceStorage',
       DBInstanceStorageType: 'DBInstanceStorageType',
@@ -2103,6 +2114,7 @@ export class CloneDBInstanceRequest extends $tea.Model {
       category: 'string',
       clientToken: 'string',
       DBInstanceClass: 'string',
+      DBInstanceDescription: 'string',
       DBInstanceId: 'string',
       DBInstanceStorage: 'number',
       DBInstanceStorageType: 'string',
@@ -2227,6 +2239,16 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
    * mysql.n1.micro.1
    */
   DBInstanceClass?: string;
+  /**
+   * @remarks
+   * The instance name. The value must be 2 to 255 characters in length The value can contain letters, digits, underscores (_), and hyphens (-), and must start with a letter.
+   * 
+   * >  The value cannot start with http:// or https://.
+   * 
+   * @example
+   * testInstance
+   */
+  DBInstanceDescription?: string;
   /**
    * @remarks
    * The instance ID.
@@ -2459,6 +2481,7 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
       category: 'Category',
       clientToken: 'ClientToken',
       DBInstanceClass: 'DBInstanceClass',
+      DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceId: 'DBInstanceId',
       DBInstanceStorage: 'DBInstanceStorage',
       DBInstanceStorageType: 'DBInstanceStorageType',
@@ -2495,6 +2518,7 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
       category: 'string',
       clientToken: 'string',
       DBInstanceClass: 'string',
+      DBInstanceDescription: 'string',
       DBInstanceId: 'string',
       DBInstanceStorage: 'number',
       DBInstanceStorageType: 'string',
@@ -2883,7 +2907,7 @@ export class CopyDatabaseRequest extends $tea.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * Destination database name.
+   * The destination database name.
    * 
    * @example
    * db2***
@@ -2892,7 +2916,7 @@ export class CopyDatabaseRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Reserve account.
+   * The reserved account.
    * 
    * @example
    * 1
@@ -2910,7 +2934,7 @@ export class CopyDatabaseRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Source database name.
+   * The source database name.
    * 
    * @example
    * db1***
@@ -3249,6 +3273,19 @@ export class CreateAccountRequest extends $tea.Model {
    * Normal
    */
   accountType?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a password policy.
+   * 
+   * > 
+   * 
+   * *   This parameter is available only for ApsaraDB RDS for SQL Server instances that do not belong to the shared instance family and do not run SQL Server 2008 R2.
+   * 
+   * *   Before you call this operation, you must configure a password policy for the account of your instance. For more information, see [Configure a password policy for the account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2848317.html).
+   * 
+   * @example
+   * true
+   */
   checkPolicy?: boolean;
   /**
    * @remarks
@@ -3901,10 +3938,10 @@ export class CreateDBInstanceRequest extends $tea.Model {
   amount?: number;
   /**
    * @remarks
-   * Specifies whether to automatically create a proxy. Valid values:
+   * Specifies whether to automatically create a database proxy. Valid values:
    * 
-   * *   **true**: automatically creates a proxy. By default, general-purpose proxies are enabled.
-   * *   **false**: does not automatically create a proxy.
+   * *   **true**: automatically creates a database proxy. By default, a general-purpose database proxy is created.
+   * *   **false**: does not automatically create a database proxy.
    * 
    * @example
    * false
@@ -3914,10 +3951,10 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * @remarks
    * Specifies whether to enable the automatic payment feature. Valid values:
    * 
-   * *   **true**: enables the feature. Make sure that your account balance is sufficient.
+   * *   **true**: enables the feature. You must make sure that your account balance is sufficient.
    * *   **false**: disables the feature. An unpaid order is generated.
    * 
-   * >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+   * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
    * 
    * @example
    * true
@@ -4284,9 +4321,13 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * *   **VPC**: virtual private cloud (VPC)
    * *   **Classic**: the classic network
    * 
-   * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-   * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-   * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+   * > 
+   * 
+   * *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+   * 
+   * *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+   * 
+   * *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
    * 
    * @example
    * Classic
@@ -4328,7 +4369,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * *   **Year**
    * *   **Month**
    * 
-   * >  If you set the PayType parameter to **Prepaid**, you must specify this parameter.
+   * >  If you set the PayType parameter to **Prepaid**, you must also specify this parameter.
    * 
    * @example
    * Year
@@ -4402,7 +4443,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   serverlessConfig?: CreateDBInstanceRequestServerlessConfig;
   /**
    * @remarks
-   * Specifies whether to enable the automatic storage expansion feature for the instance. This feature is supported if the instance runs MySQL or PostgreSQL. Valid values:
+   * Specifies whether to enable the automatic storage expansion feature for the instance. If the instance runs MySQL or PostgreSQL, this feature is supported. Valid values:
    * 
    * *   **Enable**
    * *   **Disable** (default)
@@ -4423,7 +4464,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * *   **40**
    * *   **50**
    * 
-   * >  If you set the **StorageAutoScale** parameter to **Enable**, you must specify this parameter.
+   * >  If you set the **StorageAutoScale** parameter to **Enable**, you must also specify this parameter.
    * 
    * @example
    * 50
@@ -4517,12 +4558,12 @@ export class CreateDBInstanceRequest extends $tea.Model {
   targetMinorVersion?: string;
   /**
    * @remarks
-   * The subscription duration of the instance.
+   * The subscription duration of the instance. Valid values:
    * 
    * *   If you set the **Period** parameter to **Year**, the value of the **UsedTime** parameter ranges from **1 to 5**.
    * *   If you set the **Period** parameter to **Month**, the value of the **UsedTime** parameter ranges from **1 to 11**.
    * 
-   * >  If you set the PayType parameter to **Prepaid**, you must specify this parameter.
+   * >  If you set the PayType parameter to **Prepaid**, you must also specify this parameter.
    * 
    * @example
    * 2
@@ -4751,10 +4792,10 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   amount?: number;
   /**
    * @remarks
-   * Specifies whether to automatically create a proxy. Valid values:
+   * Specifies whether to automatically create a database proxy. Valid values:
    * 
-   * *   **true**: automatically creates a proxy. By default, general-purpose proxies are enabled.
-   * *   **false**: does not automatically create a proxy.
+   * *   **true**: automatically creates a database proxy. By default, a general-purpose database proxy is created.
+   * *   **false**: does not automatically create a database proxy.
    * 
    * @example
    * false
@@ -4764,10 +4805,10 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * @remarks
    * Specifies whether to enable the automatic payment feature. Valid values:
    * 
-   * *   **true**: enables the feature. Make sure that your account balance is sufficient.
+   * *   **true**: enables the feature. You must make sure that your account balance is sufficient.
    * *   **false**: disables the feature. An unpaid order is generated.
    * 
-   * >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+   * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
    * 
    * @example
    * true
@@ -5134,9 +5175,13 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * *   **VPC**: virtual private cloud (VPC)
    * *   **Classic**: the classic network
    * 
-   * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-   * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-   * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+   * > 
+   * 
+   * *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+   * 
+   * *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+   * 
+   * *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
    * 
    * @example
    * Classic
@@ -5178,7 +5223,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * *   **Year**
    * *   **Month**
    * 
-   * >  If you set the PayType parameter to **Prepaid**, you must specify this parameter.
+   * >  If you set the PayType parameter to **Prepaid**, you must also specify this parameter.
    * 
    * @example
    * Year
@@ -5252,7 +5297,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   serverlessConfigShrink?: string;
   /**
    * @remarks
-   * Specifies whether to enable the automatic storage expansion feature for the instance. This feature is supported if the instance runs MySQL or PostgreSQL. Valid values:
+   * Specifies whether to enable the automatic storage expansion feature for the instance. If the instance runs MySQL or PostgreSQL, this feature is supported. Valid values:
    * 
    * *   **Enable**
    * *   **Disable** (default)
@@ -5273,7 +5318,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * *   **40**
    * *   **50**
    * 
-   * >  If you set the **StorageAutoScale** parameter to **Enable**, you must specify this parameter.
+   * >  If you set the **StorageAutoScale** parameter to **Enable**, you must also specify this parameter.
    * 
    * @example
    * 50
@@ -5367,12 +5412,12 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   targetMinorVersion?: string;
   /**
    * @remarks
-   * The subscription duration of the instance.
+   * The subscription duration of the instance. Valid values:
    * 
    * *   If you set the **Period** parameter to **Year**, the value of the **UsedTime** parameter ranges from **1 to 5**.
    * *   If you set the **Period** parameter to **Month**, the value of the **UsedTime** parameter ranges from **1 to 11**.
    * 
-   * >  If you set the PayType parameter to **Prepaid**, you must specify this parameter.
+   * >  If you set the PayType parameter to **Prepaid**, you must also specify this parameter.
    * 
    * @example
    * 2
@@ -9577,16 +9622,78 @@ export class CreatePostgresExtensionsResponse extends $tea.Model {
 }
 
 export class CreateRCDeploymentSetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The deployment set name. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (.), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * deployment_test
+   */
   deploymentSetName?: string;
+  /**
+   * @remarks
+   * The description of the deployment set. The value must be 2 to 256 characters in length and cannot start with http:// or https://.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The number of groups in the deployment set. Valid values: 1 to 7.
+   * 
+   * Default value: 3.
+   * 
+   * >  This parameter takes effect only when `Strategy is set to AvailabilityGroup`.
+   * 
+   * @example
+   * 3
+   */
   groupCount?: number;
+  /**
+   * @remarks
+   * The emergency solution to use in the scenario in which instances in the deployment set cannot be evenly distributed to different zones due to resource insufficiency after the instances failover. Valid values:
+   * 
+   * *   **CancelMembershipAndStart**: removes the instances from the deployment set and restarts the instances immediately after the failover is complete.
+   * *   **KeepStopped**: does not remove the instances from the deployment set and keeps the instances in the Stopped state.
+   * 
+   * Default value: CancelMembershipAndStart.
+   * 
+   * @example
+   * CancelMembershipAndStart
+   */
   onUnableToRedeployFailedInstance?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The deployment strategy. Valid values:
+   * 
+   * *   **Availability**: high-availability strategy
+   * *   **AvailabilityGroup**: high-availability group strategy
+   * *   **LowLatency**: low latency strategy
+   * 
+   * Default value: Availability.
+   * 
+   * @example
+   * Availability
+   */
   strategy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9618,7 +9725,21 @@ export class CreateRCDeploymentSetRequest extends $tea.Model {
 }
 
 export class CreateRCDeploymentSetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The deployment set ID.
+   * 
+   * @example
+   * ds-uf6c8qerk019bj1l****
+   */
   deploymentSetId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8B993DA9-5272-5414-94E3-4CA8BA0146C2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11318,11 +11439,8 @@ export class DeleteBackupFileRequest extends $tea.Model {
    * @remarks
    * The backup set ID. You can specify the IDs of up to 100 backup sets at a time. Separate the IDs with commas (,).
    * 
-   * > 
-   * 
-   * *   If the instance runs SQL Server, only the ID of the backup set for an individual database is supported.
-   * 
-   * *   You can call the DescribeBackups operation to query the backup set ID.
+   * > *   If the instance runs SQL Server, only the ID of the backup set for an individual database is supported.
+   * > *   You can call the DescribeBackups operation to query the backup set ID.
    * 
    * @example
    * 29304****
@@ -12840,12 +12958,22 @@ export class DeletePostgresExtensionsResponse extends $tea.Model {
 export class DeleteRCDeploymentSetRequest extends $tea.Model {
   /**
    * @remarks
+   * The deployment set ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ds-uf6c8qerk019bj1l****
    */
   deploymentSetId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -12868,6 +12996,13 @@ export class DeleteRCDeploymentSetRequest extends $tea.Model {
 }
 
 export class DeleteRCDeploymentSetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8B993DA9-5272-5414-94E3-4CA8BA0146C2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12989,14 +13124,53 @@ export class DeleteRCInstanceResponse extends $tea.Model {
 }
 
 export class DeleteRCInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is created.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to forcefully release a running instance. Valid values:
+   * 
+   * *   **Yes**
+   * *   **No** (default)
+   * 
+   * @example
+   * Yes
+   */
   force?: boolean;
   /**
    * @remarks
+   * The details of the instance.
+   * 
    * This parameter is required.
    */
   instanceId?: string[];
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * Specifies whether to release an expired subscription instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * true
+   */
   terminateSubscription?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13024,14 +13198,53 @@ export class DeleteRCInstancesRequest extends $tea.Model {
 }
 
 export class DeleteRCInstancesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is created.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to forcefully release a running instance. Valid values:
+   * 
+   * *   **Yes**
+   * *   **No** (default)
+   * 
+   * @example
+   * Yes
+   */
   force?: boolean;
   /**
    * @remarks
+   * The details of the instance.
+   * 
    * This parameter is required.
    */
   instanceIdShrink?: string;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * Specifies whether to release an expired subscription instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * true
+   */
   terminateSubscription?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13059,6 +13272,13 @@ export class DeleteRCInstancesShrinkRequest extends $tea.Model {
 }
 
 export class DeleteRCInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E9DD55F4-1A5F-48CA-BA57-DFB3CA8C4C34
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13468,8 +13688,8 @@ export class DeleteSlotRequest extends $tea.Model {
    * @remarks
    * The status of the replication slot. You can call the DescribeSlots operation to query the status of the replication slot. Valid values:
    * 
-   * *   ACTIVE
-   * *   INACTIVE
+   * *   **ACTIVE**
+   * *   **INACTIVE**
    * 
    * This parameter is required.
    * 
@@ -14193,7 +14413,7 @@ export class DescribeAccountsRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid value: **30 to 200**. Default value: **30**.
+   * The number of entries per page. Valid values: **30 to 200**. Default value: **30**.
    * 
    * @example
    * 30
@@ -14231,7 +14451,7 @@ export class DescribeAccountsRequest extends $tea.Model {
 export class DescribeAccountsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details of the account.
+   * The information about the account.
    */
   accounts?: DescribeAccountsResponseBodyAccounts;
   /**
@@ -15079,11 +15299,11 @@ export class DescribeAvailableClassesRequest extends $tea.Model {
    * 
    * *   **local_ssd**: local SSD. This is the recommended storage type.
    * *   **cloud_ssd**: standard SSD.
-   * *   **cloud_essd**: enhanced SSDs (ESSDs) of performance level 1 (PL1)
-   * *   **cloud_essd2**: ESSDs of PL2
-   * *   **cloud_essd3**: ESSD of PL3
+   * *   **cloud_essd**: performance level 1 (PL1) Enterprise SSD (ESSD)
+   * *   **cloud_essd2**: PL2 ESSD
+   * *   **cloud_essd3**: PL3 ESSD
    * 
-   * > Serverless instances support only ESSDs of PL 1. For a serverless instance, you must set this parameter to **cloud_essd**.
+   * >  Serverless instances use only PL1 ESSDs. If you want to create a serverless instance, you must set this parameter to **cloud_essd**.
    * 
    * This parameter is required.
    * 
@@ -15147,7 +15367,7 @@ export class DescribeAvailableClassesRequest extends $tea.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The type of the order. Set the value to **BUY**
+   * The type of order. Set the value to **BUY**
    * 
    * @example
    * BUY
@@ -23719,6 +23939,8 @@ export class DescribeDBProxyResponseBody extends $tea.Model {
    * 2
    */
   DBProxyInstanceType?: string;
+  DBProxyKindCode?: string;
+  DBProxyNodes?: DescribeDBProxyResponseBodyDBProxyNodes;
   /**
    * @remarks
    * Connection Persistence State. 
@@ -23776,6 +23998,8 @@ export class DescribeDBProxyResponseBody extends $tea.Model {
       DBProxyInstanceSize: 'DBProxyInstanceSize',
       DBProxyInstanceStatus: 'DBProxyInstanceStatus',
       DBProxyInstanceType: 'DBProxyInstanceType',
+      DBProxyKindCode: 'DBProxyKindCode',
+      DBProxyNodes: 'DBProxyNodes',
       DBProxyPersistentConnectionStatus: 'DBProxyPersistentConnectionStatus',
       DBProxyServiceStatus: 'DBProxyServiceStatus',
       dbProxyEndpointItems: 'DbProxyEndpointItems',
@@ -23796,6 +24020,8 @@ export class DescribeDBProxyResponseBody extends $tea.Model {
       DBProxyInstanceSize: 'string',
       DBProxyInstanceStatus: 'string',
       DBProxyInstanceType: 'string',
+      DBProxyKindCode: 'string',
+      DBProxyNodes: DescribeDBProxyResponseBodyDBProxyNodes,
       DBProxyPersistentConnectionStatus: 'string',
       DBProxyServiceStatus: 'string',
       dbProxyEndpointItems: DescribeDBProxyResponseBodyDbProxyEndpointItems,
@@ -23970,6 +24196,7 @@ export class DescribeDBProxyEndpointResponseBody extends $tea.Model {
    * TransactionReadSqlRouteOptimizeStatus:1;ConnectionPersist:0;ReadWriteSpliting:1
    */
   DBProxyFeatures?: string;
+  DBProxyNodes?: DescribeDBProxyEndpointResponseBodyDBProxyNodes;
   /**
    * @remarks
    * The description of the proxy terminal.
@@ -23989,6 +24216,8 @@ export class DescribeDBProxyEndpointResponseBody extends $tea.Model {
    * ReadWrite
    */
   dbProxyEndpointReadWriteMode?: string;
+  dbProxyEndpointVswitchId?: string;
+  dbProxyEndpointZoneId?: string;
   /**
    * @remarks
    * An array that consists of the information about the proxy endpoint.
@@ -24043,8 +24272,11 @@ export class DescribeDBProxyEndpointResponseBody extends $tea.Model {
       DBProxyEndpointId: 'DBProxyEndpointId',
       DBProxyEngineType: 'DBProxyEngineType',
       DBProxyFeatures: 'DBProxyFeatures',
+      DBProxyNodes: 'DBProxyNodes',
       dbProxyEndpointAliases: 'DbProxyEndpointAliases',
       dbProxyEndpointReadWriteMode: 'DbProxyEndpointReadWriteMode',
+      dbProxyEndpointVswitchId: 'DbProxyEndpointVswitchId',
+      dbProxyEndpointZoneId: 'DbProxyEndpointZoneId',
       endpointConnectItems: 'EndpointConnectItems',
       readOnlyInstanceDistributionType: 'ReadOnlyInstanceDistributionType',
       readOnlyInstanceMaxDelayTime: 'ReadOnlyInstanceMaxDelayTime',
@@ -24061,8 +24293,11 @@ export class DescribeDBProxyEndpointResponseBody extends $tea.Model {
       DBProxyEndpointId: 'string',
       DBProxyEngineType: 'string',
       DBProxyFeatures: 'string',
+      DBProxyNodes: DescribeDBProxyEndpointResponseBodyDBProxyNodes,
       dbProxyEndpointAliases: 'string',
       dbProxyEndpointReadWriteMode: 'string',
+      dbProxyEndpointVswitchId: 'string',
+      dbProxyEndpointZoneId: 'string',
       endpointConnectItems: DescribeDBProxyEndpointResponseBodyEndpointConnectItems,
       readOnlyInstanceDistributionType: 'string',
       readOnlyInstanceMaxDelayTime: 'string',
@@ -26416,17 +26651,17 @@ export class DescribeHistoryTasksRequest extends $tea.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The task status. Valid values:
    * 
-   * *   Scheduled
-   * *   Running
-   * *   Succeed
-   * *   Failed
-   * *   Cancelling
-   * *   Canceled
-   * *   Waiting
+   * *   **Scheduled**
+   * *   **Running**
+   * *   **Succeed**
+   * *   **Failed**
+   * *   **Cancelling**
+   * *   **Canceled**
+   * *   **Waiting**
    * 
-   * Separate multiple states with commas (,). This parameter is empty by default, which indicates that tasks in all states are queried.
+   * Separate multiple values with commas (,). By default, this parameter is left empty, which indicates that tasks in all statuses are queried.
    * 
    * @example
    * Scheduled
@@ -26434,7 +26669,7 @@ export class DescribeHistoryTasksRequest extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The task ID. Separate multiple task IDs with commas (,). You can specify up to 30 task IDs. This parameter is empty by default, which indicates that you can specify an unlimited number of task IDs.
+   * The task ID. You can call the DescribeTasks operation to query the task ID. If multiple task IDs exist, separate them with commas (,). You can specify up to 30 task IDs. By default, this parameter is left empty, which indicates that all tasks are queried.
    * 
    * @example
    * t-83br18hloy3faf****
@@ -26523,7 +26758,7 @@ export class DescribeHistoryTasksResponseBody extends $tea.Model {
   items?: DescribeHistoryTasksResponseBodyItems[];
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number.
    * 
    * @example
    * 1
@@ -26531,7 +26766,7 @@ export class DescribeHistoryTasksResponseBody extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **10 to 100**. Default value: **10**.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -29432,7 +29667,7 @@ export class DescribeModifyParameterLogRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number. Pages start from 1.
    * 
    * Default value: **1**.
    * 
@@ -29526,7 +29761,7 @@ export class DescribeModifyParameterLogResponseBody extends $tea.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * An array that consists of parameter modification log entries.
+   * The log entries.
    */
   items?: DescribeModifyParameterLogResponseBodyItems;
   /**
@@ -31437,15 +31672,68 @@ export class DescribeQuickSaleConfigResponse extends $tea.Model {
 }
 
 export class DescribeRCDeploymentSetsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the deployment sets. The value can be a JSON array that consists of deployment set IDs in the format of `["ds-xxxxxxxxx", "ds-yyyyyyyyy", ... "ds-zzzzzzzzz"]`. You can specify up to 100 deployment set IDs in each request. Separate the deployment set IDs with commas (,).
+   * 
+   * @example
+   * ["ds-2zeeuw16zo2gr9e6****"]
+   */
   deploymentSetIds?: string;
+  /**
+   * @remarks
+   * The deployment set name. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * deployment_test
+   */
   deploymentSetName?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * Pages start from page 1.
+   * 
+   * Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Maximum value: 50.
+   * 
+   * Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The deployment strategy. Valid values:
+   * 
+   * *   **Availability**: high availability strategy
+   * *   **AvailabilityGroup**: high availability group strategy
+   * 
+   * Default value: Availability.
+   * 
+   * @example
+   * Availability
+   */
   strategy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31475,11 +31763,50 @@ export class DescribeRCDeploymentSetsRequest extends $tea.Model {
 }
 
 export class DescribeRCDeploymentSetsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the deployment set.
+   */
   deploymentSets?: DescribeRCDeploymentSetsResponseBodyDeploymentSets;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 39265F46-EC77-4036-8AC4-F035F32F6BE2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31534,14 +31861,50 @@ export class DescribeRCDeploymentSetsResponse extends $tea.Model {
 }
 
 export class DescribeRCImageListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The image architecture. Valid values:
+   * 
+   * *   x86_64
+   * *   arm64
+   * 
+   * @example
+   * x86_64
+   */
   architecture?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The image type. Set the value to **self**.
+   * 
+   * @example
+   * self
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31569,11 +31932,50 @@ export class DescribeRCImageListRequest extends $tea.Model {
 }
 
 export class DescribeRCImageListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the images.
+   */
   images?: DescribeRCImageListResponseBodyImages[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 5
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2553A660-E4EB-4AF4-A402-8AFF70A49143
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of images.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31630,9 +32032,21 @@ export class DescribeRCImageListResponse extends $tea.Model {
 export class DescribeRCInstanceAttributeRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rc-dh2jf9n6j4s14926****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31654,51 +32068,322 @@ export class DescribeRCInstanceAttributeRequest extends $tea.Model {
 }
 
 export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the cluster to which the instance belongs.
+   * 
+   * >  This parameter will be deprecated. We recommend that you use other parameters to ensure compatibility.
+   * 
+   * @example
+   * None
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The number of CPU cores.
+   * 
+   * @example
+   * 4
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-04-22T06:52:23Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The performance mode of the burstable instance.
+   * 
+   * @example
+   * None
+   */
   creditSpecification?: string;
+  /**
+   * @remarks
+   * The details of the data disk.
+   */
   dataDisks?: DescribeRCInstanceAttributeResponseBodyDataDisks;
   /**
+   * @remarks
+   * The attributes of the dedicated hosts.
+   * 
    * **if can be null:**
    * true
    */
   dedicatedHostAttribute?: DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute;
+  /**
+   * @remarks
+   * The ID of the deployment set.
+   * 
+   * @example
+   * ds-uf6c8qerk019bj1l****
+   */
   deploymentSetId?: string;
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The reserved parameter.
+   * 
+   * @example
+   * None
+   */
   diskType?: string;
+  /**
+   * @remarks
+   * The Elastic Compute Service (ECS) instance family.
+   * 
+   * @example
+   * ecs.g6.2xlarge
+   */
   ecsInstanceType?: string;
+  /**
+   * @remarks
+   * The elastic IP address (EIP) associated with the instance.
+   */
   eipAddress?: DescribeRCInstanceAttributeResponseBodyEipAddress;
+  /**
+   * @remarks
+   * Indicates whether the Jumbo Frame feature is enabled for the instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   enableJumboFrame?: boolean;
+  /**
+   * @remarks
+   * The expiration time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-08-10T00:00:00Z
+   */
   expiredTime?: string;
+  /**
+   * @remarks
+   * The instance hostname.
+   * 
+   * @example
+   * iZ2zej1n3cin51rlmby****
+   */
   hostName?: string;
+  /**
+   * @remarks
+   * The storage type of the host. Valid values:
+   * 
+   * *   **dhg_cloud_ssd**: ESSD
+   * *   **dhg_local_ssd**: local SSD
+   * 
+   * @example
+   * dhg_cloud_ssd
+   */
   hostType?: string;
+  /**
+   * @remarks
+   * The image ID of the instance.
+   * 
+   * @example
+   * m-2oqiu973jwcxe****
+   */
   imageId?: string;
+  /**
+   * @remarks
+   * The private IP addresses of the instance in the classic network.
+   */
   innerIpAddress?: DescribeRCInstanceAttributeResponseBodyInnerIpAddress;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rc-dh2jf9n6j4s14926****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * test
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The network type. Valid values:
+   * 
+   * *   **classic**
+   * *   **vpc**
+   * 
+   * @example
+   * vpc
+   */
   instanceNetworkType?: string;
+  /**
+   * @remarks
+   * The instance type of the instance.
+   * 
+   * @example
+   * mysql.x4.xlarge.6cm
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The billing method for network usage. Valid values:
+   * 
+   * *   **PayByBandwidth**: pay-by-bandwidth
+   * *   **PayByTraffic**: pay-by-data-transfer
+   * 
+   * >  If the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+   * 
+   * @example
+   * PayByTraffic
+   */
   internetChargeType?: string;
+  /**
+   * @remarks
+   * The maximum inbound bandwidth from the Internet. Unit: Mbit/s.
+   * 
+   * @example
+   * 1
+   */
   internetMaxBandwidthIn?: number;
+  /**
+   * @remarks
+   * The maximum outbound bandwidth to the Internet. Unit: Mbit/s.
+   * 
+   * @example
+   * 5
+   */
   internetMaxBandwidthOut?: number;
+  /**
+   * @remarks
+   * Indicates whether the instance is I/O optimized.
+   * 
+   * *   **optimized**: The instance is I/O optimized.
+   * *   **none**: The instance is not I/O optimized.
+   * 
+   * @example
+   * optimized
+   */
   ioOptimized?: string;
+  /**
+   * @remarks
+   * The name of the key pair.
+   * 
+   * @example
+   * test_01
+   */
   keyPairName?: string;
+  /**
+   * @remarks
+   * The memory capacity of the instance. Unit: MiB.
+   * 
+   * @example
+   * 8192
+   */
   memory?: number;
+  /**
+   * @remarks
+   * The reasons why the instance is locked.
+   */
   operationLocks?: DescribeRCInstanceAttributeResponseBodyOperationLocks;
+  /**
+   * @remarks
+   * The public IP address of the instance.
+   */
   publicIpAddress?: DescribeRCInstanceAttributeResponseBodyPublicIpAddress;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EA2D4F34-01A7-46EB-A339-D80882135206
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The security groups.
+   */
   securityGroupIds?: DescribeRCInstanceAttributeResponseBodySecurityGroupIds;
+  /**
+   * @remarks
+   * The serial number of the instance.
+   * 
+   * @example
+   * b076f6ff-46d1-4234-a608-4e951ed6****
+   */
   serialNumber?: string;
+  /**
+   * @remarks
+   * The instance status. Valid values:
+   * 
+   * *   **Pending**
+   * *   **Running**
+   * *   **Starting**
+   * *   **Stopping**
+   * *   **Stopped**
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the billing of the instance continues after the instance is stopped. Valid values:
+   * 
+   * *   **KeepCharging**: The billing of the instance continues after the instance is stopped, and resources are retained for the instance.
+   * *   **StopCharging**: The billing of the instance stops after the instance is stopped. After the instance is stopped, resources such as CPU cores, memory resources, and public IP address are released. The instance may be unable to restart if some required resources are out of stock in the current region.
+   * *   **Not-applicable**: The No Fees for Stopped Instances feature is not supported for the instance.
+   * 
+   * @example
+   * Not-applicable
+   */
   stoppedMode?: string;
+  /**
+   * @remarks
+   * The virtual LAN (VLAN) ID of the instance.
+   * 
+   * >  This parameter will be deprecated. We recommend that you use other parameters to ensure compatibility.
+   * 
+   * @example
+   * None
+   */
   vlanId?: string;
   /**
+   * @remarks
+   * The virtual private cloud (VPC) attributes of the instance.
+   * 
    * **if can be null:**
    * true
    */
   vpcAttributes?: DescribeRCInstanceAttributeResponseBodyVpcAttributes;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31817,10 +32502,53 @@ export class DescribeRCInstanceAttributeResponse extends $tea.Model {
 }
 
 export class DescribeRCInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rm-2ze704f*****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * Page starts from page 1.
+   * 
+   * Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Maximum value: 100.
+   * 
+   * Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * @example
+   * vpc-uf6f7l4fg90****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31848,10 +32576,42 @@ export class DescribeRCInstancesRequest extends $tea.Model {
 }
 
 export class DescribeRCInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The details of the instance.
+   */
   RCInstances?: DescribeRCInstancesResponseBodyRCInstances[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E9DD55F4-1A5F-48CA-BA57-DFB3CA8C4C34
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31904,18 +32664,89 @@ export class DescribeRCInstancesResponse extends $tea.Model {
 }
 
 export class DescribeRCMetricListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The end time must be later than the start time. Example: `2024-08-06 10:15:00`.
+   * 
+   * @example
+   * 2024-08-06 10:15:00
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The reserved parameter.
+   * 
+   * @example
+   * None
+   */
   express?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rc-dh2jf9n6j4s14926****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Default value: 1000.
+   * 
+   * >  The maximum value of the Length parameter in a request is 1440.
+   * 
+   * @example
+   * 1000
+   */
   length?: string;
   /**
    * @remarks
+   * The metric that you want to use. For more information, see [CloudMonitor metrics](javascript:void\\(0\\)).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * CPUUtilization
    */
   metricName?: string;
+  /**
+   * @remarks
+   * The pagination token.
+   * 
+   * @example
+   * 6178f1825f9fb76ce0b5e8707e68181f
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The statistical period of the monitoring data.
+   * 
+   * Set the value to 60 or an integer multiple of 60.
+   * 
+   * Unit: seconds.
+   * 
+   * Default value: 60.
+   * 
+   * @example
+   * 60
+   */
   period?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Example: `2024-08-06 10:05:00`.
+   * 
+   * @example
+   * 2024-08-06 10:05:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31951,12 +32782,66 @@ export class DescribeRCMetricListRequest extends $tea.Model {
 }
 
 export class DescribeRCMetricListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The monitoring data.
+   * 
+   * @example
+   * [{\\"timestamp\\":1722909960000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988087373\\",\\"Minimum\\":0.097,\\"Maximum\\":0.097,\\"Average\\":0.097},{\\"timestamp\\":1722910020000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988087373\\",\\"Minimum\\":0.093,\\"Maximum\\":0.093,\\"Average\\":0.093}]
+   */
   datapoints?: string;
+  /**
+   * @remarks
+   * The message that is returned for the request.
+   * 
+   * >  If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+   * 
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @remarks
+   * The pagination token.
+   * 
+   * @example
+   * 6178f1825f9fb76ce0b5e8707e68181f
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The statistical period of the monitoring data.
+   * 
+   * @example
+   * 60
+   */
   period?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EA2D4F34-01A7-46EB-A339-D80882135206
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -32686,7 +33571,7 @@ export class DescribeReplicationLinkLogsRequest extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the task. You can call the **CreateReplicationLink** operation to create the task ID of the disaster recovery instance.
+   * The task ID. You must set this parameter to the ID of the task that you create by calling the **CreateReplicationLink** operation for the disaster recovery instance.
    * 
    * @example
    * 8413252
@@ -32694,7 +33579,7 @@ export class DescribeReplicationLinkLogsRequest extends $tea.Model {
   taskId?: number;
   /**
    * @remarks
-   * The name of the task. You can call the **CreateReplicationLink** operation to create a disaster recovery instance. You can specify a task name in the request parameters of the call.
+   * The task name. You must set this parameter to the name of the task that you create by calling the **CreateReplicationLink** operation for the disaster recovery instance.
    * 
    * @example
    * test01
@@ -35925,7 +36810,7 @@ export class DescribeVSwitchesRequest extends $tea.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the VSwitch belongs.
+   * The ID of the VPC to which the vSwitch belongs.
    * 
    * > You must configure this parameter or **DedicatedHostGroupId**.
    * 
@@ -35935,7 +36820,7 @@ export class DescribeVSwitchesRequest extends $tea.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone to which the VSwitch belongs. You can call the DescribeAvailableZones operation to query zone IDs. If you specify this parameter, the query results are filtered based on the value of this parameter and only the details of the VSwitch that is deployed in the specified zone are returned.
+   * The ID of the zone to which the vSwitch belongs. You can call the DescribeAvailableZones operation to query zone IDs. If you specify this parameter, the query results are filtered based on the value of this parameter and only the details of the VSwitch that is deployed in the specified zone are returned.
    * 
    * @example
    * cn-hangzhou-i
@@ -37659,6 +38544,19 @@ export class ListClassesRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The database engine of the instance. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **SQLServer**
+   * *   **PostgreSQL**
+   * *   **MariaDB**
+   * 
+   * @example
+   * MySQL
+   */
+  engine?: string;
+  /**
+   * @remarks
    * The type of order that you want to query. Valid values:
    * 
    * *   **BUY**: specifies the query orders that are used to purchase instances.
@@ -37690,6 +38588,7 @@ export class ListClassesRequest extends $tea.Model {
       clientToken: 'ClientToken',
       commodityCode: 'CommodityCode',
       DBInstanceId: 'DBInstanceId',
+      engine: 'Engine',
       orderType: 'OrderType',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -37703,6 +38602,7 @@ export class ListClassesRequest extends $tea.Model {
       clientToken: 'string',
       commodityCode: 'string',
       DBInstanceId: 'string',
+      engine: 'string',
       orderType: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -39059,6 +39959,8 @@ export class ModifyADInfoResponse extends $tea.Model {
 export class ModifyAccountCheckPolicyRequest extends $tea.Model {
   /**
    * @remarks
+   * The account username.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39067,6 +39969,8 @@ export class ModifyAccountCheckPolicyRequest extends $tea.Model {
   accountName?: string;
   /**
    * @remarks
+   * Specifies whether to apply the password policy
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39074,12 +39978,17 @@ export class ModifyAccountCheckPolicyRequest extends $tea.Model {
    */
   checkPolicy?: boolean;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters. If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
    * @example
    * ETnLKlblzczshOTUbOC****
    */
   clientToken?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39089,6 +39998,9 @@ export class ModifyAccountCheckPolicyRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The resource group ID. For more information about resource groups, see related documentation.
+   * 
    * @example
    * rg-acfmy****
    */
@@ -39309,6 +40221,7 @@ export class ModifyAccountMaskingPrivilegeRequest extends $tea.Model {
    * This parameter is required.
    */
   privilege?: string;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -39322,6 +40235,7 @@ export class ModifyAccountMaskingPrivilegeRequest extends $tea.Model {
       expireTime: 'ExpireTime',
       ownerId: 'OwnerId',
       privilege: 'Privilege',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       userName: 'UserName',
@@ -39334,6 +40248,7 @@ export class ModifyAccountMaskingPrivilegeRequest extends $tea.Model {
       expireTime: 'string',
       ownerId: 'string',
       privilege: 'string',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       userName: 'string',
@@ -39400,12 +40315,17 @@ export class ModifyAccountMaskingPrivilegeResponse extends $tea.Model {
 
 export class ModifyAccountSecurityPolicyRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
    * @remarks
+   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) operation to query the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39414,6 +40334,14 @@ export class ModifyAccountSecurityPolicyRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The custom password policy for the account of the ApsaraDB RDS for SQL Server instance. The following policies are supported:
+   * 
+   * *   `{"account security policy": {"MaximumPasswordAge": Specify the maximum password age}}`: You can configure only the maximum password age. After the maximum password age is reached, you must change the password.
+   * *   `{"accountSecurityPolicy": {"MaximumPasswordAge": Specify the minimum password age}}`: You can configure only the minimum password age. During the specified period, you cannot change the password.
+   * *   `{"accountSecurityPolicy": {"MaximumPasswordAge": Specify the maximum password age, "MinimumPasswordAge": Specify the minimum password age}}`: You can configure the maximum and minimum password age at the same time.
+   * 
+   * >  The minimum password age cannot be greater than the maximum password age. Valid values for the minimum password age: 0 to 998. Valid values for the maximum password age: 0 to 999.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39423,6 +40351,9 @@ export class ModifyAccountSecurityPolicyRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-acfmy****
    */
@@ -39462,6 +40393,9 @@ export class ModifyAccountSecurityPolicyRequest extends $tea.Model {
 
 export class ModifyAccountSecurityPolicyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F2911788-25E8-42E5-A3A3-1B38D263F01E
    */
@@ -43226,6 +44160,18 @@ export class ModifyDBInstanceSecurityGroupRuleResponse extends $tea.Model {
 }
 
 export class ModifyDBInstanceSpecRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to upgrade the major engine version of the instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >When you upgrade the major engine version of an ApsaraDB RDS for SQL Server instance, set this parameter to true. When you upgrade the major engine version, you must also specify required parameters such as DBInstanceId, EngineVersion, DBInstanceClass, and Category, and optional parameters such as ZoneId, ZoneIdSlave1, and VSwitchId.
+   * 
+   * @example
+   * false
+   */
   allowMajorVersionUpgrade?: boolean;
   /**
    * @remarks
@@ -43263,9 +44209,9 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    *     *   **serverless_standard**: RDS High-availability Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
    *     *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server.
    * 
-   *     **
    * 
-   *     **Note** If you set the **EngineVersion** parameter to an SQL Server version number, you must also specify this parameter.
+   * 
+   * > If you set the **EngineVersion** parameter to an SQL Server version number, you must also specify this parameter.
    * 
    * @example
    * HighAvailability
@@ -43344,9 +44290,9 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * *   **Up** (default): upgrades a subscription instance, or upgrades or downgrades a pay-as-you-go instance.
    * *   **Down**: downgrades a subscription instance.
    * *   **TempUpgrade**: performs auto scaling on a subscription instance that runs SQL Server. This value is required for auto scaling.
-   * *   **Serverless**: modifies the auto scaling settings of a serverless instance. This value is required if you want to modify the auto scaling settings of a serverless instance.
+   * *   **Serverless**: modifies the auto scaling settings of a serverless instance.
    * 
-   * >  If you specify only **DBInstanceStorageType**, you can leave Direction empty. For example, if you want to change only the storage type of the instance from standard SSD to ESSD, you do not need to specify Direction.
+   * >  If you specify only **DBInstanceStorageType**, you can leave Direction empty. For example, if you want to change only the storage type of the instance from standard SSD to Enterprise SSD (ESSD), you do not need to specify Direction.
    * 
    * @example
    * Up
@@ -43358,7 +44304,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * 
    * *   **Immediate** (default): The effective time immediately takes effect.
    * *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-   * *   **ScheduleTime**: The effective time takes effect at the point in time that you specify. The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
+   * *   **ScheduleTime**: The effective time takes effect at the point in time that you specify. The value of ScheduleTime must be a specific point in time that is 12 hours later than the current time. In this case, The value of EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
    * 
    * @example
    * MaintainTime
@@ -43462,6 +44408,18 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * 3
    */
   usedTime?: number;
+  /**
+   * @remarks
+   * The vSwitch ID. The vSwitch must belong to the zone that is specified by **ZoneId**.
+   * 
+   * *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
+   * *   If you specify ZoneSlaveId1, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
+   * 
+   * > When you upgrade the major engine version, if you want to specify a vSwitch or change the vSwitch for the RDS instance, you must also specify this parameter.
+   * 
+   * @example
+   * vsw-bp1oxflciovg9l7163lr7
+   */
   vSwitchId?: string;
   /**
    * @remarks
@@ -43478,6 +44436,15 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * cn-hangzhou-b
    */
   zoneId?: string;
+  /**
+   * @remarks
+   * The zone ID of the secondary instance. If you set this parameter to the same value as the **ZoneId** parameter, the single-zone deployment method is used. If you set this parameter to a different value from the **ZoneId** parameter, the multi-zone deployment method is used.
+   * 
+   * > If you must specify a secondary zone or change the secondary zone to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance, you must also specify this parameter.
+   * 
+   * @example
+   * cn-hangzhou-c
+   */
   zoneIdSlave1?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43551,6 +44518,18 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
 }
 
 export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to upgrade the major engine version of the instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >When you upgrade the major engine version of an ApsaraDB RDS for SQL Server instance, set this parameter to true. When you upgrade the major engine version, you must also specify required parameters such as DBInstanceId, EngineVersion, DBInstanceClass, and Category, and optional parameters such as ZoneId, ZoneIdSlave1, and VSwitchId.
+   * 
+   * @example
+   * false
+   */
   allowMajorVersionUpgrade?: boolean;
   /**
    * @remarks
@@ -43588,9 +44567,9 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    *     *   **serverless_standard**: RDS High-availability Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
    *     *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server.
    * 
-   *     **
    * 
-   *     **Note** If you set the **EngineVersion** parameter to an SQL Server version number, you must also specify this parameter.
+   * 
+   * > If you set the **EngineVersion** parameter to an SQL Server version number, you must also specify this parameter.
    * 
    * @example
    * HighAvailability
@@ -43669,9 +44648,9 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * *   **Up** (default): upgrades a subscription instance, or upgrades or downgrades a pay-as-you-go instance.
    * *   **Down**: downgrades a subscription instance.
    * *   **TempUpgrade**: performs auto scaling on a subscription instance that runs SQL Server. This value is required for auto scaling.
-   * *   **Serverless**: modifies the auto scaling settings of a serverless instance. This value is required if you want to modify the auto scaling settings of a serverless instance.
+   * *   **Serverless**: modifies the auto scaling settings of a serverless instance.
    * 
-   * >  If you specify only **DBInstanceStorageType**, you can leave Direction empty. For example, if you want to change only the storage type of the instance from standard SSD to ESSD, you do not need to specify Direction.
+   * >  If you specify only **DBInstanceStorageType**, you can leave Direction empty. For example, if you want to change only the storage type of the instance from standard SSD to Enterprise SSD (ESSD), you do not need to specify Direction.
    * 
    * @example
    * Up
@@ -43683,7 +44662,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * 
    * *   **Immediate** (default): The effective time immediately takes effect.
    * *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-   * *   **ScheduleTime**: The effective time takes effect at the point in time that you specify. The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
+   * *   **ScheduleTime**: The effective time takes effect at the point in time that you specify. The value of ScheduleTime must be a specific point in time that is 12 hours later than the current time. In this case, The value of EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
    * 
    * @example
    * MaintainTime
@@ -43787,6 +44766,18 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * 3
    */
   usedTime?: number;
+  /**
+   * @remarks
+   * The vSwitch ID. The vSwitch must belong to the zone that is specified by **ZoneId**.
+   * 
+   * *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
+   * *   If you specify ZoneSlaveId1, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
+   * 
+   * > When you upgrade the major engine version, if you want to specify a vSwitch or change the vSwitch for the RDS instance, you must also specify this parameter.
+   * 
+   * @example
+   * vsw-bp1oxflciovg9l7163lr7
+   */
   vSwitchId?: string;
   /**
    * @remarks
@@ -43803,6 +44794,15 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * cn-hangzhou-b
    */
   zoneId?: string;
+  /**
+   * @remarks
+   * The zone ID of the secondary instance. If you set this parameter to the same value as the **ZoneId** parameter, the single-zone deployment method is used. If you set this parameter to a different value from the **ZoneId** parameter, the multi-zone deployment method is used.
+   * 
+   * > If you must specify a secondary zone or change the secondary zone to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance, you must also specify this parameter.
+   * 
+   * @example
+   * cn-hangzhou-c
+   */
   zoneIdSlave1?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44561,6 +45561,7 @@ export class ModifyDBProxyRequest extends $tea.Model {
    * common
    */
   DBProxyInstanceType?: string;
+  DBProxyNodes?: ModifyDBProxyRequestDBProxyNodes[];
   /**
    * @remarks
    * The network type of the instance. Set the value to **VPC**.
@@ -44631,6 +45632,7 @@ export class ModifyDBProxyRequest extends $tea.Model {
       DBProxyEngineType: 'DBProxyEngineType',
       DBProxyInstanceNum: 'DBProxyInstanceNum',
       DBProxyInstanceType: 'DBProxyInstanceType',
+      DBProxyNodes: 'DBProxyNodes',
       instanceNetworkType: 'InstanceNetworkType',
       ownerId: 'OwnerId',
       persistentConnectionStatus: 'PersistentConnectionStatus',
@@ -44650,6 +45652,166 @@ export class ModifyDBProxyRequest extends $tea.Model {
       DBProxyEngineType: 'string',
       DBProxyInstanceNum: 'string',
       DBProxyInstanceType: 'string',
+      DBProxyNodes: { 'type': 'array', 'itemType': ModifyDBProxyRequestDBProxyNodes },
+      instanceNetworkType: 'string',
+      ownerId: 'number',
+      persistentConnectionStatus: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      VPCId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBProxyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable or disable the database proxy feature. Valid values:
+   * 
+   * *   **Startup**: enables the database proxy feature.
+   * *   **Shutdown**: disables the database proxy feature.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Startup
+   */
+  configDBProxyService?: string;
+  /**
+   * @remarks
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rm-uf6wjk5xxxxxxx
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * A reserved parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * normal
+   */
+  DBProxyEngineType?: string;
+  /**
+   * @remarks
+   * The number of proxy instances that are enabled. Valid values: **1** to **16**. Default value: **1**.
+   * 
+   * >  The capability of the database proxy to process requests increases with the number of proxy instances that are enabled. You can monitor the load on the instance and specify an appropriate number of proxy instances based on the load monitoring data.
+   * 
+   * @example
+   * 1
+   */
+  DBProxyInstanceNum?: string;
+  /**
+   * @remarks
+   * This parameter is reserved. You do not need to specify this parameter.
+   * 
+   * @example
+   * common
+   */
+  DBProxyInstanceType?: string;
+  DBProxyNodesShrink?: string;
+  /**
+   * @remarks
+   * The network type of the instance. Set the value to **VPC**.
+   * 
+   * > This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
+   * 
+   * @example
+   * VPC
+   */
+  instanceNetworkType?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * Whether to enable connection keep. Valid values:
+   * 
+   * - Enabled: enables connection keeping
+   * - Disabled: disables connection hold
+   * 
+   * > - This parameter is supported only for an ApsaraDB RDS for MySQL.
+   * > - When you modify the connection persistence state, the value of **ConfigDBProxyService** is modify.
+   * 
+   * @example
+   * Enabled
+   */
+  persistentConnectionStatus?: string;
+  /**
+   * @remarks
+   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmy*****
+   */
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the VPC ID.
+   * 
+   * >  This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
+   * 
+   * @example
+   * vpc-xxxxxxxxxxxx
+   */
+  VPCId?: string;
+  /**
+   * @remarks
+   * The vSwitch ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the vSwitch ID.
+   * 
+   * >  This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
+   * 
+   * @example
+   * vsw-xxxxxxxxxxxx
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configDBProxyService: 'ConfigDBProxyService',
+      DBInstanceId: 'DBInstanceId',
+      DBProxyEngineType: 'DBProxyEngineType',
+      DBProxyInstanceNum: 'DBProxyInstanceNum',
+      DBProxyInstanceType: 'DBProxyInstanceType',
+      DBProxyNodesShrink: 'DBProxyNodes',
+      instanceNetworkType: 'InstanceNetworkType',
+      ownerId: 'OwnerId',
+      persistentConnectionStatus: 'PersistentConnectionStatus',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      VPCId: 'VPCId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configDBProxyService: 'string',
+      DBInstanceId: 'string',
+      DBProxyEngineType: 'string',
+      DBProxyInstanceNum: 'string',
+      DBProxyInstanceType: 'string',
+      DBProxyNodesShrink: 'string',
       instanceNetworkType: 'string',
       ownerId: 'number',
       persistentConnectionStatus: 'string',
@@ -44811,6 +45973,8 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
    * RWSplit
    */
   dbEndpointType?: string;
+  effectiveSpecificTime?: string;
+  effectiveTime?: string;
   ownerId?: number;
   /**
    * @remarks
@@ -44863,6 +46027,11 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * vsw-uf6adz52c2p****
+   */
+  vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
       configDBProxyFeatures: 'ConfigDBProxyFeatures',
@@ -44873,6 +46042,8 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
       dbEndpointOperator: 'DbEndpointOperator',
       dbEndpointReadWriteMode: 'DbEndpointReadWriteMode',
       dbEndpointType: 'DbEndpointType',
+      effectiveSpecificTime: 'EffectiveSpecificTime',
+      effectiveTime: 'EffectiveTime',
       ownerId: 'OwnerId',
       readOnlyInstanceDistributionType: 'ReadOnlyInstanceDistributionType',
       readOnlyInstanceMaxDelayTime: 'ReadOnlyInstanceMaxDelayTime',
@@ -44880,6 +46051,7 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      vSwitchId: 'VSwitchId',
     };
   }
 
@@ -44893,6 +46065,8 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
       dbEndpointOperator: 'string',
       dbEndpointReadWriteMode: 'string',
       dbEndpointType: 'string',
+      effectiveSpecificTime: 'string',
+      effectiveTime: 'string',
       ownerId: 'number',
       readOnlyInstanceDistributionType: 'string',
       readOnlyInstanceMaxDelayTime: 'string',
@@ -44900,6 +46074,7 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      vSwitchId: 'string',
     };
   }
 
@@ -45155,6 +46330,7 @@ export class ModifyDBProxyInstanceRequest extends $tea.Model {
    * DedicatedProxy
    */
   DBProxyInstanceType?: string;
+  DBProxyNodes?: ModifyDBProxyInstanceRequestDBProxyNodes[];
   /**
    * @remarks
    * The point in time that you want to specify. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
@@ -45179,6 +46355,7 @@ export class ModifyDBProxyInstanceRequest extends $tea.Model {
    * MaintainTime
    */
   effectiveTime?: string;
+  migrateAZ?: ModifyDBProxyInstanceRequestMigrateAZ[];
   ownerId?: number;
   /**
    * @remarks
@@ -45206,8 +46383,10 @@ export class ModifyDBProxyInstanceRequest extends $tea.Model {
       DBProxyEngineType: 'DBProxyEngineType',
       DBProxyInstanceNum: 'DBProxyInstanceNum',
       DBProxyInstanceType: 'DBProxyInstanceType',
+      DBProxyNodes: 'DBProxyNodes',
       effectiveSpecificTime: 'EffectiveSpecificTime',
       effectiveTime: 'EffectiveTime',
+      migrateAZ: 'MigrateAZ',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -45222,8 +46401,142 @@ export class ModifyDBProxyInstanceRequest extends $tea.Model {
       DBProxyEngineType: 'string',
       DBProxyInstanceNum: 'string',
       DBProxyInstanceType: 'string',
+      DBProxyNodes: { 'type': 'array', 'itemType': ModifyDBProxyInstanceRequestDBProxyNodes },
       effectiveSpecificTime: 'string',
       effectiveTime: 'string',
+      migrateAZ: { 'type': 'array', 'itemType': ModifyDBProxyInstanceRequestMigrateAZ },
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      vSwitchIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBProxyInstanceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rm-t4n3a****
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * A deprecated parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * normal
+   */
+  DBProxyEngineType?: string;
+  /**
+   * @remarks
+   * The number of database proxies. If you set this parameter to 0, the database proxy feature is disabled for the instance. Valid values: **1** to **16**.
+   * 
+   * >  The capability of the database proxy feature to process requests increases with the number of database proxies that are enabled. You can monitor the load on the instance and specify an appropriate number of database proxies based on the load monitoring data.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  DBProxyInstanceNum?: string;
+  /**
+   * @remarks
+   * The database proxy type. Valid values:
+   * 
+   * *   **common**: general-purpose database proxy
+   * *   **exclusive** (default): dedicated database proxy
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DedicatedProxy
+   */
+  DBProxyInstanceType?: string;
+  DBProxyNodesShrink?: string;
+  /**
+   * @remarks
+   * The point in time that you want to specify. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * >  If the **EffectiveTime** parameter is set to **SpecificTime**, you must specify this parameter.
+   * 
+   * @example
+   * 2019-07-10T13:15:12Z
+   */
+  effectiveSpecificTime?: string;
+  /**
+   * @remarks
+   * The effective time. Valid values:
+   * 
+   * *   **Immediate**: The effective time is immediate.
+   * *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
+   * *   **SpecificTime**: The effective time is a specified point in time.
+   * 
+   * Default value: **MaintainTime**.
+   * 
+   * @example
+   * MaintainTime
+   */
+  effectiveTime?: string;
+  migrateAZShrink?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the vSwitch in the destination zone. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/610431.html) operation to query existing vSwitches.
+   * 
+   * >  Only database proxies for ApsaraDB RDS for MySQL instances that use cloud disks can be migrated to different zones.
+   * 
+   * @example
+   * vsw-uf6adz52c2p****
+   */
+  vSwitchIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      DBProxyEngineType: 'DBProxyEngineType',
+      DBProxyInstanceNum: 'DBProxyInstanceNum',
+      DBProxyInstanceType: 'DBProxyInstanceType',
+      DBProxyNodesShrink: 'DBProxyNodes',
+      effectiveSpecificTime: 'EffectiveSpecificTime',
+      effectiveTime: 'EffectiveTime',
+      migrateAZShrink: 'MigrateAZ',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      vSwitchIds: 'VSwitchIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      DBProxyEngineType: 'string',
+      DBProxyInstanceNum: 'string',
+      DBProxyInstanceType: 'string',
+      DBProxyNodesShrink: 'string',
+      effectiveSpecificTime: 'string',
+      effectiveTime: 'string',
+      migrateAZShrink: 'string',
       ownerId: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
@@ -46700,6 +48013,7 @@ export class ModifyMaskingRulesRequest extends $tea.Model {
   enabled?: string;
   maskingAlgo?: string;
   ownerId?: string;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ruleConfig?: ModifyMaskingRulesRequestRuleConfig;
@@ -46715,6 +48029,7 @@ export class ModifyMaskingRulesRequest extends $tea.Model {
       enabled: 'Enabled',
       maskingAlgo: 'MaskingAlgo',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ruleConfig: 'RuleConfig',
@@ -46729,6 +48044,7 @@ export class ModifyMaskingRulesRequest extends $tea.Model {
       enabled: 'string',
       maskingAlgo: 'string',
       ownerId: 'string',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ruleConfig: ModifyMaskingRulesRequestRuleConfig,
@@ -46751,6 +48067,7 @@ export class ModifyMaskingRulesShrinkRequest extends $tea.Model {
   enabled?: string;
   maskingAlgo?: string;
   ownerId?: string;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ruleConfigShrink?: string;
@@ -46766,6 +48083,7 @@ export class ModifyMaskingRulesShrinkRequest extends $tea.Model {
       enabled: 'Enabled',
       maskingAlgo: 'MaskingAlgo',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ruleConfigShrink: 'RuleConfig',
@@ -46780,6 +48098,7 @@ export class ModifyMaskingRulesShrinkRequest extends $tea.Model {
       enabled: 'string',
       maskingAlgo: 'string',
       ownerId: 'string',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ruleConfigShrink: 'string',
@@ -47321,11 +48640,66 @@ export class ModifyParameterGroupResponse extends $tea.Model {
 }
 
 export class ModifyRCInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the automatic payment feature. Valid values:
+   * 
+   * *   **true** (default): enables the feature. You must make sure that your account balance is sufficient.
+   * *   **false**: disables the feature. An unpaid order is generated.
+   * 
+   * >  If your account balance is insufficient, you can set AutoPay to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.
+   * 
+   * @example
+   * true
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * The type of the change that you want to perform on the instance. Valid values:
+   * 
+   * >  This parameter is optional. The system can automatically determine whether the instance change is an upgrade or a downgrade. If you want to specify this parameter, take note of the following items:
+   * 
+   * *   **Upgrade** (default): upgrades the instance type. Make sure that your account balance is sufficient.
+   * *   **Down**: downgrades the instance type. If the new instance type specified by InstanceType has lower specifications than the current instance type, set Direction to Down.
+   * 
+   * @example
+   * Up
+   */
   direction?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and resource inventory.
+   * *   **false**: performs a dry run and performs the actual request. If the request passes the dry run, the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rm-uf62br2491p5l****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The new instance type. For more information about the instance types that are supported by RDS Custom instances, see [Instance types of RDS Custom instances](https://help.aliyun.com/document_detail/2844823.html).
+   * 
+   * @example
+   * mysql.i8.large.2cm
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-hagnzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47355,7 +48729,21 @@ export class ModifyRCInstanceRequest extends $tea.Model {
 }
 
 export class ModifyRCInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 100789370230206
+   */
   orderId?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EF82B07-28D2-48D1-B5D6-7E78FED277C7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -48321,7 +49709,7 @@ export class ModifySecurityIpsRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the IP addresses in the IP address whitelist. Set the value to IPv4. IPv6 is not supported.
+   * The IP address type. The value is fixed as IPv4.
    * 
    * @example
    * IPv4
@@ -49582,13 +50970,47 @@ export class QueryRecommendByCodeResponse extends $tea.Model {
 }
 
 export class RebootRCInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors. If the request passes the dry run, the DryRunOperation error code is returned. Otherwise, an error message is returned.
+   * *   **false**: performs a dry run and performs the actual request. If the request passes the dry run, the instance is restarted.
+   * 
+   * Default value: false
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to forcefully stop the instance before you restart the instance Valid values:
+   * 
+   * *   **true**: forcefully stops the instance. This operation is equivalent to the typical power-off operation. Cache data that is not written to storage devices on the instance is lost.
+   * *   **false** (default): normally stops the instance.
+   * 
+   * @example
+   * false
+   */
   forceStop?: boolean;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rc-m5sc1271fv344a1r****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -49614,6 +51036,13 @@ export class RebootRCInstanceRequest extends $tea.Model {
 }
 
 export class RebootRCInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3E36DB6E-AE3B-53B6-A703-85F883FD1B2C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51179,11 +52608,64 @@ export class ResetAccountPasswordResponse extends $tea.Model {
 }
 
 export class ResizeRCInstanceDiskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the automatic payment feature for the instance. Valid values:
+   * 
+   * *   **true** (default): enables the feature. Make sure that your account balance is sufficient.
+   * *   **false**: disables the feature. An unpaid order is generated.
+   * 
+   * >  If your account balance is insufficient, you can set AutoPay to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.
+   * 
+   * @example
+   * false
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
+   * *   **false**: performs a dry run and performs the actual request. If the request passes the dry run, the instance is created.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rm-uf62br2491p5l****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The new disk size. Unit: GiB.
+   * 
+   * @example
+   * 100
+   */
   newSize?: number;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The method that you want to use to resize the disk. Valid values:
+   * 
+   * *   **offline** (default): resizes disks offline. After you resize a disk offline, you must restart the instance for the resizing operation to take effect.
+   * *   **online**: resizes disks online. After you resize a disk online, the resizing operation takes effect immediately and you do not need to restart the instance.
+   * 
+   * @example
+   * online
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51213,7 +52695,21 @@ export class ResizeRCInstanceDiskRequest extends $tea.Model {
 }
 
 export class ResizeRCInstanceDiskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 230546833080102
+   */
   orderId?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51939,44 +53435,227 @@ export class RevokeOperatorPermissionResponse extends $tea.Model {
 export class RunRCInstancesRequest extends $tea.Model {
   /**
    * @remarks
+   * The number of RDS Custom instances that you want to create. The parameter is available if you want to create multiple RDS Custom instances at a time.
+   * 
+   * Valid values: **1** to **10**. Default value: **1**.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   amount?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the automatic payment feature. Valid values:
+   * 
+   * *   **true** (default): enables the feature. Make sure that your account balance is sufficient.
+   * *   **false**: disables the feature. An unpaid order is generated.
+   * 
+   * >  If your account balance is insufficient, you can set the AutoPay parameter to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.
+   * 
+   * @example
+   * false
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal for the instance. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The information about the data disks.
+   */
   dataDisk?: RunRCInstancesRequestDataDisk[];
+  /**
+   * @remarks
+   * The deployment set ID.
+   * 
+   * @example
+   * ds-uf6670sipmph5j5b6ke4
+   */
   deploymentSetId?: string;
+  /**
+   * @remarks
+   * The instance description. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+   * 
+   * @example
+   * Instance_Description
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is directly created.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the image used by the instance.
+   * 
+   * @example
+   * image-dsvjzw2ii8n4fvr6de
+   */
   imageId?: string;
+  /**
+   * @remarks
+   * The billing method of the instance. Set the value to **Prepaid**, which indicates the subscription billing method.
+   * 
+   * @example
+   * Prepaid
+   */
   instanceChargeType?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * ceshi
+   */
   instanceName?: string;
   /**
    * @remarks
+   * The instance type. For more information about the instance types that are supported by RDS Custom instances, see [Instance types for RDS Custom instances](https://help.aliyun.com/document_detail/2844823.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * mysql.i8.large.2cm
    */
   instanceType?: string;
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * null
+   */
   internetChargeType?: string;
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * null
+   */
   internetMaxBandwidthOut?: number;
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * null
+   */
   ioOptimized?: string;
+  /**
+   * @remarks
+   * The name of the AccessKey pair. You can specify only one name.
+   * 
+   * @example
+   * dell5502
+   */
   keyPairName?: string;
+  /**
+   * @remarks
+   * The password of the account that is used to log on to the instance.
+   * 
+   * @example
+   * 2F9e9@a69c!e18b569c8
+   */
   password?: string;
+  /**
+   * @remarks
+   * The subscription duration of the instance. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration. Valid values:
+   * 
+   * *   **Year**
+   * *   **Month** (default)
+   * 
+   * @example
+   * Year
+   */
   periodUnit?: string;
   /**
    * @remarks
+   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * null
+   */
   securityEnhancementStrategy?: string;
+  /**
+   * @remarks
+   * The ID of the security group to which you want to add the new instance. Instances in the same security group can communicate with each other. The maximum number of instances allowed in a security group varies based on the type of the security group. For more information, see the "Security group limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
+   * 
+   * >  The network type of the instance is determined by the security group specified by the SecurityGroupId parameter. For example, if the network type of the specified security group is VPC, the instance is a VPC-type instance. In this case, you must specify the VSwitchId parameter.
+   * 
+   * @example
+   * sg-uf6av412xaxixuezol6w
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The specification of the system disk.
+   */
   systemDisk?: RunRCInstancesRequestSystemDisk;
   /**
    * @remarks
+   * The vSwitch ID of the instance. You must specify this parameter when you create an instance of the virtual private cloud (VPC) type. The specified vSwitch and security group must belong to the same VPC.
+   * 
+   * >  If you specify the VSwitchId parameter, the zone specified by the ZoneId parameter must be the same as the zone in which the specified vSwitch resides. You can leave the ZoneId parameter empty. In this case, the system uses the zone in which the specified vSwitch resides.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * vsw-2vcd61ngm890sk****
    */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The zone ID of the instance. You can call the DescribeZones operation to query the zone IDs.
+   * 
+   * >  If you specify the VSwitchId parameter, the zone specified by the ZoneId parameter must be the same as the zone in which the specified vSwitch resides. You can leave the ZoneId parameter empty. In this case, the system uses the zone in which the specified vSwitch resides.
+   * 
+   * @example
+   * cn-beijing-f
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52046,44 +53725,227 @@ export class RunRCInstancesRequest extends $tea.Model {
 export class RunRCInstancesShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The number of RDS Custom instances that you want to create. The parameter is available if you want to create multiple RDS Custom instances at a time.
+   * 
+   * Valid values: **1** to **10**. Default value: **1**.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   amount?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the automatic payment feature. Valid values:
+   * 
+   * *   **true** (default): enables the feature. Make sure that your account balance is sufficient.
+   * *   **false**: disables the feature. An unpaid order is generated.
+   * 
+   * >  If your account balance is insufficient, you can set the AutoPay parameter to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.
+   * 
+   * @example
+   * false
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal for the instance. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The information about the data disks.
+   */
   dataDiskShrink?: string;
+  /**
+   * @remarks
+   * The deployment set ID.
+   * 
+   * @example
+   * ds-uf6670sipmph5j5b6ke4
+   */
   deploymentSetId?: string;
+  /**
+   * @remarks
+   * The instance description. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+   * 
+   * @example
+   * Instance_Description
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is directly created.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the image used by the instance.
+   * 
+   * @example
+   * image-dsvjzw2ii8n4fvr6de
+   */
   imageId?: string;
+  /**
+   * @remarks
+   * The billing method of the instance. Set the value to **Prepaid**, which indicates the subscription billing method.
+   * 
+   * @example
+   * Prepaid
+   */
   instanceChargeType?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * ceshi
+   */
   instanceName?: string;
   /**
    * @remarks
+   * The instance type. For more information about the instance types that are supported by RDS Custom instances, see [Instance types for RDS Custom instances](https://help.aliyun.com/document_detail/2844823.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * mysql.i8.large.2cm
    */
   instanceType?: string;
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * null
+   */
   internetChargeType?: string;
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * null
+   */
   internetMaxBandwidthOut?: number;
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * null
+   */
   ioOptimized?: string;
+  /**
+   * @remarks
+   * The name of the AccessKey pair. You can specify only one name.
+   * 
+   * @example
+   * dell5502
+   */
   keyPairName?: string;
+  /**
+   * @remarks
+   * The password of the account that is used to log on to the instance.
+   * 
+   * @example
+   * 2F9e9@a69c!e18b569c8
+   */
   password?: string;
+  /**
+   * @remarks
+   * The subscription duration of the instance. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration. Valid values:
+   * 
+   * *   **Year**
+   * *   **Month** (default)
+   * 
+   * @example
+   * Year
+   */
   periodUnit?: string;
   /**
    * @remarks
+   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * null
+   */
   securityEnhancementStrategy?: string;
+  /**
+   * @remarks
+   * The ID of the security group to which you want to add the new instance. Instances in the same security group can communicate with each other. The maximum number of instances allowed in a security group varies based on the type of the security group. For more information, see the "Security group limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
+   * 
+   * >  The network type of the instance is determined by the security group specified by the SecurityGroupId parameter. For example, if the network type of the specified security group is VPC, the instance is a VPC-type instance. In this case, you must specify the VSwitchId parameter.
+   * 
+   * @example
+   * sg-uf6av412xaxixuezol6w
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The specification of the system disk.
+   */
   systemDiskShrink?: string;
   /**
    * @remarks
+   * The vSwitch ID of the instance. You must specify this parameter when you create an instance of the virtual private cloud (VPC) type. The specified vSwitch and security group must belong to the same VPC.
+   * 
+   * >  If you specify the VSwitchId parameter, the zone specified by the ZoneId parameter must be the same as the zone in which the specified vSwitch resides. You can leave the ZoneId parameter empty. In this case, the system uses the zone in which the specified vSwitch resides.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * vsw-2vcd61ngm890sk****
    */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The zone ID of the instance. You can call the DescribeZones operation to query the zone IDs.
+   * 
+   * >  If you specify the VSwitchId parameter, the zone specified by the ZoneId parameter must be the same as the zone in which the specified vSwitch resides. You can leave the ZoneId parameter empty. In this case, the system uses the zone in which the specified vSwitch resides.
+   * 
+   * @example
+   * cn-beijing-f
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52151,8 +54013,26 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
 }
 
 export class RunRCInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instance IDs (InstanceIdSet).
+   */
   instanceIdSets?: RunRCInstancesResponseBodyInstanceIdSets;
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 237850846720798
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 535BD857-E88F-5B4F-A18C-FAF59A74741F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52457,9 +54337,21 @@ export class StartDBInstanceResponse extends $tea.Model {
 export class StartRCInstanceRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rc-l02u59b2kjfd2us0****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52481,6 +54373,13 @@ export class StartRCInstanceRequest extends $tea.Model {
 }
 
 export class StartRCInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8B993DA9-5272-5414-94E3-4CA8BA0146C2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52625,12 +54524,34 @@ export class StopDBInstanceResponse extends $tea.Model {
 }
 
 export class StopRCInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to forcefully stop the instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * false
+   */
   forceStop?: boolean;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rc-m5sc1271fv344a1r****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52654,6 +54575,13 @@ export class StopRCInstanceRequest extends $tea.Model {
 }
 
 export class StopRCInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3E36DB6E-AE3B-53B6-A703-85F883FD1B2C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53111,12 +55039,28 @@ export class SwitchDBInstanceVpcResponse extends $tea.Model {
 }
 
 export class SyncRCKeyPairRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the key pair.
+   * 
+   * @example
+   * customer_keypairs
+   */
   keyPairName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  syncMode?: boolean;
   static names(): { [key: string]: string } {
     return {
       keyPairName: 'KeyPairName',
       regionId: 'RegionId',
+      syncMode: 'SyncMode',
     };
   }
 
@@ -53124,6 +55068,7 @@ export class SyncRCKeyPairRequest extends $tea.Model {
     return {
       keyPairName: 'string',
       regionId: 'string',
+      syncMode: 'boolean',
     };
   }
 
@@ -53133,7 +55078,18 @@ export class SyncRCKeyPairRequest extends $tea.Model {
 }
 
 export class SyncRCKeyPairResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the result.
+   */
   data?: SyncRCKeyPairResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 60478CCB-95EA-5D06-8A51-CAC83A316E9A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55342,7 +57298,7 @@ export class CreateDBInstanceRequestServerlessConfig extends $tea.Model {
    * *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**
    * *   Serverless ApsaraDB RDS for PostgreSQL instances: **1 to 14**
    * 
-   * >  The value of this parameter must be greater than or equal to the value of **MinCapacity** and can be set only to an **integer**.
+   * >  The value of this parameter must be greater than or equal to the value of the **MinCapacity** parameter and can be set only to an **integer**.
    * 
    * @example
    * 8
@@ -55350,13 +57306,13 @@ export class CreateDBInstanceRequestServerlessConfig extends $tea.Model {
   maxCapacity?: number;
   /**
    * @remarks
-   * The minimum value of RCUs. Valid values:
+   * The minimum number of RCUs. Valid values:
    * 
    * *   Serverless ApsaraDB RDS for MySQL instances: **0.5 to 32**.
    * *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**. Only integers are supported.
    * *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 14**.
    * 
-   * >  The value of this parameter must be less than or equal to the value of **MaxCapacity**.
+   * >  The value of this parameter must be less than or equal to the value of the **MaxCapacity** parameter.
    * 
    * @example
    * 0.5
@@ -56625,6 +58581,15 @@ export class DescribeAccountsResponseBodyAccountsDBInstanceAccount extends $tea.
    * f
    */
   bypassRLS?: string;
+  /**
+   * @remarks
+   * Indicates whether the password policy is applied.
+   * 
+   * >  This parameter is returned only for instances that run SQL Server.
+   * 
+   * @example
+   * true
+   */
   checkPolicy?: boolean;
   /**
    * @remarks
@@ -56665,6 +58630,15 @@ export class DescribeAccountsResponseBodyAccountsDBInstanceAccount extends $tea.
    * The details about the permissions that are granted to the account.
    */
   databasePrivileges?: DescribeAccountsResponseBodyAccountsDBInstanceAccountDatabasePrivileges;
+  /**
+   * @remarks
+   * The expiration time of the password.
+   * 
+   * >  This parameter is returned only for instances that run SQL Server.
+   * 
+   * @example
+   * 2024-10-21
+   */
   passwordExpireTime?: string;
   /**
    * @remarks
@@ -59889,9 +61863,10 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtr
 export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtra extends $tea.Model {
   /**
    * @remarks
-   * Instance account group policy.
-   * - MaximumPasswordAge: Maximum usage time
-   * - MinimumPasswordAge: Minimum usage time
+   * The group policy of the instance account.
+   * 
+   * *   MaximumPasswordAge: maximum use time
+   * *   MinimumPasswordAge: minimum use time
    * 
    * @example
    * {"MaximumPasswordAge": 42,"MinimumPasswordAge": 30}
@@ -60282,7 +62257,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The disk usage of the instance. Unit: MB.
+   * The disk usage of the instance. Unit: byte.
    * 
    * @example
    * 300
@@ -60386,7 +62361,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   deletionProtection?: boolean;
   /**
    * @remarks
-   * Disaster recovery source instance information.
+   * Disaster Recovery Instance Information
    * 
    * @example
    * {"replicatorAccount": "******","sourcePort":******,"sourceAddress": "pgm-2ze******","sourceCategory": "aliyunRDS","sourceInstanceRegionId": "cn-******","replicatorPassword": "******","sourceInstanceName": "pgm-2ze******"}
@@ -60433,7 +62408,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   expireTime?: string;
   /**
    * @remarks
-   * The extended information of the instance.
+   * The extended information about the instance.
    */
   extra?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtra;
   /**
@@ -60579,6 +62554,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * 150
    */
   maxIOPS?: number;
+  multipleTempUpgrade?: boolean;
   /**
    * @remarks
    * Indicates whether PgBouncer is enabled.
@@ -60844,6 +62820,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       maxConnections: 'MaxConnections',
       maxIOMBPS: 'MaxIOMBPS',
       maxIOPS: 'MaxIOPS',
+      multipleTempUpgrade: 'MultipleTempUpgrade',
       PGBouncerEnabled: 'PGBouncerEnabled',
       payType: 'PayType',
       port: 'Port',
@@ -60927,6 +62904,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       maxConnections: 'number',
       maxIOMBPS: 'number',
       maxIOPS: 'number',
+      multipleTempUpgrade: 'boolean',
       PGBouncerEnabled: 'string',
       payType: 'string',
       port: 'string',
@@ -64810,6 +66788,54 @@ export class DescribeDBProxyResponseBodyDBProxyConnectStringItems extends $tea.M
   }
 }
 
+export class DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes extends $tea.Model {
+  cpuCores?: string;
+  /**
+   * @example
+   * pn-xxxxxxx01
+   */
+  nodeId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpuCores: 'cpuCores',
+      nodeId: 'nodeId',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuCores: 'string',
+      nodeId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBProxyResponseBodyDBProxyNodes extends $tea.Model {
+  DBProxyNodes?: DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes[];
+  static names(): { [key: string]: string } {
+    return {
+      DBProxyNodes: 'DBProxyNodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBProxyNodes: { 'type': 'array', 'itemType': DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBProxyResponseBodyDbProxyEndpointItemsDbProxyEndpointItems extends $tea.Model {
   /**
    * @remarks
@@ -64883,6 +66909,50 @@ export class DescribeDBProxyResponseBodyDbProxyEndpointItems extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       dbProxyEndpointItems: { 'type': 'array', 'itemType': DescribeDBProxyResponseBodyDbProxyEndpointItemsDbProxyEndpointItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes extends $tea.Model {
+  cpuCores?: string;
+  nodeId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpuCores: 'cpuCores',
+      nodeId: 'nodeId',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuCores: 'string',
+      nodeId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBProxyEndpointResponseBodyDBProxyNodes extends $tea.Model {
+  DBProxyNodes?: DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes[];
+  static names(): { [key: string]: string } {
+    return {
+      DBProxyNodes: 'DBProxyNodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBProxyNodes: { 'type': 'array', 'itemType': DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes },
     };
   }
 
@@ -67278,26 +69348,22 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
    * 
    *       "steps": [
    *         {
-   *           "step_name": "exec_task", // The name of the step, which matches CurrentStepName.
-   *           "action_info": {    // The actions supported for this step.
-   *             "Waiting": [      // The status, which matches Status.
-   *               "modifySwitchTime" // The action. Multiple actions are supported.
-   *             ]
+   *           "step_name": "exec_task", // The name of the step, which matches CurrentStepName.      "action_info": {    // The actions supported for this step.        "Waiting": [      // The status, which matches Status.          "modifySwitchTime" // The action. Multiple actions are supported.        ]
    *           }
    *         },
    *         {
-   *           "step_name": "init_task", // The name of the step.
-   *           "action_info": {    // The actions supported for this step.
-   *             "Running": [      // The status.
-   *               "cancel",       // The action.
-   *               "pause"
+   *           "step_name": "init_task", // The name of the step.      "action_info": {    // The actions supported for this step.        "Running": [      // The status.          "cancel",       // The action.          "pause"
    *             ]
    *           }
    *         }
    *       ]
    *     }
    * 
-   * The system may support the following actions: retry cancel modifySwitchTime: changes the switching or restoration time.
+   * The system may support the following actions:
+   * 
+   * *   **retry**: retries the action.
+   * *   **cancel**: cancels the action.
+   * *   **modifySwitchTime**: changes the switching time or restoration time.
    * 
    * @example
    * {\\"steps\\":[{\\"action_info\\":{\\"Waiting\\":[\\"modifySwitchTime\\"]},\\"step_name\\":\\"exec_task\\"}]}
@@ -67313,7 +69379,10 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
   callerSource?: string;
   /**
    * @remarks
-   * The request source. Valid values: System User
+   * The source of the request. Valid values:
+   * 
+   * *   **System**
+   * *   **User**
    * 
    * @example
    * User
@@ -67337,7 +69406,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
   dbType?: string;
   /**
    * @remarks
-   * The end time of the task. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The end time of the task.
    * 
    * @example
    * 2022-02-03T12:06:17Z
@@ -67345,7 +69414,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
   endTime?: string;
   /**
    * @remarks
-   * The instance ID. Example: rm-xxx.
+   * The instance ID.
    * 
    * @example
    * rm-uf62br2491p5l****
@@ -67353,7 +69422,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance name, which is a user-defined alias.
+   * The instance name.
    * 
    * @example
    * test
@@ -67361,7 +69430,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The type of the instance. Example: user instance.
+   * The instance category.
    * 
    * @example
    * Instance
@@ -67369,7 +69438,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The product. Example: rds.
+   * The service name.
    * 
    * @example
    * rds
@@ -67377,7 +69446,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
   product?: string;
   /**
    * @remarks
-   * The task progress. Valid values: 0 to 100.
+   * Indicates the task progress.
    * 
    * @example
    * 79.0
@@ -67409,7 +69478,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
   remainTime?: number;
   /**
    * @remarks
-   * The start time of the task. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The start time of the task.
    * 
    * @example
    * 2022-02-03T11:31:03Z
@@ -67417,7 +69486,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The task status. Valid values:
    * 
    * *   Scheduled
    * *   Running
@@ -67433,7 +69502,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The task details provided in the form of a JSON string. The JSON string can be customized and extended to include additional information about the task. The details vary based on the task type.
+   * The task details.
    * 
    * @example
    * {\\"callerUid\\":\\"test\\"}
@@ -67441,7 +69510,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
   taskDetail?: string;
   /**
    * @remarks
-   * The task ID in the t-\\*\\*\\* format.
+   * The task ID.
    * 
    * @example
    * t-83br18hloy3faf****
@@ -67449,7 +69518,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task type or name.
+   * The task type.
    * 
    * @example
    * autotest_dispatch_cases
@@ -68850,7 +70919,7 @@ export class DescribeModifyParameterLogResponseBodyItemsParameterChangeLog exten
   parameterName?: string;
   /**
    * @remarks
-   * The status of the new value specified for the parameter. Valid values:
+   * The status. Valid values:
    * 
    * *   **Applied:** The new value has taken effect.
    * *   **Syncing:** The new value is being applied and has not taken effect.
@@ -70063,9 +72132,9 @@ export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $
   requires?: string;
   /**
    * @remarks
-   * Alibaba Cloud account ID.
+   * The ID of the Alibaba Cloud account.
    * 
-   * > Only exclusive plug-ins (plug-ins written by users) will return this parameter. Each Alibaba Cloud account only displays its own exclusive plug-ins.
+   * >  This parameter is returned only for self-developed exclusive extensions. You can view exclusive extensions only within your Alibaba Cloud account.
    * 
    * @example
    * 181578148294****
@@ -70171,9 +72240,9 @@ export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends
   requires?: string;
   /**
    * @remarks
-   * Alibaba Cloud account ID.
+   * The ID of the Alibaba Cloud account.
    * 
-   * > Only exclusive plug-ins (plug-ins written by users) will return this parameter. Each Alibaba Cloud account only displays its own exclusive plug-ins.
+   * >  This parameter is returned only for self-developed exclusive extensions. You can view exclusive extensions only within your Alibaba Cloud account.
    * 
    * @example
    * 181578148294****
@@ -70713,8 +72782,29 @@ export class DescribePriceResponseBodyServerlessPrice extends $tea.Model {
 }
 
 export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacitiesCapacity extends $tea.Model {
+  /**
+   * @remarks
+   * The number of RDS Custom instances that reside in the zone and can be added to the deployment set.
+   * 
+   * @example
+   * 18
+   */
   availableAmount?: number;
+  /**
+   * @remarks
+   * The number of RDS Custom instances that reside in the zone in the deployment set.
+   * 
+   * @example
+   * 2
+   */
   usedAmount?: number;
+  /**
+   * @remarks
+   * The zone ID. Only the IDs of the zones to which the existing RDS Custom instances in the deployment set belong are returned.
+   * 
+   * @example
+   * cn-hangzhou-j
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70776,17 +72866,97 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetInst
 }
 
 export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the capacities of the deployment set. This parameter is valid only when the deployment set contains existing RDS Custom instances. The value contains the details of the capacities of the deployment set in different zones.
+   */
   capacities?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacities;
+  /**
+   * @remarks
+   * The time when the deployment set was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-06-19T07:15:44Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The deployment set description.
+   * 
+   * @example
+   * test
+   */
   deploymentSetDescription?: string;
+  /**
+   * @remarks
+   * The deployment set ID.
+   * 
+   * @example
+   * ds-ob5n4rbgy****
+   */
   deploymentSetId?: string;
+  /**
+   * @remarks
+   * The deployment set name.
+   * 
+   * @example
+   * deployment_test
+   */
   deploymentSetName?: string;
+  /**
+   * @remarks
+   * The deployment strategy. The return value of this parameter is the value of the `Strategy` request parameter.
+   * 
+   * @example
+   * Availability
+   */
   deploymentStrategy?: string;
+  /**
+   * @remarks
+   * The deployment domain.
+   * 
+   * @example
+   * default
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The deployment granularity.
+   * 
+   * @example
+   * None
+   */
   granularity?: string;
+  /**
+   * @remarks
+   * The number of groups in the deployment set.
+   * 
+   * >  This parameter is valid only when the Strategy request parameter is set to AvailabilityGroup.
+   * 
+   * @example
+   * 3
+   */
   groupCount?: number;
+  /**
+   * @remarks
+   * The number of RDS Custom instances in the deployment set.
+   * 
+   * @example
+   * 1
+   */
   instanceAmount?: number;
+  /**
+   * @remarks
+   * The ID of the RDS Custom instance in the deployment set.
+   */
   instanceIds?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetInstanceIds;
+  /**
+   * @remarks
+   * The deployment strategy.
+   * 
+   * @example
+   * LooseDispersion
+   */
   strategy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70847,18 +73017,123 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSets extends $tea.Mod
 }
 
 export class DescribeRCImageListResponseBodyImages extends $tea.Model {
+  /**
+   * @remarks
+   * The image architecture. Valid values:
+   * 
+   * *   x86_64
+   * *   arm64
+   * 
+   * @example
+   * x86_64
+   */
   architecture?: string;
+  /**
+   * @remarks
+   * The time when the image was created.
+   * 
+   * @example
+   * 2024-04-25T02:17:40Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The description of the image.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The image ID.
+   * 
+   * @example
+   * m-2oqiu973jwcxe****
+   */
   imageId?: string;
+  /**
+   * @remarks
+   * The image name.
+   * 
+   * @example
+   * Created_from_i-2zeh17y17sz677x****
+   */
   imageName?: string;
+  /**
+   * @remarks
+   * The image version.
+   * 
+   * @example
+   * 2
+   */
   imageVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether the image is a public image. Public images include public images provided by Alibaba Cloud and custom images published as community images.
+   * 
+   * *   **true**: The image is a public image.
+   * *   **false**: The image is not a public image.
+   * 
+   * @example
+   * false
+   */
   isPublic?: boolean;
+  /**
+   * @remarks
+   * The display name of the operating system in Chinese.
+   */
   OSName?: string;
+  /**
+   * @remarks
+   * The display name of the operating system in English.
+   * 
+   * @example
+   * Alibaba Cloud Linux  2.1903 LTS 64 bit Quick Boot
+   */
   OSNameEn?: string;
+  /**
+   * @remarks
+   * The type of the operating system. Valid values:
+   * 
+   * *   **windows**
+   * *   **linux**
+   * 
+   * @example
+   * linux
+   */
   OSType?: string;
+  /**
+   * @remarks
+   * The image size. Unit: GiB.
+   * 
+   * @example
+   * 40
+   */
   size?: number;
+  /**
+   * @remarks
+   * The image status. Valid values:
+   * 
+   * *   **Unavailable**
+   * *   **Available**
+   * *   **Creating**
+   * *   **CreateFailed**
+   * 
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the image is used by the RDS Custom instance. Valid values:
+   * 
+   * *   **instance**: The image is used to create one or more RDS Custom instances.
+   * *   **none**: The image is not used to create RDS Custom instances.
+   * 
+   * @example
+   * instance
+   */
   usage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70902,10 +73177,51 @@ export class DescribeRCImageListResponseBodyImages extends $tea.Model {
 }
 
 export class DescribeRCInstanceAttributeResponseBodyDataDisksDataDisk extends $tea.Model {
+  /**
+   * @remarks
+   * The category of the data disk.
+   * 
+   * @example
+   * cloud_essd
+   */
   category?: string;
+  /**
+   * @remarks
+   * Indicates whether the data disk is released when the instance is released. Valid values:
+   * 
+   * *   **true**: The data disk is released when the instance is released.
+   * *   **false**: The data disk is reserved when the instance is released.
+   * 
+   * @example
+   * true
+   */
   deleteWithInstance?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the data disk is encrypted. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   encrypted?: string;
+  /**
+   * @remarks
+   * The performance level of data disk. This parameter is available when the data disk is an Enterprise SSD (ESSD).
+   * 
+   * @example
+   * PL1
+   */
   performanceLevel?: string;
+  /**
+   * @remarks
+   * The size of the data disk. Unit: GiB.
+   * 
+   * @example
+   * 40
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -70952,7 +73268,21 @@ export class DescribeRCInstanceAttributeResponseBodyDataDisks extends $tea.Model
 }
 
 export class DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the dedicated host.
+   * 
+   * @example
+   * None
+   */
   dedicatedHostId?: string;
+  /**
+   * @remarks
+   * The name of the dedicated host.
+   * 
+   * @example
+   * None
+   */
   dedicatedHostName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70974,9 +73304,42 @@ export class DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute exten
 }
 
 export class DescribeRCInstanceAttributeResponseBodyEipAddress extends $tea.Model {
+  /**
+   * @remarks
+   * The EIP ID.
+   * 
+   * @example
+   * eip-bp14k3rz6cbg6zxbe****
+   */
   allocationId?: string;
+  /**
+   * @remarks
+   * The maximum Internet bandwidth of the EIP. Unit: Mbit/s.
+   * 
+   * @example
+   * 5
+   */
   bandwidth?: number;
+  /**
+   * @remarks
+   * The billing method of the Internet-facing instance. Valid values:
+   * 
+   * *   **paybytraffic:** pay-by-data-transfer
+   * *   **paybybandwidth**: pay-by-bandwidth
+   * 
+   * >  If the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+   * 
+   * @example
+   * paybytraffic
+   */
   internetChargeType?: string;
+  /**
+   * @remarks
+   * The EIP.
+   * 
+   * @example
+   * 8.147.XXX.XXX
+   */
   ipAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -71021,6 +73384,19 @@ export class DescribeRCInstanceAttributeResponseBodyInnerIpAddress extends $tea.
 }
 
 export class DescribeRCInstanceAttributeResponseBodyOperationLocksLockReason extends $tea.Model {
+  /**
+   * @remarks
+   * The reason why the instance is locked. Valid values:
+   * 
+   * *   **financial**: The instance is locked due to overdue payments.
+   * *   **security**: The instance is locked for security purposes.
+   * *   **recycling**: The instance is locked because the instance is a preemptible instance and pending to be released.
+   * *   **dedicatedhostfinancial**: The instance is locked due to overdue payments for the dedicated host.
+   * *   **refunded**: The instance is locked because a refund was made for the instance.
+   * 
+   * @example
+   * None
+   */
   lockReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -71116,9 +73492,34 @@ export class DescribeRCInstanceAttributeResponseBodyVpcAttributesPrivateIpAddres
 }
 
 export class DescribeRCInstanceAttributeResponseBodyVpcAttributes extends $tea.Model {
+  /**
+   * @remarks
+   * The network address translation (NAT) IP address of the instance. The NAT IP address is used by instances in different VPCs for communication.
+   * 
+   * @example
+   * None
+   */
   natIpAddress?: string;
+  /**
+   * @remarks
+   * The private IP addresses of the instance.
+   */
   privateIpAddress?: DescribeRCInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-bp1nt15muovrc5qdj****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-2zeu747v4765aw2id****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -71144,15 +73545,93 @@ export class DescribeRCInstanceAttributeResponseBodyVpcAttributes extends $tea.M
 }
 
 export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * testrdscustom
+   */
   clusterName?: string;
+  /**
+   * @remarks
+   * The database type.
+   * 
+   * @example
+   * rds_custom
+   */
   dbType?: string;
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The time when the task was created. The time is displayed in GMT.
+   * 
+   * @example
+   * 2023-03-22 07:56:53.0
+   */
   gmtCreated?: string;
+  /**
+   * @remarks
+   * The host IP address.
+   * 
+   * @example
+   * 172.30.XXX.XXX
+   */
   hostIp?: string;
+  /**
+   * @remarks
+   * The host name.
+   * 
+   * @example
+   * i-2zeaiz4g9u23f40m****
+   */
   hostName?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rm-2ze704f*****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The instance status. Valid values:
+   * 
+   * *   **Pending**
+   * *   **Running**
+   * *   **Starting**
+   * *   **Stopping**
+   * *   **Stopped**
+   * 
+   * >  If the value returned for the DescribeRCInstances operation is different from the value that is returned for the **DescribeRCInstanceAttribute** operation, the value returned for the **DescribeRCInstanceAttribute** operation shall prevail.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-uf6f7l4fg90****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -74712,6 +77191,36 @@ export class ListClassesResponseBodyItems extends $tea.Model {
    * 2500
    */
   referencePrice?: string;
+  /**
+   * @remarks
+   * The RDS edition of the instance. Valid values:
+   * 
+   * *   Regular instance
+   * 
+   *     *   **Basic**: RDS Basic Edition
+   *     *   **HighAvailability**: RDS High-availability Edition
+   *     *   **cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL or PostgreSQL
+   *     *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server
+   *     *   **Finance**: RDS Basic Edition for serverless instances
+   * 
+   * *   Serverless instance
+   * 
+   *     *   **serverless_basic**: RDS Basic Edition for serverless instances. This edition is available only for instances that run MySQL and PostgreSQL.
+   *     *   **serverless_standard**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run MySQL and PostgreSQL.
+   *     *   **serverless_ha**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run SQL Server.
+   * 
+   * @example
+   * Basic
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The storage type of the instance.
+   * 
+   * @example
+   * cloud_essd
+   */
+  storageType?: string;
   static names(): { [key: string]: string } {
     return {
       classCode: 'ClassCode',
@@ -74724,6 +77233,8 @@ export class ListClassesResponseBodyItems extends $tea.Model {
       maxIOPS: 'MaxIOPS',
       memoryClass: 'MemoryClass',
       referencePrice: 'ReferencePrice',
+      category: 'category',
+      storageType: 'storageType',
     };
   }
 
@@ -74739,6 +77250,8 @@ export class ListClassesResponseBodyItems extends $tea.Model {
       maxIOPS: 'string',
       memoryClass: 'string',
       referencePrice: 'string',
+      category: 'string',
+      storageType: 'string',
     };
   }
 
@@ -75205,9 +77718,7 @@ export class ModifyDBInstanceSpecRequestServerlessConfiguration extends $tea.Mod
    * *   **true**
    * *   **false** (default)
    * 
-   * > 
-   * 
-   * *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. After the automatic start and stop feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection to the instance is established, the instance is automatically resumed.
+   * > This parameter is required only for serverless instances that run MySQL and PostgreSQL. After the automatic start and stop feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection to the instance is established, the instance is automatically resumed.
    * 
    * @example
    * true
@@ -75255,11 +77766,8 @@ export class ModifyDBInstanceSpecRequestServerlessConfiguration extends $tea.Mod
    * *   **true**
    * *   **false** (default)
    * 
-   * > 
-   * 
-   * *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. If you set this parameter to true, a service interruption that lasts 30 to 120 seconds occurs during forced scaling. Process with caution.
-   * 
-   * *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
+   * > *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. If you set this parameter to true, a service interruption that lasts 30 to 120 seconds occurs during forced scaling. Process with caution.
+   * > *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
    * 
    * @example
    * false
@@ -75316,6 +77824,102 @@ export class ModifyDBNodeRequestDBNode extends $tea.Model {
     return {
       classCode: 'string',
       nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBProxyRequestDBProxyNodes extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  cpuCores?: string;
+  /**
+   * @example
+   * 2
+   */
+  nodeCounts?: string;
+  /**
+   * @example
+   * cn-hagnzhou-c
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpuCores: 'cpuCores',
+      nodeCounts: 'nodeCounts',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuCores: 'string',
+      nodeCounts: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBProxyInstanceRequestDBProxyNodes extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  cpuCores?: string;
+  /**
+   * @example
+   * 2
+   */
+  nodeCounts?: string;
+  /**
+   * @example
+   * cn-hagnzhou-c
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpuCores: 'cpuCores',
+      nodeCounts: 'nodeCounts',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuCores: 'string',
+      nodeCounts: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBProxyInstanceRequestMigrateAZ extends $tea.Model {
+  dbProxyEndpointId?: string;
+  destVSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbProxyEndpointId: 'dbProxyEndpointId',
+      destVSwitchId: 'destVSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbProxyEndpointId: 'string',
+      destVSwitchId: 'string',
     };
   }
 
@@ -75938,10 +78542,48 @@ export class RemoveTagsFromResourceRequestTag extends $tea.Model {
 }
 
 export class RunRCInstancesRequestDataDisk extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the data disk. Set the value to **cloud_essd**, which indicates Enterprise SSDs (ESSDs).
+   * 
+   * @example
+   * local_ssd
+   */
   category?: string;
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * null
+   */
   deleteWithInstance?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to encrypt the cloud disk. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * false
+   */
   encrypted?: string;
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * null
+   */
   performanceLevel?: string;
+  /**
+   * @remarks
+   * The size of the data disk. Unit: GiB.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -75969,7 +78611,21 @@ export class RunRCInstancesRequestDataDisk extends $tea.Model {
 }
 
 export class RunRCInstancesRequestSystemDisk extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the system disk. Set the value to **cloud_essd**, which indicates ESSDs.
+   * 
+   * @example
+   * cloud_essd
+   */
   category?: string;
+  /**
+   * @remarks
+   * The size of the system disk. Unit: GiB. Only performance level 1 (PL1) ESSDs are supported. Valid values: 20 to 2048.
+   * 
+   * @example
+   * 20
+   */
   size?: string;
   static names(): { [key: string]: string } {
     return {
@@ -76010,6 +78666,16 @@ export class RunRCInstancesResponseBodyInstanceIdSets extends $tea.Model {
 }
 
 export class SyncRCKeyPairResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the synchronization succeeded. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isSyncInfo?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -77231,6 +79897,10 @@ export default class Client extends OpenApi {
       query["DBInstanceClass"] = request.DBInstanceClass;
     }
 
+    if (!Util.isUnset(request.DBInstanceDescription)) {
+      query["DBInstanceDescription"] = request.DBInstanceDescription;
+    }
+
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -77795,13 +80465,13 @@ export default class Client extends OpenApi {
    * *   PostgreSQL
    * *   SQL Server
    * *   MariaDB
-   * ### [](#)Usage notes
-   * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](https://help.aliyun.com/document_detail/437245.html).
-   * ### [](#)Precautions
+   * ### [](#)Feature description
+   * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also call an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function](https://help.aliyun.com/document_detail/2402073.html).
+   * ### [](#)Prerequisites
    * Before you call this operation, make sure that the following requirements are met:
    * *   The instance is in the Running state.
    * *   The instance does not have ongoing backup tasks.
-   * *   The number of backup files that are created per day for an instance cannot exceed 20.
+   * *   The number of backup sets that can be created for an instance per day cannot exceed 20.
    * ### [](#)References
    * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/378074.html)
    * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
@@ -77865,13 +80535,13 @@ export default class Client extends OpenApi {
    * *   PostgreSQL
    * *   SQL Server
    * *   MariaDB
-   * ### [](#)Usage notes
-   * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](https://help.aliyun.com/document_detail/437245.html).
-   * ### [](#)Precautions
+   * ### [](#)Feature description
+   * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also call an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function](https://help.aliyun.com/document_detail/2402073.html).
+   * ### [](#)Prerequisites
    * Before you call this operation, make sure that the following requirements are met:
    * *   The instance is in the Running state.
    * *   The instance does not have ongoing backup tasks.
-   * *   The number of backup files that are created per day for an instance cannot exceed 20.
+   * *   The number of backup sets that can be created for an instance per day cannot exceed 20.
    * ### [](#)References
    * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/378074.html)
    * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
@@ -80089,7 +82759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建RDS CUSTOM部署集
+   * Creates a deployment set for an RDS Custom instance in a region. Before you call this operation, you must specify parameters such as OnUnableToRedeployFailedInstance, DeploymentSetName, and Strategy.
    * 
    * @param request - CreateRCDeploymentSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -80144,7 +82814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建RDS CUSTOM部署集
+   * Creates a deployment set for an RDS Custom instance in a region. Before you call this operation, you must specify parameters such as OnUnableToRedeployFailedInstance, DeploymentSetName, and Strategy.
    * 
    * @param request - CreateRCDeploymentSetRequest
    * @returns CreateRCDeploymentSetResponse
@@ -81941,7 +84611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RDS CUSTOM部署集
+   * Deletes a deployment set for an RDS Custom instance. Before you call this operation, you must specify parameters such as RegionId and DeploymentSetId.
    * 
    * @param request - DeleteRCDeploymentSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -81976,7 +84646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RDS CUSTOM部署集
+   * Deletes a deployment set for an RDS Custom instance. Before you call this operation, you must specify parameters such as RegionId and DeploymentSetId.
    * 
    * @param request - DeleteRCDeploymentSetRequest
    * @returns DeleteRCDeploymentSetResponse
@@ -82037,7 +84707,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除RDS用户专属主机实例
+   * Releases a subscription RDS Custom instance.
+   * 
+   * @remarks
+   * After an instance is released, all physical resources used by the instance are recycled. Relevant data is erased and cannot be restored.
    * 
    * @param tmpReq - DeleteRCInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -82090,7 +84763,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除RDS用户专属主机实例
+   * Releases a subscription RDS Custom instance.
+   * 
+   * @remarks
+   * After an instance is released, all physical resources used by the instance are recycled. Relevant data is erased and cannot be restored.
    * 
    * @param request - DeleteRCInstancesRequest
    * @returns DeleteRCInstancesResponse
@@ -90435,7 +93111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 描述RDS CUSTOM部署集
+   * Queries the details of one or more deployment sets for RDS Custom instances. Before you call this operation, you must specify parameters such as DeploymentSetIds, Strategy, and DeploymentSetName.
    * 
    * @param request - DescribeRCDeploymentSetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -90462,7 +93138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 描述RDS CUSTOM部署集
+   * Queries the details of one or more deployment sets for RDS Custom instances. Before you call this operation, you must specify parameters such as DeploymentSetIds, Strategy, and DeploymentSetName.
    * 
    * @param request - DescribeRCDeploymentSetsRequest
    * @returns DescribeRCDeploymentSetsResponse
@@ -90473,7 +93149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询镜像资源
+   * Queries custom images that can be used to create an RDS Custom instance. Before you call this operation, you must specify parameters such as RegionId.
    * 
    * @param request - DescribeRCImageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -90500,7 +93176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询镜像资源
+   * Queries custom images that can be used to create an RDS Custom instance. Before you call this operation, you must specify parameters such as RegionId.
    * 
    * @param request - DescribeRCImageListRequest
    * @returns DescribeRCImageListResponse
@@ -90511,7 +93187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RDS用户专属主机实例
+   * Queries the details of an RDS Custom instance.
    * 
    * @param request - DescribeRCInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -90538,7 +93214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RDS用户专属主机实例
+   * Queries the details of an RDS Custom instance.
    * 
    * @param request - DescribeRCInstanceAttributeRequest
    * @returns DescribeRCInstanceAttributeResponse
@@ -90549,7 +93225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RC实例列表
+   * Queries the details of an RDS Custom instance.
    * 
    * @param request - DescribeRCInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -90596,7 +93272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RC实例列表
+   * Queries the details of an RDS Custom instance.
    * 
    * @param request - DescribeRCInstancesRequest
    * @returns DescribeRCInstancesResponse
@@ -90607,7 +93283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定云产品的指定监控项的监控数据
+   * Queries the monitoring data of a metric for an RDS Custom instance.
    * 
    * @param request - DescribeRCMetricListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -90634,7 +93310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定云产品的指定监控项的监控数据
+   * Queries the monitoring data of a metric for an RDS Custom instance.
    * 
    * @param request - DescribeRCMetricListRequest
    * @returns DescribeRCMetricListResponse
@@ -91029,7 +93705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the task that is used to create a disaster recovery instance for an ApsaraDB RDS instance.
+   * Queries the operation logs of the data synchronization task for a specified ApsaraDB RDS instance.
    * 
    * @remarks
    * ### [](#)Supported database engine
@@ -91084,7 +93760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the task that is used to create a disaster recovery instance for an ApsaraDB RDS instance.
+   * Queries the operation logs of the data synchronization task for a specified ApsaraDB RDS instance.
    * 
    * @remarks
    * ### [](#)Supported database engine
@@ -93503,6 +96179,10 @@ export default class Client extends OpenApi {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!Util.isUnset(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
     if (!Util.isUnset(request.orderType)) {
       query["OrderType"] = request.orderType;
     }
@@ -94273,7 +96953,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改账号检查策略
+   * Checks whether a password policy is applied to an account.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * *   SQL Server
    * 
    * @param request - ModifyAccountCheckPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -94336,7 +97020,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改账号检查策略
+   * Checks whether a password policy is applied to an account.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * *   SQL Server
    * 
    * @param request - ModifyAccountCheckPolicyRequest
    * @returns ModifyAccountCheckPolicyResponse
@@ -94452,6 +97140,10 @@ export default class Client extends OpenApi {
       query["Privilege"] = request.privilege;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -94493,7 +97185,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改密码策略
+   * Modifies the password policy for an account of an ApsaraDB RDS for SQL Server instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engines
+   * SQL Server (This parameter is unavailable for ApsaraDB RDS for SQL Server instances that belong to the shared instance family and run SQL Server 2008 R2.)
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Create a custom password policy for an account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95640.html)
    * 
    * @param request - ModifyAccountSecurityPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -94552,7 +97251,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改密码策略
+   * Modifies the password policy for an account of an ApsaraDB RDS for SQL Server instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engines
+   * SQL Server (This parameter is unavailable for ApsaraDB RDS for SQL Server instances that belong to the shared instance family and run SQL Server 2008 R2.)
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Create a custom password policy for an account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95640.html)
    * 
    * @param request - ModifyAccountSecurityPolicyRequest
    * @returns ModifyAccountSecurityPolicyResponse
@@ -97043,12 +99749,18 @@ export default class Client extends OpenApi {
    * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197456.html)
    * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html)
    * 
-   * @param request - ModifyDBProxyRequest
+   * @param tmpReq - ModifyDBProxyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDBProxyResponse
    */
-  async modifyDBProxyWithOptions(request: ModifyDBProxyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyResponse> {
-    Util.validateModel(request);
+  async modifyDBProxyWithOptions(tmpReq: ModifyDBProxyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyDBProxyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.DBProxyNodes)) {
+      request.DBProxyNodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.DBProxyNodes, "DBProxyNodes", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.configDBProxyService)) {
       query["ConfigDBProxyService"] = request.configDBProxyService;
@@ -97072,6 +99784,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBProxyInstanceType)) {
       query["DBProxyInstanceType"] = request.DBProxyInstanceType;
+    }
+
+    if (!Util.isUnset(request.DBProxyNodesShrink)) {
+      query["DBProxyNodes"] = request.DBProxyNodesShrink;
     }
 
     if (!Util.isUnset(request.instanceNetworkType)) {
@@ -97203,6 +99919,14 @@ export default class Client extends OpenApi {
       query["DbEndpointType"] = request.dbEndpointType;
     }
 
+    if (!Util.isUnset(request.effectiveSpecificTime)) {
+      query["EffectiveSpecificTime"] = request.effectiveSpecificTime;
+    }
+
+    if (!Util.isUnset(request.effectiveTime)) {
+      query["EffectiveTime"] = request.effectiveTime;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -97229,6 +99953,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -97373,12 +100101,22 @@ export default class Client extends OpenApi {
    * *   PostgreSQL
    * >  Starting October 17, 2023, ApsaraDB RDS for MySQL instances that run RDS Cluster Edition offer one free-of-charge dedicated database proxy for each unit in phases. For more information, see [[Special offers/Price changes\\] One dedicated proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
    * 
-   * @param request - ModifyDBProxyInstanceRequest
+   * @param tmpReq - ModifyDBProxyInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDBProxyInstanceResponse
    */
-  async modifyDBProxyInstanceWithOptions(request: ModifyDBProxyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyInstanceResponse> {
-    Util.validateModel(request);
+  async modifyDBProxyInstanceWithOptions(tmpReq: ModifyDBProxyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyDBProxyInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.DBProxyNodes)) {
+      request.DBProxyNodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.DBProxyNodes, "DBProxyNodes", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.migrateAZ)) {
+      request.migrateAZShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.migrateAZ, "MigrateAZ", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
@@ -97400,12 +100138,20 @@ export default class Client extends OpenApi {
       query["DBProxyInstanceType"] = request.DBProxyInstanceType;
     }
 
+    if (!Util.isUnset(request.DBProxyNodesShrink)) {
+      query["DBProxyNodes"] = request.DBProxyNodesShrink;
+    }
+
     if (!Util.isUnset(request.effectiveSpecificTime)) {
       query["EffectiveSpecificTime"] = request.effectiveSpecificTime;
     }
 
     if (!Util.isUnset(request.effectiveTime)) {
       query["EffectiveTime"] = request.effectiveTime;
+    }
+
+    if (!Util.isUnset(request.migrateAZShrink)) {
+      query["MigrateAZ"] = request.migrateAZShrink;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -98274,6 +101020,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -98609,7 +101359,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyRCInstance
+   * Upgrades or downgrades the instance type of a subscription RDS Custom instance. The new instance type takes effect for the remaining lifecycle of the instance.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you are familiar with the billing methods, pricing, and refund rules of RDS Custom.
+   * Before you call this operation, take note of the following items:
+   * *   You cannot change the instance type of an expired instance. You can renew the instance and try again.
+   * *   When you downgrade the instance type of an instance, take note of the following items:
+   *     *   The instance must be in the Stopped state.
+   *     *   The price difference is refunded to the payment account you used. Vouchers that have been redeemed are not refundable.
+   * *   The operation is asynchronous. Wait 5 to 10 seconds for the instance type change to complete. Then, restart the instance by calling the RebootInstance operation or by using the console for the instance type change to take effect. If you restart only the operating system of the instance, the instance type change does not take effect. If the instance is in the Stopped state, you need only to start the instance. You do not need to restart the instance after it enters the Running state.
    * 
    * @param request - ModifyRCInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -98660,7 +101419,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyRCInstance
+   * Upgrades or downgrades the instance type of a subscription RDS Custom instance. The new instance type takes effect for the remaining lifecycle of the instance.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you are familiar with the billing methods, pricing, and refund rules of RDS Custom.
+   * Before you call this operation, take note of the following items:
+   * *   You cannot change the instance type of an expired instance. You can renew the instance and try again.
+   * *   When you downgrade the instance type of an instance, take note of the following items:
+   *     *   The instance must be in the Stopped state.
+   *     *   The price difference is refunded to the payment account you used. Vouchers that have been redeemed are not refundable.
+   * *   The operation is asynchronous. Wait 5 to 10 seconds for the instance type change to complete. Then, restart the instance by calling the RebootInstance operation or by using the console for the instance type change to take effect. If you restart only the operating system of the instance, the instance type change does not take effect. If the instance is in the Stopped state, you need only to start the instance. You do not need to restart the instance after it enters the Running state.
    * 
    * @param request - ModifyRCInstanceRequest
    * @returns ModifyRCInstanceResponse
@@ -99825,7 +102593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启RDS用户专属主机实例
+   * Restarts an RDS Custom instance that is in the Running state.
    * 
    * @param request - RebootRCInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -99868,7 +102636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启RDS用户专属主机实例
+   * Restarts an RDS Custom instance that is in the Running state.
    * 
    * @param request - RebootRCInstanceRequest
    * @returns RebootRCInstanceResponse
@@ -100829,7 +103597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ResizeRCInstanceDisk
+   * Expand the storage capacity of an RDS Custom instance.
    * 
    * @param request - ResizeRCInstanceDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -100880,7 +103648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ResizeRCInstanceDisk
+   * Expand the storage capacity of an RDS Custom instance.
    * 
    * @param request - ResizeRCInstanceDiskRequest
    * @returns ResizeRCInstanceDiskResponse
@@ -101353,7 +104121,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建RDS用户专属主机实例
+   * Creates one or more subscription RDS Custom instances. Before you call this operation, you must specify parameters such as ImageId, InstanceType, VSwitchId, and SecurityGroupId.
+   * 
+   * @remarks
+   *   Before you create RDS Custom instances, you must submit a ticket to add your Alibaba Cloud account to a whitelist.
+   * *   You can create only subscription RDS Custom instances.
+   * *   Subscription RDS Custom instances are supported in the China (Shanghai), China (Shenzhen), China (Beijing), and China (Hangzhou) regions.
    * 
    * @param tmpReq - RunRCInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101490,7 +104263,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建RDS用户专属主机实例
+   * Creates one or more subscription RDS Custom instances. Before you call this operation, you must specify parameters such as ImageId, InstanceType, VSwitchId, and SecurityGroupId.
+   * 
+   * @remarks
+   *   Before you create RDS Custom instances, you must submit a ticket to add your Alibaba Cloud account to a whitelist.
+   * *   You can create only subscription RDS Custom instances.
+   * *   Subscription RDS Custom instances are supported in the China (Shanghai), China (Shenzhen), China (Beijing), and China (Hangzhou) regions.
    * 
    * @param request - RunRCInstancesRequest
    * @returns RunRCInstancesResponse
@@ -101629,7 +104407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动RDS用户专属主机实例
+   * Starts RDS Custom instances that are in the Stopped state. After the operation is successfully called, the instances enter the Starting state.
    * 
    * @param request - StartRCInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101664,7 +104442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动RDS用户专属主机实例
+   * Starts RDS Custom instances that are in the Stopped state. After the operation is successfully called, the instances enter the Starting state.
    * 
    * @param request - StartRCInstanceRequest
    * @returns StartRCInstanceResponse
@@ -101755,7 +104533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止RDS用户专属主机实例
+   * Stops an RDS Custom instance that is in the Running state. After the operation is successfully called, the status of the RDS Custom instance changes from Stopping to Stopped.
    * 
    * @param request - StopRCInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101794,7 +104572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止RDS用户专属主机实例
+   * Stops an RDS Custom instance that is in the Running state. After the operation is successfully called, the status of the RDS Custom instance changes from Stopping to Stopped.
    * 
    * @param request - StopRCInstanceRequest
    * @returns StopRCInstanceResponse
@@ -102079,7 +104857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步密钥对
+   * Synchronizes a custom key pair to an RDS Custom instance. If you change the key pair that you created for your RDS Custom instance and you want the change to immediately take effect on the RDS Custom instance, you can call this operation to synchronize the new key pair to the RDS Custom instance. For example, you delete a key pair that has the same name as another key pair and recreate the key pair.
    * 
    * @param request - SyncRCKeyPairRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -102094,6 +104872,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.syncMode)) {
+      query["SyncMode"] = request.syncMode;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -102114,7 +104896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步密钥对
+   * Synchronizes a custom key pair to an RDS Custom instance. If you change the key pair that you created for your RDS Custom instance and you want the change to immediately take effect on the RDS Custom instance, you can call this operation to synchronize the new key pair to the RDS Custom instance. For example, you delete a key pair that has the same name as another key pair and recreate the key pair.
    * 
    * @param request - SyncRCKeyPairRequest
    * @returns SyncRCKeyPairResponse
