@@ -36,11 +36,13 @@ export class AndroidPayload extends $tea.Model {
   body?: Body;
   displayType?: string;
   extra?: { [key: string]: any };
+  message2ThirdChannel?: Message2ThirdChannel;
   static names(): { [key: string]: string } {
     return {
       body: 'body',
       displayType: 'displayType',
       extra: 'extra',
+      message2ThirdChannel: 'message2ThirdChannel',
     };
   }
 
@@ -49,6 +51,7 @@ export class AndroidPayload extends $tea.Model {
       body: Body,
       displayType: 'string',
       extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message2ThirdChannel: Message2ThirdChannel,
     };
   }
 
@@ -226,6 +229,49 @@ export class IosPayload extends $tea.Model {
     return {
       aps: Aps,
       extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Message2ThirdChannel extends $tea.Model {
+  setBadge?: number;
+  addBadge?: number;
+  bigBody?: string;
+  bigTitle?: string;
+  expandImage?: string;
+  img?: string;
+  sound?: string;
+  text?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      setBadge: 'SetBadge',
+      addBadge: 'addBadge',
+      bigBody: 'bigBody',
+      bigTitle: 'bigTitle',
+      expandImage: 'expandImage',
+      img: 'img',
+      sound: 'sound',
+      text: 'text',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      setBadge: 'number',
+      addBadge: 'number',
+      bigBody: 'string',
+      bigTitle: 'string',
+      expandImage: 'string',
+      img: 'string',
+      sound: 'string',
+      text: 'string',
+      title: 'string',
     };
   }
 
