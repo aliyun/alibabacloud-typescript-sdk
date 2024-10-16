@@ -7295,6 +7295,93 @@ export class GetCacheReserveSpecificationResponse extends $tea.Model {
   }
 }
 
+export class GetErServiceRequest extends $tea.Model {
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * er_paymode
+   */
+  planName?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
+   */
+  requestId?: string;
+  /**
+   * @example
+   * Running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      planName: 'PlanName',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      planName: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErServiceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetErServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetErServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetKvRequest extends $tea.Model {
   /**
    * @example
@@ -27633,6 +27720,44 @@ export default class Client extends OpenApi {
   async getCacheReserveSpecification(): Promise<GetCacheReserveSpecificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCacheReserveSpecificationWithOptions(runtime);
+  }
+
+  /**
+   * GetErService
+   * 
+   * @param request - GetErServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetErServiceResponse
+   */
+  async getErServiceWithOptions(request: GetErServiceRequest, runtime: $Util.RuntimeOptions): Promise<GetErServiceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetErService",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetErServiceResponse>(await this.callApi(params, req, runtime), new GetErServiceResponse({}));
+  }
+
+  /**
+   * GetErService
+   * 
+   * @param request - GetErServiceRequest
+   * @returns GetErServiceResponse
+   */
+  async getErService(request: GetErServiceRequest): Promise<GetErServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getErServiceWithOptions(request, runtime);
   }
 
   /**
