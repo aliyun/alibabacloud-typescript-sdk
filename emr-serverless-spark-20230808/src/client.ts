@@ -540,6 +540,7 @@ export class Task extends $tea.Model {
    */
   sparkVersion?: string;
   tags?: { [key: string]: string };
+  timeout?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -584,6 +585,7 @@ export class Task extends $tea.Model {
       sparkSubmitClause: 'sparkSubmitClause',
       sparkVersion: 'sparkVersion',
       tags: 'tags',
+      timeout: 'timeout',
       type: 'type',
     };
   }
@@ -627,6 +629,7 @@ export class Task extends $tea.Model {
       sparkSubmitClause: 'string',
       sparkVersion: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      timeout: 'number',
       type: 'string',
     };
   }
@@ -1432,7 +1435,7 @@ export class GrantRoleToUsersResponse extends $tea.Model {
 export class ListJobRunsRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the user who creates a Spark job.
+   * The ID of the user who created the job.
    * 
    * @example
    * 1509789347011222
@@ -1552,7 +1555,7 @@ export class ListJobRunsRequest extends $tea.Model {
 export class ListJobRunsShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the user who creates a Spark job.
+   * The ID of the user who created the job.
    * 
    * @example
    * 1509789347011222
@@ -1773,7 +1776,7 @@ export class ListReleaseVersionsRequest extends $tea.Model {
    * Valid values:
    * 
    * *   stable
-   * *   beta
+   * *   Beta
    * 
    * @example
    * stable
@@ -1781,7 +1784,7 @@ export class ListReleaseVersionsRequest extends $tea.Model {
   releaseType?: string;
   /**
    * @remarks
-   * The version of Serverless Spark.
+   * The version of EMR Serverless Spark.
    * 
    * @example
    * esr-2.1 (Spark 3.3.1, Scala 2.12, Java Runtime)
@@ -1789,7 +1792,7 @@ export class ListReleaseVersionsRequest extends $tea.Model {
   releaseVersion?: string;
   /**
    * @remarks
-   * The status of the version. Valid values:
+   * The status of the version.
    * 
    * Valid values:
    * 
@@ -1800,12 +1803,21 @@ export class ListReleaseVersionsRequest extends $tea.Model {
    * ONLINE
    */
   releaseVersionStatus?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * w-d2d82aa09155****
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'regionId',
       releaseType: 'releaseType',
       releaseVersion: 'releaseVersion',
       releaseVersionStatus: 'releaseVersionStatus',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -1815,6 +1827,7 @@ export class ListReleaseVersionsRequest extends $tea.Model {
       releaseType: 'string',
       releaseVersion: 'string',
       releaseVersionStatus: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -2531,6 +2544,202 @@ export class StartJobRunResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartJobRunResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartSessionClusterRequest extends $tea.Model {
+  /**
+   * @example
+   * root_queue
+   */
+  queueName?: string;
+  /**
+   * @example
+   * sc-xxxxxxxxxxx
+   */
+  sessionClusterId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queueName: 'queueName',
+      sessionClusterId: 'sessionClusterId',
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queueName: 'string',
+      sessionClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartSessionClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Workspace Id。
+   * 
+   * @example
+   * w-******
+   */
+  sessionClusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      sessionClusterId: 'sessionClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      sessionClusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartSessionClusterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartSessionClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartSessionClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopSessionClusterRequest extends $tea.Model {
+  /**
+   * @example
+   * root_queue
+   */
+  queueName?: string;
+  /**
+   * @example
+   * sc-xxxxxxxxxxxx
+   */
+  sessionClusterId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queueName: 'queueName',
+      sessionClusterId: 'sessionClusterId',
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queueName: 'string',
+      sessionClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopSessionClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Workspace Id。
+   * 
+   * @example
+   * w-******
+   */
+  sessionClusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      sessionClusterId: 'sessionClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      sessionClusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopSessionClusterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopSessionClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopSessionClusterResponseBody,
     };
   }
 
@@ -3467,7 +3676,21 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $tea.Model {
    * The CPU architectures.
    */
   cpuArchitectures?: string[];
+  /**
+   * @remarks
+   * The version number.
+   * 
+   * @example
+   * esr-2.1 (Spark 3.3.1, Scala 2.12)
+   */
   displayReleaseVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether the Fusion engine is used for acceleration.
+   * 
+   * @example
+   * true
+   */
   fusion?: boolean;
   /**
    * @remarks
@@ -3487,7 +3710,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $tea.Model {
   iaasType?: string;
   /**
    * @remarks
-   * The version.
+   * The version number.
    * 
    * @example
    * esr-2.1 (Spark 3.3.1, Scala 2.12, Java Runtime)
@@ -4472,7 +4695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用session运行SQL
+   * Creates an SQL query task.
    * 
    * @param request - CreateSqlStatementRequest
    * @param headers - map
@@ -4527,7 +4750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用session运行SQL
+   * Creates an SQL query task.
    * 
    * @param request - CreateSqlStatementRequest
    * @returns CreateSqlStatementResponse
@@ -4584,7 +4807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Sql Statement状态
+   * Queries the status of an SQL query task.
    * 
    * @param request - GetSqlStatementRequest
    * @param headers - map
@@ -4617,7 +4840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Sql Statement状态
+   * Queries the status of an SQL query task.
    * 
    * @param request - GetSqlStatementRequest
    * @returns GetSqlStatementResponse
@@ -4791,7 +5014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取发布版本列表
+   * Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
    * 
    * @param request - ListReleaseVersionsRequest
    * @param headers - map
@@ -4817,6 +5040,10 @@ export default class Client extends OpenApi {
       query["releaseVersionStatus"] = request.releaseVersionStatus;
     }
 
+    if (!Util.isUnset(request.workspaceId)) {
+      query["workspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -4836,7 +5063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取发布版本列表
+   * Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
    * 
    * @param request - ListReleaseVersionsRequest
    * @returns ListReleaseVersionsResponse
@@ -5118,7 +5345,117 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 终止 session statement
+   * 启动session集群
+   * 
+   * @param request - StartSessionClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartSessionClusterResponse
+   */
+  async startSessionClusterWithOptions(workspaceId: string, request: StartSessionClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartSessionClusterResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.queueName)) {
+      body["queueName"] = request.queueName;
+    }
+
+    if (!Util.isUnset(request.sessionClusterId)) {
+      body["sessionClusterId"] = request.sessionClusterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartSessionCluster",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${OpenApiUtil.getEncodeParam(workspaceId)}/sessionClusters/action/startSessionCluster`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartSessionClusterResponse>(await this.callApi(params, req, runtime), new StartSessionClusterResponse({}));
+  }
+
+  /**
+   * 启动session集群
+   * 
+   * @param request - StartSessionClusterRequest
+   * @returns StartSessionClusterResponse
+   */
+  async startSessionCluster(workspaceId: string, request: StartSessionClusterRequest): Promise<StartSessionClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startSessionClusterWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 启动session集群
+   * 
+   * @param request - StopSessionClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopSessionClusterResponse
+   */
+  async stopSessionClusterWithOptions(workspaceId: string, request: StopSessionClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopSessionClusterResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.queueName)) {
+      body["queueName"] = request.queueName;
+    }
+
+    if (!Util.isUnset(request.sessionClusterId)) {
+      body["sessionClusterId"] = request.sessionClusterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopSessionCluster",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${OpenApiUtil.getEncodeParam(workspaceId)}/sessionClusters/action/stopSessionCluster`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopSessionClusterResponse>(await this.callApi(params, req, runtime), new StopSessionClusterResponse({}));
+  }
+
+  /**
+   * 启动session集群
+   * 
+   * @param request - StopSessionClusterRequest
+   * @returns StopSessionClusterResponse
+   */
+  async stopSessionCluster(workspaceId: string, request: StopSessionClusterRequest): Promise<StopSessionClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopSessionClusterWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Terminates an SQL query task.
    * 
    * @param request - TerminateSqlStatementRequest
    * @param headers - map
@@ -5151,7 +5488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 终止 session statement
+   * Terminates an SQL query task.
    * 
    * @param request - TerminateSqlStatementRequest
    * @returns TerminateSqlStatementResponse
