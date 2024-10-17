@@ -253,11 +253,12 @@ export class BackupFileRequest extends $tea.Model {
 }
 
 export class BackupFileResponseBody extends $tea.Model {
+  count?: number;
   /**
    * @example
    * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****
    */
-  data?: string;
+  data?: BackupFileResponseBodyData[];
   /**
    * @example
    * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****
@@ -265,6 +266,7 @@ export class BackupFileResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
       data: 'Data',
       requestId: 'RequestId',
     };
@@ -272,7 +274,8 @@ export class BackupFileResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: 'string',
+      count: 'number',
+      data: { 'type': 'array', 'itemType': BackupFileResponseBodyData },
       requestId: 'string',
     };
   }
@@ -313,6 +316,7 @@ export class CheckResourceStockRequest extends $tea.Model {
    * acp.basic.small
    */
   acpSpecId?: string;
+  amount?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -330,6 +334,7 @@ export class CheckResourceStockRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acpSpecId: 'AcpSpecId',
+      amount: 'Amount',
       bizRegionId: 'BizRegionId',
       gpuAcceleration: 'GpuAcceleration',
       zoneId: 'ZoneId',
@@ -339,6 +344,7 @@ export class CheckResourceStockRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acpSpecId: 'string',
+      amount: 'number',
       bizRegionId: 'string',
       gpuAcceleration: 'boolean',
       zoneId: 'string',
@@ -896,6 +902,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
    * off
    */
   localDrive?: string;
+  lockResolution?: string;
   netRedirectPolicy?: CreatePolicyGroupRequestNetRedirectPolicy;
   policyGroupName?: string;
   /**
@@ -914,6 +921,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
       clipboard: 'Clipboard',
       html5FileTransfer: 'Html5FileTransfer',
       localDrive: 'LocalDrive',
+      lockResolution: 'LockResolution',
       netRedirectPolicy: 'NetRedirectPolicy',
       policyGroupName: 'PolicyGroupName',
       resolutionHeight: 'ResolutionHeight',
@@ -927,6 +935,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
       clipboard: 'string',
       html5FileTransfer: 'string',
       localDrive: 'string',
+      lockResolution: 'string',
       netRedirectPolicy: CreatePolicyGroupRequestNetRedirectPolicy,
       policyGroupName: 'string',
       resolutionHeight: 'number',
@@ -960,6 +969,7 @@ export class CreatePolicyGroupShrinkRequest extends $tea.Model {
    * off
    */
   localDrive?: string;
+  lockResolution?: string;
   netRedirectPolicyShrink?: string;
   policyGroupName?: string;
   /**
@@ -978,6 +988,7 @@ export class CreatePolicyGroupShrinkRequest extends $tea.Model {
       clipboard: 'Clipboard',
       html5FileTransfer: 'Html5FileTransfer',
       localDrive: 'LocalDrive',
+      lockResolution: 'LockResolution',
       netRedirectPolicyShrink: 'NetRedirectPolicy',
       policyGroupName: 'PolicyGroupName',
       resolutionHeight: 'ResolutionHeight',
@@ -991,6 +1002,7 @@ export class CreatePolicyGroupShrinkRequest extends $tea.Model {
       clipboard: 'string',
       html5FileTransfer: 'string',
       localDrive: 'string',
+      lockResolution: 'string',
       netRedirectPolicyShrink: 'string',
       policyGroupName: 'string',
       resolutionHeight: 'number',
@@ -1577,12 +1589,14 @@ export class DescribeAndroidInstancesRequest extends $tea.Model {
    * name
    */
   androidInstanceName?: string;
+  chargeType?: string;
   /**
    * @example
    * ag-25nt4kk9whjh****
    */
   instanceGroupId?: string;
   instanceGroupIds?: string[];
+  instanceGroupName?: string;
   /**
    * @example
    * kp-5hh431emkpuoi****
@@ -1612,8 +1626,10 @@ export class DescribeAndroidInstancesRequest extends $tea.Model {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
       androidInstanceName: 'AndroidInstanceName',
+      chargeType: 'ChargeType',
       instanceGroupId: 'InstanceGroupId',
       instanceGroupIds: 'InstanceGroupIds',
+      instanceGroupName: 'InstanceGroupName',
       keyPairId: 'KeyPairId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -1626,8 +1642,10 @@ export class DescribeAndroidInstancesRequest extends $tea.Model {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
       androidInstanceName: 'string',
+      chargeType: 'string',
       instanceGroupId: 'string',
       instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
+      instanceGroupName: 'string',
       keyPairId: 'string',
       maxResults: 'number',
       nextToken: 'string',
@@ -2354,6 +2372,7 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DescribeSpecRequest extends $tea.Model {
+  bizRegionId?: string;
   /**
    * @example
    * 20
@@ -2377,6 +2396,7 @@ export class DescribeSpecRequest extends $tea.Model {
   specType?: string;
   static names(): { [key: string]: string } {
     return {
+      bizRegionId: 'BizRegionId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       specIds: 'SpecIds',
@@ -2387,6 +2407,7 @@ export class DescribeSpecRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizRegionId: 'string',
       maxResults: 'number',
       nextToken: 'string',
       specIds: { 'type': 'array', 'itemType': 'string' },
@@ -2904,7 +2925,7 @@ export class FetchFileResponseBody extends $tea.Model {
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****
    */
-  data?: string;
+  data?: FetchFileResponseBodyData[];
   /**
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****
@@ -2919,7 +2940,7 @@ export class FetchFileResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: 'string',
+      data: { 'type': 'array', 'itemType': FetchFileResponseBodyData },
       requestId: 'string',
     };
   }
@@ -3637,6 +3658,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
    * off
    */
   localDrive?: string;
+  lockResolution?: string;
   netRedirectPolicy?: ModifyPolicyGroupRequestNetRedirectPolicy;
   /**
    * @example
@@ -3660,6 +3682,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
       clipboard: 'Clipboard',
       html5FileTransfer: 'Html5FileTransfer',
       localDrive: 'LocalDrive',
+      lockResolution: 'LockResolution',
       netRedirectPolicy: 'NetRedirectPolicy',
       policyGroupId: 'PolicyGroupId',
       policyGroupName: 'PolicyGroupName',
@@ -3674,6 +3697,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
       clipboard: 'string',
       html5FileTransfer: 'string',
       localDrive: 'string',
+      lockResolution: 'string',
       netRedirectPolicy: ModifyPolicyGroupRequestNetRedirectPolicy,
       policyGroupId: 'string',
       policyGroupName: 'string',
@@ -3708,6 +3732,7 @@ export class ModifyPolicyGroupShrinkRequest extends $tea.Model {
    * off
    */
   localDrive?: string;
+  lockResolution?: string;
   netRedirectPolicyShrink?: string;
   /**
    * @example
@@ -3731,6 +3756,7 @@ export class ModifyPolicyGroupShrinkRequest extends $tea.Model {
       clipboard: 'Clipboard',
       html5FileTransfer: 'Html5FileTransfer',
       localDrive: 'LocalDrive',
+      lockResolution: 'LockResolution',
       netRedirectPolicyShrink: 'NetRedirectPolicy',
       policyGroupId: 'PolicyGroupId',
       policyGroupName: 'PolicyGroupName',
@@ -3745,6 +3771,7 @@ export class ModifyPolicyGroupShrinkRequest extends $tea.Model {
       clipboard: 'string',
       html5FileTransfer: 'string',
       localDrive: 'string',
+      lockResolution: 'string',
       netRedirectPolicyShrink: 'string',
       policyGroupId: 'string',
       policyGroupName: 'string',
@@ -3924,11 +3951,12 @@ export class RecoveryFileRequest extends $tea.Model {
 }
 
 export class RecoveryFileResponseBody extends $tea.Model {
+  count?: number;
   /**
    * @example
    * 6AD56E39-430B-5401-AB4A-7B086454****
    */
-  data?: string;
+  data?: RecoveryFileResponseBodyData[];
   /**
    * @example
    * 6AD56E39-430B-5401-AB4A-7B086454****
@@ -3936,6 +3964,7 @@ export class RecoveryFileResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
       data: 'Data',
       requestId: 'RequestId',
     };
@@ -3943,7 +3972,8 @@ export class RecoveryFileResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: 'string',
+      count: 'number',
+      data: { 'type': 'array', 'itemType': RecoveryFileResponseBodyData },
       requestId: 'string',
     };
   }
@@ -4293,7 +4323,7 @@ export class SendFileResponseBody extends $tea.Model {
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****
    */
-  data?: string;
+  data?: SendFileResponseBodyData[];
   /**
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****
@@ -4308,7 +4338,7 @@ export class SendFileResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: 'string',
+      data: { 'type': 'array', 'itemType': SendFileResponseBodyData },
       requestId: 'string',
     };
   }
@@ -4924,6 +4954,34 @@ export class AttachKeyPairResponseBodyData extends $tea.Model {
   }
 }
 
+export class BackupFileResponseBodyData extends $tea.Model {
+  androidInstanceId?: string;
+  backupFileId?: string;
+  backupFileName?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      androidInstanceId: 'AndroidInstanceId',
+      backupFileId: 'BackupFileId',
+      backupFileName: 'BackupFileName',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      androidInstanceId: 'string',
+      backupFileId: 'string',
+      backupFileName: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckResourceStockResponseBodyResourceStockModels extends $tea.Model {
   /**
    * @example
@@ -5283,12 +5341,35 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   }
 }
 
+export class DescribeAndroidInstancesResponseBodyInstanceModelDisks extends $tea.Model {
+  diskSize?: number;
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskSize: 'DiskSize',
+      diskType: 'DiskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskSize: 'number',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Model {
   /**
    * @example
    * ag-ayyhomlal7po****
    */
   androidInstanceGroupId?: string;
+  androidInstanceGroupName?: string;
   /**
    * @example
    * acp-8at8h6ejkadjh****
@@ -5324,6 +5405,9 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
    * test
    */
   bindUserId?: string;
+  chargeType?: string;
+  cpu?: string;
+  disks?: DescribeAndroidInstancesResponseBodyInstanceModelDisks[];
   /**
    * @example
    * FilePathNotFound
@@ -5334,26 +5418,31 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
    * 2023-05-06 10:42:10
    */
   gmtCreate?: string;
+  gmtExpired?: string;
   /**
    * @example
    * 2023-05-06 10:42:10
    */
   gmtModified?: string;
+  instanceType?: string;
   /**
    * @example
    * kp-5hh431emkpucs****
    */
   keyPairId?: string;
+  memory?: number;
   /**
    * @example
    * 192.168.22.48
    */
   networkInterfaceIp?: string;
+  officeSiteId?: string;
   /**
    * @example
    * p-0btrd5zj8epo****
    */
   persistentAppInstanceId?: string;
+  policyGroupId?: string;
   /**
    * @example
    * 100
@@ -5368,6 +5457,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
   static names(): { [key: string]: string } {
     return {
       androidInstanceGroupId: 'AndroidInstanceGroupId',
+      androidInstanceGroupName: 'AndroidInstanceGroupName',
       androidInstanceId: 'AndroidInstanceId',
       androidInstanceName: 'AndroidInstanceName',
       androidInstanceStatus: 'AndroidInstanceStatus',
@@ -5375,12 +5465,20 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
       appInstanceId: 'AppInstanceId',
       authorizedUserId: 'AuthorizedUserId',
       bindUserId: 'BindUserId',
+      chargeType: 'ChargeType',
+      cpu: 'Cpu',
+      disks: 'Disks',
       errorCode: 'ErrorCode',
       gmtCreate: 'GmtCreate',
+      gmtExpired: 'GmtExpired',
       gmtModified: 'GmtModified',
+      instanceType: 'InstanceType',
       keyPairId: 'KeyPairId',
+      memory: 'Memory',
       networkInterfaceIp: 'NetworkInterfaceIp',
+      officeSiteId: 'OfficeSiteId',
       persistentAppInstanceId: 'PersistentAppInstanceId',
+      policyGroupId: 'PolicyGroupId',
       rate: 'Rate',
       regionId: 'RegionId',
       renderingType: 'RenderingType',
@@ -5390,6 +5488,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       androidInstanceGroupId: 'string',
+      androidInstanceGroupName: 'string',
       androidInstanceId: 'string',
       androidInstanceName: 'string',
       androidInstanceStatus: 'string',
@@ -5397,12 +5496,20 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
       appInstanceId: 'string',
       authorizedUserId: 'string',
       bindUserId: 'string',
+      chargeType: 'string',
+      cpu: 'string',
+      disks: { 'type': 'array', 'itemType': DescribeAndroidInstancesResponseBodyInstanceModelDisks },
       errorCode: 'string',
       gmtCreate: 'string',
+      gmtExpired: 'string',
       gmtModified: 'string',
+      instanceType: 'string',
       keyPairId: 'string',
+      memory: 'number',
       networkInterfaceIp: 'string',
+      officeSiteId: 'string',
       persistentAppInstanceId: 'string',
+      policyGroupId: 'string',
       rate: 'number',
       regionId: 'string',
       renderingType: 'string',
@@ -5453,6 +5560,7 @@ export class DescribeAppsResponseBodyData extends $tea.Model {
    */
   installationStatus?: string;
   instanceGroupList?: string[];
+  packageName?: string;
   /**
    * @example
    * NORMAL
@@ -5470,6 +5578,7 @@ export class DescribeAppsResponseBodyData extends $tea.Model {
       iconUrl: 'IconUrl',
       installationStatus: 'InstallationStatus',
       instanceGroupList: 'InstanceGroupList',
+      packageName: 'PackageName',
       status: 'Status',
     };
   }
@@ -5486,6 +5595,7 @@ export class DescribeAppsResponseBodyData extends $tea.Model {
       iconUrl: 'string',
       installationStatus: 'string',
       instanceGroupList: { 'type': 'array', 'itemType': 'string' },
+      packageName: 'string',
       status: 'string',
     };
   }
@@ -5993,6 +6103,28 @@ export class DetachKeyPairResponseBodyData extends $tea.Model {
   }
 }
 
+export class FetchFileResponseBodyData extends $tea.Model {
+  androidInstanceId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      androidInstanceId: 'AndroidInstanceId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      androidInstanceId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAdbSecureResponseBodyDataAdbSecureList extends $tea.Model {
   /**
    * @example
@@ -6124,6 +6256,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $tea.Model {
    * off
    */
   localDrive?: string;
+  lockResolution?: string;
   netRedirectPolicy?: ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy;
   /**
    * @example
@@ -6148,6 +6281,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $tea.Model {
       gmtCreate: 'GmtCreate',
       html5FileTransfer: 'Html5FileTransfer',
       localDrive: 'LocalDrive',
+      lockResolution: 'LockResolution',
       netRedirectPolicy: 'NetRedirectPolicy',
       policyGroupId: 'PolicyGroupId',
       policyGroupName: 'PolicyGroupName',
@@ -6163,6 +6297,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $tea.Model {
       gmtCreate: 'string',
       html5FileTransfer: 'string',
       localDrive: 'string',
+      lockResolution: 'string',
       netRedirectPolicy: ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy,
       policyGroupId: 'string',
       policyGroupName: 'string',
@@ -6187,6 +6322,50 @@ export class ModifyPolicyGroupRequestNetRedirectPolicy extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       netRedirect: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecoveryFileResponseBodyData extends $tea.Model {
+  androidInstanceId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      androidInstanceId: 'AndroidInstanceId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      androidInstanceId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendFileResponseBodyData extends $tea.Model {
+  androidInstanceId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      androidInstanceId: 'AndroidInstanceId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      androidInstanceId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -6349,6 +6528,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 数据备份
+   * 
    * @param request - BackupFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BackupFileResponse
@@ -6398,6 +6579,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 数据备份
+   * 
    * @param request - BackupFileRequest
    * @returns BackupFileResponse
    */
@@ -6418,6 +6601,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acpSpecId)) {
       query["AcpSpecId"] = request.acpSpecId;
+    }
+
+    if (!Util.isUnset(request.amount)) {
+      query["Amount"] = request.amount;
     }
 
     if (!Util.isUnset(request.bizRegionId)) {
@@ -6754,6 +6941,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.localDrive)) {
       body["LocalDrive"] = request.localDrive;
+    }
+
+    if (!Util.isUnset(request.lockResolution)) {
+      body["LockResolution"] = request.lockResolution;
     }
 
     if (!Util.isUnset(request.netRedirectPolicyShrink)) {
@@ -7108,12 +7299,20 @@ export default class Client extends OpenApi {
       query["AndroidInstanceName"] = request.androidInstanceName;
     }
 
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
     if (!Util.isUnset(request.instanceGroupId)) {
       query["InstanceGroupId"] = request.instanceGroupId;
     }
 
     if (!Util.isUnset(request.instanceGroupIds)) {
       query["InstanceGroupIds"] = request.instanceGroupIds;
+    }
+
+    if (!Util.isUnset(request.instanceGroupName)) {
+      query["InstanceGroupName"] = request.instanceGroupName;
     }
 
     if (!Util.isUnset(request.keyPairId)) {
@@ -7508,6 +7707,10 @@ export default class Client extends OpenApi {
   async describeSpecWithOptions(request: DescribeSpecRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSpecResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -8234,6 +8437,10 @@ export default class Client extends OpenApi {
       body["LocalDrive"] = request.localDrive;
     }
 
+    if (!Util.isUnset(request.lockResolution)) {
+      body["LockResolution"] = request.lockResolution;
+    }
+
     if (!Util.isUnset(request.netRedirectPolicyShrink)) {
       body["NetRedirectPolicy"] = request.netRedirectPolicyShrink;
     }
@@ -8329,7 +8536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文件恢复
+   * 数据恢复
    * 
    * @param request - RecoveryFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8376,7 +8583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文件恢复
+   * 数据恢复
    * 
    * @param request - RecoveryFileRequest
    * @returns RecoveryFileResponse
