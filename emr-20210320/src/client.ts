@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,19 +8,58 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AckConfig extends $tea.Model {
+  /**
+   * @remarks
+   * ack集群id
+   */
   ackInstanceId?: string;
   customAnnotations?: Tag[];
   customLabels?: Tag[];
   dataDiskSize?: number;
   dataDiskStorageClass?: string;
+  /**
+   * @remarks
+   * Pod的CPU限制值。
+   */
   limitCpu?: number;
+  /**
+   * @remarks
+   * Pod的内存限制值。
+   */
   limitMemory?: number;
   mountHostCgroup?: boolean;
+  /**
+   * @remarks
+   * ack 命名空间
+   */
   namespace?: string;
+  nodeAffinity?: string;
+  /**
+   * @remarks
+   * ack的节点标签限制
+   */
   nodeSelectors?: Tag[];
+  podAffinity?: string;
+  podAntiAffinity?: string;
+  preStartCommand?: string[];
+  pvcs?: AckConfigPvcs[];
+  /**
+   * @remarks
+   * Pod的CPU请求值
+   */
   requestCpu?: number;
+  /**
+   * @remarks
+   * Pod的内存请求值。
+   */
   requestMemory?: number;
+  /**
+   * @remarks
+   * ack的节点污点容忍
+   */
   tolerations?: Toleration[];
+  volumeMounts?: AckConfigVolumeMounts[];
+  volumes?: AckConfigVolumes[];
   static names(): { [key: string]: string } {
     return {
       ackInstanceId: 'AckInstanceId',
@@ -33,10 +71,17 @@ export class AckConfig extends $tea.Model {
       limitMemory: 'LimitMemory',
       mountHostCgroup: 'MountHostCgroup',
       namespace: 'Namespace',
+      nodeAffinity: 'NodeAffinity',
       nodeSelectors: 'NodeSelectors',
+      podAffinity: 'PodAffinity',
+      podAntiAffinity: 'PodAntiAffinity',
+      preStartCommand: 'PreStartCommand',
+      pvcs: 'Pvcs',
       requestCpu: 'RequestCpu',
       requestMemory: 'RequestMemory',
       tolerations: 'Tolerations',
+      volumeMounts: 'VolumeMounts',
+      volumes: 'Volumes',
     };
   }
 
@@ -51,10 +96,17 @@ export class AckConfig extends $tea.Model {
       limitMemory: 'number',
       mountHostCgroup: 'boolean',
       namespace: 'string',
+      nodeAffinity: 'string',
       nodeSelectors: { 'type': 'array', 'itemType': Tag },
+      podAffinity: 'string',
+      podAntiAffinity: 'string',
+      preStartCommand: { 'type': 'array', 'itemType': 'string' },
+      pvcs: { 'type': 'array', 'itemType': AckConfigPvcs },
       requestCpu: 'number',
       requestMemory: 'number',
       tolerations: { 'type': 'array', 'itemType': Toleration },
+      volumeMounts: { 'type': 'array', 'itemType': AckConfigVolumeMounts },
+      volumes: { 'type': 'array', 'itemType': AckConfigVolumes },
     };
   }
 
@@ -64,7 +116,18 @@ export class AckConfig extends $tea.Model {
 }
 
 export class AckNode extends $tea.Model {
+  /**
+   * @remarks
+   * 节点ID。
+   * 
+   * @example
+   * i-bp1cudc25w2bfwl5****
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * ACK节点选择器。
+   */
   nodeSelector?: AckNodeSelector;
   static names(): { [key: string]: string } {
     return {
@@ -86,7 +149,18 @@ export class AckNode extends $tea.Model {
 }
 
 export class AckNodePool extends $tea.Model {
+  /**
+   * @remarks
+   * 节点池ID。
+   * 
+   * @example
+   * npe76629caa1b14a73bf3e47c6d481****
+   */
   nodePoolId?: string;
+  /**
+   * @remarks
+   * ACK节点选择器。
+   */
   nodeSelector?: AckNodeSelector;
   static names(): { [key: string]: string } {
     return {
@@ -108,7 +182,15 @@ export class AckNodePool extends $tea.Model {
 }
 
 export class AckNodeSelector extends $tea.Model {
+  /**
+   * @remarks
+   * 污点列表。
+   */
   labels?: AckNodeSelectorLabels[];
+  /**
+   * @remarks
+   * 污点列表。
+   */
   taints?: AckNodeSelectorTaints[];
   static names(): { [key: string]: string } {
     return {
@@ -130,12 +212,58 @@ export class AckNodeSelector extends $tea.Model {
 }
 
 export class ApiTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * 接口名。
+   * 
+   * @example
+   * CreateCluster
+   */
   apiName?: string;
+  /**
+   * @remarks
+   * 模版接口参数。
+   */
   content?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * 资源组ID。
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * 模板状态。
+   * 
+   * @example
+   * READY
+   */
   status?: string;
+  /**
+   * @remarks
+   * 模板ID。
+   * 
+   * @example
+   * AT-Af***
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * 模板ID。
+   * 
+   * @example
+   * AT-Af***
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -167,6 +295,15 @@ export class ApiTemplate extends $tea.Model {
 }
 
 export class Application extends $tea.Model {
+  /**
+   * @remarks
+   * 应用名称。从EMR控制台集群创建页面可查看到指定发行版的应用名称列表。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -186,12 +323,71 @@ export class Application extends $tea.Model {
 }
 
 export class ApplicationConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 应用名称。从EMR控制台集群创建页面可查看到指定发行版的应用名称列表。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * 应用配置文件名。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * hdfs-site.xml
+   */
   configFileName?: string;
+  /**
+   * @remarks
+   * 配置项键。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dfs.namenode.checkpoint.period
+   */
   configItemKey?: string;
+  /**
+   * @remarks
+   * 配置项值。
+   * 
+   * @example
+   * 3600s
+   */
   configItemValue?: string;
+  /**
+   * @remarks
+   * 配置范围。取值范围：
+   * - CLUSTER：集群级别。
+   * - NODE_GROUP：节点组级别。
+   * 
+   * 默认值：CLUSTER。
+   * 
+   * @example
+   * NODE_GROUP
+   */
   configScope?: string;
+  /**
+   * @remarks
+   * 节点组ID。ConfigScope取值NODE_GROUP时，该参数生效。NodeGroupId参数优先级高于NodeGroupName。
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * 节点组名称。ConfigScope取值NODE_GROUP时，且参数NodeGroupId为空时生效，该参数生效。
+   * 
+   * @example
+   * core-1
+   */
   nodeGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -223,7 +419,25 @@ export class ApplicationConfig extends $tea.Model {
 }
 
 export class ApplicationConfigFile extends $tea.Model {
+  /**
+   * @remarks
+   * 应用名称。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * 配置文件名称。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * core-site.xml
+   */
   configFileName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -245,15 +459,51 @@ export class ApplicationConfigFile extends $tea.Model {
 }
 
 export class ApplicationConfigParam extends $tea.Model {
+  /**
+   * @example
+   * DELETE
+   */
   configAction?: string;
+  /**
+   * @example
+   * hdfs-site.xml
+   */
   configFileName?: string;
+  /**
+   * @example
+   * namenode checkpoint period
+   */
   configItemDescription?: string;
+  /**
+   * @example
+   * dfs.namenode.checkpoint.period
+   */
   configItemKey?: string;
+  /**
+   * @example
+   * 3600s
+   */
   configItemValue?: string;
   configScope?: string;
+  /**
+   * @example
+   * RESTART
+   */
   effectiveActions?: string;
+  /**
+   * @example
+   * MANUAL
+   */
   effectiveType?: string;
+  /**
+   * @example
+   * G-DE1CF4661E09****
+   */
   nodeGroupId?: string;
+  /**
+   * @example
+   * i-bp10h9rezawz1i4o****
+   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -291,7 +541,21 @@ export class ApplicationConfigParam extends $tea.Model {
 }
 
 export class Attribute extends $tea.Model {
+  /**
+   * @remarks
+   * 键。
+   * 
+   * @example
+   * currentYarnRangerPluginState
+   */
   key?: string;
+  /**
+   * @remarks
+   * 值。
+   * 
+   * @example
+   * true
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -313,11 +577,55 @@ export class Attribute extends $tea.Model {
 }
 
 export class AutoRenewInstance extends $tea.Model {
+  /**
+   * @remarks
+   * 自动续费。
+   * 
+   * @example
+   * true
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * 自动续费时长。
+   * 
+   * @example
+   * 12
+   */
   autoRenewDuration?: number;
+  /**
+   * @remarks
+   * 自动付费时长单位。
+   * 
+   * @example
+   * Month
+   */
   autoRenewDurationUnit?: string;
+  /**
+   * @remarks
+   * emr实例自动续费时长。
+   * 
+   * @example
+   * 12
+   */
   emrAutoRenewDuration?: number;
+  /**
+   * @remarks
+   * emr实例自动续费时长单位。
+   * 
+   * @example
+   * Month
+   */
   emrAutoRenewDurationUnit?: string;
+  /**
+   * @remarks
+   * 节点ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp1cudc25w2bfwl5****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -375,13 +683,60 @@ export class AutoRenewInstanceParam extends $tea.Model {
 }
 
 export class AutoScalingConstraints extends $tea.Model {
+  /**
+   * @remarks
+   * 按负载伸缩指标单位描述。
+   */
   autoScalingMetricUnits?: MetricUnitValue[];
+  /**
+   * @remarks
+   * 默认按负载弹性伸缩规则列表
+   */
   defaultMetricTriggeredRules?: ScalingRule[];
+  /**
+   * @remarks
+   * 单次伸缩活动最大扩缩容节点数量。
+   * 
+   * @example
+   * 1000
+   */
   maxAdjustmentValue?: number;
+  /**
+   * @remarks
+   * 按负载规则数量最大值。
+   * 
+   * @example
+   * 10
+   */
   maxByLoadRuleCount?: number;
+  /**
+   * @remarks
+   * 按时间规则数量最大值。
+   * 
+   * @example
+   * 10
+   */
   maxByTimeRuleCount?: number;
+  /**
+   * @remarks
+   * 支持的按负载弹性伸缩指标Tag列表。
+   */
   supportMetricTags?: AutoScalingConstraintsSupportMetricTags[];
+  /**
+   * @remarks
+   * 支持的按负载弹性伸缩指标列表。
+   * 
+   * @example
+   * ["YarnRootAvailableMemoryUsage","YarnRootAvailableVcores"]
+   */
   supportMetrics?: string[];
+  /**
+   * @remarks
+   * 支持的弹性伸缩规则类型。
+   * 
+   * @example
+   * ["TIME_TRIGGER","METRICS_TRIGGER"]
+   */
   supportRuleTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -437,12 +792,66 @@ export class AutoScalingPolicy extends $tea.Model {
 }
 
 export class ByLoadScalingRule extends $tea.Model {
+  /**
+   * @remarks
+   * 比较符。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LT
+   */
   comparisonOperator?: string;
   coolDownInterval?: number;
+  /**
+   * @remarks
+   * 统计次数。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   evaluationCount?: number;
+  /**
+   * @remarks
+   * 指标名称。指标名称需要在 ListAutoScalingMetrics 接口返回的指标名称列表中。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * yarn_resourcemanager_root_availablememoryusage
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * 统计量名称。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AVG
+   */
   statistics?: string;
+  /**
+   * @remarks
+   * 阈值。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12.5
+   */
   threshold?: number;
+  /**
+   * @remarks
+   * 统计窗口。单位为秒。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   timeWindow?: number;
   static names(): { [key: string]: string } {
     return {
@@ -474,11 +883,65 @@ export class ByLoadScalingRule extends $tea.Model {
 }
 
 export class ByLoadScalingRuleSpec extends $tea.Model {
+  /**
+   * @remarks
+   * 比较符。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LT
+   */
   comparisonOperator?: string;
+  /**
+   * @remarks
+   * 统计次数。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   evaluationCount?: number;
+  /**
+   * @remarks
+   * 指标名称。指标名称需要在 ListAutoScalingMetrics 接口返回的指标名称列表中。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * yarn_resourcemanager_root_availablememoryusage
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * 统计量名称。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AVG
+   */
   statistics?: string;
+  /**
+   * @remarks
+   * 阈值。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12.5
+   */
   threshold?: number;
+  /**
+   * @remarks
+   * 统计窗口。单位为秒。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   timeWindow?: number;
   static names(): { [key: string]: string } {
     return {
@@ -508,10 +971,52 @@ export class ByLoadScalingRuleSpec extends $tea.Model {
 }
 
 export class ByTimeScalingRule extends $tea.Model {
+  /**
+   * @remarks
+   * 重复执行定时任务的结束时间戳。单位为毫秒。
+   * 
+   * @example
+   * 1639714800000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * 定时任务触发操作失败后，在此时间内重试。单位为秒，取值范围：0~3600。
+   * 
+   * @example
+   * 600
+   */
   launchExpirationTime?: number;
+  /**
+   * @remarks
+   * 启动时间戳。单位为毫秒。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1639714634819
+   */
   launchTime?: number;
+  /**
+   * @remarks
+   * 指定时间规则的执行类型。
+   * 
+   * @example
+   * WEEKLY
+   */
   recurrenceType?: string;
+  /**
+   * @remarks
+   * 重复执行定时任务的数值。具体取值取决于 recurrenceType 设置。
+   * - recurrenceType 取 MINUTELY 时，只能填一个数值，取值范围：1~1440。
+   * - recurrenceType 取 HOURLY 时，只能填一个数值，取值范围：1~24。
+   * - recurrenceType 取 DAILY 时，只能填一个数值，取值范围：1~31。
+   * - recurrenceType 取 WEEKLY 时，可以填入多个值，填多个值时使用英文逗号（,）分隔。周一到周天分别用MON，TUE，WED，THU，FRI，SAT，SUN代替。 比如 MON,FRI,SUN 代表周一、周五、周天。
+   * - recurrenceType 取 MONTHLY 时，格式为A-B或者A,B。A、B的取值范围为1~31，如果使用A-B时B必须大于A。
+   * 
+   * @example
+   * MON,FRI,SUN
+   */
   recurrenceValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -539,9 +1044,39 @@ export class ByTimeScalingRule extends $tea.Model {
 }
 
 export class ByTimeScalingRuleSpec extends $tea.Model {
+  /**
+   * @remarks
+   * 重复执行定时任务的结束时间戳。单位为毫秒。
+   * 
+   * @example
+   * 1639714800000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * 启动时间戳。单位为毫秒。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1639714634819
+   */
   launchTime?: number;
+  /**
+   * @remarks
+   * 指定时间规则的执行类型。
+   * 
+   * @example
+   * WEEKLY
+   */
   recurrenceType?: string;
+  /**
+   * @remarks
+   * 重复执行定时任务的数值。具体取值取决于 recurrenceType 设置。
+   * 
+   * @example
+   * MON,FRI,SUN
+   */
   recurrenceValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -595,24 +1130,142 @@ export class ClickhouseConf extends $tea.Model {
 }
 
 export class Cluster extends $tea.Model {
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * 集群名称。
+   * 
+   * @example
+   * emrtest
+   */
   clusterName?: string;
+  /**
+   * @remarks
+   * 集群状态。
+   * 
+   * @example
+   * RUNNING
+   */
   clusterState?: string;
+  /**
+   * @remarks
+   * 集群类型。
+   * 
+   * @example
+   * DATALAKE
+   */
   clusterType?: string;
+  /**
+   * @remarks
+   * 创建时间。
+   * 
+   * @example
+   * 1592837465784
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * 部署模式。
+   * 
+   * @example
+   * HA
+   */
   deployMode?: string;
+  description?: string;
+  /**
+   * @remarks
+   * EMR默认角色。
+   * 
+   * @example
+   * AliyunEMRDefaultRole
+   */
   emrDefaultRole?: string;
+  /**
+   * @remarks
+   * 删除时间。
+   * 
+   * @example
+   * 1592837465784
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * 过期时间。
+   * 
+   * @example
+   * 1592837465784
+   */
   expireTime?: number;
+  /**
+   * @remarks
+   * 节点属性。
+   */
   nodeAttributes?: NodeAttributes;
+  /**
+   * @remarks
+   * 付费类型。
+   * 
+   * @example
+   * PayAsYouGo
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * 可用时间。
+   * 
+   * @example
+   * 1592837465784
+   */
   readyTime?: number;
+  /**
+   * @remarks
+   * 地域ID。
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * EMR发行版。
+   * 
+   * @example
+   * EMR-5.3.0
+   */
   releaseVersion?: string;
+  /**
+   * @remarks
+   * 资源组ID。
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * Kerberos安全模式。
+   * 
+   * @example
+   * NORMAL
+   */
   securityMode?: string;
   stateChangeReason?: ClusterStateChangeReason;
+  /**
+   * @remarks
+   * 预付费配置。
+   */
   subscriptionConfig?: SubscriptionConfig;
+  /**
+   * @remarks
+   * 集群标签。
+   */
   tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
@@ -622,6 +1275,7 @@ export class Cluster extends $tea.Model {
       clusterType: 'ClusterType',
       createTime: 'CreateTime',
       deployMode: 'DeployMode',
+      description: 'Description',
       emrDefaultRole: 'EmrDefaultRole',
       endTime: 'EndTime',
       expireTime: 'ExpireTime',
@@ -646,6 +1300,7 @@ export class Cluster extends $tea.Model {
       clusterType: 'string',
       createTime: 'number',
       deployMode: 'string',
+      description: 'string',
       emrDefaultRole: 'string',
       endTime: 'number',
       expireTime: 'number',
@@ -668,7 +1323,15 @@ export class Cluster extends $tea.Model {
 }
 
 export class ClusterScript extends $tea.Model {
+  /**
+   * @example
+   * 取值:FAILED_CONTINUE, FAILED_BLOCKED
+   */
   executionFailStrategy?: string;
+  /**
+   * @example
+   * 取值:BEFORE_INSTALL, AFTER_STARTED
+   */
   executionMoment?: string;
   nodeSelect?: NodeSelector;
   priority?: number;
@@ -705,7 +1368,32 @@ export class ClusterScript extends $tea.Model {
 }
 
 export class ClusterStateChangeReason extends $tea.Model {
+  /**
+   * @remarks
+   * 状态码。取值范围：
+   * - UserRequest：用户请求。
+   * - OutOfStock：请求的ECS实例类型无库存。
+   * - NotAuthorized：无权限。
+   * - QuotaExceeded：Quota超出。
+   * - OperationDenied：操作被拒绝。
+   * - AccountException：账号异常。
+   * - NodeFailure：ECS节点异常。
+   * - BootstrapFailure：引导失败。
+   * - ValidationFail：业务逻辑校验失败。
+   * - ServiceFailure：依赖的其他服务失败。
+   * - InternalError：内部错误。
+   * 
+   * @example
+   * OutOfStock
+   */
   code?: string;
+  /**
+   * @remarks
+   * 状态变化信息。
+   * 
+   * @example
+   * The requested resource is sold out in the specified zone, try other types of resources or other regions and zones.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -727,19 +1415,123 @@ export class ClusterStateChangeReason extends $tea.Model {
 }
 
 export class ClusterSummary extends $tea.Model {
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * 集群名称。
+   * 
+   * @example
+   * emrtest
+   */
   clusterName?: string;
+  /**
+   * @remarks
+   * 集群状态。取值范围：
+   * - STARTING：启动中。
+   * - START_FAILED：启动失败。
+   * - BOOTSTRAPPING：引导操作初始化。
+   * - RUNNING：运行中。
+   * - TERMINATING：终止中。
+   * - TERMINATED：已终止。
+   * - TERMINATED_WITH_ERRORS：发生异常导致终止。
+   * - TERMINATE_FAILED：终止失败。
+   * 
+   * @example
+   * RUNNING
+   */
   clusterState?: string;
+  /**
+   * @remarks
+   * 集群类型。取值范围：
+   * - DATALAKE：新版数据湖。
+   * - OLAP：数据分析。
+   * - DATAFLOW：实时数据流。
+   * - DATASERVING：数据服务。
+   * 
+   * @example
+   * DATALAKE
+   */
   clusterType?: string;
+  /**
+   * @remarks
+   * 创建时间。
+   * 
+   * @example
+   * 1592837465784
+   */
   createTime?: number;
+  description?: string;
+  /**
+   * @remarks
+   * EMR服务角色。
+   */
   emrDefaultRole?: string;
+  /**
+   * @remarks
+   * 删除时间。
+   * 
+   * @example
+   * 1592837465784
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * 过期时间。
+   * 
+   * @example
+   * 1592837465784
+   */
   expireTime?: number;
+  /**
+   * @remarks
+   * 付费类型。取值范围：
+   * - PayAsYouGo：后付费。
+   * - Subscription：预付费。
+   * 
+   * @example
+   * PayAsYouGo
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * 可用时间。
+   * 
+   * @example
+   * 1592837465784
+   */
   readyTime?: number;
+  /**
+   * @remarks
+   * EMR发行版。
+   * 
+   * @example
+   * EMR-5.8.0
+   */
   releaseVersion?: string;
+  /**
+   * @remarks
+   * 资源组ID。
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * 失败原因。
+   */
   stateChangeReason?: ClusterStateChangeReason;
+  /**
+   * @remarks
+   * 标签列表。
+   */
   tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
@@ -748,6 +1540,7 @@ export class ClusterSummary extends $tea.Model {
       clusterState: 'ClusterState',
       clusterType: 'ClusterType',
       createTime: 'CreateTime',
+      description: 'Description',
       emrDefaultRole: 'EmrDefaultRole',
       endTime: 'EndTime',
       expireTime: 'ExpireTime',
@@ -767,6 +1560,7 @@ export class ClusterSummary extends $tea.Model {
       clusterState: 'string',
       clusterType: 'string',
       createTime: 'number',
+      description: 'string',
       emrDefaultRole: 'string',
       endTime: 'number',
       expireTime: 'number',
@@ -785,10 +1579,41 @@ export class ClusterSummary extends $tea.Model {
 }
 
 export class ComponentInstanceSelector extends $tea.Model {
+  /**
+   * @deprecated
+   */
   actionScope?: string;
+  /**
+   * @remarks
+   * 应用名称。
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * 组件实例列表。actionScope为COPONENT_INSTANCE时使用。
+   */
   componentInstances?: ComponentInstanceSelectorComponentInstances[];
+  /**
+   * @remarks
+   * 组件列表。
+   * actionScope为COPONENT时使用。
+   */
   components?: ComponentInstanceSelectorComponents[];
+  /**
+   * @remarks
+   * 动作执行范围。取值范围：
+   * - APPLICATION：应用级别。
+   * - COMPONENT：组件级别。
+   * - COMPONENT_INSTANCE：组件实例级别。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * APPLICATION
+   */
   runActionScope?: string;
   static names(): { [key: string]: string } {
     return {
@@ -816,8 +1641,26 @@ export class ComponentInstanceSelector extends $tea.Model {
 }
 
 export class ComponentLayout extends $tea.Model {
+  /**
+   * @remarks
+   * 应用名称。
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * 组件名称。
+   * 
+   * @example
+   * DataNode
+   */
   componentName?: string;
+  /**
+   * @remarks
+   * 节点选择器。
+   */
   nodeSelector?: ComponentLayoutNodeSelector;
   static names(): { [key: string]: string } {
     return {
@@ -841,7 +1684,21 @@ export class ComponentLayout extends $tea.Model {
 }
 
 export class ConfigEffectActions extends $tea.Model {
+  /**
+   * @remarks
+   * 配置生效动作。
+   * 
+   * @example
+   * restart
+   */
   configEffectAction?: string;
+  /**
+   * @remarks
+   * 配置生效配置文件。
+   * 
+   * @example
+   * null
+   */
   configFiles?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -863,9 +1720,37 @@ export class ConfigEffectActions extends $tea.Model {
 }
 
 export class ConvertNodeGroup extends $tea.Model {
+  /**
+   * @remarks
+   * 节点组ID。
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * 付费时长。
+   * 
+   * @example
+   * 12
+   */
   paymentDuration?: number;
+  /**
+   * @remarks
+   * 付费时长单位。
+   * 
+   * @example
+   * Month
+   */
   paymentDurationUnit?: string;
+  /**
+   * @remarks
+   * 付费类型。
+   * 
+   * @example
+   * PayAsYouGo
+   */
   paymentType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -891,9 +1776,21 @@ export class ConvertNodeGroup extends $tea.Model {
 }
 
 export class ConvertNodeGroupParam extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   paymentDuration?: number;
   paymentDurationUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   paymentType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -919,8 +1816,35 @@ export class ConvertNodeGroupParam extends $tea.Model {
 }
 
 export class CostOptimizedConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 按量实例个数的最小值。节点组所需要按量实例个数的最小值，取值范围：0~1000。当按量实例个数少于该值时，将优先创建按量实例。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 80
+   */
   onDemandBaseCapacity?: number;
+  /**
+   * @remarks
+   * 节点组满足最小按量实例OnDemandBaseCapacity要求后，超出的实例中按量实例应占的比例，取值范围：0～100。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 80
+   */
   onDemandPercentageAboveBaseCapacity?: number;
+  /**
+   * @remarks
+   * 指定可用实例规格的个数，伸缩组将按成本最低的多个规格均衡创建抢占式实例。取值范围：0~10。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   spotInstancePools?: number;
   static names(): { [key: string]: string } {
     return {
@@ -944,25 +1868,89 @@ export class CostOptimizedConfig extends $tea.Model {
 }
 
 export class CreateNodeGroupParam extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   autoRenew?: boolean;
+  /**
+   * @example
+   * 1
+   */
   autoRenewDuration?: number;
+  /**
+   * @example
+   * Monthly
+   */
   autoRenewDurationUnit?: string;
   dataDisks?: DiskInfo[];
   instanceTypes?: string[];
+  /**
+   * @example
+   * 2
+   */
   nodeCount?: number;
+  /**
+   * @example
+   * core-1
+   */
   nodeGroupName?: string;
+  /**
+   * @example
+   * CORE
+   */
   nodeGroupType?: string;
+  /**
+   * @example
+   * sshkey
+   */
   nodeKeyPairName?: string;
+  /**
+   * @example
+   * AliyunEmrEcsDefaultRole
+   */
   nodeRamRole?: string;
+  /**
+   * @example
+   * *******
+   */
   nodeRootPassword?: string;
+  /**
+   * @example
+   * 1
+   */
   paymentDuration?: number;
+  /**
+   * @example
+   * Monthly
+   */
   paymentDurationUnit?: string;
+  /**
+   * @example
+   * Subscription
+   */
   paymentType?: string;
+  /**
+   * @example
+   * sg-hp3abbae8lb6lmb1****
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * NoSpot
+   */
   spotStrategy?: string;
   systemDisk?: SystemDiskParam;
   vSwitchIds?: string[];
+  /**
+   * @example
+   * true
+   */
   withPublicIp?: boolean;
+  /**
+   * @example
+   * cn-hangzhou-e
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1020,9 +2008,47 @@ export class CreateNodeGroupParam extends $tea.Model {
 }
 
 export class DataDisk extends $tea.Model {
+  /**
+   * @remarks
+   * 磁盘类型。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cloud_essd
+   */
   category?: string;
+  /**
+   * @remarks
+   * 每个节点磁盘数量。
+   * 
+   * @example
+   * 5
+   */
   count?: number;
+  /**
+   * @remarks
+   * 创建ESSD云盘作为数据盘使用时，设置云盘的性能等级。取值范围：
+   * - PL0：单盘最高随机读写IOPS 1万。
+   * - PL1（默认）：单盘最高随机读写IOPS 5万。
+   * - PL2：单盘最高随机读写IOPS 10万。
+   * - PL3：单盘最高随机读写IOPS 100万。
+   * 
+   * 默认值：PL1。
+   * 
+   * @example
+   * PL1
+   */
   performanceLevel?: string;
+  /**
+   * @remarks
+   * 单位GB。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 80
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1048,7 +2074,18 @@ export class DataDisk extends $tea.Model {
 }
 
 export class DecreaseNodeGroupParam extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * G-21E39B11837E****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   releaseInstanceIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1095,9 +2132,31 @@ export class DeploymentLayout extends $tea.Model {
 }
 
 export class DeploymentSetConstraints extends $tea.Model {
+  /**
+   * @remarks
+   * 默认值。
+   * 
+   * @example
+   * CLUSTER
+   */
   defaultValue?: string;
+  /**
+   * @example
+   * 是否启用部署集限制策略
+   */
   enableState?: string;
+  /**
+   * @remarks
+   * 替换策略。
+   */
   replacementStrategy?: ReplacementStrategy;
+  /**
+   * @remarks
+   * 枚举值。
+   * 
+   * @example
+   * ["CLUSTER","NODE_GROUP","NONE"]
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1123,9 +2182,37 @@ export class DeploymentSetConstraints extends $tea.Model {
 }
 
 export class Disk extends $tea.Model {
+  /**
+   * @remarks
+   * 磁盘类型。
+   * 
+   * @example
+   * cloud_essd
+   */
   category?: string;
+  /**
+   * @remarks
+   * 每个节点磁盘数量。
+   * 
+   * @example
+   * 5
+   */
   count?: number;
+  /**
+   * @remarks
+   * 性能级别。
+   * 
+   * @example
+   * S0
+   */
   performanceLevel?: string;
+  /**
+   * @remarks
+   * 单位GB。
+   * 
+   * @example
+   * 80
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1151,8 +2238,23 @@ export class Disk extends $tea.Model {
 }
 
 export class DiskConstraints extends $tea.Model {
+  /**
+   * @remarks
+   * 支持的磁盘类型。
+   * 
+   * @example
+   * ["cloud_efficiency","cloud_ssd","cloud_essd","local_disk"]
+   */
   categories?: string[];
+  /**
+   * @remarks
+   * 磁盘数量最小值。
+   */
   countConstraint?: ValueConstraints;
+  /**
+   * @remarks
+   * 磁盘容量限制。
+   */
   sizeConstraint?: ValueConstraints;
   static names(): { [key: string]: string } {
     return {
@@ -1204,7 +2306,23 @@ export class DiskInfo extends $tea.Model {
 }
 
 export class DiskSize extends $tea.Model {
+  /**
+   * @remarks
+   * 磁盘类型。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cloud_essd
+   */
   category?: string;
+  /**
+   * @remarks
+   * 单位GB。
+   * 
+   * @example
+   * 80
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1226,8 +2344,29 @@ export class DiskSize extends $tea.Model {
 }
 
 export class FailedReason extends $tea.Model {
+  /**
+   * @remarks
+   * 错误码。
+   * 
+   * @example
+   * MissingParameter.InstanceType
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * 错误信息。
+   * 
+   * @example
+   * The instance type is required.
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944abcd
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1251,12 +2390,40 @@ export class FailedReason extends $tea.Model {
 }
 
 export class HealthSummary extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   badCount?: number;
+  /**
+   * @example
+   * 2
+   */
   goodCount?: number;
+  /**
+   * @example
+   * 0
+   */
   noneCount?: number;
+  /**
+   * @example
+   * 2
+   */
   stoppedCount?: number;
+  /**
+   * @example
+   * 8
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0
+   */
   unknownCount?: number;
+  /**
+   * @example
+   * 2
+   */
   warningCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1288,11 +2455,57 @@ export class HealthSummary extends $tea.Model {
 }
 
 export class IncreaseNodeGroup extends $tea.Model {
+  /**
+   * @remarks
+   * 描述。
+   * 
+   * @example
+   * 描述
+   */
   description?: string;
+  /**
+   * @remarks
+   * 节点数量。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   nodeCount?: number;
+  /**
+   * @remarks
+   * 节点组ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * 付费时长。
+   * 
+   * @example
+   * 12
+   */
   paymentDuration?: number;
+  /**
+   * @remarks
+   * 付费时长单位。
+   * 
+   * @example
+   * Month
+   */
   paymentDurationUnit?: string;
+  /**
+   * @remarks
+   * 虚拟机交换机ID。
+   * 
+   * @example
+   * vsw-hp35g7ya5ymw68mmg****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1353,8 +2566,23 @@ export class IncreaseNodeGroupParam extends $tea.Model {
 }
 
 export class InstanceCategory extends $tea.Model {
+  /**
+   * @remarks
+   * 默认值。
+   * 
+   * @example
+   * CLUSTER
+   */
   defaultValue?: string;
+  /**
+   * @example
+   * null
+   */
   keys?: string[];
+  /**
+   * @example
+   * null
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1378,13 +2606,84 @@ export class InstanceCategory extends $tea.Model {
 }
 
 export class InstanceType extends $tea.Model {
+  /**
+   * @remarks
+   * cpu架构。
+   * 
+   * @example
+   * X86
+   */
   cpuArchitecture?: string;
+  /**
+   * @remarks
+   * vCPU内核数目。
+   * 
+   * @example
+   * 4
+   */
   cpuCore?: number;
+  /**
+   * @remarks
+   * 实例规格分类。取值范围：
+   * - General-purpose： 通用型。
+   * - Compute-optimized：计算型。
+   * - Memory-optimized：内存型。
+   * - Big data：大数据型。
+   * - Local SSDs ：本地SSD型。
+   * - High Clock Speed ：高主频型。
+   * - Enhanced ：增强型。
+   * - Shared：共享型。
+   * - Compute-optimized with GPU ：GPU计算型。
+   * - Visual Compute-optimized ：视觉计算型。
+   * - Heterogeneous Service ：异构服务型。
+   * - Compute-optimized with FPGA ：FPGA计算型。
+   * - Compute-optimized with NPU ：NPU计算型。
+   * - ECS Bare Metal ：弹性裸金属服务器。
+   * - Super Computing Cluster：超级计算集群。
+   * 
+   * @example
+   * Compute-optimized
+   */
   instanceCategory?: string;
+  /**
+   * @remarks
+   * 实例规格。
+   * 
+   * @example
+   * ecs.g6.large
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * 实例规格所属的实例规格族。取值请参见DescribeInstanceTypeFamilies。
+   * 
+   * @example
+   * ecs.g6
+   */
   instanceTypeFamily?: string;
+  /**
+   * @remarks
+   * 实例挂载的本地盘的数量。
+   * 
+   * @example
+   * 8
+   */
   localStorageAmount?: number;
+  /**
+   * @remarks
+   * 实例挂载的本地盘的单盘容量。单位：GiB
+   * 
+   * @example
+   * 40
+   */
   localStorageCapacity?: number;
+  /**
+   * @remarks
+   * 是否IO优化类型。
+   * 
+   * @example
+   * true
+   */
   optimized?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1418,7 +2717,21 @@ export class InstanceType extends $tea.Model {
 }
 
 export class KeyValue extends $tea.Model {
+  /**
+   * @remarks
+   * 键。
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * 值。
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1491,6 +2804,52 @@ export class ListApiTemplatesDTO extends $tea.Model {
   }
 }
 
+export class ManagedScalingConstraints extends $tea.Model {
+  /**
+   * @remarks
+   * 最大值。
+   * 
+   * @example
+   * 2000
+   */
+  maxCapacity?: number;
+  /**
+   * @remarks
+   * 最大按量节点数量
+   * 
+   * @example
+   * 0
+   */
+  maxOnDemandCapacity?: number;
+  /**
+   * @remarks
+   * 最小值。
+   * 
+   * @example
+   * 0
+   */
+  minCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxCapacity: 'MaxCapacity',
+      maxOnDemandCapacity: 'MaxOnDemandCapacity',
+      minCapacity: 'MinCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxCapacity: 'number',
+      maxOnDemandCapacity: 'number',
+      minCapacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MetaStoreConf extends $tea.Model {
   dbPassword?: string;
   dbUrl?: string;
@@ -1517,7 +2876,15 @@ export class MetaStoreConf extends $tea.Model {
 }
 
 export class MetricUnitValue extends $tea.Model {
+  /**
+   * @remarks
+   * 指标名称。
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * 指标单位。
+   */
   metricUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1539,11 +2906,53 @@ export class MetricUnitValue extends $tea.Model {
 }
 
 export class MetricsTrigger extends $tea.Model {
+  /**
+   * @remarks
+   * 多指标逻辑关系。默认：Or。取值范围：
+   * - And:与
+   * - Or：或
+   * 
+   * @example
+   * Or
+   */
   conditionLogicOperator?: string;
+  /**
+   * @remarks
+   * 指标触发条件列表。
+   */
   conditions?: TriggerCondition[];
+  /**
+   * @remarks
+   * 冷却时间。 单位为秒
+   * 
+   * @example
+   * 300
+   */
   coolDownInterval?: number;
+  /**
+   * @remarks
+   * 统计次数。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   evaluationCount?: number;
+  /**
+   * @remarks
+   * 时间限制。
+   */
   timeConstraints?: TimeConstraint[];
+  /**
+   * @remarks
+   * 统计窗口。单位为秒。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   timeWindow?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1573,20 +2982,125 @@ export class MetricsTrigger extends $tea.Model {
 }
 
 export class Node extends $tea.Model {
+  /**
+   * @remarks
+   * 节点是否自动续费。
+   * 
+   * @example
+   * false
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * 节点自动续费时长。
+   * 
+   * @example
+   * 1
+   */
   autoRenewDuration?: number;
+  /**
+   * @remarks
+   * 节点自动续费时长单位。
+   * 
+   * @example
+   * Month
+   */
   autoRenewDurationUnit?: string;
   createTime?: number;
+  /**
+   * @remarks
+   * 节点过期时间。
+   * 
+   * @example
+   * 1603728394857
+   */
   expireTime?: number;
+  /**
+   * @remarks
+   * 实例类型。
+   * 
+   * @example
+   * ecs.g6e.xlarge
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * 运维模式状态。取值范围：
+   * - ON：处于运维模式。
+   * - OFF：处于非运维模式。
+   * 
+   * 为空表示处于非运维模式。
+   */
   maintenanceStatus?: string;
+  /**
+   * @remarks
+   * 节点组ID。
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * 节点组类型。
+   * 
+   * @example
+   * CORE
+   */
   nodeGroupType?: string;
+  /**
+   * @remarks
+   * 节点ID。
+   * 
+   * @example
+   * i-bp1cudc25w2bfwl5****
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * 节点名称。
+   * 
+   * @example
+   * core1-1
+   */
   nodeName?: string;
+  /**
+   * @remarks
+   * 节点状态。取值范围：
+   * - Pending：创建中。
+   * - Starting：启动中。
+   * - Running：运行中。
+   * - Stopping：停止中。
+   * - Stopped：已停止。
+   * - Terminated：已终止。
+   * 
+   * @example
+   * Running
+   */
   nodeState?: string;
+  /**
+   * @remarks
+   * 私网IP。
+   * 
+   * @example
+   * 10.10.10.1
+   */
   privateIp?: string;
+  /**
+   * @remarks
+   * 公网IP。
+   * 
+   * @example
+   * 42.120.75.***
+   */
   publicIp?: string;
+  /**
+   * @remarks
+   * 可用区ID。
+   * 
+   * @example
+   * cn-beijing-h
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1634,11 +3148,59 @@ export class Node extends $tea.Model {
 }
 
 export class NodeAttributes extends $tea.Model {
+  /**
+   * @remarks
+   * ECS ssh登录秘钥。
+   * 
+   * @example
+   * emr_login
+   */
   keyPairName?: string;
+  /**
+   * @remarks
+   * MASTER节点root密码。
+   * 
+   * @example
+   * Adxefswfd****
+   */
   masterRootPassword?: string;
+  /**
+   * @remarks
+   * ECS访问资源绑定的角色。
+   * 
+   * @example
+   * AliyunECSInstanceForEMRRole
+   */
   ramRole?: string;
+  /**
+   * @remarks
+   * 安全组ID。EMR只支持普通安全组，不支持企业安全组。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sg-hp3abbae8lb6lmb1****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * 专有网络ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp1tgey2p0ytxmdo5****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * 可用区ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing-h
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1668,8 +3230,23 @@ export class NodeAttributes extends $tea.Model {
 }
 
 export class NodeCountConstraint extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   max?: number;
+  /**
+   * @example
+   * 1
+   */
   min?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * range
+   */
   type?: string;
   values?: number[];
   static names(): { [key: string]: string } {
@@ -1696,27 +3273,181 @@ export class NodeCountConstraint extends $tea.Model {
 }
 
 export class NodeGroup extends $tea.Model {
+  /**
+   * @remarks
+   * 安全组ID。
+   * 
+   * @example
+   * ["sg-hp3abbae8lb6lmb1****"]
+   */
   additionalSecurityGroupIds?: string[];
+  /**
+   * @remarks
+   * 成本优化模式配置。
+   */
   costOptimizedConfig?: CostOptimizedConfig;
+  /**
+   * @remarks
+   * 数据盘列表。
+   */
   dataDisks?: DataDisk[];
+  /**
+   * @remarks
+   * 部署集策略。取值范围：
+   * - NONE：不适用部署集。
+   * - CLUSTER：使用集群级别部署集。
+   * - NODE_GROUP：使用节点组级别部署集。
+   * 
+   * 默认值：NONE。
+   * 
+   * @example
+   * NONE
+   */
   deploymentSetStrategy?: string;
+  /**
+   * @remarks
+   * 节点组上部署的组件是否开启优雅下线。取值范围：
+   * - true：开启优雅下线。
+   * - false：不开启优雅下线。
+   * 
+   * @example
+   * false
+   */
   gracefulShutdown?: boolean;
+  /**
+   * @remarks
+   * 实例类型列表。
+   * 
+   * @example
+   * ["ecs.g6.4xlarge"]
+   */
   instanceTypes?: string[];
+  /**
+   * @remarks
+   * 节点组ID。
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * 节点组名称。最大长度128个字符。
+   * 
+   * @example
+   * core-1
+   */
   nodeGroupName?: string;
+  /**
+   * @remarks
+   * 节点组状态。
+   * 
+   * @example
+   * CREATED
+   */
   nodeGroupState?: string;
+  /**
+   * @remarks
+   * 节点组类型。取值范围：
+   * - MASTER：管理类型节点组。
+   * - CORE：存储类型节点组。
+   * - TASK：计算类型节点组。
+   * 
+   * @example
+   * CORE
+   */
   nodeGroupType?: string;
+  /**
+   * @remarks
+   * - COST_OPTIMIZED：成本优化策略。
+   * - PRIORITY：优先级策略。
+   * 
+   * @example
+   * PRIORITY
+   */
   nodeResizeStrategy?: string;
+  /**
+   * @remarks
+   * 节点组付费类型。取值范围：
+   * - PayAsYouGo：后付费，按量付费。
+   * - Subscription：预付费，包年包月。
+   * 
+   * @example
+   * PayAsYouGo
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * 存活节点数量。
+   * 
+   * @example
+   * 3
+   */
   runningNodeCount?: number;
   spotBidPrices?: SpotBidPrice[];
+  /**
+   * @remarks
+   * 开启补齐抢占式实例后，当收到抢占式实例将被回收的系统消息时，伸缩组将尝试创建新的实例，替换掉将被回收的抢占式实例。取值范围：
+   * - true：开启补齐抢占式实例。
+   * - false：不开启补齐抢占式实例。
+   * 
+   * 默认值：false。
+   * 
+   * @example
+   * true
+   */
   spotInstanceRemedy?: boolean;
+  /**
+   * @remarks
+   * 是否支持竞价实例。
+   * 
+   * @example
+   * NoSpot
+   */
   spotStrategy?: string;
+  /**
+   * @remarks
+   * 状态变化原因。
+   */
   stateChangeReason?: NodeGroupStateChangeReason;
+  /**
+   * @remarks
+   * 节点组状态，NodeGroupState别名。
+   * 
+   * @example
+   * CREATED
+   */
   status?: string;
+  /**
+   * @remarks
+   * 系统盘信息。
+   */
   systemDisk?: SystemDisk;
+  /**
+   * @remarks
+   * 虚拟机交换机ID列表。
+   * 
+   * @example
+   * ["vsw-hp35g7ya5ymw68mmg****"]
+   */
   vSwitchIds?: string[];
+  /**
+   * @remarks
+   * 是否开公网IP。取值范围：
+   * - true：开公网。
+   * - false：不开公网。
+   * 
+   * @example
+   * false
+   */
   withPublicIp?: boolean;
+  /**
+   * @remarks
+   * 可用区ID。
+   * 
+   * @example
+   * cn-beijing-h
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1778,28 +3509,176 @@ export class NodeGroup extends $tea.Model {
 }
 
 export class NodeGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 附加安全组。除集群设置的安全组外，为节点组单独设置的附加安全组。数组元数个数N的取值范围：0~2。
+   * 
+   * @example
+   * ["sg-hp3abbae8lb6lmb1****"]
+   */
   additionalSecurityGroupIds?: string[];
+  autoScalingPolicy?: AutoScalingPolicy;
   componentTags?: string[];
+  /**
+   * @remarks
+   * 成本优化模式配置。
+   */
   costOptimizedConfig?: CostOptimizedConfig;
+  /**
+   * @remarks
+   * 数据盘。当前数据盘只支持一种磁盘类型，即数组元数个数N的取值范围：1~1。
+   */
   dataDisks?: DataDisk[];
+  /**
+   * @remarks
+   * 部署集策略。取值范围：
+   * - NONE：不适用部署集。
+   * - CLUSTER：使用集群级别部署集。
+   * - NODE_GROUP：使用节点组级别部署集。
+   * 
+   * 默认值：NONE。
+   * 
+   * @example
+   * NONE
+   */
   deploymentSetStrategy?: string;
+  /**
+   * @remarks
+   * 节点组上部署的组件是否开启优雅下线。取值范围：
+   * - true：开启优雅下线。
+   * - false：不开启优雅下线。
+   * 
+   * 默认值：false。
+   * 
+   * @example
+   * false
+   */
   gracefulShutdown?: boolean;
+  /**
+   * @remarks
+   * 节点实例类型列表。数组元数个数N的取值范围：1~100。
+   * 
+   * @example
+   * ["ecs.g6.xlarge"]
+   */
   instanceTypes?: string[];
+  /**
+   * @remarks
+   * 节点数量。取值范围：1~1000。
+   * 
+   * @example
+   * 3
+   */
   nodeCount?: number;
+  /**
+   * @remarks
+   * 节点组名称。最大长度128个字符。集群内要求节点组名称唯一。
+   * 
+   * @example
+   * core-1
+   */
   nodeGroupName?: string;
+  /**
+   * @remarks
+   * 节点组类型。取值范围：
+   * - MASTER：管理类型节点组。
+   * - CORE：存储类型节点组。
+   * - TASK：计算类型节点组。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CORE
+   */
   nodeGroupType?: string;
+  /**
+   * @remarks
+   * 节点扩容策略。取值范围：
+   * - COST_OPTIMIZED：成本优化策略。
+   * - PRIORITY：优先级策略。
+   * 
+   * 默认值：PRIORITY。
+   * 
+   * @example
+   * PRIORITY
+   */
   nodeResizeStrategy?: string;
+  /**
+   * @remarks
+   * 节点组付费类型。不传入时默认和集群付费类型一致。取值范围：
+   * - PayAsYouGo：后付费，按量付费。
+   * - Subscription：预付费，包年包月。
+   * 
+   * 默认值：PayAsYouGo。
+   * 
+   * @example
+   * PayAsYouGo
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * 抢占式Spot实例出价价格。参数SpotStrategy取值为SpotWithPriceLimit时生效。数组元数个数N的取值范围：0~100。
+   */
   spotBidPrices?: SpotBidPrice[];
+  /**
+   * @remarks
+   * 开启后，当收到抢占式实例将被回收的系统消息时，伸缩组将尝试创建新的实例，替换掉将被回收的抢占式实例。取值范围：
+   * - true：开启补齐抢占式实例。
+   * - false：不开启补齐抢占式实例。
+   * 
+   * 默认值：false。
+   * 
+   * @example
+   * true
+   */
   spotInstanceRemedy?: boolean;
+  /**
+   * @remarks
+   * 抢占式Spot实例策略。取值范围：
+   * - NoSpot：正常按量付费实例。
+   * - SpotWithPriceLimit：设置最高出价的抢占式实例。
+   * - SpotAsPriceGo：系统自动出价，最高按量付费价格的抢占式实例。
+   * 
+   * 默认值：NoSpot。
+   * 
+   * @example
+   * NoSpot
+   */
   spotStrategy?: string;
+  /**
+   * @remarks
+   * 节点组预付费配置。不传入时默认和集群预付费配置一致。
+   */
   subscriptionConfig?: SubscriptionConfig;
+  /**
+   * @remarks
+   * 系统盘。
+   */
   systemDisk?: SystemDisk;
+  /**
+   * @remarks
+   * 虚拟机交换机ID列表。数组元数个数N的取值范围：1~20。
+   * 
+   * @example
+   * ["vsw-hp35g7ya5ymw68mmg****"]
+   */
   vSwitchIds?: string[];
+  /**
+   * @remarks
+   * 是否开公网IP。取值范围：
+   * - true：开公网。
+   * - false：不开公网。
+   * 
+   * 默认值：false。
+   * 
+   * @example
+   * false
+   */
   withPublicIp?: boolean;
   static names(): { [key: string]: string } {
     return {
       additionalSecurityGroupIds: 'AdditionalSecurityGroupIds',
+      autoScalingPolicy: 'AutoScalingPolicy',
       componentTags: 'ComponentTags',
       costOptimizedConfig: 'CostOptimizedConfig',
       dataDisks: 'DataDisks',
@@ -1824,6 +3703,7 @@ export class NodeGroupConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       additionalSecurityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      autoScalingPolicy: AutoScalingPolicy,
       componentTags: { 'type': 'array', 'itemType': 'string' },
       costOptimizedConfig: CostOptimizedConfig,
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
@@ -1918,7 +3798,21 @@ export class NodeGroupParam extends $tea.Model {
 }
 
 export class NodeGroupStateChangeReason extends $tea.Model {
+  /**
+   * @remarks
+   * 状态码。
+   * 
+   * @example
+   * MissingParameter
+   */
   code?: string;
+  /**
+   * @remarks
+   * 描述信息。
+   * 
+   * @example
+   * The instance type is required.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1940,12 +3834,56 @@ export class NodeGroupStateChangeReason extends $tea.Model {
 }
 
 export class NodeSelector extends $tea.Model {
+  /**
+   * @remarks
+   * 节点组ID。当NodeSelectType取值NodeGroup时，该参数生效。
+   * 
+   * @example
+   * ng-869471354ecd****
+   * 
+   * @deprecated
+   */
   nodeGroupId?: string;
   nodeGroupIds?: string[];
+  /**
+   * @remarks
+   * 节点组名称。当NodeSelectType取值NodeGroup，且参数NodeGroupId为空时生效，该参数生效。
+   * 
+   * @example
+   * master-1
+   * 
+   * @deprecated
+   */
   nodeGroupName?: string;
   nodeGroupNames?: string[];
+  /**
+   * @remarks
+   * 节点组类型。当NodeSelectType取值NodeGroup，且参数NodeGroupId为空时生效。数组元数个数N取值范围：0~10。
+   * 
+   * @example
+   * ["CORE","TASK"]
+   */
   nodeGroupTypes?: string[];
+  /**
+   * @remarks
+   * 节点名称列表。当NodeSelectType取值Node时，该参数生效。
+   * 
+   * @example
+   * ["core1-1"]
+   */
   nodeNames?: string[];
+  /**
+   * @remarks
+   * 节点选择类型。取值范围：
+   * - CLUSTER：集群。
+   * - NODE_GROUP：节点组。
+   * - NODE：节点。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CLUSTER
+   */
   nodeSelectType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1977,8 +3915,29 @@ export class NodeSelector extends $tea.Model {
 }
 
 export class OSUser extends $tea.Model {
+  /**
+   * @remarks
+   * 用户组。
+   * 
+   * @example
+   * hadoop
+   */
   group?: string;
+  /**
+   * @remarks
+   * 用户密码。
+   * 
+   * @example
+   * 12345****
+   */
   password?: string;
+  /**
+   * @remarks
+   * 用户名称。
+   * 
+   * @example
+   * 王五
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2024,14 +3983,74 @@ export class OnKubeClusterResource extends $tea.Model {
 }
 
 export class Operation extends $tea.Model {
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * 创建时间。
+   * 
+   * @example
+   * 1628589439114
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * 描述。
+   * 
+   * @example
+   * start
+   */
   description?: string;
+  /**
+   * @remarks
+   * 结束时间。
+   * 
+   * @example
+   * 1628589439114
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * 操作ID。
+   * 
+   * @example
+   * op-13c37a77c505****
+   */
   operationId?: string;
+  /**
+   * @remarks
+   * 操作状态。
+   * 
+   * @example
+   * COMPLETED
+   */
   operationState?: string;
+  /**
+   * @remarks
+   * 操作类型。
+   * 
+   * @example
+   * CLUSTER
+   */
   operationType?: string;
+  /**
+   * @remarks
+   * 开始时间。
+   * 
+   * @example
+   * 1628589439114
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * 状态转换原因。
+   */
   stateChangeReason?: OperationStateChangeReason;
   static names(): { [key: string]: string } {
     return {
@@ -2089,7 +4108,21 @@ export class OperationData extends $tea.Model {
 }
 
 export class OperationStateChangeReason extends $tea.Model {
+  /**
+   * @remarks
+   * 状态码。
+   * 
+   * @example
+   * OutOfStock
+   */
   code?: string;
+  /**
+   * @remarks
+   * 状态变化信息。
+   * 
+   * @example
+   * The requested resource is sold out in the specified zone, try other types of resources or other regions and zones.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2241,10 +4274,47 @@ export class PriceInfo extends $tea.Model {
 }
 
 export class Promotion extends $tea.Model {
+  /**
+   * @remarks
+   * 产品码。
+   * 
+   * @example
+   * ecs
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * 优惠券描述。
+   * 
+   * @example
+   * 5元优惠券（有效期至23年8月11日）
+   */
   promotionDesc?: string;
+  /**
+   * @remarks
+   * 优惠券名称。
+   * 
+   * @example
+   * 5元优惠券
+   */
   promotionName?: string;
+  /**
+   * @remarks
+   * 优惠券码。
+   * 
+   * @example
+   * youhui_quan
+   */
   promotionOptionCode?: string;
+  /**
+   * @remarks
+   * 优惠券号。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ABC123
+   */
   promotionOptionNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2331,13 +4401,74 @@ export class PromotionParam extends $tea.Model {
 }
 
 export class RecommendScalingRule extends $tea.Model {
+  /**
+   * @remarks
+   * 伸缩活动类型。取值范围：
+   * - SCALE_OUT：扩容。
+   * - SCALE_IN：缩容。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SCALE_IN
+   */
   activityType?: string;
+  /**
+   * @remarks
+   * 调整值。需要为正数，代表需要扩容或者缩容的实例数量。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   adjustmentValue?: number;
+  /**
+   * @remarks
+   * 推荐的规格类型。
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * 最大节约成本。
+   * 
+   * @example
+   * 0.12
+   */
   maxSave?: number;
+  /**
+   * @remarks
+   * 按照负载伸缩描述。
+   * <p>
+   */
   metricsTrigger?: MetricsTrigger;
+  /**
+   * @remarks
+   * 规则名称。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * scale-out-memory
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * 按照时间伸缩描述。
+   * <p>
+   */
   timeTrigger?: TimeTrigger;
+  /**
+   * @remarks
+   * 伸缩规则类型。 取值范围：
+   * - TIME_TRIGGER: 按时间伸缩。
+   * - METRICS_TRIGGER: 按负载伸缩。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TIME_TRIGGER
+   */
   triggerType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2371,10 +4502,47 @@ export class RecommendScalingRule extends $tea.Model {
 }
 
 export class RenewInstance extends $tea.Model {
+  /**
+   * @remarks
+   * emr实例续费时长。
+   * 
+   * @example
+   * 12
+   */
   emrRenewDuration?: number;
+  /**
+   * @remarks
+   * emr实例续费时长单位。
+   * 
+   * @example
+   * Month
+   */
   emrRenewDurationUnit?: string;
+  /**
+   * @remarks
+   * 节点ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp1cudc25w2bfwl5****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * 续费时长。
+   * 
+   * @example
+   * 12
+   */
   renewDuration?: number;
+  /**
+   * @remarks
+   * 付费时长单位。
+   * 
+   * @example
+   * Month
+   */
   renewDurationUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2551,6 +4719,13 @@ export class ScalingActivity extends $tea.Model {
 }
 
 export class ScalingActivityResult extends $tea.Model {
+  /**
+   * @remarks
+   * 实例ID。
+   * 
+   * @example
+   * i-bp1cudc25w2bfwl5****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2570,6 +4745,13 @@ export class ScalingActivityResult extends $tea.Model {
 }
 
 export class ScalingActivityResultDTO extends $tea.Model {
+  /**
+   * @remarks
+   * 实例ID。
+   * 
+   * @example
+   * i-bp1cudc25w2bfwl5****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2589,9 +4771,37 @@ export class ScalingActivityResultDTO extends $tea.Model {
 }
 
 export class ScalingAnalyzeResult extends $tea.Model {
+  /**
+   * @remarks
+   * 实际资源利用率。
+   * 
+   * @example
+   * 0.12
+   */
   actualUsage?: number;
+  /**
+   * @remarks
+   * 理想资源用量。
+   * 
+   * @example
+   * 0.12
+   */
   idealUsage?: number;
+  /**
+   * @remarks
+   * 固定资源释放核数（非master）core。
+   * 
+   * @example
+   * 1
+   */
   releaseCores?: number;
+  /**
+   * @remarks
+   * 固定资源保留核数（非master）core。
+   * 
+   * @example
+   * 1
+   */
   reservedCores?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2617,8 +4827,29 @@ export class ScalingAnalyzeResult extends $tea.Model {
 }
 
 export class ScalingAnalyzeTimeRange extends $tea.Model {
+  /**
+   * @remarks
+   * 结束时间。
+   * 
+   * @example
+   * 1676441972000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * 起始时间。
+   * 
+   * @example
+   * 1676441971000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * 峰谷类型。 peak/valley
+   * 
+   * @example
+   * peak
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2642,7 +4873,21 @@ export class ScalingAnalyzeTimeRange extends $tea.Model {
 }
 
 export class ScalingConstraints extends $tea.Model {
+  /**
+   * @remarks
+   * 最大值。
+   * 
+   * @example
+   * 2000
+   */
   maxCapacity?: number;
+  /**
+   * @remarks
+   * 最小值。
+   * 
+   * @example
+   * 0
+   */
   minCapacity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2664,19 +4909,105 @@ export class ScalingConstraints extends $tea.Model {
 }
 
 export class ScalingGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 数据盘类型。
+   * 
+   * @example
+   * cloud_essd
+   */
   dataDiskCategory?: string;
+  /**
+   * @remarks
+   * 数据盘个数。
+   * 
+   * @example
+   * 4
+   */
   dataDiskCount?: number;
+  /**
+   * @remarks
+   * 数据盘大小,单位GB。
+   * 
+   * @example
+   * 40
+   */
   dataDiskSize?: number;
+  /**
+   * @remarks
+   * 默认冷却时间。
+   * 
+   * @example
+   * 0
+   */
   defaultCoolDownTime?: number;
+  /**
+   * @remarks
+   * 抢占实例列表。
+   */
   instanceTypeList?: ScalingGroupConfigInstanceTypeList[];
+  /**
+   * @remarks
+   * 资源可用性策略(成本优化参数)。
+   */
   multiAvailablePolicy?: ScalingGroupConfigMultiAvailablePolicy;
+  /**
+   * @remarks
+   * 节点下线策略。
+   */
   nodeOfflinePolicy?: ScalingGroupConfigNodeOfflinePolicy;
+  /**
+   * @remarks
+   * 私有池选项	。
+   */
   privatePoolOptions?: ScalingGroupConfigPrivatePoolOptions;
+  /**
+   * @remarks
+   * 伸缩组节点最大个数。
+   * 
+   * @example
+   * 10
+   */
   scalingMaxSize?: number;
+  /**
+   * @remarks
+   * 伸缩组节点最小个数。
+   * 
+   * @example
+   * 1
+   */
   scalingMinSize?: number;
+  /**
+   * @remarks
+   * 抢占式Spot实例策略。
+   * 
+   * @example
+   * NoSpot
+   */
   spotStrategy?: string;
+  /**
+   * @remarks
+   * 系统盘类型。
+   * 
+   * @example
+   * cloud_essd
+   */
   sysDiskCategory?: string;
+  /**
+   * @remarks
+   * 系统盘大小,单位GB。
+   * 
+   * @example
+   * 80
+   */
   sysDiskSize?: number;
+  /**
+   * @remarks
+   * 伸缩活动触发模式。
+   * 
+   * @example
+   * ByLoad
+   */
   triggerMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2722,17 +5053,73 @@ export class ScalingGroupConfig extends $tea.Model {
 }
 
 export class ScalingRule extends $tea.Model {
+  /**
+   * @remarks
+   * 伸缩活动类型。取值范围：
+   * - SCALE_OUT：扩容。
+   * - SCALE_IN：缩容。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SCALE_IN
+   */
   activityType?: string;
+  /**
+   * @remarks
+   * 调整值。需要为正数，代表需要扩容或者缩容的实例数量。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   adjustmentValue?: number;
+  /**
+   * @remarks
+   * 按照负载伸缩描述。
+   * <p>
+   */
   metricsTrigger?: MetricsTrigger;
+  /**
+   * @example
+   * 1
+   */
+  minAdjustmentValue?: number;
+  /**
+   * @remarks
+   * 规则名称。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * scale-out-memory
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * 按照时间伸缩描述。
+   * <p>
+   */
   timeTrigger?: TimeTrigger;
+  /**
+   * @remarks
+   * 伸缩规则类型。 取值范围：
+   * - TIME_TRIGGER: 按时间伸缩。
+   * - METRICS_TRIGGER: 按负载伸缩。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TIME_TRIGGER
+   */
   triggerType?: string;
   static names(): { [key: string]: string } {
     return {
       activityType: 'ActivityType',
       adjustmentValue: 'AdjustmentValue',
       metricsTrigger: 'MetricsTrigger',
+      minAdjustmentValue: 'MinAdjustmentValue',
       ruleName: 'RuleName',
       timeTrigger: 'TimeTrigger',
       triggerType: 'TriggerType',
@@ -2744,6 +5131,7 @@ export class ScalingRule extends $tea.Model {
       activityType: 'string',
       adjustmentValue: 'number',
       metricsTrigger: MetricsTrigger,
+      minAdjustmentValue: 'number',
       ruleName: 'string',
       timeTrigger: TimeTrigger,
       triggerType: 'string',
@@ -2756,12 +5144,65 @@ export class ScalingRule extends $tea.Model {
 }
 
 export class ScalingRuleSpec extends $tea.Model {
+  /**
+   * @remarks
+   * 调整值。需要为正数，代表需要扩容或者缩容的实例数量。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   adjustmentValue?: number;
+  /**
+   * @remarks
+   * 按照负载伸缩描述。
+   */
   byLoadScalingRuleSpec?: ScalingRuleSpecByLoadScalingRuleSpec;
+  /**
+   * @remarks
+   * 按照时间伸缩描述。
+   */
   byTimeScalingRuleSpec?: ScalingRuleSpecByTimeScalingRuleSpec;
+  /**
+   * @remarks
+   * 冷却时间。单位为秒，取值范围在30~10800秒之间。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
   coolDownInterval?: number;
+  /**
+   * @remarks
+   * 伸缩活动类型。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SCALE_IN
+   */
   scalingActivityType?: string;
+  /**
+   * @remarks
+   * 规则名称。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * scale-out-memory
+   */
   scalingRuleName?: string;
+  /**
+   * @remarks
+   * 伸缩规则类型。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * BY_TIME
+   */
   scalingRuleType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2793,12 +5234,58 @@ export class ScalingRuleSpec extends $tea.Model {
 }
 
 export class ScalingRuleV1 extends $tea.Model {
+  /**
+   * @remarks
+   * 调整类型。
+   * 
+   * @example
+   * QUANTITY_CHANGE_IN_CAPACITY
+   */
   adjustmentType?: string;
+  /**
+   * @remarks
+   * 调整值,正数为扩容,负数为缩容。
+   * 
+   * @example
+   * 1
+   */
   adjustmentValue?: number;
+  /**
+   * @remarks
+   * 冷却时间,单位秒。
+   * 
+   * @example
+   * 4
+   */
   coolDownTime?: number;
+  /**
+   * @remarks
+   * 规则名称。
+   * 
+   * @example
+   * tule1
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * 规则参数。
+   */
   ruleParam?: ScalingRuleV1RuleParam;
+  /**
+   * @remarks
+   * 规则类型。
+   * 
+   * @example
+   * BY_LOAD
+   */
   ruleType?: string;
+  /**
+   * @remarks
+   * 弹性规则配置ID。
+   * 
+   * @example
+   * SCB-DCD96BCCFED1****
+   */
   scalingConfigBizId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2830,12 +5317,66 @@ export class ScalingRuleV1 extends $tea.Model {
 }
 
 export class Script extends $tea.Model {
+  /**
+   * @remarks
+   * 执行失败策略。
+   * 
+   * @example
+   * FAILED_CONTINUE
+   */
   executionFailStrategy?: string;
+  /**
+   * @remarks
+   * 脚本的执行时机。
+   * 
+   * @example
+   * BEFORE_INSTALL
+   */
   executionMoment?: string;
+  /**
+   * @remarks
+   * 节点选择器。
+   * 
+   * This parameter is required.
+   */
   nodeSelector?: NodeSelector;
+  /**
+   * @remarks
+   * 脚本执行优先级。取值范围：1~100。
+   * 
+   * @example
+   * 1
+   * 
+   * @deprecated
+   */
   priority?: number;
+  /**
+   * @remarks
+   * 脚本执行参数。
+   * 
+   * @example
+   * -host 10.0.10.5 -m 30
+   */
   scriptArgs?: string;
+  /**
+   * @remarks
+   * 脚本名称。长度为1~64个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、下划线（_）、或者短划线（-）
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 脚本名-1
+   */
   scriptName?: string;
+  /**
+   * @remarks
+   * 脚本所在OSS路径。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket1/update_hosts.sh
+   */
   scriptPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2867,7 +5408,21 @@ export class Script extends $tea.Model {
 }
 
 export class SpotBidPrice extends $tea.Model {
+  /**
+   * @remarks
+   * 实例的每小时最高出价。支持最大3位小数，参数SpotStrategy=SpotWithPriceLimit时，该参数生效。
+   * 
+   * @example
+   * 1000.0
+   */
   bidPrice?: number;
+  /**
+   * @remarks
+   * 实例类型。
+   * 
+   * @example
+   * ecs.g7.2xlarge
+   */
   instanceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2911,7 +5466,21 @@ export class SpotPriceLimit extends $tea.Model {
 }
 
 export class StateChangeReason extends $tea.Model {
+  /**
+   * @remarks
+   * 状态码。
+   * 
+   * @example
+   * MissingParameter
+   */
   code?: string;
+  /**
+   * @remarks
+   * 描述信息。
+   * 
+   * @example
+   * The instance type is required.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2933,10 +5502,53 @@ export class StateChangeReason extends $tea.Model {
 }
 
 export class SubscriptionConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 自动续费。取值范围：
+   * - true：开启启动续费。
+   * - false：不开启自动续费。
+   * 默认值：false。
+   * 
+   * @example
+   * true
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * 自动续费时长。当AutoRenew取值为true时生效。当AutoRenewDurationUnit取值为Month时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。
+   * 
+   * @example
+   * 12
+   */
   autoRenewDuration?: number;
+  /**
+   * @remarks
+   * - Month：月。
+   * 
+   * @example
+   * Month
+   */
   autoRenewDurationUnit?: string;
+  /**
+   * @remarks
+   * 付费时长。PaymentDurationUnit取值为Month时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
   paymentDuration?: number;
+  /**
+   * @remarks
+   * 付费时长单位。取值范围：
+   * - Month：月。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Month
+   */
   paymentDurationUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2964,9 +5576,47 @@ export class SubscriptionConfig extends $tea.Model {
 }
 
 export class SystemDisk extends $tea.Model {
+  /**
+   * @remarks
+   * 磁盘类型。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cloud_essd
+   */
   category?: string;
+  /**
+   * @remarks
+   * 每个节点系统盘数量，默认值为1。
+   * 
+   * @example
+   * 1
+   */
   count?: number;
+  /**
+   * @remarks
+   * 创建ESSD云盘作为系统盘使用时，设置云盘的性能等级。取值范围：
+   * - PL0：单盘最高随机读写IOPS 1万。
+   * - PL1（默认）：单盘最高随机读写IOPS 5万。
+   * - PL2：单盘最高随机读写IOPS 10万。
+   * - PL3：单盘最高随机读写IOPS 100万。
+   * 
+   * 默认值：PL1。
+   * 
+   * @example
+   * PL1
+   */
   performanceLevel?: string;
+  /**
+   * @remarks
+   * 单位GB。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3017,7 +5667,23 @@ export class SystemDiskParam extends $tea.Model {
 }
 
 export class Tag extends $tea.Model {
+  /**
+   * @remarks
+   * 标签键。必填参数，不允许为空字符串。最多支持128个字符，不能以aliyun和acs:开头，不能包含http://或https://。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * department
+   */
   key?: string;
+  /**
+   * @remarks
+   * 标签值。非必填，可以为空字符串。最多支持128个字符，不能以acs:开头，不能包含http://或者https://。
+   * 
+   * @example
+   * IT
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3067,7 +5733,21 @@ export class TagResource extends $tea.Model {
 }
 
 export class TimeConstraint extends $tea.Model {
+  /**
+   * @remarks
+   * 结束时间。取值范围：00:00:00至23:59:59
+   * 
+   * @example
+   * 23:59:59
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * 开始时间。取值范围：00:00:00至23:59:59
+   * 
+   * @example
+   * 06:00:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3089,7 +5769,21 @@ export class TimeConstraint extends $tea.Model {
 }
 
 export class TimeRange extends $tea.Model {
+  /**
+   * @remarks
+   * 结束时间。
+   * 
+   * @example
+   * 1676441972000
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * 起始时间。
+   * 
+   * @example
+   * 1676441971000
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3111,11 +5805,57 @@ export class TimeRange extends $tea.Model {
 }
 
 export class TimeTrigger extends $tea.Model {
+  /**
+   * @remarks
+   * 结束时间戳。单位为毫秒。
+   * 
+   * @example
+   * 1639714800000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * 定时任务触发操作失败后，在此时间内重试。单位为秒，取值范围：0~3600。
+   * 
+   * @example
+   * 600
+   */
   launchExpirationTime?: number;
+  /**
+   * @remarks
+   * 启动时间。
+   * 
+   * This parameter is required.
+   */
   launchTime?: string;
+  /**
+   * @remarks
+   * 指定时间规则的执行类型。
+   * 
+   * @example
+   * WEEKLY
+   */
   recurrenceType?: string;
+  /**
+   * @remarks
+   * 重复执行定时任务的数值。具体取值取决于 recurrenceType 设置。
+   * - recurrenceType 取 MINUTELY 时，只能填一个数值，取值范围：1~1440。
+   * - recurrenceType 取 HOURLY 时，只能填一个数值，取值范围：1~24。
+   * - recurrenceType 取 DAILY 时，只能填一个数值，取值范围：1~31。
+   * - recurrenceType 取 WEEKLY 时，可以填入多个值，填多个值时使用英文逗号（,）分隔。周一到周天分别用MON，TUE，WED，THU，FRI，SAT，SUN代替。 比如 MON,FRI,SUN 代表周一、周五、周天。
+   * - recurrenceType 取 MONTHLY 时，格式为A-B或者A,B。A、B的取值范围为1~31，如果使用A-B时B必须大于A。
+   * 
+   * @example
+   * MON,FRI,SUN
+   */
   recurrenceValue?: string;
+  /**
+   * @remarks
+   * 开始时间戳。单位为毫秒。
+   * 
+   * @example
+   * 1639714800000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3173,10 +5913,59 @@ export class Toleration extends $tea.Model {
 }
 
 export class TriggerCondition extends $tea.Model {
+  /**
+   * @remarks
+   * 比较符。取值范围：
+   * - EQ:等于。
+   * - NE:不等于。
+   * - GT:大于。
+   * - LT:小于。
+   * - GE:大于等于。
+   * - LE:小于等于。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LT
+   */
   comparisonOperator?: string;
+  /**
+   * @remarks
+   * 指标名称。指标名称需要在 ListAutoScalingMetrics 接口返回的指标名称列表中。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * yarn_resourcemanager_root_availablememoryusage
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * 统计量名称。取值范围：
+   * - MAX：最大值。
+   * - MIN：最小值。
+   * - AVG：平均值。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AVG
+   */
   statistics?: string;
+  /**
+   * @remarks
+   * 指标Tag。
+   */
   tags?: Tag[];
+  /**
+   * @remarks
+   * 阈值。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12.5
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3204,9 +5993,37 @@ export class TriggerCondition extends $tea.Model {
 }
 
 export class UpdateApplicationConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 修改描述。
+   * 
+   * @example
+   * dfs.namenode.checkpoint.period
+   */
   configDescription?: string;
+  /**
+   * @remarks
+   * 应用配置文件名。
+   * 
+   * @example
+   * hdfs-site.xml
+   */
   configFileName?: string;
+  /**
+   * @remarks
+   * 配置项键。
+   * 
+   * @example
+   * dfs.namenode.checkpoint.period
+   */
   configItemKey?: string;
+  /**
+   * @remarks
+   * 配置项值。
+   * 
+   * @example
+   * 3600s
+   */
   configItemValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3232,7 +6049,25 @@ export class UpdateApplicationConfig extends $tea.Model {
 }
 
 export class UpdateSpecNodeGroup extends $tea.Model {
+  /**
+   * @remarks
+   * 新实例类型。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ecs.g7.xlarge
+   */
   newInstanceType?: string;
+  /**
+   * @remarks
+   * 节点组ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3276,10 +6111,51 @@ export class UpdateSpecNodeGroupParam extends $tea.Model {
 }
 
 export class User extends $tea.Model {
+  /**
+   * @remarks
+   * 用户组。
+   * 
+   * @example
+   * hadoop
+   */
   group?: string;
+  /**
+   * @remarks
+   * 用户密码。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12345****
+   */
   password?: string;
+  /**
+   * @remarks
+   * 用户ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1238539****
+   */
   userId?: string;
+  /**
+   * @remarks
+   * 用户名称。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 王五
+   */
   userName?: string;
+  /**
+   * @remarks
+   * 用户类型。
+   * 
+   * @example
+   * LDAP
+   */
   userType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3332,11 +6208,38 @@ export class UserParam extends $tea.Model {
 }
 
 export class ValueConstraints extends $tea.Model {
+  /**
+   * @remarks
+   * 默认值。
+   */
   defaultValue?: number;
+  /**
+   * @remarks
+   * 结束值。
+   */
   end?: number;
+  /**
+   * @remarks
+   * 起始值。
+   */
   start?: number;
+  /**
+   * @remarks
+   * 步长。
+   */
   step?: number;
+  /**
+   * @remarks
+   * 值限制类型。
+   */
   type?: string;
+  /**
+   * @remarks
+   * 枚举值。
+   * 
+   * @example
+   * null
+   */
   values?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -3366,10 +6269,53 @@ export class ValueConstraints extends $tea.Model {
 }
 
 export class CreateApiTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the API operation. You can create only a cluster API operation template. Set the value to CreateCluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CreateCluster
+   */
   apiName?: string;
+  /**
+   * @remarks
+   * The content of the cluster API operation template. Set the value to JSON strings of the request parameters of the [CreateCluster](https://help.aliyun.com/zh/emr/emr-on-ecs/developer-reference/api-emr-2021-03-20-createcluster) API operation for creating a cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * content
+   */
   content?: string;
+  /**
+   * @remarks
+   * 地域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * 资源组ID。
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * 集群模板名字。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DATALAKE模板
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3397,8 +6343,23 @@ export class CreateApiTemplateRequest extends $tea.Model {
 }
 
 export class CreateApiTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @example
+   * at-41b4c6a0fc63****
+   */
   success?: string;
+  /**
+   * @example
+   * at-41b4c6a0fc63****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3447,21 +6408,153 @@ export class CreateApiTemplateResponse extends $tea.Model {
 }
 
 export class CreateClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application configurations. You can specify a maximum of 1,000 items.
+   */
   applicationConfigs?: ApplicationConfig[];
+  /**
+   * @remarks
+   * The applications. You can specify a maximum of 100 items.
+   * 
+   * This parameter is required.
+   */
   applications?: Application[];
+  /**
+   * @remarks
+   * The bootstrap actions. You can specify a maximum of 10 items.
+   */
   bootstrapScripts?: Script[];
+  /**
+   * @remarks
+   * The idempotent client token. If you call the same ClientToken multiple times, the returned results are the same. Only one cluster can be created with the same ClientToken.
+   * 
+   * @example
+   * A7D960FA-6DBA-5E07-8746-A63E3E4D****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The name of the cluster. The name must be 1 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * emrtest
+   */
   clusterName?: string;
+  /**
+   * @remarks
+   * The type of the cluster. Valid values:
+   * 
+   * *   DATALAKE: data lake
+   * *   OLAP: online analytical processing (OLAP)
+   * *   DATAFLOW: Dataflow
+   * *   DATASERVING: DataServing
+   * *   CUSTOM: a custom hybrid cluster.
+   * *   HADOOP: the old data lake. We recommend that you use the new data lake.
+   * 
+   * If you create an EMR cluster for the first time after 17:00 (UTC +8) on December 19, 2022, you cannot select the HADOOP, DATA_SCIENCE, PRESTO, or ZOOKEEPER cluster type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DATALAKE
+   */
   clusterType?: string;
+  /**
+   * @remarks
+   * The deployment mode of master nodes in the cluster. Valid values:
+   * 
+   * *   NORMAL: regular mode. This is the default value. A cluster that contains only one master node is created.
+   * *   HA: high availability (HA) mode. A cluster that contains three master nodes is created.
+   * 
+   * @example
+   * HA
+   */
   deployMode?: string;
+  description?: string;
+  /**
+   * @remarks
+   * The attributes of all ECS instances.
+   * 
+   * This parameter is required.
+   */
   nodeAttributes?: NodeAttributes;
+  /**
+   * @remarks
+   * The node groups. You can specify a maximum of 100 items.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * NORMAL
+   */
   nodeGroups?: NodeGroupConfig[];
+  /**
+   * @remarks
+   * The billing cycle of the instance. Valid values:
+   * 
+   * *   PayAsYouGo: pay-as-you-go
+   * *   Subscription: subscription
+   * 
+   * Default value: PayAsYouGo.
+   * 
+   * @example
+   * PayAsYouGo
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The version of EMR. You can view the EMR release version on the EMR cluster purchase page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * EMR-5.8.0
+   */
   releaseVersion?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which to assign the ENI.
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The security mode of the cluster. Valid values:
+   * 
+   * *   NORMAL: disables Kerberos authentication for the cluster. This is the default value.
+   * *   KERBEROS: enables Kerberos authentication for the cluster.
+   * 
+   * @example
+   * NORMAL
+   */
   securityMode?: string;
+  /**
+   * @remarks
+   * The subscription configurations. This parameter is required only if you set the PaymentType parameter to Subscription.
+   */
   subscriptionConfig?: SubscriptionConfig;
+  /**
+   * @remarks
+   * The tags. You can specify a maximum of 20 items.
+   * 
+   * @example
+   * A7D960FA-6DBA-5E07-8746-A63E3E4D****
+   */
   tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
@@ -3472,6 +6565,7 @@ export class CreateClusterRequest extends $tea.Model {
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
       deployMode: 'DeployMode',
+      description: 'Description',
       nodeAttributes: 'NodeAttributes',
       nodeGroups: 'NodeGroups',
       paymentType: 'PaymentType',
@@ -3493,6 +6587,7 @@ export class CreateClusterRequest extends $tea.Model {
       clusterName: 'string',
       clusterType: 'string',
       deployMode: 'string',
+      description: 'string',
       nodeAttributes: NodeAttributes,
       nodeGroups: { 'type': 'array', 'itemType': NodeGroupConfig },
       paymentType: 'string',
@@ -3511,8 +6606,29 @@ export class CreateClusterRequest extends $tea.Model {
 }
 
 export class CreateClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of cluster.
+   * 
+   * @example
+   * c-b933c5aac7f7***
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the operation.
+   * 
+   * @example
+   * op-13c37a77c505****
+   */
   operationId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3561,8 +6677,32 @@ export class CreateClusterResponse extends $tea.Model {
 }
 
 export class CreateNodeGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * C-E525E04F3914****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The information about the node group.
+   * 
+   * This parameter is required.
+   */
   nodeGroup?: NodeGroupConfig;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3586,7 +6726,21 @@ export class CreateNodeGroupRequest extends $tea.Model {
 }
 
 export class CreateNodeGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the machine group.
+   * 
+   * @example
+   * G-21E39B11837E****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9E3A7161-EB7B-172B-8D18-FFB06BA3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3633,9 +6787,45 @@ export class CreateNodeGroupResponse extends $tea.Model {
 }
 
 export class CreateScriptRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the script. Valid values:
+   * 
+   * *   BOOTSTRAP: indicates a bootstrap action of the Elastic Compute Service (ECS) instance.
+   * *   NORMAL: indicates a common script.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * BOOTSTRAP
+   */
   scriptType?: string;
+  /**
+   * @remarks
+   * The scripts.
+   * 
+   * This parameter is required.
+   */
   scripts?: Script[];
   static names(): { [key: string]: string } {
     return {
@@ -3661,7 +6851,21 @@ export class CreateScriptRequest extends $tea.Model {
 }
 
 export class CreateScriptResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The script ID.
+   * 
+   * @example
+   * cs-d6d6bc841c0d415fb81808bc6d09****
+   */
   scriptId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3708,10 +6912,51 @@ export class CreateScriptResponse extends $tea.Model {
 }
 
 export class DecreaseNodesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The number of nodes to scale in. The number of nodes to be scaled in. The value should be less than the number of surviving nodes in the current node group.
+   * 
+   * @example
+   * 3
+   */
   decreaseNodeCount?: number;
+  /**
+   * @remarks
+   * The ID of the node group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The array of node IDs. Valid values of array element N: 1 to 500.
+   * 
+   * @example
+   * ["i-bp1cudc25w2bfwl5****"]
+   */
   nodeIds?: string[];
+  /**
+   * @remarks
+   * The ID of the region in which you want to create the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3739,7 +6984,21 @@ export class DecreaseNodesRequest extends $tea.Model {
 }
 
 export class DecreaseNodesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Operation ID.
+   * 
+   * @example
+   * op-13c37a77c505****
+   */
   operationId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 44430037-E59A-3E66-A2B0-97D155346F22
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3786,9 +7045,43 @@ export class DecreaseNodesResponse extends $tea.Model {
 }
 
 export class DeleteApiTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 接口名。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CreateCluster
+   */
   apiName?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * 资源组ID。
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * 集群模板id。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * at-****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3814,7 +7107,20 @@ export class DeleteApiTemplateRequest extends $tea.Model {
 }
 
 export class DeleteApiTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   * 
+   * @deprecated
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3861,7 +7167,25 @@ export class DeleteApiTemplateResponse extends $tea.Model {
 }
 
 export class DeleteClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the region in which you want to create the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3883,7 +7207,21 @@ export class DeleteClusterRequest extends $tea.Model {
 }
 
 export class DeleteClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the operation.
+   * 
+   * @example
+   * op-13c37a77c505****
+   */
   operationId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3930,9 +7268,48 @@ export class DeleteClusterResponse extends $tea.Model {
 }
 
 export class DeleteScriptRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The script ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cs-da7476a7679a4d4c9cede62ebe09****
+   */
   scriptId?: string;
+  /**
+   * @remarks
+   * The type of the script. Valid values:
+   * 
+   * *   BOOTSTRAP: indicates a bootstrap action of the Elastic Compute Service (ECS) instance.
+   * *   NORMAL: indicates a common script.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * BOOTSTRAP
+   */
   scriptType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3958,6 +7335,13 @@ export class DeleteScriptRequest extends $tea.Model {
 }
 
 export class DeleteScriptResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4002,7 +7386,25 @@ export class DeleteScriptResponse extends $tea.Model {
 }
 
 export class GetApiTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * 集群模板id。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * at-41b4c6a0fc63****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4024,7 +7426,20 @@ export class GetApiTemplateRequest extends $tea.Model {
 }
 
 export class GetApiTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the API operation template.
+   * 
+   * @deprecated
+   */
   data?: ApiTemplate;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4071,8 +7486,35 @@ export class GetApiTemplateResponse extends $tea.Model {
 }
 
 export class GetApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 应用名称。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * 地域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4097,6 +7539,13 @@ export class GetApplicationRequest extends $tea.Model {
 
 export class GetApplicationResponseBody extends $tea.Model {
   application?: GetApplicationResponseBodyApplication;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4143,8 +7592,35 @@ export class GetApplicationResponse extends $tea.Model {
 }
 
 export class GetAutoScalingActivityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the scaling activity.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * asa-36373b084d6b4b13aa50f4129a9e****
+   */
   scalingActivityId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4168,7 +7644,18 @@ export class GetAutoScalingActivityRequest extends $tea.Model {
 }
 
 export class GetAutoScalingActivityResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the scaling activity.
+   */
   scalingActivity?: GetAutoScalingActivityResponseBodyScalingActivity;
   static names(): { [key: string]: string } {
     return {
@@ -4215,8 +7702,35 @@ export class GetAutoScalingActivityResponse extends $tea.Model {
 }
 
 export class GetAutoScalingPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the node group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4240,7 +7754,18 @@ export class GetAutoScalingPolicyRequest extends $tea.Model {
 }
 
 export class GetAutoScalingPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the auto scaling policy.
+   */
   scalingPolicy?: GetAutoScalingPolicyResponseBodyScalingPolicy;
   static names(): { [key: string]: string } {
     return {
@@ -4287,7 +7812,25 @@ export class GetAutoScalingPolicyResponse extends $tea.Model {
 }
 
 export class GetClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4309,7 +7852,18 @@ export class GetClusterRequest extends $tea.Model {
 }
 
 export class GetClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the cluster.
+   */
   cluster?: Cluster;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4355,10 +7909,144 @@ export class GetClusterResponse extends $tea.Model {
   }
 }
 
-export class GetDoctorApplicationRequest extends $tea.Model {
-  appId?: string;
+export class GetClusterCloneMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterCloneMetaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The metadata of the cluster that you want to clone.
+   */
+  clusterCloneMeta?: GetClusterCloneMetaResponseBodyClusterCloneMeta;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterCloneMeta: 'ClusterCloneMeta',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterCloneMeta: GetClusterCloneMetaResponseBodyClusterCloneMeta,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterCloneMetaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClusterCloneMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClusterCloneMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDoctorApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the job that is submitted to YARN.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * application_1542620905989_****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4384,7 +8072,18 @@ export class GetDoctorApplicationRequest extends $tea.Model {
 }
 
 export class GetDoctorApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the job.
+   */
   data?: GetDoctorApplicationResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4431,9 +8130,40 @@ export class GetDoctorApplicationResponse extends $tea.Model {
 }
 
 export class GetDoctorComputeSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The resource information, which is used to filter the results.
+   */
   componentInfo?: GetDoctorComputeSummaryRequestComponentInfo;
+  /**
+   * @remarks
+   * Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4459,7 +8189,18 @@ export class GetDoctorComputeSummaryRequest extends $tea.Model {
 }
 
 export class GetDoctorComputeSummaryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of resource usage.
+   */
   data?: GetDoctorComputeSummaryResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4506,8 +8247,35 @@ export class GetDoctorComputeSummaryResponse extends $tea.Model {
 }
 
 export class GetDoctorHBaseClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The date.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4531,7 +8299,18 @@ export class GetDoctorHBaseClusterRequest extends $tea.Model {
 }
 
 export class GetDoctorHBaseClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetDoctorHBaseClusterResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4578,9 +8357,43 @@ export class GetDoctorHBaseClusterResponse extends $tea.Model {
 }
 
 export class GetDoctorHBaseRegionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * Region ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 67f6808f60a8c357103a3a95fe00610e
+   */
   hbaseRegionId?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4606,7 +8419,18 @@ export class GetDoctorHBaseRegionRequest extends $tea.Model {
 }
 
 export class GetDoctorHBaseRegionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetDoctorHBaseRegionResponseBodyData;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4653,9 +8477,45 @@ export class GetDoctorHBaseRegionResponse extends $tea.Model {
 }
 
 export class GetDoctorHBaseRegionServerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The date.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The host of the region server.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * emr-worker-4.cluster-20****
+   */
   regionServerHost?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4681,7 +8541,18 @@ export class GetDoctorHBaseRegionServerRequest extends $tea.Model {
 }
 
 export class GetDoctorHBaseRegionServerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetDoctorHBaseRegionServerResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4728,9 +8599,41 @@ export class GetDoctorHBaseRegionServerResponse extends $tea.Model {
 }
 
 export class GetDoctorHBaseTableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * namespace1:tb_item
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4756,7 +8659,18 @@ export class GetDoctorHBaseTableRequest extends $tea.Model {
 }
 
 export class GetDoctorHBaseTableResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetDoctorHBaseTableResponseBodyData;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4803,8 +8717,35 @@ export class GetDoctorHBaseTableResponse extends $tea.Model {
 }
 
 export class GetDoctorHDFSClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4828,7 +8769,18 @@ export class GetDoctorHDFSClusterRequest extends $tea.Model {
 }
 
 export class GetDoctorHDFSClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HDFS analysis results.
+   */
   data?: GetDoctorHDFSClusterResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4875,9 +8827,45 @@ export class GetDoctorHDFSClusterResponse extends $tea.Model {
 }
 
 export class GetDoctorHDFSDirectoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The directory name. The depth of the directory is not greater than five.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /tmp/test
+   */
   dirPath?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4903,7 +8891,18 @@ export class GetDoctorHDFSDirectoryRequest extends $tea.Model {
 }
 
 export class GetDoctorHDFSDirectoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis results of the HDFS directory.
+   */
   data?: GetDoctorHDFSDirectoryResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4950,10 +8949,58 @@ export class GetDoctorHDFSDirectoryResponse extends $tea.Model {
 }
 
 export class GetDoctorHDFSUGIRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * Set this parameter based on the value of Type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DW
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The filter condition. Valid values:
+   * 
+   * *   user
+   * *   group
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4981,7 +9028,18 @@ export class GetDoctorHDFSUGIRequest extends $tea.Model {
 }
 
 export class GetDoctorHDFSUGIResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of HDFS analysis.
+   */
   data?: GetDoctorHDFSUGIResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5028,8 +9086,35 @@ export class GetDoctorHDFSUGIResponse extends $tea.Model {
 }
 
 export class GetDoctorHiveClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5053,7 +9138,18 @@ export class GetDoctorHiveClusterRequest extends $tea.Model {
 }
 
 export class GetDoctorHiveClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis results of the Hive cluster.
+   */
   data?: GetDoctorHiveClusterResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5100,9 +9196,45 @@ export class GetDoctorHiveClusterResponse extends $tea.Model {
 }
 
 export class GetDoctorHiveDatabaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The database name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * db1
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The query date.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5128,7 +9260,18 @@ export class GetDoctorHiveDatabaseRequest extends $tea.Model {
 }
 
 export class GetDoctorHiveDatabaseResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis results of the Hive database.
+   */
   data?: GetDoctorHiveDatabaseResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5175,9 +9318,45 @@ export class GetDoctorHiveDatabaseResponse extends $tea.Model {
 }
 
 export class GetDoctorHiveTableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The table name. The table name must follow the rule in Hive. A name in the {database name.table identifier} format uniquely identifies a table.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dw.dwd_creta_service_order_long_renew_long_da
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5203,7 +9382,18 @@ export class GetDoctorHiveTableRequest extends $tea.Model {
 }
 
 export class GetDoctorHiveTableResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis results of the Hive table.
+   */
   data?: GetDoctorHiveTableResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5250,8 +9440,35 @@ export class GetDoctorHiveTableResponse extends $tea.Model {
 }
 
 export class GetDoctorJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the job that is submitted to YARN.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * application_1542620905989_****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5275,7 +9492,18 @@ export class GetDoctorJobRequest extends $tea.Model {
 }
 
 export class GetDoctorJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the job.
+   */
   data?: GetDoctorJobResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5322,9 +9550,45 @@ export class GetDoctorJobResponse extends $tea.Model {
 }
 
 export class GetDoctorReportComponentSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * component type
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * compute
+   */
   componentType?: string;
+  /**
+   * @remarks
+   * dateTime for specify report
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5350,7 +9614,18 @@ export class GetDoctorReportComponentSummaryRequest extends $tea.Model {
 }
 
 export class GetDoctorReportComponentSummaryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the report.
+   */
   data?: GetDoctorReportComponentSummaryResponseBodyData;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5397,8 +9672,35 @@ export class GetDoctorReportComponentSummaryResponse extends $tea.Model {
 }
 
 export class GetNodeGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the node group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the region in which you want to create the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5422,7 +9724,18 @@ export class GetNodeGroupRequest extends $tea.Model {
 }
 
 export class GetNodeGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The node group.
+   */
   nodeGroup?: NodeGroup;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5469,8 +9782,40 @@ export class GetNodeGroupResponse extends $tea.Model {
 }
 
 export class GetOperationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the cluster that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The operation ID.
+   * 
+   * References:
+   * 
+   * *   [CreateCluster](https://help.aliyun.com/document_detail/454393.html)
+   * *   [IncreaseNodes](https://help.aliyun.com/document_detail/454397.html)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * op-13c37a77c505****
+   */
   operationId?: string;
+  /**
+   * @remarks
+   * The district ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5494,7 +9839,18 @@ export class GetOperationRequest extends $tea.Model {
 }
 
 export class GetOperationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that was performed.
+   */
   operation?: Operation;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9E3A7161-EB7B-172B-8D18-FFB06BA3896A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5541,15 +9897,103 @@ export class GetOperationResponse extends $tea.Model {
 }
 
 export class IncreaseNodesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application configurations. You can specify a maximum of 1,000 items.
+   * 
+   * @example
+   * Month
+   */
   applicationConfigs?: ApplicationConfig[];
+  /**
+   * @remarks
+   * Indicates whether to automatically pay for the orders involved in the scale-out operation. This parameter takes effect only when the PaymentType parameter is set to Subscription. Valid values:
+   * 
+   * *   true: automatically pays for the order involved in this operation.
+   * *   false: does not automatically pay for the orders involved in this operation.
+   * 
+   * Default value: false
+   * 
+   * @example
+   * false
+   */
   autoPayOrder?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal for nodes. Valid values:
+   * 
+   * *   true
+   * *   false (default value)
+   * 
+   * @example
+   * false
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The ID of the cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The number of nodes. The number of incremental nodes for this scale-out. Valid values: 1 to 500.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   increaseNodeCount?: number;
+  /**
+   * @remarks
+   * The minimum number of nodes that can be added. Valid values: 1 to 500.
+   * 
+   * *   If you configure this parameter, and the number of available Elastic Compute Service (ECS) instances is less than the value of the IncreaseNodeCount parameter, the system tries to add nodes based on the number specified by the `MinIncreaseNodeCount` parameter. If the minimum number of nodes are added, the scale-out status is `PARTIAL_COMPLETED`.
+   * *   If you do not configure this parameter, and the number of available ECS instances is less than the value of the IncreaseNodeCount parameter, the scale-out process fails. The scale-out status is `FAILED`.
+   */
   minIncreaseNodeCount?: number;
+  /**
+   * @remarks
+   * The ID of the node group. The target node group to which you want to scale out the cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The subscription duration. Valid values when the PaymentDurationUnit value is Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+   * 
+   * @example
+   * 12
+   */
   paymentDuration?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration. Valid values:
+   * 
+   * *   Month
+   * 
+   * @example
+   * Month
+   */
   paymentDurationUnit?: string;
+  /**
+   * @remarks
+   * The ID of the region in which you want to create the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5587,7 +10031,21 @@ export class IncreaseNodesRequest extends $tea.Model {
 }
 
 export class IncreaseNodesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the operation.
+   * 
+   * @example
+   * op-13c37a77c505****
+   */
   operationId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5634,9 +10092,47 @@ export class IncreaseNodesResponse extends $tea.Model {
 }
 
 export class JoinResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the region in which you want to create the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-c95f0a39d8ff****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   cluster: cluster
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cluster
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5662,6 +10158,13 @@ export class JoinResourceGroupRequest extends $tea.Model {
 }
 
 export class JoinResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9E3A7161-EB7B-172B-8D18-FFB06BA3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5706,13 +10209,73 @@ export class JoinResourceGroupResponse extends $tea.Model {
 }
 
 export class ListApiTemplatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 接口名。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CreateCluster
+   */
   apiName?: string;
+  /**
+   * @remarks
+   * 一次获取的最大记录数。
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * 标记当前开始读取的位置，置空表示从头开始。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * 资源组ID。
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * 集群模板id。
+   * 
+   * @example
+   * at-41b4c6a0fc63****
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * 集群模板id列表。
+   * 
+   * @example
+   * ["AT-****"]
+   */
   templateIds?: string[];
+  /**
+   * @remarks
+   * 集群模板名字。
+   * 
+   * @example
+   * DATALAKE模板
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5746,10 +10309,44 @@ export class ListApiTemplatesRequest extends $tea.Model {
 }
 
 export class ListApiTemplatesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The API operation templates.
+   * 
+   * @deprecated
+   */
   apiTemplates?: ApiTemplate[];
+  /**
+   * @remarks
+   * 本次请求所返回的最大记录条数。
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * 返回读取到的数据位置，空代表数据已经读取完毕。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * 本次请求条件下的数据总量。
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5802,15 +10399,89 @@ export class ListApiTemplatesResponse extends $tea.Model {
 }
 
 export class ListApplicationConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-e6a9d46e9267****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The name of the configuration file.
+   * 
+   * @example
+   * hdfs-site.xml
+   */
   configFileName?: string;
+  /**
+   * @remarks
+   * The name of the configuration item.
+   * 
+   * @example
+   * dfs.replication
+   */
   configItemKey?: string;
+  /**
+   * @remarks
+   * The value of the configuration item.
+   * 
+   * @example
+   * 2
+   */
   configItemValue?: string;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The page number of the next page returned.
+   * 
+   * @example
+   * 1
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the node group.
+   * 
+   * @example
+   * ng-d555335ced5c****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The node ID.
+   * 
+   * @example
+   * i-bp10h9rezawz1i4o****
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5848,10 +10519,42 @@ export class ListApplicationConfigsRequest extends $tea.Model {
 }
 
 export class ListApplicationConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The application configurations.
+   */
   applicationConfigs?: ListApplicationConfigsResponseBodyApplicationConfigs[];
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The page number of the next page returned.
+   * 
+   * @example
+   * 1
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9E3A7161-EB7B-172B-8D18-FFB06BA3****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5904,10 +10607,49 @@ export class ListApplicationConfigsResponse extends $tea.Model {
 }
 
 export class ListApplicationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application names.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   applicationNames?: string[];
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-e6a9d46e92675****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The total number of pages.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The page number of the next page returned.
+   * 
+   * @example
+   * 0
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5935,10 +10677,42 @@ export class ListApplicationsRequest extends $tea.Model {
 }
 
 export class ListApplicationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The applications.
+   */
   applications?: ListApplicationsResponseBodyApplications[];
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The page number of the next page returned.
+   * 
+   * @example
+   * 2
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9E3A7161-EB7B-172B-8D18-FFB06BA3****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of pages.
+   * 
+   * @example
+   * 20
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5991,15 +10765,92 @@ export class ListApplicationsResponse extends $tea.Model {
 }
 
 export class ListAutoScalingActivitiesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Unit: milliseconds.
+   * 
+   * @example
+   * 1639718634819
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the node group.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The status of the scaling activity. Number of elements in the array: 1-20.
+   * 
+   * @example
+   * ["REJECTED","SUCCESSFUL"]
+   */
   scalingActivityStates?: string[];
+  /**
+   * @remarks
+   * The type of the scaling activity. Valid values:
+   * 
+   * *   SCALE_OUT
+   * *   SCALE_IN
+   * 
+   * @example
+   * SCALE_IN
+   */
   scalingActivityType?: string;
+  /**
+   * @remarks
+   * The name of the scaling rule.
+   * 
+   * @example
+   * scale-out-by-memroy
+   */
   scalingRuleName?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Unit: milliseconds.
+   * 
+   * @example
+   * 1639714634819
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6037,10 +10888,42 @@ export class ListAutoScalingActivitiesRequest extends $tea.Model {
 }
 
 export class ListAutoScalingActivitiesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The scaling activities.
+   */
   scalingActivities?: ListAutoScalingActivitiesResponseBodyScalingActivities[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6093,15 +10976,115 @@ export class ListAutoScalingActivitiesResponse extends $tea.Model {
 }
 
 export class ListClustersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the clusters. You can specify a maximum of 100 items.
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
   clusterIds?: string[];
+  /**
+   * @remarks
+   * The name of the cluster.
+   * 
+   * @example
+   * emrtest
+   */
   clusterName?: string;
+  /**
+   * @remarks
+   * The states of clusters. You can specify a maximum of 100 items.
+   * 
+   * @example
+   * ["HADOOP"]
+   */
   clusterStates?: string[];
+  /**
+   * @remarks
+   * The types of the clusters. You can specify a maximum of 100 items.
+   * 
+   * @example
+   * ["c-b933c5aac8fe****"]
+   */
   clusterTypes?: string[];
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 100.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The starting point of the current query. If you do not configure this parameter, the query starts from the beginning.
+   * 
+   * @example
+   * eyJlY21OZXh0VG9rZW4iOiIxIiwidGFpaGFvTmV4dFRva2VuIjoiNTYiLCJ0YWloYW9OZXh0VG9rZW5JbnQiOjU2LCJlY21OZXh0VG9rZW5JbnQiOjF9
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The billing methods. You can specify a maximum of 2 items.
+   * 
+   * @example
+   * ["ECS"]
+   */
   paymentTypes?: string[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * Valid values:
+   * 
+   * *   cn-qingdao
+   * *   cn-beijing
+   * *   cn-zhangjiakou
+   * *   cn-huhehaote
+   * *   cn-hangzhou
+   * *   cn-shanghai
+   * *   cn-shenzhen
+   * *   cn-chengdu
+   * *   cn-hongkong
+   * *   cn-wulanchabu
+   * *   cn-heyuan-acdr-1
+   * *   cn-qingdao-acdr-ut-1
+   * *   ap-northeast-1
+   * *   ap-southeast-1
+   * *   ap-southeast-2
+   * *   ap-southeast-3
+   * *   ap-southeast-5
+   * *   ap-south-1
+   * *   us-east-1
+   * *   us-west-1
+   * *   me-east-1
+   * *   me-central-1
+   * *   eu-central-1
+   * *   eu-west-1
+   * *   cn-north-2-gov-1
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags. Number of elements in the array: 1 to 20.
+   * 
+   * @example
+   * ["PayAsYouGo"]
+   */
   tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
@@ -6139,10 +11122,42 @@ export class ListClustersRequest extends $tea.Model {
 }
 
 export class ListClustersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The clusters.
+   */
   clusters?: ClusterSummary[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The page number of the next page returned.
+   * 
+   * @example
+   * eyJlY21OZXh0VG9rZW4iOiIxIiwidGFpaGFvTmV4dFRva2VuIjoiNTYiLCJ0YWloYW9OZXh0VG9rZW5JbnQiOjU2LCJlY21OZXh0VG9rZW5JbnQiOjF9
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9E3A7161-EB7B-172B-8D18-FFB06BA3896A
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of pages.
+   * 
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6195,14 +11210,78 @@ export class ListClustersResponse extends $tea.Model {
 }
 
 export class ListComponentInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 应用名称列表。
+   * 
+   * @example
+   * ["HDFS"]
+   */
   applicationNames?: string[];
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * 组件名称列表。
+   * 
+   * @example
+   * ["DataNode"]
+   */
   componentNames?: string[];
+  /**
+   * @example
+   * null
+   */
   componentStates?: string[];
+  /**
+   * @remarks
+   * 一次获取的最大记录数。取值范围：1~100。
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * 标记当前开始读取的位置，置空表示从头开始。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * 节点ID列表。
+   * 
+   * @example
+   * ["i-bp1cudc25w2bfwl5****"]
+   */
   nodeIds?: string[];
+  /**
+   * @remarks
+   * 节点名称列表。
+   * 
+   * @example
+   * ["core1-1"]
+   */
   nodeNames?: string[];
+  /**
+   * @remarks
+   * 地域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6239,9 +11318,37 @@ export class ListComponentInstancesRequest extends $tea.Model {
 
 export class ListComponentInstancesResponseBody extends $tea.Model {
   componentInstances?: ListComponentInstancesResponseBodyComponentInstances[];
+  /**
+   * @remarks
+   * 本次请求所返回的最大记录条数。
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * 返回读取到的数据位置，空代表数据已经读取完毕。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * 本次请求条件下的数据总量。
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6294,13 +11401,62 @@ export class ListComponentInstancesResponse extends $tea.Model {
 }
 
 export class ListComponentsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 应用名称列表。
+   * 
+   * @example
+   * ["HDFS"]
+   */
   applicationNames?: string[];
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * 组件名称列表。
+   * 
+   * @example
+   * ["DataNode"]
+   */
   componentNames?: string[];
+  /**
+   * @example
+   * null
+   */
   componentStates?: string[];
-  includeExpiredConfig?: boolean;
+  /**
+   * @remarks
+   * 一次获取的最大记录数。取值范围：1~100。
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * 标记当前开始读取的位置，置空表示从头开始。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * 地域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6308,7 +11464,6 @@ export class ListComponentsRequest extends $tea.Model {
       clusterId: 'ClusterId',
       componentNames: 'ComponentNames',
       componentStates: 'ComponentStates',
-      includeExpiredConfig: 'IncludeExpiredConfig',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
@@ -6321,7 +11476,6 @@ export class ListComponentsRequest extends $tea.Model {
       clusterId: 'string',
       componentNames: { 'type': 'array', 'itemType': 'string' },
       componentStates: { 'type': 'array', 'itemType': 'string' },
-      includeExpiredConfig: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
@@ -6335,9 +11489,37 @@ export class ListComponentsRequest extends $tea.Model {
 
 export class ListComponentsResponseBody extends $tea.Model {
   components?: ListComponentsResponseBodyComponents[];
+  /**
+   * @remarks
+   * 本次请求所返回的最大记录条数。
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * 返回读取到的数据位置，空代表数据已经读取完毕。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * 本次请求条件下的数据总量。
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6390,16 +11572,110 @@ export class ListComponentsResponse extends $tea.Model {
 }
 
 export class ListDoctorApplicationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of jobs that are submitted to YARN.
+   * 
+   * @example
+   * null
+   */
   appIds?: string[];
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The field that you use to sort the query results. Valid values:
+   * 
+   * 1.  startTime: the time when the job starts
+   * 2.  endTime: the time when the job ends
+   * 3.  vcoreUtilization: the vCPU utilization of the job
+   * 4.  memUtilization: the memory usage of the job
+   * 5.  vcoreSeconds: the aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running
+   * 6.  memSeconds: the aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running
+   * 7.  score: the score of the job
+   * 
+   * @example
+   * score
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the query results. Valid values:
+   * 
+   * *   ASC: the ascending order
+   * *   DESC: the descending order
+   * 
+   * @example
+   * ASC
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * The YARN queues to which the jobs are submitted.
+   * 
+   * @example
+   * null
+   */
   queues?: string[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The YARN engines to which the jobs are submitted.
+   * 
+   * @example
+   * null
+   */
   types?: string[];
+  /**
+   * @remarks
+   * The users who submit the jobs.
+   * 
+   * @example
+   * null
+   */
   users?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6439,10 +11715,42 @@ export class ListDoctorApplicationsRequest extends $tea.Model {
 }
 
 export class ListDoctorApplicationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of jobs.
+   */
   data?: ListDoctorApplicationsResponseBodyData[];
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6495,13 +11803,99 @@ export class ListDoctorApplicationsResponse extends $tea.Model {
 }
 
 export class ListDoctorComputeSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The resource types, which are used to filter query results. Valid values:
+   * 
+   * *   engine: filters results by engine.
+   * *   queue: filters results by queue.
+   * *   cluster: displays the results at the cluster level.
+   * 
+   * If you do not specify this parameter, the information at the cluster level is displayed by default. Currently, only one resource type is supported. If you specify multiple resource types, the first resource type is used by default.
+   * 
+   * @example
+   * null
+   */
   componentTypes?: string[];
+  /**
+   * @remarks
+   * Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The basis on which you want to sort the query results. Valid values:
+   * 
+   * 1.  vcoreSeconds: the total CPU consumption over time in seconds.
+   * 2.  memSeconds: the total memory consumption over time in seconds.
+   * 3.  vcoreUtilization: the average CPU utilization. The meaning is the same as the %CPU parameter in the output of the top command in Linux.
+   * 4.  memUtilization: the average memory usage.
+   * 5.  vcoreSecondsDayGrowthRatio: the day-to-day growth rate of the total CPU consumption over time in seconds.
+   * 6.  memSecondsDayGrowthRatio: the day-to-day growth rate of the total memory consumption over time in seconds.
+   * 7.  readSize: the total amount of data read from the file system.
+   * 8.  writeSize: the total amount of data written to the file system.
+   * 9.  healthyJobCount: the total number of healthy jobs.
+   * 10. subHealthyJobCount: the total number of sub-healthy jobs.
+   * 11. unhealthyJobCount: the total number of unhealthy jobs.
+   * 12. needAttentionJobCount: the total number of jobs that require attention.
+   * 13. score: the score for jobs.
+   * 14. scoreDayGrowthRatio: the day-to-day growth rate of the score for jobs.
+   * 
+   * @example
+   * score
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the query results. Valid values:
+   * 
+   * *   ASC: in ascending order.
+   * *   DESC: in descending order.
+   * 
+   * @example
+   * ASC
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6535,10 +11929,42 @@ export class ListDoctorComputeSummaryRequest extends $tea.Model {
 }
 
 export class ListDoctorComputeSummaryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of resource usage.
+   */
   data?: ListDoctorComputeSummaryResponseBodyData[];
+  /**
+   * @remarks
+   * The maximum number of entries that are returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6591,13 +12017,80 @@ export class ListDoctorComputeSummaryResponse extends $tea.Model {
 }
 
 export class ListDoctorHBaseRegionServersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The query date.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The field that you use to sort the query results. Valid value:
+   * 
+   * *   regionCount: the number of regions.
+   * 
+   * @example
+   * regionCount
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the query results. Valid value:
+   * 
+   * *   ASC: in ascending order
+   * *   DESC: in descending order
+   * 
+   * @example
+   * ASC
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The RegionServer hosts.
+   * 
+   * @example
+   * null
+   */
   regionServerHosts?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6631,10 +12124,42 @@ export class ListDoctorHBaseRegionServersRequest extends $tea.Model {
 }
 
 export class ListDoctorHBaseRegionServersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListDoctorHBaseRegionServersResponseBodyData[];
+  /**
+   * @remarks
+   * The maximum number of entries that are returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6687,13 +12212,82 @@ export class ListDoctorHBaseRegionServersResponse extends $tea.Model {
 }
 
 export class ListDoctorHBaseTablesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The query date.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The maximum number of entries that are returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * Marks the current position to start reading. If this field is empty, the data is read from the beginning.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The field that you use to sort the query results.
+   * 
+   * Valid values:
+   * 
+   * *   tableSize
+   * 
+   * @example
+   * tableSize
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the query results. Valid value:
+   * 
+   * *   ASC: in ascending order
+   * *   DESC: in descending order
+   * 
+   * @example
+   * ASC
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The table names, which are used to filter the query results.
+   * 
+   * @example
+   * null
+   */
   tableNames?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6727,10 +12321,42 @@ export class ListDoctorHBaseTablesRequest extends $tea.Model {
 }
 
 export class ListDoctorHBaseTablesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response parameters.
+   */
   data?: ListDoctorHBaseTablesResponseBodyData[];
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The page number of the next page returned.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6783,13 +12409,64 @@ export class ListDoctorHBaseTablesResponse extends $tea.Model {
 }
 
 export class ListDoctorHDFSDirectoriesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @example
+   * /tmp/test
+   */
   dirPath?: string;
+  /**
+   * @remarks
+   * 一次获取的最大记录数。取值范围：1~100。
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * 标记当前开始读取的位置，置空表示从头开始。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @example
+   * smallFileCount
+   */
   orderBy?: string;
+  /**
+   * @example
+   * ASC
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6824,9 +12501,37 @@ export class ListDoctorHDFSDirectoriesRequest extends $tea.Model {
 
 export class ListDoctorHDFSDirectoriesResponseBody extends $tea.Model {
   data?: ListDoctorHDFSDirectoriesResponseBodyData[];
+  /**
+   * @remarks
+   * 本次请求所返回的最大记录条数。
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * 返回读取到的数据位置，空代表数据已经读取完毕。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * 本次请求条件下的数据总量。
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6879,13 +12584,87 @@ export class ListDoctorHDFSDirectoriesResponse extends $tea.Model {
 }
 
 export class ListDoctorHDFSUGIRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The basis on which you want to sort the query results. Valid values:
+   * 
+   * *   totalFileCount: the total number of files
+   * *   totalDataSize: the total data size
+   * *   totalDirCount: the total number of directories
+   * 
+   * @example
+   * totalFileCount
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the query results. Valid values:
+   * 
+   * *   ASC: in ascending order
+   * *   DESC: in descending order
+   * 
+   * @example
+   * ASC
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The filter condition. Valid values:
+   * 
+   * *   user
+   * *   group
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * group
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6919,10 +12698,42 @@ export class ListDoctorHDFSUGIRequest extends $tea.Model {
 }
 
 export class ListDoctorHDFSUGIResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of batch HDFS analysis.
+   */
   data?: ListDoctorHDFSUGIResponseBodyData[];
+  /**
+   * @remarks
+   * The maximum number of entries that are returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6975,13 +12786,80 @@ export class ListDoctorHDFSUGIResponse extends $tea.Model {
 }
 
 export class ListDoctorHiveDatabasesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The database names.
+   * 
+   * @example
+   * null
+   */
   databaseNames?: string[];
+  /**
+   * @remarks
+   * The query date.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The basis on which you want to sort the query results. Valid values:
+   * 
+   * *   tableCount: the number of tables
+   * 
+   * @example
+   * tableCount
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the query results. Valid values:
+   * 
+   * *   ASC: in ascending order
+   * *   DESC: in descending order
+   * 
+   * @example
+   * ASC
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7015,10 +12893,42 @@ export class ListDoctorHiveDatabasesRequest extends $tea.Model {
 }
 
 export class ListDoctorHiveDatabasesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis results of Hive databases.
+   */
   data?: ListDoctorHiveDatabasesResponseBodyData[];
+  /**
+   * @remarks
+   * The maximum number of entries that are returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7071,13 +12981,122 @@ export class ListDoctorHiveDatabasesResponse extends $tea.Model {
 }
 
 export class ListDoctorHiveTablesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The basis on which you want to sort the query results. Valid values:
+   * 
+   * *   partitionNum: the number of partitions.
+   * *   totalFileCount: the total number of files.
+   * *   largeFileCount: the number of large files. Large files are those with a size greater than 1 GB.
+   * *   mediumFileCount: the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   * *   smallFileCount: the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   * *   tinyFileCount: the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   * *   emptyFileCount: the number of empty files. Empty files are those with a size of 0 MB.
+   * *   largeFileRatio: the proportion of large files. Large files are those with a size greater than 1 GB.
+   * *   mediumFileRatio: the proportion of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   * *   smallFileRatio: the proportion of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   * *   tinyFileRatio: the proportion of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   * *   emptyFileRatio: the proportion of empty files. Empty files are those with a size of 0 MB.
+   * *   hotDataSize: the amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   * *   WarmDataSize: the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   * *   coldDataSize: the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   * *   freezeDataSize: the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   * *   totalDataSize: the total amount of data.
+   * *   hotDataRatio: the proportion of hot data. Hot data refers to data that is accessed in previous seven days.
+   * *   WarmDataRatio: the proportion of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   * *   coldDataRatio: the proportion of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   * *   freezeDataRatio: the proportion of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   * *   totalFileDayGrowthCount: the daily increment of the total number of files.
+   * *   largeFileDayGrowthCount: the daily increment of the number of large files. Large files are those with a size greater than 1 GB.
+   * *   mediumFileDayGrowthCount: the daily increment of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   * *   smallFileDayGrowthCount: the daily increment of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   * *   tinyFileDayGrowthCount: the daily increment of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   * *   emptyFileDayGrowthCount: the daily increment of the number of empty files. Empty files are those with a size of 0 MB.
+   * *   hotDataDayGrowthSize: the daily increment of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   * *   warmDataDayGrowthSize: the daily increment of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   * *   coldDataDayGrowthSize: the daily increment of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   * *   freezeDataDayGrowthSize: the daily increment of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   * *   totalDataDayGrowthSize: the daily increment of the amount of total data.
+   * *   totalFileCountDayGrowthRatio: the day-to-day growth rate of the total number of files.
+   * *   largeFileCountDayGrowthRatio: the day-to-day growth rate of the number of large files. Large files are those with a size greater than 1 GB.
+   * *   mediumFileCountDayGrowthRatio: the day-to-day growth rate of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   * *   smallFileCountDayGrowthRatio: the day-to-day growth rate of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   * *   tinyFileCountDayGrowthRatio: the day-to-day growth rate of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   * *   emptyFileCountDayGrowthRatio: the day-to-day growth rate of the number of empty files. Empty files are those with a size of 0 MB.
+   * *   hotDataSizeDayGrowthRatio: the day-to-day growth rate of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   * *   warmDataSizeDayGrowthRatio: the day-to-day growth rate of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   * *   coldDataSizeDayGrowthRatio: the day-to-day growth rate of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   * *   freezeDataSizeDayGrowthRatio: the day-to-day growth rate of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   * *   totalDataSizeDayGrowthRatio: the day-to-day growth rate of the total amount of data.
+   * 
+   * @example
+   * totalFileCount
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the query results. Valid value:
+   * 
+   * *   ASC: in ascending order
+   * *   DESC: in descending order
+   * 
+   * @example
+   * ASC
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The table names, which are used to filter the query results.
+   * 
+   * @example
+   * null
+   */
   tableNames?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7111,10 +13130,42 @@ export class ListDoctorHiveTablesRequest extends $tea.Model {
 }
 
 export class ListDoctorHiveTablesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis results of Hive tables.
+   */
   data?: ListDoctorHiveTablesResponseBodyData[];
+  /**
+   * @remarks
+   * The maximum number of entries that are returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7167,17 +13218,105 @@ export class ListDoctorHiveTablesResponse extends $tea.Model {
 }
 
 export class ListDoctorJobsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the jobs that are submitted to YARN.
+   * 
+   * @example
+   * null
+   */
   appIds?: string[];
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The range of end time. You can filter jobs whose end time falls within the specified time range.
+   */
   endRange?: ListDoctorJobsRequestEndRange;
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The field that you use to sort the query results. Valid values:
+   * 
+   * *   vcoreSeconds: the aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running
+   * *   memSeconds: the aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running
+   * 
+   * @example
+   * vcoreSeconds
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the query results. Valid values:
+   * 
+   * *   ASC: the ascending order
+   * *   DESC: the descending order
+   * 
+   * @example
+   * ASC
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * The YARN queues to which the jobs are submitted.
+   * 
+   * @example
+   * null
+   */
   queues?: string[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The range of start time. You can filter jobs whose start time falls within the specified time range.
+   */
   startRange?: ListDoctorJobsRequestStartRange;
+  /**
+   * @remarks
+   * The YARN engines to which the jobs are submitted.
+   * 
+   * @example
+   * null
+   */
   types?: string[];
+  /**
+   * @remarks
+   * The users who submit the jobs.
+   * 
+   * @example
+   * null
+   */
   users?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7219,10 +13358,42 @@ export class ListDoctorJobsRequest extends $tea.Model {
 }
 
 export class ListDoctorJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the jobs.
+   */
   data?: ListDoctorJobsResponseBodyData[];
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7275,14 +13446,83 @@ export class ListDoctorJobsResponse extends $tea.Model {
 }
 
 export class ListDoctorJobsStatsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The range of end time. You can filter jobs whose end time falls within the specified time range.
+   */
   endRange?: ListDoctorJobsStatsRequestEndRange;
+  /**
+   * @remarks
+   * The fields that are used for grouping data.
+   * 
+   * Currently, only the first value is used for grouping data. Combinations of multiple values will be supported in the future.
+   * 
+   * @example
+   * null
+   */
   groupBy?: string[];
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The field that you use to sort the query results. Valid values:
+   * 
+   * *   vcoreSeconds: the aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running
+   * *   memSeconds: the aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running
+   * 
+   * @example
+   * vcoreSeconds
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the query results. Valid values:
+   * 
+   * *   ASC: in ascending order
+   * *   DESC: in descending order
+   * 
+   * @example
+   * ASC
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The range of start time. You can filter jobs whose start time falls within the specified time range.
+   */
   startRange?: ListDoctorJobsStatsRequestStartRange;
   static names(): { [key: string]: string } {
     return {
@@ -7318,10 +13558,42 @@ export class ListDoctorJobsStatsRequest extends $tea.Model {
 }
 
 export class ListDoctorJobsStatsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The summary of job information.
+   */
   data?: ListDoctorJobsStatsResponseBodyData[];
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7374,9 +13646,41 @@ export class ListDoctorJobsStatsResponse extends $tea.Model {
 }
 
 export class ListDoctorReportsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7402,10 +13706,42 @@ export class ListDoctorReportsRequest extends $tea.Model {
 }
 
 export class ListDoctorReportsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The reports.
+   */
   data?: ListDoctorReportsResponseBodyData[];
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7457,116 +13793,121 @@ export class ListDoctorReportsResponse extends $tea.Model {
   }
 }
 
-export class ListInspectionHistoryRequest extends $tea.Model {
-  clusterId?: string;
-  component?: string;
-  instanceId?: string;
-  language?: string;
-  maxResults?: number;
-  nextToken?: string;
-  regionId?: string;
-  service?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      component: 'Component',
-      instanceId: 'InstanceId',
-      language: 'Language',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      regionId: 'RegionId',
-      service: 'Service',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      component: 'string',
-      instanceId: 'string',
-      language: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      regionId: 'string',
-      service: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInspectionHistoryResponseBody extends $tea.Model {
-  data?: ListInspectionHistoryResponseBodyData[];
-  maxResults?: number;
-  nextToken?: string;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': ListInspectionHistoryResponseBodyData },
-      maxResults: 'number',
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInspectionHistoryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListInspectionHistoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListInspectionHistoryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListInstanceTypesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 集群ID，仅升配场景使用。
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * 创建的EMR集群类型。取值范围：
+   * - DATALAKE：新版数据湖。
+   * - OLAP：数据分析。
+   * - DATAFLOW：实时数据流。
+   * - DATASERVING：数据服务。
+   * - CUSTOM：自定义集群。
+   * - HADOOP：旧版数据湖（不推荐使用，建议使用新版数据湖）。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DATALAKE
+   */
   clusterType?: string;
+  /**
+   * @remarks
+   * 集群中的应用部署模式。取值范围：
+   * - NORMAL：非高可用部署。集群1个MASTER节点。
+   * - HA：高可用部署。高可用部署要求至少3个MASTER节点。
+   * 
+   * 默认值：NORMAL。
+   * 
+   * @example
+   * HA
+   */
   deployMode?: string;
+  /**
+   * @remarks
+   * 机型
+   * 
+   * @example
+   * ecs.g6.xlarge
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * 是否变配。
+   * 
+   * @example
+   * false
+   */
   isModification?: boolean;
+  /**
+   * @remarks
+   * 节点组ID。
+   * 
+   * @example
+   * G-F06C4B47966A****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * 节点组类型。取值范围：
+   * - MASTER：管理类型节点组。
+   * - CORE：存储类型节点组。
+   * - TASK：计算类型节点组。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CORE
+   */
   nodeGroupType?: string;
+  /**
+   * @remarks
+   * 集群的付费类型。取值范围：
+   * - PayAsYouGo：后付费。
+   * - Subscription：预付费。
+   * 
+   * 默认值：PayAsYouGo。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PayAsYouGo
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * EMR发行版。
+   * 
+   * @example
+   * EMR-5.3.0
+   */
   releaseVersion?: string;
+  /**
+   * @remarks
+   * 可用区ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing-h
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7606,10 +13947,42 @@ export class ListInstanceTypesRequest extends $tea.Model {
 }
 
 export class ListInstanceTypesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instance types.
+   */
   instanceTypes?: InstanceType[];
+  /**
+   * @remarks
+   * 本次请求所返回的最大记录条数。
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * 返回读取到的数据位置，空代表数据已经读取完毕。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * 本次请求条件下的数据总量。
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7662,13 +14035,73 @@ export class ListInstanceTypesResponse extends $tea.Model {
 }
 
 export class ListNodeGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The number of maximum number of records to obtain at a time. Valid values: 1 to 100.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * Marks the current position where reading starts. If you set this value to null, you can start from the beginning.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The IDs of node groups. Valid values of the number of array elements N: 1 to 100.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   nodeGroupIds?: string[];
+  /**
+   * @remarks
+   * The list of node group names. Valid values of the number of array elements N: 1 to 100.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nodeGroupNames?: string[];
+  /**
+   * @remarks
+   * The status of the node group. Valid values of the number of array elements N: 1 to 100.
+   * 
+   * @example
+   * ["CORE"]
+   */
   nodeGroupStates?: string[];
+  /**
+   * @remarks
+   * The list of node group types. Valid values of the number of array elements N: 1 to 100.
+   * 
+   * @example
+   * 20
+   */
   nodeGroupTypes?: string[];
+  /**
+   * @remarks
+   * The ID of the region in which you want to create the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7702,10 +14135,42 @@ export class ListNodeGroupsRequest extends $tea.Model {
 }
 
 export class ListNodeGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * Returns the location of the data that was read. Empty indicates that the data has been read.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The array of node groups.
+   */
   nodeGroups?: NodeGroup[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7758,16 +14223,94 @@ export class ListNodeGroupsResponse extends $tea.Model {
 }
 
 export class ListNodesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The number of maximum number of records to obtain at a time. Valid values: 1 to 100.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * Marks the current position where reading starts. If you set this value to null, you can start from the beginning.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The IDs of node groups.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nodeGroupIds?: string[];
+  /**
+   * @remarks
+   * An array that consists of information about the ID of the node.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   nodeIds?: string[];
+  /**
+   * @remarks
+   * The names of the nodes.
+   * 
+   * @example
+   * 20
+   */
   nodeNames?: string[];
+  /**
+   * @remarks
+   * The status of the node.
+   * 
+   * @example
+   * ["CREATED"]
+   */
   nodeStates?: string[];
+  /**
+   * @remarks
+   * The private IP address.
+   * 
+   * @example
+   * ["172.12.0.91"]
+   */
   privateIps?: string[];
+  /**
+   * @remarks
+   * The public IP address.
+   * 
+   * @example
+   * ["120.13.14.38"]
+   */
   publicIps?: string[];
+  /**
+   * @remarks
+   * The ID of the region in which you want to create the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The list of tags to be bound.
+   */
   tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
@@ -7807,10 +14350,42 @@ export class ListNodesRequest extends $tea.Model {
 }
 
 export class ListNodesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The position at which the next read starts. If null is returned, the data has been read.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * Details about nodes.
+   */
   nodes?: Node[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of records in this request.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7863,8 +14438,33 @@ export class ListNodesResponse extends $tea.Model {
 }
 
 export class ListReleaseVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DATALAKE
+   */
   clusterType?: string;
+  /**
+   * @remarks
+   * The type of the IaaS resource.
+   * 
+   * @example
+   * ECS
+   */
   iaasType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7888,10 +14488,42 @@ export class ListReleaseVersionsRequest extends $tea.Model {
 }
 
 export class ListReleaseVersionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * Returns the location of the data that was read.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The major EMR versions.
+   */
   releaseVersions?: ListReleaseVersionsResponseBodyReleaseVersions[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7943,116 +14575,52 @@ export class ListReleaseVersionsResponse extends $tea.Model {
   }
 }
 
-export class ListResourceHealthInspectionsRequest extends $tea.Model {
-  applicationName?: string;
-  clusterId?: string;
-  componentName?: string;
-  healthStatuses?: string[];
-  language?: string;
-  maxResults?: number;
-  nextToken?: string;
-  nodeIds?: string[];
-  nodeNames?: string[];
-  regionId?: string;
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationName: 'ApplicationName',
-      clusterId: 'ClusterId',
-      componentName: 'ComponentName',
-      healthStatuses: 'HealthStatuses',
-      language: 'Language',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      nodeIds: 'NodeIds',
-      nodeNames: 'NodeNames',
-      regionId: 'RegionId',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationName: 'string',
-      clusterId: 'string',
-      componentName: 'string',
-      healthStatuses: { 'type': 'array', 'itemType': 'string' },
-      language: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      nodeIds: { 'type': 'array', 'itemType': 'string' },
-      nodeNames: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceHealthInspectionsResponseBody extends $tea.Model {
-  healthInspections?: ListResourceHealthInspectionsResponseBodyHealthInspections[];
-  maxResults?: number;
-  nextToken?: string;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      healthInspections: 'HealthInspections',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      healthInspections: { 'type': 'array', 'itemType': ListResourceHealthInspectionsResponseBodyHealthInspections },
-      maxResults: 'number',
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceHealthInspectionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListResourceHealthInspectionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListResourceHealthInspectionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListScriptsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * 一次获取的最大记录数。取值范围：1~100。
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * 标记当前开始读取的位置，置空表示从头开始。
+   * 
+   * @example
+   * dd6b1b2a-5837-5237-abe4-ff0c89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * 集群脚本类型。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * BOOTSTRAP
+   */
   scriptType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8080,10 +14648,42 @@ export class ListScriptsRequest extends $tea.Model {
 }
 
 export class ListScriptsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 本次请求所返回的最大记录条数。
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * 返回读取到的数据位置，空代表数据已经读取完毕。
+   * 
+   * @example
+   * dd6b1b2a-5837-5237-abe4-ff0c89568982
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The scripts.
+   */
   scripts?: ListScriptsResponseBodyScripts[];
+  /**
+   * @remarks
+   * 本次请求条件下的数据总量。
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8136,11 +14736,59 @@ export class ListScriptsResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of maximum number of records to obtain at a time.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results. If NextToken is empty, the query starts from the beginning.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region in which you want to create the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The list of resource IDs. Number of array elements N Valid values: 1 to 1
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   resourceIds?: string[];
+  /**
+   * @remarks
+   * The type of the resource. Set the value to cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cluster
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The array of tags. The number of array elements N. Valid values: 1 to 20.
+   * 
+   * @example
+   * 20
+   */
   tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
@@ -8170,10 +14818,42 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * Returns the location of the data that was read. Empty indicates that the data has been read.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 372D4E9B-2509-5EFA-846B-B34FBF143F56
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The details about the tag. Contains the resource ID, resource type, and tag key-value information.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8226,10 +14906,45 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class PutAutoScalingPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The maximum and minimum numbers of nodes in a node group.
+   */
   constraints?: ScalingConstraints;
+  /**
+   * @remarks
+   * 节点组ID。节点组 Id-针对 ACK 集群，此字段为空。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The auto scaling rules. Number of elements in the array: 0 to 100.
+   */
   scalingRules?: ScalingRule[];
   static names(): { [key: string]: string } {
     return {
@@ -8257,6 +14972,13 @@ export class PutAutoScalingPolicyRequest extends $tea.Model {
 }
 
 export class PutAutoScalingPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8301,8 +15023,35 @@ export class PutAutoScalingPolicyResponse extends $tea.Model {
 }
 
 export class RemoveAutoScalingPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the node group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8326,6 +15075,13 @@ export class RemoveAutoScalingPolicyRequest extends $tea.Model {
 }
 
 export class RemoveAutoScalingPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8370,9 +15126,43 @@ export class RemoveAutoScalingPolicyResponse extends $tea.Model {
 }
 
 export class RunApiTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 接口名。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CreateCluster
+   */
   apiName?: string;
+  /**
+   * @remarks
+   * 幂等客户端TOKEN。
+   * 
+   * @example
+   * A7D960FA-6DBA-5E07-8746-A63E3E4D****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * 地域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * 集群模板id。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AT-****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8398,7 +15188,18 @@ export class RunApiTemplateRequest extends $tea.Model {
 }
 
 export class RunApiTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {\\"clusterId\\":\\"c-b7be171f1928****\\",\\"operationId\\":\\"op-61126efe629d****\\"}
+   */
   data?: string;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8445,14 +15246,92 @@ export class RunApiTemplateResponse extends $tea.Model {
 }
 
 export class RunApplicationActionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the action. Valid values:
+   * 
+   * *   start
+   * *   stop
+   * *   config
+   * *   restart
+   * *   refresh_queues
+   * *   refresh_labels
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * start
+   */
   actionName?: string;
+  /**
+   * @remarks
+   * The number of applications in each batch.
+   * 
+   * @example
+   * 1
+   */
   batchSize?: number;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * C-C95F0A39D8FF****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The operation object.
+   * 
+   * This parameter is required.
+   */
   componentInstanceSelector?: ComponentInstanceSelector;
+  /**
+   * @remarks
+   * The description of the execution.
+   * 
+   * @example
+   * 运行描述
+   */
   description?: string;
+  /**
+   * @remarks
+   * The execution policy. Valid values:
+   * 
+   * *   FAILED_BLOCK: The system stops the execution if the execution fails.
+   * *   FAILED_CONTINUE: The system continues the execution if the execution fails.
+   * 
+   * @example
+   * FAILED_CONTINUE
+   */
   executeStrategy?: string;
+  /**
+   * @remarks
+   * The interval for rolling execution. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable rolling execution.
+   * 
+   * @example
+   * true
+   */
   rollingExecute?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -8488,8 +15367,26 @@ export class RunApplicationActionRequest extends $tea.Model {
 }
 
 export class RunApplicationActionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The abnormal nodes.
+   */
   abnInstances?: RunApplicationActionResponseBodyAbnInstances[];
+  /**
+   * @remarks
+   * The operation ID.
+   * 
+   * @example
+   * op-13c37a77c505****
+   */
   operationId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9E3A7161-EB7B-172B-8D18-FFB06BA3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8537,10 +15434,489 @@ export class RunApplicationActionResponse extends $tea.Model {
   }
 }
 
-export class TagResourcesRequest extends $tea.Model {
+export class RunClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 应用配置。数组元素个数N的取值范围：1~1000。
+   */
+  applicationConfigs?: ApplicationConfig[];
+  /**
+   * @remarks
+   * 应用列表。数组元素个数N的取值范围：1~100。
+   * 
+   * This parameter is required.
+   */
+  applications?: Application[];
+  /**
+   * @remarks
+   * 引导脚本。数组元素个数N的取值范围：1~10。
+   */
+  bootstrapScripts?: Script[];
+  /**
+   * @remarks
+   * 幂等客户端TOKEN。同一个ClientToken多次调用的返回结果一致，同一个ClientToken最多只创建一个集群。
+   * 
+   * @example
+   * A7D960FA-6DBA-5E07-8746-A63E3E4D****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * 集群名称。长度为1~128个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、半角冒号（:）、下划线（_）、半角句号（.）或者短划线（-）
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * emrtest
+   */
+  clusterName?: string;
+  /**
+   * @remarks
+   * 创建的EMR集群类型。取值范围：
+   * - DATALAKE：新版数据湖。
+   * - OLAP：数据分析。
+   * - DATAFLOW：实时数据流。
+   * - DATASERVING：数据服务。
+   * - CUSTOM：自定义集群。
+   * - HADOOP：旧版数据湖（不推荐使用，建议使用新版数据湖）。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DATALAKE
+   */
+  clusterType?: string;
+  /**
+   * @remarks
+   * 集群中的应用部署模式。取值范围：
+   * - NORMAL：非高可用部署。集群1个MASTER节点。
+   * - HA：高可用部署。高可用部署要求至少3个MASTER节点。
+   * 
+   * 默认值：NORMAL。
+   * 
+   * @example
+   * HA
+   */
+  deployMode?: string;
+  /**
+   * @example
+   * Emr cluster for ETL
+   */
+  description?: string;
+  nodeAttributes?: NodeAttributes;
+  /**
+   * @remarks
+   * 节点组。数组元素个数N的取值范围：1~100。
+   * <p>
+   * 
+   * This parameter is required.
+   */
+  nodeGroups?: NodeGroupConfig[];
+  /**
+   * @remarks
+   * 集群的付费类型。取值范围：
+   * - PayAsYouGo：后付费。
+   * - Subscription：预付费。
+   * 
+   * 默认值：PayAsYouGo。
+   * 
+   * @example
+   * PayAsYouGo
+   */
+  paymentType?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * EMR发行版。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * EMR-5.16.0
+   */
+  releaseVersion?: string;
+  /**
+   * @remarks
+   * 集群所在的企业资源组ID。
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Kerberos安全模式。取值范围：
+   * - NORMAL：普通模式，不开启Kerberos模式。
+   * - KERBEROS：开启Kerberos模式。
+   * 
+   * 默认值：NORMAL
+   * 
+   * @example
+   * NORMAL
+   */
+  securityMode?: string;
+  subscriptionConfig?: SubscriptionConfig;
+  /**
+   * @remarks
+   * 标签。数组元数个数N的取值范围：0~20。
+   */
+  tags?: Tag[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationConfigs: 'ApplicationConfigs',
+      applications: 'Applications',
+      bootstrapScripts: 'BootstrapScripts',
+      clientToken: 'ClientToken',
+      clusterName: 'ClusterName',
+      clusterType: 'ClusterType',
+      deployMode: 'DeployMode',
+      description: 'Description',
+      nodeAttributes: 'NodeAttributes',
+      nodeGroups: 'NodeGroups',
+      paymentType: 'PaymentType',
+      regionId: 'RegionId',
+      releaseVersion: 'ReleaseVersion',
+      resourceGroupId: 'ResourceGroupId',
+      securityMode: 'SecurityMode',
+      subscriptionConfig: 'SubscriptionConfig',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationConfigs: { 'type': 'array', 'itemType': ApplicationConfig },
+      applications: { 'type': 'array', 'itemType': Application },
+      bootstrapScripts: { 'type': 'array', 'itemType': Script },
+      clientToken: 'string',
+      clusterName: 'string',
+      clusterType: 'string',
+      deployMode: 'string',
+      description: 'string',
+      nodeAttributes: NodeAttributes,
+      nodeGroups: { 'type': 'array', 'itemType': NodeGroupConfig },
+      paymentType: 'string',
+      regionId: 'string',
+      releaseVersion: 'string',
+      resourceGroupId: 'string',
+      securityMode: 'string',
+      subscriptionConfig: SubscriptionConfig,
+      tags: { 'type': 'array', 'itemType': Tag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunClusterShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 应用配置。数组元素个数N的取值范围：1~1000。
+   */
+  applicationConfigsShrink?: string;
+  /**
+   * @remarks
+   * 应用列表。数组元素个数N的取值范围：1~100。
+   * 
+   * This parameter is required.
+   */
+  applicationsShrink?: string;
+  /**
+   * @remarks
+   * 引导脚本。数组元素个数N的取值范围：1~10。
+   */
+  bootstrapScriptsShrink?: string;
+  /**
+   * @remarks
+   * 幂等客户端TOKEN。同一个ClientToken多次调用的返回结果一致，同一个ClientToken最多只创建一个集群。
+   * 
+   * @example
+   * A7D960FA-6DBA-5E07-8746-A63E3E4D****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * 集群名称。长度为1~128个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、半角冒号（:）、下划线（_）、半角句号（.）或者短划线（-）
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * emrtest
+   */
+  clusterName?: string;
+  /**
+   * @remarks
+   * 创建的EMR集群类型。取值范围：
+   * - DATALAKE：新版数据湖。
+   * - OLAP：数据分析。
+   * - DATAFLOW：实时数据流。
+   * - DATASERVING：数据服务。
+   * - CUSTOM：自定义集群。
+   * - HADOOP：旧版数据湖（不推荐使用，建议使用新版数据湖）。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DATALAKE
+   */
+  clusterType?: string;
+  /**
+   * @remarks
+   * 集群中的应用部署模式。取值范围：
+   * - NORMAL：非高可用部署。集群1个MASTER节点。
+   * - HA：高可用部署。高可用部署要求至少3个MASTER节点。
+   * 
+   * 默认值：NORMAL。
+   * 
+   * @example
+   * HA
+   */
+  deployMode?: string;
+  /**
+   * @example
+   * Emr cluster for ETL
+   */
+  description?: string;
+  nodeAttributesShrink?: string;
+  /**
+   * @remarks
+   * 节点组。数组元素个数N的取值范围：1~100。
+   * <p>
+   * 
+   * This parameter is required.
+   */
+  nodeGroupsShrink?: string;
+  /**
+   * @remarks
+   * 集群的付费类型。取值范围：
+   * - PayAsYouGo：后付费。
+   * - Subscription：预付费。
+   * 
+   * 默认值：PayAsYouGo。
+   * 
+   * @example
+   * PayAsYouGo
+   */
+  paymentType?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * EMR发行版。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * EMR-5.16.0
+   */
+  releaseVersion?: string;
+  /**
+   * @remarks
+   * 集群所在的企业资源组ID。
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Kerberos安全模式。取值范围：
+   * - NORMAL：普通模式，不开启Kerberos模式。
+   * - KERBEROS：开启Kerberos模式。
+   * 
+   * 默认值：NORMAL
+   * 
+   * @example
+   * NORMAL
+   */
+  securityMode?: string;
+  subscriptionConfigShrink?: string;
+  /**
+   * @remarks
+   * 标签。数组元数个数N的取值范围：0~20。
+   */
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationConfigsShrink: 'ApplicationConfigs',
+      applicationsShrink: 'Applications',
+      bootstrapScriptsShrink: 'BootstrapScripts',
+      clientToken: 'ClientToken',
+      clusterName: 'ClusterName',
+      clusterType: 'ClusterType',
+      deployMode: 'DeployMode',
+      description: 'Description',
+      nodeAttributesShrink: 'NodeAttributes',
+      nodeGroupsShrink: 'NodeGroups',
+      paymentType: 'PaymentType',
+      regionId: 'RegionId',
+      releaseVersion: 'ReleaseVersion',
+      resourceGroupId: 'ResourceGroupId',
+      securityMode: 'SecurityMode',
+      subscriptionConfigShrink: 'SubscriptionConfig',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationConfigsShrink: 'string',
+      applicationsShrink: 'string',
+      bootstrapScriptsShrink: 'string',
+      clientToken: 'string',
+      clusterName: 'string',
+      clusterType: 'string',
+      deployMode: 'string',
+      description: 'string',
+      nodeAttributesShrink: 'string',
+      nodeGroupsShrink: 'string',
+      paymentType: 'string',
+      regionId: 'string',
+      releaseVersion: 'string',
+      resourceGroupId: 'string',
+      securityMode: 'string',
+      subscriptionConfigShrink: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * @example
+   * c-b933c5aac7f7***
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * 操作ID。
+   * 
+   * @example
+   * op-13c37a77c505****
+   */
+  operationId?: string;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      operationId: 'OperationId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      operationId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunClusterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the region in which you want to create the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The list of resource IDs. Valid values of N: 1 to 1.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cluster
+   */
   resourceIds?: string[];
+  /**
+   * @remarks
+   * The type of the resource to which the tag belongs. Valid values:
+   * 
+   * *   cluster: cluster
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cluster
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [null]
+   */
   tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
@@ -8566,6 +15942,13 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A964BDB2-0FDA-1037-AF3F-2633D5C3F20F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8610,10 +15993,56 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove all tags. This parameter is valid only when the **Tagkeys** is empty. Valid values:
+   * 
+   * *   true: All the data is deleted.
+   * *   false: Not all of them are deleted.
+   * 
+   * Default value: false
+   * 
+   * @example
+   * false
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * The ID of the region in which you want to create the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The list of resource IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cluster
+   */
   resourceIds?: string[];
+  /**
+   * @remarks
+   * The type of the resource. Set the value to cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cluster
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The key of the label. Valid values of N: 1 to 20.
+   * 
+   * @example
+   * ["c-b933c5aac8fe****"]
+   */
   tagKeys?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8641,6 +16070,13 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 17A6A3D5-4B13-1DAD-9A23-66EA5FC83B50
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8685,11 +16121,63 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateApiTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the API. You can create only a cluster API operation template. Set the value to CreateCluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CreateCluster
+   */
   apiName?: string;
+  /**
+   * @remarks
+   * The content of the cluster API operation template. Set the value to JSON strings of the request parameters of the [CreateCluster](https://help.aliyun.com/document_detail/454393.html) API for creating a cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CreateCluster
+   */
   content?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * 资源组ID。
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * 集群模板id。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AT-****
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * 集群模板名字。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DATALAKE模板
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8719,7 +16207,20 @@ export class UpdateApiTemplateRequest extends $tea.Model {
 }
 
 export class UpdateApiTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   * 
+   * @deprecated
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -8766,15 +16267,97 @@ export class UpdateApiTemplateResponse extends $tea.Model {
 }
 
 export class UpdateApplicationConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 应用配置列表。
+   * 
+   * This parameter is required.
+   */
   applicationConfigs?: UpdateApplicationConfig[];
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-e6a9d46e9267****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The operation performed on configuration items. Valid values:
+   * 
+   * *   ADD
+   * *   UPDATE
+   * *   DELETE
+   * 
+   * @example
+   * ADD
+   */
   configAction?: string;
+  /**
+   * @remarks
+   * The operation scope. Valid values:
+   * 
+   * *   CLUSTER
+   * *   NODE_GROUP
+   * 
+   * @example
+   * CLUSTER
+   */
   configScope?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * 更新YARN内存配置。
+   */
   description?: string;
+  /**
+   * @remarks
+   * The node group ID.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The node ID.
+   * 
+   * @example
+   * i-bp1cudc25w2bfwl5****
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * Specifies whether to refresh the configurations. Default value: True.
+   * 
+   * @example
+   * true
+   */
   refreshConfig?: boolean;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8812,7 +16395,21 @@ export class UpdateApplicationConfigsRequest extends $tea.Model {
 }
 
 export class UpdateApplicationConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The operation ID.
+   * 
+   * @example
+   * op-13c37a77c505****
+   */
   operationId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9E3A7161-EB7B-172B-8D18-FFB06BA3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8859,10 +16456,55 @@ export class UpdateApplicationConfigsResponse extends $tea.Model {
 }
 
 export class UpdateScriptRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The script.
+   * 
+   * This parameter is required.
+   */
   script?: Script;
+  /**
+   * @remarks
+   * The script ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cs-da7476a7679a4d4c9cede62ebe09****
+   */
   scriptId?: string;
+  /**
+   * @remarks
+   * The type of the script. Valid values:
+   * 
+   * *   BOOTSTRAP: indicates a bootstrap action of the Elastic Compute Service (ECS) instance.
+   * *   NORMAL: indicates a common script.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * BOOTSTRAP
+   */
   scriptType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8890,10 +16532,55 @@ export class UpdateScriptRequest extends $tea.Model {
 }
 
 export class UpdateScriptShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The script.
+   * 
+   * This parameter is required.
+   */
   scriptShrink?: string;
+  /**
+   * @remarks
+   * The script ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cs-da7476a7679a4d4c9cede62ebe09****
+   */
   scriptId?: string;
+  /**
+   * @remarks
+   * The type of the script. Valid values:
+   * 
+   * *   BOOTSTRAP: indicates a bootstrap action of the Elastic Compute Service (ECS) instance.
+   * *   NORMAL: indicates a common script.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * BOOTSTRAP
+   */
   scriptType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8921,6 +16608,13 @@ export class UpdateScriptShrinkRequest extends $tea.Model {
 }
 
 export class UpdateScriptResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8964,8 +16658,97 @@ export class UpdateScriptResponse extends $tea.Model {
   }
 }
 
+export class AckConfigPvcs extends $tea.Model {
+  dataDiskSize?: number;
+  dataDiskStorageClass?: string;
+  name?: string;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataDiskSize: 'DataDiskSize',
+      dataDiskStorageClass: 'DataDiskStorageClass',
+      name: 'Name',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDiskSize: 'number',
+      dataDiskStorageClass: 'string',
+      name: 'string',
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AckConfigVolumeMounts extends $tea.Model {
+  name?: string;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AckConfigVolumes extends $tea.Model {
+  name?: string;
+  path?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AckNodeSelectorLabels extends $tea.Model {
+  /**
+   * @remarks
+   * 标签键。
+   * 
+   * @example
+   * emr
+   */
   key?: string;
+  /**
+   * @remarks
+   * 标签值。
+   * 
+   * @example
+   * true
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8987,8 +16770,26 @@ export class AckNodeSelectorLabels extends $tea.Model {
 }
 
 export class AckNodeSelectorTaints extends $tea.Model {
+  /**
+   * @remarks
+   * 污点效果。
+   */
   effect?: string;
+  /**
+   * @remarks
+   * 污点键。
+   * 
+   * @example
+   * emr
+   */
   key?: string;
+  /**
+   * @remarks
+   * 污点值。
+   * 
+   * @example
+   * true
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9012,7 +16813,15 @@ export class AckNodeSelectorTaints extends $tea.Model {
 }
 
 export class AutoScalingConstraintsSupportMetricTags extends $tea.Model {
+  /**
+   * @remarks
+   * 指标名称。
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * 指标Tag。
+   */
   tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
@@ -9056,8 +16865,29 @@ export class AutoScalingPolicyConstraints extends $tea.Model {
 }
 
 export class ComponentInstanceSelectorComponentInstances extends $tea.Model {
+  /**
+   * @remarks
+   * 应用名称。
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * 组件名称。
+   * 
+   * @example
+   * DataNode
+   */
   componentName?: string;
+  /**
+   * @remarks
+   * 节点ID。
+   * 
+   * @example
+   * i-bp1cudc25w2bfwl5****
+   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9081,7 +16911,21 @@ export class ComponentInstanceSelectorComponentInstances extends $tea.Model {
 }
 
 export class ComponentInstanceSelectorComponents extends $tea.Model {
+  /**
+   * @remarks
+   * 应用名称。
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * 组件名称。
+   * 
+   * @example
+   * DataNode
+   */
   componentName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9103,13 +16947,71 @@ export class ComponentInstanceSelectorComponents extends $tea.Model {
 }
 
 export class ComponentLayoutNodeSelector extends $tea.Model {
+  /**
+   * @remarks
+   * 节点结束编号，包含结束编号。
+   * 
+   * @example
+   * 3
+   */
   nodeEndIndex?: number;
+  /**
+   * @remarks
+   * 节点组ID。
+   * 
+   * @example
+   * G-F609686D45D4ABCD
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * 机器组下标编号。
+   * 
+   * @example
+   * 1
+   */
   nodeGroupIndex?: number;
+  /**
+   * @remarks
+   * 机器组名。
+   * 
+   * @example
+   * master-1
+   */
   nodeGroupName?: string;
+  /**
+   * @remarks
+   * SelectType = NODE_GROUP 且 nodeGroupId 不存在时使用
+   * 
+   * @example
+   * [null]
+   */
   nodeGroupTypes?: string[];
+  /**
+   * @remarks
+   * 节点名称列表。
+   * 
+   * @example
+   * [null]
+   */
   nodeNames?: string[];
+  /**
+   * @remarks
+   * 节点选择类型。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CLUSTER
+   */
   nodeSelectType?: string;
+  /**
+   * @remarks
+   * 节点开始编号，包含开始编号。
+   * 
+   * @example
+   * 1
+   */
   nodeStartIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9143,7 +17045,21 @@ export class ComponentLayoutNodeSelector extends $tea.Model {
 }
 
 export class ScalingGroupConfigInstanceTypeList extends $tea.Model {
+  /**
+   * @remarks
+   * Ecs类型。
+   * 
+   * @example
+   * ecs.c5.xlarge
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * 抢占价格上限,可空。
+   * 
+   * @example
+   * 0.79
+   */
   spotPriceLimit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9165,9 +17081,37 @@ export class ScalingGroupConfigInstanceTypeList extends $tea.Model {
 }
 
 export class ScalingGroupConfigMultiAvailablePolicyPolicyParam extends $tea.Model {
+  /**
+   * @remarks
+   * 按需实例最小个数。
+   * 
+   * @example
+   * 1
+   */
   onDemandBaseCapacity?: number;
+  /**
+   * @remarks
+   * 按需实例百分比。
+   * 
+   * @example
+   * 10
+   */
   onDemandPercentageAboveBaseCapacity?: number;
+  /**
+   * @remarks
+   * 抢占实例类型池规模。
+   * 
+   * @example
+   * 10
+   */
   spotInstancePools?: number;
+  /**
+   * @remarks
+   * 是否使用按量补偿。
+   * 
+   * @example
+   * false
+   */
   spotInstanceRemedy?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9193,7 +17137,18 @@ export class ScalingGroupConfigMultiAvailablePolicyPolicyParam extends $tea.Mode
 }
 
 export class ScalingGroupConfigMultiAvailablePolicy extends $tea.Model {
+  /**
+   * @remarks
+   * 资源可用性策略(成本优化参数)。
+   */
   policyParam?: ScalingGroupConfigMultiAvailablePolicyPolicyParam;
+  /**
+   * @remarks
+   * 策略类型。
+   * 
+   * @example
+   * PRIORITY
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9215,7 +17170,21 @@ export class ScalingGroupConfigMultiAvailablePolicy extends $tea.Model {
 }
 
 export class ScalingGroupConfigNodeOfflinePolicy extends $tea.Model {
+  /**
+   * @remarks
+   * 下线模式,是否为优雅下线。
+   * 
+   * @example
+   * DEFAULT
+   */
   mode?: string;
+  /**
+   * @remarks
+   * 下线超时时间,单位毫秒。
+   * 
+   * @example
+   * 1000
+   */
   timeoutMs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9237,7 +17206,21 @@ export class ScalingGroupConfigNodeOfflinePolicy extends $tea.Model {
 }
 
 export class ScalingGroupConfigPrivatePoolOptions extends $tea.Model {
+  /**
+   * @remarks
+   * 私有池id。
+   * 
+   * @example
+   * eap-bp67acfmxazb4****
+   */
   id?: string;
+  /**
+   * @remarks
+   * 实例启动的私有池容量选项。。
+   * 
+   * @example
+   * Open
+   */
   matchCriteria?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9259,11 +17242,65 @@ export class ScalingGroupConfigPrivatePoolOptions extends $tea.Model {
 }
 
 export class ScalingRuleSpecByLoadScalingRuleSpec extends $tea.Model {
+  /**
+   * @remarks
+   * 比较符。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LT
+   */
   comparisonOperator?: string;
+  /**
+   * @remarks
+   * 统计次数。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   evaluationCount?: number;
+  /**
+   * @remarks
+   * 指标名称。指标名称需要在 ListAutoScalingMetrics 接口返回的指标名称列表中。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * yarn_resourcemanager_root_availablememoryusage
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * 统计量名称。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AVG
+   */
   statistics?: string;
+  /**
+   * @remarks
+   * 阈值。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12.5
+   */
   threshold?: number;
+  /**
+   * @remarks
+   * 统计窗口。单位为秒。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   timeWindow?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9293,9 +17330,39 @@ export class ScalingRuleSpecByLoadScalingRuleSpec extends $tea.Model {
 }
 
 export class ScalingRuleSpecByTimeScalingRuleSpec extends $tea.Model {
+  /**
+   * @remarks
+   * 重复执行定时任务的结束时间戳。单位为毫秒。
+   * 
+   * @example
+   * 1639714800000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * 启动时间戳。单位为毫秒。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1639714634819
+   */
   launchTime?: number;
+  /**
+   * @remarks
+   * 指定时间规则的执行类型。
+   * 
+   * @example
+   * WEEKLY
+   */
   recurrenceType?: string;
+  /**
+   * @remarks
+   * 重复执行定时任务的数值。具体取值取决于 recurrenceType 设置。
+   * 
+   * @example
+   * MON,FRI,SUN
+   */
   recurrenceValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9321,16 +17388,93 @@ export class ScalingRuleSpecByTimeScalingRuleSpec extends $tea.Model {
 }
 
 export class ScalingRuleV1RuleParam extends $tea.Model {
+  /**
+   * @remarks
+   * [负载触发参数] 比较符。
+   * 
+   * @example
+   * >
+   */
   comparisonOperator?: string;
+  /**
+   * @remarks
+   * [负载触发参数] 统计次数。
+   * 
+   * @example
+   * 1
+   */
   evaluationCount?: number;
+  /**
+   * @remarks
+   * [时间调度参数] 周期类型周期过期时间。
+   * 
+   * @example
+   * 0
+   */
   launchExpirationTime?: number;
+  /**
+   * @remarks
+   * [时间调度参数] 周期类型周期开始时间。
+   * 
+   * @example
+   * 2021-09-15T04:02Z
+   */
   launchTime?: string;
+  /**
+   * @remarks
+   * [负载触发参数] 度量名称。
+   * 
+   * @example
+   * YarnRootAvailableVCores
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * [负载触发参数] 统计时长,单位分钟。
+   * 
+   * @example
+   * 5
+   */
   period?: number;
+  /**
+   * @remarks
+   * [时间调度参数] 周期类型周期结束时间。
+   * 
+   * @example
+   * 2021-09-16T05:02Z
+   */
   recurrenceEndTime?: string;
+  /**
+   * @remarks
+   * [时间调度参数] 周期类型。
+   * 
+   * @example
+   * Daily
+   */
   recurrenceType?: string;
+  /**
+   * @remarks
+   * [时间调度参数] 周期类型周期值。
+   * 
+   * @example
+   * 1
+   */
   recurrenceValue?: string;
+  /**
+   * @remarks
+   * [负载触发参数] 统计方式。
+   * 
+   * @example
+   * Average
+   */
   statistics?: string;
+  /**
+   * @remarks
+   * [负载触发参数] 阈值。
+   * 
+   * @example
+   * 1
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9370,11 +17514,53 @@ export class ScalingRuleV1RuleParam extends $tea.Model {
 }
 
 export class GetApplicationResponseBodyApplicationActionsActionParamsValueAttribute extends $tea.Model {
+  /**
+   * @remarks
+   * 值表述。
+   * 
+   * @example
+   * 描述
+   */
   description?: string;
+  /**
+   * @remarks
+   * 值步长。
+   * 
+   * @example
+   * 2
+   */
   valueIncrementStep?: string;
+  /**
+   * @remarks
+   * 最大值。
+   * 
+   * @example
+   * 20
+   */
   valueMaximum?: string;
+  /**
+   * @remarks
+   * 最小值。
+   * 
+   * @example
+   * 1
+   */
   valueMinimum?: string;
+  /**
+   * @remarks
+   * 属性值类型。
+   * 
+   * @example
+   * STRING
+   */
   valueType?: string;
+  /**
+   * @remarks
+   * 值单位。
+   * 
+   * @example
+   * number
+   */
   valueUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9404,8 +17590,23 @@ export class GetApplicationResponseBodyApplicationActionsActionParamsValueAttrib
 }
 
 export class GetApplicationResponseBodyApplicationActionsActionParams extends $tea.Model {
+  /**
+   * @remarks
+   * 动作参数描述。
+   * 
+   * @example
+   * start
+   */
   description?: string;
+  /**
+   * @remarks
+   * 动作参数KEY。
+   */
   key?: string;
+  /**
+   * @remarks
+   * 动作参数属性。
+   */
   valueAttribute?: GetApplicationResponseBodyApplicationActionsActionParamsValueAttribute;
   static names(): { [key: string]: string } {
     return {
@@ -9429,11 +17630,50 @@ export class GetApplicationResponseBodyApplicationActionsActionParams extends $t
 }
 
 export class GetApplicationResponseBodyApplicationActions extends $tea.Model {
+  /**
+   * @remarks
+   * 操作名称。
+   * 
+   * @example
+   * START
+   */
   actionName?: string;
+  /**
+   * @remarks
+   * 操作参数。
+   */
   actionParams?: GetApplicationResponseBodyApplicationActionsActionParams[];
+  /**
+   * @remarks
+   * 命令。
+   * 
+   * @example
+   * START
+   */
   command?: string;
+  /**
+   * @remarks
+   * 组件名称。
+   * 
+   * @example
+   * DataNode
+   */
   componentName?: string;
+  /**
+   * @remarks
+   * 操作描述。
+   * 
+   * @example
+   * 描述
+   */
   description?: string;
+  /**
+   * @remarks
+   * 执行范围。
+   * 
+   * @example
+   * CLUSTER
+   */
   runActionScope?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9463,10 +17703,39 @@ export class GetApplicationResponseBodyApplicationActions extends $tea.Model {
 }
 
 export class GetApplicationResponseBodyApplication extends $tea.Model {
+  /**
+   * @remarks
+   * 操作列表。
+   */
   actions?: GetApplicationResponseBodyApplicationActions[];
+  /**
+   * @remarks
+   * 应用名称。
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * 应用操作状态。
+   */
   applicationState?: string;
+  /**
+   * @remarks
+   * 应用版本。
+   * 
+   * @example
+   * 2.8.5
+   */
   applicationVersion?: string;
+  /**
+   * @remarks
+   * 社区版本。
+   * 
+   * @example
+   * 2.8.5
+   */
   communityVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9494,19 +17763,119 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
 }
 
 export class GetAutoScalingActivityResponseBodyScalingActivity extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the scaling activity.
+   * 
+   * @example
+   * asa-36373b084d6b4b13aa50f4129a9e****
+   */
   activityId?: string;
+  /**
+   * @remarks
+   * The instances that correspond to the scaling activity.
+   */
   activityResults?: ScalingActivityResult[];
+  /**
+   * @remarks
+   * The status of the scaling activity. Valid values:
+   * 
+   * *   REJECTED
+   * *   SUCCESSFUL
+   * *   FAILED
+   * *   IN_PROGRESS
+   * 
+   * @example
+   * IN_PROGRESS
+   */
   activityState?: string;
+  /**
+   * @remarks
+   * The type of the scaling activity. Valid value:
+   * 
+   * *   SCALE_OUT
+   * *   SCALE_IN
+   * 
+   * @example
+   * SCALE_OUT
+   */
   activityType?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The description of the scaling activity.
+   * 
+   * @example
+   * clusterId not exist
+   */
   description?: string;
+  /**
+   * @remarks
+   * The time when scaling ended.
+   * 
+   * @example
+   * 1639715634819
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The number of added or removed instances.
+   * 
+   * @example
+   * 10
+   */
   expectNum?: number;
+  /**
+   * @remarks
+   * The ID of the node group.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The name of the node group.
+   * 
+   * @example
+   * task-01
+   */
   nodeGroupName?: string;
+  /**
+   * @remarks
+   * The operation ID.
+   * 
+   * @example
+   * op-13c37a77c505****
+   */
   operationId?: string;
+  /**
+   * @remarks
+   * The description of the scaling rule.
+   */
   ruleDetail?: ScalingRule;
+  /**
+   * @remarks
+   * The name of the scaling rule.
+   * 
+   * @example
+   * scaling-out-memory
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The time when scaling started.
+   * 
+   * @example
+   * 1639714634819
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9552,7 +17921,21 @@ export class GetAutoScalingActivityResponseBodyScalingActivity extends $tea.Mode
 }
 
 export class GetAutoScalingPolicyResponseBodyScalingPolicyConstraints extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of nodes in the node group. Default value: 2000.
+   * 
+   * @example
+   * 2000
+   */
   maxCapacity?: number;
+  /**
+   * @remarks
+   * The minimum number of nodes in the node group. Default value: 0.
+   * 
+   * @example
+   * 0
+   */
   minCapacity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9574,12 +17957,61 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyConstraints extends $t
 }
 
 export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $tea.Model {
+  /**
+   * @remarks
+   * The scaling type. Valid values:
+   * 
+   * *   SCALE_OUT
+   * *   SCALE_IN
+   * 
+   * @example
+   * SCALE_OUT
+   */
   activityType?: string;
+  /**
+   * @remarks
+   * The adjustment type.
+   * 
+   * @example
+   * CHANGE_IN_CAPACITY
+   */
   adjustmentType?: string;
+  /**
+   * @remarks
+   * The adjustment value. The parameter value must be a positive integer, which indicates the number of instances that you want to add or remove.
+   * 
+   * @example
+   * 100
+   */
   adjustmentValue?: number;
+  /**
+   * @remarks
+   * The description of load-based scaling.
+   */
   metricsTrigger?: MetricsTrigger;
+  /**
+   * @remarks
+   * The name of the auto scaling rule.
+   * 
+   * @example
+   * scaling-out-memory
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The description of time-based scaling.
+   */
   timeTrigger?: TimeTrigger;
+  /**
+   * @remarks
+   * The type of the auto scaling rule. Valid values:
+   * 
+   * *   TIME_TRIGGER: time-based scaling
+   * *   METRICS_TRIGGER: load-based scaling
+   * 
+   * @example
+   * TIME_TRIGGER
+   */
   triggerType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9611,10 +18043,39 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
 }
 
 export class GetAutoScalingPolicyResponseBodyScalingPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The maximum and minimum number of nodes in the node group.
+   */
   constraints?: GetAutoScalingPolicyResponseBodyScalingPolicyConstraints;
+  /**
+   * @remarks
+   * The ID of the node group.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the scaling policy.
+   * 
+   * @example
+   * asp-asduwe23znl***
+   */
   scalingPolicyId?: string;
+  /**
+   * @remarks
+   * The auto scaling rules.
+   */
   scalingRules?: GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules[];
   static names(): { [key: string]: string } {
     return {
@@ -9641,8 +18102,408 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicy extends $tea.Model {
   }
 }
 
+export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConstraints extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of nodes in the node group. Default value: 2000.
+   * 
+   * @example
+   * 200
+   */
+  maxCapacity?: number;
+  /**
+   * @remarks
+   * The minimum number of nodes in the node group. Default value: 0.
+   * 
+   * @example
+   * 50
+   */
+  minCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxCapacity: 'MaxCapacity',
+      minCapacity: 'MinCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxCapacity: 'number',
+      minCapacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesScalingRules extends $tea.Model {
+  /**
+   * @remarks
+   * The scaling type. This parameter is required. Valid values:
+   * 
+   * *   SCALE_OUT
+   * *   SCALE_IN
+   * 
+   * @example
+   * SCALE_OUT
+   */
+  activityType?: string;
+  /**
+   * @remarks
+   * The adjustment value of the auto scaling rule. This parameter is required. The parameter value must be a positive integer, which indicates the number of instances to be added or removed.
+   * 
+   * @example
+   * 100
+   */
+  adjustmentValue?: number;
+  /**
+   * @remarks
+   * The description of load-based scaling.
+   */
+  metricsTrigger?: MetricsTrigger;
+  /**
+   * @remarks
+   * The name of the auto scaling rule.
+   * 
+   * @example
+   * scaling-out-memory
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * The description of time-based scaling.
+   */
+  timeTrigger?: TimeTrigger;
+  /**
+   * @remarks
+   * The trigger mode of the auto scaling rule. This parameter is required. Valid values:
+   * 
+   * *   TIME_TRIGGER: time-based scaling.
+   * *   METRICS_TRIGGER: load-based scaling.
+   * 
+   * @example
+   * TIME_TRIGGER
+   */
+  triggerType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activityType: 'ActivityType',
+      adjustmentValue: 'AdjustmentValue',
+      metricsTrigger: 'MetricsTrigger',
+      ruleName: 'RuleName',
+      timeTrigger: 'TimeTrigger',
+      triggerType: 'TriggerType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityType: 'string',
+      adjustmentValue: 'number',
+      metricsTrigger: MetricsTrigger,
+      ruleName: 'string',
+      timeTrigger: TimeTrigger,
+      triggerType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The maximum and minimum number of nodes in the node group.
+   */
+  constraints?: GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConstraints;
+  /**
+   * @remarks
+   * The node group ID.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
+  nodeGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the auto scaling policy.
+   * 
+   * @example
+   * asp-asduwe23znl***
+   */
+  scalingPolicyId?: string;
+  /**
+   * @remarks
+   * The list of auto scaling rules.
+   */
+  scalingRules?: GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesScalingRules[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      constraints: 'Constraints',
+      nodeGroupId: 'NodeGroupId',
+      scalingPolicyId: 'ScalingPolicyId',
+      scalingRules: 'ScalingRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      constraints: GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConstraints,
+      nodeGroupId: 'string',
+      scalingPolicyId: 'string',
+      scalingRules: { 'type': 'array', 'itemType': GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesScalingRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $tea.Model {
+  /**
+   * @remarks
+   * The modified configuration items.
+   */
+  applicationConfigs?: ApplicationConfig[];
+  /**
+   * @remarks
+   * The services deployed in the cluster.
+   */
+  applications?: Application[];
+  /**
+   * @remarks
+   * The bootstrap actions. Number of elements in the array: 1 to 10.
+   */
+  bootstrapScripts?: Script[];
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * c-b933c5aac7f7****
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The name of the cluster.
+   * 
+   * @example
+   * emrtest
+   */
+  clusterName?: string;
+  /**
+   * @remarks
+   * The status of the cluster. Valid values:
+   * 
+   * *   STARTING
+   * *   START_FAILED
+   * *   BOOTSTRAPPING
+   * *   RUNNING
+   * *   TERMINATING
+   * *   TERMINATED
+   * *   TERMINATED_WITH_ERRORS
+   * *   TERMINATE_FAILED
+   * 
+   * @example
+   * RUNNING
+   */
+  clusterState?: string;
+  /**
+   * @remarks
+   * The cluster type. Valid values:
+   * 
+   * *   DATALAKE
+   * *   OLAP
+   * *   DATAFLOW
+   * *   DATASERVING
+   * *   CUSTOM
+   * *   HADOOP
+   * 
+   * @example
+   * DATALAKE
+   */
+  clusterType?: string;
+  /**
+   * @remarks
+   * The deployment mode of master nodes in the cluster. Valid values:
+   * 
+   * *   NORMAL: regular mode.
+   * *   HA: high availability mode.
+   * 
+   * @example
+   * HA
+   */
+  deployMode?: string;
+  /**
+   * @remarks
+   * The EMR service role.
+   * 
+   * @example
+   * AliyunEMRDefaultRole
+   */
+  emrDefaultRole?: string;
+  /**
+   * @remarks
+   * Indicates whether the service configurations of a Hadoop cluster that you made during cluster creation can be cloned. Valid values:
+   * 
+   * *   False
+   * *   True
+   */
+  existCloneConfig?: boolean;
+  /**
+   * @remarks
+   * The attributes of the node.
+   */
+  nodeAttributes?: NodeAttributes;
+  /**
+   * @remarks
+   * The node groups. Number of elements in the array: 1 to 100.
+   */
+  nodeGroups?: NodeGroup[];
+  /**
+   * @remarks
+   * The billing method of the cluster. Valid values:
+   * 
+   * *   PayAsYouGo
+   * *   Subscription
+   * 
+   * @example
+   * PayAsYouGo
+   */
+  paymentType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The EMR version.
+   * 
+   * @example
+   * EMR-5.6.0
+   */
+  releaseVersion?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmzabjyop****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The auto scaling policies of each node group in the cluster.
+   */
+  scalingPolicies?: GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies[];
+  /**
+   * @remarks
+   * The security mode of the cluster. Valid values:
+   * 
+   * *   NORMAL: regular mode. Kerberos is not enabled.
+   * *   KERBEROS: Kerberos mode. Kerberos is enabled.
+   * 
+   * @example
+   * NORMAL
+   */
+  securityMode?: string;
+  /**
+   * @remarks
+   * The subscription configurations.
+   */
+  subscriptionConfig?: SubscriptionConfig;
+  /**
+   * @remarks
+   * The list of tags.
+   */
+  tags?: Tag[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationConfigs: 'ApplicationConfigs',
+      applications: 'Applications',
+      bootstrapScripts: 'BootstrapScripts',
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      clusterState: 'ClusterState',
+      clusterType: 'ClusterType',
+      deployMode: 'DeployMode',
+      emrDefaultRole: 'EmrDefaultRole',
+      existCloneConfig: 'ExistCloneConfig',
+      nodeAttributes: 'NodeAttributes',
+      nodeGroups: 'NodeGroups',
+      paymentType: 'PaymentType',
+      regionId: 'RegionId',
+      releaseVersion: 'ReleaseVersion',
+      resourceGroupId: 'ResourceGroupId',
+      scalingPolicies: 'ScalingPolicies',
+      securityMode: 'SecurityMode',
+      subscriptionConfig: 'SubscriptionConfig',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationConfigs: { 'type': 'array', 'itemType': ApplicationConfig },
+      applications: { 'type': 'array', 'itemType': Application },
+      bootstrapScripts: { 'type': 'array', 'itemType': Script },
+      clusterId: 'string',
+      clusterName: 'string',
+      clusterState: 'string',
+      clusterType: 'string',
+      deployMode: 'string',
+      emrDefaultRole: 'string',
+      existCloneConfig: 'boolean',
+      nodeAttributes: NodeAttributes,
+      nodeGroups: { 'type': 'array', 'itemType': NodeGroup },
+      paymentType: 'string',
+      regionId: 'string',
+      releaseVersion: 'string',
+      resourceGroupId: 'string',
+      scalingPolicies: { 'type': 'array', 'itemType': GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies },
+      securityMode: 'string',
+      subscriptionConfig: SubscriptionConfig,
+      tags: { 'type': 'array', 'itemType': Tag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDoctorApplicationResponseBodyDataAnalysis extends $tea.Model {
+  /**
+   * @remarks
+   * The score of the job.
+   * 
+   * @example
+   * 67
+   */
   score?: number;
+  /**
+   * @remarks
+   * The suggestion for running the job.
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9664,9 +18525,37 @@ export class GetDoctorApplicationResponseBodyDataAnalysis extends $tea.Model {
 }
 
 export class GetDoctorApplicationResponseBodyDataMetricsMemSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total memory usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 12312312
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9692,9 +18581,37 @@ export class GetDoctorApplicationResponseBodyDataMetricsMemSeconds extends $tea.
 }
 
 export class GetDoctorApplicationResponseBodyDataMetricsMemUtilization extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of used memory to total available memory
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memUtilization
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.82
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9720,9 +18637,37 @@ export class GetDoctorApplicationResponseBodyDataMetricsMemUtilization extends $
 }
 
 export class GetDoctorApplicationResponseBodyDataMetricsVcoreSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total vcore usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * vcoreSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * VCores * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 11123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9748,9 +18693,37 @@ export class GetDoctorApplicationResponseBodyDataMetricsVcoreSeconds extends $te
 }
 
 export class GetDoctorApplicationResponseBodyDataMetricsVcoreUtilization extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of used vcore to total available cores
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * vcoreUtilization
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 32.1
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9776,9 +18749,25 @@ export class GetDoctorApplicationResponseBodyDataMetricsVcoreUtilization extends
 }
 
 export class GetDoctorApplicationResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running.
+   */
   memSeconds?: GetDoctorApplicationResponseBodyDataMetricsMemSeconds;
+  /**
+   * @remarks
+   * The memory usage.
+   */
   memUtilization?: GetDoctorApplicationResponseBodyDataMetricsMemUtilization;
+  /**
+   * @remarks
+   * The aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running.
+   */
   vcoreSeconds?: GetDoctorApplicationResponseBodyDataMetricsVcoreSeconds;
+  /**
+   * @remarks
+   * The CPU utilization. The meaning is the same as that of the %CPU command in the output of the Linux top command.
+   */
   vcoreUtilization?: GetDoctorApplicationResponseBodyDataMetricsVcoreUtilization;
   static names(): { [key: string]: string } {
     return {
@@ -9804,15 +18793,79 @@ export class GetDoctorApplicationResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class GetDoctorApplicationResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The job analysis result.
+   */
   analysis?: GetDoctorApplicationResponseBodyDataAnalysis;
+  /**
+   * @remarks
+   * The name of the job.
+   * 
+   * @example
+   * CREATE TABLE test...ranks=1 (Stage-1)
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The end time of the job. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1666213200000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The job IDs. Multiple job IDs are separated with commas (,).
+   * 
+   * @example
+   * null
+   */
   ids?: string[];
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: GetDoctorApplicationResponseBodyDataMetrics;
+  /**
+   * @remarks
+   * The SQL statement of the job. This parameter is left empty for non-SQL jobs.
+   * 
+   * @example
+   * SELECT id, count(1) FROM test group by id;
+   */
   querySql?: string;
+  /**
+   * @remarks
+   * The YARN queue to which the job was submitted.
+   * 
+   * @example
+   * DW
+   */
   queue?: string;
+  /**
+   * @remarks
+   * The time when the job was submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1677465658275
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The type of the compute engine.
+   * 
+   * @example
+   * SPARK
+   */
   type?: string;
+  /**
+   * @remarks
+   * The username that is used to submit the job.
+   * 
+   * @example
+   * DW
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9850,7 +18903,27 @@ export class GetDoctorApplicationResponseBodyData extends $tea.Model {
 }
 
 export class GetDoctorComputeSummaryRequestComponentInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Set the filter condition name based on the value of ComponentType. For example, if you set ComponentType to queue, you can specify a specific queue name to obtain the resource usage of a specific queue.
+   * 
+   * @example
+   * MAPREDUCE
+   */
   componentName?: string;
+  /**
+   * @remarks
+   * The resource type for filtering. Valid values:
+   * 
+   * *   engine: filters results by engine.
+   * *   queue: filters results by queue.
+   * *   cluster: displays the results at the cluster level.
+   * 
+   * If you do not specify this parameter, the information at the cluster level is displayed by default.
+   * 
+   * @example
+   * engine
+   */
   componentType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9872,11 +18945,53 @@ export class GetDoctorComputeSummaryRequestComponentInfo extends $tea.Model {
 }
 
 export class GetDoctorComputeSummaryResponseBodyDataAnalysis extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of healthy jobs.
+   * 
+   * @example
+   * 3
+   */
   healthyJobCount?: number;
+  /**
+   * @remarks
+   * The total number of jobs that require attention.
+   * 
+   * @example
+   * 234
+   */
   needAttentionJobCount?: number;
+  /**
+   * @remarks
+   * The score for jobs.
+   * 
+   * @example
+   * 73
+   */
   score?: number;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the score for jobs.
+   * 
+   * @example
+   * 0.02
+   */
   scoreDayGrowthRatio?: number;
+  /**
+   * @remarks
+   * The total number of sub-healthy jobs.
+   * 
+   * @example
+   * 1123
+   */
   subHealthyJobCount?: number;
+  /**
+   * @remarks
+   * The total number of unhealthy jobs.
+   * 
+   * @example
+   * 23
+   */
   unhealthyJobCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9906,9 +19021,37 @@ export class GetDoctorComputeSummaryResponseBodyDataAnalysis extends $tea.Model 
 }
 
 export class GetDoctorComputeSummaryResponseBodyDataMetricsMemSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total memory usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 12312312
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9934,9 +19077,37 @@ export class GetDoctorComputeSummaryResponseBodyDataMetricsMemSeconds extends $t
 }
 
 export class GetDoctorComputeSummaryResponseBodyDataMetricsMemSecondsDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Growth ratio of memory usage in seconds per day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memSecondsDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.36
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9962,9 +19133,37 @@ export class GetDoctorComputeSummaryResponseBodyDataMetricsMemSecondsDayGrowthRa
 }
 
 export class GetDoctorComputeSummaryResponseBodyDataMetricsMemUtilization extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of used memory to total available memory
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memUtilization
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.82
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9990,9 +19189,37 @@ export class GetDoctorComputeSummaryResponseBodyDataMetricsMemUtilization extend
 }
 
 export class GetDoctorComputeSummaryResponseBodyDataMetricsReadSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total cumulative size of data read in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * readSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 504888659968
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10018,9 +19245,37 @@ export class GetDoctorComputeSummaryResponseBodyDataMetricsReadSize extends $tea
 }
 
 export class GetDoctorComputeSummaryResponseBodyDataMetricsVcoreSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total vcore usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * vcoreSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * VCores * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1231412
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10046,9 +19301,37 @@ export class GetDoctorComputeSummaryResponseBodyDataMetricsVcoreSeconds extends 
 }
 
 export class GetDoctorComputeSummaryResponseBodyDataMetricsVcoreSecondsDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Growth ratio of virtual core usage in seconds per day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * vcoreSecondsDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.22
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10074,9 +19357,37 @@ export class GetDoctorComputeSummaryResponseBodyDataMetricsVcoreSecondsDayGrowth
 }
 
 export class GetDoctorComputeSummaryResponseBodyDataMetricsVcoreUtilization extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of used vcore to total available cores
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * vcoreUtilization
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 32.1
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10102,9 +19413,37 @@ export class GetDoctorComputeSummaryResponseBodyDataMetricsVcoreUtilization exte
 }
 
 export class GetDoctorComputeSummaryResponseBodyDataMetricsWriteSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total cumulative size of data written in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * writeSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 6294093393920
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10130,13 +19469,45 @@ export class GetDoctorComputeSummaryResponseBodyDataMetricsWriteSize extends $te
 }
 
 export class GetDoctorComputeSummaryResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The total memory consumption over time in seconds.
+   */
   memSeconds?: GetDoctorComputeSummaryResponseBodyDataMetricsMemSeconds;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total memory consumption over time in seconds.
+   */
   memSecondsDayGrowthRatio?: GetDoctorComputeSummaryResponseBodyDataMetricsMemSecondsDayGrowthRatio;
+  /**
+   * @remarks
+   * The average memory usage.
+   */
   memUtilization?: GetDoctorComputeSummaryResponseBodyDataMetricsMemUtilization;
+  /**
+   * @remarks
+   * The total amount of data read from the file system.
+   */
   readSize?: GetDoctorComputeSummaryResponseBodyDataMetricsReadSize;
+  /**
+   * @remarks
+   * The total CPU consumption over time in seconds.
+   */
   vcoreSeconds?: GetDoctorComputeSummaryResponseBodyDataMetricsVcoreSeconds;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total CPU consumption over time in seconds.
+   */
   vcoreSecondsDayGrowthRatio?: GetDoctorComputeSummaryResponseBodyDataMetricsVcoreSecondsDayGrowthRatio;
+  /**
+   * @remarks
+   * The average CPU utilization. The meaning is the same as the %CPU parameter in the output of the top command in Linux.
+   */
   vcoreUtilization?: GetDoctorComputeSummaryResponseBodyDataMetricsVcoreUtilization;
+  /**
+   * @remarks
+   * The total amount of data written to the file system.
+   */
   writeSize?: GetDoctorComputeSummaryResponseBodyDataMetricsWriteSize;
   static names(): { [key: string]: string } {
     return {
@@ -10170,7 +19541,15 @@ export class GetDoctorComputeSummaryResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class GetDoctorComputeSummaryResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The resource analysis information.
+   */
   analysis?: GetDoctorComputeSummaryResponseBodyDataAnalysis;
+  /**
+   * @remarks
+   * The metrics.
+   */
   metrics?: GetDoctorComputeSummaryResponseBodyDataMetrics;
   static names(): { [key: string]: string } {
     return {
@@ -10192,6 +19571,13 @@ export class GetDoctorComputeSummaryResponseBodyData extends $tea.Model {
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataAnalysis extends $tea.Model {
+  /**
+   * @remarks
+   * The overall score of the HBase cluster.
+   * 
+   * @example
+   * 85
+   */
   hbaseScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10211,9 +19597,37 @@ export class GetDoctorHBaseClusterResponseBodyDataAnalysis extends $tea.Model {
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsAvgLoad extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The average load under normal working conditions
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * avgLoad
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 36.0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10239,9 +19653,37 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsAvgLoad extends $tea.Mo
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsDailyReadRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of read requests per day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyReadRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 430
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10267,9 +19709,37 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsDailyReadRequest extend
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsDailyWriteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of write requests per day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyWriteRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 128
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10295,9 +19765,37 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsDailyWriteRequest exten
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsMemHeap extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Memory heap usage in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memHeap
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 240
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10323,9 +19821,37 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsMemHeap extends $tea.Mo
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsNormalAvgLoad extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The average load under normal working conditions
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * normalAvgLoad
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 526.4
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10351,9 +19877,37 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsNormalAvgLoad extends $
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsRegionBalance extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The ability to evenly distribute Regions on different RegionServer nodes
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * regionBalance
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1.0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10379,9 +19933,37 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsRegionBalance extends $
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsRegionCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of regions count
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * regionCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 161
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10407,9 +19989,37 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsRegionCount extends $te
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsRegionServerCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of region servers count
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * regionServerCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 6
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10435,9 +20045,37 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsRegionServerCount exten
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsStoreFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of store files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * storeFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 298
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10463,9 +20101,37 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsStoreFileCount extends 
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsTableCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of tables
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tableCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 10
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10491,9 +20157,37 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsTableCount extends $tea
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsTotalDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total data size in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 256
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10519,9 +20213,37 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsTotalDataSize extends $
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsTotalReadRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total number of read requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalReadRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 430
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10547,9 +20269,37 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsTotalReadRequest extend
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsTotalRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total number of requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 576
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10575,9 +20325,37 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsTotalRequest extends $t
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetricsTotalWriteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total number of write requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalWriteRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 520
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10603,19 +20381,75 @@ export class GetDoctorHBaseClusterResponseBodyDataMetricsTotalWriteRequest exten
 }
 
 export class GetDoctorHBaseClusterResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The average load.
+   */
   avgLoad?: GetDoctorHBaseClusterResponseBodyDataMetricsAvgLoad;
+  /**
+   * @remarks
+   * The number of read requests in a day.
+   */
   dailyReadRequest?: GetDoctorHBaseClusterResponseBodyDataMetricsDailyReadRequest;
+  /**
+   * @remarks
+   * The number of write requests in a day.
+   */
   dailyWriteRequest?: GetDoctorHBaseClusterResponseBodyDataMetricsDailyWriteRequest;
+  /**
+   * @remarks
+   * The memory size.
+   */
   memHeap?: GetDoctorHBaseClusterResponseBodyDataMetricsMemHeap;
+  /**
+   * @remarks
+   * The normal average load.
+   */
   normalAvgLoad?: GetDoctorHBaseClusterResponseBodyDataMetricsNormalAvgLoad;
+  /**
+   * @remarks
+   * The region balance degree.
+   */
   regionBalance?: GetDoctorHBaseClusterResponseBodyDataMetricsRegionBalance;
+  /**
+   * @remarks
+   * The number of regions.
+   */
   regionCount?: GetDoctorHBaseClusterResponseBodyDataMetricsRegionCount;
+  /**
+   * @remarks
+   * The number of region servers.
+   */
   regionServerCount?: GetDoctorHBaseClusterResponseBodyDataMetricsRegionServerCount;
+  /**
+   * @remarks
+   * The number of StoreFiles.
+   */
   storeFileCount?: GetDoctorHBaseClusterResponseBodyDataMetricsStoreFileCount;
+  /**
+   * @remarks
+   * The number of tables.
+   */
   tableCount?: GetDoctorHBaseClusterResponseBodyDataMetricsTableCount;
+  /**
+   * @remarks
+   * The size of the cluster.
+   */
   totalDataSize?: GetDoctorHBaseClusterResponseBodyDataMetricsTotalDataSize;
+  /**
+   * @remarks
+   * The total number of read requests.
+   */
   totalReadRequest?: GetDoctorHBaseClusterResponseBodyDataMetricsTotalReadRequest;
+  /**
+   * @remarks
+   * The total number of requests in the cluster.
+   */
   totalRequest?: GetDoctorHBaseClusterResponseBodyDataMetricsTotalRequest;
+  /**
+   * @remarks
+   * The total number of write requests.
+   */
   totalWriteRequest?: GetDoctorHBaseClusterResponseBodyDataMetricsTotalWriteRequest;
   static names(): { [key: string]: string } {
     return {
@@ -10661,7 +20495,15 @@ export class GetDoctorHBaseClusterResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class GetDoctorHBaseClusterResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis result.
+   */
   analysis?: GetDoctorHBaseClusterResponseBodyDataAnalysis;
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: GetDoctorHBaseClusterResponseBodyDataMetrics;
   static names(): { [key: string]: string } {
     return {
@@ -10683,9 +20525,25 @@ export class GetDoctorHBaseClusterResponseBodyData extends $tea.Model {
 }
 
 export class GetDoctorHBaseRegionResponseBodyDataMetricsDailyReadRequest extends $tea.Model {
+  /**
+   * @example
+   * Number of read requests per day
+   */
   description?: string;
+  /**
+   * @example
+   * dailyReadRequest
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10711,9 +20569,25 @@ export class GetDoctorHBaseRegionResponseBodyDataMetricsDailyReadRequest extends
 }
 
 export class GetDoctorHBaseRegionResponseBodyDataMetricsDailyWriteRequest extends $tea.Model {
+  /**
+   * @example
+   * Number of write requests per day
+   */
   description?: string;
+  /**
+   * @example
+   * dailyWriteRequest
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10739,9 +20613,31 @@ export class GetDoctorHBaseRegionResponseBodyDataMetricsDailyWriteRequest extend
 }
 
 export class GetDoctorHBaseRegionResponseBodyDataMetricsStoreFileCount extends $tea.Model {
+  /**
+   * @example
+   * Number of store file
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * storeFileCount
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 100
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10767,9 +20663,25 @@ export class GetDoctorHBaseRegionResponseBodyDataMetricsStoreFileCount extends $
 }
 
 export class GetDoctorHBaseRegionResponseBodyDataMetricsTotalReadRequest extends $tea.Model {
+  /**
+   * @example
+   * Total read request
+   */
   description?: string;
+  /**
+   * @example
+   * totalReadRequest
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10795,9 +20707,25 @@ export class GetDoctorHBaseRegionResponseBodyDataMetricsTotalReadRequest extends
 }
 
 export class GetDoctorHBaseRegionResponseBodyDataMetricsTotalWriteRequest extends $tea.Model {
+  /**
+   * @example
+   * Total Write Request
+   */
   description?: string;
+  /**
+   * @example
+   * totalWriteRequest
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10825,6 +20753,10 @@ export class GetDoctorHBaseRegionResponseBodyDataMetricsTotalWriteRequest extend
 export class GetDoctorHBaseRegionResponseBodyDataMetrics extends $tea.Model {
   dailyReadRequest?: GetDoctorHBaseRegionResponseBodyDataMetricsDailyReadRequest;
   dailyWriteRequest?: GetDoctorHBaseRegionResponseBodyDataMetricsDailyWriteRequest;
+  /**
+   * @remarks
+   * The number of StoreFiles.
+   */
   storeFileCount?: GetDoctorHBaseRegionResponseBodyDataMetricsStoreFileCount;
   totalReadRequest?: GetDoctorHBaseRegionResponseBodyDataMetricsTotalReadRequest;
   totalWriteRequest?: GetDoctorHBaseRegionResponseBodyDataMetricsTotalWriteRequest;
@@ -10854,8 +20786,20 @@ export class GetDoctorHBaseRegionResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class GetDoctorHBaseRegionResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: GetDoctorHBaseRegionResponseBodyDataMetrics;
+  /**
+   * @example
+   * emr-worker-2.cluster-20****
+   */
   regionServerHost?: string;
+  /**
+   * @example
+   * tb_item
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10879,9 +20823,37 @@ export class GetDoctorHBaseRegionResponseBodyData extends $tea.Model {
 }
 
 export class GetDoctorHBaseRegionServerResponseBodyDataMetricsAvgGc extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The efficiency of garbage collection in the system
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * avgGc
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 42.3
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10907,9 +20879,37 @@ export class GetDoctorHBaseRegionServerResponseBodyDataMetricsAvgGc extends $tea
 }
 
 export class GetDoctorHBaseRegionServerResponseBodyDataMetricsCacheRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of the BlockCache memory size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * cacheRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 95.3
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10935,9 +20935,37 @@ export class GetDoctorHBaseRegionServerResponseBodyDataMetricsCacheRatio extends
 }
 
 export class GetDoctorHBaseRegionServerResponseBodyDataMetricsDailyReadRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of read requests per day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyReadRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10963,9 +20991,37 @@ export class GetDoctorHBaseRegionServerResponseBodyDataMetricsDailyReadRequest e
 }
 
 export class GetDoctorHBaseRegionServerResponseBodyDataMetricsDailyReadRequestDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The growth rate of daily read request quantity.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyReadRequestDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1.0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10991,9 +21047,37 @@ export class GetDoctorHBaseRegionServerResponseBodyDataMetricsDailyReadRequestDa
 }
 
 export class GetDoctorHBaseRegionServerResponseBodyDataMetricsDailyWriteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of write requests per day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyWriteRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11019,9 +21103,37 @@ export class GetDoctorHBaseRegionServerResponseBodyDataMetricsDailyWriteRequest 
 }
 
 export class GetDoctorHBaseRegionServerResponseBodyDataMetricsDailyWriteRequestDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The growth rate of daily write request quantity.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyWriteRequestDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1.0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11047,9 +21159,37 @@ export class GetDoctorHBaseRegionServerResponseBodyDataMetricsDailyWriteRequestD
 }
 
 export class GetDoctorHBaseRegionServerResponseBodyDataMetricsRegionCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of regions count
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * regionCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 15
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11075,9 +21215,37 @@ export class GetDoctorHBaseRegionServerResponseBodyDataMetricsRegionCount extend
 }
 
 export class GetDoctorHBaseRegionServerResponseBodyDataMetricsTotalReadRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total number of read requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalReadRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11103,9 +21271,37 @@ export class GetDoctorHBaseRegionServerResponseBodyDataMetricsTotalReadRequest e
 }
 
 export class GetDoctorHBaseRegionServerResponseBodyDataMetricsTotalRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total number of requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11131,9 +21327,37 @@ export class GetDoctorHBaseRegionServerResponseBodyDataMetricsTotalRequest exten
 }
 
 export class GetDoctorHBaseRegionServerResponseBodyDataMetricsTotalWriteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total number of write requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalWriteRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11159,15 +21383,55 @@ export class GetDoctorHBaseRegionServerResponseBodyDataMetricsTotalWriteRequest 
 }
 
 export class GetDoctorHBaseRegionServerResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The average garbage collection (GC) duration.
+   */
   avgGc?: GetDoctorHBaseRegionServerResponseBodyDataMetricsAvgGc;
+  /**
+   * @remarks
+   * The cache hit ratio.
+   */
   cacheRatio?: GetDoctorHBaseRegionServerResponseBodyDataMetricsCacheRatio;
+  /**
+   * @remarks
+   * The number of daily read requests.
+   */
   dailyReadRequest?: GetDoctorHBaseRegionServerResponseBodyDataMetricsDailyReadRequest;
+  /**
+   * @remarks
+   * The day-to-day increment rate of the number of daily read requests.
+   */
   dailyReadRequestDayGrowthRatio?: GetDoctorHBaseRegionServerResponseBodyDataMetricsDailyReadRequestDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of daily write requests.
+   */
   dailyWriteRequest?: GetDoctorHBaseRegionServerResponseBodyDataMetricsDailyWriteRequest;
+  /**
+   * @remarks
+   * The day-to-day increment rate of the number of daily write requests.
+   */
   dailyWriteRequestDayGrowthRatio?: GetDoctorHBaseRegionServerResponseBodyDataMetricsDailyWriteRequestDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of regions.
+   */
   regionCount?: GetDoctorHBaseRegionServerResponseBodyDataMetricsRegionCount;
+  /**
+   * @remarks
+   * The cumulative number of read requests.
+   */
   totalReadRequest?: GetDoctorHBaseRegionServerResponseBodyDataMetricsTotalReadRequest;
+  /**
+   * @remarks
+   * The cumulative number of total requests.
+   */
   totalRequest?: GetDoctorHBaseRegionServerResponseBodyDataMetricsTotalRequest;
+  /**
+   * @remarks
+   * The cumulative number of write requests.
+   */
   totalWriteRequest?: GetDoctorHBaseRegionServerResponseBodyDataMetricsTotalWriteRequest;
   static names(): { [key: string]: string } {
     return {
@@ -11205,6 +21469,10 @@ export class GetDoctorHBaseRegionServerResponseBodyDataMetrics extends $tea.Mode
 }
 
 export class GetDoctorHBaseRegionServerResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: GetDoctorHBaseRegionServerResponseBodyDataMetrics;
   static names(): { [key: string]: string } {
     return {
@@ -11224,12 +21492,40 @@ export class GetDoctorHBaseRegionServerResponseBodyData extends $tea.Model {
 }
 
 export class GetDoctorHBaseTableResponseBodyDataAnalysis extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   readRequestHotspotRegionList?: string[];
+  /**
+   * @remarks
+   * The description of read imbalance.
+   */
   readRequestUnbalanceSuggestion?: string;
+  /**
+   * @example
+   * null
+   */
   requestHotspotRegionList?: string[];
+  /**
+   * @remarks
+   * The description of read/write imbalance.
+   */
   requestUnbalanceSuggestion?: string;
+  /**
+   * @example
+   * 85
+   */
   tableScore?: number;
+  /**
+   * @example
+   * null
+   */
   writeRequestHotspotRegionList?: string[];
+  /**
+   * @remarks
+   * The description of write imbalance.
+   */
   writeRequestUnbalanceSuggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11261,9 +21557,25 @@ export class GetDoctorHBaseTableResponseBodyDataAnalysis extends $tea.Model {
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsColdAccessDay extends $tea.Model {
+  /**
+   * @example
+   * Cold access day
+   */
   description?: string;
+  /**
+   * @example
+   * coldAccessDay
+   */
   name?: string;
+  /**
+   * @example
+   * day
+   */
   unit?: string;
+  /**
+   * @example
+   * 3
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11289,9 +21601,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsColdAccessDay extends $te
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsColdConfigDay extends $tea.Model {
+  /**
+   * @example
+   * Cold config day
+   */
   description?: string;
+  /**
+   * @example
+   * coldConfigDay
+   */
   name?: string;
+  /**
+   * @example
+   * day
+   */
   unit?: string;
+  /**
+   * @example
+   * 10
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11317,9 +21645,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsColdConfigDay extends $te
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsColdDataSize extends $tea.Model {
+  /**
+   * @example
+   * Size of the cold data size
+   */
   description?: string;
+  /**
+   * @example
+   * coldDataSize
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11345,9 +21689,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsColdDataSize extends $tea
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsDailyReadRequest extends $tea.Model {
+  /**
+   * @example
+   * test-update
+   */
   description?: string;
+  /**
+   * @example
+   * dailyReadRequest
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11373,9 +21733,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsDailyReadRequest extends 
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsDailyReadRequestDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of table size
+   */
   description?: string;
+  /**
+   * @example
+   * dailyReadRequestDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 1.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11401,9 +21777,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsDailyReadRequestDayGrowth
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsDailyWriteRequest extends $tea.Model {
+  /**
+   * @example
+   * Number of write requests per day
+   */
   description?: string;
+  /**
+   * @example
+   * dailyWriteRequest
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11429,9 +21821,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsDailyWriteRequest extends
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsDailyWriteRequestDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * The balance of distributing requests
+   */
   description?: string;
+  /**
+   * @example
+   * dailyWriteRequestDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11457,9 +21865,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsDailyWriteRequestDayGrowt
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsFreezeConfigDay extends $tea.Model {
+  /**
+   * @example
+   * Freeze config day
+   */
   description?: string;
+  /**
+   * @example
+   * freezeConfigDay
+   */
   name?: string;
+  /**
+   * @example
+   * day
+   */
   unit?: string;
+  /**
+   * @example
+   * 10
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11485,9 +21909,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsFreezeConfigDay extends $
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsFreezeDataSize extends $tea.Model {
+  /**
+   * @example
+   * Size of the freeze data size
+   */
   description?: string;
+  /**
+   * @example
+   * freezeDataSize
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11513,9 +21953,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsFreezeDataSize extends $t
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsHotDataSize extends $tea.Model {
+  /**
+   * @example
+   * Size of the hot data size
+   */
   description?: string;
+  /**
+   * @example
+   * hotDataSize
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11541,9 +21997,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsHotDataSize extends $tea.
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsLocality extends $tea.Model {
+  /**
+   * @example
+   * The locality of data
+   */
   description?: string;
+  /**
+   * @example
+   * locality
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11569,9 +22041,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsLocality extends $tea.Mod
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsReadRequestBalance extends $tea.Model {
+  /**
+   * @example
+   * The balance of distributing read requests
+   */
   description?: string;
+  /**
+   * @example
+   * readRequestBalance
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11597,9 +22085,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsReadRequestBalance extend
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsRegionBalance extends $tea.Model {
+  /**
+   * @example
+   * The ability to evenly distribute Regions on different RegionServer nodes
+   */
   description?: string;
+  /**
+   * @example
+   * regionBalance
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 1.0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11625,9 +22129,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsRegionBalance extends $te
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsRegionCount extends $tea.Model {
+  /**
+   * @example
+   * Number of regions count
+   */
   description?: string;
+  /**
+   * @example
+   * regionCount
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 10
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11653,9 +22173,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsRegionCount extends $tea.
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsRegionCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of region count
+   */
   description?: string;
+  /**
+   * @example
+   * regionCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 0.8
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11681,9 +22217,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsRegionCountDayGrowthRatio
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsRegionServerCount extends $tea.Model {
+  /**
+   * @example
+   * Number of region servers count
+   */
   description?: string;
+  /**
+   * @example
+   * regionServerCount
+   */
   name?: string;
+  /**
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @example
+   * 10
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11709,9 +22261,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsRegionServerCount extends
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsRequestBalance extends $tea.Model {
+  /**
+   * @example
+   * The balance of distributing requests
+   */
   description?: string;
+  /**
+   * @example
+   * requestBalance
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 1.0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11737,9 +22305,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsRequestBalance extends $t
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsStoreFileCount extends $tea.Model {
+  /**
+   * @example
+   * Number of store files
+   */
   description?: string;
+  /**
+   * @example
+   * storeFileCount
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11765,9 +22349,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsStoreFileCount extends $t
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsStoreFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of store file count
+   */
   description?: string;
+  /**
+   * @example
+   * storeFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 1.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11793,9 +22393,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsStoreFileCountDayGrowthRa
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsTableSize extends $tea.Model {
+  /**
+   * @example
+   * Size of the table
+   */
   description?: string;
+  /**
+   * @example
+   * tableSize
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * tb_item
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11821,9 +22437,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsTableSize extends $tea.Mo
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsTableSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of table size
+   */
   description?: string;
+  /**
+   * @example
+   * tableSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 1.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11849,9 +22481,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsTableSizeDayGrowthRatio e
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsWarmConfigDay extends $tea.Model {
+  /**
+   * @example
+   * Size of the warm data size
+   */
   description?: string;
+  /**
+   * @example
+   * warmConfigDay
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11877,9 +22525,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsWarmConfigDay extends $te
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsWarmDataSize extends $tea.Model {
+  /**
+   * @example
+   * Size of the warm data size
+   */
   description?: string;
+  /**
+   * @example
+   * warmDataSize
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11905,9 +22569,25 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsWarmDataSize extends $tea
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsWriteRequestBalance extends $tea.Model {
+  /**
+   * @example
+   * The balance of distributing write requests
+   */
   description?: string;
+  /**
+   * @example
+   * writeRequestBalance
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12021,6 +22701,10 @@ export class GetDoctorHBaseTableResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class GetDoctorHBaseTableResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The diagnosis result.
+   */
   analysis?: GetDoctorHBaseTableResponseBodyDataAnalysis;
   metrics?: GetDoctorHBaseTableResponseBodyDataMetrics;
   static names(): { [key: string]: string } {
@@ -12043,6 +22727,13 @@ export class GetDoctorHBaseTableResponseBodyData extends $tea.Model {
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataAnalysis extends $tea.Model {
+  /**
+   * @remarks
+   * The overall score of HDFS storage resources.
+   * 
+   * @example
+   * 55
+   */
   hdfsScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12062,9 +22753,37 @@ export class GetDoctorHDFSClusterResponseBodyDataAnalysis extends $tea.Model {
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsColdDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of cold data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -182636577752
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12090,9 +22809,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsColdDataDayGrowthSize ex
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsColdDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Cold data ratio
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12118,9 +22865,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsColdDataRatio extends $t
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsColdDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the cold data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 5570958082267
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12146,9 +22921,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsColdDataSize extends $te
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsColdDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of cold data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -0.03
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12174,9 +22977,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsColdDataSizeDayGrowthRat
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsEmptyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 15595897
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12202,9 +23033,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsEmptyFileCount extends $
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsEmptyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.005
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12230,9 +23089,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsEmptyFileCountDayGrowthR
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsEmptyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 114
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12258,9 +23145,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsEmptyFileDayGrowthCount 
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsEmptyFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.3
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12286,9 +23201,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsEmptyFileRatio extends $
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsFreezeDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of freeze data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -167683929450
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12314,9 +23257,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsFreezeDataDayGrowthSize 
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsFreezeDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of freeze data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.12
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12342,9 +23313,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsFreezeDataRatio extends 
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsFreezeDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the freeze data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1231312431
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12370,9 +23369,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsFreezeDataSize extends $
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of freeze data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -0.09
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12398,9 +23425,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsFreezeDataSizeDayGrowthR
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsHotDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of hot data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 123154
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12426,9 +23481,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsHotDataDayGrowthSize ext
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsHotDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Hot data ratio
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.22
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12454,9 +23537,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsHotDataRatio extends $te
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsHotDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the hot data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 6701531944206
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12482,9 +23593,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsHotDataSize extends $tea
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsHotDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of hot data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.1114
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12510,9 +23649,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsHotDataSizeDayGrowthRati
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsLargeFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12538,9 +23705,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsLargeFileCount extends $
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsLargeFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.39
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12566,9 +23761,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsLargeFileCountDayGrowthR
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsLargeFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 2
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12594,9 +23817,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsLargeFileDayGrowthCount 
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsLargeFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.22
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12622,9 +23873,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsLargeFileRatio extends $
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsMediumFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 234
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12650,9 +23929,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsMediumFileCount extends 
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsMediumFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.19
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12678,9 +23985,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsMediumFileCountDayGrowth
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsMediumFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 176
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12706,9 +24041,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsMediumFileDayGrowthCount
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsMediumFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.21
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12734,9 +24097,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsMediumFileRatio extends 
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsSmallFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 12345
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12762,9 +24153,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsSmallFileCount extends $
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsSmallFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.02
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12790,9 +24209,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsSmallFileCountDayGrowthR
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsSmallFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 12321
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12818,9 +24265,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsSmallFileDayGrowthCount 
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsSmallFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.19
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12846,9 +24321,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsSmallFileRatio extends $
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsTinyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 232131
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12874,9 +24377,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsTinyFileCount extends $t
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsTinyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.003
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12902,9 +24433,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsTinyFileCountDayGrowthRa
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsTinyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12930,9 +24489,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsTinyFileDayGrowthCount e
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsTinyFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.19
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12958,9 +24545,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsTinyFileRatio extends $t
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsTotalDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of total data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 256482228248
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12986,9 +24601,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsTotalDataDayGrowthSize e
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsTotalDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total data size in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 62086342083623
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13014,9 +24657,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsTotalDataSize extends $t
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsTotalDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.14
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13042,9 +24713,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsTotalDataSizeDayGrowthRa
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsTotalFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 51683279
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13070,9 +24769,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsTotalFileCount extends $
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsTotalFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.02
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13098,9 +24825,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsTotalFileCountDayGrowthR
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsTotalFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 27809
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13126,9 +24881,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsTotalFileDayGrowthCount 
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsWarmDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of warm data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -64806998319
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13154,9 +24937,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsWarmDataDayGrowthSize ex
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsWarmDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of warm data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.12
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13182,9 +24993,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsWarmDataRatio extends $t
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsWarmDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the warm data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 4062349775577
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13210,9 +25049,37 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsWarmDataSize extends $te
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetricsWarmDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of warm data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -0.015
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13238,47 +25105,215 @@ export class GetDoctorHDFSClusterResponseBodyDataMetricsWarmDataSizeDayGrowthRat
 }
 
 export class GetDoctorHDFSClusterResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The daily increment of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+   */
   coldDataDayGrowthSize?: GetDoctorHDFSClusterResponseBodyDataMetricsColdDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+   */
   coldDataRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsColdDataRatio;
+  /**
+   * @remarks
+   * The amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+   */
   coldDataSize?: GetDoctorHDFSClusterResponseBodyDataMetricsColdDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+   */
   coldDataSizeDayGrowthRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsColdDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCount?: GetDoctorHDFSClusterResponseBodyDataMetricsEmptyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCountDayGrowthRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsEmptyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileDayGrowthCount?: GetDoctorHDFSClusterResponseBodyDataMetricsEmptyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsEmptyFileRatio;
+  /**
+   * @remarks
+   * The daily increment of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataDayGrowthSize?: GetDoctorHDFSClusterResponseBodyDataMetricsFreezeDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsFreezeDataRatio;
+  /**
+   * @remarks
+   * The amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSize?: GetDoctorHDFSClusterResponseBodyDataMetricsFreezeDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSizeDayGrowthRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the amount of hot data. Hot data refers to data that is accessed in recent seven days.
+   */
   hotDataDayGrowthSize?: GetDoctorHDFSClusterResponseBodyDataMetricsHotDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of hot data. Hot data refers to data that is accessed in recent seven days.
+   */
   hotDataRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsHotDataRatio;
+  /**
+   * @remarks
+   * The amount of hot data. Hot data refers to data that is accessed in recent seven days.
+   */
   hotDataSize?: GetDoctorHDFSClusterResponseBodyDataMetricsHotDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of hot data. Hot data refers to data that is accessed in recent seven days.
+   */
   hotDataSizeDayGrowthRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsHotDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCount?: GetDoctorHDFSClusterResponseBodyDataMetricsLargeFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCountDayGrowthRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsLargeFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileDayGrowthCount?: GetDoctorHDFSClusterResponseBodyDataMetricsLargeFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsLargeFileRatio;
+  /**
+   * @remarks
+   * The number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCount?: GetDoctorHDFSClusterResponseBodyDataMetricsMediumFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCountDayGrowthRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsMediumFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileDayGrowthCount?: GetDoctorHDFSClusterResponseBodyDataMetricsMediumFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsMediumFileRatio;
+  /**
+   * @remarks
+   * The number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCount?: GetDoctorHDFSClusterResponseBodyDataMetricsSmallFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCountDayGrowthRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsSmallFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileDayGrowthCount?: GetDoctorHDFSClusterResponseBodyDataMetricsSmallFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsSmallFileRatio;
+  /**
+   * @remarks
+   * The number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCount?: GetDoctorHDFSClusterResponseBodyDataMetricsTinyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCountDayGrowthRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsTinyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileDayGrowthCount?: GetDoctorHDFSClusterResponseBodyDataMetricsTinyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsTinyFileRatio;
+  /**
+   * @remarks
+   * The daily incremental of the total data volume.
+   */
   totalDataDayGrowthSize?: GetDoctorHDFSClusterResponseBodyDataMetricsTotalDataDayGrowthSize;
+  /**
+   * @remarks
+   * The total amount of data.
+   */
   totalDataSize?: GetDoctorHDFSClusterResponseBodyDataMetricsTotalDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total data volume.
+   */
   totalDataSizeDayGrowthRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsTotalDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The total number of files.
+   */
   totalFileCount?: GetDoctorHDFSClusterResponseBodyDataMetricsTotalFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total number of files.
+   */
   totalFileCountDayGrowthRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsTotalFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the total number of files.
+   */
   totalFileDayGrowthCount?: GetDoctorHDFSClusterResponseBodyDataMetricsTotalFileDayGrowthCount;
+  /**
+   * @remarks
+   * The daily increment of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+   */
   warmDataDayGrowthSize?: GetDoctorHDFSClusterResponseBodyDataMetricsWarmDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+   */
   warmDataRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsWarmDataRatio;
+  /**
+   * @remarks
+   * The amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+   */
   warmDataSize?: GetDoctorHDFSClusterResponseBodyDataMetricsWarmDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+   */
   warmDataSizeDayGrowthRatio?: GetDoctorHDFSClusterResponseBodyDataMetricsWarmDataSizeDayGrowthRatio;
   static names(): { [key: string]: string } {
     return {
@@ -13380,7 +25415,15 @@ export class GetDoctorHDFSClusterResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class GetDoctorHDFSClusterResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis results.
+   */
   analysis?: GetDoctorHDFSClusterResponseBodyDataAnalysis;
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: GetDoctorHDFSClusterResponseBodyDataMetrics;
   static names(): { [key: string]: string } {
     return {
@@ -13402,9 +25445,37 @@ export class GetDoctorHDFSClusterResponseBodyData extends $tea.Model {
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsColdDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of cold data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -182636577752
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13430,9 +25501,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsColdDataDayGrowthSize 
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsColdDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the cold data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 5570958082267
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13458,9 +25557,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsColdDataSize extends $
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsColdDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of cold data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -0.03
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13486,9 +25613,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsColdDataSizeDayGrowthR
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsEmptyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 15595897
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13514,9 +25669,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsEmptyFileCount extends
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsEmptyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.005
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13542,9 +25725,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsEmptyFileCountDayGrowt
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsEmptyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 114
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13570,9 +25781,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsEmptyFileDayGrowthCoun
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsFreezeDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of freeze data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -167683929450
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13598,9 +25837,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsFreezeDataDayGrowthSiz
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsFreezeDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the freeze data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1231312431
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13626,9 +25893,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsFreezeDataSize extends
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of freeze data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -0.09
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13654,9 +25949,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsFreezeDataSizeDayGrowt
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsHotDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of hot data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 123154
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13682,9 +26005,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsHotDataDayGrowthSize e
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsHotDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the hot data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 6701531944206
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13710,9 +26061,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsHotDataSize extends $t
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsHotDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of hot data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.1114
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13738,9 +26117,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsHotDataSizeDayGrowthRa
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsLargeFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13766,9 +26173,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsLargeFileCount extends
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsLargeFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.39
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13794,9 +26229,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsLargeFileCountDayGrowt
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsLargeFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 2
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13822,9 +26285,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsLargeFileDayGrowthCoun
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsMediumFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 234
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13850,9 +26341,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsMediumFileCount extend
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsMediumFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.19
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13878,9 +26397,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsMediumFileCountDayGrow
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsMediumFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 176
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13906,9 +26453,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsMediumFileDayGrowthCou
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsSmallFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 12345
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13934,9 +26509,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsSmallFileCount extends
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsSmallFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.02
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13962,9 +26565,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsSmallFileCountDayGrowt
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsSmallFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 12345
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13990,9 +26621,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsSmallFileDayGrowthCoun
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTinyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 232131
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14018,9 +26677,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTinyFileCount extends 
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTinyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.003
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14046,9 +26733,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTinyFileCountDayGrowth
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTinyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14074,9 +26789,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTinyFileDayGrowthCount
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of total data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 256482228248
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14102,9 +26845,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalDataDayGrowthSize
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total data size in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 62086342083623
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14130,9 +26901,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalDataSize extends 
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.14
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14158,9 +26957,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalDataSizeDayGrowth
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 51683279
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14186,9 +27013,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalFileCount extends
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.02
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14214,9 +27069,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalFileCountDayGrowt
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 27809
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14242,9 +27125,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalFileDayGrowthCoun
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsWarmDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of warm data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -64806998319
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14270,9 +27181,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsWarmDataDayGrowthSize 
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsWarmDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the warm data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 4062349775577
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14298,9 +27237,37 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsWarmDataSize extends $
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetricsWarmDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of warm data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -0.015
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14326,38 +27293,170 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetricsWarmDataSizeDayGrowthR
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The daily increment of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataDayGrowthSize?: GetDoctorHDFSDirectoryResponseBodyDataMetricsColdDataDayGrowthSize;
+  /**
+   * @remarks
+   * The amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataSize?: GetDoctorHDFSDirectoryResponseBodyDataMetricsColdDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataSizeDayGrowthRatio?: GetDoctorHDFSDirectoryResponseBodyDataMetricsColdDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCount?: GetDoctorHDFSDirectoryResponseBodyDataMetricsEmptyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCountDayGrowthRatio?: GetDoctorHDFSDirectoryResponseBodyDataMetricsEmptyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileDayGrowthCount?: GetDoctorHDFSDirectoryResponseBodyDataMetricsEmptyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The daily increment of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataDayGrowthSize?: GetDoctorHDFSDirectoryResponseBodyDataMetricsFreezeDataDayGrowthSize;
+  /**
+   * @remarks
+   * The amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSize?: GetDoctorHDFSDirectoryResponseBodyDataMetricsFreezeDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSizeDayGrowthRatio?: GetDoctorHDFSDirectoryResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataDayGrowthSize?: GetDoctorHDFSDirectoryResponseBodyDataMetricsHotDataDayGrowthSize;
+  /**
+   * @remarks
+   * The amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataSize?: GetDoctorHDFSDirectoryResponseBodyDataMetricsHotDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataSizeDayGrowthRatio?: GetDoctorHDFSDirectoryResponseBodyDataMetricsHotDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCount?: GetDoctorHDFSDirectoryResponseBodyDataMetricsLargeFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCountDayGrowthRatio?: GetDoctorHDFSDirectoryResponseBodyDataMetricsLargeFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileDayGrowthCount?: GetDoctorHDFSDirectoryResponseBodyDataMetricsLargeFileDayGrowthCount;
+  /**
+   * @remarks
+   * The number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCount?: GetDoctorHDFSDirectoryResponseBodyDataMetricsMediumFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCountDayGrowthRatio?: GetDoctorHDFSDirectoryResponseBodyDataMetricsMediumFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileDayGrowthCount?: GetDoctorHDFSDirectoryResponseBodyDataMetricsMediumFileDayGrowthCount;
+  /**
+   * @remarks
+   * The number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCount?: GetDoctorHDFSDirectoryResponseBodyDataMetricsSmallFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCountDayGrowthRatio?: GetDoctorHDFSDirectoryResponseBodyDataMetricsSmallFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileDayGrowthCount?: GetDoctorHDFSDirectoryResponseBodyDataMetricsSmallFileDayGrowthCount;
+  /**
+   * @remarks
+   * The number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCount?: GetDoctorHDFSDirectoryResponseBodyDataMetricsTinyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCountDayGrowthRatio?: GetDoctorHDFSDirectoryResponseBodyDataMetricsTinyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileDayGrowthCount?: GetDoctorHDFSDirectoryResponseBodyDataMetricsTinyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The daily incremental of the total amount of data.
+   */
   totalDataDayGrowthSize?: GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalDataDayGrowthSize;
+  /**
+   * @remarks
+   * The total amount of data.
+   */
   totalDataSize?: GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total data volume.
+   */
   totalDataSizeDayGrowthRatio?: GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The total number of files.
+   */
   totalFileCount?: GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total number of files.
+   */
   totalFileCountDayGrowthRatio?: GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the total number of files.
+   */
   totalFileDayGrowthCount?: GetDoctorHDFSDirectoryResponseBodyDataMetricsTotalFileDayGrowthCount;
+  /**
+   * @remarks
+   * The daily increment of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataDayGrowthSize?: GetDoctorHDFSDirectoryResponseBodyDataMetricsWarmDataDayGrowthSize;
+  /**
+   * @remarks
+   * The amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataSize?: GetDoctorHDFSDirectoryResponseBodyDataMetricsWarmDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataSizeDayGrowthRatio?: GetDoctorHDFSDirectoryResponseBodyDataMetricsWarmDataSizeDayGrowthRatio;
   static names(): { [key: string]: string } {
     return {
@@ -14441,9 +27540,34 @@ export class GetDoctorHDFSDirectoryResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class GetDoctorHDFSDirectoryResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The directory level.
+   * 
+   * @example
+   * 2
+   */
   depth?: number;
+  /**
+   * @remarks
+   * The group to which the directory belongs.
+   * 
+   * @example
+   * DW
+   */
   group?: string;
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: GetDoctorHDFSDirectoryResponseBodyDataMetrics;
+  /**
+   * @remarks
+   * The directory owner.
+   * 
+   * @example
+   * DW
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14469,9 +27593,37 @@ export class GetDoctorHDFSDirectoryResponseBodyData extends $tea.Model {
 }
 
 export class GetDoctorHDFSUGIResponseBodyDataMetricsTotalDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total data size in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 40440503
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14497,9 +27649,37 @@ export class GetDoctorHDFSUGIResponseBodyDataMetricsTotalDataSize extends $tea.M
 }
 
 export class GetDoctorHDFSUGIResponseBodyDataMetricsTotalDirCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of total dirs
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDirCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14525,9 +27705,37 @@ export class GetDoctorHDFSUGIResponseBodyDataMetricsTotalDirCount extends $tea.M
 }
 
 export class GetDoctorHDFSUGIResponseBodyDataMetricsTotalFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 34
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14553,8 +27761,20 @@ export class GetDoctorHDFSUGIResponseBodyDataMetricsTotalFileCount extends $tea.
 }
 
 export class GetDoctorHDFSUGIResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The total data size.
+   */
   totalDataSize?: GetDoctorHDFSUGIResponseBodyDataMetricsTotalDataSize;
+  /**
+   * @remarks
+   * The total number of directories.
+   */
   totalDirCount?: GetDoctorHDFSUGIResponseBodyDataMetricsTotalDirCount;
+  /**
+   * @remarks
+   * The total number of files.
+   */
   totalFileCount?: GetDoctorHDFSUGIResponseBodyDataMetricsTotalFileCount;
   static names(): { [key: string]: string } {
     return {
@@ -14578,6 +27798,10 @@ export class GetDoctorHDFSUGIResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class GetDoctorHDFSUGIResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: GetDoctorHDFSUGIResponseBodyDataMetrics;
   static names(): { [key: string]: string } {
     return {
@@ -14597,9 +27821,37 @@ export class GetDoctorHDFSUGIResponseBodyData extends $tea.Model {
 }
 
 export class GetDoctorHiveClusterResponseBodyDataAnalysis extends $tea.Model {
+  /**
+   * @remarks
+   * The score for the distribution of files of different sizes stored in the Hive cluster.
+   * 
+   * @example
+   * 80
+   */
   hiveDistributionScore?: number;
+  /**
+   * @remarks
+   * The score for the distribution of files stored in different formats in the Hive cluster.
+   * 
+   * @example
+   * 80
+   */
   hiveFormatScore?: number;
+  /**
+   * @remarks
+   * The score for the access frequency of the Hive cluster.
+   * 
+   * @example
+   * 80
+   */
   hiveFrequencyScore?: number;
+  /**
+   * @remarks
+   * The overall score of the Hive cluster.
+   * 
+   * @example
+   * 80
+   */
   hiveScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14625,9 +27877,37 @@ export class GetDoctorHiveClusterResponseBodyDataAnalysis extends $tea.Model {
 }
 
 export class GetDoctorHiveClusterResponseBodyDataFormats extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the storage format.
+   * 
+   * @example
+   * TextInputFormat
+   */
   formatName?: string;
+  /**
+   * @remarks
+   * The proportion of the data in the format.
+   * 
+   * @example
+   * 0.5
+   */
   formatRatio?: number;
+  /**
+   * @remarks
+   * The amount of data in the format.
+   * 
+   * @example
+   * 100
+   */
   formatSize?: number;
+  /**
+   * @remarks
+   * The unit of the amount of data in the format.
+   * 
+   * @example
+   * MB
+   */
   formatSizeUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14653,9 +27933,37 @@ export class GetDoctorHiveClusterResponseBodyDataFormats extends $tea.Model {
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsColdDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of cold data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14681,9 +27989,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsColdDataDayGrowthSize ex
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsColdDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Cold data ratio
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14709,9 +28045,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsColdDataRatio extends $t
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsColdDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of cold files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14737,9 +28101,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsColdDataSize extends $te
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsColdDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of cold data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14765,9 +28157,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsColdDataSizeDayGrowthRat
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsDatabaseCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of databases
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * databaseCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14793,9 +28213,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsDatabaseCount extends $t
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsEmptyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14821,9 +28269,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsEmptyFileCount extends $
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsEmptyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14849,9 +28325,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsEmptyFileCountDayGrowthR
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsEmptyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14877,9 +28381,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsEmptyFileDayGrowthCount 
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsEmptyFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14905,9 +28437,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsEmptyFileRatio extends $
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsFreezeDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of freeze data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14933,9 +28493,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsFreezeDataDayGrowthSize 
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsFreezeDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of freeze data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.12
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14961,9 +28549,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsFreezeDataRatio extends 
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsFreezeDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of freeze files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14989,9 +28605,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsFreezeDataSize extends $
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of freeze data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15017,9 +28661,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsFreezeDataSizeDayGrowthR
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsHotDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of hot data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15045,9 +28717,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsHotDataDayGrowthSize ext
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsHotDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Hot data ratio
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15073,9 +28773,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsHotDataRatio extends $te
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsHotDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of hot files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15101,9 +28829,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsHotDataSize extends $tea
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsHotDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of hot data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15129,9 +28885,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsHotDataSizeDayGrowthRati
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsLargeFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15157,9 +28941,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsLargeFileCount extends $
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsLargeFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15185,9 +28997,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsLargeFileCountDayGrowthR
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsLargeFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15213,9 +29053,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsLargeFileDayGrowthCount 
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsLargeFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15241,9 +29109,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsLargeFileRatio extends $
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsMediumFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15269,9 +29165,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsMediumFileCount extends 
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsMediumFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15297,9 +29221,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsMediumFileCountDayGrowth
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsMediumFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 178
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15325,9 +29277,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsMediumFileDayGrowthCount
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsMediumFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15353,9 +29333,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsMediumFileRatio extends 
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsPartitionNum extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of partitions
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * partitionNum
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15381,9 +29389,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsPartitionNum extends $te
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsSmallFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15409,9 +29445,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsSmallFileCount extends $
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsSmallFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15437,9 +29501,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsSmallFileCountDayGrowthR
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsSmallFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15465,9 +29557,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsSmallFileDayGrowthCount 
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsSmallFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15493,9 +29613,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsSmallFileRatio extends $
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsTableCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of tables
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tableCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15521,9 +29669,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsTableCount extends $tea.
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsTinyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15549,9 +29725,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsTinyFileCount extends $t
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsTinyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15577,9 +29781,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsTinyFileCountDayGrowthRa
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsTinyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * day growth count of tiny files
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15605,9 +29837,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsTinyFileDayGrowthCount e
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsTinyFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15633,9 +29893,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsTinyFileRatio extends $t
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsTotalDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of total data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15661,9 +29949,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsTotalDataDayGrowthSize e
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsTotalDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total data size in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15689,9 +30005,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsTotalDataSize extends $t
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsTotalDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15717,9 +30061,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsTotalDataSizeDayGrowthRa
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsTotalFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15745,9 +30117,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsTotalFileCount extends $
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsTotalFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15773,9 +30173,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsTotalFileCountDayGrowthR
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsTotalFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 27800
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15801,9 +30229,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsTotalFileDayGrowthCount 
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsWarmDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of warm data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -100
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15829,9 +30285,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsWarmDataDayGrowthSize ex
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsWarmDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of warm data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15857,9 +30341,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsWarmDataRatio extends $t
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsWarmDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of warm files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15885,9 +30397,37 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsWarmDataSize extends $te
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetricsWarmDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of warm data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15913,50 +30453,230 @@ export class GetDoctorHiveClusterResponseBodyDataMetricsWarmDataSizeDayGrowthRat
 }
 
 export class GetDoctorHiveClusterResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The daily increment of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataDayGrowthSize?: GetDoctorHiveClusterResponseBodyDataMetricsColdDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataRatio?: GetDoctorHiveClusterResponseBodyDataMetricsColdDataRatio;
+  /**
+   * @remarks
+   * The amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataSize?: GetDoctorHiveClusterResponseBodyDataMetricsColdDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataSizeDayGrowthRatio?: GetDoctorHiveClusterResponseBodyDataMetricsColdDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of databases.
+   */
   databaseCount?: GetDoctorHiveClusterResponseBodyDataMetricsDatabaseCount;
+  /**
+   * @remarks
+   * The number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCount?: GetDoctorHiveClusterResponseBodyDataMetricsEmptyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCountDayGrowthRatio?: GetDoctorHiveClusterResponseBodyDataMetricsEmptyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileDayGrowthCount?: GetDoctorHiveClusterResponseBodyDataMetricsEmptyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileRatio?: GetDoctorHiveClusterResponseBodyDataMetricsEmptyFileRatio;
+  /**
+   * @remarks
+   * The daily increment of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataDayGrowthSize?: GetDoctorHiveClusterResponseBodyDataMetricsFreezeDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataRatio?: GetDoctorHiveClusterResponseBodyDataMetricsFreezeDataRatio;
+  /**
+   * @remarks
+   * The amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSize?: GetDoctorHiveClusterResponseBodyDataMetricsFreezeDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSizeDayGrowthRatio?: GetDoctorHiveClusterResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataDayGrowthSize?: GetDoctorHiveClusterResponseBodyDataMetricsHotDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataRatio?: GetDoctorHiveClusterResponseBodyDataMetricsHotDataRatio;
+  /**
+   * @remarks
+   * The amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataSize?: GetDoctorHiveClusterResponseBodyDataMetricsHotDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataSizeDayGrowthRatio?: GetDoctorHiveClusterResponseBodyDataMetricsHotDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCount?: GetDoctorHiveClusterResponseBodyDataMetricsLargeFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCountDayGrowthRatio?: GetDoctorHiveClusterResponseBodyDataMetricsLargeFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileDayGrowthCount?: GetDoctorHiveClusterResponseBodyDataMetricsLargeFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileRatio?: GetDoctorHiveClusterResponseBodyDataMetricsLargeFileRatio;
+  /**
+   * @remarks
+   * The number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCount?: GetDoctorHiveClusterResponseBodyDataMetricsMediumFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCountDayGrowthRatio?: GetDoctorHiveClusterResponseBodyDataMetricsMediumFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileDayGrowthCount?: GetDoctorHiveClusterResponseBodyDataMetricsMediumFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileRatio?: GetDoctorHiveClusterResponseBodyDataMetricsMediumFileRatio;
+  /**
+   * @remarks
+   * The number of partitions.
+   */
   partitionNum?: GetDoctorHiveClusterResponseBodyDataMetricsPartitionNum;
+  /**
+   * @remarks
+   * The number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCount?: GetDoctorHiveClusterResponseBodyDataMetricsSmallFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCountDayGrowthRatio?: GetDoctorHiveClusterResponseBodyDataMetricsSmallFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileDayGrowthCount?: GetDoctorHiveClusterResponseBodyDataMetricsSmallFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileRatio?: GetDoctorHiveClusterResponseBodyDataMetricsSmallFileRatio;
+  /**
+   * @remarks
+   * The number of tables.
+   */
   tableCount?: GetDoctorHiveClusterResponseBodyDataMetricsTableCount;
+  /**
+   * @remarks
+   * The number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCount?: GetDoctorHiveClusterResponseBodyDataMetricsTinyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCountDayGrowthRatio?: GetDoctorHiveClusterResponseBodyDataMetricsTinyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileDayGrowthCount?: GetDoctorHiveClusterResponseBodyDataMetricsTinyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileRatio?: GetDoctorHiveClusterResponseBodyDataMetricsTinyFileRatio;
+  /**
+   * @remarks
+   * The daily incremental of the amount of total data.
+   */
   totalDataDayGrowthSize?: GetDoctorHiveClusterResponseBodyDataMetricsTotalDataDayGrowthSize;
+  /**
+   * @remarks
+   * The total amount of data.
+   */
   totalDataSize?: GetDoctorHiveClusterResponseBodyDataMetricsTotalDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total data volume.
+   */
   totalDataSizeDayGrowthRatio?: GetDoctorHiveClusterResponseBodyDataMetricsTotalDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The total number of files.
+   */
   totalFileCount?: GetDoctorHiveClusterResponseBodyDataMetricsTotalFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total number of files.
+   */
   totalFileCountDayGrowthRatio?: GetDoctorHiveClusterResponseBodyDataMetricsTotalFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the total number of files.
+   */
   totalFileDayGrowthCount?: GetDoctorHiveClusterResponseBodyDataMetricsTotalFileDayGrowthCount;
+  /**
+   * @remarks
+   * The daily increment of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataDayGrowthSize?: GetDoctorHiveClusterResponseBodyDataMetricsWarmDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataRatio?: GetDoctorHiveClusterResponseBodyDataMetricsWarmDataRatio;
+  /**
+   * @remarks
+   * The amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataSize?: GetDoctorHiveClusterResponseBodyDataMetricsWarmDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataSizeDayGrowthRatio?: GetDoctorHiveClusterResponseBodyDataMetricsWarmDataSizeDayGrowthRatio;
   static names(): { [key: string]: string } {
     return {
@@ -16064,8 +30784,20 @@ export class GetDoctorHiveClusterResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class GetDoctorHiveClusterResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis results.
+   */
   analysis?: GetDoctorHiveClusterResponseBodyDataAnalysis;
+  /**
+   * @remarks
+   * The information from the perspective of storage formats.
+   */
   formats?: GetDoctorHiveClusterResponseBodyDataFormats[];
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: GetDoctorHiveClusterResponseBodyDataMetrics;
   static names(): { [key: string]: string } {
     return {
@@ -16089,9 +30821,37 @@ export class GetDoctorHiveClusterResponseBodyData extends $tea.Model {
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataAnalysis extends $tea.Model {
+  /**
+   * @remarks
+   * The score for the file sizes of the Hive database.
+   * 
+   * @example
+   * 85
+   */
   hiveDistributionScore?: number;
+  /**
+   * @remarks
+   * The score for the data formats of the Hive database.
+   * 
+   * @example
+   * 85
+   */
   hiveFormatScore?: number;
+  /**
+   * @remarks
+   * The score for the access frequency of the Hive database.
+   * 
+   * @example
+   * 85
+   */
   hiveFrequencyScore?: number;
+  /**
+   * @remarks
+   * The overall score of the Hive database.
+   * 
+   * @example
+   * 85
+   */
   hiveScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16117,11 +30877,53 @@ export class GetDoctorHiveDatabaseResponseBodyDataAnalysis extends $tea.Model {
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataFormats extends $tea.Model {
+  /**
+   * @remarks
+   * The daily increment of data in the format.
+   * 
+   * @example
+   * 1000
+   */
   formatDayGrowthSize?: number;
+  /**
+   * @remarks
+   * The name of the storage format.
+   * 
+   * @example
+   * TextInputFormat
+   */
   formatName?: string;
+  /**
+   * @remarks
+   * The proportion of the data in the format.
+   * 
+   * @example
+   * 0.5
+   */
   formatRatio?: number;
+  /**
+   * @remarks
+   * The amount of data in the format.
+   * 
+   * @example
+   * 1000
+   */
   formatSize?: number;
+  /**
+   * @remarks
+   * The day-to-day growth rate of data in the format.
+   * 
+   * @example
+   * 0.5
+   */
   formatSizeDayGrowthRatio?: number;
+  /**
+   * @remarks
+   * The unit of the amount of data in the format.
+   * 
+   * @example
+   * MB
+   */
   formatSizeUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16151,9 +30953,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataFormats extends $tea.Model {
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsColdDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of cold data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16179,9 +31009,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsColdDataDayGrowthSize e
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsColdDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Cold data ratio
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16207,9 +31065,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsColdDataRatio extends $
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsColdDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of cold files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16235,9 +31121,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsColdDataSize extends $t
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsColdDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of cold data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16263,9 +31177,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsColdDataSizeDayGrowthRa
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsEmptyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16291,9 +31233,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsEmptyFileCount extends 
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsEmptyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16319,9 +31289,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsEmptyFileCountDayGrowth
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsEmptyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16347,9 +31345,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsEmptyFileDayGrowthCount
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsEmptyFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16375,9 +31401,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsEmptyFileRatio extends 
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsFreezeDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of freeze data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16403,9 +31457,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsFreezeDataDayGrowthSize
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsFreezeDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of freeze data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16431,9 +31513,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsFreezeDataRatio extends
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsFreezeDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of freeze files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16459,9 +31569,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsFreezeDataSize extends 
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of freeze data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16487,9 +31625,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsFreezeDataSizeDayGrowth
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsHotDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of hot data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16515,9 +31681,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsHotDataDayGrowthSize ex
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsHotDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Hot data ratio
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16543,9 +31737,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsHotDataRatio extends $t
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsHotDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of hot files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16571,9 +31793,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsHotDataSize extends $te
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsHotDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of hot data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16599,9 +31849,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsHotDataSizeDayGrowthRat
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsLargeFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16627,9 +31905,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsLargeFileCount extends 
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsLargeFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16655,9 +31961,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsLargeFileCountDayGrowth
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsLargeFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16683,9 +32017,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsLargeFileDayGrowthCount
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsLargeFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16711,9 +32073,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsLargeFileRatio extends 
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsMediumFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16739,9 +32129,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsMediumFileCount extends
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsMediumFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16767,9 +32185,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsMediumFileCountDayGrowt
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsMediumFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16795,9 +32241,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsMediumFileDayGrowthCoun
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsMediumFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16823,9 +32297,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsMediumFileRatio extends
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsPartitionNum extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of partitions
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * partitionNum
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16851,9 +32353,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsPartitionNum extends $t
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsSmallFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16879,9 +32409,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsSmallFileCount extends 
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsSmallFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16907,9 +32465,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsSmallFileCountDayGrowth
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsSmallFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16935,9 +32521,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsSmallFileDayGrowthCount
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsSmallFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16963,9 +32577,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsSmallFileRatio extends 
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsTableCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of tables
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tableCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16991,9 +32633,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsTableCount extends $tea
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsTinyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17019,9 +32689,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsTinyFileCount extends $
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsTinyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17047,9 +32745,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsTinyFileCountDayGrowthR
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsTinyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17075,9 +32801,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsTinyFileDayGrowthCount 
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsTinyFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17103,9 +32857,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsTinyFileRatio extends $
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsTotalDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of total data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17131,9 +32913,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsTotalDataDayGrowthSize 
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsTotalDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total data size in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17159,9 +32969,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsTotalDataSize extends $
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsTotalDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17187,9 +33025,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsTotalDataSizeDayGrowthR
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsTotalFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17215,9 +33081,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsTotalFileCount extends 
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsTotalFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17243,9 +33137,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsTotalFileCountDayGrowth
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsTotalFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17271,9 +33193,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsTotalFileDayGrowthCount
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsWarmDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of warm data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17299,9 +33249,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsWarmDataDayGrowthSize e
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsWarmDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of warm data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17327,9 +33305,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsWarmDataRatio extends $
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsWarmDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of warm files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17355,9 +33361,37 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsWarmDataSize extends $t
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetricsWarmDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of warm data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17383,49 +33417,225 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetricsWarmDataSizeDayGrowthRa
 }
 
 export class GetDoctorHiveDatabaseResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The daily increment of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataDayGrowthSize?: GetDoctorHiveDatabaseResponseBodyDataMetricsColdDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsColdDataRatio;
+  /**
+   * @remarks
+   * The amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataSize?: GetDoctorHiveDatabaseResponseBodyDataMetricsColdDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataSizeDayGrowthRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsColdDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCount?: GetDoctorHiveDatabaseResponseBodyDataMetricsEmptyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCountDayGrowthRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsEmptyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileDayGrowthCount?: GetDoctorHiveDatabaseResponseBodyDataMetricsEmptyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsEmptyFileRatio;
+  /**
+   * @remarks
+   * The daily increment of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataDayGrowthSize?: GetDoctorHiveDatabaseResponseBodyDataMetricsFreezeDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsFreezeDataRatio;
+  /**
+   * @remarks
+   * The amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSize?: GetDoctorHiveDatabaseResponseBodyDataMetricsFreezeDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSizeDayGrowthRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataDayGrowthSize?: GetDoctorHiveDatabaseResponseBodyDataMetricsHotDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsHotDataRatio;
+  /**
+   * @remarks
+   * The amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataSize?: GetDoctorHiveDatabaseResponseBodyDataMetricsHotDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataSizeDayGrowthRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsHotDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCount?: GetDoctorHiveDatabaseResponseBodyDataMetricsLargeFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCountDayGrowthRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsLargeFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileDayGrowthCount?: GetDoctorHiveDatabaseResponseBodyDataMetricsLargeFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsLargeFileRatio;
+  /**
+   * @remarks
+   * The number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCount?: GetDoctorHiveDatabaseResponseBodyDataMetricsMediumFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCountDayGrowthRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsMediumFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileDayGrowthCount?: GetDoctorHiveDatabaseResponseBodyDataMetricsMediumFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsMediumFileRatio;
+  /**
+   * @remarks
+   * The number of partitions.
+   */
   partitionNum?: GetDoctorHiveDatabaseResponseBodyDataMetricsPartitionNum;
+  /**
+   * @remarks
+   * The number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCount?: GetDoctorHiveDatabaseResponseBodyDataMetricsSmallFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCountDayGrowthRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsSmallFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileDayGrowthCount?: GetDoctorHiveDatabaseResponseBodyDataMetricsSmallFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsSmallFileRatio;
+  /**
+   * @remarks
+   * The number of tables.
+   */
   tableCount?: GetDoctorHiveDatabaseResponseBodyDataMetricsTableCount;
+  /**
+   * @remarks
+   * The number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCount?: GetDoctorHiveDatabaseResponseBodyDataMetricsTinyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCountDayGrowthRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsTinyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileDayGrowthCount?: GetDoctorHiveDatabaseResponseBodyDataMetricsTinyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsTinyFileRatio;
+  /**
+   * @remarks
+   * The daily incremental of the total amount of data.
+   */
   totalDataDayGrowthSize?: GetDoctorHiveDatabaseResponseBodyDataMetricsTotalDataDayGrowthSize;
+  /**
+   * @remarks
+   * The total amount of data.
+   */
   totalDataSize?: GetDoctorHiveDatabaseResponseBodyDataMetricsTotalDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total data volume.
+   */
   totalDataSizeDayGrowthRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsTotalDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The total number of files.
+   */
   totalFileCount?: GetDoctorHiveDatabaseResponseBodyDataMetricsTotalFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total number of files.
+   */
   totalFileCountDayGrowthRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsTotalFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the total number of files.
+   */
   totalFileDayGrowthCount?: GetDoctorHiveDatabaseResponseBodyDataMetricsTotalFileDayGrowthCount;
+  /**
+   * @remarks
+   * The daily increment of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataDayGrowthSize?: GetDoctorHiveDatabaseResponseBodyDataMetricsWarmDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsWarmDataRatio;
+  /**
+   * @remarks
+   * The amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataSize?: GetDoctorHiveDatabaseResponseBodyDataMetricsWarmDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataSizeDayGrowthRatio?: GetDoctorHiveDatabaseResponseBodyDataMetricsWarmDataSizeDayGrowthRatio;
   static names(): { [key: string]: string } {
     return {
@@ -17531,8 +33741,20 @@ export class GetDoctorHiveDatabaseResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class GetDoctorHiveDatabaseResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis results.
+   */
   analysis?: GetDoctorHiveDatabaseResponseBodyDataAnalysis;
+  /**
+   * @remarks
+   * The information from the perspective of storage formats.
+   */
   formats?: GetDoctorHiveDatabaseResponseBodyDataFormats[];
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: GetDoctorHiveDatabaseResponseBodyDataMetrics;
   static names(): { [key: string]: string } {
     return {
@@ -17556,9 +33778,37 @@ export class GetDoctorHiveDatabaseResponseBodyData extends $tea.Model {
 }
 
 export class GetDoctorHiveTableResponseBodyDataAnalysis extends $tea.Model {
+  /**
+   * @remarks
+   * The score for the distribution of files of different sizes stored in the Hive table.
+   * 
+   * @example
+   * 80
+   */
   hiveDistributionScore?: number;
+  /**
+   * @remarks
+   * The score for the distribution of files stored in different formats in the Hive table.
+   * 
+   * @example
+   * 60
+   */
   hiveFormatScore?: number;
+  /**
+   * @remarks
+   * The score for the access frequency of the Hive table.
+   * 
+   * @example
+   * 70
+   */
   hiveFrequencyScore?: number;
+  /**
+   * @remarks
+   * The overall score of the Hive table.
+   * 
+   * @example
+   * 80
+   */
   hiveScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17584,11 +33834,53 @@ export class GetDoctorHiveTableResponseBodyDataAnalysis extends $tea.Model {
 }
 
 export class GetDoctorHiveTableResponseBodyDataFormats extends $tea.Model {
+  /**
+   * @remarks
+   * The daily amount increment of the data in a specific storage format.
+   * 
+   * @example
+   * 1232124
+   */
   formatDayGrowthSize?: number;
+  /**
+   * @remarks
+   * The name of the storage format.
+   * 
+   * @example
+   * TextInputFormat
+   */
   formatName?: string;
+  /**
+   * @remarks
+   * The ratio of the data in a specific storage format.
+   * 
+   * @example
+   * 0.23
+   */
   formatRatio?: number;
+  /**
+   * @remarks
+   * The size of storage format-specific data.
+   * 
+   * @example
+   * 506930200
+   */
   formatSize?: number;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of the data in a specific storage format.
+   * 
+   * @example
+   * 0.04
+   */
   formatSizeDayGrowthRatio?: number;
+  /**
+   * @remarks
+   * The unit of the data size.
+   * 
+   * @example
+   * MB
+   */
   formatSizeUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17618,9 +33910,37 @@ export class GetDoctorHiveTableResponseBodyDataFormats extends $tea.Model {
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsColdDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of cold data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 217715
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17646,9 +33966,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsColdDataDayGrowthSize exte
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsColdDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Cold data ratio
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17674,9 +34022,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsColdDataRatio extends $tea
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsColdDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the cold data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 217715
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17702,9 +34078,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsColdDataSize extends $tea.
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsColdDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of cold data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17730,9 +34134,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsColdDataSizeDayGrowthRatio
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsEmptyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 3123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17758,9 +34190,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsEmptyFileCount extends $te
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsEmptyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17786,9 +34246,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsEmptyFileCountDayGrowthRat
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsEmptyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -20
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17814,9 +34302,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsEmptyFileDayGrowthCount ex
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsEmptyFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17842,9 +34358,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsEmptyFileRatio extends $te
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsFreezeDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of freeze data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 33229309
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17870,9 +34414,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsFreezeDataDayGrowthSize ex
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsFreezeDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of freeze data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.98
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17898,9 +34470,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsFreezeDataRatio extends $t
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsFreezeDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the freeze data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 33229309
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17926,9 +34526,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsFreezeDataSize extends $te
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of freeze data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17954,9 +34582,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsFreezeDataSizeDayGrowthRat
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsHotDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of hot data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 203431
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17982,9 +34638,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsHotDataDayGrowthSize exten
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsHotDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Hot data ratio
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18010,9 +34694,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsHotDataRatio extends $tea.
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsHotDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the hot data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 203431
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18038,9 +34750,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsHotDataSize extends $tea.M
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsHotDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of hot data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18066,9 +34806,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsHotDataSizeDayGrowthRatio 
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsLargeFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18094,9 +34862,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsLargeFileCount extends $te
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsLargeFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18122,9 +34918,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsLargeFileCountDayGrowthRat
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsLargeFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 40
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18150,9 +34974,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsLargeFileDayGrowthCount ex
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsLargeFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.02
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18178,9 +35030,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsLargeFileRatio extends $te
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsMediumFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18206,9 +35086,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsMediumFileCount extends $t
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsMediumFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18234,9 +35142,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsMediumFileCountDayGrowthRa
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsMediumFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 20
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18262,9 +35198,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsMediumFileDayGrowthCount e
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsMediumFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.80
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18290,9 +35254,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsMediumFileRatio extends $t
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsPartitionNum extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * number of partitions
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * partitionNum
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 441
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18318,9 +35310,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsPartitionNum extends $tea.
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsSmallFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * "“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 18
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18346,9 +35366,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsSmallFileCount extends $te
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsSmallFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18374,9 +35422,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsSmallFileCountDayGrowthRat
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsSmallFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 18
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18402,9 +35478,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsSmallFileDayGrowthCount ex
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsSmallFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.04
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18430,9 +35534,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsSmallFileRatio extends $te
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsTinyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 451
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18458,9 +35590,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsTinyFileCount extends $tea
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsTinyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.04
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18486,9 +35646,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsTinyFileCountDayGrowthRati
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsTinyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 482
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18514,9 +35702,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsTinyFileDayGrowthCount ext
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsTinyFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.96
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18542,9 +35758,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsTinyFileRatio extends $tea
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsTotalDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of total data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 33800296
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18570,9 +35814,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsTotalDataDayGrowthSize ext
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsTotalDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total data size in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 33800296
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18598,9 +35870,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsTotalDataSize extends $tea
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsTotalDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18626,9 +35926,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsTotalDataSizeDayGrowthRati
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsTotalFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18654,9 +35982,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsTotalFileCount extends $te
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsTotalFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18682,9 +36038,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsTotalFileCountDayGrowthRat
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsTotalFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 100
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18710,9 +36094,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsTotalFileDayGrowthCount ex
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsWarmDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of warm data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 149841
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18738,9 +36150,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsWarmDataDayGrowthSize exte
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsWarmDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of warm data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.1
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18766,9 +36206,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsWarmDataRatio extends $tea
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsWarmDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the warm data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 14981
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18794,9 +36262,37 @@ export class GetDoctorHiveTableResponseBodyDataMetricsWarmDataSize extends $tea.
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetricsWarmDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of warm data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18822,48 +36318,220 @@ export class GetDoctorHiveTableResponseBodyDataMetricsWarmDataSizeDayGrowthRatio
 }
 
 export class GetDoctorHiveTableResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The daily increment of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+   */
   coldDataDayGrowthSize?: GetDoctorHiveTableResponseBodyDataMetricsColdDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+   */
   coldDataRatio?: GetDoctorHiveTableResponseBodyDataMetricsColdDataRatio;
+  /**
+   * @remarks
+   * The amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+   */
   coldDataSize?: GetDoctorHiveTableResponseBodyDataMetricsColdDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+   */
   coldDataSizeDayGrowthRatio?: GetDoctorHiveTableResponseBodyDataMetricsColdDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCount?: GetDoctorHiveTableResponseBodyDataMetricsEmptyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCountDayGrowthRatio?: GetDoctorHiveTableResponseBodyDataMetricsEmptyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileDayGrowthCount?: GetDoctorHiveTableResponseBodyDataMetricsEmptyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileRatio?: GetDoctorHiveTableResponseBodyDataMetricsEmptyFileRatio;
+  /**
+   * @remarks
+   * The daily increment of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataDayGrowthSize?: GetDoctorHiveTableResponseBodyDataMetricsFreezeDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataRatio?: GetDoctorHiveTableResponseBodyDataMetricsFreezeDataRatio;
+  /**
+   * @remarks
+   * The amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSize?: GetDoctorHiveTableResponseBodyDataMetricsFreezeDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSizeDayGrowthRatio?: GetDoctorHiveTableResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the amount of hot data. Hot data refers to data that is accessed in recent seven days.
+   */
   hotDataDayGrowthSize?: GetDoctorHiveTableResponseBodyDataMetricsHotDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of hot data. Hot data refers to data that is accessed in recent seven days.
+   */
   hotDataRatio?: GetDoctorHiveTableResponseBodyDataMetricsHotDataRatio;
+  /**
+   * @remarks
+   * The amount of hot data. Hot data refers to data that is accessed in recent seven days.
+   */
   hotDataSize?: GetDoctorHiveTableResponseBodyDataMetricsHotDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of hot data. Hot data refers to data that is accessed in recent seven days.
+   */
   hotDataSizeDayGrowthRatio?: GetDoctorHiveTableResponseBodyDataMetricsHotDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCount?: GetDoctorHiveTableResponseBodyDataMetricsLargeFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCountDayGrowthRatio?: GetDoctorHiveTableResponseBodyDataMetricsLargeFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileDayGrowthCount?: GetDoctorHiveTableResponseBodyDataMetricsLargeFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileRatio?: GetDoctorHiveTableResponseBodyDataMetricsLargeFileRatio;
+  /**
+   * @remarks
+   * The number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCount?: GetDoctorHiveTableResponseBodyDataMetricsMediumFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCountDayGrowthRatio?: GetDoctorHiveTableResponseBodyDataMetricsMediumFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileDayGrowthCount?: GetDoctorHiveTableResponseBodyDataMetricsMediumFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileRatio?: GetDoctorHiveTableResponseBodyDataMetricsMediumFileRatio;
+  /**
+   * @remarks
+   * The number of partitions.
+   */
   partitionNum?: GetDoctorHiveTableResponseBodyDataMetricsPartitionNum;
+  /**
+   * @remarks
+   * The number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCount?: GetDoctorHiveTableResponseBodyDataMetricsSmallFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCountDayGrowthRatio?: GetDoctorHiveTableResponseBodyDataMetricsSmallFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileDayGrowthCount?: GetDoctorHiveTableResponseBodyDataMetricsSmallFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileRatio?: GetDoctorHiveTableResponseBodyDataMetricsSmallFileRatio;
+  /**
+   * @remarks
+   * The number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCount?: GetDoctorHiveTableResponseBodyDataMetricsTinyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCountDayGrowthRatio?: GetDoctorHiveTableResponseBodyDataMetricsTinyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileDayGrowthCount?: GetDoctorHiveTableResponseBodyDataMetricsTinyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileRatio?: GetDoctorHiveTableResponseBodyDataMetricsTinyFileRatio;
+  /**
+   * @remarks
+   * The daily incremental of the total data volume.
+   */
   totalDataDayGrowthSize?: GetDoctorHiveTableResponseBodyDataMetricsTotalDataDayGrowthSize;
+  /**
+   * @remarks
+   * The total amount of data.
+   */
   totalDataSize?: GetDoctorHiveTableResponseBodyDataMetricsTotalDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total data volume.
+   */
   totalDataSizeDayGrowthRatio?: GetDoctorHiveTableResponseBodyDataMetricsTotalDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The total number of files.
+   */
   totalFileCount?: GetDoctorHiveTableResponseBodyDataMetricsTotalFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total number of files.
+   */
   totalFileCountDayGrowthRatio?: GetDoctorHiveTableResponseBodyDataMetricsTotalFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the total number of files.
+   */
   totalFileDayGrowthCount?: GetDoctorHiveTableResponseBodyDataMetricsTotalFileDayGrowthCount;
+  /**
+   * @remarks
+   * The daily increment of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+   */
   warmDataDayGrowthSize?: GetDoctorHiveTableResponseBodyDataMetricsWarmDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+   */
   warmDataRatio?: GetDoctorHiveTableResponseBodyDataMetricsWarmDataRatio;
+  /**
+   * @remarks
+   * The amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+   */
   warmDataSize?: GetDoctorHiveTableResponseBodyDataMetricsWarmDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+   */
   warmDataSizeDayGrowthRatio?: GetDoctorHiveTableResponseBodyDataMetricsWarmDataSizeDayGrowthRatio;
   static names(): { [key: string]: string } {
     return {
@@ -18967,9 +36635,28 @@ export class GetDoctorHiveTableResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class GetDoctorHiveTableResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis results.
+   */
   analysis?: GetDoctorHiveTableResponseBodyDataAnalysis;
+  /**
+   * @remarks
+   * The information from the perspective of formats.
+   */
   formats?: GetDoctorHiveTableResponseBodyDataFormats[];
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: GetDoctorHiveTableResponseBodyDataMetrics;
+  /**
+   * @remarks
+   * The owner.
+   * 
+   * @example
+   * DW
+   */
   owner?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18995,9 +36682,37 @@ export class GetDoctorHiveTableResponseBodyData extends $tea.Model {
 }
 
 export class GetDoctorJobResponseBodyDataMetricsMemSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total memory usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 12312312
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19023,9 +36738,37 @@ export class GetDoctorJobResponseBodyDataMetricsMemSeconds extends $tea.Model {
 }
 
 export class GetDoctorJobResponseBodyDataMetricsVcoreSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total vcore usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * vcoreSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * VCores * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 11123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19051,7 +36794,15 @@ export class GetDoctorJobResponseBodyDataMetricsVcoreSeconds extends $tea.Model 
 }
 
 export class GetDoctorJobResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of memory consumed.
+   */
   memSeconds?: GetDoctorJobResponseBodyDataMetricsMemSeconds;
+  /**
+   * @remarks
+   * The CPU usage.
+   */
   vcoreSeconds?: GetDoctorJobResponseBodyDataMetricsVcoreSeconds;
   static names(): { [key: string]: string } {
     return {
@@ -19073,17 +36824,108 @@ export class GetDoctorJobResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class GetDoctorJobResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the job that was submitted to YARN.
+   * 
+   * @example
+   * application_1542620905989_****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The name of the job.
+   * 
+   * @example
+   * CREATE TABLE test...ranks=1 (Stage-1)
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The total running time of the job. Unit: milliseconds.
+   * 
+   * @example
+   * 278
+   */
   elapsedTime?: number;
+  /**
+   * @remarks
+   * The final state of the job. Valid values:
+   * 
+   * *   SUCCEEDED
+   * *   FAILED
+   * *   KILLED
+   * *   ENDED
+   * *   UNDEFINED
+   * 
+   * @example
+   * KILLED
+   */
   finalStatus?: string;
+  /**
+   * @remarks
+   * The time when the job ended. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1658388322000
+   */
   finishTime?: number;
+  /**
+   * @remarks
+   * The time when the job was started. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1665014400000
+   */
   launchTime?: number;
+  /**
+   * @remarks
+   * The data about metrics.
+   */
   metrics?: GetDoctorJobResponseBodyDataMetrics;
+  /**
+   * @remarks
+   * The YARN queue to which the job was submitted.
+   * 
+   * @example
+   * DW
+   */
   queue?: string;
+  /**
+   * @remarks
+   * The time when the job was submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1673946000000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The running state of the job. Valid values:
+   * 
+   * *   FINISHED
+   * *   FAILED
+   * *   KILLED
+   * 
+   * @example
+   * FINISHED
+   */
   state?: string;
+  /**
+   * @remarks
+   * The type of the compute engine.
+   * 
+   * @example
+   * SPARK
+   */
   type?: string;
+  /**
+   * @remarks
+   * The username that was used to submit the job.
+   * 
+   * @example
+   * DW
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19125,8 +36967,16 @@ export class GetDoctorJobResponseBodyData extends $tea.Model {
 }
 
 export class GetDoctorReportComponentSummaryResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 88
+   */
   score?: number;
   suggestion?: string;
+  /**
+   * @remarks
+   * The summary of the report.
+   */
   summary?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19150,18 +37000,109 @@ export class GetDoctorReportComponentSummaryResponseBodyData extends $tea.Model 
 }
 
 export class ListApplicationConfigsResponseBodyApplicationConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The status of the configuration value.
+   * 
+   * @example
+   * EFFECT
+   */
   configEffectState?: string;
+  /**
+   * @remarks
+   * The name of the configuration file.
+   * 
+   * @example
+   * hdfs-site.xml
+   */
   configFileName?: string;
+  /**
+   * @remarks
+   * The key of the configuration item.
+   * 
+   * @example
+   * dfs.replication
+   */
   configItemKey?: string;
+  /**
+   * @remarks
+   * The value of the configuration item.
+   * 
+   * @example
+   * 2
+   */
   configItemValue?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1628589439114
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * Indicates whether the configurations are custom.
+   * 
+   * @example
+   * false
+   */
   custom?: boolean;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * dfs.replication description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The initial value.
+   * 
+   * @example
+   * 2
+   */
   initValue?: string;
+  /**
+   * @remarks
+   * The person who modified the configurations.
+   * 
+   * @example
+   * 170906468757****
+   */
   modifier?: string;
+  /**
+   * @remarks
+   * The node group ID.
+   * 
+   * @example
+   * ng-d555335ced5****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The node ID.
+   * 
+   * @example
+   * i-bp18y0ng3qqxog4mw****
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 1628589439114
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19205,9 +37146,44 @@ export class ListApplicationConfigsResponseBodyApplicationConfigs extends $tea.M
 }
 
 export class ListApplicationsResponseBodyApplications extends $tea.Model {
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The status of the applications. Valid values:
+   * 
+   * *   STOPPED: At least one application is in the Stopped state.
+   * *   RUNNING: All applications are in the Running state.
+   * 
+   * This parameter is returned only for DataLake, OLAP, Dataflow, DataServing, and custom clusters. For other types of clusters, no value is returned for this parameter.
+   * 
+   * @example
+   * RUNNING
+   */
   applicationState?: string;
+  /**
+   * @remarks
+   * The version of the application.
+   * 
+   * @example
+   * 2.8.1
+   * 
+   * @deprecated
+   */
   applicationVersion?: string;
+  /**
+   * @remarks
+   * The community edition.
+   * 
+   * @example
+   * 2.8.5
+   */
   communityVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19233,17 +37209,109 @@ export class ListApplicationsResponseBodyApplications extends $tea.Model {
 }
 
 export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the scaling activity.
+   * 
+   * @example
+   * asa-36373b084d6b4b13aa50f4129a9e****
+   */
   activityId?: string;
+  /**
+   * @remarks
+   * The status of the scaling activity. Valid values:
+   * 
+   * *   REJECTED
+   * *   SUCCESSFUL
+   * *   FAILED
+   * *   IN_PROGRESS
+   * 
+   * @example
+   * IN_PROGRESS
+   */
   activityState?: string;
+  /**
+   * @remarks
+   * The type of the scaling activity. Valid values:
+   * 
+   * *   SCALE_OUT
+   * *   SCALE_IN
+   * 
+   * @example
+   * SCALE_OUT
+   */
   activityType?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The description of the scaling activity.
+   * 
+   * @example
+   * clusterId not exist
+   */
   description?: string;
+  /**
+   * @remarks
+   * The end time of the scaling. Unit: milliseconds.
+   * 
+   * @example
+   * 1639715634819
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The number of added or removed instances.
+   * 
+   * @example
+   * 10
+   */
   expectNum?: number;
+  /**
+   * @remarks
+   * The ID of the node group.
+   * 
+   * @example
+   * ng-869471354ecd****
+   */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The name of the node group.
+   * 
+   * @example
+   * task-01
+   */
   nodeGroupName?: string;
+  /**
+   * @remarks
+   * The operation ID.
+   * 
+   * @example
+   * op-13c37a77c505****
+   */
   operationId?: string;
+  /**
+   * @remarks
+   * The name of the scaling rule.
+   * 
+   * @example
+   * scaling-out-memory
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The start time of the scaling. Unit: milliseconds.
+   * 
+   * @example
+   * 1639714634819
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19285,14 +37353,104 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $tea
 }
 
 export class ListComponentInstancesResponseBodyComponentInstances extends $tea.Model {
+  /**
+   * @remarks
+   * 应用名称。
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * 组件服务状态，取值如下：
+   * - active：主服务
+   * - standby：备用服务。
+   * 
+   * @example
+   * active
+   */
   bizState?: string;
+  /**
+   * @remarks
+   * Commission状态，取值如下：
+   * - COMMISSIONED：已上线
+   * - COMMISSIONING：上线中
+   * - DECOMMISSIONED：已下线
+   * - DECOMMISSIONINPROGRESS：下线进程中
+   * - DECOMMISSIONFAILED：下线失败
+   * - INSERVICE：服务中
+   * - UNKNOWN：未知状态。
+   * <p>
+   * 
+   * @example
+   * INSERVICE
+   */
   commissionState?: string;
+  /**
+   * @remarks
+   * 组件实例操作状态，取值如下：
+   * - WAITING：等待中
+   * - INSTALLING：安装中
+   * - INSTALLED：已安装
+   * - INSTALL_FAILED：安装失败
+   * - STARTING：启动中
+   * - STARTED：已启动
+   * - START_FAILED：启动失败
+   * - STOPPING：停止中
+   * - STOPPED：已停止
+   * - STOP_FAILED：停止失败
+   */
   componentInstanceState?: string;
+  /**
+   * @remarks
+   * 组件名称。
+   * 
+   * @example
+   * DataNode
+   */
   componentName?: string;
+  /**
+   * @remarks
+   * 安装时间戳。
+   * 
+   * @example
+   * 1628248947000
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * 期望状态，取值如下：
+   * - WAITING：等待中
+   * - INSTALLING：安装中
+   * - INSTALLED：已安装
+   * - INSTALL_FAILED：安装失败
+   * - STARTING：启动中
+   * - STARTED：已启动
+   * - START_FAILED：启动失败
+   * - STOPPING：停止中
+   * - STOPPED：已停止
+   * - STOP_FAILED：停止失败。
+   * 
+   * @example
+   * STARTED
+   */
   desiredState?: string;
+  /**
+   * @remarks
+   * 节点ID。
+   * 
+   * @example
+   * i-bp1cudc25w2bfwl5****
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * 节点名称。
+   * 
+   * @example
+   * core1-1
+   */
   nodeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19328,10 +37486,39 @@ export class ListComponentInstancesResponseBodyComponentInstances extends $tea.M
 }
 
 export class ListComponentsResponseBodyComponents extends $tea.Model {
+  /**
+   * @remarks
+   * 应用名称。
+   * 
+   * @example
+   * HDFS
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * 属性列表。
+   */
   attributes?: Attribute[];
+  /**
+   * @remarks
+   * 组件名称。
+   * 
+   * @example
+   * DataNode
+   */
   componentName?: string;
+  /**
+   * @remarks
+   * 命名空间。
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * 安装该组件的机器总数。
+   * 
+   * @example
+   * 1
+   */
   replica?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19359,7 +37546,18 @@ export class ListComponentsResponseBodyComponents extends $tea.Model {
 }
 
 export class ListDoctorApplicationsResponseBodyDataAnalysis extends $tea.Model {
+  /**
+   * @remarks
+   * The score of the job.
+   * 
+   * @example
+   * 23
+   */
   score?: number;
+  /**
+   * @remarks
+   * The suggestion on executing the job.
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19381,9 +37579,37 @@ export class ListDoctorApplicationsResponseBodyDataAnalysis extends $tea.Model {
 }
 
 export class ListDoctorApplicationsResponseBodyDataMetricsMemSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total memory usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 12312312
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19409,9 +37635,37 @@ export class ListDoctorApplicationsResponseBodyDataMetricsMemSeconds extends $te
 }
 
 export class ListDoctorApplicationsResponseBodyDataMetricsMemUtilization extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of used memory to total available memory
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memUtilization
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.23
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19437,9 +37691,37 @@ export class ListDoctorApplicationsResponseBodyDataMetricsMemUtilization extends
 }
 
 export class ListDoctorApplicationsResponseBodyDataMetricsVcoreSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total vcore usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * vcoreSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * VCores * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 11123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19465,9 +37747,37 @@ export class ListDoctorApplicationsResponseBodyDataMetricsVcoreSeconds extends $
 }
 
 export class ListDoctorApplicationsResponseBodyDataMetricsVcoreUtilization extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of used vcore to total available cores
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * vcoreUtilization
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 23.1
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19493,9 +37803,25 @@ export class ListDoctorApplicationsResponseBodyDataMetricsVcoreUtilization exten
 }
 
 export class ListDoctorApplicationsResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of memory consumed.
+   */
   memSeconds?: ListDoctorApplicationsResponseBodyDataMetricsMemSeconds;
+  /**
+   * @remarks
+   * The memory usage
+   */
   memUtilization?: ListDoctorApplicationsResponseBodyDataMetricsMemUtilization;
+  /**
+   * @remarks
+   * The CPU usage.
+   */
   vcoreSeconds?: ListDoctorApplicationsResponseBodyDataMetricsVcoreSeconds;
+  /**
+   * @remarks
+   * The CPU utilization. This parameter has the same meaning as %CPU in the Linux top command.
+   */
   vcoreUtilization?: ListDoctorApplicationsResponseBodyDataMetricsVcoreUtilization;
   static names(): { [key: string]: string } {
     return {
@@ -19521,16 +37847,87 @@ export class ListDoctorApplicationsResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class ListDoctorApplicationsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis results of the jobs.
+   */
   analysis?: ListDoctorApplicationsResponseBodyDataAnalysis;
+  /**
+   * @remarks
+   * The job ID in YARN. The value of QueryID or SessionID is returned for a Hive job.
+   * 
+   * @example
+   * application_1665056147236_*****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The name of the job.
+   * 
+   * @example
+   * data-upload
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The time when the job ended. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1682049088086
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The job IDs. Multiple job IDs are separated with commas (,).
+   * 
+   * @example
+   * null
+   */
   ids?: string[];
+  /**
+   * @remarks
+   * The data about metrics.
+   */
   metrics?: ListDoctorApplicationsResponseBodyDataMetrics;
+  /**
+   * @remarks
+   * The query statement. This parameter is left empty for non-SQL jobs.
+   * 
+   * @example
+   * SELECT id, count(1) FROM test group by id;
+   */
   querySql?: string;
+  /**
+   * @remarks
+   * The YARN queue to which the job was submitted.
+   * 
+   * @example
+   * DW
+   */
   queue?: string;
+  /**
+   * @remarks
+   * The time when the job was submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1677465658275
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The type of the compute engine.
+   * 
+   * @example
+   * TEZ
+   */
   type?: string;
+  /**
+   * @remarks
+   * The username that was used to submit the job.
+   * 
+   * @example
+   * DW
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19570,11 +37967,53 @@ export class ListDoctorApplicationsResponseBodyData extends $tea.Model {
 }
 
 export class ListDoctorComputeSummaryResponseBodyDataAnalysis extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of healthy jobs.
+   * 
+   * @example
+   * 3
+   */
   healthyJobCount?: number;
+  /**
+   * @remarks
+   * The total number of jobs that require attention.
+   * 
+   * @example
+   * 23
+   */
   needAttentionJobCount?: number;
+  /**
+   * @remarks
+   * The score for jobs.
+   * 
+   * @example
+   * 56
+   */
   score?: number;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the score for jobs.
+   * 
+   * @example
+   * 0.03
+   */
   scoreDayGrowthRatio?: number;
+  /**
+   * @remarks
+   * The total number of sub-healthy jobs.
+   * 
+   * @example
+   * 13
+   */
   subHealthyJobCount?: number;
+  /**
+   * @remarks
+   * The total number of unhealthy jobs.
+   * 
+   * @example
+   * 123
+   */
   unhealthyJobCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19604,9 +38043,37 @@ export class ListDoctorComputeSummaryResponseBodyDataAnalysis extends $tea.Model
 }
 
 export class ListDoctorComputeSummaryResponseBodyDataMetricsMemSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total memory usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 12312312
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19632,9 +38099,37 @@ export class ListDoctorComputeSummaryResponseBodyDataMetricsMemSeconds extends $
 }
 
 export class ListDoctorComputeSummaryResponseBodyDataMetricsMemSecondsDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Growth ratio of memory usage in seconds per day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memSecondsDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.36
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19660,9 +38155,37 @@ export class ListDoctorComputeSummaryResponseBodyDataMetricsMemSecondsDayGrowthR
 }
 
 export class ListDoctorComputeSummaryResponseBodyDataMetricsMemUtilization extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of used memory to total available memory
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memUtilization
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.82
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19688,9 +38211,37 @@ export class ListDoctorComputeSummaryResponseBodyDataMetricsMemUtilization exten
 }
 
 export class ListDoctorComputeSummaryResponseBodyDataMetricsReadSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total cumulative size of data read in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * readSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 504888659968
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19716,9 +38267,37 @@ export class ListDoctorComputeSummaryResponseBodyDataMetricsReadSize extends $te
 }
 
 export class ListDoctorComputeSummaryResponseBodyDataMetricsVcoreSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total vcore usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * vcoreSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * VCores * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1231412
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19744,9 +38323,37 @@ export class ListDoctorComputeSummaryResponseBodyDataMetricsVcoreSeconds extends
 }
 
 export class ListDoctorComputeSummaryResponseBodyDataMetricsVcoreSecondsDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Growth ratio of virtual core usage in seconds per day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * vcoreSecondsDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.22
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19772,9 +38379,37 @@ export class ListDoctorComputeSummaryResponseBodyDataMetricsVcoreSecondsDayGrowt
 }
 
 export class ListDoctorComputeSummaryResponseBodyDataMetricsVcoreUtilization extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of used vcore to total available cores
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * vcoreUtilization
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 32.1
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19800,9 +38435,37 @@ export class ListDoctorComputeSummaryResponseBodyDataMetricsVcoreUtilization ext
 }
 
 export class ListDoctorComputeSummaryResponseBodyDataMetricsWriteSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total cumulative size of data written in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * writeSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 6294093393920
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19828,13 +38491,45 @@ export class ListDoctorComputeSummaryResponseBodyDataMetricsWriteSize extends $t
 }
 
 export class ListDoctorComputeSummaryResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The total memory consumption over time in seconds.
+   */
   memSeconds?: ListDoctorComputeSummaryResponseBodyDataMetricsMemSeconds;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total memory consumption over time in seconds.
+   */
   memSecondsDayGrowthRatio?: ListDoctorComputeSummaryResponseBodyDataMetricsMemSecondsDayGrowthRatio;
+  /**
+   * @remarks
+   * The average memory usage.
+   */
   memUtilization?: ListDoctorComputeSummaryResponseBodyDataMetricsMemUtilization;
+  /**
+   * @remarks
+   * The total amount of data read from the file system.
+   */
   readSize?: ListDoctorComputeSummaryResponseBodyDataMetricsReadSize;
+  /**
+   * @remarks
+   * The total CPU consumption over time in seconds.
+   */
   vcoreSeconds?: ListDoctorComputeSummaryResponseBodyDataMetricsVcoreSeconds;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total CPU consumption over time in seconds.
+   */
   vcoreSecondsDayGrowthRatio?: ListDoctorComputeSummaryResponseBodyDataMetricsVcoreSecondsDayGrowthRatio;
+  /**
+   * @remarks
+   * The average CPU utilization. The meaning is the same as the %CPU parameter in the output of the top command in Linux.
+   */
   vcoreUtilization?: ListDoctorComputeSummaryResponseBodyDataMetricsVcoreUtilization;
+  /**
+   * @remarks
+   * The total amount of data written to the file system.
+   */
   writeSize?: ListDoctorComputeSummaryResponseBodyDataMetricsWriteSize;
   static names(): { [key: string]: string } {
     return {
@@ -19868,8 +38563,23 @@ export class ListDoctorComputeSummaryResponseBodyDataMetrics extends $tea.Model 
 }
 
 export class ListDoctorComputeSummaryResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The resource analysis results.
+   */
   analysis?: ListDoctorComputeSummaryResponseBodyDataAnalysis;
+  /**
+   * @remarks
+   * The name of the resource whose details are obtained based on the value of ComponentTypes. For example, if the value of ComponentTypes is Queue, the value of this parameter is a queue, such as DW.
+   * 
+   * @example
+   * DW
+   */
   componentName?: string;
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: ListDoctorComputeSummaryResponseBodyDataMetrics;
   static names(): { [key: string]: string } {
     return {
@@ -19893,9 +38603,37 @@ export class ListDoctorComputeSummaryResponseBodyData extends $tea.Model {
 }
 
 export class ListDoctorHBaseRegionServersResponseBodyDataMetricsAvgGc extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The efficiency of garbage collection in the system
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * avgGc
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 37.9
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19921,9 +38659,37 @@ export class ListDoctorHBaseRegionServersResponseBodyDataMetricsAvgGc extends $t
 }
 
 export class ListDoctorHBaseRegionServersResponseBodyDataMetricsCacheRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of the BlockCache memory size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * cacheRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 96.7
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19949,9 +38715,37 @@ export class ListDoctorHBaseRegionServersResponseBodyDataMetricsCacheRatio exten
 }
 
 export class ListDoctorHBaseRegionServersResponseBodyDataMetricsDailyReadRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of read requests per day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyReadRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 42571
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19977,9 +38771,37 @@ export class ListDoctorHBaseRegionServersResponseBodyDataMetricsDailyReadRequest
 }
 
 export class ListDoctorHBaseRegionServersResponseBodyDataMetricsDailyReadRequestDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The growth rate of daily read request quantity.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyReadRequestDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1.0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20005,9 +38827,37 @@ export class ListDoctorHBaseRegionServersResponseBodyDataMetricsDailyReadRequest
 }
 
 export class ListDoctorHBaseRegionServersResponseBodyDataMetricsDailyWriteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of write requests per day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyWriteRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 23124
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20033,9 +38883,37 @@ export class ListDoctorHBaseRegionServersResponseBodyDataMetricsDailyWriteReques
 }
 
 export class ListDoctorHBaseRegionServersResponseBodyDataMetricsDailyWriteRequestDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The growth rate of daily write request quantity.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyWriteRequestDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1.0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20061,9 +38939,37 @@ export class ListDoctorHBaseRegionServersResponseBodyDataMetricsDailyWriteReques
 }
 
 export class ListDoctorHBaseRegionServersResponseBodyDataMetricsRegionCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of regions count
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * regionCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 81
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20089,9 +38995,37 @@ export class ListDoctorHBaseRegionServersResponseBodyDataMetricsRegionCount exte
 }
 
 export class ListDoctorHBaseRegionServersResponseBodyDataMetricsTotalReadRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total number of read requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalReadRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 170500567
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20117,9 +39051,37 @@ export class ListDoctorHBaseRegionServersResponseBodyDataMetricsTotalReadRequest
 }
 
 export class ListDoctorHBaseRegionServersResponseBodyDataMetricsTotalRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total number of requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 89499511
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20145,9 +39107,37 @@ export class ListDoctorHBaseRegionServersResponseBodyDataMetricsTotalRequest ext
 }
 
 export class ListDoctorHBaseRegionServersResponseBodyDataMetricsTotalWriteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total number of write requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalWriteRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 30109837
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20173,15 +39163,55 @@ export class ListDoctorHBaseRegionServersResponseBodyDataMetricsTotalWriteReques
 }
 
 export class ListDoctorHBaseRegionServersResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The average garbage collection (GC) duration.
+   */
   avgGc?: ListDoctorHBaseRegionServersResponseBodyDataMetricsAvgGc;
+  /**
+   * @remarks
+   * The cache hit ratio.
+   */
   cacheRatio?: ListDoctorHBaseRegionServersResponseBodyDataMetricsCacheRatio;
+  /**
+   * @remarks
+   * The number of daily read requests.
+   */
   dailyReadRequest?: ListDoctorHBaseRegionServersResponseBodyDataMetricsDailyReadRequest;
+  /**
+   * @remarks
+   * The growth rate of the number of daily read requests.
+   */
   dailyReadRequestDayGrowthRatio?: ListDoctorHBaseRegionServersResponseBodyDataMetricsDailyReadRequestDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of daily write requests.
+   */
   dailyWriteRequest?: ListDoctorHBaseRegionServersResponseBodyDataMetricsDailyWriteRequest;
+  /**
+   * @remarks
+   * The growth rate of the number of daily write requests.
+   */
   dailyWriteRequestDayGrowthRatio?: ListDoctorHBaseRegionServersResponseBodyDataMetricsDailyWriteRequestDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of regions.
+   */
   regionCount?: ListDoctorHBaseRegionServersResponseBodyDataMetricsRegionCount;
+  /**
+   * @remarks
+   * The cumulative number of read requests.
+   */
   totalReadRequest?: ListDoctorHBaseRegionServersResponseBodyDataMetricsTotalReadRequest;
+  /**
+   * @remarks
+   * The cumulative number of all requests.
+   */
   totalRequest?: ListDoctorHBaseRegionServersResponseBodyDataMetricsTotalRequest;
+  /**
+   * @remarks
+   * The cumulative number of write requests.
+   */
   totalWriteRequest?: ListDoctorHBaseRegionServersResponseBodyDataMetricsTotalWriteRequest;
   static names(): { [key: string]: string } {
     return {
@@ -20219,7 +39249,18 @@ export class ListDoctorHBaseRegionServersResponseBodyDataMetrics extends $tea.Mo
 }
 
 export class ListDoctorHBaseRegionServersResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: ListDoctorHBaseRegionServersResponseBodyDataMetrics;
+  /**
+   * @remarks
+   * The RegionServer host.
+   * 
+   * @example
+   * emr-worker-4.cluster-20****
+   */
   regionServerHost?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20241,12 +39282,61 @@ export class ListDoctorHBaseRegionServersResponseBodyData extends $tea.Model {
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataAnalysis extends $tea.Model {
+  /**
+   * @remarks
+   * The regions that have read hotspot issues.
+   * 
+   * @example
+   * null
+   */
   readRequestHotspotRegionList?: string[];
+  /**
+   * @remarks
+   * The description of read imbalance.
+   * 
+   * @example
+   * read request unbalance is <p class=\\"report-detail-topic\\">
+   */
   readRequestUnbalanceSuggestion?: string;
+  /**
+   * @remarks
+   * The regions that have read/write hotspot issues.
+   * 
+   * @example
+   * null
+   */
   requestHotspotRegionList?: string[];
+  /**
+   * @remarks
+   * The description of read/write imbalance.
+   * 
+   * @example
+   * read request unbalance is <p class=\\"report-detail-topic\\">
+   */
   requestUnbalanceSuggestion?: string;
+  /**
+   * @remarks
+   * The score of the table.
+   * 
+   * @example
+   * 67
+   */
   tableScore?: number;
+  /**
+   * @remarks
+   * The regions that have write hotspot issues.
+   * 
+   * @example
+   * null
+   */
   writeRequestHotspotRegionList?: string[];
+  /**
+   * @remarks
+   * The description of write imbalance.
+   * 
+   * @example
+   * write request unbalance is <p class=\\"report-detail-topic\\">
+   */
   writeRequestUnbalanceSuggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20278,9 +39368,37 @@ export class ListDoctorHBaseTablesResponseBodyDataAnalysis extends $tea.Model {
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsColdAccessDay extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Cold access day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldAccessDay
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * day
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20306,9 +39424,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsColdAccessDay extends $
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsColdConfigDay extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Cold config day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldConfigDay
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * dat
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20334,9 +39480,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsColdConfigDay extends $
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsColdDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the cold data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 100
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20362,9 +39536,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsColdDataSize extends $t
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsDailyReadRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of read requests per day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyReadRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20390,9 +39592,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsDailyReadRequest extend
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsDailyReadRequestDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of read requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyReadRequestDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.8
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20418,9 +39648,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsDailyReadRequestDayGrow
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsDailyWriteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of write requests per day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyWriteRequest
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20446,9 +39704,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsDailyWriteRequest exten
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsDailyWriteRequestDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The balance of distributing requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * dailyWriteRequestDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.8
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20474,9 +39760,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsDailyWriteRequestDayGro
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsFreezeConfigDay extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Freeze config day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeConfigDay
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * day
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20502,9 +39816,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsFreezeConfigDay extends
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsFreezeDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the freeze data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 100
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20530,9 +39872,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsFreezeDataSize extends 
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsHotDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the hot data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 100
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20558,9 +39928,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsHotDataSize extends $te
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsLocality extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The locality of data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * locality
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20586,9 +39984,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsLocality extends $tea.M
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsReadRequestBalance extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The balance of distributing read requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * readRequestBalance
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1.0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20614,9 +40040,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsReadRequestBalance exte
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsRegionBalance extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The ability to evenly distribute Regions on different RegionServer nodes
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * regionBalance
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1.0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20642,9 +40096,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsRegionBalance extends $
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsRegionCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of regions count
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * regionCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 3
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20670,9 +40152,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsRegionCount extends $te
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsRegionCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of region count
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * regionCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1.0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20698,9 +40208,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsRegionCountDayGrowthRat
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsRegionServerCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of region servers count
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * regionServerCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 2
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20726,9 +40264,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsRegionServerCount exten
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsRequestBalance extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The balance of distributing requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * requestBalance
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.9
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20754,9 +40320,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsRequestBalance extends 
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsStoreFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of store files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * storeFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 36
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20782,9 +40376,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsStoreFileCount extends 
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsStoreFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of store file count
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * storeFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.7
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20810,9 +40432,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsStoreFileCountDayGrowth
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsTableSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the table
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tableSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 678
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20838,9 +40488,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsTableSize extends $tea.
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsTableSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of table size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tableSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * \\""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1.0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20866,9 +40544,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsTableSizeDayGrowthRatio
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsWarmConfigDay extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Warm config day
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmConfigDay
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * day
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20894,9 +40600,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsWarmConfigDay extends $
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsWarmDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the warm data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 100
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20922,9 +40656,37 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsWarmDataSize extends $t
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetricsWriteRequestBalance extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * The balance of distributing write requests
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * writeRequestBalance
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1.0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20950,29 +40712,125 @@ export class ListDoctorHBaseTablesResponseBodyDataMetricsWriteRequestBalance ext
 }
 
 export class ListDoctorHBaseTablesResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The number of days during which the table was not accessed.
+   */
   coldAccessDay?: ListDoctorHBaseTablesResponseBodyDataMetricsColdAccessDay;
+  /**
+   * @remarks
+   * The number of consecutive days without access to data before the data is considered as very cold data.
+   */
   coldConfigDay?: ListDoctorHBaseTablesResponseBodyDataMetricsColdConfigDay;
+  /**
+   * @remarks
+   * The size of cold data.
+   */
   coldDataSize?: ListDoctorHBaseTablesResponseBodyDataMetricsColdDataSize;
+  /**
+   * @remarks
+   * The total number of read requests for the table in a day.
+   */
   dailyReadRequest?: ListDoctorHBaseTablesResponseBodyDataMetricsDailyReadRequest;
+  /**
+   * @remarks
+   * The daily increment ratio of the number of read requests in a day.
+   */
   dailyReadRequestDayGrowthRatio?: ListDoctorHBaseTablesResponseBodyDataMetricsDailyReadRequestDayGrowthRatio;
+  /**
+   * @remarks
+   * The total number of write requests for the table in a day.
+   */
   dailyWriteRequest?: ListDoctorHBaseTablesResponseBodyDataMetricsDailyWriteRequest;
+  /**
+   * @remarks
+   * The daily increment ratio of the number of write requests in a day.
+   */
   dailyWriteRequestDayGrowthRatio?: ListDoctorHBaseTablesResponseBodyDataMetricsDailyWriteRequestDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of consecutive days without access to data before the data was considered as very cold data.
+   */
   freezeConfigDay?: ListDoctorHBaseTablesResponseBodyDataMetricsFreezeConfigDay;
+  /**
+   * @remarks
+   * The size of very cold data.
+   */
   freezeDataSize?: ListDoctorHBaseTablesResponseBodyDataMetricsFreezeDataSize;
+  /**
+   * @remarks
+   * The size of hot data.
+   */
   hotDataSize?: ListDoctorHBaseTablesResponseBodyDataMetricsHotDataSize;
+  /**
+   * @remarks
+   * The localization rate.
+   */
   locality?: ListDoctorHBaseTablesResponseBodyDataMetricsLocality;
+  /**
+   * @remarks
+   * The read balancing degree.
+   */
   readRequestBalance?: ListDoctorHBaseTablesResponseBodyDataMetricsReadRequestBalance;
+  /**
+   * @remarks
+   * The balancing degree.
+   */
   regionBalance?: ListDoctorHBaseTablesResponseBodyDataMetricsRegionBalance;
+  /**
+   * @remarks
+   * The number of regions that host the table.
+   */
   regionCount?: ListDoctorHBaseTablesResponseBodyDataMetricsRegionCount;
+  /**
+   * @remarks
+   * The daily increment ratio of the number of regions.
+   */
   regionCountDayGrowthRatio?: ListDoctorHBaseTablesResponseBodyDataMetricsRegionCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of region servers that host the table.
+   */
   regionServerCount?: ListDoctorHBaseTablesResponseBodyDataMetricsRegionServerCount;
+  /**
+   * @remarks
+   * The request balancing degree.
+   */
   requestBalance?: ListDoctorHBaseTablesResponseBodyDataMetricsRequestBalance;
+  /**
+   * @remarks
+   * The number of StoreFiles.
+   */
   storeFileCount?: ListDoctorHBaseTablesResponseBodyDataMetricsStoreFileCount;
+  /**
+   * @remarks
+   * The daily increment ratio of the number of StoreFiles.
+   */
   storeFileCountDayGrowthRatio?: ListDoctorHBaseTablesResponseBodyDataMetricsStoreFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The size of the table.
+   */
   tableSize?: ListDoctorHBaseTablesResponseBodyDataMetricsTableSize;
+  /**
+   * @remarks
+   * The daily increment ratio of the table size.
+   */
   tableSizeDayGrowthRatio?: ListDoctorHBaseTablesResponseBodyDataMetricsTableSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of consecutive days without access to data before the data is considered as cold data.
+   */
   warmConfigDay?: ListDoctorHBaseTablesResponseBodyDataMetricsWarmConfigDay;
+  /**
+   * @remarks
+   * The size of warm data.
+   */
   warmDataSize?: ListDoctorHBaseTablesResponseBodyDataMetricsWarmDataSize;
+  /**
+   * @remarks
+   * The write balancing degree.
+   */
   writeRequestBalance?: ListDoctorHBaseTablesResponseBodyDataMetricsWriteRequestBalance;
   static names(): { [key: string]: string } {
     return {
@@ -21038,8 +40896,23 @@ export class ListDoctorHBaseTablesResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class ListDoctorHBaseTablesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The diagnosis result.
+   */
   analysis?: ListDoctorHBaseTablesResponseBodyDataAnalysis;
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: ListDoctorHBaseTablesResponseBodyDataMetrics;
+  /**
+   * @remarks
+   * The name of the table.
+   * 
+   * @example
+   * tb_item
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21063,9 +40936,25 @@ export class ListDoctorHBaseTablesResponseBodyData extends $tea.Model {
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataDayGrowthSize extends $tea.Model {
+  /**
+   * @example
+   * Day growth size of cold data
+   */
   description?: string;
+  /**
+   * @example
+   * coldDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * -182636577752
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21091,9 +40980,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataDayGrowthSi
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataSize extends $tea.Model {
+  /**
+   * @example
+   * Size of the cold data size
+   */
   description?: string;
+  /**
+   * @example
+   * coldDataSize
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * 5570958082267
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21119,9 +41024,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataSize extend
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of cold data size
+   */
   description?: string;
+  /**
+   * @example
+   * coldDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * -0.03
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21147,9 +41068,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataSizeDayGrow
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileCount extends $tea.Model {
+  /**
+   * @example
+   * Number of empty files
+   */
   description?: string;
+  /**
+   * @example
+   * emptyFileCount
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 15595897
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21175,9 +41112,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileCount exte
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of empty files
+   */
   description?: string;
+  /**
+   * @example
+   * emptyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 0.005
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21203,9 +41156,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileCountDayGr
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @example
+   * Day growth count of empty files
+   */
   description?: string;
+  /**
+   * @example
+   * emptyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 114
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21231,9 +41200,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileDayGrowthC
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataDayGrowthSize extends $tea.Model {
+  /**
+   * @example
+   * Day growth size of freeze data
+   */
   description?: string;
+  /**
+   * @example
+   * freezeDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * -167683929450
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21259,9 +41244,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataDayGrowth
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataSize extends $tea.Model {
+  /**
+   * @example
+   * Size of the freeze data size
+   */
   description?: string;
+  /**
+   * @example
+   * freezeDataSize
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * 1231312431
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21287,9 +41288,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataSize exte
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of freeze data size
+   */
   description?: string;
+  /**
+   * @example
+   * freezeDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * -0.09
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21315,9 +41332,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataSizeDayGr
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataDayGrowthSize extends $tea.Model {
+  /**
+   * @example
+   * Day growth size of hot data
+   */
   description?: string;
+  /**
+   * @example
+   * hotDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * 123154
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21343,9 +41376,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataDayGrowthSiz
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataSize extends $tea.Model {
+  /**
+   * @example
+   * Size of the hot data size
+   */
   description?: string;
+  /**
+   * @example
+   * hotDataSize
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * 6701531944206
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21371,9 +41420,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataSize extends
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of hot data size
+   */
   description?: string;
+  /**
+   * @example
+   * hotDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 0.1114
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21399,9 +41464,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataSizeDayGrowt
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileCount extends $tea.Model {
+  /**
+   * @example
+   * Number of large files
+   */
   description?: string;
+  /**
+   * @example
+   * largeFileCount
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21427,9 +41508,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileCount exte
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of large files
+   */
   description?: string;
+  /**
+   * @example
+   * largeFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 0.39
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21455,9 +41552,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileCountDayGr
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileDayGrowthCount extends $tea.Model {
+  /**
+   * @example
+   * Day growth count of large files
+   */
   description?: string;
+  /**
+   * @example
+   * largeFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 2
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21483,9 +41596,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileDayGrowthC
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileCount extends $tea.Model {
+  /**
+   * @example
+   * Number of medium files
+   */
   description?: string;
+  /**
+   * @example
+   * mediumFileCount
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 323
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21511,9 +41640,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileCount ext
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of medium files
+   */
   description?: string;
+  /**
+   * @example
+   * mediumFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 0.19
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21539,9 +41684,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileCountDayG
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileDayGrowthCount extends $tea.Model {
+  /**
+   * @example
+   * Day growth count of medium files
+   */
   description?: string;
+  /**
+   * @example
+   * mediumFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 176
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21567,9 +41728,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileDayGrowth
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileCount extends $tea.Model {
+  /**
+   * @example
+   * Number of small files
+   */
   description?: string;
+  /**
+   * @example
+   * smallFileCount
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 12345
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21595,9 +41772,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileCount exte
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of small files
+   */
   description?: string;
+  /**
+   * @example
+   * smallFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 0.02
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21623,9 +41816,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileCountDayGr
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileDayGrowthCount extends $tea.Model {
+  /**
+   * @example
+   * Day growth count of small files
+   */
   description?: string;
+  /**
+   * @example
+   * smallFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 12345
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21651,9 +41860,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileDayGrowthC
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileCount extends $tea.Model {
+  /**
+   * @example
+   * Number of tiny files
+   */
   description?: string;
+  /**
+   * @example
+   * tinyFileCount
+   */
   name?: string;
+  /**
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @example
+   * 232131
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21679,9 +41904,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileCount exten
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of tiny files
+   */
   description?: string;
+  /**
+   * @example
+   * tinyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 0.003
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21707,9 +41948,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileCountDayGro
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @example
+   * Day growth count of tiny files
+   */
   description?: string;
+  /**
+   * @example
+   * tinyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * -123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21735,9 +41992,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileDayGrowthCo
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataDayGrowthSize extends $tea.Model {
+  /**
+   * @example
+   * Day growth size of total data
+   */
   description?: string;
+  /**
+   * @example
+   * totalDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * 256482228248
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21763,9 +42036,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataDayGrowthS
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataSize extends $tea.Model {
+  /**
+   * @example
+   * Total data size in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @example
+   * totalDataSize
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * 62086342083623
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21791,9 +42080,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataSize exten
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of total data size
+   */
   description?: string;
+  /**
+   * @example
+   * totalDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 0.14
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21819,9 +42124,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataSizeDayGro
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileCount extends $tea.Model {
+  /**
+   * @example
+   * Number of total files
+   */
   description?: string;
+  /**
+   * @example
+   * totalFileCount
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 51683279
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21847,9 +42168,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileCount exte
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of total files
+   */
   description?: string;
+  /**
+   * @example
+   * totalFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 0.02
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21875,9 +42212,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileCountDayGr
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileDayGrowthCount extends $tea.Model {
+  /**
+   * @example
+   * Day growth count of total files
+   */
   description?: string;
+  /**
+   * @example
+   * totalFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * 27809
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21903,9 +42256,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileDayGrowthC
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataDayGrowthSize extends $tea.Model {
+  /**
+   * @example
+   * Day growth size of warm data
+   */
   description?: string;
+  /**
+   * @example
+   * warmDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * -64806998319
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21931,9 +42300,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataDayGrowthSi
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataSize extends $tea.Model {
+  /**
+   * @example
+   * Size of the warm data size
+   */
   description?: string;
+  /**
+   * @example
+   * warmDataSize
+   */
   name?: string;
+  /**
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @example
+   * 4062349775577
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21959,9 +42344,25 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataSize extend
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @example
+   * Day growth ratio of warm data size
+   */
   description?: string;
+  /**
+   * @example
+   * warmDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @example
+   * -0.015
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22102,10 +42503,26 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetrics extends $tea.Model
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   depth?: number;
+  /**
+   * @example
+   * /tmp/test
+   */
   dirPath?: string;
+  /**
+   * @example
+   * DW
+   */
   group?: string;
   metrics?: ListDoctorHDFSDirectoriesResponseBodyDataMetrics;
+  /**
+   * @example
+   * DW
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22133,9 +42550,37 @@ export class ListDoctorHDFSDirectoriesResponseBodyData extends $tea.Model {
 }
 
 export class ListDoctorHDFSUGIResponseBodyDataMetricsTotalDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total data size in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 40440503
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22161,9 +42606,37 @@ export class ListDoctorHDFSUGIResponseBodyDataMetricsTotalDataSize extends $tea.
 }
 
 export class ListDoctorHDFSUGIResponseBodyDataMetricsTotalDirCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of total dirs
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDirCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22189,9 +42662,37 @@ export class ListDoctorHDFSUGIResponseBodyDataMetricsTotalDirCount extends $tea.
 }
 
 export class ListDoctorHDFSUGIResponseBodyDataMetricsTotalFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 34
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22217,8 +42718,20 @@ export class ListDoctorHDFSUGIResponseBodyDataMetricsTotalFileCount extends $tea
 }
 
 export class ListDoctorHDFSUGIResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The total data size.
+   */
   totalDataSize?: ListDoctorHDFSUGIResponseBodyDataMetricsTotalDataSize;
+  /**
+   * @remarks
+   * The total number of directories.
+   */
   totalDirCount?: ListDoctorHDFSUGIResponseBodyDataMetricsTotalDirCount;
+  /**
+   * @remarks
+   * The total number of files.
+   */
   totalFileCount?: ListDoctorHDFSUGIResponseBodyDataMetricsTotalFileCount;
   static names(): { [key: string]: string } {
     return {
@@ -22242,7 +42755,18 @@ export class ListDoctorHDFSUGIResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class ListDoctorHDFSUGIResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: ListDoctorHDFSUGIResponseBodyDataMetrics;
+  /**
+   * @remarks
+   * The actual name of the owner or group returned based on the value of Type.
+   * 
+   * @example
+   * DW
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22264,9 +42788,37 @@ export class ListDoctorHDFSUGIResponseBodyData extends $tea.Model {
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataAnalysis extends $tea.Model {
+  /**
+   * @remarks
+   * The score for the distribution of files of different sizes stored in the Hive database.
+   * 
+   * @example
+   * 85
+   */
   hiveDistributionScore?: number;
+  /**
+   * @remarks
+   * The score for the distribution of files stored in different formats in the Hive database.
+   * 
+   * @example
+   * 85
+   */
   hiveFormatScore?: number;
+  /**
+   * @remarks
+   * The score for the access frequency of the Hive database.
+   * 
+   * @example
+   * 85
+   */
   hiveFrequencyScore?: number;
+  /**
+   * @remarks
+   * The overall score of the Hive database.
+   * 
+   * @example
+   * 85
+   */
   hiveScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22292,11 +42844,53 @@ export class ListDoctorHiveDatabasesResponseBodyDataAnalysis extends $tea.Model 
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataFormats extends $tea.Model {
+  /**
+   * @remarks
+   * The daily increment of storage format-specific data.
+   * 
+   * @example
+   * 1000
+   */
   formatDayGrowthSize?: number;
+  /**
+   * @remarks
+   * The name of the storage format.
+   * 
+   * @example
+   * TextInputFormat
+   */
   formatName?: string;
+  /**
+   * @remarks
+   * The proportion of data in a specific storage format.
+   * 
+   * @example
+   * 0.5
+   */
   formatRatio?: number;
+  /**
+   * @remarks
+   * The amount of storage format-specific data.
+   * 
+   * @example
+   * 1000
+   */
   formatSize?: number;
+  /**
+   * @remarks
+   * The day-to-day growth rate of storage format-specific data.
+   * 
+   * @example
+   * 0.5
+   */
   formatSizeDayGrowthRatio?: number;
+  /**
+   * @remarks
+   * The unit of the amount of storage format-specific data.
+   * 
+   * @example
+   * MB
+   */
   formatSizeUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22326,9 +42920,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataFormats extends $tea.Model {
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsColdDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of cold data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22354,9 +42976,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsColdDataDayGrowthSize
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsColdDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Cold data ratio
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22382,9 +43032,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsColdDataRatio extends
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsColdDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of cold files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22410,9 +43088,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsColdDataSize extends 
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsColdDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of cold data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22438,9 +43144,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsColdDataSizeDayGrowth
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsEmptyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22466,9 +43200,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsEmptyFileCount extend
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsEmptyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22494,9 +43256,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsEmptyFileCountDayGrow
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsEmptyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22522,9 +43312,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsEmptyFileDayGrowthCou
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsEmptyFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22550,9 +43368,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsEmptyFileRatio extend
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsFreezeDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of freeze data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22578,9 +43424,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsFreezeDataDayGrowthSi
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsFreezeDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of freeze data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22606,9 +43480,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsFreezeDataRatio exten
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsFreezeDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of freeze files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22634,9 +43536,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsFreezeDataSize extend
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of freeze data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22662,9 +43592,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsFreezeDataSizeDayGrow
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsHotDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of hot data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22690,9 +43648,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsHotDataDayGrowthSize 
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsHotDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Hot data ratio
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22718,9 +43704,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsHotDataRatio extends 
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsHotDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of hot files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22746,9 +43760,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsHotDataSize extends $
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsHotDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of hot data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22774,9 +43816,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsHotDataSizeDayGrowthR
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsLargeFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22802,9 +43872,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsLargeFileCount extend
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsLargeFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22830,9 +43928,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsLargeFileCountDayGrow
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsLargeFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22858,9 +43984,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsLargeFileDayGrowthCou
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsLargeFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22886,9 +44040,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsLargeFileRatio extend
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsMediumFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22914,9 +44096,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsMediumFileCount exten
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsMediumFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22942,9 +44152,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsMediumFileCountDayGro
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsMediumFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22970,9 +44208,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsMediumFileDayGrowthCo
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsMediumFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22998,9 +44264,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsMediumFileRatio exten
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsPartitionNum extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of partitions
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * ppartitionNum
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23026,9 +44320,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsPartitionNum extends 
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsSmallFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23054,9 +44376,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsSmallFileCount extend
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsSmallFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23082,9 +44432,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsSmallFileCountDayGrow
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsSmallFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23110,9 +44488,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsSmallFileDayGrowthCou
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsSmallFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23138,9 +44544,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsSmallFileRatio extend
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsTableCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of tables
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * TableCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23166,9 +44600,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsTableCount extends $t
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsTinyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23194,9 +44656,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsTinyFileCount extends
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsTinyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23222,9 +44712,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsTinyFileCountDayGrowt
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsTinyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23250,9 +44768,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsTinyFileDayGrowthCoun
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsTinyFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23278,9 +44824,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsTinyFileRatio extends
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsTotalDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of total data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23306,9 +44880,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsTotalDataDayGrowthSiz
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsTotalDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total data size in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23334,9 +44936,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsTotalDataSize extends
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsTotalDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23362,9 +44992,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsTotalDataSizeDayGrowt
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsTotalFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23390,9 +45048,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsTotalFileCount extend
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsTotalFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23418,9 +45104,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsTotalFileCountDayGrow
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsTotalFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23446,9 +45160,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsTotalFileDayGrowthCou
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsWarmDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of warm data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23474,9 +45216,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsWarmDataDayGrowthSize
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsWarmDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of warm data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23502,9 +45272,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsWarmDataRatio extends
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsWarmDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of warm files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 1000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23530,9 +45328,37 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsWarmDataSize extends 
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetricsWarmDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of warm data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * WarmDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23558,49 +45384,225 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetricsWarmDataSizeDayGrowth
 }
 
 export class ListDoctorHiveDatabasesResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The daily increment of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+   */
   coldDataDayGrowthSize?: ListDoctorHiveDatabasesResponseBodyDataMetricsColdDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+   */
   coldDataRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsColdDataRatio;
+  /**
+   * @remarks
+   * The amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+   */
   coldDataSize?: ListDoctorHiveDatabasesResponseBodyDataMetricsColdDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+   */
   coldDataSizeDayGrowthRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsColdDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCount?: ListDoctorHiveDatabasesResponseBodyDataMetricsEmptyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCountDayGrowthRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsEmptyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileDayGrowthCount?: ListDoctorHiveDatabasesResponseBodyDataMetricsEmptyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsEmptyFileRatio;
+  /**
+   * @remarks
+   * The daily increment of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataDayGrowthSize?: ListDoctorHiveDatabasesResponseBodyDataMetricsFreezeDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsFreezeDataRatio;
+  /**
+   * @remarks
+   * The amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSize?: ListDoctorHiveDatabasesResponseBodyDataMetricsFreezeDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSizeDayGrowthRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the amount of hot data. Hot data refers to data that is accessed in recent seven days.
+   */
   hotDataDayGrowthSize?: ListDoctorHiveDatabasesResponseBodyDataMetricsHotDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of hot data. Hot data refers to data that is accessed in recent seven days.
+   */
   hotDataRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsHotDataRatio;
+  /**
+   * @remarks
+   * The amount of hot data. Hot data refers to data that is accessed in recent seven days.
+   */
   hotDataSize?: ListDoctorHiveDatabasesResponseBodyDataMetricsHotDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of hot data. Hot data refers to data that is accessed in recent seven days.
+   */
   hotDataSizeDayGrowthRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsHotDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCount?: ListDoctorHiveDatabasesResponseBodyDataMetricsLargeFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCountDayGrowthRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsLargeFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileDayGrowthCount?: ListDoctorHiveDatabasesResponseBodyDataMetricsLargeFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsLargeFileRatio;
+  /**
+   * @remarks
+   * The number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCount?: ListDoctorHiveDatabasesResponseBodyDataMetricsMediumFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCountDayGrowthRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsMediumFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileDayGrowthCount?: ListDoctorHiveDatabasesResponseBodyDataMetricsMediumFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsMediumFileRatio;
+  /**
+   * @remarks
+   * The number of partitions.
+   */
   partitionNum?: ListDoctorHiveDatabasesResponseBodyDataMetricsPartitionNum;
+  /**
+   * @remarks
+   * The number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCount?: ListDoctorHiveDatabasesResponseBodyDataMetricsSmallFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCountDayGrowthRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsSmallFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileDayGrowthCount?: ListDoctorHiveDatabasesResponseBodyDataMetricsSmallFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsSmallFileRatio;
+  /**
+   * @remarks
+   * The number of tables.
+   */
   tableCount?: ListDoctorHiveDatabasesResponseBodyDataMetricsTableCount;
+  /**
+   * @remarks
+   * The number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCount?: ListDoctorHiveDatabasesResponseBodyDataMetricsTinyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCountDayGrowthRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsTinyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileDayGrowthCount?: ListDoctorHiveDatabasesResponseBodyDataMetricsTinyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsTinyFileRatio;
+  /**
+   * @remarks
+   * The daily incremental of the total data volume.
+   */
   totalDataDayGrowthSize?: ListDoctorHiveDatabasesResponseBodyDataMetricsTotalDataDayGrowthSize;
+  /**
+   * @remarks
+   * The total amount of data.
+   */
   totalDataSize?: ListDoctorHiveDatabasesResponseBodyDataMetricsTotalDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total data volume.
+   */
   totalDataSizeDayGrowthRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsTotalDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The total number of files.
+   */
   totalFileCount?: ListDoctorHiveDatabasesResponseBodyDataMetricsTotalFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total number of files.
+   */
   totalFileCountDayGrowthRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsTotalFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the total number of files.
+   */
   totalFileDayGrowthCount?: ListDoctorHiveDatabasesResponseBodyDataMetricsTotalFileDayGrowthCount;
+  /**
+   * @remarks
+   * The daily increment of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+   */
   warmDataDayGrowthSize?: ListDoctorHiveDatabasesResponseBodyDataMetricsWarmDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+   */
   warmDataRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsWarmDataRatio;
+  /**
+   * @remarks
+   * The amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+   */
   warmDataSize?: ListDoctorHiveDatabasesResponseBodyDataMetricsWarmDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+   */
   warmDataSizeDayGrowthRatio?: ListDoctorHiveDatabasesResponseBodyDataMetricsWarmDataSizeDayGrowthRatio;
   static names(): { [key: string]: string } {
     return {
@@ -23706,9 +45708,28 @@ export class ListDoctorHiveDatabasesResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class ListDoctorHiveDatabasesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis results.
+   */
   analysis?: ListDoctorHiveDatabasesResponseBodyDataAnalysis;
+  /**
+   * @remarks
+   * The database name.
+   * 
+   * @example
+   * db1
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The information from the perspective of storage formats.
+   */
   formats?: ListDoctorHiveDatabasesResponseBodyDataFormats[];
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: ListDoctorHiveDatabasesResponseBodyDataMetrics;
   static names(): { [key: string]: string } {
     return {
@@ -23734,9 +45755,37 @@ export class ListDoctorHiveDatabasesResponseBodyData extends $tea.Model {
 }
 
 export class ListDoctorHiveTablesResponseBodyDataAnalysis extends $tea.Model {
+  /**
+   * @remarks
+   * The score for the file sizes of the Hive table.
+   * 
+   * @example
+   * 80
+   */
   hiveDistributionScore?: number;
+  /**
+   * @remarks
+   * The score for the data formats of the Hive table.
+   * 
+   * @example
+   * 60
+   */
   hiveFormatScore?: number;
+  /**
+   * @remarks
+   * The score for the access frequency of the Hive table.
+   * 
+   * @example
+   * 70
+   */
   hiveFrequencyScore?: number;
+  /**
+   * @remarks
+   * The overall score of the Hive table.
+   * 
+   * @example
+   * 80
+   */
   hiveScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23762,11 +45811,53 @@ export class ListDoctorHiveTablesResponseBodyDataAnalysis extends $tea.Model {
 }
 
 export class ListDoctorHiveTablesResponseBodyDataFormats extends $tea.Model {
+  /**
+   * @remarks
+   * The daily increment of data in the format.
+   * 
+   * @example
+   * 1232124
+   */
   formatDayGrowthSize?: number;
+  /**
+   * @remarks
+   * The name of the storage format.
+   * 
+   * @example
+   * TextInputFormat
+   */
   formatName?: string;
+  /**
+   * @remarks
+   * The proportion of the data in the format.
+   * 
+   * @example
+   * 0.23
+   */
   formatRatio?: number;
+  /**
+   * @remarks
+   * The amount of data in the format.
+   * 
+   * @example
+   * 506930200
+   */
   formatSize?: number;
+  /**
+   * @remarks
+   * The day-to-day growth rate of data in the format.
+   * 
+   * @example
+   * 0.04
+   */
   formatSizeDayGrowthRatio?: number;
+  /**
+   * @remarks
+   * The unit of the amount of data in the format.
+   * 
+   * @example
+   * MB
+   */
   formatSizeUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23796,9 +45887,37 @@ export class ListDoctorHiveTablesResponseBodyDataFormats extends $tea.Model {
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsColdDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of cold data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 217715
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23824,9 +45943,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsColdDataDayGrowthSize ex
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsColdDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Cold data ratio
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23852,9 +45999,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsColdDataRatio extends $t
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsColdDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the cold data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 217715
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23880,9 +46055,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsColdDataSize extends $te
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsColdDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of cold data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * coldDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23908,9 +46111,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsColdDataSizeDayGrowthRat
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsEmptyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 3123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23936,9 +46167,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsEmptyFileCount extends $
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsEmptyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23964,9 +46223,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsEmptyFileCountDayGrowthR
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsEmptyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * -20
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23992,9 +46279,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsEmptyFileDayGrowthCount 
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsEmptyFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of empty files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * emptyFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24020,9 +46335,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsEmptyFileRatio extends $
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsFreezeDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of freeze data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 33229309
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24048,9 +46391,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsFreezeDataDayGrowthSize 
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsFreezeDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of freeze data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.98
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24076,9 +46447,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsFreezeDataRatio extends 
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsFreezeDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the freeze data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 33229309
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24104,9 +46503,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsFreezeDataSize extends $
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of freeze data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * freezeDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24132,9 +46559,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsFreezeDataSizeDayGrowthR
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsHotDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of hot data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 203431
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24160,9 +46615,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsHotDataDayGrowthSize ext
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsHotDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Hot data ratio
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24188,9 +46671,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsHotDataRatio extends $te
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsHotDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the hot data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 203431
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24216,9 +46727,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsHotDataSize extends $tea
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsHotDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of hot data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * hotDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24244,9 +46783,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsHotDataSizeDayGrowthRati
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsLargeFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 132
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24272,9 +46839,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsLargeFileCount extends $
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsLargeFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24300,9 +46895,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsLargeFileCountDayGrowthR
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsLargeFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 40
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24328,9 +46951,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsLargeFileDayGrowthCount 
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsLargeFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of large files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * largeFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.02
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24356,9 +47007,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsLargeFileRatio extends $
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsMediumFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24384,9 +47063,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsMediumFileCount extends 
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsMediumFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24412,9 +47119,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsMediumFileCountDayGrowth
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsMediumFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 20
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24440,9 +47175,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsMediumFileDayGrowthCount
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsMediumFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of medium files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * mediumFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.8
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24468,9 +47231,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsMediumFileRatio extends 
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsPartitionNum extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * number of partitions
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * partitionNum
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * “”
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 331
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24496,9 +47287,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsPartitionNum extends $te
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsSmallFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * "“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 18
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24524,9 +47343,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsSmallFileCount extends $
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsSmallFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24552,9 +47399,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsSmallFileCountDayGrowthR
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsSmallFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 18
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24580,9 +47455,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsSmallFileDayGrowthCount 
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsSmallFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of small files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * smallFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.04
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24608,9 +47511,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsSmallFileRatio extends $
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsTinyFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 451
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24636,9 +47567,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsTinyFileCount extends $t
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsTinyFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.04
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24664,9 +47623,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsTinyFileCountDayGrowthRa
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsTinyFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 482
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24692,9 +47679,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsTinyFileDayGrowthCount e
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsTinyFileRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of tiny files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * tinyFileRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.96
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24720,9 +47735,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsTinyFileRatio extends $t
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsTotalDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of total data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 33800296
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24748,9 +47791,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsTotalDataDayGrowthSize e
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsTotalDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total data size in megabytes (MB)
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 33800296
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24776,9 +47847,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsTotalDataSize extends $t
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsTotalDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24804,9 +47903,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsTotalDataSizeDayGrowthRa
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsTotalFileCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Number of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24832,9 +47959,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsTotalFileCount extends $
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsTotalFileCountDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileCountDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24860,9 +48015,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsTotalFileCountDayGrowthR
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsTotalFileDayGrowthCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth count of total files
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * totalFileDayGrowthCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 100
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24888,9 +48071,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsTotalFileDayGrowthCount 
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsWarmDataDayGrowthSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth size of warm data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataDayGrowthSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 149841
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24916,9 +48127,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsWarmDataDayGrowthSize ex
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsWarmDataRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Ratio of warm data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.1
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24944,9 +48183,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsWarmDataRatio extends $t
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsWarmDataSize extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Size of the warm data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSize
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 14981
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24972,9 +48239,37 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsWarmDataSize extends $te
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetricsWarmDataSizeDayGrowthRatio extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Day growth ratio of warm data size
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * warmDataSizeDayGrowthRatio
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ”“
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 0.01
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25000,48 +48295,220 @@ export class ListDoctorHiveTablesResponseBodyDataMetricsWarmDataSizeDayGrowthRat
 }
 
 export class ListDoctorHiveTablesResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The daily increment of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataDayGrowthSize?: ListDoctorHiveTablesResponseBodyDataMetricsColdDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataRatio?: ListDoctorHiveTablesResponseBodyDataMetricsColdDataRatio;
+  /**
+   * @remarks
+   * The amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataSize?: ListDoctorHiveTablesResponseBodyDataMetricsColdDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
+   */
   coldDataSizeDayGrowthRatio?: ListDoctorHiveTablesResponseBodyDataMetricsColdDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCount?: ListDoctorHiveTablesResponseBodyDataMetricsEmptyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileCountDayGrowthRatio?: ListDoctorHiveTablesResponseBodyDataMetricsEmptyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileDayGrowthCount?: ListDoctorHiveTablesResponseBodyDataMetricsEmptyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of empty files. Empty files are those with a size of 0 MB.
+   */
   emptyFileRatio?: ListDoctorHiveTablesResponseBodyDataMetricsEmptyFileRatio;
+  /**
+   * @remarks
+   * The daily increment of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataDayGrowthSize?: ListDoctorHiveTablesResponseBodyDataMetricsFreezeDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataRatio?: ListDoctorHiveTablesResponseBodyDataMetricsFreezeDataRatio;
+  /**
+   * @remarks
+   * The amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSize?: ListDoctorHiveTablesResponseBodyDataMetricsFreezeDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+   */
   freezeDataSizeDayGrowthRatio?: ListDoctorHiveTablesResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataDayGrowthSize?: ListDoctorHiveTablesResponseBodyDataMetricsHotDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataRatio?: ListDoctorHiveTablesResponseBodyDataMetricsHotDataRatio;
+  /**
+   * @remarks
+   * The amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataSize?: ListDoctorHiveTablesResponseBodyDataMetricsHotDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
+   */
   hotDataSizeDayGrowthRatio?: ListDoctorHiveTablesResponseBodyDataMetricsHotDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCount?: ListDoctorHiveTablesResponseBodyDataMetricsLargeFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileCountDayGrowthRatio?: ListDoctorHiveTablesResponseBodyDataMetricsLargeFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileDayGrowthCount?: ListDoctorHiveTablesResponseBodyDataMetricsLargeFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of large files. Large files are those with a size greater than 1 GB.
+   */
   largeFileRatio?: ListDoctorHiveTablesResponseBodyDataMetricsLargeFileRatio;
+  /**
+   * @remarks
+   * The number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCount?: ListDoctorHiveTablesResponseBodyDataMetricsMediumFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileCountDayGrowthRatio?: ListDoctorHiveTablesResponseBodyDataMetricsMediumFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileDayGrowthCount?: ListDoctorHiveTablesResponseBodyDataMetricsMediumFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+   */
   mediumFileRatio?: ListDoctorHiveTablesResponseBodyDataMetricsMediumFileRatio;
+  /**
+   * @remarks
+   * The number of partitions.
+   */
   partitionNum?: ListDoctorHiveTablesResponseBodyDataMetricsPartitionNum;
+  /**
+   * @remarks
+   * The number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCount?: ListDoctorHiveTablesResponseBodyDataMetricsSmallFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileCountDayGrowthRatio?: ListDoctorHiveTablesResponseBodyDataMetricsSmallFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileDayGrowthCount?: ListDoctorHiveTablesResponseBodyDataMetricsSmallFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+   */
   smallFileRatio?: ListDoctorHiveTablesResponseBodyDataMetricsSmallFileRatio;
+  /**
+   * @remarks
+   * The number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCount?: ListDoctorHiveTablesResponseBodyDataMetricsTinyFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileCountDayGrowthRatio?: ListDoctorHiveTablesResponseBodyDataMetricsTinyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileDayGrowthCount?: ListDoctorHiveTablesResponseBodyDataMetricsTinyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The proportion of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+   */
   tinyFileRatio?: ListDoctorHiveTablesResponseBodyDataMetricsTinyFileRatio;
+  /**
+   * @remarks
+   * The daily increment of the total amount of data.
+   */
   totalDataDayGrowthSize?: ListDoctorHiveTablesResponseBodyDataMetricsTotalDataDayGrowthSize;
+  /**
+   * @remarks
+   * The total amount of data.
+   */
   totalDataSize?: ListDoctorHiveTablesResponseBodyDataMetricsTotalDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total amount of data.
+   */
   totalDataSizeDayGrowthRatio?: ListDoctorHiveTablesResponseBodyDataMetricsTotalDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The total number of files.
+   */
   totalFileCount?: ListDoctorHiveTablesResponseBodyDataMetricsTotalFileCount;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the total number of files.
+   */
   totalFileCountDayGrowthRatio?: ListDoctorHiveTablesResponseBodyDataMetricsTotalFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increment of the total number of files.
+   */
   totalFileDayGrowthCount?: ListDoctorHiveTablesResponseBodyDataMetricsTotalFileDayGrowthCount;
+  /**
+   * @remarks
+   * The daily increment of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataDayGrowthSize?: ListDoctorHiveTablesResponseBodyDataMetricsWarmDataDayGrowthSize;
+  /**
+   * @remarks
+   * The proportion of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataRatio?: ListDoctorHiveTablesResponseBodyDataMetricsWarmDataRatio;
+  /**
+   * @remarks
+   * The amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataSize?: ListDoctorHiveTablesResponseBodyDataMetricsWarmDataSize;
+  /**
+   * @remarks
+   * The day-to-day growth rate of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
+   */
   warmDataSizeDayGrowthRatio?: ListDoctorHiveTablesResponseBodyDataMetricsWarmDataSizeDayGrowthRatio;
   static names(): { [key: string]: string } {
     return {
@@ -25145,10 +48612,36 @@ export class ListDoctorHiveTablesResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class ListDoctorHiveTablesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis results.
+   */
   analysis?: ListDoctorHiveTablesResponseBodyDataAnalysis;
+  /**
+   * @remarks
+   * The table format information.
+   */
   formats?: ListDoctorHiveTablesResponseBodyDataFormats[];
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: ListDoctorHiveTablesResponseBodyDataMetrics;
+  /**
+   * @remarks
+   * The owner.
+   * 
+   * @example
+   * DW
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The table name. The table name must follow the naming rule in Hive. A name in the {Database name.Table name} format uniquely identifies a table.
+   * 
+   * @example
+   * dw.dwd_creta_service_order_long_renew_long_da
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25176,7 +48669,21 @@ export class ListDoctorHiveTablesResponseBodyData extends $tea.Model {
 }
 
 export class ListDoctorJobsRequestEndRange extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range during which jobs ended. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1666865137099
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The beginning of the time range during which jobs ended. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1679135111960
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25198,7 +48705,21 @@ export class ListDoctorJobsRequestEndRange extends $tea.Model {
 }
 
 export class ListDoctorJobsRequestStartRange extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range during which jobs were submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1683340662020
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The beginning of the time range during which jobs were submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1683340662016
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25220,9 +48741,37 @@ export class ListDoctorJobsRequestStartRange extends $tea.Model {
 }
 
 export class ListDoctorJobsResponseBodyDataMetricsMemSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total memory usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 12312312
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25248,9 +48797,37 @@ export class ListDoctorJobsResponseBodyDataMetricsMemSeconds extends $tea.Model 
 }
 
 export class ListDoctorJobsResponseBodyDataMetricsVcoreSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total vcore usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * vcoreSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * VCores * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 11123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25276,7 +48853,15 @@ export class ListDoctorJobsResponseBodyDataMetricsVcoreSeconds extends $tea.Mode
 }
 
 export class ListDoctorJobsResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of memory consumed.
+   */
   memSeconds?: ListDoctorJobsResponseBodyDataMetricsMemSeconds;
+  /**
+   * @remarks
+   * The CPU usage.
+   */
   vcoreSeconds?: ListDoctorJobsResponseBodyDataMetricsVcoreSeconds;
   static names(): { [key: string]: string } {
     return {
@@ -25298,17 +48883,108 @@ export class ListDoctorJobsResponseBodyDataMetrics extends $tea.Model {
 }
 
 export class ListDoctorJobsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the job that was submitted to YARN.
+   * 
+   * @example
+   * application_1607584549220_*****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The name of the job.
+   * 
+   * @example
+   * tpcds
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The total running time of the job. Unit: milliseconds.
+   * 
+   * @example
+   * 242
+   */
   elapsedTime?: number;
+  /**
+   * @remarks
+   * The final state of the job. Valid values:
+   * 
+   * *   SUCCEEDED
+   * *   FAILED
+   * *   KILLED
+   * *   ENDED
+   * *   UNDEFINED
+   * 
+   * @example
+   * KILLED
+   */
   finalStatus?: string;
+  /**
+   * @remarks
+   * The end time of the job. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1683690929000
+   */
   finishTime?: number;
+  /**
+   * @remarks
+   * The time when the job was started. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1672148400000
+   */
   launchTime?: number;
+  /**
+   * @remarks
+   * The data about the metrics.
+   */
   metrics?: ListDoctorJobsResponseBodyDataMetrics;
+  /**
+   * @remarks
+   * The YARN queue to which the job was submitted.
+   * 
+   * @example
+   * DW
+   */
   queue?: string;
+  /**
+   * @remarks
+   * The time when the job was submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1675180800000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The running state of the job. Valid values:
+   * 
+   * *   FINISHED
+   * *   FAILED
+   * *   KILLED
+   * 
+   * @example
+   * FINISHED
+   */
   state?: string;
+  /**
+   * @remarks
+   * The type of the compute engine.
+   * 
+   * @example
+   * SPARK
+   */
   type?: string;
+  /**
+   * @remarks
+   * The username that was used to submit the job.
+   * 
+   * @example
+   * DW
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25350,7 +49026,21 @@ export class ListDoctorJobsResponseBodyData extends $tea.Model {
 }
 
 export class ListDoctorJobsStatsRequestEndRange extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range during which jobs ended. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1680019200000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The beginning of the time range during which jobs ended. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1675180800000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25372,7 +49062,21 @@ export class ListDoctorJobsStatsRequestEndRange extends $tea.Model {
 }
 
 export class ListDoctorJobsStatsRequestStartRange extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range during which jobs were submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1666406820000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The beginning of the time range during which jobs were submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * 
+   * @example
+   * 1679036826987
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25394,9 +49098,37 @@ export class ListDoctorJobsStatsRequestStartRange extends $tea.Model {
 }
 
 export class ListDoctorJobsStatsResponseBodyDataAppsCount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total apps count
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * appsCount
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * ""
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25422,9 +49154,37 @@ export class ListDoctorJobsStatsResponseBodyDataAppsCount extends $tea.Model {
 }
 
 export class ListDoctorJobsStatsResponseBodyDataMemSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total memory usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * memSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * MB * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 12312312
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25450,9 +49210,37 @@ export class ListDoctorJobsStatsResponseBodyDataMemSeconds extends $tea.Model {
 }
 
 export class ListDoctorJobsStatsResponseBodyDataVcoreSeconds extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * Total vcore usage over time in seconds
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * @example
+   * vcoreSeconds
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * VCores * Sec
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The value of the metric.
+   * 
+   * @example
+   * 11123
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25478,11 +49266,44 @@ export class ListDoctorJobsStatsResponseBodyDataVcoreSeconds extends $tea.Model 
 }
 
 export class ListDoctorJobsStatsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of jobs.
+   */
   appsCount?: ListDoctorJobsStatsResponseBodyDataAppsCount;
+  /**
+   * @remarks
+   * The aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running.
+   */
   memSeconds?: ListDoctorJobsStatsResponseBodyDataMemSeconds;
+  /**
+   * @remarks
+   * The YARN queue to which the job was submitted.
+   * 
+   * @example
+   * DW
+   */
   queue?: string;
+  /**
+   * @remarks
+   * The type of the compute engine.
+   * 
+   * @example
+   * SPARK
+   */
   type?: string;
+  /**
+   * @remarks
+   * The username that is used to submit the job.
+   * 
+   * @example
+   * DW
+   */
   user?: string;
+  /**
+   * @remarks
+   * The aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running.
+   */
   vcoreSeconds?: ListDoctorJobsStatsResponseBodyDataVcoreSeconds;
   static names(): { [key: string]: string } {
     return {
@@ -25512,8 +49333,29 @@ export class ListDoctorJobsStatsResponseBodyData extends $tea.Model {
 }
 
 export class ListDoctorReportsResponseBodyDataSummaryReport extends $tea.Model {
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 88
+   */
   score?: number;
+  /**
+   * @remarks
+   * The optimization suggestion.
+   * 
+   * @example
+   * block
+   */
   suggestion?: string;
+  /**
+   * @remarks
+   * The summary of the report.
+   * 
+   * @example
+   * eastbuy-mse-plugin-auth
+   */
   summary?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25537,8 +49379,76 @@ export class ListDoctorReportsResponseBodyDataSummaryReport extends $tea.Model {
 }
 
 export class ListDoctorReportsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The component types.
+   * 
+   * Valid values:
+   * 
+   * *   compute
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   hive
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   hdfs
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   yarn
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   oss
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   hbase
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * null
+   */
   componentTypes?: string[];
+  /**
+   * @remarks
+   * The date on which the report was generated.
+   * 
+   * @example
+   * 2023-06-29
+   */
   dateTime?: string;
+  /**
+   * @remarks
+   * The summary of the report.
+   */
   summaryReport?: ListDoctorReportsResponseBodyDataSummaryReport;
   static names(): { [key: string]: string } {
     return {
@@ -25561,37 +49471,30 @@ export class ListDoctorReportsResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListInspectionHistoryResponseBodyData extends $tea.Model {
-  changeMessage?: string;
-  healthStatus?: string;
-  inspectionItems?: { [key: string]: string }[];
-  reportTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      changeMessage: 'ChangeMessage',
-      healthStatus: 'HealthStatus',
-      inspectionItems: 'InspectionItems',
-      reportTime: 'ReportTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      changeMessage: 'string',
-      healthStatus: 'string',
-      inspectionItems: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
-      reportTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListReleaseVersionsResponseBodyReleaseVersions extends $tea.Model {
+  /**
+   * @remarks
+   * The IaaS type.
+   * 
+   * @example
+   * ECS
+   */
   iaasType?: string;
+  /**
+   * @remarks
+   * The EMR version.
+   * 
+   * @example
+   * EMR-5.3.0
+   */
   releaseVersion?: string;
+  /**
+   * @remarks
+   * The version series.
+   * 
+   * @example
+   * EMR-6.X
+   */
   series?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25614,62 +49517,117 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $tea.Model {
   }
 }
 
-export class ListResourceHealthInspectionsResponseBodyHealthInspections extends $tea.Model {
-  applicationName?: string;
-  componentName?: string;
-  healthMessage?: string;
-  healthStatus?: string;
-  inspectionName?: string;
-  nodeId?: string;
-  nodeName?: string;
-  reportTime?: number;
-  ruleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationName: 'ApplicationName',
-      componentName: 'ComponentName',
-      healthMessage: 'HealthMessage',
-      healthStatus: 'HealthStatus',
-      inspectionName: 'InspectionName',
-      nodeId: 'NodeId',
-      nodeName: 'NodeName',
-      reportTime: 'ReportTime',
-      ruleName: 'RuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationName: 'string',
-      componentName: 'string',
-      healthMessage: 'string',
-      healthStatus: 'string',
-      inspectionName: 'string',
-      nodeId: 'string',
-      nodeName: 'string',
-      reportTime: 'number',
-      ruleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListScriptsResponseBodyScripts extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the API operation.
+   * 
+   * @example
+   * ListScripts
+   */
   action?: string;
+  /**
+   * @remarks
+   * The time when the system finishes the running of the script. This parameter is returned only if the ScriptType parameter is set to NORMAL.
+   * 
+   * @example
+   * 1639715635819
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The policy that is used to handle execution failures of the script. Valid values:
+   * 
+   * *   FAILED_CONTINUE
+   * *   FAILED_BLOCK
+   * 
+   * @example
+   * FAILED_CONTINUE
+   */
   executionFailStrategy?: string;
+  /**
+   * @remarks
+   * The time based on which the system runs the script. Valid values:
+   * 
+   * *   BEFORE_INSTALL
+   * *   AFTER_STARTED
+   * 
+   * @example
+   * BEFORE_INSTALL
+   */
   executionMoment?: string;
+  /**
+   * @remarks
+   * The status of the script. This parameter is returned only if the `ScriptType` parameter is set to `NORMAL`. Valid values:
+   * 
+   * *   SCRIPT_COMPLETED
+   * *   SCRIPT_SUBMISSION_FAILED
+   * *   SCRIPT_RUNNING
+   * 
+   * @example
+   * SCRIPT_COMPLETED
+   */
   executionState?: string;
+  /**
+   * @remarks
+   * The time when the script was last modified.
+   * 
+   * @example
+   * 1639714634819
+   */
   lastUpdateTime?: number;
+  /**
+   * @remarks
+   * The node selector.
+   */
   nodeSelector?: NodeSelector;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The runtime parameters of the script.
+   * 
+   * @example
+   * --mode=client -h -p
+   */
   scriptArgs?: string;
+  /**
+   * @remarks
+   * The script ID.
+   * 
+   * @example
+   * cs-bf25219d103043a0820613e32781****
+   */
   scriptId?: string;
+  /**
+   * @remarks
+   * The name of the script.
+   * 
+   * @example
+   * check_env
+   */
   scriptName?: string;
+  /**
+   * @remarks
+   * The path in which the script is stored.
+   * 
+   * @example
+   * oss://bucket1/check_evn.sh
+   */
   scriptPath?: string;
+  /**
+   * @remarks
+   * The time when the system starts to run the script. This parameter is returned only if the ScriptType parameter is set to NORMAL.
+   * 
+   * @example
+   * 1639714634000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25713,9 +49671,37 @@ export class ListScriptsResponseBodyScripts extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates the ID of a resource.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * cluster
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag key of the ENI.
+   * 
+   * @example
+   * Department
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value of the ENI.
+   * 
+   * @example
+   * Dev
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25741,7 +49727,21 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class RunApplicationActionResponseBodyAbnInstances extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the abnormal node.
+   * 
+   * @example
+   * i-bp1cudc25w2bfwl5****
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The name of the abnormal node.
+   * 
+   * @example
+   * core1-1
+   */
   nodeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25830,9 +49830,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateApiTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateApiTemplateResponse
+   * @param request - CreateApiTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApiTemplateResponse
    */
   async createApiTemplateWithOptions(request: CreateApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateApiTemplateResponse> {
     Util.validateModel(request);
@@ -25875,8 +49875,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateApiTemplateRequest
-   * @return CreateApiTemplateResponse
+   * @param request - CreateApiTemplateRequest
+   * @returns CreateApiTemplateResponse
    */
   async createApiTemplate(request: CreateApiTemplateRequest): Promise<CreateApiTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25884,11 +49884,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a pay-as-you-go or subscription cluster.
-   *
-   * @param request CreateClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateClusterResponse
+   * Creates a pay-as-you-go or subscription cluster.
+   * 
+   * @param request - CreateClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateClusterResponse
    */
   async createClusterWithOptions(request: CreateClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
     Util.validateModel(request);
@@ -25919,6 +49919,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deployMode)) {
       query["DeployMode"] = request.deployMode;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
     }
 
     if (!Util.isUnset(request.nodeAttributes)) {
@@ -25975,10 +49979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a pay-as-you-go or subscription cluster.
-   *
-   * @param request CreateClusterRequest
-   * @return CreateClusterResponse
+   * Creates a pay-as-you-go or subscription cluster.
+   * 
+   * @param request - CreateClusterRequest
+   * @returns CreateClusterResponse
    */
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25986,13 +49990,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a node group.
-   *
-   * @description 创建节点组。
-   *
-   * @param request CreateNodeGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateNodeGroupResponse
+   * Creates a node group.
+   * 
+   * @remarks
+   * 创建节点组。
+   * 
+   * @param request - CreateNodeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNodeGroupResponse
    */
   async createNodeGroupWithOptions(request: CreateNodeGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateNodeGroupResponse> {
     Util.validateModel(request);
@@ -26027,12 +50032,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a node group.
-   *
-   * @description 创建节点组。
-   *
-   * @param request CreateNodeGroupRequest
-   * @return CreateNodeGroupResponse
+   * Creates a node group.
+   * 
+   * @remarks
+   * 创建节点组。
+   * 
+   * @param request - CreateNodeGroupRequest
+   * @returns CreateNodeGroupResponse
    */
   async createNodeGroup(request: CreateNodeGroupRequest): Promise<CreateNodeGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26040,11 +50046,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
-   *
-   * @param request CreateScriptRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateScriptResponse
+   * Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   * 
+   * @param request - CreateScriptRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScriptResponse
    */
   async createScriptWithOptions(request: CreateScriptRequest, runtime: $Util.RuntimeOptions): Promise<CreateScriptResponse> {
     Util.validateModel(request);
@@ -26083,10 +50089,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
-   *
-   * @param request CreateScriptRequest
-   * @return CreateScriptResponse
+   * Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   * 
+   * @param request - CreateScriptRequest
+   * @returns CreateScriptResponse
    */
   async createScript(request: CreateScriptRequest): Promise<CreateScriptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26094,11 +50100,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Perform a scale-out operation on the target node group.
-   *
-   * @param request DecreaseNodesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DecreaseNodesResponse
+   * Perform a scale-out operation on the target node group.
+   * 
+   * @param request - DecreaseNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DecreaseNodesResponse
    */
   async decreaseNodesWithOptions(request: DecreaseNodesRequest, runtime: $Util.RuntimeOptions): Promise<DecreaseNodesResponse> {
     Util.validateModel(request);
@@ -26141,10 +50147,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Perform a scale-out operation on the target node group.
-   *
-   * @param request DecreaseNodesRequest
-   * @return DecreaseNodesResponse
+   * Perform a scale-out operation on the target node group.
+   * 
+   * @param request - DecreaseNodesRequest
+   * @returns DecreaseNodesResponse
    */
   async decreaseNodes(request: DecreaseNodesRequest): Promise<DecreaseNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26152,11 +50158,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 创建集群模板
-   *
-   * @param request DeleteApiTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteApiTemplateResponse
+   * @remarks
+   * 创建集群模板
+   * 
+   * @param request - DeleteApiTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApiTemplateResponse
    */
   async deleteApiTemplateWithOptions(request: DeleteApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiTemplateResponse> {
     Util.validateModel(request);
@@ -26195,10 +50202,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 创建集群模板
-   *
-   * @param request DeleteApiTemplateRequest
-   * @return DeleteApiTemplateResponse
+   * @remarks
+   * 创建集群模板
+   * 
+   * @param request - DeleteApiTemplateRequest
+   * @returns DeleteApiTemplateResponse
    */
   async deleteApiTemplate(request: DeleteApiTemplateRequest): Promise<DeleteApiTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26206,9 +50214,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteClusterResponse
+   * @param request - DeleteClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteClusterResponse
    */
   async deleteClusterWithOptions(request: DeleteClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
     Util.validateModel(request);
@@ -26239,8 +50247,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteClusterRequest
-   * @return DeleteClusterResponse
+   * @param request - DeleteClusterRequest
+   * @returns DeleteClusterResponse
    */
   async deleteCluster(request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26248,11 +50256,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
-   *
-   * @param request DeleteScriptRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteScriptResponse
+   * Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   * 
+   * @param request - DeleteScriptRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteScriptResponse
    */
   async deleteScriptWithOptions(request: DeleteScriptRequest, runtime: $Util.RuntimeOptions): Promise<DeleteScriptResponse> {
     Util.validateModel(request);
@@ -26291,10 +50299,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
-   *
-   * @param request DeleteScriptRequest
-   * @return DeleteScriptResponse
+   * Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   * 
+   * @param request - DeleteScriptRequest
+   * @returns DeleteScriptResponse
    */
   async deleteScript(request: DeleteScriptRequest): Promise<DeleteScriptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26302,11 +50310,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取API模板详情
-   *
-   * @param request GetApiTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetApiTemplateResponse
+   * 获取API模板详情
+   * 
+   * @param request - GetApiTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApiTemplateResponse
    */
   async getApiTemplateWithOptions(request: GetApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetApiTemplateResponse> {
     Util.validateModel(request);
@@ -26337,10 +50345,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取API模板详情
-   *
-   * @param request GetApiTemplateRequest
-   * @return GetApiTemplateResponse
+   * 获取API模板详情
+   * 
+   * @param request - GetApiTemplateRequest
+   * @returns GetApiTemplateResponse
    */
   async getApiTemplate(request: GetApiTemplateRequest): Promise<GetApiTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26348,11 +50356,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询应用详情。
-   *
-   * @param request GetApplicationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetApplicationResponse
+   * @remarks
+   * 查询应用详情。
+   * 
+   * @param request - GetApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApplicationResponse
    */
   async getApplicationWithOptions(request: GetApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
     Util.validateModel(request);
@@ -26387,10 +50396,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询应用详情。
-   *
-   * @param request GetApplicationRequest
-   * @return GetApplicationResponse
+   * @remarks
+   * 查询应用详情。
+   * 
+   * @param request - GetApplicationRequest
+   * @returns GetApplicationResponse
    */
   async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26398,11 +50408,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 获取弹性伸缩活动详情。
-   *
-   * @param request GetAutoScalingActivityRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAutoScalingActivityResponse
+   * @remarks
+   * 获取弹性伸缩活动详情。
+   * 
+   * @param request - GetAutoScalingActivityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAutoScalingActivityResponse
    */
   async getAutoScalingActivityWithOptions(request: GetAutoScalingActivityRequest, runtime: $Util.RuntimeOptions): Promise<GetAutoScalingActivityResponse> {
     Util.validateModel(request);
@@ -26437,10 +50448,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 获取弹性伸缩活动详情。
-   *
-   * @param request GetAutoScalingActivityRequest
-   * @return GetAutoScalingActivityResponse
+   * @remarks
+   * 获取弹性伸缩活动详情。
+   * 
+   * @param request - GetAutoScalingActivityRequest
+   * @returns GetAutoScalingActivityResponse
    */
   async getAutoScalingActivity(request: GetAutoScalingActivityRequest): Promise<GetAutoScalingActivityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26448,9 +50460,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetAutoScalingPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAutoScalingPolicyResponse
+   * @param request - GetAutoScalingPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAutoScalingPolicyResponse
    */
   async getAutoScalingPolicyWithOptions(request: GetAutoScalingPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetAutoScalingPolicyResponse> {
     Util.validateModel(request);
@@ -26485,8 +50497,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetAutoScalingPolicyRequest
-   * @return GetAutoScalingPolicyResponse
+   * @param request - GetAutoScalingPolicyRequest
+   * @returns GetAutoScalingPolicyResponse
    */
   async getAutoScalingPolicy(request: GetAutoScalingPolicyRequest): Promise<GetAutoScalingPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26494,11 +50506,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the details of a cluster.
-   *
-   * @param request GetClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetClusterResponse
+   * Obtains the details of a cluster.
+   * 
+   * @param request - GetClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClusterResponse
    */
   async getClusterWithOptions(request: GetClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetClusterResponse> {
     Util.validateModel(request);
@@ -26529,10 +50541,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the details of a cluster.
-   *
-   * @param request GetClusterRequest
-   * @return GetClusterResponse
+   * Obtains the details of a cluster.
+   * 
+   * @param request - GetClusterRequest
+   * @returns GetClusterResponse
    */
   async getCluster(request: GetClusterRequest): Promise<GetClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26540,13 +50552,60 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains job analysis information on E-MapReduce (EMR) Doctor.
-   *
-   * @description get one doctor analysis app
-   *
-   * @param request GetDoctorApplicationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorApplicationResponse
+   * Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+   * 
+   * @param request - GetClusterCloneMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClusterCloneMetaResponse
+   */
+  async getClusterCloneMetaWithOptions(request: GetClusterCloneMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetClusterCloneMetaResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClusterCloneMeta",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClusterCloneMetaResponse>(await this.callApi(params, req, runtime), new GetClusterCloneMetaResponse({}));
+  }
+
+  /**
+   * Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+   * 
+   * @param request - GetClusterCloneMetaRequest
+   * @returns GetClusterCloneMetaResponse
+   */
+  async getClusterCloneMeta(request: GetClusterCloneMetaRequest): Promise<GetClusterCloneMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getClusterCloneMetaWithOptions(request, runtime);
+  }
+
+  /**
+   * Obtains job analysis information on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * get one doctor analysis app
+   * 
+   * @param request - GetDoctorApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorApplicationResponse
    */
   async getDoctorApplicationWithOptions(request: GetDoctorApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorApplicationResponse> {
     Util.validateModel(request);
@@ -26585,12 +50644,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains job analysis information on E-MapReduce (EMR) Doctor.
-   *
-   * @description get one doctor analysis app
-   *
-   * @param request GetDoctorApplicationRequest
-   * @return GetDoctorApplicationResponse
+   * Obtains job analysis information on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * get one doctor analysis app
+   * 
+   * @param request - GetDoctorApplicationRequest
+   * @returns GetDoctorApplicationResponse
    */
   async getDoctorApplication(request: GetDoctorApplicationRequest): Promise<GetDoctorApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26598,13 +50658,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information about resource usage in a cluster on E-MapReduce (EMR) Doctor.
-   *
-   * @description get one specific luster engine queue by <type, name>
-   *
-   * @param request GetDoctorComputeSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorComputeSummaryResponse
+   * Obtains the information about resource usage in a cluster on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * get one specific luster engine queue by <type, name>
+   * 
+   * @param request - GetDoctorComputeSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorComputeSummaryResponse
    */
   async getDoctorComputeSummaryWithOptions(request: GetDoctorComputeSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorComputeSummaryResponse> {
     Util.validateModel(request);
@@ -26643,12 +50704,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information about resource usage in a cluster on E-MapReduce (EMR) Doctor.
-   *
-   * @description get one specific luster engine queue by <type, name>
-   *
-   * @param request GetDoctorComputeSummaryRequest
-   * @return GetDoctorComputeSummaryResponse
+   * Obtains the information about resource usage in a cluster on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * get one specific luster engine queue by <type, name>
+   * 
+   * @param request - GetDoctorComputeSummaryRequest
+   * @returns GetDoctorComputeSummaryResponse
    */
   async getDoctorComputeSummary(request: GetDoctorComputeSummaryRequest): Promise<GetDoctorComputeSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26656,13 +50718,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the metrics of an HBase cluster.
-   *
-   * @description get Doctor HBaseCluster
-   *
-   * @param request GetDoctorHBaseClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorHBaseClusterResponse
+   * Obtains the metrics of an HBase cluster.
+   * 
+   * @remarks
+   * get Doctor HBaseCluster
+   * 
+   * @param request - GetDoctorHBaseClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorHBaseClusterResponse
    */
   async getDoctorHBaseClusterWithOptions(request: GetDoctorHBaseClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHBaseClusterResponse> {
     Util.validateModel(request);
@@ -26697,12 +50760,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the metrics of an HBase cluster.
-   *
-   * @description get Doctor HBaseCluster
-   *
-   * @param request GetDoctorHBaseClusterRequest
-   * @return GetDoctorHBaseClusterResponse
+   * Obtains the metrics of an HBase cluster.
+   * 
+   * @remarks
+   * get Doctor HBaseCluster
+   * 
+   * @param request - GetDoctorHBaseClusterRequest
+   * @returns GetDoctorHBaseClusterResponse
    */
   async getDoctorHBaseCluster(request: GetDoctorHBaseClusterRequest): Promise<GetDoctorHBaseClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26710,11 +50774,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description list Doctor HBaseRegions
-   *
-   * @param request GetDoctorHBaseRegionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorHBaseRegionResponse
+   * @remarks
+   * list Doctor HBaseRegions
+   * 
+   * @param request - GetDoctorHBaseRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorHBaseRegionResponse
    */
   async getDoctorHBaseRegionWithOptions(request: GetDoctorHBaseRegionRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHBaseRegionResponse> {
     Util.validateModel(request);
@@ -26753,10 +50818,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description list Doctor HBaseRegions
-   *
-   * @param request GetDoctorHBaseRegionRequest
-   * @return GetDoctorHBaseRegionResponse
+   * @remarks
+   * list Doctor HBaseRegions
+   * 
+   * @param request - GetDoctorHBaseRegionRequest
+   * @returns GetDoctorHBaseRegionResponse
    */
   async getDoctorHBaseRegion(request: GetDoctorHBaseRegionRequest): Promise<GetDoctorHBaseRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26764,13 +50830,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information about an HBase region server.
-   *
-   * @description get Doctor HBaseRegionServer
-   *
-   * @param request GetDoctorHBaseRegionServerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorHBaseRegionServerResponse
+   * Obtains the information about an HBase region server.
+   * 
+   * @remarks
+   * get Doctor HBaseRegionServer
+   * 
+   * @param request - GetDoctorHBaseRegionServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorHBaseRegionServerResponse
    */
   async getDoctorHBaseRegionServerWithOptions(request: GetDoctorHBaseRegionServerRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHBaseRegionServerResponse> {
     Util.validateModel(request);
@@ -26809,12 +50876,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information about an HBase region server.
-   *
-   * @description get Doctor HBaseRegionServer
-   *
-   * @param request GetDoctorHBaseRegionServerRequest
-   * @return GetDoctorHBaseRegionServerResponse
+   * Obtains the information about an HBase region server.
+   * 
+   * @remarks
+   * get Doctor HBaseRegionServer
+   * 
+   * @param request - GetDoctorHBaseRegionServerRequest
+   * @returns GetDoctorHBaseRegionServerResponse
    */
   async getDoctorHBaseRegionServer(request: GetDoctorHBaseRegionServerRequest): Promise<GetDoctorHBaseRegionServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26822,11 +50890,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description get Doctor HBaseTable
-   *
-   * @param request GetDoctorHBaseTableRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorHBaseTableResponse
+   * @remarks
+   * get Doctor HBaseTable
+   * 
+   * @param request - GetDoctorHBaseTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorHBaseTableResponse
    */
   async getDoctorHBaseTableWithOptions(request: GetDoctorHBaseTableRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHBaseTableResponse> {
     Util.validateModel(request);
@@ -26865,10 +50934,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description get Doctor HBaseTable
-   *
-   * @param request GetDoctorHBaseTableRequest
-   * @return GetDoctorHBaseTableResponse
+   * @remarks
+   * get Doctor HBaseTable
+   * 
+   * @param request - GetDoctorHBaseTableRequest
+   * @returns GetDoctorHBaseTableResponse
    */
   async getDoctorHBaseTable(request: GetDoctorHBaseTableRequest): Promise<GetDoctorHBaseTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26876,13 +50946,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of the Hadoop Distributed File System (HDFS) storage resources of a cluster on E-MapReduce (EMR) Doctor.
-   *
-   * @description list Doctor HBaseTableRegions
-   *
-   * @param request GetDoctorHDFSClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorHDFSClusterResponse
+   * Obtains the analysis results of the Hadoop Distributed File System (HDFS) storage resources of a cluster on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list Doctor HBaseTableRegions
+   * 
+   * @param request - GetDoctorHDFSClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorHDFSClusterResponse
    */
   async getDoctorHDFSClusterWithOptions(request: GetDoctorHDFSClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHDFSClusterResponse> {
     Util.validateModel(request);
@@ -26917,12 +50988,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of the Hadoop Distributed File System (HDFS) storage resources of a cluster on E-MapReduce (EMR) Doctor.
-   *
-   * @description list Doctor HBaseTableRegions
-   *
-   * @param request GetDoctorHDFSClusterRequest
-   * @return GetDoctorHDFSClusterResponse
+   * Obtains the analysis results of the Hadoop Distributed File System (HDFS) storage resources of a cluster on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list Doctor HBaseTableRegions
+   * 
+   * @param request - GetDoctorHDFSClusterRequest
+   * @returns GetDoctorHDFSClusterResponse
    */
   async getDoctorHDFSCluster(request: GetDoctorHDFSClusterRequest): Promise<GetDoctorHDFSClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26930,13 +51002,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of a specific Hadoop Distributed File System (HDFS) directory of a cluster. The depth of the directory is not greater than five.
-   *
-   * @description get Doctor HDFSNode
-   *
-   * @param request GetDoctorHDFSDirectoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorHDFSDirectoryResponse
+   * Obtains the analysis results of a specific Hadoop Distributed File System (HDFS) directory of a cluster. The depth of the directory is not greater than five.
+   * 
+   * @remarks
+   * get Doctor HDFSNode
+   * 
+   * @param request - GetDoctorHDFSDirectoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorHDFSDirectoryResponse
    */
   async getDoctorHDFSDirectoryWithOptions(request: GetDoctorHDFSDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHDFSDirectoryResponse> {
     Util.validateModel(request);
@@ -26975,12 +51048,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of a specific Hadoop Distributed File System (HDFS) directory of a cluster. The depth of the directory is not greater than five.
-   *
-   * @description get Doctor HDFSNode
-   *
-   * @param request GetDoctorHDFSDirectoryRequest
-   * @return GetDoctorHDFSDirectoryResponse
+   * Obtains the analysis results of a specific Hadoop Distributed File System (HDFS) directory of a cluster. The depth of the directory is not greater than five.
+   * 
+   * @remarks
+   * get Doctor HDFSNode
+   * 
+   * @param request - GetDoctorHDFSDirectoryRequest
+   * @returns GetDoctorHDFSDirectoryResponse
    */
   async getDoctorHDFSDirectory(request: GetDoctorHDFSDirectoryRequest): Promise<GetDoctorHDFSDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26988,13 +51062,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for a specific owner or group on E-MapReduce (EMR) Doctor.
-   *
-   * @description get Doctor HDFS UGI
-   *
-   * @param request GetDoctorHDFSUGIRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorHDFSUGIResponse
+   * Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for a specific owner or group on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * get Doctor HDFS UGI
+   * 
+   * @param request - GetDoctorHDFSUGIRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorHDFSUGIResponse
    */
   async getDoctorHDFSUGIWithOptions(request: GetDoctorHDFSUGIRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHDFSUGIResponse> {
     Util.validateModel(request);
@@ -27037,12 +51112,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for a specific owner or group on E-MapReduce (EMR) Doctor.
-   *
-   * @description get Doctor HDFS UGI
-   *
-   * @param request GetDoctorHDFSUGIRequest
-   * @return GetDoctorHDFSUGIResponse
+   * Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for a specific owner or group on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * get Doctor HDFS UGI
+   * 
+   * @param request - GetDoctorHDFSUGIRequest
+   * @returns GetDoctorHDFSUGIResponse
    */
   async getDoctorHDFSUGI(request: GetDoctorHDFSUGIRequest): Promise<GetDoctorHDFSUGIResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27050,13 +51126,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of a Hive cluster.
-   *
-   * @description list Doctor Hive Cluster
-   *
-   * @param request GetDoctorHiveClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorHiveClusterResponse
+   * Obtains the analysis results of a Hive cluster.
+   * 
+   * @remarks
+   * list Doctor Hive Cluster
+   * 
+   * @param request - GetDoctorHiveClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorHiveClusterResponse
    */
   async getDoctorHiveClusterWithOptions(request: GetDoctorHiveClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHiveClusterResponse> {
     Util.validateModel(request);
@@ -27091,12 +51168,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of a Hive cluster.
-   *
-   * @description list Doctor Hive Cluster
-   *
-   * @param request GetDoctorHiveClusterRequest
-   * @return GetDoctorHiveClusterResponse
+   * Obtains the analysis results of a Hive cluster.
+   * 
+   * @remarks
+   * list Doctor Hive Cluster
+   * 
+   * @param request - GetDoctorHiveClusterRequest
+   * @returns GetDoctorHiveClusterResponse
    */
   async getDoctorHiveCluster(request: GetDoctorHiveClusterRequest): Promise<GetDoctorHiveClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27104,13 +51182,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of a Hive database.
-   *
-   * @description get Doctor Hive Database
-   *
-   * @param request GetDoctorHiveDatabaseRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorHiveDatabaseResponse
+   * Obtains the analysis results of a Hive database.
+   * 
+   * @remarks
+   * get Doctor Hive Database
+   * 
+   * @param request - GetDoctorHiveDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorHiveDatabaseResponse
    */
   async getDoctorHiveDatabaseWithOptions(request: GetDoctorHiveDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHiveDatabaseResponse> {
     Util.validateModel(request);
@@ -27149,12 +51228,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of a Hive database.
-   *
-   * @description get Doctor Hive Database
-   *
-   * @param request GetDoctorHiveDatabaseRequest
-   * @return GetDoctorHiveDatabaseResponse
+   * Obtains the analysis results of a Hive database.
+   * 
+   * @remarks
+   * get Doctor Hive Database
+   * 
+   * @param request - GetDoctorHiveDatabaseRequest
+   * @returns GetDoctorHiveDatabaseResponse
    */
   async getDoctorHiveDatabase(request: GetDoctorHiveDatabaseRequest): Promise<GetDoctorHiveDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27162,13 +51242,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of a specific Hive table in a cluster on E-MapReduce (EMR) Doctor.
-   *
-   * @description get Doctor Hive Table
-   *
-   * @param request GetDoctorHiveTableRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorHiveTableResponse
+   * Obtains the analysis results of a specific Hive table in a cluster on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * get Doctor Hive Table
+   * 
+   * @param request - GetDoctorHiveTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorHiveTableResponse
    */
   async getDoctorHiveTableWithOptions(request: GetDoctorHiveTableRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorHiveTableResponse> {
     Util.validateModel(request);
@@ -27207,12 +51288,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of a specific Hive table in a cluster on E-MapReduce (EMR) Doctor.
-   *
-   * @description get Doctor Hive Table
-   *
-   * @param request GetDoctorHiveTableRequest
-   * @return GetDoctorHiveTableResponse
+   * Obtains the analysis results of a specific Hive table in a cluster on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * get Doctor Hive Table
+   * 
+   * @param request - GetDoctorHiveTableRequest
+   * @returns GetDoctorHiveTableResponse
    */
   async getDoctorHiveTable(request: GetDoctorHiveTableRequest): Promise<GetDoctorHiveTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27220,13 +51302,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the basic running information about a job on E-MapReduce (EMR) Doctor.
-   *
-   * @description Get realtime job by yarn
-   *
-   * @param request GetDoctorJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorJobResponse
+   * Obtains the basic running information about a job on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * Get realtime job by yarn
+   * 
+   * @param request - GetDoctorJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorJobResponse
    */
   async getDoctorJobWithOptions(request: GetDoctorJobRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorJobResponse> {
     Util.validateModel(request);
@@ -27261,12 +51344,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the basic running information about a job on E-MapReduce (EMR) Doctor.
-   *
-   * @description Get realtime job by yarn
-   *
-   * @param request GetDoctorJobRequest
-   * @return GetDoctorJobResponse
+   * Obtains the basic running information about a job on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * Get realtime job by yarn
+   * 
+   * @param request - GetDoctorJobRequest
+   * @returns GetDoctorJobResponse
    */
   async getDoctorJob(request: GetDoctorJobRequest): Promise<GetDoctorJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27274,11 +51358,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description get specify component's report analysis by emr doctor
-   *
-   * @param request GetDoctorReportComponentSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoctorReportComponentSummaryResponse
+   * @remarks
+   * get specify component's report analysis by emr doctor
+   * 
+   * @param request - GetDoctorReportComponentSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoctorReportComponentSummaryResponse
    */
   async getDoctorReportComponentSummaryWithOptions(request: GetDoctorReportComponentSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetDoctorReportComponentSummaryResponse> {
     Util.validateModel(request);
@@ -27317,10 +51402,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description get specify component's report analysis by emr doctor
-   *
-   * @param request GetDoctorReportComponentSummaryRequest
-   * @return GetDoctorReportComponentSummaryResponse
+   * @remarks
+   * get specify component's report analysis by emr doctor
+   * 
+   * @param request - GetDoctorReportComponentSummaryRequest
+   * @returns GetDoctorReportComponentSummaryResponse
    */
   async getDoctorReportComponentSummary(request: GetDoctorReportComponentSummaryRequest): Promise<GetDoctorReportComponentSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27328,13 +51414,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to obtain the details of a node group.
-   *
-   * @description 获取节点组详情。
-   *
-   * @param request GetNodeGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetNodeGroupResponse
+   * You can call this operation to obtain the details of a node group.
+   * 
+   * @remarks
+   * 获取节点组详情。
+   * 
+   * @param request - GetNodeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNodeGroupResponse
    */
   async getNodeGroupWithOptions(request: GetNodeGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeGroupResponse> {
     Util.validateModel(request);
@@ -27369,12 +51456,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to obtain the details of a node group.
-   *
-   * @description 获取节点组详情。
-   *
-   * @param request GetNodeGroupRequest
-   * @return GetNodeGroupResponse
+   * You can call this operation to obtain the details of a node group.
+   * 
+   * @remarks
+   * 获取节点组详情。
+   * 
+   * @param request - GetNodeGroupRequest
+   * @returns GetNodeGroupResponse
    */
   async getNodeGroup(request: GetNodeGroupRequest): Promise<GetNodeGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27382,11 +51470,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Gets the details of an asynchronous operation.
-   *
-   * @param request GetOperationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetOperationResponse
+   * Gets the details of an asynchronous operation.
+   * 
+   * @param request - GetOperationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOperationResponse
    */
   async getOperationWithOptions(request: GetOperationRequest, runtime: $Util.RuntimeOptions): Promise<GetOperationResponse> {
     Util.validateModel(request);
@@ -27421,10 +51509,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Gets the details of an asynchronous operation.
-   *
-   * @param request GetOperationRequest
-   * @return GetOperationResponse
+   * Gets the details of an asynchronous operation.
+   * 
+   * @param request - GetOperationRequest
+   * @returns GetOperationResponse
    */
   async getOperation(request: GetOperationRequest): Promise<GetOperationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27432,11 +51520,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Scale out the node group.
-   *
-   * @param request IncreaseNodesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return IncreaseNodesResponse
+   * Scale out the node group.
+   * 
+   * @param request - IncreaseNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IncreaseNodesResponse
    */
   async increaseNodesWithOptions(request: IncreaseNodesRequest, runtime: $Util.RuntimeOptions): Promise<IncreaseNodesResponse> {
     Util.validateModel(request);
@@ -27499,10 +51587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Scale out the node group.
-   *
-   * @param request IncreaseNodesRequest
-   * @return IncreaseNodesResponse
+   * Scale out the node group.
+   * 
+   * @param request - IncreaseNodesRequest
+   * @returns IncreaseNodesResponse
    */
   async increaseNodes(request: IncreaseNodesRequest): Promise<IncreaseNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27510,11 +51598,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Add an EMR resource to the target resource group. A resource can belong to only one resource group.
-   *
-   * @param request JoinResourceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return JoinResourceGroupResponse
+   * Add an EMR resource to the target resource group. A resource can belong to only one resource group.
+   * 
+   * @param request - JoinResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns JoinResourceGroupResponse
    */
   async joinResourceGroupWithOptions(request: JoinResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<JoinResourceGroupResponse> {
     Util.validateModel(request);
@@ -27553,10 +51641,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Add an EMR resource to the target resource group. A resource can belong to only one resource group.
-   *
-   * @param request JoinResourceGroupRequest
-   * @return JoinResourceGroupResponse
+   * Add an EMR resource to the target resource group. A resource can belong to only one resource group.
+   * 
+   * @param request - JoinResourceGroupRequest
+   * @returns JoinResourceGroupResponse
    */
   async joinResourceGroup(request: JoinResourceGroupRequest): Promise<JoinResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27564,11 +51652,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询API模板
-   *
-   * @param request ListApiTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListApiTemplatesResponse
+   * 查询API模板
+   * 
+   * @param request - ListApiTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApiTemplatesResponse
    */
   async listApiTemplatesWithOptions(request: ListApiTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListApiTemplatesResponse> {
     Util.validateModel(request);
@@ -27623,10 +51711,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询API模板
-   *
-   * @param request ListApiTemplatesRequest
-   * @return ListApiTemplatesResponse
+   * 查询API模板
+   * 
+   * @param request - ListApiTemplatesRequest
+   * @returns ListApiTemplatesResponse
    */
   async listApiTemplates(request: ListApiTemplatesRequest): Promise<ListApiTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27634,11 +51722,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询应用配置。
-   *
-   * @param request ListApplicationConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListApplicationConfigsResponse
+   * @remarks
+   * 查询应用配置。
+   * 
+   * @param request - ListApplicationConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationConfigsResponse
    */
   async listApplicationConfigsWithOptions(request: ListApplicationConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationConfigsResponse> {
     Util.validateModel(request);
@@ -27701,10 +51790,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询应用配置。
-   *
-   * @param request ListApplicationConfigsRequest
-   * @return ListApplicationConfigsResponse
+   * @remarks
+   * 查询应用配置。
+   * 
+   * @param request - ListApplicationConfigsRequest
+   * @returns ListApplicationConfigsResponse
    */
   async listApplicationConfigs(request: ListApplicationConfigsRequest): Promise<ListApplicationConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27712,11 +51802,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询应用列表。
-   *
-   * @param request ListApplicationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListApplicationsResponse
+   * @param request - ListApplicationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationsResponse
    */
   async listApplicationsWithOptions(request: ListApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
     Util.validateModel(request);
@@ -27759,10 +51847,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询应用列表。
-   *
-   * @param request ListApplicationsRequest
-   * @return ListApplicationsResponse
+   * @param request - ListApplicationsRequest
+   * @returns ListApplicationsResponse
    */
   async listApplications(request: ListApplicationsRequest): Promise<ListApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27770,11 +51856,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询弹性伸缩活动列表。
-   *
-   * @param request ListAutoScalingActivitiesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAutoScalingActivitiesResponse
+   * @remarks
+   * 查询弹性伸缩活动列表。
+   * 
+   * @param request - ListAutoScalingActivitiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAutoScalingActivitiesResponse
    */
   async listAutoScalingActivitiesWithOptions(request: ListAutoScalingActivitiesRequest, runtime: $Util.RuntimeOptions): Promise<ListAutoScalingActivitiesResponse> {
     Util.validateModel(request);
@@ -27837,10 +51924,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询弹性伸缩活动列表。
-   *
-   * @param request ListAutoScalingActivitiesRequest
-   * @return ListAutoScalingActivitiesResponse
+   * @remarks
+   * 查询弹性伸缩活动列表。
+   * 
+   * @param request - ListAutoScalingActivitiesRequest
+   * @returns ListAutoScalingActivitiesResponse
    */
   async listAutoScalingActivities(request: ListAutoScalingActivitiesRequest): Promise<ListAutoScalingActivitiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27848,11 +51936,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries E-MapReduce (EMR) clusters.
-   *
-   * @param request ListClustersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListClustersResponse
+   * Queries E-MapReduce (EMR) clusters.
+   * 
+   * @param request - ListClustersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClustersResponse
    */
   async listClustersWithOptions(request: ListClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListClustersResponse> {
     Util.validateModel(request);
@@ -27915,10 +52003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries E-MapReduce (EMR) clusters.
-   *
-   * @param request ListClustersRequest
-   * @return ListClustersResponse
+   * Queries E-MapReduce (EMR) clusters.
+   * 
+   * @param request - ListClustersRequest
+   * @returns ListClustersResponse
    */
   async listClusters(request: ListClustersRequest): Promise<ListClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27926,11 +52014,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询组件实例列表。
-   *
-   * @param request ListComponentInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListComponentInstancesResponse
+   * @remarks
+   * 查询组件实例列表。
+   * 
+   * @param request - ListComponentInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListComponentInstancesResponse
    */
   async listComponentInstancesWithOptions(request: ListComponentInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListComponentInstancesResponse> {
     Util.validateModel(request);
@@ -27989,10 +52078,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询组件实例列表。
-   *
-   * @param request ListComponentInstancesRequest
-   * @return ListComponentInstancesResponse
+   * @remarks
+   * 查询组件实例列表。
+   * 
+   * @param request - ListComponentInstancesRequest
+   * @returns ListComponentInstancesResponse
    */
   async listComponentInstances(request: ListComponentInstancesRequest): Promise<ListComponentInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28000,11 +52090,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询组件列表。
-   *
-   * @param request ListComponentsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListComponentsResponse
+   * @param request - ListComponentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListComponentsResponse
    */
   async listComponentsWithOptions(request: ListComponentsRequest, runtime: $Util.RuntimeOptions): Promise<ListComponentsResponse> {
     Util.validateModel(request);
@@ -28023,10 +52111,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.componentStates)) {
       query["ComponentStates"] = request.componentStates;
-    }
-
-    if (!Util.isUnset(request.includeExpiredConfig)) {
-      query["IncludeExpiredConfig"] = request.includeExpiredConfig;
     }
 
     if (!Util.isUnset(request.maxResults)) {
@@ -28059,10 +52143,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询组件列表。
-   *
-   * @param request ListComponentsRequest
-   * @return ListComponentsResponse
+   * @param request - ListComponentsRequest
+   * @returns ListComponentsResponse
    */
   async listComponents(request: ListComponentsRequest): Promise<ListComponentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28070,13 +52152,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of multiple jobs on E-MapReduce (EMR) Doctor.
-   *
-   * @description list all doctor analysis apps
-   *
-   * @param request ListDoctorApplicationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDoctorApplicationsResponse
+   * Obtains the analysis results of multiple jobs on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list all doctor analysis apps
+   * 
+   * @param request - ListDoctorApplicationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDoctorApplicationsResponse
    */
   async listDoctorApplicationsWithOptions(request: ListDoctorApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorApplicationsResponse> {
     Util.validateModel(request);
@@ -28143,12 +52226,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of multiple jobs on E-MapReduce (EMR) Doctor.
-   *
-   * @description list all doctor analysis apps
-   *
-   * @param request ListDoctorApplicationsRequest
-   * @return ListDoctorApplicationsResponse
+   * Obtains the analysis results of multiple jobs on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list all doctor analysis apps
+   * 
+   * @param request - ListDoctorApplicationsRequest
+   * @returns ListDoctorApplicationsResponse
    */
   async listDoctorApplications(request: ListDoctorApplicationsRequest): Promise<ListDoctorApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28156,13 +52240,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information about resource usage by resource type in a cluster on E-MapReduce (EMR) Doctor.
-   *
-   * @description list Doctor analysis result of cluster engine queue view
-   *
-   * @param request ListDoctorComputeSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDoctorComputeSummaryResponse
+   * Obtains the information about resource usage by resource type in a cluster on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list Doctor analysis result of cluster engine queue view
+   * 
+   * @param request - ListDoctorComputeSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDoctorComputeSummaryResponse
    */
   async listDoctorComputeSummaryWithOptions(request: ListDoctorComputeSummaryRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorComputeSummaryResponse> {
     Util.validateModel(request);
@@ -28217,12 +52302,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information about resource usage by resource type in a cluster on E-MapReduce (EMR) Doctor.
-   *
-   * @description list Doctor analysis result of cluster engine queue view
-   *
-   * @param request ListDoctorComputeSummaryRequest
-   * @return ListDoctorComputeSummaryResponse
+   * Obtains the information about resource usage by resource type in a cluster on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list Doctor analysis result of cluster engine queue view
+   * 
+   * @param request - ListDoctorComputeSummaryRequest
+   * @returns ListDoctorComputeSummaryResponse
    */
   async listDoctorComputeSummary(request: ListDoctorComputeSummaryRequest): Promise<ListDoctorComputeSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28230,13 +52316,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information about multiple HBase RegionServers at a time.
-   *
-   * @description list Doctor HBaseRegionServers
-   *
-   * @param request ListDoctorHBaseRegionServersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDoctorHBaseRegionServersResponse
+   * Obtains the information about multiple HBase RegionServers at a time.
+   * 
+   * @remarks
+   * list Doctor HBaseRegionServers
+   * 
+   * @param request - ListDoctorHBaseRegionServersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDoctorHBaseRegionServersResponse
    */
   async listDoctorHBaseRegionServersWithOptions(request: ListDoctorHBaseRegionServersRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorHBaseRegionServersResponse> {
     Util.validateModel(request);
@@ -28291,12 +52378,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information about multiple HBase RegionServers at a time.
-   *
-   * @description list Doctor HBaseRegionServers
-   *
-   * @param request ListDoctorHBaseRegionServersRequest
-   * @return ListDoctorHBaseRegionServersResponse
+   * Obtains the information about multiple HBase RegionServers at a time.
+   * 
+   * @remarks
+   * list Doctor HBaseRegionServers
+   * 
+   * @param request - ListDoctorHBaseRegionServersRequest
+   * @returns ListDoctorHBaseRegionServersResponse
    */
   async listDoctorHBaseRegionServers(request: ListDoctorHBaseRegionServersRequest): Promise<ListDoctorHBaseRegionServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28304,13 +52392,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information about multiple HBase tables at a time.
-   *
-   * @description list Doctor HBaseTables
-   *
-   * @param request ListDoctorHBaseTablesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDoctorHBaseTablesResponse
+   * Obtains the information about multiple HBase tables at a time.
+   * 
+   * @remarks
+   * list Doctor HBaseTables
+   * 
+   * @param request - ListDoctorHBaseTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDoctorHBaseTablesResponse
    */
   async listDoctorHBaseTablesWithOptions(request: ListDoctorHBaseTablesRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorHBaseTablesResponse> {
     Util.validateModel(request);
@@ -28365,12 +52454,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information about multiple HBase tables at a time.
-   *
-   * @description list Doctor HBaseTables
-   *
-   * @param request ListDoctorHBaseTablesRequest
-   * @return ListDoctorHBaseTablesResponse
+   * Obtains the information about multiple HBase tables at a time.
+   * 
+   * @remarks
+   * list Doctor HBaseTables
+   * 
+   * @param request - ListDoctorHBaseTablesRequest
+   * @returns ListDoctorHBaseTablesResponse
    */
   async listDoctorHBaseTables(request: ListDoctorHBaseTablesRequest): Promise<ListDoctorHBaseTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28378,11 +52468,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description list Doctor HDFSNodes
-   *
-   * @param request ListDoctorHDFSDirectoriesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDoctorHDFSDirectoriesResponse
+   * @remarks
+   * list Doctor HDFSNodes
+   * 
+   * @param request - ListDoctorHDFSDirectoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDoctorHDFSDirectoriesResponse
    */
   async listDoctorHDFSDirectoriesWithOptions(request: ListDoctorHDFSDirectoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorHDFSDirectoriesResponse> {
     Util.validateModel(request);
@@ -28437,10 +52528,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description list Doctor HDFSNodes
-   *
-   * @param request ListDoctorHDFSDirectoriesRequest
-   * @return ListDoctorHDFSDirectoriesResponse
+   * @remarks
+   * list Doctor HDFSNodes
+   * 
+   * @param request - ListDoctorHDFSDirectoriesRequest
+   * @returns ListDoctorHDFSDirectoriesResponse
    */
   async listDoctorHDFSDirectories(request: ListDoctorHDFSDirectoriesRequest): Promise<ListDoctorHDFSDirectoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28448,13 +52540,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for multiple owners or groups at a time on E-MapReduce (EMR) Doctor.
-   *
-   * @description list Doctor HDFS UGIs
-   *
-   * @param request ListDoctorHDFSUGIRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDoctorHDFSUGIResponse
+   * Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for multiple owners or groups at a time on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list Doctor HDFS UGIs
+   * 
+   * @param request - ListDoctorHDFSUGIRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDoctorHDFSUGIResponse
    */
   async listDoctorHDFSUGIWithOptions(request: ListDoctorHDFSUGIRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorHDFSUGIResponse> {
     Util.validateModel(request);
@@ -28509,12 +52602,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for multiple owners or groups at a time on E-MapReduce (EMR) Doctor.
-   *
-   * @description list Doctor HDFS UGIs
-   *
-   * @param request ListDoctorHDFSUGIRequest
-   * @return ListDoctorHDFSUGIResponse
+   * Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for multiple owners or groups at a time on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list Doctor HDFS UGIs
+   * 
+   * @param request - ListDoctorHDFSUGIRequest
+   * @returns ListDoctorHDFSUGIResponse
    */
   async listDoctorHDFSUGI(request: ListDoctorHDFSUGIRequest): Promise<ListDoctorHDFSUGIResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28522,13 +52616,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of multiple Hive databases at a time.
-   *
-   * @description list Doctor Hive Databases
-   *
-   * @param request ListDoctorHiveDatabasesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDoctorHiveDatabasesResponse
+   * Obtains the analysis results of multiple Hive databases at a time.
+   * 
+   * @remarks
+   * list Doctor Hive Databases
+   * 
+   * @param request - ListDoctorHiveDatabasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDoctorHiveDatabasesResponse
    */
   async listDoctorHiveDatabasesWithOptions(request: ListDoctorHiveDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorHiveDatabasesResponse> {
     Util.validateModel(request);
@@ -28583,12 +52678,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of multiple Hive databases at a time.
-   *
-   * @description list Doctor Hive Databases
-   *
-   * @param request ListDoctorHiveDatabasesRequest
-   * @return ListDoctorHiveDatabasesResponse
+   * Obtains the analysis results of multiple Hive databases at a time.
+   * 
+   * @remarks
+   * list Doctor Hive Databases
+   * 
+   * @param request - ListDoctorHiveDatabasesRequest
+   * @returns ListDoctorHiveDatabasesResponse
    */
   async listDoctorHiveDatabases(request: ListDoctorHiveDatabasesRequest): Promise<ListDoctorHiveDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28596,13 +52692,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of multiple Hive tables at a time on E-MapReduce (EMR) Doctor.
-   *
-   * @description list Doctor Hive Tables
-   *
-   * @param request ListDoctorHiveTablesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDoctorHiveTablesResponse
+   * Obtains the analysis results of multiple Hive tables at a time on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list Doctor Hive Tables
+   * 
+   * @param request - ListDoctorHiveTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDoctorHiveTablesResponse
    */
   async listDoctorHiveTablesWithOptions(request: ListDoctorHiveTablesRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorHiveTablesResponse> {
     Util.validateModel(request);
@@ -28657,12 +52754,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the analysis results of multiple Hive tables at a time on E-MapReduce (EMR) Doctor.
-   *
-   * @description list Doctor Hive Tables
-   *
-   * @param request ListDoctorHiveTablesRequest
-   * @return ListDoctorHiveTablesResponse
+   * Obtains the analysis results of multiple Hive tables at a time on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list Doctor Hive Tables
+   * 
+   * @param request - ListDoctorHiveTablesRequest
+   * @returns ListDoctorHiveTablesResponse
    */
   async listDoctorHiveTables(request: ListDoctorHiveTablesRequest): Promise<ListDoctorHiveTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28670,13 +52768,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
-   *
-   * @description list realtime jobs by yarn
-   *
-   * @param request ListDoctorJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDoctorJobsResponse
+   * Obtains the basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list realtime jobs by yarn
+   * 
+   * @param request - ListDoctorJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDoctorJobsResponse
    */
   async listDoctorJobsWithOptions(request: ListDoctorJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorJobsResponse> {
     Util.validateModel(request);
@@ -28747,12 +52846,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
-   *
-   * @description list realtime jobs by yarn
-   *
-   * @param request ListDoctorJobsRequest
-   * @return ListDoctorJobsResponse
+   * Obtains the basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list realtime jobs by yarn
+   * 
+   * @param request - ListDoctorJobsRequest
+   * @returns ListDoctorJobsResponse
    */
   async listDoctorJobs(request: ListDoctorJobsRequest): Promise<ListDoctorJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28760,13 +52860,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the summary of basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
-   *
-   * @description list stats groupBy jobs by yarn
-   *
-   * @param request ListDoctorJobsStatsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDoctorJobsStatsResponse
+   * Obtains the summary of basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list stats groupBy jobs by yarn
+   * 
+   * @param request - ListDoctorJobsStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDoctorJobsStatsResponse
    */
   async listDoctorJobsStatsWithOptions(request: ListDoctorJobsStatsRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorJobsStatsResponse> {
     Util.validateModel(request);
@@ -28825,12 +52926,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the summary of basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
-   *
-   * @description list stats groupBy jobs by yarn
-   *
-   * @param request ListDoctorJobsStatsRequest
-   * @return ListDoctorJobsStatsResponse
+   * Obtains the summary of basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+   * 
+   * @remarks
+   * list stats groupBy jobs by yarn
+   * 
+   * @param request - ListDoctorJobsStatsRequest
+   * @returns ListDoctorJobsStatsResponse
    */
   async listDoctorJobsStats(request: ListDoctorJobsStatsRequest): Promise<ListDoctorJobsStatsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28838,13 +52940,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the overall analysis result reports of E-MapReduce (EMR) Doctor at a time.
-   *
-   * @description list all reports analysis by emr doctor
-   *
-   * @param request ListDoctorReportsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDoctorReportsResponse
+   * Obtains the overall analysis result reports of E-MapReduce (EMR) Doctor at a time.
+   * 
+   * @remarks
+   * list all reports analysis by emr doctor
+   * 
+   * @param request - ListDoctorReportsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDoctorReportsResponse
    */
   async listDoctorReportsWithOptions(request: ListDoctorReportsRequest, runtime: $Util.RuntimeOptions): Promise<ListDoctorReportsResponse> {
     Util.validateModel(request);
@@ -28883,12 +52986,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the overall analysis result reports of E-MapReduce (EMR) Doctor at a time.
-   *
-   * @description list all reports analysis by emr doctor
-   *
-   * @param request ListDoctorReportsRequest
-   * @return ListDoctorReportsResponse
+   * Obtains the overall analysis result reports of E-MapReduce (EMR) Doctor at a time.
+   * 
+   * @remarks
+   * list all reports analysis by emr doctor
+   * 
+   * @param request - ListDoctorReportsRequest
+   * @returns ListDoctorReportsResponse
    */
   async listDoctorReports(request: ListDoctorReportsRequest): Promise<ListDoctorReportsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28896,79 +53000,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListInspectionHistoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInspectionHistoryResponse
-   */
-  async listInspectionHistoryWithOptions(request: ListInspectionHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListInspectionHistoryResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.clusterId)) {
-      query["ClusterId"] = request.clusterId;
-    }
-
-    if (!Util.isUnset(request.component)) {
-      query["Component"] = request.component;
-    }
-
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.language)) {
-      query["Language"] = request.language;
-    }
-
-    if (!Util.isUnset(request.maxResults)) {
-      query["MaxResults"] = request.maxResults;
-    }
-
-    if (!Util.isUnset(request.nextToken)) {
-      query["NextToken"] = request.nextToken;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.service)) {
-      query["Service"] = request.service;
-    }
-
-    if (!Util.isUnset(request.type)) {
-      query["Type"] = request.type;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListInspectionHistory",
-      version: "2021-03-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListInspectionHistoryResponse>(await this.callApi(params, req, runtime), new ListInspectionHistoryResponse({}));
-  }
-
-  /**
-   * @param request ListInspectionHistoryRequest
-   * @return ListInspectionHistoryResponse
-   */
-  async listInspectionHistory(request: ListInspectionHistoryRequest): Promise<ListInspectionHistoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listInspectionHistoryWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request ListInstanceTypesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstanceTypesResponse
+   * @param request - ListInstanceTypesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceTypesResponse
    */
   async listInstanceTypesWithOptions(request: ListInstanceTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceTypesResponse> {
     Util.validateModel(request);
@@ -29035,8 +53069,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListInstanceTypesRequest
-   * @return ListInstanceTypesResponse
+   * @param request - ListInstanceTypesRequest
+   * @returns ListInstanceTypesResponse
    */
   async listInstanceTypes(request: ListInstanceTypesRequest): Promise<ListInstanceTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29044,11 +53078,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the list of node groups in an EMR cluster.
-   *
-   * @param request ListNodeGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListNodeGroupsResponse
+   * Queries the list of node groups in an EMR cluster.
+   * 
+   * @param request - ListNodeGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodeGroupsResponse
    */
   async listNodeGroupsWithOptions(request: ListNodeGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListNodeGroupsResponse> {
     Util.validateModel(request);
@@ -29103,10 +53137,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the list of node groups in an EMR cluster.
-   *
-   * @param request ListNodeGroupsRequest
-   * @return ListNodeGroupsResponse
+   * Queries the list of node groups in an EMR cluster.
+   * 
+   * @param request - ListNodeGroupsRequest
+   * @returns ListNodeGroupsResponse
    */
   async listNodeGroups(request: ListNodeGroupsRequest): Promise<ListNodeGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29114,11 +53148,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the node list of an EMR cluster.
-   *
-   * @param request ListNodesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListNodesResponse
+   * Queries the node list of an EMR cluster.
+   * 
+   * @param request - ListNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodesResponse
    */
   async listNodesWithOptions(request: ListNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesResponse> {
     Util.validateModel(request);
@@ -29185,10 +53219,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the node list of an EMR cluster.
-   *
-   * @param request ListNodesRequest
-   * @return ListNodesResponse
+   * Queries the node list of an EMR cluster.
+   * 
+   * @param request - ListNodesRequest
+   * @returns ListNodesResponse
    */
   async listNodes(request: ListNodesRequest): Promise<ListNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29196,13 +53230,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the major E-MapReduce (EMR) versions.
-   *
-   * @description 查询主版本。
-   *
-   * @param request ListReleaseVersionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListReleaseVersionsResponse
+   * Queries the major E-MapReduce (EMR) versions.
+   * 
+   * @remarks
+   * 查询主版本。
+   * 
+   * @param request - ListReleaseVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListReleaseVersionsResponse
    */
   async listReleaseVersionsWithOptions(request: ListReleaseVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListReleaseVersionsResponse> {
     Util.validateModel(request);
@@ -29237,12 +53272,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the major E-MapReduce (EMR) versions.
-   *
-   * @description 查询主版本。
-   *
-   * @param request ListReleaseVersionsRequest
-   * @return ListReleaseVersionsResponse
+   * Queries the major E-MapReduce (EMR) versions.
+   * 
+   * @remarks
+   * 查询主版本。
+   * 
+   * @param request - ListReleaseVersionsRequest
+   * @returns ListReleaseVersionsResponse
    */
   async listReleaseVersions(request: ListReleaseVersionsRequest): Promise<ListReleaseVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29250,91 +53286,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description 查询资源巡检项。
-   *
-   * @param request ListResourceHealthInspectionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListResourceHealthInspectionsResponse
-   */
-  async listResourceHealthInspectionsWithOptions(request: ListResourceHealthInspectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceHealthInspectionsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.applicationName)) {
-      query["ApplicationName"] = request.applicationName;
-    }
-
-    if (!Util.isUnset(request.clusterId)) {
-      query["ClusterId"] = request.clusterId;
-    }
-
-    if (!Util.isUnset(request.componentName)) {
-      query["ComponentName"] = request.componentName;
-    }
-
-    if (!Util.isUnset(request.healthStatuses)) {
-      query["HealthStatuses"] = request.healthStatuses;
-    }
-
-    if (!Util.isUnset(request.language)) {
-      query["Language"] = request.language;
-    }
-
-    if (!Util.isUnset(request.maxResults)) {
-      query["MaxResults"] = request.maxResults;
-    }
-
-    if (!Util.isUnset(request.nextToken)) {
-      query["NextToken"] = request.nextToken;
-    }
-
-    if (!Util.isUnset(request.nodeIds)) {
-      query["NodeIds"] = request.nodeIds;
-    }
-
-    if (!Util.isUnset(request.nodeNames)) {
-      query["NodeNames"] = request.nodeNames;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceType)) {
-      query["ResourceType"] = request.resourceType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListResourceHealthInspections",
-      version: "2021-03-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListResourceHealthInspectionsResponse>(await this.callApi(params, req, runtime), new ListResourceHealthInspectionsResponse({}));
-  }
-
-  /**
-   * @description 查询资源巡检项。
-   *
-   * @param request ListResourceHealthInspectionsRequest
-   * @return ListResourceHealthInspectionsResponse
-   */
-  async listResourceHealthInspections(request: ListResourceHealthInspectionsRequest): Promise<ListResourceHealthInspectionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listResourceHealthInspectionsWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request ListScriptsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListScriptsResponse
+   * @param request - ListScriptsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListScriptsResponse
    */
   async listScriptsWithOptions(request: ListScriptsRequest, runtime: $Util.RuntimeOptions): Promise<ListScriptsResponse> {
     Util.validateModel(request);
@@ -29377,8 +53331,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListScriptsRequest
-   * @return ListScriptsResponse
+   * @param request - ListScriptsRequest
+   * @returns ListScriptsResponse
    */
   async listScripts(request: ListScriptsRequest): Promise<ListScriptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29386,11 +53340,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags that are bound to an EMR cluster.
-   *
-   * @param request ListTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * Queries the tags that are bound to an EMR cluster.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -29437,10 +53391,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags that are bound to an EMR cluster.
-   *
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * Queries the tags that are bound to an EMR cluster.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29448,13 +53402,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures auto scaling rules.
-   *
-   * @description You can call this operation to configure auto scaling policies.
-   *
-   * @param request PutAutoScalingPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PutAutoScalingPolicyResponse
+   * Configures auto scaling rules.
+   * 
+   * @remarks
+   * You can call this operation to configure auto scaling policies.
+   * 
+   * @param request - PutAutoScalingPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutAutoScalingPolicyResponse
    */
   async putAutoScalingPolicyWithOptions(request: PutAutoScalingPolicyRequest, runtime: $Util.RuntimeOptions): Promise<PutAutoScalingPolicyResponse> {
     Util.validateModel(request);
@@ -29497,12 +53452,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures auto scaling rules.
-   *
-   * @description You can call this operation to configure auto scaling policies.
-   *
-   * @param request PutAutoScalingPolicyRequest
-   * @return PutAutoScalingPolicyResponse
+   * Configures auto scaling rules.
+   * 
+   * @remarks
+   * You can call this operation to configure auto scaling policies.
+   * 
+   * @param request - PutAutoScalingPolicyRequest
+   * @returns PutAutoScalingPolicyResponse
    */
   async putAutoScalingPolicy(request: PutAutoScalingPolicyRequest): Promise<PutAutoScalingPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29510,9 +53466,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveAutoScalingPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveAutoScalingPolicyResponse
+   * @param request - RemoveAutoScalingPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveAutoScalingPolicyResponse
    */
   async removeAutoScalingPolicyWithOptions(request: RemoveAutoScalingPolicyRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAutoScalingPolicyResponse> {
     Util.validateModel(request);
@@ -29547,8 +53503,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveAutoScalingPolicyRequest
-   * @return RemoveAutoScalingPolicyResponse
+   * @param request - RemoveAutoScalingPolicyRequest
+   * @returns RemoveAutoScalingPolicyResponse
    */
   async removeAutoScalingPolicy(request: RemoveAutoScalingPolicyRequest): Promise<RemoveAutoScalingPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29556,9 +53512,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RunApiTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RunApiTemplateResponse
+   * @param request - RunApiTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunApiTemplateResponse
    */
   async runApiTemplateWithOptions(request: RunApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<RunApiTemplateResponse> {
     Util.validateModel(request);
@@ -29597,8 +53553,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RunApiTemplateRequest
-   * @return RunApiTemplateResponse
+   * @param request - RunApiTemplateRequest
+   * @returns RunApiTemplateResponse
    */
   async runApiTemplate(request: RunApiTemplateRequest): Promise<RunApiTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29606,9 +53562,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RunApplicationActionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RunApplicationActionResponse
+   * @param request - RunApplicationActionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunApplicationActionResponse
    */
   async runApplicationActionWithOptions(request: RunApplicationActionRequest, runtime: $Util.RuntimeOptions): Promise<RunApplicationActionResponse> {
     Util.validateModel(request);
@@ -29667,8 +53623,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RunApplicationActionRequest
-   * @return RunApplicationActionResponse
+   * @param request - RunApplicationActionRequest
+   * @returns RunApplicationActionResponse
    */
   async runApplicationAction(request: RunApplicationActionRequest): Promise<RunApplicationActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29676,11 +53632,145 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Bind tags to a specified EMR cluster.
-   *
-   * @param request TagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * @param tmpReq - RunClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunClusterResponse
+   */
+  async runClusterWithOptions(tmpReq: RunClusterRequest, runtime: $Util.RuntimeOptions): Promise<RunClusterResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunClusterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.applicationConfigs)) {
+      request.applicationConfigsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationConfigs, "ApplicationConfigs", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.applications)) {
+      request.applicationsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applications, "Applications", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.bootstrapScripts)) {
+      request.bootstrapScriptsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bootstrapScripts, "BootstrapScripts", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.nodeAttributes)) {
+      request.nodeAttributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeAttributes, "NodeAttributes", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.nodeGroups)) {
+      request.nodeGroupsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeGroups, "NodeGroups", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.subscriptionConfig)) {
+      request.subscriptionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subscriptionConfig, "SubscriptionConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationConfigsShrink)) {
+      body["ApplicationConfigs"] = request.applicationConfigsShrink;
+    }
+
+    if (!Util.isUnset(request.applicationsShrink)) {
+      body["Applications"] = request.applicationsShrink;
+    }
+
+    if (!Util.isUnset(request.bootstrapScriptsShrink)) {
+      body["BootstrapScripts"] = request.bootstrapScriptsShrink;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clusterName)) {
+      body["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.clusterType)) {
+      body["ClusterType"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.deployMode)) {
+      body["DeployMode"] = request.deployMode;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.nodeAttributesShrink)) {
+      body["NodeAttributes"] = request.nodeAttributesShrink;
+    }
+
+    if (!Util.isUnset(request.nodeGroupsShrink)) {
+      body["NodeGroups"] = request.nodeGroupsShrink;
+    }
+
+    if (!Util.isUnset(request.paymentType)) {
+      body["PaymentType"] = request.paymentType;
+    }
+
+    if (!Util.isUnset(request.releaseVersion)) {
+      body["ReleaseVersion"] = request.releaseVersion;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityMode)) {
+      body["SecurityMode"] = request.securityMode;
+    }
+
+    if (!Util.isUnset(request.subscriptionConfigShrink)) {
+      body["SubscriptionConfig"] = request.subscriptionConfigShrink;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunCluster",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunClusterResponse>(await this.callApi(params, req, runtime), new RunClusterResponse({}));
+  }
+
+  /**
+   * @param request - RunClusterRequest
+   * @returns RunClusterResponse
+   */
+  async runCluster(request: RunClusterRequest): Promise<RunClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * Bind tags to a specified EMR cluster.
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -29719,10 +53809,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Bind tags to a specified EMR cluster.
-   *
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * Bind tags to a specified EMR cluster.
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29730,11 +53820,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
-   *
-   * @param request UntagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UntagResourcesResponse
+   * Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
    */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
@@ -29777,10 +53867,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
-   *
-   * @param request UntagResourcesRequest
-   * @return UntagResourcesResponse
+   * Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29788,13 +53878,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an API operation template.
-   *
-   * @description 修改集群模板
-   *
-   * @param request UpdateApiTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateApiTemplateResponse
+   * Updates an API operation template.
+   * 
+   * @remarks
+   * 修改集群模板
+   * 
+   * @param request - UpdateApiTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApiTemplateResponse
    */
   async updateApiTemplateWithOptions(request: UpdateApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApiTemplateResponse> {
     Util.validateModel(request);
@@ -29841,12 +53932,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an API operation template.
-   *
-   * @description 修改集群模板
-   *
-   * @param request UpdateApiTemplateRequest
-   * @return UpdateApiTemplateResponse
+   * Updates an API operation template.
+   * 
+   * @remarks
+   * 修改集群模板
+   * 
+   * @param request - UpdateApiTemplateRequest
+   * @returns UpdateApiTemplateResponse
    */
   async updateApiTemplate(request: UpdateApiTemplateRequest): Promise<UpdateApiTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29854,9 +53946,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateApplicationConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateApplicationConfigsResponse
+   * @param request - UpdateApplicationConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationConfigsResponse
    */
   async updateApplicationConfigsWithOptions(request: UpdateApplicationConfigsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationConfigsResponse> {
     Util.validateModel(request);
@@ -29926,8 +54018,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateApplicationConfigsRequest
-   * @return UpdateApplicationConfigsResponse
+   * @param request - UpdateApplicationConfigsRequest
+   * @returns UpdateApplicationConfigsResponse
    */
   async updateApplicationConfigs(request: UpdateApplicationConfigsRequest): Promise<UpdateApplicationConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29935,11 +54027,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
-   *
-   * @param tmpReq UpdateScriptRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateScriptResponse
+   * Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   * 
+   * @param tmpReq - UpdateScriptRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateScriptResponse
    */
   async updateScriptWithOptions(tmpReq: UpdateScriptRequest, runtime: $Util.RuntimeOptions): Promise<UpdateScriptResponse> {
     Util.validateModel(tmpReq);
@@ -29988,10 +54080,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
-   *
-   * @param request UpdateScriptRequest
-   * @return UpdateScriptResponse
+   * Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   * 
+   * @param request - UpdateScriptRequest
+   * @returns UpdateScriptResponse
    */
   async updateScript(request: UpdateScriptRequest): Promise<UpdateScriptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
