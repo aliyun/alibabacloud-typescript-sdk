@@ -3113,7 +3113,7 @@ export class CreateFileSystemRequest extends $tea.Model {
    * *   2: A KMS-managed key is used to encrypt the data in the file system. This value is valid only if the FileSystemType parameter is set to standard or extreme.
    * 
    * >  *   Extreme NAS file system: All regions support KMS-managed keys.
-   * > *   General-purpose NAS file system: KMS-managed keys are supported in the following regions: China (Chengdu), China (Qingdao), China (Hohhot), China (Ulanqab), China (Heyuan), China (Hangzhou), China (Shanghai), China (Beijing), China (Zhangjiakou), China (Shenzhen), China (Guangzhou), China (Hong Kong), Japan (Tokyo), Philippines (Manila), Thailand (Bangkok), Malaysia (Kuala Lumpur), US (Silicon Valley), Indonesia (Jakarta), UK (London), Singapore, US (Virginia), Germany (Frankfurt), Australia (Sydney), and China East 1 Finance.
+   * > *   General-purpose NAS file system: KMS-managed keys are supported in the following regions: China (Chengdu), China (Qingdao), China (Hohhot), China (Ulanqab), China (Heyuan), China (Hangzhou), China (Shanghai), China (Beijing), China (Zhangjiakou), China (Shenzhen), China (Guangzhou), China (Hong Kong), Japan (Tokyo), Philippines (Manila), Thailand (Bangkok), Malaysia (Kuala Lumpur), US (Silicon Valley), Indonesia (Jakarta), UK (London), Singapore, US (Virginia), Germany (Frankfurt), Australia (Sydney) Closing Down, and China East 1 Finance.
    * 
    * @example
    * 1
@@ -12096,7 +12096,7 @@ export class ModifyAccessRuleRequest extends $tea.Model {
    * You must set this parameter to an IP address or CIDR block.
    * 
    * @example
-   * 192.0.\*\*.**
+   * ``192.0.**.**``
    */
   sourceCidrIp?: string;
   /**
@@ -18420,6 +18420,25 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemTags extends $t
   }
 }
 
+export class DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds extends $tea.Model {
+  vswId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      vswId: 'VswId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vswId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.Model {
   /**
    * @remarks
@@ -18429,6 +18448,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
    * 1
    */
   accessPointCount?: string;
+  autoSnapshotPolicyId?: string;
   /**
    * @remarks
    * The bandwidth of the file system.
@@ -18598,6 +18618,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
    * NFS
    */
   protocolType?: string;
+  quorumVswId?: string;
   /**
    * @remarks
    * The region ID.
@@ -18664,6 +18685,8 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
    * 2.3.4
    */
   version?: string;
+  vpcId?: string;
+  vswIds?: DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds;
   /**
    * @remarks
    * The ID of the zone where the file system resides.
@@ -18675,6 +18698,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
   static names(): { [key: string]: string } {
     return {
       accessPointCount: 'AccessPointCount',
+      autoSnapshotPolicyId: 'AutoSnapshotPolicyId',
       bandwidth: 'Bandwidth',
       capacity: 'Capacity',
       chargeType: 'ChargeType',
@@ -18693,6 +18717,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
       options: 'Options',
       packages: 'Packages',
       protocolType: 'ProtocolType',
+      quorumVswId: 'QuorumVswId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       status: 'Status',
@@ -18700,6 +18725,8 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
       supportedFeatures: 'SupportedFeatures',
       tags: 'Tags',
       version: 'Version',
+      vpcId: 'VpcId',
+      vswIds: 'VswIds',
       zoneId: 'ZoneId',
     };
   }
@@ -18707,6 +18734,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
   static types(): { [key: string]: any } {
     return {
       accessPointCount: 'string',
+      autoSnapshotPolicyId: 'string',
       bandwidth: 'number',
       capacity: 'number',
       chargeType: 'string',
@@ -18725,6 +18753,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
       options: DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions,
       packages: DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages,
       protocolType: 'string',
+      quorumVswId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       status: 'string',
@@ -18732,6 +18761,8 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
       supportedFeatures: DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures,
       tags: DescribeFileSystemsResponseBodyFileSystemsFileSystemTags,
       version: 'string',
+      vpcId: 'string',
+      vswIds: DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds,
       zoneId: 'string',
     };
   }
@@ -20576,6 +20607,13 @@ export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $tea.Model {
 }
 
 export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $tea.Model {
+  /**
+   * @remarks
+   * The size of the archived data that is dumped to the recycle bin. Unit: bytes.
+   * 
+   * @example
+   * 1611661312
+   */
   archiveSize?: number;
   /**
    * @remarks
@@ -20597,7 +20635,7 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $tea.
   reservedDays?: number;
   /**
    * @remarks
-   * The size of the cold data that is dumped to the recycle bin. Unit: bytes.
+   * The size of the Infrequent Access (IA) data that is dumped to the recycle bin. Unit: bytes.
    * 
    * @example
    * 100
@@ -21028,6 +21066,9 @@ export class ListRecycleBinJobsResponseBodyJobs extends $tea.Model {
    * The error code returned.
    * 
    * A valid value is returned only if you set the Status parameter to Fail or PartialSuccess.
+   * 
+   * @example
+   * InvalidFileId.NotFound
    */
   errorCode?: string;
   /**
@@ -21035,6 +21076,9 @@ export class ListRecycleBinJobsResponseBodyJobs extends $tea.Model {
    * The error message.
    * 
    * A valid value is returned only if you set the Status parameter to Fail or PartialSuccess.
+   * 
+   * @example
+   * The Target File or Directory does not exist.
    */
   errorMessage?: string;
   /**
@@ -21083,7 +21127,7 @@ export class ListRecycleBinJobsResponseBodyJobs extends $tea.Model {
    * *   Cancelled: The job is canceled.
    * 
    * @example
-   * Running
+   * Fail
    */
   status?: string;
   /**
@@ -26554,6 +26598,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the recycle bin configurations of a General-purpose NAS file system.
    * 
+   * @remarks
+   * Only General-purpose Apsara File Storage NAS (NAS) file systems support this operation.
+   * 
    * @param request - GetRecycleBinAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRecycleBinAttributeResponse
@@ -26580,6 +26627,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the recycle bin configurations of a General-purpose NAS file system.
+   * 
+   * @remarks
+   * Only General-purpose Apsara File Storage NAS (NAS) file systems support this operation.
    * 
    * @param request - GetRecycleBinAttributeRequest
    * @returns GetRecycleBinAttributeResponse
