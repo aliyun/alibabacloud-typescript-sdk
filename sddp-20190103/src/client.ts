@@ -4427,6 +4427,90 @@ export class DescribeEventsResponse extends $tea.Model {
   }
 }
 
+export class DescribeIdentifyTaskStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 268
+   */
+  id?: number;
+  /**
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIdentifyTaskStatusResponseBody extends $tea.Model {
+  content?: DescribeIdentifyTaskStatusResponseBodyContent;
+  /**
+   * @example
+   * 71064826-726F-4ADA-B879-05D8055476FB
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: DescribeIdentifyTaskStatusResponseBodyContent,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIdentifyTaskStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeIdentifyTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeIdentifyTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceSourcesRequest extends $tea.Model {
   /**
    * @remarks
@@ -12173,6 +12257,25 @@ export class DescribeEventsResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeIdentifyTaskStatusResponseBodyContent extends $tea.Model {
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceSourcesResponseBodyItems extends $tea.Model {
   /**
    * @remarks
@@ -12559,6 +12662,7 @@ export class DescribeInstancesResponseBodyItems extends $tea.Model {
    * 1637622793000
    */
   lastFinishTime?: number;
+  memberAliUid?: string;
   /**
    * @remarks
    * A list of tags.
@@ -12694,6 +12798,7 @@ export class DescribeInstancesResponseBodyItems extends $tea.Model {
       instanceDescription: 'InstanceDescription',
       labelsec: 'Labelsec',
       lastFinishTime: 'LastFinishTime',
+      memberAliUid: 'MemberAliUid',
       modelTags: 'ModelTags',
       name: 'Name',
       odpsRiskLevelName: 'OdpsRiskLevelName',
@@ -12719,6 +12824,7 @@ export class DescribeInstancesResponseBodyItems extends $tea.Model {
       instanceDescription: 'string',
       labelsec: 'boolean',
       lastFinishTime: 'number',
+      memberAliUid: 'string',
       modelTags: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyItemsModelTags },
       name: 'string',
       odpsRiskLevelName: 'string',
@@ -13032,30 +13138,42 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $tea.M
    * Excel file
    */
   categoryName?: string;
+  fileCategoryName?: string;
+  id?: string;
+  modelTagIds?: string;
   /**
    * @example
    * obj_id
    */
   name?: string;
+  objectAcl?: string;
   /**
    * @example
    * cn-zhangjiakou
    */
   regionId?: string;
+  riskLevelId?: number;
   /**
    * @example
    * S1
    */
   riskLevelName?: string;
   ruleList?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList[];
+  size?: number;
   static names(): { [key: string]: string } {
     return {
       bucketName: 'BucketName',
       categoryName: 'CategoryName',
+      fileCategoryName: 'FileCategoryName',
+      id: 'Id',
+      modelTagIds: 'ModelTagIds',
       name: 'Name',
+      objectAcl: 'ObjectAcl',
       regionId: 'RegionId',
+      riskLevelId: 'RiskLevelId',
       riskLevelName: 'RiskLevelName',
       ruleList: 'RuleList',
+      size: 'Size',
     };
   }
 
@@ -13063,10 +13181,16 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $tea.M
     return {
       bucketName: 'string',
       categoryName: 'string',
+      fileCategoryName: 'string',
+      id: 'string',
+      modelTagIds: 'string',
       name: 'string',
+      objectAcl: 'string',
       regionId: 'string',
+      riskLevelId: 'number',
       riskLevelName: 'string',
       ruleList: { 'type': 'array', 'itemType': DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList },
+      size: 'number',
     };
   }
 
@@ -16430,6 +16554,44 @@ export default class Client extends OpenApi {
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEventsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询识别任务状态
+   * 
+   * @param request - DescribeIdentifyTaskStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIdentifyTaskStatusResponse
+   */
+  async describeIdentifyTaskStatusWithOptions(request: DescribeIdentifyTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIdentifyTaskStatusResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeIdentifyTaskStatus",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIdentifyTaskStatusResponse>(await this.callApi(params, req, runtime), new DescribeIdentifyTaskStatusResponse({}));
+  }
+
+  /**
+   * 查询识别任务状态
+   * 
+   * @param request - DescribeIdentifyTaskStatusRequest
+   * @returns DescribeIdentifyTaskStatusResponse
+   */
+  async describeIdentifyTaskStatus(request: DescribeIdentifyTaskStatusRequest): Promise<DescribeIdentifyTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeIdentifyTaskStatusWithOptions(request, runtime);
   }
 
   /**
