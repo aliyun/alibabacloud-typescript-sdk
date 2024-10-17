@@ -1845,11 +1845,13 @@ export class ImageConfig extends $tea.Model {
   accelerationType?: string;
   image?: string;
   instanceID?: string;
+  registryConfig?: RegistryConfig;
   static names(): { [key: string]: string } {
     return {
       accelerationType: 'accelerationType',
       image: 'image',
       instanceID: 'instanceID',
+      registryConfig: 'registryConfig',
     };
   }
 
@@ -1858,6 +1860,7 @@ export class ImageConfig extends $tea.Model {
       accelerationType: 'string',
       image: 'string',
       instanceID: 'string',
+      registryConfig: RegistryConfig,
     };
   }
 
@@ -3200,6 +3203,87 @@ export class PublishWebApplicationRevisionInput extends $tea.Model {
       description: 'string',
       enableArmsMetrics: 'boolean',
       takeEffect: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegistryAuthConfig extends $tea.Model {
+  /**
+   * @example
+   * abc***
+   */
+  password?: string;
+  /**
+   * @example
+   * acs:ram::142xxxx:role/xxxxxx
+   */
+  role?: string;
+  /**
+   * @example
+   * admin
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      password: 'password',
+      role: 'role',
+      userName: 'userName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      password: 'string',
+      role: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegistryCertConfig extends $tea.Model {
+  insecure?: boolean;
+  rootCaCertBase64?: string;
+  static names(): { [key: string]: string } {
+    return {
+      insecure: 'insecure',
+      rootCaCertBase64: 'rootCaCertBase64',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insecure: 'boolean',
+      rootCaCertBase64: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegistryConfig extends $tea.Model {
+  authConfig?: RegistryAuthConfig;
+  certConfig?: RegistryCertConfig;
+  static names(): { [key: string]: string } {
+    return {
+      authConfig: 'authConfig',
+      certConfig: 'certConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authConfig: RegistryAuthConfig,
+      certConfig: RegistryCertConfig,
     };
   }
 
@@ -7250,17 +7334,34 @@ export class CreateGreyTagRouteResponse extends $tea.Model {
 
 export class CreateIngressRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the certificate that is associated with the **CLB** instance.
+   * 
+   * *   If you set **LoadBalanceType** to **clb**, you can use CertId to configure a certificate for the HTTPS listener.
+   * 
+   * For more information about how to manage the SSL certificate IDs that are used by CLB instances, see [Overview](https://help.aliyun.com/document_detail/90792.html).
+   * 
    * @example
    * 188077086902****_176993d****_181437****_108724****
    */
   certId?: string;
   /**
+   * @remarks
+   * The IDs of the certificates that are associated with the **ALB** instance.
+   * 
+   * *   If you set **LoadBalanceType** to **alb**, you can use CertIds to configure multiple certificates for the HTTPS listener. Separate multiple certificate IDs with commas (,).
+   * *   The ID of the SSL certificate that is used by an ALB instance can be obtained from Certificate Management Service. For example, if you specify `756***-cn-hangzhou`, `756***` is the certificate ID that is obtained from the service page, and `-cn-hangzhou` is the fixed suffix. For more information, see [Manage certificates](https://help.aliyun.com/document_detail/209076.html).
+   * 
    * @example
    * 87***35-cn-hangzhou,812***3-cn-hangzhou
    */
   certIds?: string;
   /**
    * @remarks
+   * Default forwarding rule. Traffic is forwarded to the specified application through a designated port based on the IP address. Parameter descriptions are as follows:
+   * - **appId**: Application ID. - **containerPort**: Application instance port.
+   * > All requests that do not match or do not meet the **Rules** for forwarding will be directed to this specified application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7268,13 +7369,28 @@ export class CreateIngressRequest extends $tea.Model {
    */
   defaultRule?: string;
   /**
+   * @remarks
+   * Route rule name.
+   * 
    * @example
    * ingress-for-sae-test
    */
   description?: string;
+  /**
+   * @remarks
+   * The timeout period of an idle connection. Unit: seconds. Valid values: 1 to 60.
+   * 
+   * If no request is received within the specified timeout period, ALB closes the current connection. When another request is received, ALB establishes a new connection.
+   * 
+   * @example
+   * 15
+   */
   idleTimeout?: number;
   /**
    * @remarks
+   * SThe frontend port that is used by the ALB instance.
+   * Valid values: 1 to 65535.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7282,35 +7398,77 @@ export class CreateIngressRequest extends $tea.Model {
    */
   listenerPort?: number;
   /**
+   * @remarks
+   * Request forwarding protocol. The value description is as follows:
+   * - **HTTP**: Suitable for applications that need to identify data content. - **HTTPS**: Suitable for applications that require encrypted transmission.
+   * 
    * @example
    * HTTP
    */
   listenerProtocol?: string;
   /**
+   * @remarks
+   * The type of the SLB instance. The instance type can be specified only when you create a routing rule. You cannot change the instance type when you update the routing rule. Valid values:
+   * 
+   * *   **clb**
+   * *   **alb**
+   * 
    * @example
    * clb
    */
   loadBalanceType?: string;
   /**
    * @remarks
+   * The ID of the namespace where the application is located. Currently, cross-namespace applications are not supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-beijing:sae-test
    */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The timeout period of a request. Unit: seconds. Valid values: 1 to 180.
+   * If no response is received from the backend server within the specified timeout period, ALB returns an HTTP 504 error code to the client.
+   * 
+   * @example
+   * 3
+   */
   requestTimeout?: number;
   /**
    * @remarks
+   * The forwarding rules. You can specify a port and an application in a forwarding rule to forward traffic based on the specified domain name and request path. The following list describes the involved parameters:
+   * 
+   * *   **appId**: the ID of the application.
+   * *   **containerPort**: the container port of the application.
+   * *   **domain**: the domain name.
+   * *   **path**: the request path.
+   * *   **backendProtocol**: the backend service protocol. Valid values: http, https, and grpc. Default value: http.
+   * *   **rewritePath**: the rewrite path.
+   * 
+   * >  The path rewrite feature is supported only by ALB instances.
+   * 
    * This parameter is required.
    * 
    * @example
    * [{"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080,"domain":"www.sae.site","path":"/path1"},{"appId":"666403ce-d25b-47cf-87fe-497565d2****","containerPort":8080,"domain":"sae.site","path":"/path2"}]
    */
   rules?: string;
+  /**
+   * @remarks
+   * The security policy ID.
+   * 
+   * @example
+   * sp-bp1bpn0kn9****
+   */
   securityPolicyId?: string;
   /**
    * @remarks
+   * The Server Load Balancer (SLB) instance that is used by the routing rule.
+   * 
+   * >  The SLB instance can be a Classic Load Balancer (CLB) instance or an Application Load Balancer (ALB) instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7360,28 +7518,68 @@ export class CreateIngressRequest extends $tea.Model {
 
 export class CreateIngressResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response.
+   */
   data?: CreateIngressResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * success
+   */
   errorCode?: string;
   /**
+   * @remarks
+   * The additional information that is returned. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the Secret is successfully deleted. Valid values:
+   * 
+   * *   **true**: The instance was deleted.
+   * *   **false**: The instance failed to be deleted.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
    * @example
    * 0a98a02315955564772843261e****
    */
@@ -23481,21 +23679,45 @@ export class UpdateGreyTagRouteResponse extends $tea.Model {
 
 export class UpdateIngressRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the certificate that is associated with the Classic Load Balancer (**CLB**) instance.
+   * 
+   * *   If you set **LoadBalanceType** to **clb**, you can use CertId to configure a certificate for the HTTPS listener.
+   * 
+   * For more information about how to manage the SSL certificate IDs that are used by CLB instances, see [Overview](https://help.aliyun.com/document_detail/90792.html).
+   * 
    * @example
    * 188077086902****_176993d****_181437****_108724****
    */
   certId?: string;
   /**
+   * @remarks
+   * The IDs of the certificates that are associated with the Application Load Balancer (**ALB**) instance.
+   * 
+   * *   If you set **LoadBalanceType** to **alb**, you can use CertIds to configure multiple certificates for the HTTPS listener. Separate multiple certificate IDs with commas (,).
+   * *   The ID of the SSL certificate that is used by an ALB instance can be obtained from Certificate Management Service. For example, if you specify `756***-cn-hangzhou`, `756***` is the certificate ID that is obtained from the service page, and `-cn-hangzhou` is the fixed suffix. For more information, see [Manage certificates](https://help.aliyun.com/document_detail/209076.html).
+   * 
    * @example
    * 87***35-cn-hangzhou,812***3-cn-hangzhou
    */
   certIds?: string;
   /**
+   * @remarks
+   * The default forwarding rule. You can specify a port and an application in the default forwarding rule to forward traffic based on the IP address. The following list describes the involved parameters:
+   * 
+   * *   **appId**: the ID of the application.
+   * *   **containerPort**: the container port of the application.
+   * 
+   * >  All requests that do not match the forwarding rules specified for Rules are forwarded over the port to the application.
+   * 
    * @example
    * {"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080}
    */
   defaultRule?: string;
   /**
+   * @remarks
+   * The name of the routing rule.
+   * 
    * @example
    * ingress-sae-test
    */
@@ -23503,6 +23725,8 @@ export class UpdateIngressRequest extends $tea.Model {
   idleTimeout?: number;
   /**
    * @remarks
+   * The ID of the routing rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23510,22 +23734,42 @@ export class UpdateIngressRequest extends $tea.Model {
    */
   ingressId?: number;
   /**
+   * @remarks
+   * The port specified for the Server Load Balancer (SLB) listener. You must specify a vacant port.
+   * 
    * @example
    * 443
    */
   listenerPort?: string;
   /**
+   * @remarks
+   * The protocol that is used to forward requests. Valid values:
+   * 
+   * *   **HTTP**: HTTP is suitable for applications that need to identify the transmitted data.
+   * *   **HTTPS**: HTTPS is suitable for applications that require encrypted data transmission.
+   * 
    * @example
    * HTTP
    */
   listenerProtocol?: string;
   /**
+   * @remarks
+   * This parameter is discontinued.
+   * 
    * @example
    * clb
    */
   loadBalanceType?: string;
   requestTimeout?: number;
   /**
+   * @remarks
+   * The forwarding rules. You can specify a port and an application in a forwarding rule to forward traffic based on the specified domain name and request path. The following list describes the involved parameters:
+   * 
+   * *   **appId**: the ID of the application.
+   * *   **containerPort**: the container port of the application.
+   * *   **domain**: the domain name.
+   * *   **path**: the request path.
+   * 
    * @example
    * [{"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080,"domain":"www.sae.site","path":"/path1"},{"appId":"666403ce-d25b-47cf-87fe-497565d2****","containerPort":8080,"domain":"sae.site","path":"/path2"}]
    */
@@ -23572,28 +23816,65 @@ export class UpdateIngressRequest extends $tea.Model {
 
 export class UpdateIngressResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: UpdateIngressResponseBodyData;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   If the request was successful, **ErrorCode** is not returned.
+   * *   If the request failed, **ErrorCode** is returned. For more information, see the **Error codes** section of this topic.
+   */
   errorCode?: string;
   /**
+   * @remarks
+   * The returned information.
+   * 
+   * *   If the request was successful, **success** is returned.
+   * *   If the request failed, an error code is returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the configurations of the routing rule were updated. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The trace ID.
+   * 
    * @example
    * 0a98a02315955564772843261e****
    */
@@ -26739,6 +27020,9 @@ export class CreateGreyTagRouteResponseBodyData extends $tea.Model {
 
 export class CreateIngressResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the routing rule.
+   * 
    * @example
    * 87
    */
@@ -31113,6 +31397,7 @@ export class DescribeConfigurationPriceResponseBodyDataBagUsage extends $tea.Mod
    * 497570.450009
    */
   cpu?: number;
+  cu?: number;
   /**
    * @example
    * 989802.563546
@@ -31121,6 +31406,7 @@ export class DescribeConfigurationPriceResponseBodyDataBagUsage extends $tea.Mod
   static names(): { [key: string]: string } {
     return {
       cpu: 'Cpu',
+      cu: 'Cu',
       mem: 'Mem',
     };
   }
@@ -31128,6 +31414,7 @@ export class DescribeConfigurationPriceResponseBodyDataBagUsage extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       cpu: 'number',
+      cu: 'number',
       mem: 'number',
     };
   }
@@ -38837,6 +39124,9 @@ export class UpdateGreyTagRouteResponseBodyData extends $tea.Model {
 
 export class UpdateIngressResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the routing rule.
+   * 
    * @example
    * 87
    */
@@ -39874,7 +40164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * {"appId":"395b60e4-0550-458d-9c54-a265d036\\*\\*\\*\\*","containerPort":8080}
+   * Creates a routing rule.
    * 
    * @param request - CreateIngressRequest
    * @param headers - map
@@ -39957,7 +40247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * {"appId":"395b60e4-0550-458d-9c54-a265d036\\*\\*\\*\\*","containerPort":8080}
+   * Creates a routing rule.
    * 
    * @param request - CreateIngressRequest
    * @returns CreateIngressResponse
@@ -45809,6 +46099,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the configurations of a routing rule.
+   * 
    * @param request - UpdateIngressRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45886,6 +46178,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the configurations of a routing rule.
+   * 
    * @param request - UpdateIngressRequest
    * @returns UpdateIngressResponse
    */
