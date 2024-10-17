@@ -50003,7 +50003,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
   enableAuthToken?: string;
   /**
    * @remarks
-   * 扩展信息（仅控制台请求才返回）
+   * The extra information.
    */
   extraInfo?: { [key: string]: string };
   /**
@@ -50147,7 +50147,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
   subClustersJson?: string;
   /**
    * @remarks
-   * Supported authentication types.
+   * The supported authentication types.
    */
   supportAuthTypes?: string[];
   /**
@@ -51564,12 +51564,37 @@ export class GetRumDataForPageResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetRumExceptionStackResponseBodyDataThreadInfoList extends $tea.Model {
+  threadDetail?: string;
+  threadTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      threadDetail: 'ThreadDetail',
+      threadTag: 'ThreadTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      threadDetail: 'string',
+      threadTag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRumExceptionStackResponseBodyData extends $tea.Model {
+  crashAddress?: string;
+  crashReason?: string;
   /**
    * @remarks
    * The list of stacks.
    */
   lines?: string[];
+  moduleName?: string;
   /**
    * @remarks
    * The thread ID.
@@ -51578,17 +51603,29 @@ export class GetRumExceptionStackResponseBodyData extends $tea.Model {
    * 16643
    */
   threadId?: string;
+  threadInfoList?: GetRumExceptionStackResponseBodyDataThreadInfoList[];
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      crashAddress: 'CrashAddress',
+      crashReason: 'CrashReason',
       lines: 'Lines',
+      moduleName: 'ModuleName',
       threadId: 'ThreadId',
+      threadInfoList: 'ThreadInfoList',
+      uuid: 'Uuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      crashAddress: 'string',
+      crashReason: 'string',
       lines: { 'type': 'array', 'itemType': 'string' },
+      moduleName: 'string',
       threadId: 'string',
+      threadInfoList: { 'type': 'array', 'itemType': GetRumExceptionStackResponseBodyDataThreadInfoList },
+      uuid: 'string',
     };
   }
 
@@ -66699,7 +66736,7 @@ export class SearchTracesResponseBodyTraceInfos extends $tea.Model {
    * The IP address of the host where the application resides.
    * 
    * @example
-   * 172.20.\*\*.**
+   * ``172.20.**.**``
    */
   serviceIp?: string;
   /**
