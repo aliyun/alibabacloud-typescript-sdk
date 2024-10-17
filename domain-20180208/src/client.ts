@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,6 +8,13 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AcceptDemandRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SE20183A0Q7C5556
+   */
   bizId?: string;
   message?: string;
   static names(): { [key: string]: string } {
@@ -32,6 +38,10 @@ export class AcceptDemandRequest extends $tea.Model {
 
 export class AcceptDemandResponseBody extends $tea.Model {
   bindUrl?: string;
+  /**
+   * @example
+   * 497F7522-82B0-4BD4-84FE-AE8749E4C2F9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,8 +88,29 @@ export class AcceptDemandResponse extends $tea.Model {
 }
 
 export class BidDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345678
+   */
   auctionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * RMB
+   */
   currency?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   maxBid?: number;
   static names(): { [key: string]: string } {
     return {
@@ -103,7 +134,15 @@ export class BidDomainRequest extends $tea.Model {
 }
 
 export class BidDomainResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 12345678
+   */
   auctionId?: string;
+  /**
+   * @example
+   * CC615585-9D93-4179-BD16-09337E32A3A7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -213,6 +252,10 @@ export class ChangeAuctionResponse extends $tea.Model {
 }
 
 export class CheckDomainStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -288,6 +331,13 @@ export class CheckDomainStatusResponse extends $tea.Model {
 }
 
 export class CheckSelectedDomainStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -307,10 +357,26 @@ export class CheckSelectedDomainStatusRequest extends $tea.Model {
 }
 
 export class CheckSelectedDomainStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OssFileNotFound
+   */
   errorCode?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   module?: CheckSelectedDomainStatusResponseBodyModule;
+  /**
+   * @example
+   * E2598CAF-DBFE-494E-95EF-B42A33C178AA
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -447,10 +513,39 @@ export class CreateFixedPriceDemandOrderResponse extends $tea.Model {
 }
 
 export class CreateFixedPriceSelectedOrderRequest extends $tea.Model {
+  /**
+   * @example
+   * DX123456
+   */
   code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11935401
+   */
   contactId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20.00
+   */
   expectedPrice?: number;
+  /**
+   * @example
+   * partnername
+   */
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -478,10 +573,26 @@ export class CreateFixedPriceSelectedOrderRequest extends $tea.Model {
 }
 
 export class CreateFixedPriceSelectedOrderResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DomainNotOnSale
+   */
   errorCode?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   module?: CreateFixedPriceSelectedOrderResponseBodyModule;
+  /**
+   * @example
+   * C50E41A0-09F1-4491-8DB8-AF55BD2D0CC8
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -534,7 +645,18 @@ export class CreateFixedPriceSelectedOrderResponse extends $tea.Model {
 }
 
 export class FailDemandRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SE20183A0Q7C5556
+   */
   bizId?: string;
+  /**
+   * @example
+   * some message
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -556,6 +678,10 @@ export class FailDemandRequest extends $tea.Model {
 }
 
 export class FailDemandResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 497F7522-82B0-4BD4-84FE-AE8749E4C2F9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -600,7 +726,18 @@ export class FailDemandResponse extends $tea.Model {
 }
 
 export class FinishDemandRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SE20183A0Q7C5556
+   */
   bizId?: string;
+  /**
+   * @example
+   * some message
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -622,6 +759,10 @@ export class FinishDemandRequest extends $tea.Model {
 }
 
 export class FinishDemandResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 497F7522-82B0-4BD4-84FE-AE8749E4C2F9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -740,7 +881,15 @@ export class GetIntlDomainDownloadUrlResponse extends $tea.Model {
 }
 
 export class GetReserveDomainUrlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * D34B02AE-09AF-41C1-A6D3-951A2233EDB0
+   */
   requestId?: string;
+  /**
+   * @example
+   * http://example.com
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -787,8 +936,20 @@ export class GetReserveDomainUrlResponse extends $tea.Model {
 }
 
 export class PurchaseIntlDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   auctionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   currency?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   price?: number;
   static names(): { [key: string]: string } {
     return {
@@ -886,6 +1047,13 @@ export class PurchaseIntlDomainResponse extends $tea.Model {
 }
 
 export class QueryAuctionDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   auctionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -905,29 +1073,121 @@ export class QueryAuctionDetailRequest extends $tea.Model {
 }
 
 export class QueryAuctionDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1515961936000
+   */
   auctionEndTime?: number;
+  /**
+   * @example
+   * 123456
+   */
   auctionId?: string;
+  /**
+   * @example
+   * 1515961936000
+   */
   bookEndTime?: number;
+  /**
+   * @example
+   * 4
+   */
   bookedPartner?: string;
+  /**
+   * @example
+   * RMB
+   */
   currency?: string;
+  /**
+   * @example
+   * 1515961936000
+   */
   deliveryTime?: number;
+  /**
+   * @example
+   * test.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * 0
+   */
   domainType?: string;
+  /**
+   * @example
+   * 0
+   */
   failCode?: string;
+  /**
+   * @example
+   * 100
+   */
   highBid?: number;
+  /**
+   * @example
+   * abc
+   */
   highBidder?: string;
+  /**
+   * @example
+   * 110
+   */
   nextValidBid?: number;
+  /**
+   * @example
+   * 4
+   */
   partnerType?: string;
+  /**
+   * @example
+   * 1515961936000
+   */
   payEndTime?: number;
+  /**
+   * @example
+   * 200
+   */
   payPrice?: number;
+  /**
+   * @example
+   * 1
+   */
   payStatus?: string;
+  /**
+   * @example
+   * 0
+   */
   produceStatus?: string;
+  /**
+   * @example
+   * UUID
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   reserveMet?: boolean;
   reservePrice?: number;
+  /**
+   * @example
+   * 2
+   */
   status?: string;
+  /**
+   * @example
+   * 50
+   */
   transferInPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   yourCurrentBid?: number;
+  /**
+   * @example
+   * 120
+   */
   yourMaxBid?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1019,8 +1279,20 @@ export class QueryAuctionDetailResponse extends $tea.Model {
 
 export class QueryAuctionsRequest extends $tea.Model {
   auctionEndTimeOrder?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 0
+   */
   status?: string;
   statuses?: string;
   static names(): { [key: string]: string } {
@@ -1049,11 +1321,31 @@ export class QueryAuctionsRequest extends $tea.Model {
 }
 
 export class QueryAuctionsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPageNum?: number;
   data?: QueryAuctionsResponseBodyData[];
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * UUID
+   */
   requestId?: string;
+  /**
+   * @example
+   * 5
+   */
   totalItemNum?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1108,8 +1400,23 @@ export class QueryAuctionsResponse extends $tea.Model {
 }
 
 export class QueryBidRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   auctionId?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1133,11 +1440,31 @@ export class QueryBidRecordsRequest extends $tea.Model {
 }
 
 export class QueryBidRecordsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPageNum?: number;
   data?: QueryBidRecordsResponseBodyData[];
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * UUID
+   */
   requestId?: string;
+  /**
+   * @example
+   * 5
+   */
   totalItemNum?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1192,6 +1519,13 @@ export class QueryBidRecordsResponse extends $tea.Model {
 }
 
 export class QueryBookingDomainInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * abc.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1211,13 +1545,41 @@ export class QueryBookingDomainInfoRequest extends $tea.Model {
 }
 
 export class QueryBookingDomainInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
   auctionId?: number;
+  /**
+   * @example
+   * 1517985730419
+   */
   bookEndTime?: number;
+  /**
+   * @example
+   * USD
+   */
   currency?: string;
+  /**
+   * @example
+   * 15
+   */
   maxBid?: number;
+  /**
+   * @example
+   * 4
+   */
   partnerType?: string;
+  /**
+   * @example
+   * 234234njhjkhkj
+   */
   requestId?: string;
   snatchNo?: string;
+  /**
+   * @example
+   * 17
+   */
   transferInPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1276,9 +1638,25 @@ export class QueryBookingDomainInfoResponse extends $tea.Model {
 }
 
 export class QueryBrokerDemandRequest extends $tea.Model {
+  /**
+   * @example
+   * SE20183915FI0178
+   */
   bizId?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1304,11 +1682,31 @@ export class QueryBrokerDemandRequest extends $tea.Model {
 }
 
 export class QueryBrokerDemandResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPageNum?: number;
   data?: QueryBrokerDemandResponseBodyData[];
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 497F7522-82B0-4BD4-84FE-AE8749E4C2F9
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   totalItemNum?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1363,8 +1761,23 @@ export class QueryBrokerDemandResponse extends $tea.Model {
 }
 
 export class QueryBrokerDemandRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SE20183A0Q7C5556
+   */
   bizId?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1388,11 +1801,31 @@ export class QueryBrokerDemandRecordRequest extends $tea.Model {
 }
 
 export class QueryBrokerDemandRecordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPageNum?: number;
   data?: QueryBrokerDemandRecordResponseBodyData;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 497F7522-82B0-4BD4-84FE-AE8749E4C2F9
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   totalItemNum?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1512,6 +1945,97 @@ export class QueryDomainTransferStatusResponse extends $tea.Model {
   }
 }
 
+export class QueryExchangeRateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * USD
+   */
+  fromCurrency?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CNY
+   */
+  toCurrency?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fromCurrency: 'FromCurrency',
+      toCurrency: 'ToCurrency',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromCurrency: 'string',
+      toCurrency: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryExchangeRateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7.12
+   */
+  exchangeRate?: number;
+  /**
+   * @example
+   * D200000-C0B9-4CD3-B92A-9B44A000000
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exchangeRate: 'ExchangeRate',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exchangeRate: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryExchangeRateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryExchangeRateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryExchangeRateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryPurchasedDomainsRequest extends $tea.Model {
   currentPage?: number;
   domainName?: string;
@@ -1615,7 +2139,21 @@ export class QueryPurchasedDomainsResponse extends $tea.Model {
 }
 
 export class RecordDemandRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SE20183A0Q7C5556
+   */
   bizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * some message
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1637,6 +2175,10 @@ export class RecordDemandRequest extends $tea.Model {
 }
 
 export class RecordDemandResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 497F7522-82B0-4BD4-84FE-AE8749E4C2F9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1681,7 +2223,18 @@ export class RecordDemandResponse extends $tea.Model {
 }
 
 export class RefuseDemandRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SE20183A0Q7C5556
+   */
   bizId?: string;
+  /**
+   * @example
+   * some message
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1703,6 +2256,10 @@ export class RefuseDemandRequest extends $tea.Model {
 }
 
 export class RefuseDemandResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 497F7522-82B0-4BD4-84FE-AE8749E4C2F9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1747,10 +2304,39 @@ export class RefuseDemandResponse extends $tea.Model {
 }
 
 export class RequestPayDemandRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SE20183A0Q7C5556
+   */
   bizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * some message
+   */
   message?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   price?: number;
+  /**
+   * @example
+   * 1
+   */
   produceType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1778,6 +2364,10 @@ export class RequestPayDemandRequest extends $tea.Model {
 }
 
 export class RequestPayDemandResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 497F7522-82B0-4BD4-84FE-AE8749E4C2F9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1822,7 +2412,18 @@ export class RequestPayDemandResponse extends $tea.Model {
 }
 
 export class ReserveDomainRequest extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   channels?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aliyun.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1844,7 +2445,15 @@ export class ReserveDomainRequest extends $tea.Model {
 }
 
 export class ReserveDomainResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 12080761
+   */
   auctionId?: string;
+  /**
+   * @example
+   * 64F63E07-3AF6-4D59-8616-55DF1A9E03ED
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1891,6 +2500,10 @@ export class ReserveDomainResponse extends $tea.Model {
 }
 
 export class ReserveIntlDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1984,6 +2597,13 @@ export class ReserveIntlDomainResponse extends $tea.Model {
 }
 
 export class SelectedDomainListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20231109
+   */
   listDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2003,9 +2623,24 @@ export class SelectedDomainListRequest extends $tea.Model {
 }
 
 export class SelectedDomainListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OssFileNotFound
+   */
   errorCode?: string;
   module?: SelectedDomainListResponseBodyModule;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 80011ABC-F573-4795-B0E8-377BFBBA3422
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2158,9 +2793,25 @@ export class SubmitPurchaseInfoResponse extends $tea.Model {
 }
 
 export class UpdatePartnerReservePriceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   biddingId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   partnerType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   reservePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2230,8 +2881,20 @@ export class UpdatePartnerReservePriceResponse extends $tea.Model {
 }
 
 export class ChangeAuctionRequestAuctionListBidRecords extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   price?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2256,14 +2919,30 @@ export class ChangeAuctionRequestAuctionListBidRecords extends $tea.Model {
 
 export class ChangeAuctionRequestAuctionList extends $tea.Model {
   bidRecords?: ChangeAuctionRequestAuctionListBidRecords[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   endTime?: string;
   isReserve?: number;
   reservePrice?: number;
   reserveRange?: string;
   status?: string;
   timeLeft?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   winner?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   winnerPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2332,11 +3011,31 @@ export class CheckDomainStatusResponseBodyModule extends $tea.Model {
 }
 
 export class CheckSelectedDomainStatusResponseBodyModule extends $tea.Model {
+  /**
+   * @example
+   * 1567353497
+   */
   deadDate?: number;
+  /**
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @example
+   * 1567353497
+   */
   endTime?: number;
   premium?: boolean;
+  /**
+   * @example
+   * 20.00
+   */
   price?: number;
+  /**
+   * @example
+   * 1566353497
+   */
   regDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2391,8 +3090,20 @@ export class CreateFixedPriceDemandOrderResponseBodyModule extends $tea.Model {
 }
 
 export class CreateFixedPriceSelectedOrderResponseBodyModule extends $tea.Model {
+  /**
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @example
+   * 31199295f2074ce895645d386cb22c36
+   */
   orderNo?: string;
+  /**
+   * @example
+   * 20.00
+   */
   price?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2416,30 +3127,118 @@ export class CreateFixedPriceSelectedOrderResponseBodyModule extends $tea.Model 
 }
 
 export class QueryAuctionsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1515961936000
+   */
   auctionEndTime?: number;
+  /**
+   * @example
+   * 123456
+   */
   auctionId?: string;
+  /**
+   * @example
+   * 1515961936000
+   */
   bookEndTime?: number;
+  /**
+   * @example
+   * 4
+   */
   bookedPartner?: string;
+  /**
+   * @example
+   * RMB
+   */
   currency?: string;
+  /**
+   * @example
+   * 1515961936000
+   */
   deliveryTime?: number;
+  /**
+   * @example
+   * test.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * 0
+   */
   domainType?: string;
+  /**
+   * @example
+   * 0
+   */
   failCode?: string;
+  /**
+   * @example
+   * 100
+   */
   highBid?: number;
+  /**
+   * @example
+   * abc
+   */
   highBidder?: string;
+  /**
+   * @example
+   * 110
+   */
   nextValidBid?: number;
+  /**
+   * @example
+   * 4
+   */
   partnerType?: string;
+  /**
+   * @example
+   * 1515961936000
+   */
   payEndTime?: number;
+  /**
+   * @example
+   * 200
+   */
   payPrice?: number;
+  /**
+   * @example
+   * 1
+   */
   payStatus?: string;
+  /**
+   * @example
+   * 0
+   */
   produceStatus?: string;
   reserveMax?: number;
+  /**
+   * @example
+   * true
+   */
   reserveMet?: boolean;
   reserveMin?: number;
   reservePrice?: number;
+  /**
+   * @example
+   * 2
+   */
   status?: string;
+  /**
+   * @example
+   * 50
+   */
   transferInPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   yourCurrentBid?: number;
+  /**
+   * @example
+   * 120
+   */
   yourMaxBid?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2507,10 +3306,30 @@ export class QueryAuctionsResponseBodyData extends $tea.Model {
 }
 
 export class QueryBidRecordsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 50
+   */
   bid?: number;
+  /**
+   * @example
+   * 1515961936000
+   */
   bidTime?: number;
+  /**
+   * @example
+   * abc
+   */
   bidder?: string;
+  /**
+   * @example
+   * RMB
+   */
   currency?: string;
+  /**
+   * @example
+   * test.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2539,24 +3358,76 @@ export class QueryBidRecordsResponseBodyData extends $tea.Model {
 
 export class QueryBrokerDemandResponseBodyData extends $tea.Model {
   auditStatus?: number;
+  /**
+   * @example
+   * 13300000001
+   */
   bargainSellerMobile?: string;
+  /**
+   * @example
+   * 100
+   */
   bargainSellerPrice?: number;
+  /**
+   * @example
+   * SE20183915FI0178
+   */
   bizId?: string;
+  /**
+   * @example
+   * taobao.com
+   */
   demandDomain?: string;
+  /**
+   * @example
+   * 1
+   */
   demandPrice?: number;
   description?: string;
   email?: string;
+  /**
+   * @example
+   * 13300000000
+   */
   mobile?: string;
   orderType?: number;
   partnerDomain?: string;
+  /**
+   * @example
+   * test.com
+   */
   payDomain?: string;
+  /**
+   * @example
+   * 100
+   */
   payPrice?: number;
+  /**
+   * @example
+   * 1524800053000
+   */
   payTime?: number;
+  /**
+   * @example
+   * 1
+   */
   produceType?: number;
+  /**
+   * @example
+   * 1524800053000
+   */
   publishTime?: number;
   purchaseStatus?: number;
+  /**
+   * @example
+   * 18800
+   */
   servicePayPrice?: number;
   settleBasePrice?: number;
+  /**
+   * @example
+   * 1
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2614,7 +3485,15 @@ export class QueryBrokerDemandResponseBodyData extends $tea.Model {
 }
 
 export class QueryBrokerDemandRecordResponseBodyDataBrokerDemandRecord extends $tea.Model {
+  /**
+   * @example
+   * SE20183A0Q7C5556
+   */
   bizId?: string;
+  /**
+   * @example
+   * 1525249317000
+   */
   createTime?: number;
   description?: string;
   static names(): { [key: string]: string } {
@@ -2714,6 +3593,10 @@ export class QueryPurchasedDomainsResponseBodyData extends $tea.Model {
 }
 
 export class SelectedDomainListResponseBodyModule extends $tea.Model {
+  /**
+   * @example
+   * http://selected-domain.oss-cn-zhangjiakou.aliyuncs.com/aliyun_selected_domain_20231109.gz?Expires=1699524493&OSSAccessKeyId=LTAI5tPMAybR4gfSEjdfAk1F&Signature=2Tpo7Eaf%2BqIop8SuMtI91m%2FAFpY%3D
+   */
   downloadUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2756,9 +3639,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AcceptDemandRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AcceptDemandResponse
+   * @param request - AcceptDemandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AcceptDemandResponse
    */
   async acceptDemandWithOptions(request: AcceptDemandRequest, runtime: $Util.RuntimeOptions): Promise<AcceptDemandResponse> {
     Util.validateModel(request);
@@ -2789,8 +3672,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AcceptDemandRequest
-   * @return AcceptDemandResponse
+   * @param request - AcceptDemandRequest
+   * @returns AcceptDemandResponse
    */
   async acceptDemand(request: AcceptDemandRequest): Promise<AcceptDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2798,9 +3681,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BidDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BidDomainResponse
+   * @param request - BidDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BidDomainResponse
    */
   async bidDomainWithOptions(request: BidDomainRequest, runtime: $Util.RuntimeOptions): Promise<BidDomainResponse> {
     Util.validateModel(request);
@@ -2835,8 +3718,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BidDomainRequest
-   * @return BidDomainResponse
+   * @param request - BidDomainRequest
+   * @returns BidDomainResponse
    */
   async bidDomain(request: BidDomainRequest): Promise<BidDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2844,9 +3727,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ChangeAuctionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangeAuctionResponse
+   * @param request - ChangeAuctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeAuctionResponse
    */
   async changeAuctionWithOptions(request: ChangeAuctionRequest, runtime: $Util.RuntimeOptions): Promise<ChangeAuctionResponse> {
     Util.validateModel(request);
@@ -2873,8 +3756,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ChangeAuctionRequest
-   * @return ChangeAuctionResponse
+   * @param request - ChangeAuctionRequest
+   * @returns ChangeAuctionResponse
    */
   async changeAuction(request: ChangeAuctionRequest): Promise<ChangeAuctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2882,11 +3765,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 校验域名在售状态
-   *
-   * @param request CheckDomainStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckDomainStatusResponse
+   * 校验域名在售状态
+   * 
+   * @param request - CheckDomainStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckDomainStatusResponse
    */
   async checkDomainStatusWithOptions(request: CheckDomainStatusRequest, runtime: $Util.RuntimeOptions): Promise<CheckDomainStatusResponse> {
     Util.validateModel(request);
@@ -2909,10 +3792,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 校验域名在售状态
-   *
-   * @param request CheckDomainStatusRequest
-   * @return CheckDomainStatusResponse
+   * 校验域名在售状态
+   * 
+   * @param request - CheckDomainStatusRequest
+   * @returns CheckDomainStatusResponse
    */
   async checkDomainStatus(request: CheckDomainStatusRequest): Promise<CheckDomainStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2920,11 +3803,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 一口价严选询价接口
-   *
-   * @param request CheckSelectedDomainStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckSelectedDomainStatusResponse
+   * 一口价严选询价接口
+   * 
+   * @param request - CheckSelectedDomainStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckSelectedDomainStatusResponse
    */
   async checkSelectedDomainStatusWithOptions(request: CheckSelectedDomainStatusRequest, runtime: $Util.RuntimeOptions): Promise<CheckSelectedDomainStatusResponse> {
     Util.validateModel(request);
@@ -2951,10 +3834,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 一口价严选询价接口
-   *
-   * @param request CheckSelectedDomainStatusRequest
-   * @return CheckSelectedDomainStatusResponse
+   * 一口价严选询价接口
+   * 
+   * @param request - CheckSelectedDomainStatusRequest
+   * @returns CheckSelectedDomainStatusResponse
    */
   async checkSelectedDomainStatus(request: CheckSelectedDomainStatusRequest): Promise<CheckSelectedDomainStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2962,11 +3845,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建一口价需求单
-   *
-   * @param request CreateFixedPriceDemandOrderRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFixedPriceDemandOrderResponse
+   * 创建一口价需求单
+   * 
+   * @param request - CreateFixedPriceDemandOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFixedPriceDemandOrderResponse
    */
   async createFixedPriceDemandOrderWithOptions(request: CreateFixedPriceDemandOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFixedPriceDemandOrderResponse> {
     Util.validateModel(request);
@@ -3005,10 +3888,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建一口价需求单
-   *
-   * @param request CreateFixedPriceDemandOrderRequest
-   * @return CreateFixedPriceDemandOrderResponse
+   * 创建一口价需求单
+   * 
+   * @param request - CreateFixedPriceDemandOrderRequest
+   * @returns CreateFixedPriceDemandOrderResponse
    */
   async createFixedPriceDemandOrder(request: CreateFixedPriceDemandOrderRequest): Promise<CreateFixedPriceDemandOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3016,11 +3899,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 一口价严选下单购买接口，阿里云账户余额直接扣费
-   *
-   * @param request CreateFixedPriceSelectedOrderRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFixedPriceSelectedOrderResponse
+   * 一口价严选下单购买接口，阿里云账户余额直接扣费
+   * 
+   * @param request - CreateFixedPriceSelectedOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFixedPriceSelectedOrderResponse
    */
   async createFixedPriceSelectedOrderWithOptions(request: CreateFixedPriceSelectedOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFixedPriceSelectedOrderResponse> {
     Util.validateModel(request);
@@ -3063,10 +3946,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 一口价严选下单购买接口，阿里云账户余额直接扣费
-   *
-   * @param request CreateFixedPriceSelectedOrderRequest
-   * @return CreateFixedPriceSelectedOrderResponse
+   * 一口价严选下单购买接口，阿里云账户余额直接扣费
+   * 
+   * @param request - CreateFixedPriceSelectedOrderRequest
+   * @returns CreateFixedPriceSelectedOrderResponse
    */
   async createFixedPriceSelectedOrder(request: CreateFixedPriceSelectedOrderRequest): Promise<CreateFixedPriceSelectedOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3074,9 +3957,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request FailDemandRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FailDemandResponse
+   * @param request - FailDemandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FailDemandResponse
    */
   async failDemandWithOptions(request: FailDemandRequest, runtime: $Util.RuntimeOptions): Promise<FailDemandResponse> {
     Util.validateModel(request);
@@ -3107,8 +3990,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request FailDemandRequest
-   * @return FailDemandResponse
+   * @param request - FailDemandRequest
+   * @returns FailDemandResponse
    */
   async failDemand(request: FailDemandRequest): Promise<FailDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3116,9 +3999,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request FinishDemandRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FinishDemandResponse
+   * @param request - FinishDemandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FinishDemandResponse
    */
   async finishDemandWithOptions(request: FinishDemandRequest, runtime: $Util.RuntimeOptions): Promise<FinishDemandResponse> {
     Util.validateModel(request);
@@ -3149,8 +4032,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request FinishDemandRequest
-   * @return FinishDemandResponse
+   * @param request - FinishDemandRequest
+   * @returns FinishDemandResponse
    */
   async finishDemand(request: FinishDemandRequest): Promise<FinishDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3158,9 +4041,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetIntlDomainDownloadUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetIntlDomainDownloadUrlResponse
+   * @param request - GetIntlDomainDownloadUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIntlDomainDownloadUrlResponse
    */
   async getIntlDomainDownloadUrlWithOptions(runtime: $Util.RuntimeOptions): Promise<GetIntlDomainDownloadUrlResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -3179,7 +4062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return GetIntlDomainDownloadUrlResponse
+   * @returns GetIntlDomainDownloadUrlResponse
    */
   async getIntlDomainDownloadUrl(): Promise<GetIntlDomainDownloadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3187,9 +4070,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetReserveDomainUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetReserveDomainUrlResponse
+   * @param request - GetReserveDomainUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetReserveDomainUrlResponse
    */
   async getReserveDomainUrlWithOptions(runtime: $Util.RuntimeOptions): Promise<GetReserveDomainUrlResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -3208,7 +4091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return GetReserveDomainUrlResponse
+   * @returns GetReserveDomainUrlResponse
    */
   async getReserveDomainUrl(): Promise<GetReserveDomainUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3216,11 +4099,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 购买国际站预释放域名
-   *
-   * @param request PurchaseIntlDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PurchaseIntlDomainResponse
+   * 购买国际站预释放域名
+   * 
+   * @param request - PurchaseIntlDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PurchaseIntlDomainResponse
    */
   async purchaseIntlDomainWithOptions(request: PurchaseIntlDomainRequest, runtime: $Util.RuntimeOptions): Promise<PurchaseIntlDomainResponse> {
     Util.validateModel(request);
@@ -3255,10 +4138,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 购买国际站预释放域名
-   *
-   * @param request PurchaseIntlDomainRequest
-   * @return PurchaseIntlDomainResponse
+   * 购买国际站预释放域名
+   * 
+   * @param request - PurchaseIntlDomainRequest
+   * @returns PurchaseIntlDomainResponse
    */
   async purchaseIntlDomain(request: PurchaseIntlDomainRequest): Promise<PurchaseIntlDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3266,9 +4149,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryAuctionDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryAuctionDetailResponse
+   * @param request - QueryAuctionDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAuctionDetailResponse
    */
   async queryAuctionDetailWithOptions(request: QueryAuctionDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryAuctionDetailResponse> {
     Util.validateModel(request);
@@ -3295,8 +4178,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryAuctionDetailRequest
-   * @return QueryAuctionDetailResponse
+   * @param request - QueryAuctionDetailRequest
+   * @returns QueryAuctionDetailResponse
    */
   async queryAuctionDetail(request: QueryAuctionDetailRequest): Promise<QueryAuctionDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3304,9 +4187,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryAuctionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryAuctionsResponse
+   * @param request - QueryAuctionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAuctionsResponse
    */
   async queryAuctionsWithOptions(request: QueryAuctionsRequest, runtime: $Util.RuntimeOptions): Promise<QueryAuctionsResponse> {
     Util.validateModel(request);
@@ -3349,8 +4232,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryAuctionsRequest
-   * @return QueryAuctionsResponse
+   * @param request - QueryAuctionsRequest
+   * @returns QueryAuctionsResponse
    */
   async queryAuctions(request: QueryAuctionsRequest): Promise<QueryAuctionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3358,9 +4241,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryBidRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryBidRecordsResponse
+   * @param request - QueryBidRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryBidRecordsResponse
    */
   async queryBidRecordsWithOptions(request: QueryBidRecordsRequest, runtime: $Util.RuntimeOptions): Promise<QueryBidRecordsResponse> {
     Util.validateModel(request);
@@ -3395,8 +4278,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryBidRecordsRequest
-   * @return QueryBidRecordsResponse
+   * @param request - QueryBidRecordsRequest
+   * @returns QueryBidRecordsResponse
    */
   async queryBidRecords(request: QueryBidRecordsRequest): Promise<QueryBidRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3404,9 +4287,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryBookingDomainInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryBookingDomainInfoResponse
+   * @param request - QueryBookingDomainInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryBookingDomainInfoResponse
    */
   async queryBookingDomainInfoWithOptions(request: QueryBookingDomainInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryBookingDomainInfoResponse> {
     Util.validateModel(request);
@@ -3433,8 +4316,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryBookingDomainInfoRequest
-   * @return QueryBookingDomainInfoResponse
+   * @param request - QueryBookingDomainInfoRequest
+   * @returns QueryBookingDomainInfoResponse
    */
   async queryBookingDomainInfo(request: QueryBookingDomainInfoRequest): Promise<QueryBookingDomainInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3442,11 +4325,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询回购订单列表
-   *
-   * @param request QueryBrokerDemandRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryBrokerDemandResponse
+   * 查询回购订单列表
+   * 
+   * @param request - QueryBrokerDemandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryBrokerDemandResponse
    */
   async queryBrokerDemandWithOptions(request: QueryBrokerDemandRequest, runtime: $Util.RuntimeOptions): Promise<QueryBrokerDemandResponse> {
     Util.validateModel(request);
@@ -3485,10 +4368,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询回购订单列表
-   *
-   * @param request QueryBrokerDemandRequest
-   * @return QueryBrokerDemandResponse
+   * 查询回购订单列表
+   * 
+   * @param request - QueryBrokerDemandRequest
+   * @returns QueryBrokerDemandResponse
    */
   async queryBrokerDemand(request: QueryBrokerDemandRequest): Promise<QueryBrokerDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3496,9 +4379,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryBrokerDemandRecordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryBrokerDemandRecordResponse
+   * @param request - QueryBrokerDemandRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryBrokerDemandRecordResponse
    */
   async queryBrokerDemandRecordWithOptions(request: QueryBrokerDemandRecordRequest, runtime: $Util.RuntimeOptions): Promise<QueryBrokerDemandRecordResponse> {
     Util.validateModel(request);
@@ -3533,8 +4416,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryBrokerDemandRecordRequest
-   * @return QueryBrokerDemandRecordResponse
+   * @param request - QueryBrokerDemandRecordRequest
+   * @returns QueryBrokerDemandRecordResponse
    */
   async queryBrokerDemandRecord(request: QueryBrokerDemandRecordRequest): Promise<QueryBrokerDemandRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3542,9 +4425,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryDomainTransferStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryDomainTransferStatusResponse
+   * @param request - QueryDomainTransferStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDomainTransferStatusResponse
    */
   async queryDomainTransferStatusWithOptions(request: QueryDomainTransferStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainTransferStatusResponse> {
     Util.validateModel(request);
@@ -3571,8 +4454,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryDomainTransferStatusRequest
-   * @return QueryDomainTransferStatusResponse
+   * @param request - QueryDomainTransferStatusRequest
+   * @returns QueryDomainTransferStatusResponse
    */
   async queryDomainTransferStatus(request: QueryDomainTransferStatusRequest): Promise<QueryDomainTransferStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3580,9 +4463,55 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryPurchasedDomainsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryPurchasedDomainsResponse
+   * 查询汇率
+   * 
+   * @param request - QueryExchangeRateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryExchangeRateResponse
+   */
+  async queryExchangeRateWithOptions(request: QueryExchangeRateRequest, runtime: $Util.RuntimeOptions): Promise<QueryExchangeRateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fromCurrency)) {
+      query["FromCurrency"] = request.fromCurrency;
+    }
+
+    if (!Util.isUnset(request.toCurrency)) {
+      query["ToCurrency"] = request.toCurrency;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryExchangeRate",
+      version: "2018-02-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryExchangeRateResponse>(await this.callApi(params, req, runtime), new QueryExchangeRateResponse({}));
+  }
+
+  /**
+   * 查询汇率
+   * 
+   * @param request - QueryExchangeRateRequest
+   * @returns QueryExchangeRateResponse
+   */
+  async queryExchangeRate(request: QueryExchangeRateRequest): Promise<QueryExchangeRateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryExchangeRateWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - QueryPurchasedDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPurchasedDomainsResponse
    */
   async queryPurchasedDomainsWithOptions(request: QueryPurchasedDomainsRequest, runtime: $Util.RuntimeOptions): Promise<QueryPurchasedDomainsResponse> {
     Util.validateModel(request);
@@ -3641,8 +4570,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryPurchasedDomainsRequest
-   * @return QueryPurchasedDomainsResponse
+   * @param request - QueryPurchasedDomainsRequest
+   * @returns QueryPurchasedDomainsResponse
    */
   async queryPurchasedDomains(request: QueryPurchasedDomainsRequest): Promise<QueryPurchasedDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3650,9 +4579,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RecordDemandRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RecordDemandResponse
+   * @param request - RecordDemandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecordDemandResponse
    */
   async recordDemandWithOptions(request: RecordDemandRequest, runtime: $Util.RuntimeOptions): Promise<RecordDemandResponse> {
     Util.validateModel(request);
@@ -3683,8 +4612,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RecordDemandRequest
-   * @return RecordDemandResponse
+   * @param request - RecordDemandRequest
+   * @returns RecordDemandResponse
    */
   async recordDemand(request: RecordDemandRequest): Promise<RecordDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3692,9 +4621,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RefuseDemandRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RefuseDemandResponse
+   * @param request - RefuseDemandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefuseDemandResponse
    */
   async refuseDemandWithOptions(request: RefuseDemandRequest, runtime: $Util.RuntimeOptions): Promise<RefuseDemandResponse> {
     Util.validateModel(request);
@@ -3725,8 +4654,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RefuseDemandRequest
-   * @return RefuseDemandResponse
+   * @param request - RefuseDemandRequest
+   * @returns RefuseDemandResponse
    */
   async refuseDemand(request: RefuseDemandRequest): Promise<RefuseDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3734,9 +4663,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RequestPayDemandRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RequestPayDemandResponse
+   * @param request - RequestPayDemandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RequestPayDemandResponse
    */
   async requestPayDemandWithOptions(request: RequestPayDemandRequest, runtime: $Util.RuntimeOptions): Promise<RequestPayDemandResponse> {
     Util.validateModel(request);
@@ -3779,8 +4708,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RequestPayDemandRequest
-   * @return RequestPayDemandResponse
+   * @param request - RequestPayDemandRequest
+   * @returns RequestPayDemandResponse
    */
   async requestPayDemand(request: RequestPayDemandRequest): Promise<RequestPayDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3788,9 +4717,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReserveDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReserveDomainResponse
+   * @param request - ReserveDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReserveDomainResponse
    */
   async reserveDomainWithOptions(request: ReserveDomainRequest, runtime: $Util.RuntimeOptions): Promise<ReserveDomainResponse> {
     Util.validateModel(request);
@@ -3821,8 +4750,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReserveDomainRequest
-   * @return ReserveDomainResponse
+   * @param request - ReserveDomainRequest
+   * @returns ReserveDomainResponse
    */
   async reserveDomain(request: ReserveDomainRequest): Promise<ReserveDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3830,9 +4759,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReserveIntlDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReserveIntlDomainResponse
+   * @param request - ReserveIntlDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReserveIntlDomainResponse
    */
   async reserveIntlDomainWithOptions(request: ReserveIntlDomainRequest, runtime: $Util.RuntimeOptions): Promise<ReserveIntlDomainResponse> {
     Util.validateModel(request);
@@ -3859,8 +4788,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReserveIntlDomainRequest
-   * @return ReserveIntlDomainResponse
+   * @param request - ReserveIntlDomainRequest
+   * @returns ReserveIntlDomainResponse
    */
   async reserveIntlDomain(request: ReserveIntlDomainRequest): Promise<ReserveIntlDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3868,11 +4797,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 严选列表导出，明日凌晨2点前生成文件，导出凌晨1点前所有在售严选域名
-   *
-   * @param request SelectedDomainListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SelectedDomainListResponse
+   * 严选列表导出，明日凌晨2点前生成文件，导出凌晨1点前所有在售严选域名
+   * 
+   * @param request - SelectedDomainListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SelectedDomainListResponse
    */
   async selectedDomainListWithOptions(request: SelectedDomainListRequest, runtime: $Util.RuntimeOptions): Promise<SelectedDomainListResponse> {
     Util.validateModel(request);
@@ -3899,10 +4828,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 严选列表导出，明日凌晨2点前生成文件，导出凌晨1点前所有在售严选域名
-   *
-   * @param request SelectedDomainListRequest
-   * @return SelectedDomainListResponse
+   * 严选列表导出，明日凌晨2点前生成文件，导出凌晨1点前所有在售严选域名
+   * 
+   * @param request - SelectedDomainListRequest
+   * @returns SelectedDomainListResponse
    */
   async selectedDomainList(request: SelectedDomainListRequest): Promise<SelectedDomainListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3910,11 +4839,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交采购信息
-   *
-   * @param request SubmitPurchaseInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitPurchaseInfoResponse
+   * 提交采购信息
+   * 
+   * @param request - SubmitPurchaseInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitPurchaseInfoResponse
    */
   async submitPurchaseInfoWithOptions(request: SubmitPurchaseInfoRequest, runtime: $Util.RuntimeOptions): Promise<SubmitPurchaseInfoResponse> {
     Util.validateModel(request);
@@ -3953,10 +4882,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交采购信息
-   *
-   * @param request SubmitPurchaseInfoRequest
-   * @return SubmitPurchaseInfoResponse
+   * 提交采购信息
+   * 
+   * @param request - SubmitPurchaseInfoRequest
+   * @returns SubmitPurchaseInfoResponse
    */
   async submitPurchaseInfo(request: SubmitPurchaseInfoRequest): Promise<SubmitPurchaseInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3964,11 +4893,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 合作方同步报价
-   *
-   * @param request UpdatePartnerReservePriceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdatePartnerReservePriceResponse
+   * 合作方同步报价
+   * 
+   * @param request - UpdatePartnerReservePriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePartnerReservePriceResponse
    */
   async updatePartnerReservePriceWithOptions(request: UpdatePartnerReservePriceRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePartnerReservePriceResponse> {
     Util.validateModel(request);
@@ -4007,10 +4936,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 合作方同步报价
-   *
-   * @param request UpdatePartnerReservePriceRequest
-   * @return UpdatePartnerReservePriceResponse
+   * 合作方同步报价
+   * 
+   * @param request - UpdatePartnerReservePriceRequest
+   * @returns UpdatePartnerReservePriceResponse
    */
   async updatePartnerReservePrice(request: UpdatePartnerReservePriceRequest): Promise<UpdatePartnerReservePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
