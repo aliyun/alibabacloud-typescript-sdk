@@ -3918,6 +3918,7 @@ export class GetAppGroupRequest extends $tea.Model {
 }
 
 export class GetAppGroupResponseBody extends $tea.Model {
+  accessDeniedDetail?: GetAppGroupResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code that is returned.
@@ -3960,6 +3961,7 @@ export class GetAppGroupResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -3970,6 +3972,7 @@ export class GetAppGroupResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: GetAppGroupResponseBodyAccessDeniedDetail,
       code: 'number',
       data: GetAppGroupResponseBodyData,
       message: 'string',
@@ -6012,6 +6015,7 @@ export class ListNamespacesRequest extends $tea.Model {
 }
 
 export class ListNamespacesResponseBody extends $tea.Model {
+  accessDeniedDetail?: ListNamespacesResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -6054,6 +6058,7 @@ export class ListNamespacesResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -6064,6 +6069,7 @@ export class ListNamespacesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: ListNamespacesResponseBodyAccessDeniedDetail,
       code: 'number',
       data: ListNamespacesResponseBodyData,
       message: 'string',
@@ -8643,6 +8649,43 @@ export class ExecuteWorkflowResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetAppGroupResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppGroupResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -10960,6 +11003,43 @@ export class ListJobsResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       jobs: { 'type': 'array', 'itemType': ListJobsResponseBodyDataJobs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamespacesResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
     };
   }
 
