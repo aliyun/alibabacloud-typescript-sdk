@@ -10,6 +10,8 @@ import * as $tea from '@alicloud/tea-typescript';
 export class AbolishDeploymentRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the process.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +20,10 @@ export class AbolishDeploymentRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,11 +51,20 @@ export class AbolishDeploymentRequest extends $tea.Model {
 
 export class AbolishDeploymentResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 55D786C9-DD57-524D-884C-C5239278XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -90,6 +105,97 @@ export class AbolishDeploymentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AbolishDeploymentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateProjectToResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateProjectToResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateProjectToResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateProjectToResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssociateProjectToResourceGroupResponseBody,
     };
   }
 
@@ -175,6 +281,246 @@ export class CloneDataSourceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CloneDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleRequest extends $tea.Model {
+  /**
+   * @example
+   * ABFUOEUOTRTRJKE
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * 任务ID，是告警规则关联的任务ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  DIJobId?: number;
+  /**
+   * @remarks
+   * 描述。
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 告警规则是否启用，默认不开启。
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * 告警指标类型，可选的枚举值：
+   * - Heartbeat（任务状态报警）
+   * - FailoverCount（failover次数报警）
+   * - Delay（任务延迟报警）
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Heartbeat
+   */
+  metricType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * alartRule
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  notificationSettings?: CreateDIAlarmRuleRequestNotificationSettings;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  triggerConditions?: CreateDIAlarmRuleRequestTriggerConditions[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      enabled: 'Enabled',
+      metricType: 'MetricType',
+      name: 'Name',
+      notificationSettings: 'NotificationSettings',
+      triggerConditions: 'TriggerConditions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DIJobId: 'number',
+      description: 'string',
+      enabled: 'boolean',
+      metricType: 'string',
+      name: 'string',
+      notificationSettings: CreateDIAlarmRuleRequestNotificationSettings,
+      triggerConditions: { 'type': 'array', 'itemType': CreateDIAlarmRuleRequestTriggerConditions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ABFUOEUOTRTRJKE
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * 任务ID，是告警规则关联的任务ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  DIJobId?: number;
+  /**
+   * @remarks
+   * 描述。
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 告警规则是否启用，默认不开启。
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * 告警指标类型，可选的枚举值：
+   * - Heartbeat（任务状态报警）
+   * - FailoverCount（failover次数报警）
+   * - Delay（任务延迟报警）
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Heartbeat
+   */
+  metricType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * alartRule
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  notificationSettingsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  triggerConditionsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      enabled: 'Enabled',
+      metricType: 'MetricType',
+      name: 'Name',
+      notificationSettingsShrink: 'NotificationSettings',
+      triggerConditionsShrink: 'TriggerConditions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DIJobId: 'number',
+      description: 'string',
+      enabled: 'boolean',
+      metricType: 'string',
+      name: 'string',
+      notificationSettingsShrink: 'string',
+      triggerConditionsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * @example
+   * 1
+   */
+  DIAlarmRuleId?: string;
+  /**
+   * @example
+   * C636A747-7E4E-594D-94CD-2B4F8A9A9A63
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRuleId: 'DIAlarmRuleId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRuleId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDIAlarmRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDIAlarmRuleResponseBody,
     };
   }
 
@@ -683,15 +1029,25 @@ export class CreateDataSourceSharedRuleResponse extends $tea.Model {
 }
 
 export class CreateDeploymentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the process.
+   */
   description?: string;
   /**
    * @remarks
+   * The IDs of entities to which you want to apply the process.
+   * 
+   * >  A process can be applied to only a single entity and its child entities. If you specify multiple entities in the array, the process is applied only to the first entity in the array and its child entities. Make sure that the array in your request contains only one element. Extra elements will be ignored.
+   * 
    * This parameter is required.
    */
   objectIds?: string[];
   /**
    * @remarks
-   * 项目Id
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
    * 
    * This parameter is required.
    * 
@@ -701,6 +1057,11 @@ export class CreateDeploymentRequest extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
+   * Specifies whether to deploy or undeploy the entity. Valid values:
+   * 
+   * *   Online: deploys the entity.
+   * *   Offline: undeploys the entity.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -731,15 +1092,25 @@ export class CreateDeploymentRequest extends $tea.Model {
 }
 
 export class CreateDeploymentShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the process.
+   */
   description?: string;
   /**
    * @remarks
+   * The IDs of entities to which you want to apply the process.
+   * 
+   * >  A process can be applied to only a single entity and its child entities. If you specify multiple entities in the array, the process is applied only to the first entity in the array and its child entities. Make sure that the array in your request contains only one element. Extra elements will be ignored.
+   * 
    * This parameter is required.
    */
   objectIdsShrink?: string;
   /**
    * @remarks
-   * 项目Id
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
    * 
    * This parameter is required.
    * 
@@ -749,6 +1120,11 @@ export class CreateDeploymentShrinkRequest extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
+   * Specifies whether to deploy or undeploy the entity. Valid values:
+   * 
+   * *   Online: deploys the entity.
+   * *   Offline: undeploys the entity.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -780,11 +1156,17 @@ export class CreateDeploymentShrinkRequest extends $tea.Model {
 
 export class CreateDeploymentResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the process.
+   * 
    * @example
    * a7ef0634-20ec-4a7c-a214-54020f91XXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7C352CB7-CD88-50CF-9D0D-E81BDF02XXXX
    */
@@ -836,6 +1218,8 @@ export class CreateDeploymentResponse extends $tea.Model {
 export class CreateFunctionRequest extends $tea.Model {
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -844,6 +1228,8 @@ export class CreateFunctionRequest extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
+   * The FlowSpec field information about the UDF. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
+   * 
    * This parameter is required.
    */
   spec?: string;
@@ -868,11 +1254,17 @@ export class CreateFunctionRequest extends $tea.Model {
 
 export class CreateFunctionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the UDF.
+   * 
    * @example
    * 580667964888595XXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AE49C88D-5BEE-5ADD-8B8C-C4BBC0D7XXXX
    */
@@ -921,14 +1313,141 @@ export class CreateFunctionResponse extends $tea.Model {
   }
 }
 
+export class CreateNetworkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eb870033-74c8-4b1b-9664-04c4e7cc3465
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-m2et4f3oc8msfbccXXXXX
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-uf8usrhs7hjd9amsXXXXX
+   */
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      resourceGroupId: 'ResourceGroupId',
+      vpcId: 'VpcId',
+      vswitchId: 'VswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      resourceGroupId: 'string',
+      vpcId: 'string',
+      vswitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1000
+   */
+  networkId?: number;
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      networkId: 'NetworkId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkId: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNetworkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateNetworkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateNodeRequest extends $tea.Model {
   /**
+   * @remarks
+   * The container ID. If you want to create a node in a container, you must configure this parameter to specify the container. The container can be a workflow or a node in a container.
+   * 
+   * >  If you configure this parameter, the path field defined in FlowSpec becomes invalid.
+   * 
    * @example
    * a7ef0634-20ec-4a7c-a214-54020f91XXXX
    */
   containerId?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -937,6 +1456,14 @@ export class CreateNodeRequest extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
+   * The scene of the node. This parameter determines the location (the DataStudio pane or the Manual pane) of the node. You can set this parameter to DATAWORKS_MANUAL_WORKFLOW only if the ContainerId parameter is configured and the container specified by ContainerId is a manually triggered workflow.
+   * 
+   * Valid values:
+   * 
+   * *   DATAWORKS_PROJECT
+   * *   DATAWORKS_MANUAL_WORKFLOW
+   * *   DATAWORKS_MANUAL_TASK
+   * 
    * This parameter is required.
    * 
    * @example
@@ -945,6 +1472,8 @@ export class CreateNodeRequest extends $tea.Model {
   scene?: string;
   /**
    * @remarks
+   * The FlowSpec field information about the node. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
+   * 
    * This parameter is required.
    */
   spec?: string;
@@ -973,11 +1502,17 @@ export class CreateNodeRequest extends $tea.Model {
 
 export class CreateNodeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the node.
+   * 
    * @example
    * 860438872620113XXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AFBB799F-8578-51C5-A766-E922EDB8XXXX
    */
@@ -1033,10 +1568,6 @@ export class CreateProjectRequest extends $tea.Model {
    */
   aliyunResourceGroupId?: string;
   aliyunResourceTags?: CreateProjectRequestAliyunResourceTags[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   description?: string;
   /**
    * @example
@@ -1104,10 +1635,6 @@ export class CreateProjectShrinkRequest extends $tea.Model {
    */
   aliyunResourceGroupId?: string;
   aliyunResourceTagsShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   description?: string;
   /**
    * @example
@@ -1226,7 +1753,7 @@ export class CreateProjectResponse extends $tea.Model {
 export class CreateResourceRequest extends $tea.Model {
   /**
    * @remarks
-   * 资源文件的项目id
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
    * 
    * This parameter is required.
    * 
@@ -1236,6 +1763,8 @@ export class CreateResourceRequest extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
+   * The FlowSpec field information about the file resource. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
+   * 
    * This parameter is required.
    */
   spec?: string;
@@ -1260,11 +1789,17 @@ export class CreateResourceRequest extends $tea.Model {
 
 export class CreateResourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the file resource.
+   * 
    * @example
    * 631478864897630XXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A5B97987-66EA-5563-9599-A2752292XXXX
    */
@@ -1313,9 +1848,268 @@ export class CreateResourceResponse extends $tea.Model {
   }
 }
 
+export class CreateResourceGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eb870033-74c8-4b1b-9664-04c4e7cc3465
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * common_resource_group
+   */
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  paymentDuration?: number;
+  /**
+   * @example
+   * Month
+   */
+  paymentDurationUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PrePaid
+   */
+  paymentType?: string;
+  /**
+   * @example
+   * 创建用于普通任务的通用资源组
+   */
+  remark?: string;
+  /**
+   * @example
+   * 2
+   */
+  spec?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-m2et4f3oc8msfbccXXXXX
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-uf8usrhs7hjd9amsXXXXX
+   */
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'AutoRenew',
+      clientToken: 'ClientToken',
+      name: 'Name',
+      paymentDuration: 'PaymentDuration',
+      paymentDurationUnit: 'PaymentDurationUnit',
+      paymentType: 'PaymentType',
+      remark: 'Remark',
+      spec: 'Spec',
+      vpcId: 'VpcId',
+      vswitchId: 'VswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      clientToken: 'string',
+      name: 'string',
+      paymentDuration: 'number',
+      paymentDurationUnit: 'string',
+      paymentType: 'string',
+      remark: 'string',
+      spec: 'number',
+      vpcId: 'string',
+      vswitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  resourceGroupOrder?: CreateResourceGroupResponseBodyResourceGroupOrder;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceGroupOrder: 'ResourceGroupOrder',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceGroupOrder: CreateResourceGroupResponseBodyResourceGroupOrder,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRouteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 192.168.0.0/16
+   */
+  destinationCidr?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  networkId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidr: 'DestinationCidr',
+      networkId: 'NetworkId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidr: 'string',
+      networkId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRouteResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1000
+   */
+  routeId?: number;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      routeId: 'RouteId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      routeId: 'number',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRouteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkflowDefinitionRequest extends $tea.Model {
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1324,6 +2118,8 @@ export class CreateWorkflowDefinitionRequest extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
+   * The FlowSpec field information about the workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
+   * 
    * This parameter is required.
    */
   spec?: string;
@@ -1348,11 +2144,17 @@ export class CreateWorkflowDefinitionRequest extends $tea.Model {
 
 export class CreateWorkflowDefinitionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the workflow.
+   * 
    * @example
    * 463497880880954XXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0EF298E5-0940-5AC7-9CB0-65025070XXXX
    */
@@ -1401,6 +2203,106 @@ export class CreateWorkflowDefinitionResponse extends $tea.Model {
   }
 }
 
+export class DeleteDIAlarmRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the alert rule.
+   * 
+   * @example
+   * 2
+   */
+  DIAlarmRuleId?: number;
+  /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
+   * @example
+   * 1
+   */
+  DIJobId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRuleId: 'DIAlarmRuleId',
+      DIJobId: 'DIJobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRuleId: 'number',
+      DIJobId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDIAlarmRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
+   * @example
+   * C99E2BE6-9DEA-5C2E-8F51-1DDCFEADE490
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDIAlarmRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDIAlarmRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDIAlarmRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDIJobRequest extends $tea.Model {
   /**
    * @remarks
@@ -1410,15 +2312,18 @@ export class DeleteDIJobRequest extends $tea.Model {
    * 11126
    */
   DIJobId?: number;
+  projectId?: number;
   static names(): { [key: string]: string } {
     return {
       DIJobId: 'DIJobId',
+      projectId: 'ProjectId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DIJobId: 'number',
+      projectId: 'number',
     };
   }
 
@@ -1644,6 +2549,8 @@ export class DeleteDataSourceSharedRuleResponse extends $tea.Model {
 export class DeleteFunctionRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the UDF.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1652,6 +2559,8 @@ export class DeleteFunctionRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1679,11 +2588,20 @@ export class DeleteFunctionRequest extends $tea.Model {
 
 export class DeleteFunctionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 88198F19-A36B-52A9-AE44-4518A688XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -1732,9 +2650,92 @@ export class DeleteFunctionResponse extends $tea.Model {
   }
 }
 
+export class DeleteNetworkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNetworkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteNetworkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteNodeRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the node.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1743,6 +2744,10 @@ export class DeleteNodeRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1770,11 +2775,20 @@ export class DeleteNodeRequest extends $tea.Model {
 
 export class DeleteNodeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A1E54497-5122-505E-91C6-BAC14980XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * true\\
+   * false
+   * 
    * @example
    * true
    */
@@ -1900,6 +2914,8 @@ export class DeleteProjectResponse extends $tea.Model {
 export class DeleteResourceRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the file resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1908,6 +2924,8 @@ export class DeleteResourceRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1935,11 +2953,20 @@ export class DeleteResourceRequest extends $tea.Model {
 
 export class DeleteResourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 88198F19-A36B-52A9-AE44-4518A688XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -1988,9 +3015,173 @@ export class DeleteResourceResponse extends $tea.Model {
   }
 }
 
+export class DeleteResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRouteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRouteResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRouteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteWorkflowDefinitionRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the workflow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1999,6 +3190,8 @@ export class DeleteWorkflowDefinitionRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2026,11 +3219,20 @@ export class DeleteWorkflowDefinitionRequest extends $tea.Model {
 
 export class DeleteWorkflowDefinitionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B17730C0-D959-548A-AE23-E754177CXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -2079,9 +3281,102 @@ export class DeleteWorkflowDefinitionResponse extends $tea.Model {
   }
 }
 
+export class DissociateProjectFromResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DissociateProjectFromResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DissociateProjectFromResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DissociateProjectFromResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DissociateProjectFromResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExecDeploymentStageRequest extends $tea.Model {
   /**
    * @remarks
+   * The code of the stage in the process. You can call the GetDeployment operation to query the code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2090,6 +3385,8 @@ export class ExecDeploymentStageRequest extends $tea.Model {
   code?: string;
   /**
    * @remarks
+   * The ID of the process.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2098,6 +3395,10 @@ export class ExecDeploymentStageRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2127,11 +3428,25 @@ export class ExecDeploymentStageRequest extends $tea.Model {
 
 export class ExecDeploymentStageResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AFBB799F-8578-51C5-A766-E922EDB8XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * 
+   * *   false
+   * 
+   *     **
+   * 
+   *     **Note:** The value of this parameter indicates only whether the stage is triggered but does not indicate whether the execution of the stage is successful.
+   * 
    * @example
    * true
    */
@@ -2182,13 +3497,11 @@ export class ExecDeploymentStageResponse extends $tea.Model {
 
 export class GetDIJobRequest extends $tea.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 11588
    */
-  DIJobId?: string;
+  DIJobId?: number;
+  projectId?: number;
   /**
    * @example
    * true
@@ -2197,13 +3510,15 @@ export class GetDIJobRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DIJobId: 'DIJobId',
+      projectId: 'ProjectId',
       withDetails: 'WithDetails',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      DIJobId: 'string',
+      DIJobId: 'number',
+      projectId: 'number',
       withDetails: 'boolean',
     };
   }
@@ -2270,6 +3585,8 @@ export class GetDIJobResponse extends $tea.Model {
 export class GetDIJobLogRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the synchronization task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2277,11 +3594,17 @@ export class GetDIJobLogRequest extends $tea.Model {
    */
   DIJobId?: number;
   /**
+   * @remarks
+   * The failover ID.
+   * 
    * @example
    * 10
    */
   failoverId?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 6153616438
    */
@@ -2310,13 +3633,16 @@ export class GetDIJobLogRequest extends $tea.Model {
 export class GetDIJobLogResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The log.
    * 
    * @example
    * >>>>>>>> stdout:n++++++++++++++++++executing sql: create database if not exists jindo_test location \\"oss://pangbei-hdfs/tmp/hive\\" n++n
    */
   log?: string;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 1AFAE64E-D1BE-432B-A9****
    */
@@ -2445,6 +3771,8 @@ export class GetDataSourceResponse extends $tea.Model {
 export class GetDeploymentRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the process.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2453,6 +3781,10 @@ export class GetDeploymentRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2479,8 +3811,15 @@ export class GetDeploymentRequest extends $tea.Model {
 }
 
 export class GetDeploymentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the process.
+   */
   pipeline?: GetDeploymentResponseBodyPipeline;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 08468352-032C-5262-AEDC-68C9FA05XXXX
    */
@@ -2532,6 +3871,8 @@ export class GetDeploymentResponse extends $tea.Model {
 export class GetFunctionRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the UDF.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2539,6 +3880,11 @@ export class GetFunctionRequest extends $tea.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * @example
    * 10000
    */
@@ -2563,8 +3909,15 @@ export class GetFunctionRequest extends $tea.Model {
 }
 
 export class GetFunctionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the UDF.
+   */
   function?: GetFunctionResponseBodyFunction;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6CF95929-6D12-5A88-8CC3-4B2F4C2EXXXX
    */
@@ -2613,9 +3966,172 @@ export class GetFunctionResponse extends $tea.Model {
   }
 }
 
+export class GetJobStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 70ecdaec-bf21-4c11-8ecb-4f77453ceea8
+   */
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobStatusResponseBody extends $tea.Model {
+  jobStatus?: GetJobStatusResponseBodyJobStatus;
+  /**
+   * @example
+   * 5E2BFE96-C0E0-5A98-85C8-633EC803198D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobStatus: 'JobStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobStatus: GetJobStatusResponseBodyJobStatus,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetJobStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkResponseBody extends $tea.Model {
+  network?: GetNetworkResponseBodyNetwork;
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      network: 'Network',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      network: GetNetworkResponseBodyNetwork,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNetworkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetNetworkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetNodeRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the node.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2623,6 +4139,11 @@ export class GetNodeRequest extends $tea.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * @example
    * 10000
    */
@@ -2647,8 +4168,15 @@ export class GetNodeRequest extends $tea.Model {
 }
 
 export class GetNodeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the node.
+   */
   node?: GetNodeResponseBodyNode;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -2774,9 +4302,98 @@ export class GetProjectResponse extends $tea.Model {
   }
 }
 
+export class GetProjectRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * role_project_guest
+   */
+  code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10002
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectRoleResponseBody extends $tea.Model {
+  projectRole?: GetProjectRoleResponseBodyProjectRole;
+  /**
+   * @example
+   * 82F28E60-CF48-5EDF-AB25-D806847B97D1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectRole: 'ProjectRole',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectRole: GetProjectRoleResponseBodyProjectRole,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectRoleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetProjectRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetProjectRoleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResourceRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the file resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2784,6 +4401,11 @@ export class GetResourceRequest extends $tea.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * @example
    * 10000
    */
@@ -2809,10 +4431,17 @@ export class GetResourceRequest extends $tea.Model {
 
 export class GetResourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E871F6C0-2EFF-5790-A00D-C57543EEXXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the file resource.
+   */
   resource?: GetResourceResponseBodyResource;
   static names(): { [key: string]: string } {
     return {
@@ -2858,9 +4487,179 @@ export class GetResourceResponse extends $tea.Model {
   }
 }
 
+export class GetResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  resourceGroup?: GetResourceGroupResponseBodyResourceGroup;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceGroup: 'ResourceGroup',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceGroup: GetResourceGroupResponseBodyResourceGroup,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRouteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRouteResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  route?: GetRouteResponseBodyRoute;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      route: 'Route',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      route: GetRouteResponseBodyRoute,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRouteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkflowDefinitionRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the workflow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2868,6 +4667,11 @@ export class GetWorkflowDefinitionRequest extends $tea.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * @example
    * 10000
    */
@@ -2893,10 +4697,17 @@ export class GetWorkflowDefinitionRequest extends $tea.Model {
 
 export class GetWorkflowDefinitionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F2BDD628-8A21-5BD1-B930-1A2D5989XXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the workflow.
+   */
   workflowDefinition?: GetWorkflowDefinitionResponseBodyWorkflowDefinition;
   static names(): { [key: string]: string } {
     return {
@@ -2942,15 +4753,191 @@ export class GetWorkflowDefinitionResponse extends $tea.Model {
   }
 }
 
-export class ListDIJobEventsRequest extends $tea.Model {
+export class ImportWorkflowDefinitionRequest extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
+   * 123456
+   */
+  projectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      spec: 'Spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'string',
+      spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportWorkflowDefinitionResponseBody extends $tea.Model {
+  asyncJob?: ImportWorkflowDefinitionResponseBodyAsyncJob;
+  /**
+   * @example
+   * 7C352CB7-CD88-50CF-9D0D-E81BDF020E7F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asyncJob: 'AsyncJob',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asyncJob: ImportWorkflowDefinitionResponseBodyAsyncJob,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportWorkflowDefinitionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportWorkflowDefinitionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportWorkflowDefinitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesRequest extends $tea.Model {
+  /**
+   * @example
+   * 34988
+   */
+  DIAlarmRuleId?: number;
+  /**
+   * @example
+   * 1000001
+   */
+  jobId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRuleId: 'DIAlarmRuleId',
+      jobId: 'JobId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRuleId: 'number',
+      jobId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponseBody extends $tea.Model {
+  pagingInfo?: ListDIAlarmRulesResponseBodyPagingInfo;
+  /**
+   * @example
+   * 74C2FECD-5B3A-554A-BCF5-351A36DE9815
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListDIAlarmRulesResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDIAlarmRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDIAlarmRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobEventsRequest extends $tea.Model {
+  /**
+   * @example
    * 11588
    */
-  DIJobId?: string;
+  DIJobId?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -2998,7 +4985,7 @@ export class ListDIJobEventsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      DIJobId: 'string',
+      DIJobId: 'number',
       endTime: 'number',
       eventType: 'string',
       pageNumber: 'number',
@@ -3065,13 +5052,10 @@ export class ListDIJobEventsResponse extends $tea.Model {
 
 export class ListDIJobMetricsRequest extends $tea.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 11265
    */
-  DIJobId?: string;
+  DIJobId?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -3104,7 +5088,7 @@ export class ListDIJobMetricsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      DIJobId: 'string',
+      DIJobId: 'number',
       endTime: 'number',
       metricName: { 'type': 'array', 'itemType': 'string' },
       startTime: 'number',
@@ -3118,13 +5102,10 @@ export class ListDIJobMetricsRequest extends $tea.Model {
 
 export class ListDIJobMetricsShrinkRequest extends $tea.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 11265
    */
-  DIJobId?: string;
+  DIJobId?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -3157,7 +5138,7 @@ export class ListDIJobMetricsShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      DIJobId: 'string',
+      DIJobId: 'number',
       endTime: 'number',
       metricNameShrink: 'string',
       startTime: 'number',
@@ -3220,22 +5201,20 @@ export class ListDIJobMetricsResponse extends $tea.Model {
   }
 }
 
-export class ListDIJobsRequest extends $tea.Model {
+export class ListDIJobRunDetailsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11265
+   */
+  DIJobId?: number;
   /**
    * @example
-   * Hologres
+   * 1234
    */
-  destinationDataSourceType?: string;
-  /**
-   * @example
-   * FullAndRealtimeIncremental
-   */
-  migrationType?: string;
-  /**
-   * @example
-   * test_export_01
-   */
-  name?: string;
+  instanceId?: number;
   /**
    * @example
    * 1
@@ -3247,7 +5226,160 @@ export class ListDIJobsRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
+   * @example
+   * ds_name
+   */
+  sourceDataSourceName?: string;
+  /**
+   * @example
+   * db_name
+   */
+  sourceDatabaseName?: string;
+  /**
+   * @example
+   * schema_name
+   */
+  sourceSchemaName?: string;
+  /**
+   * @example
+   * table_name
+   */
+  sourceTableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sourceDataSourceName: 'SourceDataSourceName',
+      sourceDatabaseName: 'SourceDatabaseName',
+      sourceSchemaName: 'SourceSchemaName',
+      sourceTableName: 'SourceTableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      instanceId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sourceDataSourceName: 'string',
+      sourceDatabaseName: 'string',
+      sourceSchemaName: 'string',
+      sourceTableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobRunDetailsResponseBody extends $tea.Model {
+  pagingInfo?: ListDIJobRunDetailsResponseBodyPagingInfo;
+  /**
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListDIJobRunDetailsResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobRunDetailsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDIJobRunDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDIJobRunDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobsRequest extends $tea.Model {
+  /**
    * @remarks
+   * The destination type. If you do not configure this parameter, no limits are imposed on the tasks.
+   * 
+   * @example
+   * Hologres
+   */
+  destinationDataSourceType?: string;
+  /**
+   * @remarks
+   * The synchronization type. Valid values:
+   * 
+   * *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
+   * *   RealtimeIncremental: real-time incremental synchronization
+   * *   Full: full synchronization
+   * *   OfflineIncremental: batch incremental synchronization
+   * *   FullAndOfflineIncremental: one-time full synchronization and batch incremental synchronization
+   * 
+   * @example
+   * FullAndRealtimeIncremental
+   */
+  migrationType?: string;
+  /**
+   * @remarks
+   * The name of the export task.
+   * 
+   * The name of each export task must be unique. You must make sure that the names of the export tasks in the current workspace are unique.
+   * 
+   * @example
+   * test_export_01
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3255,6 +5387,9 @@ export class ListDIJobsRequest extends $tea.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The source type. If you do not configure this parameter, no limits are imposed on the tasks.
+   * 
    * @example
    * MySQL
    */
@@ -3289,10 +5424,14 @@ export class ListDIJobsRequest extends $tea.Model {
 }
 
 export class ListDIJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListDIJobsResponseBodyPagingInfo;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 7263E4AC-9D2E-5B29-B8AF-7C5012E92A41
@@ -3638,22 +5777,35 @@ export class ListDataSourcesResponse extends $tea.Model {
 
 export class ListDeploymentsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the user who creates the processes. This parameter specifies a filter condition.
+   * 
    * @example
    * 110755000425XXXX
    */
   creator?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3661,6 +5813,18 @@ export class ListDeploymentsRequest extends $tea.Model {
    */
   projectId?: string;
   /**
+   * @remarks
+   * The status of the processes. This parameter specifies a filter condition.
+   * 
+   * Valid values:
+   * 
+   * *   INIT
+   * *   RUNNING
+   * *   SUCCESS
+   * *   FAIL
+   * *   TERMINATION
+   * *   CANCEL
+   * 
    * @example
    * RUNNING
    */
@@ -3691,8 +5855,15 @@ export class ListDeploymentsRequest extends $tea.Model {
 }
 
 export class ListDeploymentsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListDeploymentsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7C352CB7-CD88-50CF-9D0D-E81BDF02XXXX
    */
@@ -3743,22 +5914,35 @@ export class ListDeploymentsResponse extends $tea.Model {
 
 export class ListFunctionsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the owner of the UDF. This parameter specifies a filter condition.
+   * 
    * @example
    * 110755000425XXXX
    */
   owner?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1. Minimum value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3766,6 +5950,18 @@ export class ListFunctionsRequest extends $tea.Model {
    */
   projectId?: string;
   /**
+   * @remarks
+   * The UDF type. This parameter specifies a filter condition.
+   * 
+   * Valid values:
+   * 
+   * *   MATH: mathematical operation function
+   * *   AGGREGATE: aggregate function
+   * *   STRING: string processing function
+   * *   DATE: date function
+   * *   ANALYTIC: window function
+   * *   OTHER: others
+   * 
    * @example
    * MATH
    */
@@ -3796,8 +5992,15 @@ export class ListFunctionsRequest extends $tea.Model {
 }
 
 export class ListFunctionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListFunctionsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 89FB2BF0-EB00-5D03-9C34-05931001XXXX
    */
@@ -3846,9 +6049,95 @@ export class ListFunctionsResponse extends $tea.Model {
   }
 }
 
+export class ListNetworksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworksResponseBody extends $tea.Model {
+  networkList?: ListNetworksResponseBodyNetworkList[];
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      networkList: 'NetworkList',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkList: { 'type': 'array', 'itemType': ListNetworksResponseBodyNetworkList },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNetworksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNetworksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNodeDependenciesRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the node.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3856,17 +6145,27 @@ export class ListNodeDependenciesRequest extends $tea.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3897,8 +6196,15 @@ export class ListNodeDependenciesRequest extends $tea.Model {
 }
 
 export class ListNodeDependenciesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListNodeDependenciesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 204EAF68-CCE3-5112-8DA0-E7A60F02XXXX
    */
@@ -3949,39 +6255,62 @@ export class ListNodeDependenciesResponse extends $tea.Model {
 
 export class ListNodesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The container ID. This parameter specifies a filter condition.
+   * 
    * @example
    * 860438872620113XXXX
    */
   containerId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 12345
    */
   projectId?: string;
+  recurrence?: string;
   /**
+   * @remarks
+   * The rerun mode. Valid values:
+   * 
+   * *   Allowed: The nodes can be rerun regardless of whether they are successfully run or fail to run.
+   * *   FailureAllowed: The nodes can be rerun only after they fail to run.
+   * *   Denied: The nodes cannot be rerun regardless of whether they are successfully run or fail to run.
+   * 
    * @example
    * Allowed
    */
   rerunMode?: string;
   /**
-   * @example
-   * Normal
-   */
-  rerurrence?: string;
-  /**
+   * @remarks
+   * The scene of nodes. This parameter specifies a filter condition.
+   * 
+   * Valid values:
+   * 
+   * *   DATAWORKS_PROJECT
+   * *   MANUAL_WORKFLOW
+   * *   MANUAL_NODE
+   * 
    * @example
    * DATAWORKS_PROJECT
    */
@@ -3992,8 +6321,8 @@ export class ListNodesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       projectId: 'ProjectId',
+      recurrence: 'Recurrence',
       rerunMode: 'RerunMode',
-      rerurrence: 'Rerurrence',
       scene: 'Scene',
     };
   }
@@ -4004,8 +6333,8 @@ export class ListNodesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       projectId: 'string',
+      recurrence: 'string',
       rerunMode: 'string',
-      rerurrence: 'string',
       scene: 'string',
     };
   }
@@ -4016,8 +6345,15 @@ export class ListNodesRequest extends $tea.Model {
 }
 
 export class ListNodesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListNodesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2197B9C4-39CE-55EA-8EEA-FDBAE52DXXXX
    */
@@ -4058,6 +6394,163 @@ export class ListNodesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListNodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectRolesRequest extends $tea.Model {
+  codes?: string[];
+  names?: string[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 21229
+   */
+  projectId?: number;
+  /**
+   * @example
+   * System
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codes: 'Codes',
+      names: 'Names',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codes: { 'type': 'array', 'itemType': 'string' },
+      names: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectRolesShrinkRequest extends $tea.Model {
+  codesShrink?: string;
+  namesShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 21229
+   */
+  projectId?: number;
+  /**
+   * @example
+   * System
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codesShrink: 'Codes',
+      namesShrink: 'Names',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codesShrink: 'string',
+      namesShrink: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectRolesResponseBody extends $tea.Model {
+  pagingInfo?: ListProjectRolesResponseBodyPagingInfo;
+  /**
+   * @example
+   * 61649187-0BCF-5E75-8D4B-64FDBEBBB447
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListProjectRolesResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectRolesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProjectRolesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListProjectRolesResponseBody,
     };
   }
 
@@ -4265,24 +6758,181 @@ export class ListProjectsResponse extends $tea.Model {
   }
 }
 
+export class ListResourceGroupsRequest extends $tea.Model {
+  /**
+   * @example
+   * Resource
+   */
+  name?: string;
+  /**
+   * @example
+   * PrePaid
+   */
+  paymentType?: string;
+  /**
+   * @example
+   * 1000
+   */
+  projectId?: number;
+  resourceGroupTypes?: string[];
+  statuses?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      paymentType: 'PaymentType',
+      projectId: 'ProjectId',
+      resourceGroupTypes: 'ResourceGroupTypes',
+      statuses: 'Statuses',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      paymentType: 'string',
+      projectId: 'number',
+      resourceGroupTypes: { 'type': 'array', 'itemType': 'string' },
+      statuses: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceGroupsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * Resource
+   */
+  name?: string;
+  /**
+   * @example
+   * PrePaid
+   */
+  paymentType?: string;
+  /**
+   * @example
+   * 1000
+   */
+  projectId?: number;
+  resourceGroupTypesShrink?: string;
+  statusesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      paymentType: 'PaymentType',
+      projectId: 'ProjectId',
+      resourceGroupTypesShrink: 'ResourceGroupTypes',
+      statusesShrink: 'Statuses',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      paymentType: 'string',
+      projectId: 'number',
+      resourceGroupTypesShrink: 'string',
+      statusesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceGroupsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  resourceGroupList?: ListResourceGroupsResponseBodyResourceGroupList[];
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceGroupList: 'ResourceGroupList',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceGroupList: { 'type': 'array', 'itemType': ListResourceGroupsResponseBodyResourceGroupList },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceGroupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResourceGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListResourceGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListResourcesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account used by the workspace administrator. You can log on to the Alibaba Cloud Management Console and view the ID on the Security Settings page.
+   * 
    * @example
    * 110755000425XXXX
    */
   owner?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4290,6 +6940,16 @@ export class ListResourcesRequest extends $tea.Model {
    */
   projectId?: string;
   /**
+   * @remarks
+   * The resource type. This parameter specifies a filter condition.
+   * 
+   * Valid values:
+   * 
+   * *   python
+   * *   jar
+   * *   archive
+   * *   file
+   * 
    * @example
    * python
    */
@@ -4320,8 +6980,15 @@ export class ListResourcesRequest extends $tea.Model {
 }
 
 export class ListResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListResourcesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 99EBE7CF-69C0-5089-BE3E-79563C31XXXX
    */
@@ -4370,24 +7037,121 @@ export class ListResourcesResponse extends $tea.Model {
   }
 }
 
+export class ListRoutesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  networkId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      networkId: 'NetworkId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoutesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  routeList?: ListRoutesResponseBodyRouteList[];
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      routeList: 'RouteList',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      routeList: { 'type': 'array', 'itemType': ListRoutesResponseBodyRouteList },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoutesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRoutesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRoutesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkflowDefinitionsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account used by the workspace administrator. You can log on to the Alibaba Cloud Management Console and view the ID on the Security Settings page.
+   * 
    * @example
    * 110755000425XXXX
    */
   owner?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4395,6 +7159,14 @@ export class ListWorkflowDefinitionsRequest extends $tea.Model {
    */
   projectId?: string;
   /**
+   * @remarks
+   * The workflow type. This parameter specifies a filter condition.
+   * 
+   * Valid values:
+   * 
+   * *   CycleWorkflow
+   * *   ManualWorkflow
+   * 
    * @example
    * CycleWorkflow
    */
@@ -4425,8 +7197,15 @@ export class ListWorkflowDefinitionsRequest extends $tea.Model {
 }
 
 export class ListWorkflowDefinitionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListWorkflowDefinitionsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8C3ED0C5-ABAB-55E1-854B-DAC02B11XXXX
    */
@@ -4478,6 +7257,8 @@ export class ListWorkflowDefinitionsResponse extends $tea.Model {
 export class MoveFunctionRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the UDF.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4486,6 +7267,10 @@ export class MoveFunctionRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The path to which you want to move the UDF. You do not need to specify a UDF name in the path.
+   * 
+   * For example, if you want to move the test UDF to root/demo/test, you must set this parameter to root/demo.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4494,6 +7279,10 @@ export class MoveFunctionRequest extends $tea.Model {
   path?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4523,11 +7312,20 @@ export class MoveFunctionRequest extends $tea.Model {
 
 export class MoveFunctionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 48C0E2F0-52BA-5888-BDFA-28F1B9AFXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -4579,6 +7377,8 @@ export class MoveFunctionResponse extends $tea.Model {
 export class MoveNodeRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the node.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4587,6 +7387,10 @@ export class MoveNodeRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The path to which you want to move the node. You do not need to specify a node name in the path.
+   * 
+   * For example, if you want to move the test node to root/demo/test, you must set this parameter to root/demo.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4595,6 +7399,10 @@ export class MoveNodeRequest extends $tea.Model {
   path?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4624,11 +7432,20 @@ export class MoveNodeRequest extends $tea.Model {
 
 export class MoveNodeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C99E2BE6-9DEA-5C2E-8F51-1DDCFEADXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -4680,6 +7497,8 @@ export class MoveNodeResponse extends $tea.Model {
 export class MoveResourceRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the file resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4688,6 +7507,10 @@ export class MoveResourceRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The path to which you want to move the file resource. You do not need to specify a file resource name in the path.
+   * 
+   * For example, if you want to move the test file resource to root/demo/test, you must set this parameter to root/demo.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4696,6 +7519,10 @@ export class MoveResourceRequest extends $tea.Model {
   path?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4725,11 +7552,20 @@ export class MoveResourceRequest extends $tea.Model {
 
 export class MoveResourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F332BED4-DD73-5972-A9C2-642BA6CFXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -4781,6 +7617,8 @@ export class MoveResourceResponse extends $tea.Model {
 export class MoveWorkflowDefinitionRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the workflow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4789,6 +7627,10 @@ export class MoveWorkflowDefinitionRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The path to which you want to move the workflow. You do not need to specify a workflow name in the path.
+   * 
+   * For example, if you want to move the test workflow to root/demo/test, you must set this parameter to root/demo.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4797,6 +7639,8 @@ export class MoveWorkflowDefinitionRequest extends $tea.Model {
   path?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4826,11 +7670,20 @@ export class MoveWorkflowDefinitionRequest extends $tea.Model {
 
 export class MoveWorkflowDefinitionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 05ADAF4F-7709-5FB1-B606-3513483FXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -4882,6 +7735,8 @@ export class MoveWorkflowDefinitionResponse extends $tea.Model {
 export class RenameFunctionRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the UDF.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4890,11 +7745,15 @@ export class RenameFunctionRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The new name.
+   * 
    * This parameter is required.
    */
   name?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4924,11 +7783,20 @@ export class RenameFunctionRequest extends $tea.Model {
 
 export class RenameFunctionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1ED4C97F-BA2A-57C5-BA7C-8853627EXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -4980,6 +7848,8 @@ export class RenameFunctionResponse extends $tea.Model {
 export class RenameNodeRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the node.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4988,11 +7858,15 @@ export class RenameNodeRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The new name.
+   * 
    * This parameter is required.
    */
   name?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5022,11 +7896,20 @@ export class RenameNodeRequest extends $tea.Model {
 
 export class RenameNodeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4CDF7B72-020B-542A-8465-21CFFA81XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -5078,6 +7961,8 @@ export class RenameNodeResponse extends $tea.Model {
 export class RenameResourceRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the file resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5086,11 +7971,17 @@ export class RenameResourceRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The new name.
+   * 
    * This parameter is required.
    */
   name?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5120,11 +8011,20 @@ export class RenameResourceRequest extends $tea.Model {
 
 export class RenameResourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4CDF7B72-020B-542A-8465-21CFFA8XXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -5176,6 +8076,8 @@ export class RenameResourceResponse extends $tea.Model {
 export class RenameWorkflowDefinitionRequest extends $tea.Model {
   /**
    * @remarks
+   * The unique identifier of the workflow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5184,11 +8086,15 @@ export class RenameWorkflowDefinitionRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The new name.
+   * 
    * This parameter is required.
    */
   name?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5218,11 +8124,20 @@ export class RenameWorkflowDefinitionRequest extends $tea.Model {
 
 export class RenameWorkflowDefinitionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID. You can troubleshoot issues based on the ID.
+   * 
    * @example
    * 975BD43D-C421-595C-A29C-565A8AD5XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -5274,12 +8189,12 @@ export class RenameWorkflowDefinitionResponse extends $tea.Model {
 export class StartDIJobRequest extends $tea.Model {
   /**
    * @remarks
-   * This parameter is required.
+   * The instance ID.
    * 
    * @example
    * 10000
    */
-  DIJobId?: string;
+  DIJobId?: number;
   /**
    * @example
    * false
@@ -5296,7 +8211,7 @@ export class StartDIJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      DIJobId: 'string',
+      DIJobId: 'number',
       forceToRerun: 'boolean',
       realtimeStartSettings: StartDIJobRequestRealtimeStartSettings,
     };
@@ -5310,12 +8225,12 @@ export class StartDIJobRequest extends $tea.Model {
 export class StartDIJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * This parameter is required.
+   * The instance ID.
    * 
    * @example
    * 10000
    */
-  DIJobId?: string;
+  DIJobId?: number;
   /**
    * @example
    * false
@@ -5332,7 +8247,7 @@ export class StartDIJobShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      DIJobId: 'string',
+      DIJobId: 'number',
       forceToRerun: 'boolean',
       realtimeStartSettingsShrink: 'string',
     };
@@ -5398,6 +8313,287 @@ export class StartDIJobResponse extends $tea.Model {
   }
 }
 
+export class StopDIJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
+   * @example
+   * 11668
+   */
+  DIJobId?: number;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * 1234
+   */
+  instanceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      instanceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDIJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
+   * @example
+   * 92F778C7-8F00-53B1-AE1A-B3B17101247D
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDIJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDIJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopDIJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 34982
+   */
+  DIAlarmRuleId?: number;
+  /**
+   * @example
+   * 1
+   */
+  DIJobId?: number;
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @example
+   * Heartbeat
+   */
+  metricType?: string;
+  /**
+   * @example
+   * alarm_rule_name
+   */
+  name?: string;
+  notificationSettings?: UpdateDIAlarmRuleRequestNotificationSettings;
+  triggerConditions?: UpdateDIAlarmRuleRequestTriggerConditions[];
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRuleId: 'DIAlarmRuleId',
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      enabled: 'Enabled',
+      metricType: 'MetricType',
+      name: 'Name',
+      notificationSettings: 'NotificationSettings',
+      triggerConditions: 'TriggerConditions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRuleId: 'number',
+      DIJobId: 'number',
+      description: 'string',
+      enabled: 'boolean',
+      metricType: 'string',
+      name: 'string',
+      notificationSettings: UpdateDIAlarmRuleRequestNotificationSettings,
+      triggerConditions: { 'type': 'array', 'itemType': UpdateDIAlarmRuleRequestTriggerConditions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 34982
+   */
+  DIAlarmRuleId?: number;
+  /**
+   * @example
+   * 1
+   */
+  DIJobId?: number;
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @example
+   * Heartbeat
+   */
+  metricType?: string;
+  /**
+   * @example
+   * alarm_rule_name
+   */
+  name?: string;
+  notificationSettingsShrink?: string;
+  triggerConditionsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRuleId: 'DIAlarmRuleId',
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      enabled: 'Enabled',
+      metricType: 'MetricType',
+      name: 'Name',
+      notificationSettingsShrink: 'NotificationSettings',
+      triggerConditionsShrink: 'TriggerConditions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRuleId: 'number',
+      DIJobId: 'number',
+      description: 'string',
+      enabled: 'boolean',
+      metricType: 'string',
+      name: 'string',
+      notificationSettingsShrink: 'string',
+      triggerConditionsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * A6C6B486-E3A2-5D52-9E76-D9380485D946
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDIAlarmRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDIAlarmRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDIJobRequest extends $tea.Model {
   /**
    * @remarks
@@ -5409,6 +8605,7 @@ export class UpdateDIJobRequest extends $tea.Model {
   DIJobId?: number;
   description?: string;
   jobSettings?: UpdateDIJobRequestJobSettings;
+  projectId?: number;
   resourceSettings?: UpdateDIJobRequestResourceSettings;
   tableMappings?: UpdateDIJobRequestTableMappings[];
   transformationRules?: UpdateDIJobRequestTransformationRules[];
@@ -5417,6 +8614,7 @@ export class UpdateDIJobRequest extends $tea.Model {
       DIJobId: 'DIJobId',
       description: 'Description',
       jobSettings: 'JobSettings',
+      projectId: 'ProjectId',
       resourceSettings: 'ResourceSettings',
       tableMappings: 'TableMappings',
       transformationRules: 'TransformationRules',
@@ -5428,6 +8626,7 @@ export class UpdateDIJobRequest extends $tea.Model {
       DIJobId: 'number',
       description: 'string',
       jobSettings: UpdateDIJobRequestJobSettings,
+      projectId: 'number',
       resourceSettings: UpdateDIJobRequestResourceSettings,
       tableMappings: { 'type': 'array', 'itemType': UpdateDIJobRequestTableMappings },
       transformationRules: { 'type': 'array', 'itemType': UpdateDIJobRequestTransformationRules },
@@ -5450,6 +8649,7 @@ export class UpdateDIJobShrinkRequest extends $tea.Model {
   DIJobId?: number;
   description?: string;
   jobSettingsShrink?: string;
+  projectId?: number;
   resourceSettingsShrink?: string;
   tableMappingsShrink?: string;
   transformationRulesShrink?: string;
@@ -5458,6 +8658,7 @@ export class UpdateDIJobShrinkRequest extends $tea.Model {
       DIJobId: 'DIJobId',
       description: 'Description',
       jobSettingsShrink: 'JobSettings',
+      projectId: 'ProjectId',
       resourceSettingsShrink: 'ResourceSettings',
       tableMappingsShrink: 'TableMappings',
       transformationRulesShrink: 'TransformationRules',
@@ -5469,6 +8670,7 @@ export class UpdateDIJobShrinkRequest extends $tea.Model {
       DIJobId: 'number',
       description: 'string',
       jobSettingsShrink: 'string',
+      projectId: 'number',
       resourceSettingsShrink: 'string',
       tableMappingsShrink: 'string',
       transformationRulesShrink: 'string',
@@ -5661,6 +8863,8 @@ export class UpdateDataSourceResponse extends $tea.Model {
 export class UpdateFunctionRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the UDF.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5669,6 +8873,8 @@ export class UpdateFunctionRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5677,6 +8883,8 @@ export class UpdateFunctionRequest extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
+   * The FlowSpec field information about the UDF. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
+   * 
    * This parameter is required.
    */
   spec?: string;
@@ -5703,11 +8911,21 @@ export class UpdateFunctionRequest extends $tea.Model {
 
 export class UpdateFunctionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 12123960-CB2C-5086-868E-C6C1D024XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * true
+   * 
+   * false
+   * 
    * @example
    * true
    */
@@ -5759,6 +8977,8 @@ export class UpdateFunctionResponse extends $tea.Model {
 export class UpdateNodeRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the node.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5767,6 +8987,8 @@ export class UpdateNodeRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5775,6 +8997,8 @@ export class UpdateNodeRequest extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
+   * The FlowSpec field information about the node. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
+   * 
    * This parameter is required.
    */
   spec?: string;
@@ -5801,11 +9025,20 @@ export class UpdateNodeRequest extends $tea.Model {
 
 export class UpdateNodeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 99EBE7CF-69C0-5089-BE3E-79563C31XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -5965,6 +9198,8 @@ export class UpdateProjectResponse extends $tea.Model {
 export class UpdateResourceRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the file resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5973,6 +9208,8 @@ export class UpdateResourceRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5981,6 +9218,8 @@ export class UpdateResourceRequest extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
+   * The FlowSpec field information about the file resource. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
+   * 
    * This parameter is required.
    */
   spec?: string;
@@ -6007,11 +9246,20 @@ export class UpdateResourceRequest extends $tea.Model {
 
 export class UpdateResourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4CDF7B72-020B-542A-8465-21CFFA81XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -6060,9 +9308,197 @@ export class UpdateResourceResponse extends $tea.Model {
   }
 }
 
+export class UpdateResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  id?: string;
+  /**
+   * @example
+   * common_resource_group
+   */
+  name?: string;
+  /**
+   * @example
+   * 创建用于普通任务的通用资源组
+   */
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRouteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 192.168.0.0/16
+   */
+  destinationCidr?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidr: 'DestinationCidr',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidr: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRouteResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRouteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWorkflowDefinitionRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the workflow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6071,6 +9507,8 @@ export class UpdateWorkflowDefinitionRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6079,6 +9517,8 @@ export class UpdateWorkflowDefinitionRequest extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
+   * The FlowSpec field information about the workflow. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
+   * 
    * This parameter is required.
    */
   spec?: string;
@@ -6105,11 +9545,20 @@ export class UpdateWorkflowDefinitionRequest extends $tea.Model {
 
 export class UpdateWorkflowDefinitionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 20BF7E80-668A-5620-8AD8-879B8FEAXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -6150,6 +9599,127 @@ export class UpdateWorkflowDefinitionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateWorkflowDefinitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels extends $tea.Model {
+  channels?: string[];
+  /**
+   * @example
+   * Warning
+   */
+  severity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+      severity: 'Severity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+      severity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers extends $tea.Model {
+  /**
+   * @example
+   * DingToken
+   */
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleRequestNotificationSettings extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
+  inhibitionInterval?: number;
+  notificationChannels?: CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels[];
+  notificationReceivers?: CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      inhibitionInterval: 'InhibitionInterval',
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inhibitionInterval: 'number',
+      notificationChannels: { 'type': 'array', 'itemType': CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleRequestTriggerConditions extends $tea.Model {
+  ddlReportTags?: string[];
+  /**
+   * @example
+   * 10
+   */
+  duration?: number;
+  /**
+   * @example
+   * Warning
+   */
+  severity?: string;
+  /**
+   * @example
+   * 10
+   */
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ddlReportTags: 'DdlReportTags',
+      duration: 'Duration',
+      severity: 'Severity',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ddlReportTags: { 'type': 'array', 'itemType': 'string' },
+      duration: 'number',
+      severity: 'string',
+      threshold: 'number',
     };
   }
 
@@ -6684,6 +10254,43 @@ export class CreateProjectRequestAliyunResourceTags extends $tea.Model {
   }
 }
 
+export class CreateResourceGroupResponseBodyResourceGroupOrder extends $tea.Model {
+  /**
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  id?: string;
+  /**
+   * @example
+   * 2391982058XXXXX
+   */
+  orderId?: number;
+  /**
+   * @example
+   * c442b330-3b10-4584-959e-736e4edXXXXX
+   */
+  orderInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      orderId: 'OrderId',
+      orderInstanceId: 'OrderInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      orderId: 'number',
+      orderInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings extends $tea.Model {
   /**
    * @example
@@ -7203,6 +10810,7 @@ export class GetDIJobResponseBodyPagingInfo extends $tea.Model {
    */
   jobName?: string;
   jobSettings?: GetDIJobResponseBodyPagingInfoJobSettings;
+  jobStatus?: string;
   /**
    * @example
    * FullAndRealtimeIncremental
@@ -7230,6 +10838,7 @@ export class GetDIJobResponseBodyPagingInfo extends $tea.Model {
       destinationDataSourceType: 'DestinationDataSourceType',
       jobName: 'JobName',
       jobSettings: 'JobSettings',
+      jobStatus: 'JobStatus',
       migrationType: 'MigrationType',
       projectId: 'ProjectId',
       resourceSettings: 'ResourceSettings',
@@ -7248,6 +10857,7 @@ export class GetDIJobResponseBodyPagingInfo extends $tea.Model {
       destinationDataSourceType: 'string',
       jobName: 'string',
       jobSettings: GetDIJobResponseBodyPagingInfoJobSettings,
+      jobStatus: 'string',
       migrationType: 'string',
       projectId: 'number',
       resourceSettings: GetDIJobResponseBodyPagingInfoResourceSettings,
@@ -7374,7 +10984,7 @@ export class GetDataSourceResponseBodyDataSource extends $tea.Model {
 export class GetDeploymentResponseBodyPipelineStages extends $tea.Model {
   /**
    * @remarks
-   * 阶段代号
+   * The code of the stage.
    * 
    * @example
    * DEV_CHECK
@@ -7382,23 +10992,36 @@ export class GetDeploymentResponseBodyPipelineStages extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * 阶段描述
+   * The description of the stage.
    */
   description?: string;
+  /**
+   * @remarks
+   * The details of the stage.
+   */
   detail?: { [key: string]: any };
   /**
    * @remarks
-   * 阶段信息
+   * The error message returned for the stage.
    */
   message?: string;
   /**
    * @remarks
-   * 阶段名称
+   * The name of the stage.
    */
   name?: string;
   /**
    * @remarks
-   * 阶段状态
+   * The status of the stage.
+   * 
+   * Valid values:
+   * 
+   * *   INIT
+   * *   RUNNING
+   * *   SUCCESS
+   * *   FAIL
+   * *   TERMINATION
+   * *   CANCEL
    * 
    * @example
    * INIT
@@ -7406,7 +11029,7 @@ export class GetDeploymentResponseBodyPipelineStages extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * 步骤
+   * The step number of the stage.
    * 
    * @example
    * 1
@@ -7414,7 +11037,15 @@ export class GetDeploymentResponseBodyPipelineStages extends $tea.Model {
   step?: number;
   /**
    * @remarks
-   * 阶段类型
+   * The type of the stage.
+   * 
+   * Valid values:
+   * 
+   * *   DELETE
+   * *   BUILD
+   * *   CHECK
+   * *   DEPLOY
+   * *   OFFLINE
    * 
    * @example
    * BUILD
@@ -7454,7 +11085,7 @@ export class GetDeploymentResponseBodyPipelineStages extends $tea.Model {
 export class GetDeploymentResponseBodyPipeline extends $tea.Model {
   /**
    * @remarks
-   * 发布包创建时间戳
+   * The time when the process was created. This value is a UNIX timestamp.
    * 
    * @example
    * 1724984066000
@@ -7462,7 +11093,7 @@ export class GetDeploymentResponseBodyPipeline extends $tea.Model {
   createTime?: number;
   /**
    * @remarks
-   * 创建人
+   * The creator of the process.
    * 
    * @example
    * 137946317766XXXX
@@ -7470,34 +11101,50 @@ export class GetDeploymentResponseBodyPipeline extends $tea.Model {
   creator?: string;
   /**
    * @remarks
-   * 发布流程Id
+   * The ID of the process.
    * 
    * @example
    * a7ef0634-20ec-4a7c-a214-54020f91XXXX
    */
   id?: string;
+  /**
+   * @remarks
+   * The error message returned when the process fails.
+   */
   message?: string;
   /**
    * @remarks
-   * 修改时间
+   * The time when the process was modified. This value is a UNIX timestamp.
    * 
    * @example
    * 1724984066000
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 56160
    */
   projectId?: string;
   /**
    * @remarks
-   * 步骤详情
+   * The information about stages in the process.
    */
   stages?: GetDeploymentResponseBodyPipelineStages[];
   /**
    * @remarks
-   * 发布流程状态
+   * The status of the process.
+   * 
+   * Valid values:
+   * 
+   * *   INIT
+   * *   RUNNING
+   * *   SUCCESS
+   * *   FAIL
+   * *   TERMINATION
+   * *   CANCEL
    * 
    * @example
    * RUNNING
@@ -7536,31 +11183,54 @@ export class GetDeploymentResponseBodyPipeline extends $tea.Model {
 
 export class GetFunctionResponseBodyFunction extends $tea.Model {
   /**
+   * @remarks
+   * The time when the UDF was created. This value is a UNIX timestamp.
+   * 
    * @example
    * 1724505917000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the UDF.
+   * 
    * @example
    * 860438872620113XXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The time when the UDF was last modified. This value is a UNIX timestamp.
+   * 
    * @example
    * 1724506661000
    */
   modifyTime?: number;
+  /**
+   * @remarks
+   * The name of the UDF.
+   */
   name?: string;
   /**
+   * @remarks
+   * The owner of the UDF.
+   * 
    * @example
    * 110755000425XXXX
    */
   owner?: string;
   /**
+   * @remarks
+   * The ID of the DataWorks workspace to which the UDF belongs.
+   * 
    * @example
    * 10000
    */
   projectId?: string;
+  /**
+   * @remarks
+   * The FlowSpec field information about the UDF. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
+   */
   spec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7591,33 +11261,186 @@ export class GetFunctionResponseBodyFunction extends $tea.Model {
   }
 }
 
+export class GetJobStatusResponseBodyJobStatus extends $tea.Model {
+  /**
+   * @example
+   * False
+   */
+  completed?: string;
+  /**
+   * @example
+   * 1729063449802
+   */
+  createTime?: string;
+  /**
+   * @example
+   * Not Found
+   */
+  error?: string;
+  /**
+   * @example
+   * C664CDE3-9C0B-5792-B17F-6C543783BBBC
+   */
+  jobId?: string;
+  /**
+   * @example
+   * Create
+   */
+  jobType?: string;
+  /**
+   * @example
+   * Success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      completed: 'Completed',
+      createTime: 'CreateTime',
+      error: 'Error',
+      jobId: 'JobId',
+      jobType: 'JobType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completed: 'string',
+      createTime: 'string',
+      error: 'string',
+      jobId: 'string',
+      jobType: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkResponseBodyNetwork extends $tea.Model {
+  /**
+   * @example
+   * 1727055811000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 11075500042XXXXX
+   */
+  createUser?: string;
+  /**
+   * @example
+   * 1000
+   */
+  id?: number;
+  /**
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * sg-2ze13vamugr7jenXXXXX
+   */
+  securityGroupId?: string;
+  /**
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @example
+   * vpc-m2et4f3oc8msfbccXXXXX
+   */
+  vpcId?: string;
+  /**
+   * @example
+   * vsw-uf8usrhs7hjd9amsXXXXX
+   */
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      id: 'Id',
+      resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      status: 'Status',
+      vpcId: 'VpcId',
+      vswitchId: 'VswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      createUser: 'string',
+      id: 'number',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      status: 'string',
+      vpcId: 'string',
+      vswitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetNodeResponseBodyNode extends $tea.Model {
   /**
+   * @remarks
+   * The time when the node was created. This value is a UNIX timestamp.
+   * 
    * @example
    * 1700539206000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the node.
+   * 
    * @example
    * 860438872620113XXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The time when the node was last modified. This value is a UNIX timestamp.
+   * 
    * @example
    * 1700539206000
    */
   modifyTime?: number;
+  /**
+   * @remarks
+   * The name of the node.
+   */
   name?: string;
   /**
+   * @remarks
+   * The owner of the node.
+   * 
    * @example
    * 196596664824XXXX
    */
   owner?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 10000
    */
   projectId?: string;
+  /**
+   * @remarks
+   * The FlowSpec field information about this node. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow).
+   */
   spec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7759,33 +11582,96 @@ export class GetProjectResponseBodyProject extends $tea.Model {
   }
 }
 
+export class GetProjectRoleResponseBodyProjectRole extends $tea.Model {
+  /**
+   * @example
+   * role_project_guest
+   */
+  code?: string;
+  name?: string;
+  /**
+   * @example
+   * 10002
+   */
+  projectId?: number;
+  /**
+   * @example
+   * System
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+      projectId: 'ProjectId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      projectId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResourceResponseBodyResource extends $tea.Model {
   /**
+   * @remarks
+   * The time when the file resource was created. This value is a UNIX timestamp.
+   * 
    * @example
    * 1700539206000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the file resource.
+   * 
    * @example
    * 860438872620113XXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The time when the file resource was last modified. This value is a UNIX timestamp.
+   * 
    * @example
    * 1700539206000
    */
   modifyTime?: number;
+  /**
+   * @remarks
+   * The name of the file resource.
+   */
   name?: string;
   /**
+   * @remarks
+   * The owner of the file resource.
+   * 
    * @example
    * 110755000425XXXX
    */
   owner?: string;
   /**
+   * @remarks
+   * The ID of the workspace to which the file resource belongs.
+   * 
    * @example
    * 10000
    */
   projectId?: string;
+  /**
+   * @remarks
+   * The FlowSpec field information about the file resource. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow).
+   */
   spec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7816,33 +11702,240 @@ export class GetResourceResponseBodyResource extends $tea.Model {
   }
 }
 
+export class GetResourceGroupResponseBodyResourceGroupSpec extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  amount?: number;
+  /**
+   * @example
+   * 2CU
+   */
+  standard?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      standard: 'Standard',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      standard: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceGroupResponseBodyResourceGroup extends $tea.Model {
+  /**
+   * @example
+   * 1727055811000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 11075500042XXXXX
+   */
+  createUser?: string;
+  /**
+   * @example
+   * vpc-m2et4f3oc8msfbccXXXXX
+   */
+  defaultVpcId?: string;
+  /**
+   * @example
+   * vsw-uf8usrhs7hjd9amsXXXXX
+   */
+  defaultVswitchId?: string;
+  /**
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  id?: string;
+  /**
+   * @example
+   * common_resource_group
+   */
+  name?: string;
+  /**
+   * @example
+   * c442b330-3b10-4584-959e-736e4edXXXXX
+   */
+  orderInstanceId?: string;
+  /**
+   * @example
+   * PrePaid
+   */
+  paymentType?: string;
+  /**
+   * @example
+   * 创建用于普通任务的通用资源组
+   */
+  remark?: string;
+  /**
+   * @example
+   * CommonV2
+   */
+  resourceGroupType?: string;
+  spec?: GetResourceGroupResponseBodyResourceGroupSpec;
+  /**
+   * @example
+   * Normal
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      defaultVpcId: 'DefaultVpcId',
+      defaultVswitchId: 'DefaultVswitchId',
+      id: 'Id',
+      name: 'Name',
+      orderInstanceId: 'OrderInstanceId',
+      paymentType: 'PaymentType',
+      remark: 'Remark',
+      resourceGroupType: 'ResourceGroupType',
+      spec: 'Spec',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      createUser: 'string',
+      defaultVpcId: 'string',
+      defaultVswitchId: 'string',
+      id: 'string',
+      name: 'string',
+      orderInstanceId: 'string',
+      paymentType: 'string',
+      remark: 'string',
+      resourceGroupType: 'string',
+      spec: GetResourceGroupResponseBodyResourceGroupSpec,
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRouteResponseBodyRoute extends $tea.Model {
+  /**
+   * @example
+   * 1727055811000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 192.168.0.0/16
+   */
+  destinationCidr?: string;
+  /**
+   * @example
+   * 1000
+   */
+  id?: number;
+  /**
+   * @example
+   * 1000
+   */
+  networkId?: number;
+  /**
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * ns-679XXXXX
+   */
+  resourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      destinationCidr: 'DestinationCidr',
+      id: 'Id',
+      networkId: 'NetworkId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      destinationCidr: 'string',
+      id: 'number',
+      networkId: 'number',
+      resourceGroupId: 'string',
+      resourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $tea.Model {
   /**
+   * @remarks
+   * The time when the workflow was created. This value is a UNIX timestamp.
+   * 
    * @example
    * 1708481905000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the workflow.
+   * 
    * @example
    * 463497880880954XXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The time when the workflow was last modified. This value is a UNIX timestamp.
+   * 
    * @example
    * 1708481905000
    */
   modifyTime?: number;
+  /**
+   * @remarks
+   * The name of the workflow.
+   */
   name?: string;
   /**
+   * @remarks
+   * The owner of the workflow.
+   * 
    * @example
    * 110755000425XXXX
    */
   owner?: string;
   /**
+   * @remarks
+   * The ID of the workspace to which the workflow belongs.
+   * 
    * @example
    * 307XXX
    */
   projectId?: string;
+  /**
+   * @remarks
+   * The FlowSpec field information about the workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
+   */
   spec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7865,6 +11958,303 @@ export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $tea.Mo
       owner: 'string',
       projectId: 'string',
       spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  completed?: boolean;
+  /**
+   * @example
+   * 1706581425000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * target folder already exists: XXXX
+   */
+  error?: string;
+  /**
+   * @example
+   * 1234567691239009XXXX
+   */
+  id?: string;
+  /**
+   * @example
+   * 0
+   */
+  progress?: number;
+  /**
+   * @example
+   * 632647691239009XXXX
+   */
+  response?: string;
+  /**
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @example
+   * Create
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      completed: 'Completed',
+      createTime: 'CreateTime',
+      error: 'Error',
+      id: 'Id',
+      progress: 'Progress',
+      response: 'Response',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completed: 'boolean',
+      createTime: 'number',
+      error: 'string',
+      id: 'string',
+      progress: 'number',
+      response: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettingsNotificationChannels extends $tea.Model {
+  channels?: string[];
+  /**
+   * @example
+   * Critical
+   */
+  severity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+      severity: 'Severity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+      severity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettingsNotificationReceivers extends $tea.Model {
+  /**
+   * @example
+   * DingToken
+   */
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettings extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
+  inhibitionInterval?: number;
+  notificationChannels?: ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettingsNotificationChannels[];
+  notificationReceivers?: ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettingsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      inhibitionInterval: 'InhibitionInterval',
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inhibitionInterval: 'number',
+      notificationChannels: { 'type': 'array', 'itemType': ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettingsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettingsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesTriggerConditions extends $tea.Model {
+  ddlReportTags?: string[];
+  /**
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @example
+   * Critical
+   */
+  severity?: string;
+  /**
+   * @example
+   * 5
+   */
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ddlReportTags: 'DdlReportTags',
+      duration: 'Duration',
+      severity: 'Severity',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ddlReportTags: { 'type': 'array', 'itemType': 'string' },
+      duration: 'number',
+      severity: 'string',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRules extends $tea.Model {
+  /**
+   * @example
+   * 72402
+   */
+  DIAlarmRuleId?: number;
+  /**
+   * @example
+   * 32594
+   */
+  DIJobId?: number;
+  /**
+   * @example
+   * rule descrition
+   */
+  description?: string;
+  /**
+   * @example
+   * True
+   */
+  enabled?: boolean;
+  /**
+   * @example
+   * Heartbeat
+   */
+  metricType?: string;
+  /**
+   * @example
+   * rule_name
+   */
+  name?: string;
+  notificationSettings?: ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettings;
+  triggerConditions?: ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesTriggerConditions[];
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRuleId: 'DIAlarmRuleId',
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      enabled: 'Enabled',
+      metricType: 'MetricType',
+      name: 'Name',
+      notificationSettings: 'NotificationSettings',
+      triggerConditions: 'TriggerConditions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRuleId: 'number',
+      DIJobId: 'number',
+      description: 'string',
+      enabled: 'boolean',
+      metricType: 'string',
+      name: 'string',
+      notificationSettings: ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettings,
+      triggerConditions: { 'type': 'array', 'itemType': ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesTriggerConditions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponseBodyPagingInfo extends $tea.Model {
+  DIJobAlarmRules?: ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRules[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 90
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobAlarmRules: 'DIJobAlarmRules',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobAlarmRules: { 'type': 'array', 'itemType': ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRules },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -8093,38 +12483,247 @@ export class ListDIJobMetricsResponseBodyPagingInfo extends $tea.Model {
   }
 }
 
+export class ListDIJobRunDetailsResponseBodyPagingInfoJobRunInfos extends $tea.Model {
+  /**
+   * @example
+   * dst_db
+   */
+  destinationDatabaseName?: string;
+  /**
+   * @example
+   * dst_name
+   */
+  destinationDatasourceName?: string;
+  /**
+   * @example
+   * dst_schema
+   */
+  destinationSchemaName?: string;
+  /**
+   * @example
+   * dst_name
+   */
+  destinationTableName?: string;
+  /**
+   * @example
+   * sync table t1 fail.
+   */
+  fullMigrationErrorMessage?: string;
+  /**
+   * @example
+   * Finished
+   */
+  fullMigrationStatus?: string;
+  /**
+   * @example
+   * 0
+   */
+  offlineErrorRecords?: number;
+  /**
+   * @example
+   * 100
+   */
+  offlineTotalBytes?: number;
+  /**
+   * @example
+   * 10
+   */
+  offlineTotalRecords?: number;
+  /**
+   * @example
+   * sync table t1 fail.
+   */
+  realtimeMigrationErrorMessage?: string;
+  /**
+   * @example
+   * Running
+   */
+  realtimeMigrationStatus?: string;
+  /**
+   * @example
+   * db_name
+   */
+  sourceDatabaseName?: string;
+  /**
+   * @example
+   * ds_name
+   */
+  sourceDatasourceName?: string;
+  /**
+   * @example
+   * schema_name
+   */
+  sourceSchemaName?: string;
+  /**
+   * @example
+   * table_name
+   */
+  sourceTableName?: string;
+  /**
+   * @example
+   * create table t1 fail.
+   */
+  structureMigrationErrorMessage?: string;
+  /**
+   * @example
+   * Finished
+   */
+  structureMigrationStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationDatabaseName: 'DestinationDatabaseName',
+      destinationDatasourceName: 'DestinationDatasourceName',
+      destinationSchemaName: 'DestinationSchemaName',
+      destinationTableName: 'DestinationTableName',
+      fullMigrationErrorMessage: 'FullMigrationErrorMessage',
+      fullMigrationStatus: 'FullMigrationStatus',
+      offlineErrorRecords: 'OfflineErrorRecords',
+      offlineTotalBytes: 'OfflineTotalBytes',
+      offlineTotalRecords: 'OfflineTotalRecords',
+      realtimeMigrationErrorMessage: 'RealtimeMigrationErrorMessage',
+      realtimeMigrationStatus: 'RealtimeMigrationStatus',
+      sourceDatabaseName: 'SourceDatabaseName',
+      sourceDatasourceName: 'SourceDatasourceName',
+      sourceSchemaName: 'SourceSchemaName',
+      sourceTableName: 'SourceTableName',
+      structureMigrationErrorMessage: 'StructureMigrationErrorMessage',
+      structureMigrationStatus: 'StructureMigrationStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationDatabaseName: 'string',
+      destinationDatasourceName: 'string',
+      destinationSchemaName: 'string',
+      destinationTableName: 'string',
+      fullMigrationErrorMessage: 'string',
+      fullMigrationStatus: 'string',
+      offlineErrorRecords: 'number',
+      offlineTotalBytes: 'number',
+      offlineTotalRecords: 'number',
+      realtimeMigrationErrorMessage: 'string',
+      realtimeMigrationStatus: 'string',
+      sourceDatabaseName: 'string',
+      sourceDatasourceName: 'string',
+      sourceSchemaName: 'string',
+      sourceTableName: 'string',
+      structureMigrationErrorMessage: 'string',
+      structureMigrationStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobRunDetailsResponseBodyPagingInfo extends $tea.Model {
+  jobRunInfos?: ListDIJobRunDetailsResponseBodyPagingInfoJobRunInfos[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * 131
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobRunInfos: 'JobRunInfos',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobRunInfos: { 'type': 'array', 'itemType': ListDIJobRunDetailsResponseBodyPagingInfoJobRunInfos },
+      pageNumber: 'string',
+      pageSize: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDIJobsResponseBodyPagingInfoDIJobs extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
    * @example
    * 32599
    */
   DIJobId?: number;
   /**
+   * @remarks
+   * The destination type. Valid values: Hologres and Hive.
+   * 
    * @example
    * Hologres
    */
   destinationDataSourceType?: string;
   /**
+   * @remarks
+   * The name of the synchronization task.
+   * 
    * @example
    * mysql_to_holo_sync_35197
    */
   jobName?: string;
   /**
+   * @remarks
+   * The status of the synchronization task. Valid values:
+   * 
+   * *   Finished
+   * *   Initialized
+   * *   Stopped
+   * *   Failed
+   * *   Running
+   * *   Stopping
+   * 
    * @example
    * Running
    */
   jobStatus?: string;
   /**
+   * @remarks
+   * The synchronization type. Valid values:
+   * 
+   * *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
+   * *   RealtimeIncremental: real-time incremental synchronization
+   * *   Full: full synchronization
+   * *   OfflineIncremental: batch incremental synchronization
+   * *   FullAndOfflineIncremental: one-time full synchronization and batch incremental synchronization
+   * 
    * @example
    * FullAndRealtimeIncremental
    */
   migrationType?: string;
   /**
+   * @remarks
+   * The ID of the DataWorks workspace to which the synchronization task belongs.
+   * 
    * @example
    * 26442
    */
   projectId?: number;
   /**
+   * @remarks
+   * The source type. The value MySQL is returned.
+   * 
    * @example
    * Mysql
    */
@@ -8159,18 +12758,31 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $tea.Model {
 }
 
 export class ListDIJobsResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The synchronization tasks that are returned.
+   */
   DIJobs?: ListDIJobsResponseBodyPagingInfoDIJobs[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 12
    */
@@ -8440,7 +13052,7 @@ export class ListDataSourcesResponseBodyPagingInfo extends $tea.Model {
 export class ListDeploymentsResponseBodyPagingInfoDeploymentsStages extends $tea.Model {
   /**
    * @remarks
-   * 阶段代号
+   * The code of the stage.
    * 
    * @example
    * DEV_CHECK
@@ -8448,27 +13060,36 @@ export class ListDeploymentsResponseBodyPagingInfoDeploymentsStages extends $tea
   code?: string;
   /**
    * @remarks
-   * 阶段描述
+   * The description of the stage.
    */
   description?: string;
   /**
    * @remarks
-   * 阶段详细信息
+   * The additional information about the stage.
    */
   detail?: { [key: string]: any };
   /**
    * @remarks
-   * 阶段信息
+   * The error message returned during the stage.
    */
   message?: string;
   /**
    * @remarks
-   * 阶段名称
+   * The name of the stage.
    */
   name?: string;
   /**
    * @remarks
-   * 阶段状态
+   * The status of the stage.
+   * 
+   * Valid values:
+   * 
+   * *   INIT
+   * *   RUNNING
+   * *   SUCCESS
+   * *   FAIL
+   * *   TERMINATION
+   * *   CANCEL
    * 
    * @example
    * RUNNING
@@ -8476,7 +13097,7 @@ export class ListDeploymentsResponseBodyPagingInfoDeploymentsStages extends $tea
   status?: string;
   /**
    * @remarks
-   * 步骤
+   * The step number of the stage.
    * 
    * @example
    * 1
@@ -8484,7 +13105,15 @@ export class ListDeploymentsResponseBodyPagingInfoDeploymentsStages extends $tea
   step?: number;
   /**
    * @remarks
-   * 阶段类型
+   * The type of the stage. This parameter indicates the operation type in the stage.
+   * 
+   * Valid values:
+   * 
+   * *   DEPLOY
+   * *   CHECK
+   * *   OFFLINE.
+   * *   BUILD
+   * *   DELETE
    * 
    * @example
    * CHECK
@@ -8524,7 +13153,7 @@ export class ListDeploymentsResponseBodyPagingInfoDeploymentsStages extends $tea
 export class ListDeploymentsResponseBodyPagingInfoDeployments extends $tea.Model {
   /**
    * @remarks
-   * 发布包创建时间戳
+   * The time when the process was created. This value is a UNIX timestamp.
    * 
    * @example
    * 1702736654000
@@ -8532,7 +13161,7 @@ export class ListDeploymentsResponseBodyPagingInfoDeployments extends $tea.Model
   createTime?: number;
   /**
    * @remarks
-   * 创建人
+   * The ID of the user who creates the process.
    * 
    * @example
    * 110755000425XXXX
@@ -8540,16 +13169,20 @@ export class ListDeploymentsResponseBodyPagingInfoDeployments extends $tea.Model
   creator?: string;
   /**
    * @remarks
-   * 发布流程Id
+   * The process ID.
    * 
    * @example
    * ddf354a5-03df-48fc-94c1-cc973f79XXXX
    */
   id?: string;
+  /**
+   * @remarks
+   * The error message returned if the process fails.
+   */
   message?: string;
   /**
    * @remarks
-   * 修改时间
+   * The time when the process was last modified. This value is a UNIX timestamp.
    * 
    * @example
    * 1702736654000
@@ -8557,7 +13190,7 @@ export class ListDeploymentsResponseBodyPagingInfoDeployments extends $tea.Model
   modifyTime?: number;
   /**
    * @remarks
-   * 项目Id
+   * The DataWorks workspace ID.
    * 
    * @example
    * 44683
@@ -8565,12 +13198,21 @@ export class ListDeploymentsResponseBodyPagingInfoDeployments extends $tea.Model
   projectId?: string;
   /**
    * @remarks
-   * 步骤详情
+   * The stages of the process.
    */
   stages?: ListDeploymentsResponseBodyPagingInfoDeploymentsStages[];
   /**
    * @remarks
-   * 发布流程状态
+   * The status of the process.
+   * 
+   * Valid values:
+   * 
+   * *   INIT
+   * *   RUNNING
+   * *   FAIL
+   * *   SUCCESS
+   * *   TERMINATION
+   * *   CANCEL
    * 
    * @example
    * RUNNING
@@ -8608,18 +13250,31 @@ export class ListDeploymentsResponseBodyPagingInfoDeployments extends $tea.Model
 }
 
 export class ListDeploymentsResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The processes.
+   */
   deployments?: ListDeploymentsResponseBodyPagingInfoDeployments[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 2524
    */
@@ -8650,7 +13305,7 @@ export class ListDeploymentsResponseBodyPagingInfo extends $tea.Model {
 export class ListFunctionsResponseBodyPagingInfoFunctionsDataSource extends $tea.Model {
   /**
    * @remarks
-   * 数据源名称
+   * The name of the data source.
    * 
    * @example
    * odps_first
@@ -8658,7 +13313,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctionsDataSource extends $tea
   name?: string;
   /**
    * @remarks
-   * 数据源类型
+   * The type of the data source.
    * 
    * @example
    * odps
@@ -8686,7 +13341,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctionsDataSource extends $tea
 export class ListFunctionsResponseBodyPagingInfoFunctionsRuntimeResource extends $tea.Model {
   /**
    * @remarks
-   * 运行时资源组Id
+   * The ID of the resource group used when you run the UDF.
    * 
    * @example
    * S_resgrop_xxx
@@ -8712,7 +13367,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctionsRuntimeResource extends
 export class ListFunctionsResponseBodyPagingInfoFunctionsScriptRuntime extends $tea.Model {
   /**
    * @remarks
-   * 脚本所属类型
+   * The command.
    * 
    * @example
    * ODPS_FUNCTION
@@ -8738,7 +13393,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctionsScriptRuntime extends $
 export class ListFunctionsResponseBodyPagingInfoFunctionsScript extends $tea.Model {
   /**
    * @remarks
-   * 脚本的id
+   * The script ID.
    * 
    * @example
    * 652567824470354XXXX
@@ -8746,12 +13401,12 @@ export class ListFunctionsResponseBodyPagingInfoFunctionsScript extends $tea.Mod
   id?: string;
   /**
    * @remarks
-   * 脚本路径
+   * The script path.
    */
   path?: string;
   /**
    * @remarks
-   * 脚本的运行时信息
+   * The runtime.
    */
   runtime?: ListFunctionsResponseBodyPagingInfoFunctionsScriptRuntime;
   static names(): { [key: string]: string } {
@@ -8778,7 +13433,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctionsScript extends $tea.Mod
 export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   /**
    * @remarks
-   * ARM集群资源文件列表
+   * The file resources in an Advanced RISC Machines (ARM) cluster.
    * 
    * @example
    * xxx.jar,yyy.jar
@@ -8786,7 +13441,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   armResource?: string;
   /**
    * @remarks
-   * 函数实现类名
+   * The fully qualified class name of the UDF.
    * 
    * @example
    * com.demo.Main
@@ -8794,7 +13449,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   className?: string;
   /**
    * @remarks
-   * 命令描述
+   * The description of the command.
    * 
    * @example
    * testUdf(xx,yy)
@@ -8802,7 +13457,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   commandDescription?: string;
   /**
    * @remarks
-   * 代表创建时间的资源属性字段
+   * The time when the UDF was created. This value is a UNIX timestamp.
    * 
    * @example
    * 1655953028000
@@ -8810,12 +13465,12 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   createTime?: number;
   /**
    * @remarks
-   * 函数注册到的数据源信息
+   * The data source information about the UDF.
    */
   dataSource?: ListFunctionsResponseBodyPagingInfoFunctionsDataSource;
   /**
    * @remarks
-   * 数据库名，可选
+   * The name of the database. This parameter is returned for E-MapReduce (EMR) functions.
    * 
    * @example
    * odps_first
@@ -8823,12 +13478,12 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   databaseName?: string;
   /**
    * @remarks
-   * 对funciotn的描述
+   * The overall description of the UDF.
    */
   description?: string;
   /**
    * @remarks
-   * 嵌套函数代码内容
+   * The code of the embedded UDF.
    * 
    * @example
    * print(\\"hello,world!\\")
@@ -8836,7 +13491,15 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   embeddedCode?: string;
   /**
    * @remarks
-   * 嵌套代码类型
+   * The type of the nested code.
+   * 
+   * Valid values:
+   * 
+   * *   Python2
+   * *   Python3
+   * *   Java8
+   * *   Java11
+   * *   Java17
    * 
    * @example
    * Python2
@@ -8844,7 +13507,12 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   embeddedCodeType?: string;
   /**
    * @remarks
-   * 嵌套资源类型
+   * The type of the nested resource.
+   * 
+   * Valid values:
+   * 
+   * *   File: general resources
+   * *   Embedded: embedded resources
    * 
    * @example
    * File
@@ -8852,12 +13520,12 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   embeddedResourceType?: string;
   /**
    * @remarks
-   * 示例说明
+   * The description of the example.
    */
   exampleDescription?: string;
   /**
    * @remarks
-   * 函数的实现代码
+   * The files resources.
    * 
    * @example
    * xxx.jar,yyy.jar
@@ -8865,7 +13533,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   fileResource?: string;
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The ID of the UDF.
    * 
    * @example
    * 580667964888595XXXX
@@ -8873,7 +13541,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   id?: string;
   /**
    * @remarks
-   * 修改时间
+   * The time when the UDF was last modified. This value is a UNIX timestamp.
    * 
    * @example
    * 1655953028000
@@ -8881,12 +13549,12 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The name of the UDF.
    */
   name?: string;
   /**
    * @remarks
-   * 函数责任人
+   * The owner of the UDF.
    * 
    * @example
    * 110755000425XXXX
@@ -8894,12 +13562,12 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   owner?: string;
   /**
    * @remarks
-   * 命令描述
+   * The description of the parameter.
    */
   parameterDescription?: string;
   /**
    * @remarks
-   * 项目Id
+   * The ID of the workspace to which the UDF belongs.
    * 
    * @example
    * 307XXX
@@ -8907,22 +13575,31 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
-   * 返回值说明
+   * The description of the return value.
    */
   returnValueDescription?: string;
   /**
    * @remarks
-   * 运行时资源组信息
+   * The information about the resource group used when you run the UDF.
    */
   runtimeResource?: ListFunctionsResponseBodyPagingInfoFunctionsRuntimeResource;
   /**
    * @remarks
-   * 工作流的脚本信息
+   * The script information about the UDF.
    */
   script?: ListFunctionsResponseBodyPagingInfoFunctionsScript;
   /**
    * @remarks
-   * 函数类型
+   * The UDF type.
+   * 
+   * Valid values:
+   * 
+   * *   MATH: mathematical operation function
+   * *   AGGREGATE: aggregate function
+   * *   STRING: string processing function
+   * *   DATE: date function
+   * *   ANALYTIC: window function
+   * *   OTHER: others
    * 
    * @example
    * MATH
@@ -8988,18 +13665,31 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
 }
 
 export class ListFunctionsResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The UDFs.
+   */
   functions?: ListFunctionsResponseBodyPagingInfoFunctions[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 294
    */
@@ -9027,10 +13717,82 @@ export class ListFunctionsResponseBodyPagingInfo extends $tea.Model {
   }
 }
 
+export class ListNetworksResponseBodyNetworkList extends $tea.Model {
+  /**
+   * @example
+   * 1727055811000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 11075500042XXXXX
+   */
+  createUser?: string;
+  /**
+   * @example
+   * 1000
+   */
+  id?: number;
+  /**
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * sg-2ze13vamugr7jenXXXXX
+   */
+  securityGroupId?: string;
+  /**
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @example
+   * vpc-m2et4f3oc8msfbccXXXXX
+   */
+  vpcId?: string;
+  /**
+   * @example
+   * vsw-uf8usrhs7hjd9amsXXXXX
+   */
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      id: 'Id',
+      resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      status: 'Status',
+      vpcId: 'VpcId',
+      vswitchId: 'VswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      createUser: 'string',
+      id: 'number',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      status: 'string',
+      vpcId: 'string',
+      vswitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNodeDependenciesResponseBodyPagingInfoNodesDataSource extends $tea.Model {
   /**
    * @remarks
-   * 数据源名称
+   * The name of the data source.
    * 
    * @example
    * odps_first
@@ -9038,7 +13800,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesDataSource extends $
   name?: string;
   /**
    * @remarks
-   * 数据源类型
+   * The type of the data source.
    * 
    * @example
    * odps
@@ -9066,7 +13828,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesDataSource extends $
 export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsNodeOutputs extends $tea.Model {
   /**
    * @remarks
-   * 节点输出
+   * The node output.
    * 
    * @example
    * 860438872620113XXXX
@@ -9092,7 +13854,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsNodeOutputs ex
 export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsTables extends $tea.Model {
   /**
    * @remarks
-   * 表id
+   * The table ID.
    * 
    * @example
    * odps.autotest.test_output_table_1
@@ -9118,7 +13880,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsTables extends
 export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariablesNode extends $tea.Model {
   /**
    * @remarks
-   * 节点输出
+   * The output of the node.
    * 
    * @example
    * 860438872620113XXXX
@@ -9144,7 +13906,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariablesNode 
 export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables extends $tea.Model {
   /**
    * @remarks
-   * 制品类型
+   * The artifact type.
    * 
    * @example
    * Variable
@@ -9152,7 +13914,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
   artifactType?: string;
   /**
    * @remarks
-   * 变量id
+   * The variable ID.
    * 
    * @example
    * 543218872620113XXXX
@@ -9160,7 +13922,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
   id?: string;
   /**
    * @remarks
-   * 变量名
+   * The name of the variable.
    * 
    * @example
    * input
@@ -9168,12 +13930,19 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
   name?: string;
   /**
    * @remarks
-   * 变量所属节点
+   * The node to which the variable belongs.
    */
   node?: ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariablesNode;
   /**
    * @remarks
-   * 范围
+   * The scope of the variable.
+   * 
+   * Valid values:
+   * 
+   * *   NodeParameter
+   * *   NodeContext
+   * *   Workflow
+   * *   Workspace
    * 
    * @example
    * NodeParameter
@@ -9181,7 +13950,15 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
   scope?: string;
   /**
    * @remarks
-   * 类型
+   * The type of the variable.
+   * 
+   * Valid values:
+   * 
+   * *   NoKvVariableExpression
+   * *   Constant
+   * *   PassThrough
+   * *   System
+   * *   NodeOutput
    * 
    * @example
    * Constant
@@ -9189,7 +13966,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
   type?: string;
   /**
    * @remarks
-   * 变量值
+   * The value of the variable.
    * 
    * @example
    * 111
@@ -9227,17 +14004,17 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
 export class ListNodeDependenciesResponseBodyPagingInfoNodesInputs extends $tea.Model {
   /**
    * @remarks
-   * 节点输出列表
+   * The node outputs.
    */
   nodeOutputs?: ListNodeDependenciesResponseBodyPagingInfoNodesInputsNodeOutputs[];
   /**
    * @remarks
-   * 表列表
+   * The tables.
    */
   tables?: ListNodeDependenciesResponseBodyPagingInfoNodesInputsTables[];
   /**
    * @remarks
-   * 变量列表
+   * The variables.
    */
   variables?: ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables[];
   static names(): { [key: string]: string } {
@@ -9264,7 +14041,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputs extends $tea.
 export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsNodeOutputs extends $tea.Model {
   /**
    * @remarks
-   * 节点输出
+   * The node output.
    * 
    * @example
    * 463497880880954XXXX
@@ -9290,7 +14067,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsNodeOutputs e
 export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsTables extends $tea.Model {
   /**
    * @remarks
-   * 表id
+   * The table ID.
    * 
    * @example
    * odps.autotest.test_output_table_1
@@ -9316,7 +14093,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsTables extend
 export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariablesNode extends $tea.Model {
   /**
    * @remarks
-   * 节点输出
+   * The output of the node to which the variable belongs.
    * 
    * @example
    * 463497880880954XXXX
@@ -9342,7 +14119,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariablesNode
 export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables extends $tea.Model {
   /**
    * @remarks
-   * 制品类型
+   * The artifact type.
    * 
    * @example
    * Variable
@@ -9350,7 +14127,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
   artifactType?: string;
   /**
    * @remarks
-   * 变量id
+   * The variable ID.
    * 
    * @example
    * 543217824470354XXXX
@@ -9358,7 +14135,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
   id?: string;
   /**
    * @remarks
-   * 变量名
+   * The name of the variable.
    * 
    * @example
    * output
@@ -9366,12 +14143,19 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
   name?: string;
   /**
    * @remarks
-   * 变量所属节点
+   * The node to which the variable belongs.
    */
   node?: ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariablesNode;
   /**
    * @remarks
-   * 范围
+   * The scope of the variable.
+   * 
+   * Valid values:
+   * 
+   * *   NodeParameter
+   * *   NodeContext
+   * *   Workflow
+   * *   Workspace
    * 
    * @example
    * NodeParameter
@@ -9379,7 +14163,15 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
   scope?: string;
   /**
    * @remarks
-   * 类型
+   * The type of the variable.
+   * 
+   * Valid values:
+   * 
+   * *   NoKvVariableExpression
+   * *   Constant
+   * *   PassThrough
+   * *   System
+   * *   NodeOutput
    * 
    * @example
    * Constant
@@ -9387,7 +14179,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
   type?: string;
   /**
    * @remarks
-   * 变量值
+   * The value of the variable.
    * 
    * @example
    * 111
@@ -9425,17 +14217,17 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
 export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputs extends $tea.Model {
   /**
    * @remarks
-   * 节点输出列表
+   * The node outputs.
    */
   nodeOutputs?: ListNodeDependenciesResponseBodyPagingInfoNodesOutputsNodeOutputs[];
   /**
    * @remarks
-   * 表列表
+   * The tables.
    */
   tables?: ListNodeDependenciesResponseBodyPagingInfoNodesOutputsTables[];
   /**
    * @remarks
-   * 变量列表
+   * The variables.
    */
   variables?: ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables[];
   static names(): { [key: string]: string } {
@@ -9462,7 +14254,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputs extends $tea
 export class ListNodeDependenciesResponseBodyPagingInfoNodesRuntimeResource extends $tea.Model {
   /**
    * @remarks
-   * 资源组id
+   * The resource group ID.
    * 
    * @example
    * S_res_group_XXXX_XXXX
@@ -9488,7 +14280,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesRuntimeResource exte
 export class ListNodeDependenciesResponseBodyPagingInfoNodesScriptRuntime extends $tea.Model {
   /**
    * @remarks
-   * 脚本所属类型
+   * The command used to distinguish node types.
    * 
    * @example
    * ODPS_SQL
@@ -9514,7 +14306,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesScriptRuntime extend
 export class ListNodeDependenciesResponseBodyPagingInfoNodesScript extends $tea.Model {
   /**
    * @remarks
-   * 脚本的id
+   * The script ID.
    * 
    * @example
    * 853573334108680XXXX
@@ -9522,7 +14314,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesScript extends $tea.
   id?: string;
   /**
    * @remarks
-   * 脚本路径
+   * The script path.
    * 
    * @example
    * root/demo
@@ -9530,7 +14322,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesScript extends $tea.
   path?: string;
   /**
    * @remarks
-   * 脚本的运行时信息
+   * The runtime.
    */
   runtime?: ListNodeDependenciesResponseBodyPagingInfoNodesScriptRuntime;
   static names(): { [key: string]: string } {
@@ -9557,7 +14349,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesScript extends $tea.
 export class ListNodeDependenciesResponseBodyPagingInfoNodesStrategy extends $tea.Model {
   /**
    * @remarks
-   * 生成实例的模式
+   * The instance generation mode.
    * 
    * @example
    * T+1
@@ -9565,7 +14357,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesStrategy extends $te
   instanceMode?: string;
   /**
    * @remarks
-   * 重试时间间隔
+   * The rerun interval after a failure. Unit: milliseconds.
    * 
    * @example
    * 180000
@@ -9573,7 +14365,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesStrategy extends $te
   rerunInterval?: number;
   /**
    * @remarks
-   * 允许重跑的模式
+   * The rerun mode.
    * 
    * @example
    * Allowed
@@ -9581,7 +14373,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesStrategy extends $te
   rerunMode?: string;
   /**
    * @remarks
-   * 重试次数
+   * The number of reruns after a failure.
    * 
    * @example
    * 3
@@ -9589,7 +14381,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesStrategy extends $te
   rerunTimes?: number;
   /**
    * @remarks
-   * 超时时间
+   * The timeout period. Unit: milliseconds.
    * 
    * @example
    * 0
@@ -9623,7 +14415,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesStrategy extends $te
 export class ListNodeDependenciesResponseBodyPagingInfoNodesTags extends $tea.Model {
   /**
    * @remarks
-   * 标签键
+   * The tag key.
    * 
    * @example
    * null
@@ -9631,7 +14423,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTags extends $tea.Mo
   key?: string;
   /**
    * @remarks
-   * 标签值
+   * The tag value
    * 
    * @example
    * null
@@ -9659,7 +14451,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTags extends $tea.Mo
 export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $tea.Model {
   /**
    * @remarks
-   * 触发器的cron表达式
+   * The CRON expression for scheduling.
    * 
    * @example
    * 00 00 00 * * ?
@@ -9667,7 +14459,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $tea
   cron?: string;
   /**
    * @remarks
-   * 结束时间，格式为yyyy-MM-dd HH:mm:ss
+   * The end time of the validity period of the scheduling. The time is in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -9675,7 +14467,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $tea
   endTime?: string;
   /**
    * @remarks
-   * 触发器id
+   * The trigger ID.
    * 
    * @example
    * 543680677872062XXXX
@@ -9683,7 +14475,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $tea
   id?: string;
   /**
    * @remarks
-   * 开始时间，格式为yyyy-MM-dd HH:mm:ss
+   * The start time of the validity period of the scheduling. The time is in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -9691,7 +14483,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $tea
   startTime?: string;
   /**
    * @remarks
-   * 时区
+   * The time zone.
    * 
    * @example
    * Asia/Shanghai
@@ -9699,7 +14491,13 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $tea
   timezone?: string;
   /**
    * @remarks
-   * 触发器类型
+   * The type of the trigger.
+   * 
+   * Valid values:
+   * 
+   * *   Scheduler
+   * *   Manual
+   * *   Streaming
    * 
    * @example
    * Scheduler
@@ -9735,7 +14533,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $tea
 export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $tea.Model {
   /**
    * @remarks
-   * 节点的创建时间
+   * The time when the node was created. This value is a UNIX timestamp.
    * 
    * @example
    * 1724505917000
@@ -9743,27 +14541,30 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $tea.Model 
   createTime?: number;
   /**
    * @remarks
-   * 数据源信息
+   * The information about the data source.
    */
   dataSource?: ListNodeDependenciesResponseBodyPagingInfoNodesDataSource;
   /**
    * @remarks
-   * 描述
+   * The description of the node.
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the node.
+   * 
    * @example
    * 723932906364267XXXX
    */
   id?: string;
   /**
    * @remarks
-   * 节点输入
+   * The input of the node.
    */
   inputs?: ListNodeDependenciesResponseBodyPagingInfoNodesInputs;
   /**
    * @remarks
-   * 属性修改时间
+   * The time when the node was last modified. This value is a UNIX timestamp.
    * 
    * @example
    * 1724505917000
@@ -9771,55 +14572,67 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $tea.Model 
   modifyTime?: number;
   /**
    * @remarks
-   * 节点名
+   * The name of the node.
    */
   name?: string;
   /**
    * @remarks
-   * 节点输出
+   * The output of the node.
    */
   outputs?: ListNodeDependenciesResponseBodyPagingInfoNodesOutputs;
   /**
    * @remarks
-   * 节点的责任人
+   * The owner of the node.
    * 
    * @example
    * 110755000425XXXX
    */
   owner?: string;
   /**
+   * @remarks
+   * The ID of the workspace to which the node belongs.
+   * 
    * @example
    * 65133
    */
   projectId?: string;
   /**
+   * @remarks
+   * The scheduling type.
+   * 
+   * Valid values:
+   * 
+   * *   Normal: The node is scheduled as expected.
+   * *   Pause: The node is paused, and the running of its descendant nodes is blocked.
+   * *   Skip: The node is dry run. The system does not actually run the node but directly prompts that the node is successfully run. The running duration of the node is 0 seconds. In addition, the node does not occupy resources or block the running of its descendant nodes.
+   * 
    * @example
    * Normal
    */
   recurrence?: string;
   /**
    * @remarks
-   * 资源组信息
+   * The information about the resource group.
    */
   runtimeResource?: ListNodeDependenciesResponseBodyPagingInfoNodesRuntimeResource;
   /**
    * @remarks
-   * 工作流的脚本信息
+   * The script information.
    */
   script?: ListNodeDependenciesResponseBodyPagingInfoNodesScript;
   /**
    * @remarks
-   * 调度策略
+   * The scheduling policy.
    */
   strategy?: ListNodeDependenciesResponseBodyPagingInfoNodesStrategy;
   /**
    * @remarks
-   * 标签信息
+   * The tags. This parameter is not in use.
    */
   tags?: ListNodeDependenciesResponseBodyPagingInfoNodesTags[];
   /**
    * @remarks
-   * 调度任务Id
+   * The scheduling task ID.
    * 
    * @example
    * 580667964888595XXXX
@@ -9827,7 +14640,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $tea.Model 
   taskId?: string;
   /**
    * @remarks
-   * 触发器信息
+   * The trigger.
    */
   trigger?: ListNodeDependenciesResponseBodyPagingInfoNodesTrigger;
   static names(): { [key: string]: string } {
@@ -9880,18 +14693,31 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $tea.Model 
 }
 
 export class ListNodeDependenciesResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The descendant nodes.
+   */
   nodes?: ListNodeDependenciesResponseBodyPagingInfoNodes[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 90
    */
@@ -9922,7 +14748,7 @@ export class ListNodeDependenciesResponseBodyPagingInfo extends $tea.Model {
 export class ListNodesResponseBodyPagingInfoNodesDataSource extends $tea.Model {
   /**
    * @remarks
-   * 数据源名称
+   * The name of the data source.
    * 
    * @example
    * odps_first
@@ -9930,7 +14756,7 @@ export class ListNodesResponseBodyPagingInfoNodesDataSource extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * 数据源类型
+   * The type of the data source.
    * 
    * @example
    * odps
@@ -9958,7 +14784,7 @@ export class ListNodesResponseBodyPagingInfoNodesDataSource extends $tea.Model {
 export class ListNodesResponseBodyPagingInfoNodesInputsNodeOutputs extends $tea.Model {
   /**
    * @remarks
-   * 节点输出
+   * The node output.
    * 
    * @example
    * 623731286945488XXXX
@@ -9984,7 +14810,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsNodeOutputs extends $tea.
 export class ListNodesResponseBodyPagingInfoNodesInputsTables extends $tea.Model {
   /**
    * @remarks
-   * 表id
+   * The table ID.
    * 
    * @example
    * odps.autotest.test_output_table_1
@@ -10010,7 +14836,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsTables extends $tea.Model
 export class ListNodesResponseBodyPagingInfoNodesInputsVariablesNode extends $tea.Model {
   /**
    * @remarks
-   * 节点输出
+   * The output of the node.
    * 
    * @example
    * 623731286945488XXXX
@@ -10036,7 +14862,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariablesNode extends $te
 export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $tea.Model {
   /**
    * @remarks
-   * 制品类型
+   * The artifact type.
    * 
    * @example
    * Variable
@@ -10044,7 +14870,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $tea.Mo
   artifactType?: string;
   /**
    * @remarks
-   * 变量id
+   * The variable ID.
    * 
    * @example
    * 543211286945488XXXX
@@ -10052,7 +14878,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $tea.Mo
   id?: string;
   /**
    * @remarks
-   * 变量名
+   * The name of the variable.
    * 
    * @example
    * input
@@ -10060,12 +14886,19 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $tea.Mo
   name?: string;
   /**
    * @remarks
-   * 变量所属节点
+   * The node to which the variable belongs.
    */
   node?: ListNodesResponseBodyPagingInfoNodesInputsVariablesNode;
   /**
    * @remarks
-   * 范围
+   * The scope of the variable.
+   * 
+   * Valid values:
+   * 
+   * *   WorkSpace
+   * *   NodeParameter
+   * *   NodeContext
+   * *   Workflow
    * 
    * @example
    * NodeParameter
@@ -10073,7 +14906,15 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $tea.Mo
   scope?: string;
   /**
    * @remarks
-   * 类型
+   * The type of the variable.
+   * 
+   * Valid values:
+   * 
+   * *   NoKvVariableExpression
+   * *   Constant
+   * *   PassThrough
+   * *   System
+   * *   NodeOutput
    * 
    * @example
    * Constant
@@ -10081,7 +14922,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $tea.Mo
   type?: string;
   /**
    * @remarks
-   * 变量值
+   * The value of the variable.
    * 
    * @example
    * 222
@@ -10119,17 +14960,17 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $tea.Mo
 export class ListNodesResponseBodyPagingInfoNodesInputs extends $tea.Model {
   /**
    * @remarks
-   * 节点输出列表
+   * The node outputs.
    */
   nodeOutputs?: ListNodesResponseBodyPagingInfoNodesInputsNodeOutputs[];
   /**
    * @remarks
-   * 表列表
+   * The tables.
    */
   tables?: ListNodesResponseBodyPagingInfoNodesInputsTables[];
   /**
    * @remarks
-   * 变量列表
+   * The variables.
    */
   variables?: ListNodesResponseBodyPagingInfoNodesInputsVariables[];
   static names(): { [key: string]: string } {
@@ -10156,7 +14997,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputs extends $tea.Model {
 export class ListNodesResponseBodyPagingInfoNodesOutputsNodeOutputs extends $tea.Model {
   /**
    * @remarks
-   * 节点输出
+   * The node output.
    * 
    * @example
    * 860438872620113XXXX
@@ -10182,7 +15023,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsNodeOutputs extends $tea
 export class ListNodesResponseBodyPagingInfoNodesOutputsTables extends $tea.Model {
   /**
    * @remarks
-   * 表id
+   * The table ID.
    * 
    * @example
    * odps.autotest.test_output_table_1
@@ -10208,7 +15049,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsTables extends $tea.Mode
 export class ListNodesResponseBodyPagingInfoNodesOutputsVariablesNode extends $tea.Model {
   /**
    * @remarks
-   * 节点输出
+   * The output of the node.
    * 
    * @example
    * 860438872620113XXXX
@@ -10234,7 +15075,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariablesNode extends $t
 export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $tea.Model {
   /**
    * @remarks
-   * 制品类型
+   * The artifact type.
    * 
    * @example
    * Variable
@@ -10242,7 +15083,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $tea.M
   artifactType?: string;
   /**
    * @remarks
-   * 变量id
+   * The variable ID.
    * 
    * @example
    * 623731286945488XXXX
@@ -10250,7 +15091,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $tea.M
   id?: string;
   /**
    * @remarks
-   * 变量名
+   * The name of the variable.
    * 
    * @example
    * output
@@ -10258,12 +15099,19 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $tea.M
   name?: string;
   /**
    * @remarks
-   * 变量所属节点
+   * The node to which the variable belongs.
    */
   node?: ListNodesResponseBodyPagingInfoNodesOutputsVariablesNode;
   /**
    * @remarks
-   * 范围
+   * The scope of the variable.
+   * 
+   * Valid values:
+   * 
+   * *   NodeParameter
+   * *   NodeContext
+   * *   Workflow
+   * *   Workspace
    * 
    * @example
    * NodeParameter
@@ -10271,7 +15119,15 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $tea.M
   scope?: string;
   /**
    * @remarks
-   * 类型
+   * The type of the variable.
+   * 
+   * Valid values:
+   * 
+   * *   NoKvVariableExpression
+   * *   Constant
+   * *   PassThrough
+   * *   System
+   * *   NodeOutput
    * 
    * @example
    * Constant
@@ -10279,7 +15135,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $tea.M
   type?: string;
   /**
    * @remarks
-   * 变量值
+   * The value of the variable.
    * 
    * @example
    * 111
@@ -10317,17 +15173,17 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $tea.M
 export class ListNodesResponseBodyPagingInfoNodesOutputs extends $tea.Model {
   /**
    * @remarks
-   * 节点输出列表
+   * The node outputs.
    */
   nodeOutputs?: ListNodesResponseBodyPagingInfoNodesOutputsNodeOutputs[];
   /**
    * @remarks
-   * 表列表
+   * The tables.
    */
   tables?: ListNodesResponseBodyPagingInfoNodesOutputsTables[];
   /**
    * @remarks
-   * 变量列表
+   * The variables.
    */
   variables?: ListNodesResponseBodyPagingInfoNodesOutputsVariables[];
   static names(): { [key: string]: string } {
@@ -10354,7 +15210,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputs extends $tea.Model {
 export class ListNodesResponseBodyPagingInfoNodesRuntimeResource extends $tea.Model {
   /**
    * @remarks
-   * 资源组id
+   * The resource group ID.
    * 
    * @example
    * S_resgrop_xxx
@@ -10380,7 +15236,7 @@ export class ListNodesResponseBodyPagingInfoNodesRuntimeResource extends $tea.Mo
 export class ListNodesResponseBodyPagingInfoNodesScriptRuntime extends $tea.Model {
   /**
    * @remarks
-   * 脚本所属类型
+   * The command used to distinguish node types.
    * 
    * @example
    * ODPS_SQL
@@ -10406,7 +15262,7 @@ export class ListNodesResponseBodyPagingInfoNodesScriptRuntime extends $tea.Mode
 export class ListNodesResponseBodyPagingInfoNodesScript extends $tea.Model {
   /**
    * @remarks
-   * 脚本的id
+   * The script ID.
    * 
    * @example
    * 853573334108680XXXX
@@ -10414,7 +15270,7 @@ export class ListNodesResponseBodyPagingInfoNodesScript extends $tea.Model {
   id?: string;
   /**
    * @remarks
-   * 脚本路径
+   * The script path.
    * 
    * @example
    * root/demo
@@ -10422,7 +15278,7 @@ export class ListNodesResponseBodyPagingInfoNodesScript extends $tea.Model {
   path?: string;
   /**
    * @remarks
-   * 脚本的运行时信息
+   * The runtime.
    */
   runtime?: ListNodesResponseBodyPagingInfoNodesScriptRuntime;
   static names(): { [key: string]: string } {
@@ -10449,7 +15305,7 @@ export class ListNodesResponseBodyPagingInfoNodesScript extends $tea.Model {
 export class ListNodesResponseBodyPagingInfoNodesStrategy extends $tea.Model {
   /**
    * @remarks
-   * 生成实例的模式
+   * The instance generation mode.
    * 
    * @example
    * T+1
@@ -10457,7 +15313,7 @@ export class ListNodesResponseBodyPagingInfoNodesStrategy extends $tea.Model {
   instanceMode?: string;
   /**
    * @remarks
-   * 重试时间间隔
+   * The rerun interval. Unit: milliseconds.
    * 
    * @example
    * 180000
@@ -10465,7 +15321,7 @@ export class ListNodesResponseBodyPagingInfoNodesStrategy extends $tea.Model {
   rerunInterval?: number;
   /**
    * @remarks
-   * 允许重跑的模式
+   * The rerun mode.
    * 
    * @example
    * Allowed
@@ -10473,7 +15329,7 @@ export class ListNodesResponseBodyPagingInfoNodesStrategy extends $tea.Model {
   rerunMode?: string;
   /**
    * @remarks
-   * 重试次数
+   * The number of reruns.
    * 
    * @example
    * 3
@@ -10481,7 +15337,7 @@ export class ListNodesResponseBodyPagingInfoNodesStrategy extends $tea.Model {
   rerunTimes?: number;
   /**
    * @remarks
-   * 超时时间
+   * The timeout period.
    * 
    * @example
    * 0
@@ -10515,7 +15371,7 @@ export class ListNodesResponseBodyPagingInfoNodesStrategy extends $tea.Model {
 export class ListNodesResponseBodyPagingInfoNodesTags extends $tea.Model {
   /**
    * @remarks
-   * 标签键
+   * The tag key.
    * 
    * @example
    * null
@@ -10523,7 +15379,7 @@ export class ListNodesResponseBodyPagingInfoNodesTags extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * 标签值
+   * The tag value.
    * 
    * @example
    * null
@@ -10551,7 +15407,7 @@ export class ListNodesResponseBodyPagingInfoNodesTags extends $tea.Model {
 export class ListNodesResponseBodyPagingInfoNodesTrigger extends $tea.Model {
   /**
    * @remarks
-   * 触发器的cron表达式
+   * The CRON expression for scheduling.
    * 
    * @example
    * 00 00 00 * * ?
@@ -10559,7 +15415,7 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $tea.Model {
   cron?: string;
   /**
    * @remarks
-   * 结束时间，格式为yyyy-MM-dd HH:mm:ss
+   * The end time of the validity period of the trigger.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -10567,7 +15423,7 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $tea.Model {
   endTime?: string;
   /**
    * @remarks
-   * 触发器id
+   * The trigger ID.
    * 
    * @example
    * 543680677872062XXXX
@@ -10575,7 +15431,7 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $tea.Model {
   id?: string;
   /**
    * @remarks
-   * 开始时间，格式为yyyy-MM-dd HH:mm:ss
+   * The start time of the validity period of the trigger.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -10583,7 +15439,7 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $tea.Model {
   startTime?: string;
   /**
    * @remarks
-   * 时区
+   * The time zone.
    * 
    * @example
    * Asia/Shanghai
@@ -10591,7 +15447,19 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $tea.Model {
   timezone?: string;
   /**
    * @remarks
-   * 触发器类型
+   * The type of the trigger.
+   * 
+   * Valid values:
+   * 
+   * *   Scheduler
+   * *   Manual
+   * *   Steaming
+   * 
+   * <!---->
+   * 
+   * *
+   * *
+   * *
    * 
    * @example
    * Scheduler
@@ -10627,7 +15495,7 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $tea.Model {
 export class ListNodesResponseBodyPagingInfoNodes extends $tea.Model {
   /**
    * @remarks
-   * 节点的创建时间
+   * The time when the node was created. This value is a UNIX timestamp.
    * 
    * @example
    * 1722910655000
@@ -10635,27 +15503,30 @@ export class ListNodesResponseBodyPagingInfoNodes extends $tea.Model {
   createTime?: number;
   /**
    * @remarks
-   * 数据源信息
+   * The information about the data source.
    */
   dataSource?: ListNodesResponseBodyPagingInfoNodesDataSource;
   /**
    * @remarks
-   * 描述
+   * The description of the node.
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the node.
+   * 
    * @example
    * 860438872620113XXXX
    */
   id?: string;
   /**
    * @remarks
-   * 节点输入
+   * The input of the node.
    */
   inputs?: ListNodesResponseBodyPagingInfoNodesInputs;
   /**
    * @remarks
-   * 属性修改时间
+   * The time when the node was last modified. This value is a UNIX timestamp.
    * 
    * @example
    * 1722910655000
@@ -10663,7 +15534,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $tea.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * 节点名
+   * The name of the node.
    * 
    * @example
    * test
@@ -10671,50 +15542,62 @@ export class ListNodesResponseBodyPagingInfoNodes extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * 节点输出
+   * The output of the node.
    */
   outputs?: ListNodesResponseBodyPagingInfoNodesOutputs;
   /**
    * @remarks
-   * 节点的责任人
+   * The owner of the node.
    * 
    * @example
    * 110755000425XXXX
    */
   owner?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * @example
    * 33233
    */
   projectId?: string;
   /**
+   * @remarks
+   * The scheduling type.
+   * 
+   * Valid values:
+   * 
+   * *   Normal: The node is scheduled as expected.
+   * *   Pause: The node is paused, and the running of its descendant nodes is blocked.
+   * *   Skip: The node is dry run. The system does not actually run the node but directly prompts that the node is successfully run. The running duration of the node is 0 seconds. In addition, the node does not occupy resources or block the running of its descendant nodes.
+   * 
    * @example
    * Normal
    */
   recurrence?: string;
   /**
    * @remarks
-   * 资源组信息
+   * The information about the resource group.
    */
   runtimeResource?: ListNodesResponseBodyPagingInfoNodesRuntimeResource;
   /**
    * @remarks
-   * 工作流的脚本信息
+   * The script information.
    */
   script?: ListNodesResponseBodyPagingInfoNodesScript;
   /**
    * @remarks
-   * 调度策略
+   * The scheduling policy.
    */
   strategy?: ListNodesResponseBodyPagingInfoNodesStrategy;
   /**
    * @remarks
-   * 标签信息
+   * The tags. This parameter is not in use.
    */
   tags?: ListNodesResponseBodyPagingInfoNodesTags[];
   /**
    * @remarks
-   * 调度任务Id
+   * The scheduling task ID.
    * 
    * @example
    * 88888888888
@@ -10722,7 +15605,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $tea.Model {
   taskId?: string;
   /**
    * @remarks
-   * 触发器信息
+   * The trigger.
    */
   trigger?: ListNodesResponseBodyPagingInfoNodesTrigger;
   static names(): { [key: string]: string } {
@@ -10775,18 +15658,31 @@ export class ListNodesResponseBodyPagingInfoNodes extends $tea.Model {
 }
 
 export class ListNodesResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The nodes.
+   */
   nodes?: ListNodesResponseBodyPagingInfoNodes[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 42
    */
@@ -10805,6 +15701,86 @@ export class ListNodesResponseBodyPagingInfo extends $tea.Model {
       nodes: { 'type': 'array', 'itemType': ListNodesResponseBodyPagingInfoNodes },
       pageNumber: 'string',
       pageSize: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $tea.Model {
+  /**
+   * @example
+   * role_project_guest
+   */
+  code?: string;
+  name?: string;
+  /**
+   * @example
+   * 21229
+   */
+  projectId?: number;
+  /**
+   * @example
+   * System
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+      projectId: 'ProjectId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      projectId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectRolesResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: string;
+  projectRoles?: ListProjectRolesResponseBodyPagingInfoProjectRoles[];
+  /**
+   * @example
+   * 42
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectRoles: 'ProjectRoles',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'string',
+      pageSize: 'string',
+      projectRoles: { 'type': 'array', 'itemType': ListProjectRolesResponseBodyPagingInfoProjectRoles },
       totalCount: 'string',
     };
   }
@@ -10995,10 +15971,136 @@ export class ListProjectsResponseBodyPagingInfo extends $tea.Model {
   }
 }
 
+export class ListResourceGroupsResponseBodyResourceGroupListSpec extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  amount?: number;
+  /**
+   * @example
+   * 2CU
+   */
+  standard?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      standard: 'Standard',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      standard: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceGroupsResponseBodyResourceGroupList extends $tea.Model {
+  /**
+   * @example
+   * 1727055811000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 11075500042XXXXX
+   */
+  createUser?: string;
+  /**
+   * @example
+   * vpc-m2et4f3oc8msfbccXXXXX
+   */
+  defaultVpcId?: string;
+  /**
+   * @example
+   * vsw-uf8usrhs7hjd9amsXXXXX
+   */
+  defaultVswicthId?: string;
+  /**
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  id?: string;
+  /**
+   * @example
+   * common_resource_group
+   */
+  name?: string;
+  /**
+   * @example
+   * c442b330-3b10-4584-959e-736e4edXXXXX
+   */
+  orderInstanceId?: string;
+  /**
+   * @example
+   * PrePaid
+   */
+  paymentType?: string;
+  /**
+   * @example
+   * 创建用于普通任务的通用资源组
+   */
+  remark?: string;
+  /**
+   * @example
+   * CommonV2
+   */
+  resourceGroupType?: string;
+  spec?: ListResourceGroupsResponseBodyResourceGroupListSpec;
+  /**
+   * @example
+   * Normal
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      defaultVpcId: 'DefaultVpcId',
+      defaultVswicthId: 'DefaultVswicthId',
+      id: 'Id',
+      name: 'Name',
+      orderInstanceId: 'OrderInstanceId',
+      paymentType: 'PaymentType',
+      remark: 'Remark',
+      resourceGroupType: 'ResourceGroupType',
+      spec: 'Spec',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      createUser: 'string',
+      defaultVpcId: 'string',
+      defaultVswicthId: 'string',
+      id: 'string',
+      name: 'string',
+      orderInstanceId: 'string',
+      paymentType: 'string',
+      remark: 'string',
+      resourceGroupType: 'string',
+      spec: ListResourceGroupsResponseBodyResourceGroupListSpec,
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListResourcesResponseBodyPagingInfoResourcesDataSource extends $tea.Model {
   /**
    * @remarks
-   * 数据源名称
+   * The name of the data source.
    * 
    * @example
    * odps_first
@@ -11006,7 +16108,7 @@ export class ListResourcesResponseBodyPagingInfoResourcesDataSource extends $tea
   name?: string;
   /**
    * @remarks
-   * 数据源类型
+   * The type of the data source.
    * 
    * @example
    * odps
@@ -11034,7 +16136,7 @@ export class ListResourcesResponseBodyPagingInfoResourcesDataSource extends $tea
 export class ListResourcesResponseBodyPagingInfoResourcesScriptRuntime extends $tea.Model {
   /**
    * @remarks
-   * 脚本所属类型
+   * The command used to distinguish file resource types.
    * 
    * @example
    * ODPS_PYTHON
@@ -11060,7 +16162,7 @@ export class ListResourcesResponseBodyPagingInfoResourcesScriptRuntime extends $
 export class ListResourcesResponseBodyPagingInfoResourcesScript extends $tea.Model {
   /**
    * @remarks
-   * 工作流脚本的id
+   * The script ID.
    * 
    * @example
    * 123348864897630XXXX
@@ -11068,7 +16170,7 @@ export class ListResourcesResponseBodyPagingInfoResourcesScript extends $tea.Mod
   id?: string;
   /**
    * @remarks
-   * 工作流的脚本路径
+   * The script path.
    * 
    * @example
    * root/demo
@@ -11076,7 +16178,7 @@ export class ListResourcesResponseBodyPagingInfoResourcesScript extends $tea.Mod
   path?: string;
   /**
    * @remarks
-   * 脚本的运行时信息
+   * The runtime.
    */
   runtime?: ListResourcesResponseBodyPagingInfoResourcesScriptRuntime;
   static names(): { [key: string]: string } {
@@ -11102,18 +16204,21 @@ export class ListResourcesResponseBodyPagingInfoResourcesScript extends $tea.Mod
 
 export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
   /**
+   * @remarks
+   * The time when the file resource was created. This value is a UNIX timestamp.
+   * 
    * @example
    * 1724505917000
    */
   createTime?: number;
   /**
    * @remarks
-   * 函数注册到的数据源信息
+   * The information about the data source.
    */
   dataSource?: ListResourcesResponseBodyPagingInfoResourcesDataSource;
   /**
    * @remarks
-   * 代表资源组的资源属性字段
+   * The ID of the file resource.
    * 
    * @example
    * 631478864897630XXXX
@@ -11121,7 +16226,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
   id?: string;
   /**
    * @remarks
-   * 资源文件的最近修改时间
+   * The times when the file resource was last modified. This value is a UNIX timestamp.
    * 
    * @example
    * 1724505917000
@@ -11129,7 +16234,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The name of the file resource.
    * 
    * @example
    * math.py
@@ -11137,7 +16242,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * 资源文件的责任人
+   * The owner of the file resource.
    * 
    * @example
    * 110755000425XXXX
@@ -11145,7 +16250,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
   owner?: string;
   /**
    * @remarks
-   * 资源文件的项目id
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
    * 
    * @example
    * 344247
@@ -11153,12 +16258,12 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
-   * 工作流的脚本信息
+   * The script information.
    */
   script?: ListResourcesResponseBodyPagingInfoResourcesScript;
   /**
    * @remarks
-   * 文件目标存储路径
+   * The storage path of the source of the file resource. If the value of the SourecType parameter is local, this parameter is empty.
    * 
    * @example
    * XXX/unknown/ide/1/XXX/20240820200851_963a9da676de44ef8d06a6576a8c4d6a.py
@@ -11166,7 +16271,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
   sourcePath?: string;
   /**
    * @remarks
-   * 文件资源来源存储类型
+   * The storage type of the source of the file resource.
    * 
    * @example
    * local
@@ -11174,7 +16279,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
   sourceType?: string;
   /**
    * @remarks
-   * 文件来源路径
+   * The storage path of the destination of the file resource.
    * 
    * @example
    * XXX/unknown/ide/1/XXX/20240820200851_963a9da676de44ef8d06a6576a8c4d6a.py
@@ -11182,7 +16287,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
   targetPath?: string;
   /**
    * @remarks
-   * 文件目标存储类型
+   * The storage type of the destination of the file resource.
    * 
    * @example
    * oss
@@ -11190,7 +16295,14 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
   targetType?: string;
   /**
    * @remarks
-   * 资源类型
+   * The type of the file resource.
+   * 
+   * Valid values:
+   * 
+   * *   jar
+   * *   python
+   * *   file
+   * *   archive
    * 
    * @example
    * jar
@@ -11239,17 +16351,30 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
 
 export class ListResourcesResponseBodyPagingInfo extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The file resources.
+   */
   resources?: ListResourcesResponseBodyPagingInfoResources[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 131
    */
@@ -11277,10 +16402,68 @@ export class ListResourcesResponseBodyPagingInfo extends $tea.Model {
   }
 }
 
+export class ListRoutesResponseBodyRouteList extends $tea.Model {
+  /**
+   * @example
+   * 1727055811000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 192.168.0.0/16
+   */
+  destinationCidr?: string;
+  /**
+   * @example
+   * 1000
+   */
+  id?: number;
+  /**
+   * @example
+   * 1000
+   */
+  networkId?: number;
+  /**
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * ns-679XXXXXX
+   */
+  resourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      destinationCidr: 'DestinationCidr',
+      id: 'Id',
+      networkId: 'NetworkId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      destinationCidr: 'string',
+      id: 'number',
+      networkId: 'number',
+      resourceGroupId: 'string',
+      resourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScriptRuntime extends $tea.Model {
   /**
    * @remarks
-   * 脚本所属类型
+   * The command.
    * 
    * @example
    * WORKFLOW
@@ -11306,7 +16489,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScr
 export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScript extends $tea.Model {
   /**
    * @remarks
-   * 工作流脚本的id
+   * The script ID.
    * 
    * @example
    * 698002781368644XXXX
@@ -11314,12 +16497,12 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScr
   id?: string;
   /**
    * @remarks
-   * 工作流的脚本路径
+   * The script path.
    */
   path?: string;
   /**
    * @remarks
-   * 脚本的运行时信息
+   * The runtime.
    */
   runtime?: ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScriptRuntime;
   static names(): { [key: string]: string } {
@@ -11346,7 +16529,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScr
 export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions extends $tea.Model {
   /**
    * @remarks
-   * 工作流的创建时间
+   * The time when the workflow was created. This value is a UNIX timestamp.
    * 
    * @example
    * 1698057323000
@@ -11354,12 +16537,12 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
   createTime?: number;
   /**
    * @remarks
-   * 工作流的描述
+   * The description of the workflow.
    */
   description?: string;
   /**
    * @remarks
-   * 工作流定义的唯一ID
+   * The ID of the workflow.
    * 
    * @example
    * 463497880880954XXXX
@@ -11367,7 +16550,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
   id?: string;
   /**
    * @remarks
-   * 工作流的最近修改时间
+   * The times when the workflow was last modified. This value is a UNIX timestamp.
    * 
    * @example
    * 1698057323000
@@ -11375,12 +16558,12 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
   modifyTime?: number;
   /**
    * @remarks
-   * 工作流的名称
+   * The name of the workflow.
    */
   name?: string;
   /**
    * @remarks
-   * 工作流的责任人
+   * The owner.
    * 
    * @example
    * 110755000425XXXX
@@ -11388,7 +16571,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
   owner?: string;
   /**
    * @remarks
-   * 工作流定义的所属项目空间
+   * The ID of the DataWorks workspace to which the workflow belongs.
    * 
    * This parameter is required.
    * 
@@ -11398,12 +16581,17 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
   projectId?: string;
   /**
    * @remarks
-   * 工作流的脚本信息
+   * The script information.
    */
   script?: ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScript;
   /**
    * @remarks
-   * 工作流类型，可选值：CycleWorkflow、ManualWorkflow，分别表示周期工作流和手动工作流
+   * The type of the workflow.
+   * 
+   * Valid values:
+   * 
+   * *   CycleWorkflow
+   * *   ManualWorkflow
    * 
    * @example
    * CycleWorkflow
@@ -11444,20 +16632,33 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
 
 export class ListWorkflowDefinitionsResponseBodyPagingInfo extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 227
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The workflows.
+   */
   workflowDefinitions?: ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions[];
   static names(): { [key: string]: string } {
     return {
@@ -11530,6 +16731,127 @@ export class StartDIJobRequestRealtimeStartSettings extends $tea.Model {
     return {
       failoverSettings: StartDIJobRequestRealtimeStartSettingsFailoverSettings,
       startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleRequestNotificationSettingsNotificationChannels extends $tea.Model {
+  channels?: string[];
+  /**
+   * @example
+   * Warning
+   */
+  severity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+      severity: 'Severity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+      severity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleRequestNotificationSettingsNotificationReceivers extends $tea.Model {
+  /**
+   * @example
+   * DingToken
+   */
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleRequestNotificationSettings extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
+  inhibitionInterval?: number;
+  notificationChannels?: UpdateDIAlarmRuleRequestNotificationSettingsNotificationChannels[];
+  notificationReceivers?: UpdateDIAlarmRuleRequestNotificationSettingsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      inhibitionInterval: 'InhibitionInterval',
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inhibitionInterval: 'number',
+      notificationChannels: { 'type': 'array', 'itemType': UpdateDIAlarmRuleRequestNotificationSettingsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': UpdateDIAlarmRuleRequestNotificationSettingsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleRequestTriggerConditions extends $tea.Model {
+  ddlReportTags?: string[];
+  /**
+   * @example
+   * 15
+   */
+  duration?: number;
+  /**
+   * @example
+   * Warning
+   */
+  severity?: string;
+  /**
+   * @example
+   * 5
+   */
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ddlReportTags: 'DdlReportTags',
+      duration: 'Duration',
+      severity: 'Severity',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ddlReportTags: { 'type': 'array', 'itemType': 'string' },
+      duration: 'number',
+      severity: 'string',
+      threshold: 'number',
     };
   }
 
@@ -11998,7 +17320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 终止发布流程
+   * Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
    * 
    * @param request - AbolishDeploymentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12033,7 +17355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 终止发布流程
+   * Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
    * 
    * @param request - AbolishDeploymentRequest
    * @returns AbolishDeploymentResponse
@@ -12041,6 +17363,52 @@ export default class Client extends OpenApi {
   async abolishDeployment(request: AbolishDeploymentRequest): Promise<AbolishDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.abolishDeploymentWithOptions(request, runtime);
+  }
+
+  /**
+   * 关联资源组到某个工作空间。
+   * 
+   * @param request - AssociateProjectToResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateProjectToResourceGroupResponse
+   */
+  async associateProjectToResourceGroupWithOptions(request: AssociateProjectToResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<AssociateProjectToResourceGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AssociateProjectToResourceGroup",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateProjectToResourceGroupResponse>(await this.callApi(params, req, runtime), new AssociateProjectToResourceGroupResponse({}));
+  }
+
+  /**
+   * 关联资源组到某个工作空间。
+   * 
+   * @param request - AssociateProjectToResourceGroupRequest
+   * @returns AssociateProjectToResourceGroupResponse
+   */
+  async associateProjectToResourceGroup(request: AssociateProjectToResourceGroupRequest): Promise<AssociateProjectToResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.associateProjectToResourceGroupWithOptions(request, runtime);
   }
 
   /**
@@ -12087,6 +17455,54 @@ export default class Client extends OpenApi {
   async cloneDataSource(request: CloneDataSourceRequest): Promise<CloneDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cloneDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据集成报警规则
+   * 
+   * @param tmpReq - CreateDIAlarmRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDIAlarmRuleResponse
+   */
+  async createDIAlarmRuleWithOptions(tmpReq: CreateDIAlarmRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateDIAlarmRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDIAlarmRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.notificationSettings)) {
+      request.notificationSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notificationSettings, "NotificationSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.triggerConditions)) {
+      request.triggerConditionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.triggerConditions, "TriggerConditions", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDIAlarmRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new CreateDIAlarmRuleResponse({}));
+  }
+
+  /**
+   * 创建数据集成报警规则
+   * 
+   * @param request - CreateDIAlarmRuleRequest
+   * @returns CreateDIAlarmRuleResponse
+   */
+  async createDIAlarmRule(request: CreateDIAlarmRuleRequest): Promise<CreateDIAlarmRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDIAlarmRuleWithOptions(request, runtime);
   }
 
   /**
@@ -12270,7 +17686,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建发布流程
+   * Creates a process for deploying or undeploying an entity in DataStudio.
+   * 
+   * @remarks
+   * >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
    * 
    * @param tmpReq - CreateDeploymentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12319,7 +17738,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建发布流程
+   * Creates a process for deploying or undeploying an entity in DataStudio.
+   * 
+   * @remarks
+   * >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
    * 
    * @param request - CreateDeploymentRequest
    * @returns CreateDeploymentResponse
@@ -12330,7 +17752,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建udf函数
+   * Creates a user-defined function (UDF) in DataStudio. The information about the UDF is described by using FlowSpec.
+   * 
+   * @remarks
+   * >  You cannot use this API operation to create multiple UDFs at a time. If you specify multiple UDFs by using FlowSpec, the system creates only the first specified UDF.
    * 
    * @param request - CreateFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12365,7 +17790,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建udf函数
+   * Creates a user-defined function (UDF) in DataStudio. The information about the UDF is described by using FlowSpec.
+   * 
+   * @remarks
+   * >  You cannot use this API operation to create multiple UDFs at a time. If you specify multiple UDFs by using FlowSpec, the system creates only the first specified UDF.
    * 
    * @param request - CreateFunctionRequest
    * @returns CreateFunctionResponse
@@ -12376,7 +17804,64 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建节点
+   * 创建并绑定通用资源组网络资源。
+   * 
+   * @param request - CreateNetworkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNetworkResponse
+   */
+  async createNetworkWithOptions(request: CreateNetworkRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.vswitchId)) {
+      body["VswitchId"] = request.vswitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateNetwork",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateNetworkResponse>(await this.callApi(params, req, runtime), new CreateNetworkResponse({}));
+  }
+
+  /**
+   * 创建并绑定通用资源组网络资源。
+   * 
+   * @param request - CreateNetworkRequest
+   * @returns CreateNetworkResponse
+   */
+  async createNetwork(request: CreateNetworkRequest): Promise<CreateNetworkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createNetworkWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a node in DataStudio. The information about the node is described by using FlowSpec.
+   * 
+   * @remarks
+   * >  You cannot use this API operation to create multiple nodes at a time. If you specify multiple nodes by using FlowSpec, the system creates only the first specified node.
    * 
    * @param request - CreateNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12419,7 +17904,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建节点
+   * Creates a node in DataStudio. The information about the node is described by using FlowSpec.
+   * 
+   * @remarks
+   * >  You cannot use this API operation to create multiple nodes at a time. If you specify multiple nodes by using FlowSpec, the system creates only the first specified node.
    * 
    * @param request - CreateNodeRequest
    * @returns CreateNodeResponse
@@ -12506,7 +17994,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源文件
+   * Creates a file resource in DataStudio. The information about the file resource is described by using FlowSpec.
+   * 
+   * @remarks
+   * >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
    * 
    * @param request - CreateResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12541,7 +18032,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源文件
+   * Creates a file resource in DataStudio. The information about the file resource is described by using FlowSpec.
+   * 
+   * @remarks
+   * >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
    * 
    * @param request - CreateResourceRequest
    * @returns CreateResourceResponse
@@ -12552,7 +18046,134 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作流
+   * 创建通用资源组。
+   * 
+   * @param request - CreateResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResourceGroupResponse
+   */
+  async createResourceGroupWithOptions(request: CreateResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateResourceGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoRenew)) {
+      body["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.paymentDuration)) {
+      body["PaymentDuration"] = request.paymentDuration;
+    }
+
+    if (!Util.isUnset(request.paymentDurationUnit)) {
+      body["PaymentDurationUnit"] = request.paymentDurationUnit;
+    }
+
+    if (!Util.isUnset(request.paymentType)) {
+      body["PaymentType"] = request.paymentType;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      body["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.spec)) {
+      body["Spec"] = request.spec;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.vswitchId)) {
+      body["VswitchId"] = request.vswitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateResourceGroup",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateResourceGroupResponse>(await this.callApi(params, req, runtime), new CreateResourceGroupResponse({}));
+  }
+
+  /**
+   * 创建通用资源组。
+   * 
+   * @param request - CreateResourceGroupRequest
+   * @returns CreateResourceGroupResponse
+   */
+  async createResourceGroup(request: CreateResourceGroupRequest): Promise<CreateResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建网络资源的路由。
+   * 
+   * @param request - CreateRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRouteResponse
+   */
+  async createRouteWithOptions(request: CreateRouteRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationCidr)) {
+      body["DestinationCidr"] = request.destinationCidr;
+    }
+
+    if (!Util.isUnset(request.networkId)) {
+      body["NetworkId"] = request.networkId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRoute",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRouteResponse>(await this.callApi(params, req, runtime), new CreateRouteResponse({}));
+  }
+
+  /**
+   * 创建网络资源的路由。
+   * 
+   * @param request - CreateRouteRequest
+   * @returns CreateRouteResponse
+   */
+  async createRoute(request: CreateRouteRequest): Promise<CreateRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a workflow in a directory of DataStudio.
+   * 
+   * @remarks
+   * > You cannot use this API operation to create multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system creates only the first specified workflow. Other specified workflows and the nodes in the workflows are ignored. You can call the CreateNode operation to create a node.
    * 
    * @param request - CreateWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12587,7 +18208,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作流
+   * Creates a workflow in a directory of DataStudio.
+   * 
+   * @remarks
+   * > You cannot use this API operation to create multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system creates only the first specified workflow. Other specified workflows and the nodes in the workflows are ignored. You can call the CreateNode operation to create a node.
    * 
    * @param request - CreateWorkflowDefinitionRequest
    * @returns CreateWorkflowDefinitionResponse
@@ -12595,6 +18219,44 @@ export default class Client extends OpenApi {
   async createWorkflowDefinition(request: CreateWorkflowDefinitionRequest): Promise<CreateWorkflowDefinitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an alert rule configured for a synchronization task.
+   * 
+   * @param request - DeleteDIAlarmRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDIAlarmRuleResponse
+   */
+  async deleteDIAlarmRuleWithOptions(request: DeleteDIAlarmRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDIAlarmRuleResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDIAlarmRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new DeleteDIAlarmRuleResponse({}));
+  }
+
+  /**
+   * Deletes an alert rule configured for a synchronization task.
+   * 
+   * @param request - DeleteDIAlarmRuleRequest
+   * @returns DeleteDIAlarmRuleResponse
+   */
+  async deleteDIAlarmRule(request: DeleteDIAlarmRuleRequest): Promise<DeleteDIAlarmRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDIAlarmRuleWithOptions(request, runtime);
   }
 
   /**
@@ -12716,7 +18378,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除udf函数
+   * Deletes a user-defined function (UDF) in DataStudio.
+   * 
+   * @remarks
+   * >  A UDF that is deployed cannot be deleted. If you want to delete such a UDF, you must first undeploy the UDF.
    * 
    * @param request - DeleteFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12751,7 +18416,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除udf函数
+   * Deletes a user-defined function (UDF) in DataStudio.
+   * 
+   * @remarks
+   * >  A UDF that is deployed cannot be deleted. If you want to delete such a UDF, you must first undeploy the UDF.
    * 
    * @param request - DeleteFunctionRequest
    * @returns DeleteFunctionResponse
@@ -12762,7 +18430,52 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除节点
+   * 解绑并删除通用资源组网络资源。
+   * 
+   * @param request - DeleteNetworkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNetworkResponse
+   */
+  async deleteNetworkWithOptions(request: DeleteNetworkRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteNetwork",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteNetworkResponse>(await this.callApi(params, req, runtime), new DeleteNetworkResponse({}));
+  }
+
+  /**
+   * 解绑并删除通用资源组网络资源。
+   * 
+   * @param request - DeleteNetworkRequest
+   * @returns DeleteNetworkResponse
+   */
+  async deleteNetwork(request: DeleteNetworkRequest): Promise<DeleteNetworkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteNetworkWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a node from DataStudio.
+   * 
+   * @remarks
+   * >  A node that is deployed cannot be deleted. If you want to delete such a node, you must first undeploy the node.
    * 
    * @param request - DeleteNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12797,7 +18510,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除节点
+   * Deletes a node from DataStudio.
+   * 
+   * @remarks
+   * >  A node that is deployed cannot be deleted. If you want to delete such a node, you must first undeploy the node.
    * 
    * @param request - DeleteNodeRequest
    * @returns DeleteNodeResponse
@@ -12850,7 +18566,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源文件
+   * Deletes a file resource from DataStudio.
+   * 
+   * @remarks
+   * >  A file resource that is deployed cannot be deleted. If you want to delete such a file resource, you must first undeploy the file resource.
    * 
    * @param request - DeleteResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12885,7 +18604,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源文件
+   * Deletes a file resource from DataStudio.
+   * 
+   * @remarks
+   * >  A file resource that is deployed cannot be deleted. If you want to delete such a file resource, you must first undeploy the file resource.
    * 
    * @param request - DeleteResourceRequest
    * @returns DeleteResourceResponse
@@ -12896,7 +18618,94 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作流
+   * 删除通用资源组。
+   * 
+   * @param request - DeleteResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceGroupResponse
+   */
+  async deleteResourceGroupWithOptions(request: DeleteResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteResourceGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteResourceGroup",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteResourceGroupResponse>(await this.callApi(params, req, runtime), new DeleteResourceGroupResponse({}));
+  }
+
+  /**
+   * 删除通用资源组。
+   * 
+   * @param request - DeleteResourceGroupRequest
+   * @returns DeleteResourceGroupResponse
+   */
+  async deleteResourceGroup(request: DeleteResourceGroupRequest): Promise<DeleteResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除网络资源的路由。
+   * 
+   * @param request - DeleteRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRouteResponse
+   */
+  async deleteRouteWithOptions(request: DeleteRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRoute",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRouteResponse>(await this.callApi(params, req, runtime), new DeleteRouteResponse({}));
+  }
+
+  /**
+   * 删除网络资源的路由。
+   * 
+   * @param request - DeleteRouteRequest
+   * @returns DeleteRouteResponse
+   */
+  async deleteRoute(request: DeleteRouteRequest): Promise<DeleteRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a workflow from DataStudio.
+   * 
+   * @remarks
+   * >  A workflow that is deployed cannot be deleted. If you want to delete such a workflow, you must first undeploy the workflow.
    * 
    * @param request - DeleteWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12931,7 +18740,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作流
+   * Deletes a workflow from DataStudio.
+   * 
+   * @remarks
+   * >  A workflow that is deployed cannot be deleted. If you want to delete such a workflow, you must first undeploy the workflow.
    * 
    * @param request - DeleteWorkflowDefinitionRequest
    * @returns DeleteWorkflowDefinitionResponse
@@ -12942,7 +18754,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行Deployment一个阶段
+   * 将资源组和某个工作空间解除关联。
+   * 
+   * @param request - DissociateProjectFromResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DissociateProjectFromResourceGroupResponse
+   */
+  async dissociateProjectFromResourceGroupWithOptions(request: DissociateProjectFromResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DissociateProjectFromResourceGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DissociateProjectFromResourceGroup",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DissociateProjectFromResourceGroupResponse>(await this.callApi(params, req, runtime), new DissociateProjectFromResourceGroupResponse({}));
+  }
+
+  /**
+   * 将资源组和某个工作空间解除关联。
+   * 
+   * @param request - DissociateProjectFromResourceGroupRequest
+   * @returns DissociateProjectFromResourceGroupResponse
+   */
+  async dissociateProjectFromResourceGroup(request: DissociateProjectFromResourceGroupRequest): Promise<DissociateProjectFromResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dissociateProjectFromResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Executes a stage in a process.
+   * 
+   * @remarks
+   * >  The stages in a process are sequential. For more information, see the GetDeployment operation. Skipping or repeating a stage is not allowed.
+   * >  The execution of a stage is asynchronous. The response of this operation indicates only whether a stage is triggered but does not indicate whether the execution of the stage is successful. You can call the GetDeployment operation to check whether the execution is successful.
    * 
    * @param request - ExecDeploymentStageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12983,7 +18845,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行Deployment一个阶段
+   * Executes a stage in a process.
+   * 
+   * @remarks
+   * >  The stages in a process are sequential. For more information, see the GetDeployment operation. Skipping or repeating a stage is not allowed.
+   * >  The execution of a stage is asynchronous. The response of this operation indicates only whether a stage is triggered but does not indicate whether the execution of the stage is successful. You can call the GetDeployment operation to check whether the execution is successful.
    * 
    * @param request - ExecDeploymentStageRequest
    * @returns ExecDeploymentStageResponse
@@ -13032,7 +18898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集成任务日志
+   * Obtains logs generated for a synchronization task.
    * 
    * @param request - GetDIJobLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13059,7 +18925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集成任务日志
+   * Obtains logs generated for a synchronization task.
    * 
    * @param request - GetDIJobLogRequest
    * @returns GetDIJobLogResponse
@@ -13108,7 +18974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取发布流程详情
+   * Queries the information about a process for deploying or undeploying an entity.
    * 
    * @param request - GetDeploymentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13135,7 +19001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取发布流程详情
+   * Queries the information about a process for deploying or undeploying an entity.
    * 
    * @param request - GetDeploymentRequest
    * @returns GetDeploymentResponse
@@ -13146,7 +19012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取函数信息
+   * Queries the information about a user-defined function (UDF) in DataStudio.
    * 
    * @param request - GetFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13173,7 +19039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取函数信息
+   * Queries the information about a user-defined function (UDF) in DataStudio.
    * 
    * @param request - GetFunctionRequest
    * @returns GetFunctionResponse
@@ -13184,6 +19050,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 返回异步任务的状态信息
+   * 
+   * @param request - GetJobStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobStatusResponse
+   */
+  async getJobStatusWithOptions(request: GetJobStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetJobStatusResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetJobStatus",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetJobStatusResponse>(await this.callApi(params, req, runtime), new GetJobStatusResponse({}));
+  }
+
+  /**
+   * 返回异步任务的状态信息
+   * 
+   * @param request - GetJobStatusRequest
+   * @returns GetJobStatusResponse
+   */
+  async getJobStatus(request: GetJobStatusRequest): Promise<GetJobStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getJobStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取某个网络资源详细信息。
+   * 
+   * @param request - GetNetworkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNetworkResponse
+   */
+  async getNetworkWithOptions(request: GetNetworkRequest, runtime: $Util.RuntimeOptions): Promise<GetNetworkResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetNetwork",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetNetworkResponse>(await this.callApi(params, req, runtime), new GetNetworkResponse({}));
+  }
+
+  /**
+   * 获取某个网络资源详细信息。
+   * 
+   * @param request - GetNetworkRequest
+   * @returns GetNetworkResponse
+   */
+  async getNetwork(request: GetNetworkRequest): Promise<GetNetworkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getNetworkWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information about a node in DataStudio.
+   * 
    * @param request - GetNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNodeResponse
@@ -13209,6 +19153,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a node in DataStudio.
+   * 
    * @param request - GetNodeRequest
    * @returns GetNodeResponse
    */
@@ -13256,7 +19202,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资源文件
+   * 查询工作空间角色详情
+   * 
+   * @param request - GetProjectRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProjectRoleResponse
+   */
+  async getProjectRoleWithOptions(request: GetProjectRoleRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectRoleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetProjectRole",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetProjectRoleResponse>(await this.callApi(params, req, runtime), new GetProjectRoleResponse({}));
+  }
+
+  /**
+   * 查询工作空间角色详情
+   * 
+   * @param request - GetProjectRoleRequest
+   * @returns GetProjectRoleResponse
+   */
+  async getProjectRole(request: GetProjectRoleRequest): Promise<GetProjectRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getProjectRoleWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information about a file resource.
    * 
    * @param request - GetResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13283,7 +19275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资源文件
+   * Queries the information about a file resource.
    * 
    * @param request - GetResourceRequest
    * @returns GetResourceResponse
@@ -13294,7 +19286,83 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流详情
+   * 根据id获取指定资源组。
+   * 
+   * @param request - GetResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceGroupResponse
+   */
+  async getResourceGroupWithOptions(request: GetResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetResourceGroup",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetResourceGroupResponse>(await this.callApi(params, req, runtime), new GetResourceGroupResponse({}));
+  }
+
+  /**
+   * 根据id获取指定资源组。
+   * 
+   * @param request - GetResourceGroupRequest
+   * @returns GetResourceGroupResponse
+   */
+  async getResourceGroup(request: GetResourceGroupRequest): Promise<GetResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据id获取指定路由。
+   * 
+   * @param request - GetRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRouteResponse
+   */
+  async getRouteWithOptions(request: GetRouteRequest, runtime: $Util.RuntimeOptions): Promise<GetRouteResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRoute",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRouteResponse>(await this.callApi(params, req, runtime), new GetRouteResponse({}));
+  }
+
+  /**
+   * 根据id获取指定路由。
+   * 
+   * @param request - GetRouteRequest
+   * @returns GetRouteResponse
+   */
+  async getRoute(request: GetRouteRequest): Promise<GetRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the infomation about a workflow.
    * 
    * @param request - GetWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13321,7 +19389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流详情
+   * Queries the infomation about a workflow.
    * 
    * @param request - GetWorkflowDefinitionRequest
    * @returns GetWorkflowDefinitionResponse
@@ -13329,6 +19397,90 @@ export default class Client extends OpenApi {
   async getWorkflowDefinition(request: GetWorkflowDefinitionRequest): Promise<GetWorkflowDefinitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 调用此接口，可以将通过FlowSpec定义的工作流节点和其内部的子节点都导入到数据开发中
+   * 
+   * @param request - ImportWorkflowDefinitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportWorkflowDefinitionResponse
+   */
+  async importWorkflowDefinitionWithOptions(request: ImportWorkflowDefinitionRequest, runtime: $Util.RuntimeOptions): Promise<ImportWorkflowDefinitionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.spec)) {
+      body["Spec"] = request.spec;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportWorkflowDefinition",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new ImportWorkflowDefinitionResponse({}));
+  }
+
+  /**
+   * 调用此接口，可以将通过FlowSpec定义的工作流节点和其内部的子节点都导入到数据开发中
+   * 
+   * @param request - ImportWorkflowDefinitionRequest
+   * @returns ImportWorkflowDefinitionResponse
+   */
+  async importWorkflowDefinition(request: ImportWorkflowDefinitionRequest): Promise<ImportWorkflowDefinitionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看数据集成报警规则
+   * 
+   * @param request - ListDIAlarmRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDIAlarmRulesResponse
+   */
+  async listDIAlarmRulesWithOptions(request: ListDIAlarmRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListDIAlarmRulesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDIAlarmRules",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDIAlarmRulesResponse>(await this.callApi(params, req, runtime), new ListDIAlarmRulesResponse({}));
+  }
+
+  /**
+   * 查看数据集成报警规则
+   * 
+   * @param request - ListDIAlarmRulesRequest
+   * @returns ListDIAlarmRulesResponse
+   */
+  async listDIAlarmRules(request: ListDIAlarmRulesRequest): Promise<ListDIAlarmRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDIAlarmRulesWithOptions(request, runtime);
   }
 
   /**
@@ -13414,7 +19566,45 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集成任务
+   * 获取数据集成运行信息
+   * 
+   * @param request - ListDIJobRunDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDIJobRunDetailsResponse
+   */
+  async listDIJobRunDetailsWithOptions(request: ListDIJobRunDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListDIJobRunDetailsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDIJobRunDetails",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDIJobRunDetailsResponse>(await this.callApi(params, req, runtime), new ListDIJobRunDetailsResponse({}));
+  }
+
+  /**
+   * 获取数据集成运行信息
+   * 
+   * @param request - ListDIJobRunDetailsRequest
+   * @returns ListDIJobRunDetailsResponse
+   */
+  async listDIJobRunDetails(request: ListDIJobRunDetailsRequest): Promise<ListDIJobRunDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDIJobRunDetailsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of synchronization tasks.
    * 
    * @param request - ListDIJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13441,7 +19631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集成任务
+   * Queries a list of synchronization tasks.
    * 
    * @param request - ListDIJobsRequest
    * @returns ListDIJobsResponse
@@ -13534,7 +19724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页获取发布流程
+   * Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
    * 
    * @param request - ListDeploymentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13561,7 +19751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页获取发布流程
+   * Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
    * 
    * @param request - ListDeploymentsRequest
    * @returns ListDeploymentsResponse
@@ -13572,7 +19762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取udf函数列表
+   * Queries a list of user-defined functions (UDFs) in DataStudio. You can also specify filter conditions to query specific UDFs.
    * 
    * @param request - ListFunctionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13599,7 +19789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取udf函数列表
+   * Queries a list of user-defined functions (UDFs) in DataStudio. You can also specify filter conditions to query specific UDFs.
    * 
    * @param request - ListFunctionsRequest
    * @returns ListFunctionsResponse
@@ -13610,7 +19800,45 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节点依赖列表
+   * 获取通用资源组网络资源列表。
+   * 
+   * @param request - ListNetworksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNetworksResponse
+   */
+  async listNetworksWithOptions(request: ListNetworksRequest, runtime: $Util.RuntimeOptions): Promise<ListNetworksResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListNetworks",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListNetworksResponse>(await this.callApi(params, req, runtime), new ListNetworksResponse({}));
+  }
+
+  /**
+   * 获取通用资源组网络资源列表。
+   * 
+   * @param request - ListNetworksRequest
+   * @returns ListNetworksResponse
+   */
+  async listNetworks(request: ListNetworksRequest): Promise<ListNetworksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listNetworksWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of descendant nodes of a node in DataStudio.
    * 
    * @param request - ListNodeDependenciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13637,7 +19865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节点依赖列表
+   * Queries a list of descendant nodes of a node in DataStudio.
    * 
    * @param request - ListNodeDependenciesRequest
    * @returns ListNodeDependenciesResponse
@@ -13648,7 +19876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节点列表
+   * Queries a list of nodes in DataStudio. You can also specify filter conditions to query specific nodes.
    * 
    * @param request - ListNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13675,7 +19903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节点列表
+   * Queries a list of nodes in DataStudio. You can also specify filter conditions to query specific nodes.
    * 
    * @param request - ListNodesRequest
    * @returns ListNodesResponse
@@ -13683,6 +19911,78 @@ export default class Client extends OpenApi {
   async listNodes(request: ListNodesRequest): Promise<ListNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询工作空间角色详情
+   * 
+   * @param tmpReq - ListProjectRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectRolesResponse
+   */
+  async listProjectRolesWithOptions(tmpReq: ListProjectRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectRolesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListProjectRolesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.codes)) {
+      request.codesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.codes, "Codes", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.names)) {
+      request.namesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.names, "Names", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.codesShrink)) {
+      body["Codes"] = request.codesShrink;
+    }
+
+    if (!Util.isUnset(request.namesShrink)) {
+      body["Names"] = request.namesShrink;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProjectRoles",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProjectRolesResponse>(await this.callApi(params, req, runtime), new ListProjectRolesResponse({}));
+  }
+
+  /**
+   * 分页查询工作空间角色详情
+   * 
+   * @param request - ListProjectRolesRequest
+   * @returns ListProjectRolesResponse
+   */
+  async listProjectRoles(request: ListProjectRolesRequest): Promise<ListProjectRolesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listProjectRolesWithOptions(request, runtime);
   }
 
   /**
@@ -13778,7 +20078,55 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页获取资源文件
+   * 获取资源组列表。
+   * 
+   * @param tmpReq - ListResourceGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceGroupsResponse
+   */
+  async listResourceGroupsWithOptions(tmpReq: ListResourceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceGroupsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListResourceGroupsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.resourceGroupTypes)) {
+      request.resourceGroupTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceGroupTypes, "ResourceGroupTypes", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.statuses)) {
+      request.statusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statuses, "Statuses", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListResourceGroups",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListResourceGroupsResponse>(await this.callApi(params, req, runtime), new ListResourceGroupsResponse({}));
+  }
+
+  /**
+   * 获取资源组列表。
+   * 
+   * @param request - ListResourceGroupsRequest
+   * @returns ListResourceGroupsResponse
+   */
+  async listResourceGroups(request: ListResourceGroupsRequest): Promise<ListResourceGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listResourceGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of file resources in DataStudio. You can also specify filter conditions to query specific file resources.
    * 
    * @param request - ListResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13805,7 +20153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页获取资源文件
+   * Queries a list of file resources in DataStudio. You can also specify filter conditions to query specific file resources.
    * 
    * @param request - ListResourcesRequest
    * @returns ListResourcesResponse
@@ -13816,7 +20164,45 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取workflowDefinition的列表
+   * 获取网络资源的路由列表。
+   * 
+   * @param request - ListRoutesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRoutesResponse
+   */
+  async listRoutesWithOptions(request: ListRoutesRequest, runtime: $Util.RuntimeOptions): Promise<ListRoutesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRoutes",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRoutesResponse>(await this.callApi(params, req, runtime), new ListRoutesResponse({}));
+  }
+
+  /**
+   * 获取网络资源的路由列表。
+   * 
+   * @param request - ListRoutesRequest
+   * @returns ListRoutesResponse
+   */
+  async listRoutes(request: ListRoutesRequest): Promise<ListRoutesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRoutesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
    * 
    * @param request - ListWorkflowDefinitionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13843,7 +20229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取workflowDefinition的列表
+   * Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
    * 
    * @param request - ListWorkflowDefinitionsRequest
    * @returns ListWorkflowDefinitionsResponse
@@ -13854,7 +20240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动funciton的路径
+   * Moves a user-defined function (UDF) to a path in DataStudio.
    * 
    * @param request - MoveFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13893,7 +20279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动funciton的路径
+   * Moves a user-defined function (UDF) to a path in DataStudio.
    * 
    * @param request - MoveFunctionRequest
    * @returns MoveFunctionResponse
@@ -13904,7 +20290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动节点路径
+   * Moves a node to a path in DataStudio.
    * 
    * @param request - MoveNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13943,7 +20329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动节点路径
+   * Moves a node to a path in DataStudio.
    * 
    * @param request - MoveNodeRequest
    * @returns MoveNodeResponse
@@ -13954,7 +20340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动资源文件路径
+   * Moves a file resource to a path in DataStudio.
    * 
    * @param request - MoveResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13993,7 +20379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动资源文件路径
+   * Moves a file resource to a path in DataStudio.
    * 
    * @param request - MoveResourceRequest
    * @returns MoveResourceResponse
@@ -14004,7 +20390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动工作流的路径
+   * Moves a workflow to a path in DataStudio.
    * 
    * @param request - MoveWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14043,7 +20429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动工作流的路径
+   * Moves a workflow to a path in DataStudio.
    * 
    * @param request - MoveWorkflowDefinitionRequest
    * @returns MoveWorkflowDefinitionResponse
@@ -14054,7 +20440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对function重命名
+   * Renames a user-defined function (UDF) in DataStudio.
    * 
    * @param request - RenameFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14093,7 +20479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对function重命名
+   * Renames a user-defined function (UDF) in DataStudio.
    * 
    * @param request - RenameFunctionRequest
    * @returns RenameFunctionResponse
@@ -14104,7 +20490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重命名节点
+   * Renames a node in DataStudio.
    * 
    * @param request - RenameNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14143,7 +20529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重命名节点
+   * Renames a node in DataStudio.
    * 
    * @param request - RenameNodeRequest
    * @returns RenameNodeResponse
@@ -14154,7 +20540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对资源文件重命名
+   * Renames a file resource in DataStudio.
    * 
    * @param request - RenameResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14193,7 +20579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对资源文件重命名
+   * Renames a file resource in DataStudio.
    * 
    * @param request - RenameResourceRequest
    * @returns RenameResourceResponse
@@ -14204,7 +20590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重命名工作流
+   * Renames a workflow in DataStudio.
    * 
    * @param request - RenameWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14243,7 +20629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重命名工作流
+   * Renames a workflow in DataStudio.
    * 
    * @param request - RenameWorkflowDefinitionRequest
    * @returns RenameWorkflowDefinitionResponse
@@ -14295,6 +20681,92 @@ export default class Client extends OpenApi {
   async startDIJob(request: StartDIJobRequest): Promise<StartDIJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startDIJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Stops a synchronization task.
+   * 
+   * @param request - StopDIJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopDIJobResponse
+   */
+  async stopDIJobWithOptions(request: StopDIJobRequest, runtime: $Util.RuntimeOptions): Promise<StopDIJobResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopDIJob",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopDIJobResponse>(await this.callApi(params, req, runtime), new StopDIJobResponse({}));
+  }
+
+  /**
+   * Stops a synchronization task.
+   * 
+   * @param request - StopDIJobRequest
+   * @returns StopDIJobResponse
+   */
+  async stopDIJob(request: StopDIJobRequest): Promise<StopDIJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopDIJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据集成报警规则
+   * 
+   * @param tmpReq - UpdateDIAlarmRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDIAlarmRuleResponse
+   */
+  async updateDIAlarmRuleWithOptions(tmpReq: UpdateDIAlarmRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDIAlarmRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDIAlarmRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.notificationSettings)) {
+      request.notificationSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notificationSettings, "NotificationSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.triggerConditions)) {
+      request.triggerConditionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.triggerConditions, "TriggerConditions", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDIAlarmRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new UpdateDIAlarmRuleResponse({}));
+  }
+
+  /**
+   * 更新数据集成报警规则
+   * 
+   * @param request - UpdateDIAlarmRuleRequest
+   * @returns UpdateDIAlarmRuleResponse
+   */
+  async updateDIAlarmRule(request: UpdateDIAlarmRuleRequest): Promise<UpdateDIAlarmRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDIAlarmRuleWithOptions(request, runtime);
   }
 
   /**
@@ -14412,7 +20884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新udf函数
+   * Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14451,7 +20923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新udf函数
+   * Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateFunctionRequest
    * @returns UpdateFunctionResponse
@@ -14462,7 +20934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新节点
+   * Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14501,7 +20973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新节点
+   * Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateNodeRequest
    * @returns UpdateNodeResponse
@@ -14578,7 +21050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新资源文件
+   * Updates the basic information about a file resource in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14617,7 +21089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新资源文件
+   * Updates the basic information about a file resource in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateResourceRequest
    * @returns UpdateResourceResponse
@@ -14628,7 +21100,103 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作流
+   * 更新通用资源组基本信息。
+   * 
+   * @param request - UpdateResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateResourceGroupResponse
+   */
+  async updateResourceGroupWithOptions(request: UpdateResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateResourceGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      body["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateResourceGroup",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateResourceGroupResponse>(await this.callApi(params, req, runtime), new UpdateResourceGroupResponse({}));
+  }
+
+  /**
+   * 更新通用资源组基本信息。
+   * 
+   * @param request - UpdateResourceGroupRequest
+   * @returns UpdateResourceGroupResponse
+   */
+  async updateResourceGroup(request: UpdateResourceGroupRequest): Promise<UpdateResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新网络资源的路由。
+   * 
+   * @param request - UpdateRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRouteResponse
+   */
+  async updateRouteWithOptions(request: UpdateRouteRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRouteResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationCidr)) {
+      body["DestinationCidr"] = request.destinationCidr;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateRoute",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRouteResponse>(await this.callApi(params, req, runtime), new UpdateRouteResponse({}));
+  }
+
+  /**
+   * 更新网络资源的路由。
+   * 
+   * @param request - UpdateRouteRequest
+   * @returns UpdateRouteResponse
+   */
+  async updateRoute(request: UpdateRouteRequest): Promise<UpdateRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the basic information about a workflow in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14667,7 +21235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作流
+   * Updates the basic information about a workflow in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateWorkflowDefinitionRequest
    * @returns UpdateWorkflowDefinitionResponse
