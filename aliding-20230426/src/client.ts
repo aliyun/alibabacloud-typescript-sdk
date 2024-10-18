@@ -1027,6 +1027,196 @@ export class AddScenegroupMemberResponse extends $tea.Model {
   }
 }
 
+export class AddTicketMemoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: AddTicketMemoHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: AddTicketMemoHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTicketMemoShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTicketMemoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eKWh3xxxxiE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dq9hP8Sk2v6vQxxxxiE
+   */
+  openTicketId?: string;
+  tenantContext?: AddTicketMemoRequestTenantContext;
+  ticketMemo?: AddTicketMemoRequestTicketMemo;
+  static names(): { [key: string]: string } {
+    return {
+      openTeamId: 'OpenTeamId',
+      openTicketId: 'OpenTicketId',
+      tenantContext: 'TenantContext',
+      ticketMemo: 'TicketMemo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openTeamId: 'string',
+      openTicketId: 'string',
+      tenantContext: AddTicketMemoRequestTenantContext,
+      ticketMemo: AddTicketMemoRequestTicketMemo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTicketMemoShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eKWh3xxxxiE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dq9hP8Sk2v6vQxxxxiE
+   */
+  openTicketId?: string;
+  tenantContextShrink?: string;
+  ticketMemoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      openTeamId: 'OpenTeamId',
+      openTicketId: 'OpenTicketId',
+      tenantContextShrink: 'TenantContext',
+      ticketMemoShrink: 'TicketMemo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openTeamId: 'string',
+      openTicketId: 'string',
+      tenantContextShrink: 'string',
+      ticketMemoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTicketMemoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTicketMemoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddTicketMemoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddTicketMemoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddWorkspaceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: AddWorkspaceHeadersAccountContext;
@@ -1524,6 +1714,208 @@ export class AddWorkspaceMembersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AddWorkspaceMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignTicketHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: AssignTicketHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: AssignTicketHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignTicketShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignTicketRequest extends $tea.Model {
+  notify?: AssignTicketRequestNotify;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eKWh3xxxxiE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dq9hP8Sk2v6vQxxxxiE
+   */
+  openTicketId?: string;
+  processorUserIds?: string[];
+  tenantContext?: AssignTicketRequestTenantContext;
+  ticketMemo?: AssignTicketRequestTicketMemo;
+  static names(): { [key: string]: string } {
+    return {
+      notify: 'Notify',
+      openTeamId: 'OpenTeamId',
+      openTicketId: 'OpenTicketId',
+      processorUserIds: 'ProcessorUserIds',
+      tenantContext: 'TenantContext',
+      ticketMemo: 'TicketMemo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notify: AssignTicketRequestNotify,
+      openTeamId: 'string',
+      openTicketId: 'string',
+      processorUserIds: { 'type': 'array', 'itemType': 'string' },
+      tenantContext: AssignTicketRequestTenantContext,
+      ticketMemo: AssignTicketRequestTicketMemo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignTicketShrinkRequest extends $tea.Model {
+  notifyShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eKWh3xxxxiE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dq9hP8Sk2v6vQxxxxiE
+   */
+  openTicketId?: string;
+  processorUserIdsShrink?: string;
+  tenantContextShrink?: string;
+  ticketMemoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      notifyShrink: 'Notify',
+      openTeamId: 'OpenTeamId',
+      openTicketId: 'OpenTicketId',
+      processorUserIdsShrink: 'ProcessorUserIds',
+      tenantContextShrink: 'TenantContext',
+      ticketMemoShrink: 'TicketMemo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notifyShrink: 'string',
+      openTeamId: 'string',
+      openTicketId: 'string',
+      processorUserIdsShrink: 'string',
+      tenantContextShrink: 'string',
+      ticketMemoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssignTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssignTicketResponseBody,
     };
   }
 
@@ -12252,6 +12644,202 @@ export class ExpandGroupCapacityResponse extends $tea.Model {
   }
 }
 
+export class FinishTicketHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: FinishTicketHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: FinishTicketHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishTicketShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishTicketRequest extends $tea.Model {
+  notify?: FinishTicketRequestNotify;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eKWh3xxxxiE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dq9hP8Sk2v6vQxxxxiE
+   */
+  openTicketId?: string;
+  tenantContext?: FinishTicketRequestTenantContext;
+  ticketMemo?: FinishTicketRequestTicketMemo;
+  static names(): { [key: string]: string } {
+    return {
+      notify: 'Notify',
+      openTeamId: 'OpenTeamId',
+      openTicketId: 'OpenTicketId',
+      tenantContext: 'TenantContext',
+      ticketMemo: 'TicketMemo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notify: FinishTicketRequestNotify,
+      openTeamId: 'string',
+      openTicketId: 'string',
+      tenantContext: FinishTicketRequestTenantContext,
+      ticketMemo: FinishTicketRequestTicketMemo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishTicketShrinkRequest extends $tea.Model {
+  notifyShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eKWh3xxxxiE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dq9hP8Sk2v6vQxxxxiE
+   */
+  openTicketId?: string;
+  tenantContextShrink?: string;
+  ticketMemoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      notifyShrink: 'Notify',
+      openTeamId: 'OpenTeamId',
+      openTicketId: 'OpenTicketId',
+      tenantContextShrink: 'TenantContext',
+      ticketMemoShrink: 'TicketMemo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notifyShrink: 'string',
+      openTeamId: 'string',
+      openTicketId: 'string',
+      tenantContextShrink: 'string',
+      ticketMemoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FinishTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FinishTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetActivityListHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: GetActivityListHeadersAccountContext;
@@ -14867,6 +15455,213 @@ export class GetFormListInAppResponse extends $tea.Model {
   }
 }
 
+export class GetGroupLiveListHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetGroupLiveListHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetGroupLiveListHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupLiveListShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupLiveListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1398324600000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cidt*****Xa4K10w==
+   */
+  openConversationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1398324600000
+   */
+  startTime?: number;
+  tenantContext?: GetGroupLiveListRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      openConversationId: 'OpenConversationId',
+      startTime: 'StartTime',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      openConversationId: 'string',
+      startTime: 'number',
+      tenantContext: GetGroupLiveListRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupLiveListShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1398324600000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cidt*****Xa4K10w==
+   */
+  openConversationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1398324600000
+   */
+  startTime?: number;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      openConversationId: 'OpenConversationId',
+      startTime: 'StartTime',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      openConversationId: 'string',
+      startTime: 'number',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupLiveListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  result?: GetGroupLiveListResponseBodyResult;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetGroupLiveListResponseBodyResult,
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupLiveListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetGroupLiveListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetGroupLiveListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInnerGroupMembersHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: GetInnerGroupMembersHeadersAccountContext;
@@ -16609,6 +17404,804 @@ export class GetMineWorkspaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetMineWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllFieldsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetMultiDimTableAllFieldsHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetMultiDimTableAllFieldsHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllFieldsShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllFieldsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 338534
+   */
+  baseId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  sheetIdOrName?: string;
+  tenantContext?: GetMultiDimTableAllFieldsRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      baseId: 'BaseId',
+      sheetIdOrName: 'SheetIdOrName',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseId: 'string',
+      sheetIdOrName: 'string',
+      tenantContext: GetMultiDimTableAllFieldsRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllFieldsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 338534
+   */
+  baseId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  sheetIdOrName?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseId: 'BaseId',
+      sheetIdOrName: 'SheetIdOrName',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseId: 'string',
+      sheetIdOrName: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllFieldsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * []
+   */
+  value?: GetMultiDimTableAllFieldsResponseBodyValue[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      value: 'value',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      value: { 'type': 'array', 'itemType': GetMultiDimTableAllFieldsResponseBodyValue },
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllFieldsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMultiDimTableAllFieldsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMultiDimTableAllFieldsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllSheetsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetMultiDimTableAllSheetsHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetMultiDimTableAllSheetsHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllSheetsShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllSheetsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 144972
+   */
+  baseId?: string;
+  tenantContext?: GetMultiDimTableAllSheetsRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      baseId: 'BaseId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseId: 'string',
+      tenantContext: GetMultiDimTableAllSheetsRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllSheetsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 144972
+   */
+  baseId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseId: 'BaseId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllSheetsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * []
+   */
+  value?: GetMultiDimTableAllSheetsResponseBodyValue[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      value: 'value',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      value: { 'type': 'array', 'itemType': GetMultiDimTableAllSheetsResponseBodyValue },
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllSheetsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMultiDimTableAllSheetsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMultiDimTableAllSheetsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableRecordHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetMultiDimTableRecordHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetMultiDimTableRecordHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableRecordShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 101114
+   */
+  baseId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  recordId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  sheetIdOrName?: string;
+  tenantContext?: GetMultiDimTableRecordRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      baseId: 'BaseId',
+      recordId: 'RecordId',
+      sheetIdOrName: 'SheetIdOrName',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseId: 'string',
+      recordId: 'string',
+      sheetIdOrName: 'string',
+      tenantContext: GetMultiDimTableRecordRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableRecordShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 101114
+   */
+  baseId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  recordId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  sheetIdOrName?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseId: 'BaseId',
+      recordId: 'RecordId',
+      sheetIdOrName: 'SheetIdOrName',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseId: 'string',
+      recordId: 'string',
+      sheetIdOrName: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableRecordResponseBody extends $tea.Model {
+  createdBy?: GetMultiDimTableRecordResponseBodyCreatedBy;
+  /**
+   * @example
+   * xxx
+   */
+  createdTime?: number;
+  /**
+   * @example
+   * xxx
+   */
+  fields?: { [key: string]: any };
+  /**
+   * @example
+   * xxx
+   */
+  id?: string;
+  lastModifiedBy?: GetMultiDimTableRecordResponseBodyLastModifiedBy;
+  /**
+   * @example
+   * xxx
+   */
+  lastModifiedTime?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdBy: 'CreatedBy',
+      createdTime: 'CreatedTime',
+      fields: 'Fields',
+      id: 'Id',
+      lastModifiedBy: 'LastModifiedBy',
+      lastModifiedTime: 'LastModifiedTime',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdBy: GetMultiDimTableRecordResponseBodyCreatedBy,
+      createdTime: 'number',
+      fields: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      id: 'string',
+      lastModifiedBy: GetMultiDimTableRecordResponseBodyLastModifiedBy,
+      lastModifiedTime: 'number',
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableRecordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMultiDimTableRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMultiDimTableRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableSheetHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetMultiDimTableSheetHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetMultiDimTableSheetHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableSheetShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableSheetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 169899
+   */
+  baseId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  sheetIdOrName?: string;
+  tenantContext?: GetMultiDimTableSheetRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      baseId: 'BaseId',
+      sheetIdOrName: 'SheetIdOrName',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseId: 'string',
+      sheetIdOrName: 'string',
+      tenantContext: GetMultiDimTableSheetRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableSheetShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 169899
+   */
+  baseId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  sheetIdOrName?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseId: 'BaseId',
+      sheetIdOrName: 'SheetIdOrName',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseId: 'string',
+      sheetIdOrName: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableSheetResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  id?: string;
+  /**
+   * @example
+   * Sheet1
+   */
+  name?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      name: 'name',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableSheetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMultiDimTableSheetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMultiDimTableSheetResponseBody,
     };
   }
 
@@ -20482,6 +22075,265 @@ export class GetTemplateListByUserIdResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetTemplateListByUserIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetTicketHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetTicketHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eKWh3xxxxiE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dq9hP8Sk2v6vQxxxxiE
+   */
+  openTicketId?: string;
+  tenantContext?: GetTicketRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      openTeamId: 'OpenTeamId',
+      openTicketId: 'OpenTicketId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openTeamId: 'string',
+      openTicketId: 'string',
+      tenantContext: GetTicketRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eKWh3xxxxiE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dq9hP8Sk2v6vQxxxxiE
+   */
+  openTicketId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      openTeamId: 'OpenTeamId',
+      openTicketId: 'OpenTicketId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openTeamId: 'string',
+      openTicketId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2021-07-09 14:45:01
+   */
+  createTime?: string;
+  creator?: GetTicketResponseBodyCreator;
+  /**
+   * @example
+   * [{ "customerVisible": true,"editable": false,"identifier": "input1","name": "正文","placeholder": "请输入","required": false,"type": "TEXT_AREA","value": "123"},{"customerVisible": true,"editable": false,"identifier": "input2","name": "单选","options": [{"color": "#000000","value": "选项1"},{"color": "#000000","value": "选项2"},{"color": "#000000","value": "选项3"}],"required": false,"type": "RADIO"},{"customerVisible": true,"editable": false,"identifier": "input3","name": "多选","options": [{"color": "#000000","value": "选项1"},{"color": "#000000","value": "选项2"},{"color": "#000000","value": "选项3"}],"required": false,"type": "CHECKBOX"},{"customerVisible": true,"editable": false,"identifier": "input5","name": "数字","required": false,"type": "INPUT_NUMBER"},{"customerVisible": true,"editable": false,"identifier": "input6","maxFileNum": 20,"name": "上传","required": false,"type": "FILE"},{"customerVisible": true,"editable": false,"identifier": "input7","maxFileNum": 20,"name": "图片","required": false,"type": "IMAGE"},{"customerVisible": true,"editable": false,"format": "DATE_TIME","identifier": "input8","name": "日期","required": false,"type": "DATE_TIME_PICKER"}]
+   */
+  customFields?: string;
+  /**
+   * @example
+   * cidZBSNxxxxXUCrAA==
+   */
+  openConversationId?: string;
+  /**
+   * @example
+   * a8iSxxxxtgiE
+   */
+  openTicketId?: string;
+  processor?: GetTicketResponseBodyProcessor;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * SG
+   */
+  scene?: string;
+  /**
+   * @example
+   * {"groupId":1893227,"groupIsNormal":true,"groupName":"API和SPI测试群","groupSetId":29003,"groupSetName":"默认服务群组","scene":"SG"}
+   */
+  sceneContext?: string;
+  /**
+   * @example
+   * FINISHED
+   */
+  stage?: string;
+  takers?: GetTicketResponseBodyTakers[];
+  template?: GetTicketResponseBodyTemplate;
+  /**
+   * @example
+   * 贤文api测试，处理人王鸿程和李航宇
+   */
+  title?: string;
+  /**
+   * @example
+   * 2021-07-09 19:26:09
+   */
+  updateTime?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      creator: 'creator',
+      customFields: 'customFields',
+      openConversationId: 'openConversationId',
+      openTicketId: 'openTicketId',
+      processor: 'processor',
+      requestId: 'requestId',
+      scene: 'scene',
+      sceneContext: 'sceneContext',
+      stage: 'stage',
+      takers: 'takers',
+      template: 'template',
+      title: 'title',
+      updateTime: 'updateTime',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      creator: GetTicketResponseBodyCreator,
+      customFields: 'string',
+      openConversationId: 'string',
+      openTicketId: 'string',
+      processor: GetTicketResponseBodyProcessor,
+      requestId: 'string',
+      scene: 'string',
+      sceneContext: 'string',
+      stage: 'string',
+      takers: { 'type': 'array', 'itemType': GetTicketResponseBodyTakers },
+      template: GetTicketResponseBodyTemplate,
+      title: 'string',
+      updateTime: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTicketResponseBody,
     };
   }
 
@@ -24535,6 +26387,245 @@ export class ListFormRemarksResponse extends $tea.Model {
   }
 }
 
+export class ListMultiDimTableRecordsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: ListMultiDimTableRecordsHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: ListMultiDimTableRecordsHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiDimTableRecordsShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiDimTableRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 101114
+   */
+  baseId?: string;
+  filter?: ListMultiDimTableRecordsRequestFilter;
+  /**
+   * @example
+   * 100
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * AAAAAUUg5QSTWwHyeElt8z5z4Qo=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  sheetIdOrName?: string;
+  tenantContext?: ListMultiDimTableRecordsRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      baseId: 'BaseId',
+      filter: 'Filter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      sheetIdOrName: 'SheetIdOrName',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseId: 'string',
+      filter: ListMultiDimTableRecordsRequestFilter,
+      maxResults: 'number',
+      nextToken: 'string',
+      sheetIdOrName: 'string',
+      tenantContext: ListMultiDimTableRecordsRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiDimTableRecordsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 101114
+   */
+  baseId?: string;
+  filterShrink?: string;
+  /**
+   * @example
+   * 100
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * AAAAAUUg5QSTWwHyeElt8z5z4Qo=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  sheetIdOrName?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseId: 'BaseId',
+      filterShrink: 'Filter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      sheetIdOrName: 'SheetIdOrName',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseId: 'string',
+      filterShrink: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      sheetIdOrName: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiDimTableRecordsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  hasMore?: boolean;
+  /**
+   * @example
+   * 1234567890
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * []
+   */
+  records?: ListMultiDimTableRecordsResponseBodyRecords[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hasMore: 'hasMore',
+      nextToken: 'nextToken',
+      records: 'records',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasMore: 'boolean',
+      nextToken: 'string',
+      records: { 'type': 'array', 'itemType': ListMultiDimTableRecordsResponseBodyRecords },
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiDimTableRecordsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMultiDimTableRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMultiDimTableRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNavigationByFormTypeHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: ListNavigationByFormTypeHeadersAccountContext;
@@ -25791,6 +27882,193 @@ export class ListTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketOperateRecordHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: ListTicketOperateRecordHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: ListTicketOperateRecordHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketOperateRecordShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketOperateRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eKWh3xxxxiE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dq9hP8Sk2v6vQxxxxiE
+   */
+  openTicketId?: string;
+  tenantContext?: ListTicketOperateRecordRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      openTeamId: 'OpenTeamId',
+      openTicketId: 'OpenTicketId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openTeamId: 'string',
+      openTicketId: 'string',
+      tenantContext: ListTicketOperateRecordRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketOperateRecordShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eKWh3xxxxiE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dq9hP8Sk2v6vQxxxxiE
+   */
+  openTicketId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      openTeamId: 'OpenTeamId',
+      openTicketId: 'OpenTicketId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openTeamId: 'string',
+      openTicketId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketOperateRecordResponseBody extends $tea.Model {
+  records?: ListTicketOperateRecordResponseBodyRecords[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      records: 'records',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      records: { 'type': 'array', 'itemType': ListTicketOperateRecordResponseBodyRecords },
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketOperateRecordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTicketOperateRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTicketOperateRecordResponseBody,
     };
   }
 
@@ -27518,6 +29796,245 @@ export class QueryDentryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryDentryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupLiveInfoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: QueryGroupLiveInfoHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: QueryGroupLiveInfoHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupLiveInfoShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupLiveInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * Eijxxx
+   */
+  anchorUnionId?: string;
+  /**
+   * @example
+   * 123456
+   */
+  liveUuid?: string;
+  tenantContext?: QueryGroupLiveInfoRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      anchorUnionId: 'AnchorUnionId',
+      liveUuid: 'LiveUuid',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      anchorUnionId: 'string',
+      liveUuid: 'string',
+      tenantContext: QueryGroupLiveInfoRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupLiveInfoShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * Eijxxx
+   */
+  anchorUnionId?: string;
+  /**
+   * @example
+   * 123456
+   */
+  liveUuid?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      anchorUnionId: 'AnchorUnionId',
+      liveUuid: 'LiveUuid',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      anchorUnionId: 'string',
+      liveUuid: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupLiveInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * http://xxx/kk.jpg
+   */
+  coverUrl?: string;
+  /**
+   * @example
+   * 59886
+   */
+  duration?: number;
+  /**
+   * @example
+   * 1687928400000
+   */
+  endTime?: number;
+  introduction?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  liveId?: string;
+  /**
+   * @example
+   * http://ssssss
+   */
+  livePlayUrl?: string;
+  liveStatus?: number;
+  /**
+   * @example
+   * 13414
+   */
+  playbackDuration?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1687924800000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * 0
+   */
+  subscribeCount?: number;
+  title?: string;
+  /**
+   * @example
+   * 10
+   */
+  uv?: number;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coverUrl: 'coverUrl',
+      duration: 'duration',
+      endTime: 'endTime',
+      introduction: 'introduction',
+      liveId: 'liveId',
+      livePlayUrl: 'livePlayUrl',
+      liveStatus: 'liveStatus',
+      playbackDuration: 'playbackDuration',
+      requestId: 'requestId',
+      startTime: 'startTime',
+      subscribeCount: 'subscribeCount',
+      title: 'title',
+      uv: 'uv',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverUrl: 'string',
+      duration: 'number',
+      endTime: 'number',
+      introduction: 'string',
+      liveId: 'string',
+      livePlayUrl: 'string',
+      liveStatus: 'number',
+      playbackDuration: 'number',
+      requestId: 'string',
+      startTime: 'number',
+      subscribeCount: 'number',
+      title: 'string',
+      uv: 'number',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupLiveInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryGroupLiveInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryGroupLiveInfoResponseBody,
     };
   }
 
@@ -31768,6 +34285,210 @@ export class RemoveMeetingRoomsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RemoveMeetingRoomsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RespondEventHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: RespondEventHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: RespondEventHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RespondEventShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RespondEventRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
+  calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * RHN2REJFc2w4VHNiUUlvcVB0ejFydz09
+   */
+  eventId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * accepted
+   */
+  responseStatus?: string;
+  tenantContext?: RespondEventRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      calendarId: 'CalendarId',
+      eventId: 'EventId',
+      responseStatus: 'ResponseStatus',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      calendarId: 'string',
+      eventId: 'string',
+      responseStatus: 'string',
+      tenantContext: RespondEventRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RespondEventShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
+  calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * RHN2REJFc2w4VHNiUUlvcVB0ejFydz09
+   */
+  eventId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * accepted
+   */
+  responseStatus?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      calendarId: 'CalendarId',
+      eventId: 'EventId',
+      responseStatus: 'ResponseStatus',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      calendarId: 'string',
+      eventId: 'string',
+      responseStatus: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RespondEventResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RespondEventResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RespondEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RespondEventResponseBody,
     };
   }
 
@@ -36717,6 +39438,208 @@ export class TerminateInstanceResponse extends $tea.Model {
   }
 }
 
+export class TransferTicketHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: TransferTicketHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: TransferTicketHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketRequest extends $tea.Model {
+  notify?: TransferTicketRequestNotify;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eKWh3xxxxiE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dq9hP8Sk2v6vQxxxxiE
+   */
+  openTicketId?: string;
+  processorUserIds?: string[];
+  tenantContext?: TransferTicketRequestTenantContext;
+  ticketMemo?: TransferTicketRequestTicketMemo;
+  static names(): { [key: string]: string } {
+    return {
+      notify: 'Notify',
+      openTeamId: 'OpenTeamId',
+      openTicketId: 'OpenTicketId',
+      processorUserIds: 'ProcessorUserIds',
+      tenantContext: 'TenantContext',
+      ticketMemo: 'TicketMemo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notify: TransferTicketRequestNotify,
+      openTeamId: 'string',
+      openTicketId: 'string',
+      processorUserIds: { 'type': 'array', 'itemType': 'string' },
+      tenantContext: TransferTicketRequestTenantContext,
+      ticketMemo: TransferTicketRequestTicketMemo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketShrinkRequest extends $tea.Model {
+  notifyShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eKWh3xxxxiE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dq9hP8Sk2v6vQxxxxiE
+   */
+  openTicketId?: string;
+  processorUserIdsShrink?: string;
+  tenantContextShrink?: string;
+  ticketMemoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      notifyShrink: 'Notify',
+      openTeamId: 'OpenTeamId',
+      openTicketId: 'OpenTicketId',
+      processorUserIdsShrink: 'ProcessorUserIds',
+      tenantContextShrink: 'TenantContext',
+      ticketMemoShrink: 'TicketMemo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notifyShrink: 'string',
+      openTeamId: 'string',
+      openTicketId: 'string',
+      processorUserIdsShrink: 'string',
+      tenantContextShrink: 'string',
+      ticketMemoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransferTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TransferTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnsubscribeCalendarHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: UnsubscribeCalendarHeadersAccountContext;
@@ -40772,6 +43695,107 @@ export class AddScenegroupMemberHeadersAccountContext extends $tea.Model {
   }
 }
 
+export class AddTicketMemoHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTicketMemoRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTicketMemoRequestTicketMemoAttachments extends $tea.Model {
+  /**
+   * @example
+   * "ticket/image/44xxxx9/43003/e27204b38xxxx1640499.txt
+   */
+  fileName?: string;
+  /**
+   * @example
+   * wahaha.txt
+   */
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTicketMemoRequestTicketMemo extends $tea.Model {
+  attachments?: AddTicketMemoRequestTicketMemoAttachments[];
+  memo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachments: 'Attachments',
+      memo: 'Memo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachments: { 'type': 'array', 'itemType': AddTicketMemoRequestTicketMemoAttachments },
+      memo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddWorkspaceHeadersAccountContext extends $tea.Model {
   /**
    * @remarks
@@ -41167,6 +44191,136 @@ export class AddWorkspaceMembersRequestTenantContext extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignTicketHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignTicketRequestNotify extends $tea.Model {
+  groupNoticeReceiverUserIds?: string[];
+  /**
+   * @example
+   * true
+   */
+  noticeAllGroupMember?: boolean;
+  workNoticeReceiverUserIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      groupNoticeReceiverUserIds: 'GroupNoticeReceiverUserIds',
+      noticeAllGroupMember: 'NoticeAllGroupMember',
+      workNoticeReceiverUserIds: 'WorkNoticeReceiverUserIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupNoticeReceiverUserIds: { 'type': 'array', 'itemType': 'string' },
+      noticeAllGroupMember: 'boolean',
+      workNoticeReceiverUserIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignTicketRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignTicketRequestTicketMemoAttachments extends $tea.Model {
+  /**
+   * @example
+   * ticket/image/44708069/43003/e27aec4499.txt
+   */
+  fileName?: string;
+  /**
+   * @example
+   * wahaha.txt
+   */
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignTicketRequestTicketMemo extends $tea.Model {
+  attachments?: AssignTicketRequestTicketMemoAttachments[];
+  memo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachments: 'Attachments',
+      memo: 'Memo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachments: { 'type': 'array', 'itemType': AssignTicketRequestTicketMemoAttachments },
+      memo: 'string',
     };
   }
 
@@ -45016,6 +48170,136 @@ export class ExpandGroupCapacityRequestTenantContext extends $tea.Model {
   }
 }
 
+export class FinishTicketHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishTicketRequestNotify extends $tea.Model {
+  groupNoticeReceiverUserIds?: string[];
+  /**
+   * @example
+   * true
+   */
+  noticeAllGroupMember?: boolean;
+  workNoticeReceiverUserIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      groupNoticeReceiverUserIds: 'GroupNoticeReceiverUserIds',
+      noticeAllGroupMember: 'NoticeAllGroupMember',
+      workNoticeReceiverUserIds: 'WorkNoticeReceiverUserIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupNoticeReceiverUserIds: { 'type': 'array', 'itemType': 'string' },
+      noticeAllGroupMember: 'boolean',
+      workNoticeReceiverUserIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishTicketRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishTicketRequestTicketMemoAttachments extends $tea.Model {
+  /**
+   * @example
+   * wahaha.txt
+   */
+  fileName?: string;
+  /**
+   * @example
+   * ticket/image/44xxxx9/43003/e27xxxx1640499.txt
+   */
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishTicketRequestTicketMemo extends $tea.Model {
+  attachments?: FinishTicketRequestTicketMemoAttachments[];
+  memo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachments: 'Attachments',
+      memo: 'Memo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachments: { 'type': 'array', 'itemType': FinishTicketRequestTicketMemoAttachments },
+      memo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetActivityListHeadersAccountContext extends $tea.Model {
   /**
    * @remarks
@@ -46872,6 +50156,136 @@ export class GetFormListInAppResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetGroupLiveListHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupLiveListRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupLiveListResponseBodyResultGroupLiveList extends $tea.Model {
+  /**
+   * @example
+   * nickName
+   */
+  anchorNickname?: string;
+  /**
+   * @example
+   * Eijxx
+   */
+  anchorUnionId?: string;
+  /**
+   * @example
+   * 1398324600000
+   */
+  liveEndTime?: number;
+  /**
+   * @example
+   * 1398321600000
+   */
+  liveStartTime?: number;
+  /**
+   * @example
+   * 4d38xxxxx
+   */
+  liveUuid?: string;
+  /**
+   * @example
+   * 直播标题
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      anchorNickname: 'AnchorNickname',
+      anchorUnionId: 'AnchorUnionId',
+      liveEndTime: 'LiveEndTime',
+      liveStartTime: 'LiveStartTime',
+      liveUuid: 'LiveUuid',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      anchorNickname: 'string',
+      anchorUnionId: 'string',
+      liveEndTime: 'number',
+      liveStartTime: 'number',
+      liveUuid: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupLiveListResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 直播列表
+   */
+  groupLiveList?: GetGroupLiveListResponseBodyResultGroupLiveList[];
+  static names(): { [key: string]: string } {
+    return {
+      groupLiveList: 'GroupLiveList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupLiveList: { 'type': 'array', 'itemType': GetGroupLiveListResponseBodyResultGroupLiveList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInnerGroupMembersHeadersAccountContext extends $tea.Model {
   /**
    * @remarks
@@ -48434,6 +51848,322 @@ export class GetMineWorkspaceResponseBodyWorkspace extends $tea.Model {
       type: 'string',
       url: 'string',
       workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllFieldsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllFieldsRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllFieldsResponseBodyValue extends $tea.Model {
+  /**
+   * @example
+   * stxxxx
+   */
+  id?: string;
+  /**
+   * @example
+   * Sheet1
+   */
+  name?: string;
+  /**
+   * @example
+   * xxx
+   */
+  property?: { [key: string]: any };
+  /**
+   * @example
+   * xxx
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      property: 'Property',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      property: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllSheetsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllSheetsRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableAllSheetsResponseBodyValue extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  id?: string;
+  /**
+   * @example
+   * xxx
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableRecordHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableRecordRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableRecordResponseBodyCreatedBy extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableRecordResponseBodyLastModifiedBy extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableSheetHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiDimTableSheetRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
     };
   }
 
@@ -51875,6 +55605,181 @@ export class GetTemplateListByUserIdResponseBodyTemplateList extends $tea.Model 
   }
 }
 
+export class GetTicketHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketResponseBodyCreator extends $tea.Model {
+  /**
+   * @example
+   * 贤文
+   */
+  nickName?: string;
+  /**
+   * @example
+   * 012345
+   */
+  unionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nickName: 'NickName',
+      unionId: 'UnionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nickName: 'string',
+      unionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketResponseBodyProcessor extends $tea.Model {
+  /**
+   * @example
+   * 贤文
+   */
+  nickName?: string;
+  /**
+   * @example
+   * 012345
+   */
+  unionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nickName: 'NickName',
+      unionId: 'UnionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nickName: 'string',
+      unionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketResponseBodyTakers extends $tea.Model {
+  /**
+   * @example
+   * 贤文
+   */
+  nickName?: string;
+  /**
+   * @example
+   * 012345
+   */
+  unionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nickName: 'NickName',
+      unionId: 'UnionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nickName: 'string',
+      unionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTicketResponseBodyTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * OpenTemplateBizId
+   * 
+   * @example
+   * OpenTemplateBizId
+   */
+  openTemplateBizId?: string;
+  /**
+   * @remarks
+   * OpenTemplateBizId
+   * 
+   * @example
+   * OpenTemplateBizId
+   */
+  openTemplateId?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      openTemplateBizId: 'OpenTemplateBizId',
+      openTemplateId: 'OpenTemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openTemplateBizId: 'string',
+      openTemplateId: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTodoTaskHeadersAccountContext extends $tea.Model {
   /**
    * @remarks
@@ -54961,6 +58866,210 @@ export class ListFormRemarksHeadersAccountContext extends $tea.Model {
   }
 }
 
+export class ListMultiDimTableRecordsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiDimTableRecordsRequestFilterConditions extends $tea.Model {
+  /**
+   * @example
+   * Sandbox
+   */
+  field?: string;
+  /**
+   * @example
+   * equal
+   */
+  operator?: string;
+  value?: any[];
+  static names(): { [key: string]: string } {
+    return {
+      field: 'Field',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: 'string',
+      operator: 'string',
+      value: { 'type': 'array', 'itemType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiDimTableRecordsRequestFilter extends $tea.Model {
+  /**
+   * @example
+   * and
+   */
+  combination?: string;
+  conditions?: ListMultiDimTableRecordsRequestFilterConditions[];
+  static names(): { [key: string]: string } {
+    return {
+      combination: 'Combination',
+      conditions: 'Conditions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      combination: 'string',
+      conditions: { 'type': 'array', 'itemType': ListMultiDimTableRecordsRequestFilterConditions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiDimTableRecordsRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiDimTableRecordsResponseBodyRecordsCreatedBy extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiDimTableRecordsResponseBodyRecordsLastModifiedBy extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiDimTableRecordsResponseBodyRecords extends $tea.Model {
+  createdBy?: ListMultiDimTableRecordsResponseBodyRecordsCreatedBy;
+  /**
+   * @example
+   * xxx
+   */
+  createdTime?: number;
+  /**
+   * @example
+   * title,shortTitle
+   */
+  fields?: { [key: string]: any };
+  /**
+   * @example
+   * 123
+   */
+  id?: string;
+  lastModifiedBy?: ListMultiDimTableRecordsResponseBodyRecordsLastModifiedBy;
+  /**
+   * @example
+   * xxx
+   */
+  lastModifiedTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createdBy: 'CreatedBy',
+      createdTime: 'CreatedTime',
+      fields: 'Fields',
+      id: 'Id',
+      lastModifiedBy: 'LastModifiedBy',
+      lastModifiedTime: 'LastModifiedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdBy: ListMultiDimTableRecordsResponseBodyRecordsCreatedBy,
+      createdTime: 'number',
+      fields: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      id: 'string',
+      lastModifiedBy: ListMultiDimTableRecordsResponseBodyRecordsLastModifiedBy,
+      lastModifiedTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNavigationByFormTypeHeadersAccountContext extends $tea.Model {
   /**
    * @remarks
@@ -55716,6 +59825,195 @@ export class ListTemplateResponseBodyTemplateList extends $tea.Model {
       title: 'string',
       updateTime: 'number',
       workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketOperateRecordHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketOperateRecordRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketOperateRecordResponseBodyRecordsOperator extends $tea.Model {
+  /**
+   * @example
+   * 贤文
+   */
+  nickName?: string;
+  /**
+   * @example
+   * 012345
+   */
+  unionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nickName: 'NickName',
+      unionId: 'UnionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nickName: 'string',
+      unionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketOperateRecordResponseBodyRecordsTicketMemoAttachments extends $tea.Model {
+  /**
+   * @example
+   * wahaha.txt
+   */
+  fileName?: string;
+  /**
+   * @example
+   * ticket/image/447xxxx9/43003/e2xxxec4243e940a1367_1625xxxx99.txt
+   */
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketOperateRecordResponseBodyRecordsTicketMemo extends $tea.Model {
+  attachments?: ListTicketOperateRecordResponseBodyRecordsTicketMemoAttachments[];
+  /**
+   * @example
+   * 贤文结束工单
+   */
+  memo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachments: 'Attachments',
+      memo: 'Memo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachments: { 'type': 'array', 'itemType': ListTicketOperateRecordResponseBodyRecordsTicketMemoAttachments },
+      memo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTicketOperateRecordResponseBodyRecords extends $tea.Model {
+  /**
+   * @example
+   * a8iSxxxxgtgiE
+   */
+  openTicketId?: string;
+  /**
+   * @example
+   * {"originTakers":[{"nickName":"贤文","unionId":"Dq9hxxxxwiEiE"},{"nickName":"王鸿程","unionId":"4kITooxxxx5wiEiE"}]}
+   */
+  operateData?: string;
+  /**
+   * @example
+   * 2021-07-09 19:26:09
+   */
+  operateTime?: string;
+  /**
+   * @example
+   * FINISH
+   */
+  operation?: string;
+  /**
+   * @example
+   * 结单
+   */
+  operationDisplayName?: string;
+  operator?: ListTicketOperateRecordResponseBodyRecordsOperator;
+  ticketMemo?: ListTicketOperateRecordResponseBodyRecordsTicketMemo;
+  static names(): { [key: string]: string } {
+    return {
+      openTicketId: 'OpenTicketId',
+      operateData: 'OperateData',
+      operateTime: 'OperateTime',
+      operation: 'Operation',
+      operationDisplayName: 'OperationDisplayName',
+      operator: 'Operator',
+      ticketMemo: 'TicketMemo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openTicketId: 'string',
+      operateData: 'string',
+      operateTime: 'string',
+      operation: 'string',
+      operationDisplayName: 'string',
+      operator: ListTicketOperateRecordResponseBodyRecordsOperator,
+      ticketMemo: ListTicketOperateRecordResponseBodyRecordsTicketMemo,
     };
   }
 
@@ -57943,6 +62241,55 @@ export class QueryDentryResponseBodyVisitorInfo extends $tea.Model {
       dentryActions: { 'type': 'array', 'itemType': 'string' },
       roleCode: 'string',
       spaceActions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupLiveInfoHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupLiveInfoRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
     };
   }
 
@@ -60443,6 +64790,55 @@ export class RemoveMeetingRoomsRequestMeetingRoomsToRemove extends $tea.Model {
   }
 }
 
+export class RespondEventHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RespondEventRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveContentHeadersAccountContext extends $tea.Model {
   /**
    * @remarks
@@ -62213,6 +66609,136 @@ export class TerminateInstanceHeadersAccountContext extends $tea.Model {
   }
 }
 
+export class TransferTicketHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketRequestNotify extends $tea.Model {
+  groupNoticeReceiverUserIds?: string[];
+  /**
+   * @example
+   * true
+   */
+  noticeAllGroupMember?: boolean;
+  workNoticeReceiverUserIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      groupNoticeReceiverUserIds: 'GroupNoticeReceiverUserIds',
+      noticeAllGroupMember: 'NoticeAllGroupMember',
+      workNoticeReceiverUserIds: 'WorkNoticeReceiverUserIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupNoticeReceiverUserIds: { 'type': 'array', 'itemType': 'string' },
+      noticeAllGroupMember: 'boolean',
+      workNoticeReceiverUserIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketRequestTicketMemoAttachments extends $tea.Model {
+  /**
+   * @example
+   * auto-test-1727143229007.pdf
+   */
+  fileName?: string;
+  /**
+   * @example
+   * key1
+   */
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketRequestTicketMemo extends $tea.Model {
+  attachments?: TransferTicketRequestTicketMemoAttachments[];
+  memo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachments: 'Attachments',
+      memo: 'Memo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachments: { 'type': 'array', 'itemType': TransferTicketRequestTicketMemoAttachments },
+      memo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnsubscribeCalendarHeadersAccountContext extends $tea.Model {
   /**
    * @remarks
@@ -63760,6 +68286,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 工单添加备注
+   * 
+   * @param tmpReq - AddTicketMemoRequest
+   * @param tmpHeader - AddTicketMemoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddTicketMemoResponse
+   */
+  async addTicketMemoWithOptions(tmpReq: AddTicketMemoRequest, tmpHeader: AddTicketMemoHeaders, runtime: $Util.RuntimeOptions): Promise<AddTicketMemoResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddTicketMemoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new AddTicketMemoShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.ticketMemo)) {
+      request.ticketMemoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ticketMemo, "TicketMemo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.openTeamId)) {
+      body["OpenTeamId"] = request.openTeamId;
+    }
+
+    if (!Util.isUnset(request.openTicketId)) {
+      body["OpenTicketId"] = request.openTicketId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.ticketMemoShrink)) {
+      body["TicketMemo"] = request.ticketMemoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddTicketMemo",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ticket/addTicketMemo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddTicketMemoResponse>(await this.callApi(params, req, runtime), new AddTicketMemoResponse({}));
+  }
+
+  /**
+   * 工单添加备注
+   * 
+   * @param request - AddTicketMemoRequest
+   * @returns AddTicketMemoResponse
+   */
+  async addTicketMemo(request: AddTicketMemoRequest): Promise<AddTicketMemoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AddTicketMemoHeaders({ });
+    return await this.addTicketMemoWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 新建知识库
    * 
    * @param tmpReq - AddWorkspaceRequest
@@ -63995,6 +68603,104 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new AddWorkspaceMembersHeaders({ });
     return await this.addWorkspaceMembersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 指派工单
+   * 
+   * @param tmpReq - AssignTicketRequest
+   * @param tmpHeader - AssignTicketHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssignTicketResponse
+   */
+  async assignTicketWithOptions(tmpReq: AssignTicketRequest, tmpHeader: AssignTicketHeaders, runtime: $Util.RuntimeOptions): Promise<AssignTicketResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AssignTicketShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new AssignTicketShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notify)) {
+      request.notifyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notify, "Notify", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.processorUserIds)) {
+      request.processorUserIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.processorUserIds, "ProcessorUserIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.ticketMemo)) {
+      request.ticketMemoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ticketMemo, "TicketMemo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.notifyShrink)) {
+      body["Notify"] = request.notifyShrink;
+    }
+
+    if (!Util.isUnset(request.openTeamId)) {
+      body["OpenTeamId"] = request.openTeamId;
+    }
+
+    if (!Util.isUnset(request.openTicketId)) {
+      body["OpenTicketId"] = request.openTicketId;
+    }
+
+    if (!Util.isUnset(request.processorUserIdsShrink)) {
+      body["ProcessorUserIds"] = request.processorUserIdsShrink;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.ticketMemoShrink)) {
+      body["TicketMemo"] = request.ticketMemoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AssignTicket",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ticket/assignTicket`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssignTicketResponse>(await this.callApi(params, req, runtime), new AssignTicketResponse({}));
+  }
+
+  /**
+   * 指派工单
+   * 
+   * @param request - AssignTicketRequest
+   * @returns AssignTicketResponse
+   */
+  async assignTicket(request: AssignTicketRequest): Promise<AssignTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AssignTicketHeaders({ });
+    return await this.assignTicketWithOptions(request, headers, runtime);
   }
 
   /**
@@ -68406,6 +73112,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 完结工单
+   * 
+   * @param tmpReq - FinishTicketRequest
+   * @param tmpHeader - FinishTicketHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FinishTicketResponse
+   */
+  async finishTicketWithOptions(tmpReq: FinishTicketRequest, tmpHeader: FinishTicketHeaders, runtime: $Util.RuntimeOptions): Promise<FinishTicketResponse> {
+    Util.validateModel(tmpReq);
+    let request = new FinishTicketShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new FinishTicketShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notify)) {
+      request.notifyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notify, "Notify", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.ticketMemo)) {
+      request.ticketMemoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ticketMemo, "TicketMemo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.notifyShrink)) {
+      body["Notify"] = request.notifyShrink;
+    }
+
+    if (!Util.isUnset(request.openTeamId)) {
+      body["OpenTeamId"] = request.openTeamId;
+    }
+
+    if (!Util.isUnset(request.openTicketId)) {
+      body["OpenTicketId"] = request.openTicketId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.ticketMemoShrink)) {
+      body["TicketMemo"] = request.ticketMemoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "FinishTicket",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ticket/finishTicket`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FinishTicketResponse>(await this.callApi(params, req, runtime), new FinishTicketResponse({}));
+  }
+
+  /**
+   * 完结工单
+   * 
+   * @param request - FinishTicketRequest
+   * @returns FinishTicketResponse
+   */
+  async finishTicket(request: FinishTicketRequest): Promise<FinishTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new FinishTicketHeaders({ });
+    return await this.finishTicketWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取流程设计的节点信息
    * 
    * @param request - GetActivityListRequest
@@ -69488,6 +74284,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询群内直播信息(最早支持2024年01月数据)
+   * 
+   * @param tmpReq - GetGroupLiveListRequest
+   * @param tmpHeader - GetGroupLiveListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGroupLiveListResponse
+   */
+  async getGroupLiveListWithOptions(tmpReq: GetGroupLiveListRequest, tmpHeader: GetGroupLiveListHeaders, runtime: $Util.RuntimeOptions): Promise<GetGroupLiveListResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetGroupLiveListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetGroupLiveListShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.openConversationId)) {
+      body["OpenConversationId"] = request.openConversationId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetGroupLiveList",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/getGroupLiveList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetGroupLiveListResponse>(await this.callApi(params, req, runtime), new GetGroupLiveListResponse({}));
+  }
+
+  /**
+   * 查询群内直播信息(最早支持2024年01月数据)
+   * 
+   * @param request - GetGroupLiveListRequest
+   * @returns GetGroupLiveListResponse
+   */
+  async getGroupLiveList(request: GetGroupLiveListRequest): Promise<GetGroupLiveListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetGroupLiveListHeaders({ });
+    return await this.getGroupLiveListWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询企业内部群成员
    * 
    * @param request - GetInnerGroupMembersRequest
@@ -70247,6 +75121,302 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetMineWorkspaceHeaders({ });
     return await this.getMineWorkspaceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取所有字段
+   * 
+   * @param tmpReq - GetMultiDimTableAllFieldsRequest
+   * @param tmpHeader - GetMultiDimTableAllFieldsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMultiDimTableAllFieldsResponse
+   */
+  async getMultiDimTableAllFieldsWithOptions(tmpReq: GetMultiDimTableAllFieldsRequest, tmpHeader: GetMultiDimTableAllFieldsHeaders, runtime: $Util.RuntimeOptions): Promise<GetMultiDimTableAllFieldsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetMultiDimTableAllFieldsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetMultiDimTableAllFieldsShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baseId)) {
+      body["BaseId"] = request.baseId;
+    }
+
+    if (!Util.isUnset(request.sheetIdOrName)) {
+      body["SheetIdOrName"] = request.sheetIdOrName;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMultiDimTableAllFields",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/table/getMultiDimTableAllFields`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMultiDimTableAllFieldsResponse>(await this.callApi(params, req, runtime), new GetMultiDimTableAllFieldsResponse({}));
+  }
+
+  /**
+   * 获取所有字段
+   * 
+   * @param request - GetMultiDimTableAllFieldsRequest
+   * @returns GetMultiDimTableAllFieldsResponse
+   */
+  async getMultiDimTableAllFields(request: GetMultiDimTableAllFieldsRequest): Promise<GetMultiDimTableAllFieldsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetMultiDimTableAllFieldsHeaders({ });
+    return await this.getMultiDimTableAllFieldsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取所有数据表
+   * 
+   * @param tmpReq - GetMultiDimTableAllSheetsRequest
+   * @param tmpHeader - GetMultiDimTableAllSheetsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMultiDimTableAllSheetsResponse
+   */
+  async getMultiDimTableAllSheetsWithOptions(tmpReq: GetMultiDimTableAllSheetsRequest, tmpHeader: GetMultiDimTableAllSheetsHeaders, runtime: $Util.RuntimeOptions): Promise<GetMultiDimTableAllSheetsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetMultiDimTableAllSheetsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetMultiDimTableAllSheetsShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baseId)) {
+      body["BaseId"] = request.baseId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMultiDimTableAllSheets",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/table/getMultiDimTableAllSheets`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMultiDimTableAllSheetsResponse>(await this.callApi(params, req, runtime), new GetMultiDimTableAllSheetsResponse({}));
+  }
+
+  /**
+   * 获取所有数据表
+   * 
+   * @param request - GetMultiDimTableAllSheetsRequest
+   * @returns GetMultiDimTableAllSheetsResponse
+   */
+  async getMultiDimTableAllSheets(request: GetMultiDimTableAllSheetsRequest): Promise<GetMultiDimTableAllSheetsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetMultiDimTableAllSheetsHeaders({ });
+    return await this.getMultiDimTableAllSheetsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取记录
+   * 
+   * @param tmpReq - GetMultiDimTableRecordRequest
+   * @param tmpHeader - GetMultiDimTableRecordHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMultiDimTableRecordResponse
+   */
+  async getMultiDimTableRecordWithOptions(tmpReq: GetMultiDimTableRecordRequest, tmpHeader: GetMultiDimTableRecordHeaders, runtime: $Util.RuntimeOptions): Promise<GetMultiDimTableRecordResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetMultiDimTableRecordShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetMultiDimTableRecordShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baseId)) {
+      body["BaseId"] = request.baseId;
+    }
+
+    if (!Util.isUnset(request.recordId)) {
+      body["RecordId"] = request.recordId;
+    }
+
+    if (!Util.isUnset(request.sheetIdOrName)) {
+      body["SheetIdOrName"] = request.sheetIdOrName;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMultiDimTableRecord",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/table/getMultiDimTableRecord`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMultiDimTableRecordResponse>(await this.callApi(params, req, runtime), new GetMultiDimTableRecordResponse({}));
+  }
+
+  /**
+   * 获取记录
+   * 
+   * @param request - GetMultiDimTableRecordRequest
+   * @returns GetMultiDimTableRecordResponse
+   */
+  async getMultiDimTableRecord(request: GetMultiDimTableRecordRequest): Promise<GetMultiDimTableRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetMultiDimTableRecordHeaders({ });
+    return await this.getMultiDimTableRecordWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取数据表
+   * 
+   * @param tmpReq - GetMultiDimTableSheetRequest
+   * @param tmpHeader - GetMultiDimTableSheetHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMultiDimTableSheetResponse
+   */
+  async getMultiDimTableSheetWithOptions(tmpReq: GetMultiDimTableSheetRequest, tmpHeader: GetMultiDimTableSheetHeaders, runtime: $Util.RuntimeOptions): Promise<GetMultiDimTableSheetResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetMultiDimTableSheetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetMultiDimTableSheetShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baseId)) {
+      body["BaseId"] = request.baseId;
+    }
+
+    if (!Util.isUnset(request.sheetIdOrName)) {
+      body["SheetIdOrName"] = request.sheetIdOrName;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMultiDimTableSheet",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/table/getMultiDimTableSheet`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMultiDimTableSheetResponse>(await this.callApi(params, req, runtime), new GetMultiDimTableSheetResponse({}));
+  }
+
+  /**
+   * 获取数据表
+   * 
+   * @param request - GetMultiDimTableSheetRequest
+   * @returns GetMultiDimTableSheetResponse
+   */
+  async getMultiDimTableSheet(request: GetMultiDimTableSheetRequest): Promise<GetMultiDimTableSheetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetMultiDimTableSheetHeaders({ });
+    return await this.getMultiDimTableSheetWithOptions(request, headers, runtime);
   }
 
   /**
@@ -71894,6 +77064,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取指定工单详情
+   * 
+   * @param tmpReq - GetTicketRequest
+   * @param tmpHeader - GetTicketHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTicketResponse
+   */
+  async getTicketWithOptions(tmpReq: GetTicketRequest, tmpHeader: GetTicketHeaders, runtime: $Util.RuntimeOptions): Promise<GetTicketResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetTicketShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetTicketShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.openTeamId)) {
+      body["OpenTeamId"] = request.openTeamId;
+    }
+
+    if (!Util.isUnset(request.openTicketId)) {
+      body["OpenTicketId"] = request.openTicketId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTicket",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ticket/getTicket`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTicketResponse>(await this.callApi(params, req, runtime), new GetTicketResponse({}));
+  }
+
+  /**
+   * 获取指定工单详情
+   * 
+   * @param request - GetTicketRequest
+   * @returns GetTicketResponse
+   */
+  async getTicket(request: GetTicketRequest): Promise<GetTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetTicketHeaders({ });
+    return await this.getTicketWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取钉钉待办任务详情
    * 
    * @param tmpReq - GetTodoTaskRequest
@@ -73406,6 +78650,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出多行记录
+   * 
+   * @param tmpReq - ListMultiDimTableRecordsRequest
+   * @param tmpHeader - ListMultiDimTableRecordsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMultiDimTableRecordsResponse
+   */
+  async listMultiDimTableRecordsWithOptions(tmpReq: ListMultiDimTableRecordsRequest, tmpHeader: ListMultiDimTableRecordsHeaders, runtime: $Util.RuntimeOptions): Promise<ListMultiDimTableRecordsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListMultiDimTableRecordsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new ListMultiDimTableRecordsShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baseId)) {
+      body["BaseId"] = request.baseId;
+    }
+
+    if (!Util.isUnset(request.filterShrink)) {
+      body["Filter"] = request.filterShrink;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.sheetIdOrName)) {
+      body["SheetIdOrName"] = request.sheetIdOrName;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMultiDimTableRecords",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/table/listMultiDimTableRecords`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMultiDimTableRecordsResponse>(await this.callApi(params, req, runtime), new ListMultiDimTableRecordsResponse({}));
+  }
+
+  /**
+   * 列出多行记录
+   * 
+   * @param request - ListMultiDimTableRecordsRequest
+   * @returns ListMultiDimTableRecordsResponse
+   */
+  async listMultiDimTableRecords(request: ListMultiDimTableRecordsRequest): Promise<ListMultiDimTableRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListMultiDimTableRecordsHeaders({ });
+    return await this.listMultiDimTableRecordsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取应用下的页面列表
    * 
    * @param request - ListNavigationByFormTypeRequest
@@ -73891,6 +79225,80 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ListTemplateHeaders({ });
     return await this.listTemplateWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询工单操作记录
+   * 
+   * @param tmpReq - ListTicketOperateRecordRequest
+   * @param tmpHeader - ListTicketOperateRecordHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTicketOperateRecordResponse
+   */
+  async listTicketOperateRecordWithOptions(tmpReq: ListTicketOperateRecordRequest, tmpHeader: ListTicketOperateRecordHeaders, runtime: $Util.RuntimeOptions): Promise<ListTicketOperateRecordResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListTicketOperateRecordShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new ListTicketOperateRecordShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.openTeamId)) {
+      body["OpenTeamId"] = request.openTeamId;
+    }
+
+    if (!Util.isUnset(request.openTicketId)) {
+      body["OpenTicketId"] = request.openTicketId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTicketOperateRecord",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ticket/listTicketOperateRecord`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTicketOperateRecordResponse>(await this.callApi(params, req, runtime), new ListTicketOperateRecordResponse({}));
+  }
+
+  /**
+   * 查询工单操作记录
+   * 
+   * @param request - ListTicketOperateRecordRequest
+   * @returns ListTicketOperateRecordResponse
+   */
+  async listTicketOperateRecord(request: ListTicketOperateRecordRequest): Promise<ListTicketOperateRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListTicketOperateRecordHeaders({ });
+    return await this.listTicketOperateRecordWithOptions(request, headers, runtime);
   }
 
   /**
@@ -74569,6 +79977,82 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new QueryDentryHeaders({ });
     return await this.queryDentryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询直播信息
+   * 
+   * @param tmpReq - QueryGroupLiveInfoRequest
+   * @param tmpHeader - QueryGroupLiveInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryGroupLiveInfoResponse
+   */
+  async queryGroupLiveInfoWithOptions(tmpReq: QueryGroupLiveInfoRequest, tmpHeader: QueryGroupLiveInfoHeaders, runtime: $Util.RuntimeOptions): Promise<QueryGroupLiveInfoResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryGroupLiveInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new QueryGroupLiveInfoShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.anchorUnionId)) {
+      query["AnchorUnionId"] = request.anchorUnionId;
+    }
+
+    if (!Util.isUnset(request.liveUuid)) {
+      query["LiveUuid"] = request.liveUuid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryGroupLiveInfo",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/queryGroupLiveInfo`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryGroupLiveInfoResponse>(await this.callApi(params, req, runtime), new QueryGroupLiveInfoResponse({}));
+  }
+
+  /**
+   * 查询直播信息
+   * 
+   * @param request - QueryGroupLiveInfoRequest
+   * @returns QueryGroupLiveInfoResponse
+   */
+  async queryGroupLiveInfo(request: QueryGroupLiveInfoRequest): Promise<QueryGroupLiveInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new QueryGroupLiveInfoHeaders({ });
+    return await this.queryGroupLiveInfoWithOptions(request, headers, runtime);
   }
 
   /**
@@ -76223,6 +81707,84 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new RemoveMeetingRoomsHeaders({ });
     return await this.removeMeetingRoomsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 设置日程响应邀请状态
+   * 
+   * @param tmpReq - RespondEventRequest
+   * @param tmpHeader - RespondEventHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RespondEventResponse
+   */
+  async respondEventWithOptions(tmpReq: RespondEventRequest, tmpHeader: RespondEventHeaders, runtime: $Util.RuntimeOptions): Promise<RespondEventResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RespondEventShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new RespondEventShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.calendarId)) {
+      body["CalendarId"] = request.calendarId;
+    }
+
+    if (!Util.isUnset(request.eventId)) {
+      body["EventId"] = request.eventId;
+    }
+
+    if (!Util.isUnset(request.responseStatus)) {
+      body["ResponseStatus"] = request.responseStatus;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RespondEvent",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/calendar/respondEvent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RespondEventResponse>(await this.callApi(params, req, runtime), new RespondEventResponse({}));
+  }
+
+  /**
+   * 设置日程响应邀请状态
+   * 
+   * @param request - RespondEventRequest
+   * @returns RespondEventResponse
+   */
+  async respondEvent(request: RespondEventRequest): Promise<RespondEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new RespondEventHeaders({ });
+    return await this.respondEventWithOptions(request, headers, runtime);
   }
 
   /**
@@ -78303,6 +83865,104 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TerminateInstanceHeaders({ });
     return await this.terminateInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 转交工单
+   * 
+   * @param tmpReq - TransferTicketRequest
+   * @param tmpHeader - TransferTicketHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransferTicketResponse
+   */
+  async transferTicketWithOptions(tmpReq: TransferTicketRequest, tmpHeader: TransferTicketHeaders, runtime: $Util.RuntimeOptions): Promise<TransferTicketResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TransferTicketShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new TransferTicketShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notify)) {
+      request.notifyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notify, "Notify", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.processorUserIds)) {
+      request.processorUserIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.processorUserIds, "ProcessorUserIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.ticketMemo)) {
+      request.ticketMemoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ticketMemo, "TicketMemo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.notifyShrink)) {
+      body["Notify"] = request.notifyShrink;
+    }
+
+    if (!Util.isUnset(request.openTeamId)) {
+      body["OpenTeamId"] = request.openTeamId;
+    }
+
+    if (!Util.isUnset(request.openTicketId)) {
+      body["OpenTicketId"] = request.openTicketId;
+    }
+
+    if (!Util.isUnset(request.processorUserIdsShrink)) {
+      body["ProcessorUserIds"] = request.processorUserIdsShrink;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.ticketMemoShrink)) {
+      body["TicketMemo"] = request.ticketMemoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TransferTicket",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ticket/transferTicket`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TransferTicketResponse>(await this.callApi(params, req, runtime), new TransferTicketResponse({}));
+  }
+
+  /**
+   * 转交工单
+   * 
+   * @param request - TransferTicketRequest
+   * @returns TransferTicketResponse
+   */
+  async transferTicket(request: TransferTicketRequest): Promise<TransferTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TransferTicketHeaders({ });
+    return await this.transferTicketWithOptions(request, headers, runtime);
   }
 
   /**
