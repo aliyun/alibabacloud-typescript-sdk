@@ -1170,56 +1170,6 @@ export class CancelTaskResponse extends $tea.Model {
   }
 }
 
-export class CancelWorkflowRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The operation that you want to perform. Set the value to cancel.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cancel
-   */
-  action?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'action',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelWorkflowResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CheckControlPlaneLogEnableResponseBody extends $tea.Model {
   /**
    * @remarks
@@ -4841,157 +4791,6 @@ export class DeployPolicyInstanceResponse extends $tea.Model {
   }
 }
 
-export class DescirbeWorkflowResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the workflow was created.
-   * 
-   * @example
-   * 2020-01-15 16:30:25 +0800 CST
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The duration of the workflow.
-   * 
-   * @example
-   * 1h15m33.529968361s
-   */
-  duration?: string;
-  /**
-   * @remarks
-   * The end time of the task.
-   * 
-   * @example
-   * 0001-01-01 00:00:00 +0000 UTC
-   */
-  finishTime?: string;
-  /**
-   * @remarks
-   * The size of the input data.
-   * 
-   * @example
-   * 0
-   */
-  inputDataSize?: string;
-  /**
-   * @remarks
-   * The name of the workflow.
-   * 
-   * @example
-   * wgs-gpu-97xfn
-   */
-  jobName?: string;
-  /**
-   * @remarks
-   * The namespace to which the workflow belongs.
-   * 
-   * @example
-   * 1171330362041663
-   */
-  jobNamespace?: string;
-  /**
-   * @remarks
-   * The size of the output data.
-   * 
-   * @example
-   * 0
-   */
-  outputDataSize?: string;
-  /**
-   * @remarks
-   * The current state of the workflow.
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The number of base pairs.
-   * 
-   * @example
-   * 0
-   */
-  totalBases?: string;
-  /**
-   * @remarks
-   * The number of reads.
-   * 
-   * @example
-   * 0
-   */
-  totalReads?: string;
-  /**
-   * @remarks
-   * The user input parameters.
-   * 
-   * @example
-   * {\\"wgs_oss_region\\":\\"cn-shenzhen\\",\\"wgs_fastq_first_name\\":\\"fastq/huada/MGISEQ-200019SZ0002402\\",\\"wgs_fastq_second_name\\":\\"fastq/huada/MGISEQ-200019SZ0002402\\",\\"wgs_bucket_name\\":\\"gene-shenzhen\\",\\"wgs_vcf_file_name\\":\\"output/vcf/huada.vcf\\",\\"wgs_bam_file_name\\":\\"output/bam/huada.bam\\",\\"wgs_reference_file\\":\\"hg19\\",\\"wgs_service\\":\\"g\\"}
-   */
-  userInputData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'create_time',
-      duration: 'duration',
-      finishTime: 'finish_time',
-      inputDataSize: 'input_data_size',
-      jobName: 'job_name',
-      jobNamespace: 'job_namespace',
-      outputDataSize: 'output_data_size',
-      status: 'status',
-      totalBases: 'total_bases',
-      totalReads: 'total_reads',
-      userInputData: 'user_input_data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      duration: 'string',
-      finishTime: 'string',
-      inputDataSize: 'string',
-      jobName: 'string',
-      jobNamespace: 'string',
-      outputDataSize: 'string',
-      status: 'string',
-      totalBases: 'string',
-      totalReads: 'string',
-      userInputData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescirbeWorkflowResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescirbeWorkflowResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescirbeWorkflowResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeAddonRequest extends $tea.Model {
   /**
    * @remarks
@@ -5767,6 +5566,11 @@ export class DescribeClusterAttachScriptsResponse extends $tea.Model {
 
 export class DescribeClusterDetailResponseBody extends $tea.Model {
   /**
+   * @example
+   * cluster.local
+   */
+  clusterDomain?: string;
+  /**
    * @remarks
    * The cluster ID.
    * 
@@ -5795,6 +5599,11 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
    * Kubernetes
    */
   clusterType?: string;
+  /**
+   * @example
+   * 172.20.0.0/16
+   */
+  containerCidr?: string;
   /**
    * @remarks
    * The time when the cluster was created.
@@ -5844,6 +5653,11 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
    */
   initVersion?: string;
   /**
+   * @example
+   * ipv4
+   */
+  ipStack?: string;
+  /**
    * @remarks
    * The maintenance window of the cluster. This feature is available only in ACK Pro clusters.
    */
@@ -5884,6 +5698,11 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
    * 1.18.8-aliyun.1
    */
   nextVersion?: string;
+  /**
+   * @example
+   * 26
+   */
+  nodeCidrMask?: string;
   operationPolicy?: DescribeClusterDetailResponseBodyOperationPolicy;
   /**
    * @remarks
@@ -5909,6 +5728,11 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
    */
   profile?: string;
   /**
+   * @example
+   * ipvs
+   */
+  proxyMode?: string;
+  /**
    * @remarks
    * The region ID of the cluster.
    * 
@@ -5932,6 +5756,14 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
    * sg-25yq****
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 172.21.0.0/20
+   */
+  serviceCidr?: string;
   /**
    * @remarks
    * The number of nodes in the cluster. Master nodes and worker nodes are included.
@@ -5975,6 +5807,8 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
    * 
    * @example
    * 172.20.0.0/16
+   * 
+   * @deprecated
    */
   subnetCidr?: string;
   /**
@@ -5982,6 +5816,11 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
    * The resource tags of the cluster.
    */
   tags?: Tag[];
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timezone?: string;
   /**
    * @remarks
    * The time when the cluster was updated.
@@ -6004,8 +5843,11 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
    * 
    * @example
    * vsw-2zete8s4qocqg0mf6****,vsw-2zete8s4qocqg0mf6****
+   * 
+   * @deprecated
    */
   vswitchId?: string;
+  vswitchIds?: string[];
   /**
    * @remarks
    * The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes of the cluster to allow the worker nodes to manage Elastic Compute Service (ECS) instances.
@@ -6021,35 +5863,43 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterDomain: 'cluster_domain',
       clusterId: 'cluster_id',
       clusterSpec: 'cluster_spec',
       clusterType: 'cluster_type',
+      containerCidr: 'container_cidr',
       created: 'created',
       currentVersion: 'current_version',
       deletionProtection: 'deletion_protection',
       dockerVersion: 'docker_version',
       externalLoadbalancerId: 'external_loadbalancer_id',
       initVersion: 'init_version',
+      ipStack: 'ip_stack',
       maintenanceWindow: 'maintenance_window',
       masterUrl: 'master_url',
       metaData: 'meta_data',
       name: 'name',
       networkMode: 'network_mode',
       nextVersion: 'next_version',
+      nodeCidrMask: 'node_cidr_mask',
       operationPolicy: 'operation_policy',
       parameters: 'parameters',
       privateZone: 'private_zone',
       profile: 'profile',
+      proxyMode: 'proxy_mode',
       regionId: 'region_id',
       resourceGroupId: 'resource_group_id',
       securityGroupId: 'security_group_id',
+      serviceCidr: 'service_cidr',
       size: 'size',
       state: 'state',
       subnetCidr: 'subnet_cidr',
       tags: 'tags',
+      timezone: 'timezone',
       updated: 'updated',
       vpcId: 'vpc_id',
       vswitchId: 'vswitch_id',
+      vswitchIds: 'vswitch_ids',
       workerRamRoleName: 'worker_ram_role_name',
       zoneId: 'zone_id',
     };
@@ -6057,35 +5907,43 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clusterDomain: 'string',
       clusterId: 'string',
       clusterSpec: 'string',
       clusterType: 'string',
+      containerCidr: 'string',
       created: 'string',
       currentVersion: 'string',
       deletionProtection: 'boolean',
       dockerVersion: 'string',
       externalLoadbalancerId: 'string',
       initVersion: 'string',
+      ipStack: 'string',
       maintenanceWindow: MaintenanceWindow,
       masterUrl: 'string',
       metaData: 'string',
       name: 'string',
       networkMode: 'string',
       nextVersion: 'string',
+      nodeCidrMask: 'string',
       operationPolicy: DescribeClusterDetailResponseBodyOperationPolicy,
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       privateZone: 'boolean',
       profile: 'string',
+      proxyMode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       securityGroupId: 'string',
+      serviceCidr: 'string',
       size: 'number',
       state: 'string',
       subnetCidr: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
+      timezone: 'string',
       updated: 'string',
       vpcId: 'string',
       vswitchId: 'string',
+      vswitchIds: { 'type': 'array', 'itemType': 'string' },
       workerRamRoleName: 'string',
       zoneId: 'string',
     };
@@ -9098,54 +8956,6 @@ export class DescribeUserQuotaResponse extends $tea.Model {
   }
 }
 
-export class DescribeWorkflowsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The list of jobs.
-   */
-  jobs?: DescribeWorkflowsResponseBodyJobs[];
-  static names(): { [key: string]: string } {
-    return {
-      jobs: 'jobs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobs: { 'type': 'array', 'itemType': DescribeWorkflowsResponseBodyJobs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkflowsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeWorkflowsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeWorkflowsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class EdgeClusterAddEdgeMachineRequest extends $tea.Model {
   /**
    * @remarks
@@ -11103,6 +10913,7 @@ export class ModifyClusterRequest extends $tea.Model {
    * The storage configurations of system events.
    */
   systemEventsLogging?: ModifyClusterRequestSystemEventsLogging;
+  vswitchIds?: string[];
   static names(): { [key: string]: string } {
     return {
       accessControlList: 'access_control_list',
@@ -11119,6 +10930,7 @@ export class ModifyClusterRequest extends $tea.Model {
       operationPolicy: 'operation_policy',
       resourceGroupId: 'resource_group_id',
       systemEventsLogging: 'system_events_logging',
+      vswitchIds: 'vswitch_ids',
     };
   }
 
@@ -11138,6 +10950,7 @@ export class ModifyClusterRequest extends $tea.Model {
       operationPolicy: ModifyClusterRequestOperationPolicy,
       resourceGroupId: 'string',
       systemEventsLogging: ModifyClusterRequestSystemEventsLogging,
+      vswitchIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -12118,28 +11931,6 @@ export class RemoveNodePoolNodesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RemoveNodePoolNodesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveWorkflowResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
     };
   }
 
@@ -13135,269 +12926,6 @@ export class StartAlertResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartAlertResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartWorkflowRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the output BAM file.
-   * 
-   * @example
-   * abc.bam
-   */
-  mappingBamOutFilename?: string;
-  /**
-   * @remarks
-   * The output path of the Binary Alignment Map (BAM) file.
-   * 
-   * @example
-   * output/bamDirName
-   */
-  mappingBamOutPath?: string;
-  /**
-   * @remarks
-   * The name of the OSS bucket that stores the data of the mapping workflow.
-   * 
-   * @example
-   * gene-shenzhen
-   */
-  mappingBucketName?: string;
-  /**
-   * @remarks
-   * The name of the first FASTQ file of the mapping workflow.
-   * 
-   * @example
-   * MGISEQ2000_PCR-free_NA12878_1_V100003043_L01_1.fq.gz
-   */
-  mappingFastqFirstFilename?: string;
-  /**
-   * @remarks
-   * The path of the FASTQ files of the mapping workflow.
-   * 
-   * @example
-   * fastq/MGISEQ2000
-   */
-  mappingFastqPath?: string;
-  /**
-   * @remarks
-   * The name of the second FASTQ file of the mapping workflow.
-   * 
-   * @example
-   * MGISEQ2000_PCR-free_NA12878_1_V100003043_L01_2.fq.gz
-   */
-  mappingFastqSecondFilename?: string;
-  /**
-   * @remarks
-   * Specifies whether to mark duplicate values.
-   * 
-   * @example
-   * true
-   */
-  mappingIsMarkDup?: string;
-  /**
-   * @remarks
-   * The region where the Object Storage Service (OSS) bucket that stores the data of the mapping workflow is deployed.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  mappingOssRegion?: string;
-  /**
-   * @remarks
-   * The path of the reference files of the mapping workflow.
-   * 
-   * @example
-   * reference/hg19
-   */
-  mappingReferencePath?: string;
-  /**
-   * @remarks
-   * The type of service-level agreement (SLA). Valid values:
-   * 
-   * *   s: the silver level (S-level). It requires 1 extra minute to process every 1.5 billion base pairs beyond the limit of 90 billion base pairs.
-   * *   g: the gold level (G-level). It requires 1 extra minute to process every 2 billion base pairs beyond the limit of 90 billion base pairs.
-   * *   p: the platinum level (P-level). It requires 1 extra minute to process every 3 billion base pairs beyond the limit of 90 billion base pairs.
-   * 
-   * @example
-   * s
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The name of the OSS bucket that stores the data of the WGS workflow.
-   * 
-   * @example
-   * gene-shenzhen
-   */
-  wgsBucketName?: string;
-  /**
-   * @remarks
-   * The name of the first FASTQ file of the WGS workflow.
-   * 
-   * @example
-   * MGISEQ2000_PCR-free_NA12878_1_V100003043_L01_1.fq.gz
-   */
-  wgsFastqFirstFilename?: string;
-  /**
-   * @remarks
-   * The path of the FASTQ files of the WGS workflow.
-   * 
-   * @example
-   * fastq/MGISEQ2000
-   */
-  wgsFastqPath?: string;
-  /**
-   * @remarks
-   * The name of the second FASTQ file of the WGS workflow.
-   * 
-   * @example
-   * MGISEQ2000_PCR-free_NA12878_1_V100003043_L01_2.fq.gz
-   */
-  wgsFastqSecondFilename?: string;
-  /**
-   * @remarks
-   * The region where the OSS bucket that stores the data of the whole genome sequencing (WGS) workflow is deployed.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  wgsOssRegion?: string;
-  /**
-   * @remarks
-   * The path of the reference files of the WGS workflow.
-   * 
-   * @example
-   * reference/hg19
-   */
-  wgsReferencePath?: string;
-  /**
-   * @remarks
-   * The name of the output VCF file.
-   * 
-   * @example
-   * abc.vcf
-   */
-  wgsVcfOutFilename?: string;
-  /**
-   * @remarks
-   * The output path of the Variant Call Format (VCF) file.
-   * 
-   * @example
-   * output/vcf
-   */
-  wgsVcfOutPath?: string;
-  /**
-   * @remarks
-   * The type of workflow. Valid values: wgs and mapping.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * mapping
-   */
-  workflowType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mappingBamOutFilename: 'mapping_bam_out_filename',
-      mappingBamOutPath: 'mapping_bam_out_path',
-      mappingBucketName: 'mapping_bucket_name',
-      mappingFastqFirstFilename: 'mapping_fastq_first_filename',
-      mappingFastqPath: 'mapping_fastq_path',
-      mappingFastqSecondFilename: 'mapping_fastq_second_filename',
-      mappingIsMarkDup: 'mapping_is_mark_dup',
-      mappingOssRegion: 'mapping_oss_region',
-      mappingReferencePath: 'mapping_reference_path',
-      service: 'service',
-      wgsBucketName: 'wgs_bucket_name',
-      wgsFastqFirstFilename: 'wgs_fastq_first_filename',
-      wgsFastqPath: 'wgs_fastq_path',
-      wgsFastqSecondFilename: 'wgs_fastq_second_filename',
-      wgsOssRegion: 'wgs_oss_region',
-      wgsReferencePath: 'wgs_reference_path',
-      wgsVcfOutFilename: 'wgs_vcf_out_filename',
-      wgsVcfOutPath: 'wgs_vcf_out_path',
-      workflowType: 'workflow_type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mappingBamOutFilename: 'string',
-      mappingBamOutPath: 'string',
-      mappingBucketName: 'string',
-      mappingFastqFirstFilename: 'string',
-      mappingFastqPath: 'string',
-      mappingFastqSecondFilename: 'string',
-      mappingIsMarkDup: 'string',
-      mappingOssRegion: 'string',
-      mappingReferencePath: 'string',
-      service: 'string',
-      wgsBucketName: 'string',
-      wgsFastqFirstFilename: 'string',
-      wgsFastqPath: 'string',
-      wgsFastqSecondFilename: 'string',
-      wgsOssRegion: 'string',
-      wgsReferencePath: 'string',
-      wgsVcfOutFilename: 'string',
-      wgsVcfOutPath: 'string',
-      workflowType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartWorkflowResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the workflow.
-   * 
-   * @example
-   * mapping-gpu-66xv7
-   */
-  jobName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobName: 'JobName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartWorkflowResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartWorkflowResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartWorkflowResponseBody,
     };
   }
 
@@ -21848,6 +21376,11 @@ export class DescribeClustersV1ResponseBodyClustersOperationPolicy extends $tea.
 
 export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
   /**
+   * @example
+   * cluster.local
+   */
+  clusterDomain?: string;
+  /**
    * @remarks
    * The cluster ID.
    * 
@@ -21876,6 +21409,11 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
    * Kubernetes
    */
   clusterType?: string;
+  /**
+   * @example
+   * 172.20.0.0/16
+   */
+  containerCidr?: string;
   /**
    * @remarks
    * The time when the cluster was created.
@@ -21931,6 +21469,11 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
    * 1.16.9-aliyun.1
    */
   initVersion?: string;
+  /**
+   * @example
+   * ipv4
+   */
+  ipStack?: string;
   /**
    * @remarks
    * The maintenance window of the cluster. This feature is available only for ACK managed clusters and ACK Serverless clusters.
@@ -22009,6 +21552,11 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
    */
   profile?: string;
   /**
+   * @example
+   * ipvs
+   */
+  proxyMode?: string;
+  /**
    * @remarks
    * The region ID of the cluster.
    * 
@@ -22032,6 +21580,14 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
    * sg-2vcgwsrwgt5mp0yi****
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 172.21.0.0/20
+   */
+  serviceCidr?: string;
   /**
    * @remarks
    * The number of nodes in the cluster, including master nodes and worker nodes.
@@ -22073,6 +21629,8 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
    * 
    * @example
    * 172.21.0.0/16
+   * 
+   * @deprecated
    */
   subnetCidr?: string;
   /**
@@ -22080,6 +21638,11 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
    * The resource labels of the cluster.
    */
   tags?: Tag[];
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timezone?: string;
   /**
    * @remarks
    * The time when the cluster was updated.
@@ -22102,8 +21665,11 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
    * 
    * @example
    * vsw-2vc41xuumx5z2rdma****,vsw-2vc41xuumx5z2rdma****
+   * 
+   * @deprecated
    */
   vswitchId?: string;
+  vswitchIds?: string[];
   /**
    * @remarks
    * The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes of the cluster to allow the worker nodes to manage ECS instances.
@@ -22122,15 +21688,18 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterDomain: 'cluster_domain',
       clusterId: 'cluster_id',
       clusterSpec: 'cluster_spec',
       clusterType: 'cluster_type',
+      containerCidr: 'container_cidr',
       created: 'created',
       currentVersion: 'current_version',
       deletionProtection: 'deletion_protection',
       dockerVersion: 'docker_version',
       externalLoadbalancerId: 'external_loadbalancer_id',
       initVersion: 'init_version',
+      ipStack: 'ip_stack',
       maintenanceWindow: 'maintenance_window',
       masterUrl: 'master_url',
       metaData: 'meta_data',
@@ -22140,16 +21709,20 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
       operationPolicy: 'operation_policy',
       privateZone: 'private_zone',
       profile: 'profile',
+      proxyMode: 'proxy_mode',
       regionId: 'region_id',
       resourceGroupId: 'resource_group_id',
       securityGroupId: 'security_group_id',
+      serviceCidr: 'service_cidr',
       size: 'size',
       state: 'state',
       subnetCidr: 'subnet_cidr',
       tags: 'tags',
+      timezone: 'timezone',
       updated: 'updated',
       vpcId: 'vpc_id',
       vswitchId: 'vswitch_id',
+      vswitchIds: 'vswitch_ids',
       workerRamRoleName: 'worker_ram_role_name',
       zoneId: 'zone_id',
     };
@@ -22157,15 +21730,18 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clusterDomain: 'string',
       clusterId: 'string',
       clusterSpec: 'string',
       clusterType: 'string',
+      containerCidr: 'string',
       created: 'string',
       currentVersion: 'string',
       deletionProtection: 'boolean',
       dockerVersion: 'string',
       externalLoadbalancerId: 'string',
       initVersion: 'string',
+      ipStack: 'string',
       maintenanceWindow: MaintenanceWindow,
       masterUrl: 'string',
       metaData: 'string',
@@ -22175,16 +21751,20 @@ export class DescribeClustersV1ResponseBodyClusters extends $tea.Model {
       operationPolicy: DescribeClustersV1ResponseBodyClustersOperationPolicy,
       privateZone: 'boolean',
       profile: 'string',
+      proxyMode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       securityGroupId: 'string',
+      serviceCidr: 'string',
       size: 'number',
       state: 'string',
       subnetCidr: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
+      timezone: 'string',
       updated: 'string',
       vpcId: 'string',
       vswitchId: 'string',
+      vswitchIds: { 'type': 'array', 'itemType': 'string' },
       workerRamRoleName: 'string',
       zoneId: 'string',
     };
@@ -24458,52 +24038,6 @@ export class DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota extends $tea
       bandwidth: 'number',
       count: 'number',
       period: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkflowsResponseBodyJobs extends $tea.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cb1a7214cfc0b41d9bb086affc2d8f51c
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * The time when the workflow was created.
-   * 
-   * @example
-   * 2020-01-15T13:18:52Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The name of the workflow.
-   * 
-   * @example
-   * wgs-gpu-qb4dk
-   */
-  jobName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'cluster_id',
-      createTime: 'create_time',
-      jobName: 'job_name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      createTime: 'string',
-      jobName: 'string',
     };
   }
 
@@ -27826,57 +27360,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the CancelWorkflow operation to cancel an ongoing workflow.
-   * 
-   * @deprecated OpenAPI CancelWorkflow is deprecated
-   * 
-   * @param request - CancelWorkflowRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CancelWorkflowResponse
-   */
-  // Deprecated
-  async cancelWorkflowWithOptions(workflowName: string, request: CancelWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelWorkflowResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.action)) {
-      body["action"] = request.action;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CancelWorkflow",
-      version: "2015-12-15",
-      protocol: "HTTPS",
-      pathname: `/gs/workflow/${OpenApiUtil.getEncodeParam(workflowName)}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<CancelWorkflowResponse>(await this.callApi(params, req, runtime), new CancelWorkflowResponse({}));
-  }
-
-  /**
-   * You can call the CancelWorkflow operation to cancel an ongoing workflow.
-   * 
-   * @deprecated OpenAPI CancelWorkflow is deprecated
-   * 
-   * @param request - CancelWorkflowRequest
-   * @returns CancelWorkflowResponse
-   */
-  // Deprecated
-  async cancelWorkflow(workflowName: string, request: CancelWorkflowRequest): Promise<CancelWorkflowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.cancelWorkflowWithOptions(workflowName, request, headers, runtime);
-  }
-
-  /**
    * Queries the current log configuration of control plane components, including the log retention period and the log collection component. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager.
    * 
    * @param headers - map
@@ -29509,47 +28992,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deployPolicyInstanceWithOptions(clusterId, policyName, request, headers, runtime);
-  }
-
-  /**
-   * You can call the DescirbeWorkflow operation to query detailed information about a workflow.
-   * 
-   * @deprecated OpenAPI DescirbeWorkflow is deprecated
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescirbeWorkflowResponse
-   */
-  // Deprecated
-  async descirbeWorkflowWithOptions(workflowName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescirbeWorkflowResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DescirbeWorkflow",
-      version: "2015-12-15",
-      protocol: "HTTPS",
-      pathname: `/gs/workflow/${OpenApiUtil.getEncodeParam(workflowName)}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescirbeWorkflowResponse>(await this.callApi(params, req, runtime), new DescirbeWorkflowResponse({}));
-  }
-
-  /**
-   * You can call the DescirbeWorkflow operation to query detailed information about a workflow.
-   * 
-   * @deprecated OpenAPI DescirbeWorkflow is deprecated
-   * @returns DescirbeWorkflowResponse
-   */
-  // Deprecated
-  async descirbeWorkflow(workflowName: string): Promise<DescirbeWorkflowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.descirbeWorkflowWithOptions(workflowName, headers, runtime);
   }
 
   /**
@@ -31610,47 +31052,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the DescribeWorkflows operation to query all workflows.
-   * 
-   * @deprecated OpenAPI DescribeWorkflows is deprecated
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeWorkflowsResponse
-   */
-  // Deprecated
-  async describeWorkflowsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWorkflowsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeWorkflows",
-      version: "2015-12-15",
-      protocol: "HTTPS",
-      pathname: `/gs/workflows`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeWorkflowsResponse>(await this.callApi(params, req, runtime), new DescribeWorkflowsResponse({}));
-  }
-
-  /**
-   * You can call the DescribeWorkflows operation to query all workflows.
-   * 
-   * @deprecated OpenAPI DescribeWorkflows is deprecated
-   * @returns DescribeWorkflowsResponse
-   */
-  // Deprecated
-  async describeWorkflows(): Promise<DescribeWorkflowsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.describeWorkflowsWithOptions(headers, runtime);
-  }
-
-  /**
    * You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
    * 
    * @param request - EdgeClusterAddEdgeMachineRequest
@@ -32631,6 +32032,10 @@ export default class Client extends OpenApi {
       body["system_events_logging"] = request.systemEventsLogging;
     }
 
+    if (!Util.isUnset(request.vswitchIds)) {
+      body["vswitch_ids"] = request.vswitchIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -33317,47 +32722,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the RemoveWorkflow operation to delete a workflow.
-   * 
-   * @deprecated OpenAPI RemoveWorkflow is deprecated
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns RemoveWorkflowResponse
-   */
-  // Deprecated
-  async removeWorkflowWithOptions(workflowName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveWorkflowResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "RemoveWorkflow",
-      version: "2015-12-15",
-      protocol: "HTTPS",
-      pathname: `/gs/workflow/${OpenApiUtil.getEncodeParam(workflowName)}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<RemoveWorkflowResponse>(await this.callApi(params, req, runtime), new RemoveWorkflowResponse({}));
-  }
-
-  /**
-   * You can call the RemoveWorkflow operation to delete a workflow.
-   * 
-   * @deprecated OpenAPI RemoveWorkflow is deprecated
-   * @returns RemoveWorkflowResponse
-   */
-  // Deprecated
-  async removeWorkflow(workflowName: string): Promise<RemoveWorkflowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.removeWorkflowWithOptions(workflowName, headers, runtime);
-  }
-
-  /**
    * Fixes issues on abnormal nodes in a node pool to ensure that the nodes can run as normal.
    * 
    * @param request - RepairClusterNodePoolRequest
@@ -33994,129 +33358,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startAlertWithOptions(ClusterId, request, headers, runtime);
-  }
-
-  /**
-   * You can call the StartWorkflow operation to create a workflow.
-   * 
-   * @deprecated OpenAPI StartWorkflow is deprecated
-   * 
-   * @param request - StartWorkflowRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns StartWorkflowResponse
-   */
-  // Deprecated
-  async startWorkflowWithOptions(request: StartWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartWorkflowResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.mappingBamOutFilename)) {
-      body["mapping_bam_out_filename"] = request.mappingBamOutFilename;
-    }
-
-    if (!Util.isUnset(request.mappingBamOutPath)) {
-      body["mapping_bam_out_path"] = request.mappingBamOutPath;
-    }
-
-    if (!Util.isUnset(request.mappingBucketName)) {
-      body["mapping_bucket_name"] = request.mappingBucketName;
-    }
-
-    if (!Util.isUnset(request.mappingFastqFirstFilename)) {
-      body["mapping_fastq_first_filename"] = request.mappingFastqFirstFilename;
-    }
-
-    if (!Util.isUnset(request.mappingFastqPath)) {
-      body["mapping_fastq_path"] = request.mappingFastqPath;
-    }
-
-    if (!Util.isUnset(request.mappingFastqSecondFilename)) {
-      body["mapping_fastq_second_filename"] = request.mappingFastqSecondFilename;
-    }
-
-    if (!Util.isUnset(request.mappingIsMarkDup)) {
-      body["mapping_is_mark_dup"] = request.mappingIsMarkDup;
-    }
-
-    if (!Util.isUnset(request.mappingOssRegion)) {
-      body["mapping_oss_region"] = request.mappingOssRegion;
-    }
-
-    if (!Util.isUnset(request.mappingReferencePath)) {
-      body["mapping_reference_path"] = request.mappingReferencePath;
-    }
-
-    if (!Util.isUnset(request.service)) {
-      body["service"] = request.service;
-    }
-
-    if (!Util.isUnset(request.wgsBucketName)) {
-      body["wgs_bucket_name"] = request.wgsBucketName;
-    }
-
-    if (!Util.isUnset(request.wgsFastqFirstFilename)) {
-      body["wgs_fastq_first_filename"] = request.wgsFastqFirstFilename;
-    }
-
-    if (!Util.isUnset(request.wgsFastqPath)) {
-      body["wgs_fastq_path"] = request.wgsFastqPath;
-    }
-
-    if (!Util.isUnset(request.wgsFastqSecondFilename)) {
-      body["wgs_fastq_second_filename"] = request.wgsFastqSecondFilename;
-    }
-
-    if (!Util.isUnset(request.wgsOssRegion)) {
-      body["wgs_oss_region"] = request.wgsOssRegion;
-    }
-
-    if (!Util.isUnset(request.wgsReferencePath)) {
-      body["wgs_reference_path"] = request.wgsReferencePath;
-    }
-
-    if (!Util.isUnset(request.wgsVcfOutFilename)) {
-      body["wgs_vcf_out_filename"] = request.wgsVcfOutFilename;
-    }
-
-    if (!Util.isUnset(request.wgsVcfOutPath)) {
-      body["wgs_vcf_out_path"] = request.wgsVcfOutPath;
-    }
-
-    if (!Util.isUnset(request.workflowType)) {
-      body["workflow_type"] = request.workflowType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "StartWorkflow",
-      version: "2015-12-15",
-      protocol: "HTTPS",
-      pathname: `/gs/workflow`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StartWorkflowResponse>(await this.callApi(params, req, runtime), new StartWorkflowResponse({}));
-  }
-
-  /**
-   * You can call the StartWorkflow operation to create a workflow.
-   * 
-   * @deprecated OpenAPI StartWorkflow is deprecated
-   * 
-   * @param request - StartWorkflowRequest
-   * @returns StartWorkflowResponse
-   */
-  // Deprecated
-  async startWorkflow(request: StartWorkflowRequest): Promise<StartWorkflowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.startWorkflowWithOptions(request, headers, runtime);
   }
 
   /**
