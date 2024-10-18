@@ -3741,6 +3741,9 @@ export class CreateSiteDeliveryTaskRequest extends $tea.Model {
   ossDelivery?: CreateSiteDeliveryTaskRequestOssDelivery;
   s3Delivery?: CreateSiteDeliveryTaskRequestS3Delivery;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 12312312112***
    */
@@ -3836,6 +3839,9 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $tea.Model {
   ossDeliveryShrink?: string;
   s3DeliveryShrink?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 12312312112***
    */
