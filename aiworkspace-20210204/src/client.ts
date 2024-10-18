@@ -189,16 +189,37 @@ export class Dataset extends $tea.Model {
    * d-c0h44g3wlwkj8o4348
    */
   datasetId?: string;
+  /**
+   * @example
+   * Animal images.
+   */
   description?: string;
+  /**
+   * @example
+   * 2021-01-30T12:51:33.028Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-30T12:51:33.028Z
+   */
   gmtModifiedTime?: string;
   labels?: Label[];
+  latestVersion?: DatasetVersion;
+  /**
+   * @example
+   * AnimalDataset
+   */
   name?: string;
   /**
    * @example
    * jsonstring
    */
   options?: string;
+  /**
+   * @example
+   * 1004110000006048
+   */
   ownerId?: string;
   /**
    * @example
@@ -212,6 +233,16 @@ export class Dataset extends $tea.Model {
   providerType?: string;
   /**
    * @example
+   * d-bvfasdf4wxxj8o411
+   */
+  sourceDatasetId?: string;
+  /**
+   * @example
+   * v2
+   */
+  sourceDatasetVersion?: string;
+  /**
+   * @example
    * Source Id
    */
   sourceId?: string;
@@ -222,9 +253,18 @@ export class Dataset extends $tea.Model {
   sourceType?: string;
   /**
    * @example
+   * text-classification
+   */
+  tagTemplateType?: string;
+  /**
+   * @example
    * oss://xxx
    */
   uri?: string;
+  /**
+   * @example
+   * 2004110000006048
+   */
   userId?: string;
   /**
    * @example
@@ -241,13 +281,17 @@ export class Dataset extends $tea.Model {
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       labels: 'Labels',
+      latestVersion: 'LatestVersion',
       name: 'Name',
       options: 'Options',
       ownerId: 'OwnerId',
       property: 'Property',
       providerType: 'ProviderType',
+      sourceDatasetId: 'SourceDatasetId',
+      sourceDatasetVersion: 'SourceDatasetVersion',
       sourceId: 'SourceId',
       sourceType: 'SourceType',
+      tagTemplateType: 'TagTemplateType',
       uri: 'Uri',
       userId: 'UserId',
       workspaceId: 'WorkspaceId',
@@ -264,13 +308,17 @@ export class Dataset extends $tea.Model {
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       labels: { 'type': 'array', 'itemType': Label },
+      latestVersion: DatasetVersion,
       name: 'string',
       options: 'string',
       ownerId: 'string',
       property: 'string',
       providerType: 'string',
+      sourceDatasetId: 'string',
+      sourceDatasetVersion: 'string',
       sourceId: 'string',
       sourceType: 'string',
+      tagTemplateType: 'string',
       uri: 'string',
       userId: 'string',
       workspaceId: 'string',
@@ -296,6 +344,77 @@ export class DatasetLabel extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DatasetVersion extends $tea.Model {
+  dataCount?: number;
+  dataSize?: number;
+  /**
+   * @example
+   * OSS
+   */
+  dataSourceType?: string;
+  description?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  labels?: Label[];
+  options?: string;
+  /**
+   * @example
+   * FILE
+   */
+  property?: string;
+  sourceId?: string;
+  sourceType?: string;
+  /**
+   * @example
+   * OSS://xxx
+   */
+  uri?: string;
+  /**
+   * @example
+   * v1
+   */
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataCount: 'DataCount',
+      dataSize: 'DataSize',
+      dataSourceType: 'DataSourceType',
+      description: 'Description',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      labels: 'Labels',
+      options: 'Options',
+      property: 'Property',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
+      uri: 'Uri',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataCount: 'number',
+      dataSize: 'number',
+      dataSourceType: 'string',
+      description: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      labels: { 'type': 'array', 'itemType': Label },
+      options: 'string',
+      property: 'string',
+      sourceId: 'string',
+      sourceType: 'string',
+      uri: 'string',
+      versionName: 'string',
     };
   }
 
@@ -1346,6 +1465,8 @@ export class CreateDatasetRequest extends $tea.Model {
    * PRIVATE
    */
   accessibility?: string;
+  dataCount?: number;
+  dataSize?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -1390,6 +1511,8 @@ export class CreateDatasetRequest extends $tea.Model {
    * Ecs
    */
   providerType?: string;
+  sourceDatasetId?: string;
+  sourceDatasetVersion?: string;
   /**
    * @example
    * jdnhf***fnrimv
@@ -1413,6 +1536,8 @@ export class CreateDatasetRequest extends $tea.Model {
    * 29884000000186970
    */
   userId?: string;
+  versionDescription?: string;
+  versionLabels?: Label[];
   /**
    * @example
    * 478**
@@ -1421,6 +1546,8 @@ export class CreateDatasetRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      dataCount: 'DataCount',
+      dataSize: 'DataSize',
       dataSourceType: 'DataSourceType',
       dataType: 'DataType',
       description: 'Description',
@@ -1430,10 +1557,14 @@ export class CreateDatasetRequest extends $tea.Model {
       property: 'Property',
       provider: 'Provider',
       providerType: 'ProviderType',
+      sourceDatasetId: 'SourceDatasetId',
+      sourceDatasetVersion: 'SourceDatasetVersion',
       sourceId: 'SourceId',
       sourceType: 'SourceType',
       uri: 'Uri',
       userId: 'UserId',
+      versionDescription: 'VersionDescription',
+      versionLabels: 'VersionLabels',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -1441,6 +1572,8 @@ export class CreateDatasetRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      dataCount: 'number',
+      dataSize: 'number',
       dataSourceType: 'string',
       dataType: 'string',
       description: 'string',
@@ -1450,10 +1583,14 @@ export class CreateDatasetRequest extends $tea.Model {
       property: 'string',
       provider: 'string',
       providerType: 'string',
+      sourceDatasetId: 'string',
+      sourceDatasetVersion: 'string',
       sourceId: 'string',
       sourceType: 'string',
       uri: 'string',
       userId: 'string',
+      versionDescription: 'string',
+      versionLabels: { 'type': 'array', 'itemType': Label },
       workspaceId: 'string',
     };
   }
@@ -3644,6 +3781,7 @@ export class GetDatasetResponseBody extends $tea.Model {
    */
   gmtModifiedTime?: string;
   labels?: Label[];
+  latestVersion?: DatasetVersion;
   /**
    * @example
    * myName
@@ -3673,6 +3811,8 @@ export class GetDatasetResponseBody extends $tea.Model {
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
+  sourceDatasetId?: string;
+  sourceDatasetVersion?: string;
   /**
    * @example
    * jdnhf***fnrimv
@@ -3683,6 +3823,7 @@ export class GetDatasetResponseBody extends $tea.Model {
    * USER
    */
   sourceType?: string;
+  tagTemplateType?: string;
   /**
    * @example
    * nas://09f****f2.cn-hangzhou/
@@ -3708,6 +3849,7 @@ export class GetDatasetResponseBody extends $tea.Model {
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       labels: 'Labels',
+      latestVersion: 'LatestVersion',
       name: 'Name',
       options: 'Options',
       ownerId: 'OwnerId',
@@ -3715,8 +3857,11 @@ export class GetDatasetResponseBody extends $tea.Model {
       provider: 'Provider',
       providerType: 'ProviderType',
       requestId: 'RequestId',
+      sourceDatasetId: 'SourceDatasetId',
+      sourceDatasetVersion: 'SourceDatasetVersion',
       sourceId: 'SourceId',
       sourceType: 'SourceType',
+      tagTemplateType: 'TagTemplateType',
       uri: 'Uri',
       userId: 'UserId',
       workspaceId: 'WorkspaceId',
@@ -3733,6 +3878,7 @@ export class GetDatasetResponseBody extends $tea.Model {
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       labels: { 'type': 'array', 'itemType': Label },
+      latestVersion: DatasetVersion,
       name: 'string',
       options: 'string',
       ownerId: 'string',
@@ -3740,8 +3886,11 @@ export class GetDatasetResponseBody extends $tea.Model {
       provider: 'string',
       providerType: 'string',
       requestId: 'string',
+      sourceDatasetId: 'string',
+      sourceDatasetVersion: 'string',
       sourceId: 'string',
       sourceType: 'string',
+      tagTemplateType: 'string',
       uri: 'string',
       userId: 'string',
       workspaceId: 'string',
@@ -4999,6 +5148,7 @@ export class ListDatasetsRequest extends $tea.Model {
    */
   properties?: string;
   provider?: string;
+  sourceDatasetId?: string;
   /**
    * @example
    * d-rbvg5wzljzjhc9ks92
@@ -5025,6 +5175,7 @@ export class ListDatasetsRequest extends $tea.Model {
       pageSize: 'PageSize',
       properties: 'Properties',
       provider: 'Provider',
+      sourceDatasetId: 'SourceDatasetId',
       sourceId: 'SourceId',
       sourceTypes: 'SourceTypes',
       workspaceId: 'WorkspaceId',
@@ -5042,6 +5193,7 @@ export class ListDatasetsRequest extends $tea.Model {
       pageSize: 'number',
       properties: 'string',
       provider: 'string',
+      sourceDatasetId: 'string',
       sourceId: 'string',
       sourceTypes: 'string',
       workspaceId: 'string',
@@ -9812,6 +9964,14 @@ export default class Client extends OpenApi {
       body["Accessibility"] = request.accessibility;
     }
 
+    if (!Util.isUnset(request.dataCount)) {
+      body["DataCount"] = request.dataCount;
+    }
+
+    if (!Util.isUnset(request.dataSize)) {
+      body["DataSize"] = request.dataSize;
+    }
+
     if (!Util.isUnset(request.dataSourceType)) {
       body["DataSourceType"] = request.dataSourceType;
     }
@@ -9848,6 +10008,14 @@ export default class Client extends OpenApi {
       body["ProviderType"] = request.providerType;
     }
 
+    if (!Util.isUnset(request.sourceDatasetId)) {
+      body["SourceDatasetId"] = request.sourceDatasetId;
+    }
+
+    if (!Util.isUnset(request.sourceDatasetVersion)) {
+      body["SourceDatasetVersion"] = request.sourceDatasetVersion;
+    }
+
     if (!Util.isUnset(request.sourceId)) {
       body["SourceId"] = request.sourceId;
     }
@@ -9862,6 +10030,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.userId)) {
       body["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.versionDescription)) {
+      body["VersionDescription"] = request.versionDescription;
+    }
+
+    if (!Util.isUnset(request.versionLabels)) {
+      body["VersionLabels"] = request.versionLabels;
     }
 
     if (!Util.isUnset(request.workspaceId)) {
@@ -11694,6 +11870,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.provider)) {
       query["Provider"] = request.provider;
+    }
+
+    if (!Util.isUnset(request.sourceDatasetId)) {
+      query["SourceDatasetId"] = request.sourceDatasetId;
     }
 
     if (!Util.isUnset(request.sourceId)) {
