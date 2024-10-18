@@ -1708,6 +1708,112 @@ export class ExportKeywordResponse extends $tea.Model {
   }
 }
 
+export class ExportOssCheckStatRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  byMonth?: boolean;
+  /**
+   * @example
+   * 2024-03-11 10:00:00
+   */
+  endDate?: string;
+  /**
+   * @example
+   * P_UX0K5X
+   */
+  parentTaskId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 2024-03-10 10:00:00
+   */
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      byMonth: 'ByMonth',
+      endDate: 'EndDate',
+      parentTaskId: 'ParentTaskId',
+      regionId: 'RegionId',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      byMonth: 'boolean',
+      endDate: 'string',
+      parentTaskId: 'string',
+      regionId: 'string',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportOssCheckStatResponseBody extends $tea.Model {
+  /**
+   * @example
+   * https://oss-cip-shanghai.oss-cn-shanghai.aliyuncs.com/console_data/production/scanResult/osscheck/ossCheckStat_aliUf5B3lJfOkLpqozLIn94Uy-1XxKyX.xlsx
+   */
+  data?: string;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportOssCheckStatResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportOssCheckStatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExportOssCheckStatResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExportResultRequest extends $tea.Model {
   /**
    * @example
@@ -2400,6 +2506,8 @@ export class GetBackupConfigResponseBody extends $tea.Model {
    * true
    */
   enable?: boolean;
+  enableBackup?: boolean;
+  enableBackupVoice?: boolean;
   /**
    * @example
    * 300
@@ -2415,6 +2523,7 @@ export class GetBackupConfigResponseBody extends $tea.Model {
    * aliyun/template/
    */
   path?: string;
+  pathVoice?: string;
   /**
    * @example
    * cn-hangzhou
@@ -2448,9 +2557,12 @@ export class GetBackupConfigResponseBody extends $tea.Model {
       backupMode: 'BackupMode',
       bucket: 'Bucket',
       enable: 'Enable',
+      enableBackup: 'EnableBackup',
+      enableBackupVoice: 'EnableBackupVoice',
       expireSeconds: 'ExpireSeconds',
       gmtModified: 'GmtModified',
       path: 'Path',
+      pathVoice: 'PathVoice',
       region: 'Region',
       requestId: 'RequestId',
       resourceType: 'ResourceType',
@@ -2464,9 +2576,12 @@ export class GetBackupConfigResponseBody extends $tea.Model {
       backupMode: 'number',
       bucket: 'string',
       enable: 'boolean',
+      enableBackup: 'boolean',
+      enableBackupVoice: 'boolean',
       expireSeconds: 'number',
       gmtModified: 'string',
       path: 'string',
+      pathVoice: 'string',
       region: 'string',
       requestId: 'string',
       resourceType: 'string',
@@ -3199,6 +3314,108 @@ export class GetKeywordImportResultResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetKeywordImportResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssCheckStatRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  byMonth?: boolean;
+  /**
+   * @example
+   * 2023-08-24 10:01:55
+   */
+  endDate?: string;
+  /**
+   * @example
+   * P_UNHBH
+   */
+  parentTaskId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 2023-08-11 09:00:19
+   */
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      byMonth: 'ByMonth',
+      endDate: 'EndDate',
+      parentTaskId: 'ParentTaskId',
+      regionId: 'RegionId',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      byMonth: 'boolean',
+      endDate: 'string',
+      parentTaskId: 'string',
+      regionId: 'string',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssCheckStatResponseBody extends $tea.Model {
+  barChart?: GetOssCheckStatResponseBodyBarChart;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      barChart: 'BarChart',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      barChart: GetOssCheckStatResponseBodyBarChart,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssCheckStatResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOssCheckStatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOssCheckStatResponseBody,
     };
   }
 
@@ -7135,6 +7352,54 @@ export class GetKeywordImportResultResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetOssCheckStatResponseBodyBarChartY extends $tea.Model {
+  data?: number[];
+  /**
+   * @example
+   * document_detection
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': 'number' },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssCheckStatResponseBodyBarChart extends $tea.Model {
+  x?: string[];
+  y?: GetOssCheckStatResponseBodyBarChartY[];
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: { 'type': 'array', 'itemType': 'string' },
+      y: { 'type': 'array', 'itemType': GetOssCheckStatResponseBodyBarChartY },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetScanResultResponseBodyDataItemsResult extends $tea.Model {
   /**
    * @example
@@ -9482,6 +9747,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * oss用量统计导出
+   * 
+   * @param request - ExportOssCheckStatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportOssCheckStatResponse
+   */
+  async exportOssCheckStatWithOptions(request: ExportOssCheckStatRequest, runtime: $Util.RuntimeOptions): Promise<ExportOssCheckStatResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.byMonth)) {
+      body["ByMonth"] = request.byMonth;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.parentTaskId)) {
+      body["ParentTaskId"] = request.parentTaskId;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportOssCheckStat",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportOssCheckStatResponse>(await this.callApi(params, req, runtime), new ExportOssCheckStatResponse({}));
+  }
+
+  /**
+   * oss用量统计导出
+   * 
+   * @param request - ExportOssCheckStatRequest
+   * @returns ExportOssCheckStatResponse
+   */
+  async exportOssCheckStat(request: ExportOssCheckStatRequest): Promise<ExportOssCheckStatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportOssCheckStatWithOptions(request, runtime);
+  }
+
+  /**
    * 导出oss扫描结果
    * 
    * @param tmpReq - ExportResultRequest
@@ -10141,6 +10466,66 @@ export default class Client extends OpenApi {
   async getKeywordImportResult(request: GetKeywordImportResultRequest): Promise<GetKeywordImportResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getKeywordImportResultWithOptions(request, runtime);
+  }
+
+  /**
+   * oss用量统计
+   * 
+   * @param request - GetOssCheckStatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOssCheckStatResponse
+   */
+  async getOssCheckStatWithOptions(request: GetOssCheckStatRequest, runtime: $Util.RuntimeOptions): Promise<GetOssCheckStatResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.byMonth)) {
+      body["ByMonth"] = request.byMonth;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.parentTaskId)) {
+      body["ParentTaskId"] = request.parentTaskId;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOssCheckStat",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOssCheckStatResponse>(await this.callApi(params, req, runtime), new GetOssCheckStatResponse({}));
+  }
+
+  /**
+   * oss用量统计
+   * 
+   * @param request - GetOssCheckStatRequest
+   * @returns GetOssCheckStatResponse
+   */
+  async getOssCheckStat(request: GetOssCheckStatRequest): Promise<GetOssCheckStatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOssCheckStatWithOptions(request, runtime);
   }
 
   /**
