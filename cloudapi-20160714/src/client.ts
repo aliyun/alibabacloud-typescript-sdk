@@ -466,6 +466,126 @@ export class AddTrafficSpecialControlResponse extends $tea.Model {
   }
 }
 
+export class AssociateInstanceWithPrivateDNSRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * apigateway-hz-ead4f4b0bac8
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  intranetDomains?: string[];
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intranetDomains: 'IntranetDomains',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intranetDomains: { 'type': 'array', 'itemType': 'string' },
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateInstanceWithPrivateDNSShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * apigateway-hz-ead4f4b0bac8
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  intranetDomainsShrink?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intranetDomainsShrink: 'IntranetDomains',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intranetDomainsShrink: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateInstanceWithPrivateDNSResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 03442A3D-3B7D-434C-8A95-A5FEB999B529
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateInstanceWithPrivateDNSResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateInstanceWithPrivateDNSResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssociateInstanceWithPrivateDNSResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachApiProductRequest extends $tea.Model {
   /**
    * @remarks
@@ -3494,6 +3614,138 @@ export class CreatePluginResponse extends $tea.Model {
   }
 }
 
+export class CreatePrivateDNSRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * api.demo.com
+   */
+  intranetDomain?: string;
+  records?: CreatePrivateDNSRequestRecords[];
+  securityToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      intranetDomain: 'IntranetDomain',
+      records: 'Records',
+      securityToken: 'SecurityToken',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intranetDomain: 'string',
+      records: { 'type': 'array', 'itemType': CreatePrivateDNSRequestRecords },
+      securityToken: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateDNSShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * api.demo.com
+   */
+  intranetDomain?: string;
+  recordsShrink?: string;
+  securityToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      intranetDomain: 'IntranetDomain',
+      recordsShrink: 'Records',
+      securityToken: 'SecurityToken',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intranetDomain: 'string',
+      recordsShrink: 'string',
+      securityToken: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateDNSResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateDNSResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePrivateDNSResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePrivateDNSResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSignatureRequest extends $tea.Model {
   /**
    * @remarks
@@ -5684,6 +5936,100 @@ export class DeletePluginResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeletePluginResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrivateDNSRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  force?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * api.demo.com
+   */
+  intranetDomain?: string;
+  securityToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      force: 'Force',
+      intranetDomain: 'IntranetDomain',
+      securityToken: 'SecurityToken',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      force: 'boolean',
+      intranetDomain: 'string',
+      securityToken: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrivateDNSResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EF924FE4-2EDD-4CD3-89EC-34E4708574E7
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrivateDNSResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePrivateDNSResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePrivateDNSResponseBody,
     };
   }
 
@@ -19731,6 +20077,126 @@ export class DisableInstanceAccessControlResponse extends $tea.Model {
   }
 }
 
+export class DissociateInstanceWithPrivateDNSRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * apigateway-hz-ead4f4b0bac8
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  intranetDomains?: string[];
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intranetDomains: 'IntranetDomains',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intranetDomains: { 'type': 'array', 'itemType': 'string' },
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DissociateInstanceWithPrivateDNSShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * apigateway-hz-ead4f4b0bac8
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  intranetDomainsShrink?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intranetDomainsShrink: 'IntranetDomains',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intranetDomainsShrink: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DissociateInstanceWithPrivateDNSResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6C87A26A-6A18-4B8E-8099-705278381A2C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DissociateInstanceWithPrivateDNSResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DissociateInstanceWithPrivateDNSResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DissociateInstanceWithPrivateDNSResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DryRunSwaggerRequest extends $tea.Model {
   /**
    * @remarks
@@ -20085,34 +20551,66 @@ export class EnableInstanceAccessControlResponse extends $tea.Model {
 }
 
 export class ExportOASRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The APIs that you want to export.
+   */
   apiIdList?: string[];
   /**
+   * @remarks
+   * The exported format:
+   * 
+   * *   json
+   * *   yaml
+   * 
    * @example
    * yaml
    */
   dataFormat?: string;
   /**
+   * @remarks
+   * The API group ID.
+   * 
    * @example
    * 42925e7f5209438186d5560239af5xxx
    */
   groupId?: string;
   /**
+   * @remarks
+   * The OAS version. Valid values:
+   * 
+   * *   **oas2**
+   * *   **oas3**
+   * 
    * @example
    * oas2
    */
   oasVersion?: string;
   /**
+   * @remarks
+   * The number of pages in which you want to export the APIs.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   securityToken?: string;
   /**
+   * @remarks
+   * The environment to which the API is published. Valid values:
+   * 
+   * *   **RELEASE**: the production environment
+   * *   **PRE**: the pre-release environment
+   * *   **TEST**: the test environment
+   * 
    * @example
    * RELEASE
    */
   stageName?: string;
   /**
+   * @remarks
+   * Specifies whether to export API Gateway extensions at the same time.
+   * 
    * @example
    * true
    */
@@ -20149,34 +20647,66 @@ export class ExportOASRequest extends $tea.Model {
 }
 
 export class ExportOASShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The APIs that you want to export.
+   */
   apiIdListShrink?: string;
   /**
+   * @remarks
+   * The exported format:
+   * 
+   * *   json
+   * *   yaml
+   * 
    * @example
    * yaml
    */
   dataFormat?: string;
   /**
+   * @remarks
+   * The API group ID.
+   * 
    * @example
    * 42925e7f5209438186d5560239af5xxx
    */
   groupId?: string;
   /**
+   * @remarks
+   * The OAS version. Valid values:
+   * 
+   * *   **oas2**
+   * *   **oas3**
+   * 
    * @example
    * oas2
    */
   oasVersion?: string;
   /**
+   * @remarks
+   * The number of pages in which you want to export the APIs.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   securityToken?: string;
   /**
+   * @remarks
+   * The environment to which the API is published. Valid values:
+   * 
+   * *   **RELEASE**: the production environment
+   * *   **PRE**: the pre-release environment
+   * *   **TEST**: the test environment
+   * 
    * @example
    * RELEASE
    */
   stageName?: string;
   /**
+   * @remarks
+   * Specifies whether to export API Gateway extensions at the same time.
+   * 
    * @example
    * true
    */
@@ -20214,11 +20744,17 @@ export class ExportOASShrinkRequest extends $tea.Model {
 
 export class ExportOASResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The Base64-encoded data of the exported Swagger file. You can obtain the file by using Base64 decoding.
+   * 
    * @example
    * UEsDBBQACAAIAABc8FgAAAAAAAAAAAAAAAA...
    */
   data?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876xxxxxxxx
    */
@@ -20833,6 +21369,111 @@ export class ImportSwaggerResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ImportSwaggerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateDNSRequest extends $tea.Model {
+  /**
+   * @example
+   * api.demo.com
+   */
+  intranetDomain?: string;
+  securityToken?: string;
+  /**
+   * @example
+   * A
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      intranetDomain: 'IntranetDomain',
+      securityToken: 'SecurityToken',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intranetDomain: 'string',
+      securityToken: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateDNSResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  privateDNSList?: ListPrivateDNSResponseBodyPrivateDNSList[];
+  /**
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BZ016
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      privateDNSList: 'PrivateDNSList',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      privateDNSList: { 'type': 'array', 'itemType': ListPrivateDNSResponseBodyPrivateDNSList },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateDNSResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPrivateDNSResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPrivateDNSResponseBody,
     };
   }
 
@@ -28429,6 +29070,146 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class UpdatePrivateDNSRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * api.demo.com
+   */
+  intranetDomain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  records?: UpdatePrivateDNSRequestRecords[];
+  securityToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      intranetDomain: 'IntranetDomain',
+      records: 'Records',
+      securityToken: 'SecurityToken',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intranetDomain: 'string',
+      records: { 'type': 'array', 'itemType': UpdatePrivateDNSRequestRecords },
+      securityToken: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrivateDNSShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * api.demo.com
+   */
+  intranetDomain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  recordsShrink?: string;
+  securityToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      intranetDomain: 'IntranetDomain',
+      recordsShrink: 'Records',
+      securityToken: 'SecurityToken',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intranetDomain: 'string',
+      recordsShrink: 'string',
+      securityToken: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrivateDNSResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EF924FE4-2EDD-4CD3-89EC-34E4708574E7
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrivateDNSResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePrivateDNSResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePrivateDNSResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ValidateVpcConnectivityRequest extends $tea.Model {
   /**
    * @remarks
@@ -29083,6 +29864,36 @@ export class CreatePluginRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrivateDNSRequestRecords extends $tea.Model {
+  /**
+   * @example
+   * 192.168.0.1
+   */
+  record?: string;
+  /**
+   * @example
+   * 100
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      record: 'Record',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      record: 'string',
+      weight: 'number',
     };
   }
 
@@ -29917,6 +30728,13 @@ export class DescribeApiResponseBodyRequestConfig extends $tea.Model {
    * https://apigateway.aliyun.com/models/3a240a127dcc4afd9ab1bf7e947b4095/9e2df550e85b4121a79ec33e2619eaab
    */
   bodyModel?: string;
+  /**
+   * @remarks
+   * Whether to escape the Path parameter, if true, the [param] on the Path will be treated as a regular character.
+   * 
+   * @example
+   * true
+   */
   escapePathParam?: boolean;
   /**
    * @remarks
@@ -31089,6 +31907,13 @@ export class DescribeApiDocResponseBodyRequestConfig extends $tea.Model {
    * STREAM
    */
   bodyFormat?: string;
+  /**
+   * @remarks
+   * Whether to escape the Path parameter, if true, the [param] on the Path will be treated as a regular character.
+   * 
+   * @example
+   * true
+   */
   escapePathParam?: boolean;
   /**
    * @remarks
@@ -32427,6 +33252,13 @@ export class DescribeApiHistoryResponseBodyRequestConfig extends $tea.Model {
    * https://apigateway.aliyun.com/models/3a240a1XXXXXXXXd9ab1bf7e947b4095/9e2df550e85b4XXXXXXXX619eaab
    */
   bodyModel?: string;
+  /**
+   * @remarks
+   * Whether to escape the Path parameter, if true, the [param] on the Path will be treated as a regular character.
+   * 
+   * @example
+   * true
+   */
   escapePathParam?: boolean;
   /**
    * @remarks
@@ -36262,7 +37094,21 @@ export class DescribeAuthorizedApisResponseBodyAuthorizedApis extends $tea.Model
 }
 
 export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTagTagInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * DEV
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * 240
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36393,6 +37239,10 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp exten
    * RELEASE
    */
   stageName?: string;
+  /**
+   * @remarks
+   * The key of the tag.
+   */
   tag?: DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTag;
   static names(): { [key: string]: string } {
     return {
@@ -45108,6 +45958,79 @@ export class ImportSwaggerResponseBodySuccess extends $tea.Model {
   }
 }
 
+export class ListPrivateDNSResponseBodyPrivateDNSListRecords extends $tea.Model {
+  /**
+   * @example
+   * 192.168.0.1
+   */
+  record?: string;
+  /**
+   * @example
+   * 100
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      record: 'Record',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      record: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateDNSResponseBodyPrivateDNSList extends $tea.Model {
+  bindInstances?: string[];
+  /**
+   * @example
+   * 2023-05-10T08:17:00Z
+   */
+  createdTime?: string;
+  /**
+   * @example
+   * api.demo.com
+   */
+  intranetDomain?: string;
+  records?: ListPrivateDNSResponseBodyPrivateDNSListRecords[];
+  /**
+   * @example
+   * A
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindInstances: 'BindInstances',
+      createdTime: 'CreatedTime',
+      intranetDomain: 'IntranetDomain',
+      records: 'Records',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindInstances: { 'type': 'array', 'itemType': 'string' },
+      createdTime: 'string',
+      intranetDomain: 'string',
+      records: { 'type': 'array', 'itemType': ListPrivateDNSResponseBodyPrivateDNSListRecords },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   /**
    * @remarks
@@ -46033,6 +46956,36 @@ export class TagResourcesRequestTag extends $tea.Model {
   }
 }
 
+export class UpdatePrivateDNSRequestRecords extends $tea.Model {
+  /**
+   * @example
+   * 192.168.0.2
+   */
+  record?: string;
+  /**
+   * @example
+   * 100
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      record: 'Record',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      record: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -46366,6 +47319,64 @@ export default class Client extends OpenApi {
   async addTrafficSpecialControl(request: AddTrafficSpecialControlRequest): Promise<AddTrafficSpecialControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTrafficSpecialControlWithOptions(request, runtime);
+  }
+
+  /**
+   * 专享实例关联内网域名解析记录
+   * 
+   * @param tmpReq - AssociateInstanceWithPrivateDNSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateInstanceWithPrivateDNSResponse
+   */
+  async associateInstanceWithPrivateDNSWithOptions(tmpReq: AssociateInstanceWithPrivateDNSRequest, runtime: $Util.RuntimeOptions): Promise<AssociateInstanceWithPrivateDNSResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AssociateInstanceWithPrivateDNSShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.intranetDomains)) {
+      request.intranetDomainsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.intranetDomains, "IntranetDomains", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.intranetDomainsShrink)) {
+      body["IntranetDomains"] = request.intranetDomainsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AssociateInstanceWithPrivateDNS",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateInstanceWithPrivateDNSResponse>(await this.callApi(params, req, runtime), new AssociateInstanceWithPrivateDNSResponse({}));
+  }
+
+  /**
+   * 专享实例关联内网域名解析记录
+   * 
+   * @param request - AssociateInstanceWithPrivateDNSRequest
+   * @returns AssociateInstanceWithPrivateDNSResponse
+   */
+  async associateInstanceWithPrivateDNS(request: AssociateInstanceWithPrivateDNSRequest): Promise<AssociateInstanceWithPrivateDNSResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.associateInstanceWithPrivateDNSWithOptions(request, runtime);
   }
 
   /**
@@ -47809,6 +48820,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建内网域名解析
+   * 
+   * @param tmpReq - CreatePrivateDNSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePrivateDNSResponse
+   */
+  async createPrivateDNSWithOptions(tmpReq: CreatePrivateDNSRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateDNSResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreatePrivateDNSShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.records)) {
+      request.recordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.records, "Records", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.intranetDomain)) {
+      query["IntranetDomain"] = request.intranetDomain;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.recordsShrink)) {
+      body["Records"] = request.recordsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePrivateDNS",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePrivateDNSResponse>(await this.callApi(params, req, runtime), new CreatePrivateDNSResponse({}));
+  }
+
+  /**
+   * 创建内网域名解析
+   * 
+   * @param request - CreatePrivateDNSRequest
+   * @returns CreatePrivateDNSResponse
+   */
+  async createPrivateDNS(request: CreatePrivateDNSRequest): Promise<CreatePrivateDNSResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPrivateDNSWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a backend signature key.
    * 
    * @remarks
@@ -49040,6 +50113,60 @@ export default class Client extends OpenApi {
   async deletePlugin(request: DeletePluginRequest): Promise<DeletePluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePluginWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除内网域名解析
+   * 
+   * @param request - DeletePrivateDNSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePrivateDNSResponse
+   */
+  async deletePrivateDNSWithOptions(request: DeletePrivateDNSRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateDNSResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.intranetDomain)) {
+      query["IntranetDomain"] = request.intranetDomain;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePrivateDNS",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePrivateDNSResponse>(await this.callApi(params, req, runtime), new DeletePrivateDNSResponse({}));
+  }
+
+  /**
+   * 删除内网域名解析
+   * 
+   * @param request - DeletePrivateDNSRequest
+   * @returns DeletePrivateDNSResponse
+   */
+  async deletePrivateDNS(request: DeletePrivateDNSRequest): Promise<DeletePrivateDNSResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deletePrivateDNSWithOptions(request, runtime);
   }
 
   /**
@@ -54613,6 +55740,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 专享实例解除的关联内网域名解析记录
+   * 
+   * @param tmpReq - DissociateInstanceWithPrivateDNSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DissociateInstanceWithPrivateDNSResponse
+   */
+  async dissociateInstanceWithPrivateDNSWithOptions(tmpReq: DissociateInstanceWithPrivateDNSRequest, runtime: $Util.RuntimeOptions): Promise<DissociateInstanceWithPrivateDNSResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DissociateInstanceWithPrivateDNSShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.intranetDomains)) {
+      request.intranetDomainsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.intranetDomains, "IntranetDomains", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.intranetDomainsShrink)) {
+      body["IntranetDomains"] = request.intranetDomainsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DissociateInstanceWithPrivateDNS",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DissociateInstanceWithPrivateDNSResponse>(await this.callApi(params, req, runtime), new DissociateInstanceWithPrivateDNSResponse({}));
+  }
+
+  /**
+   * 专享实例解除的关联内网域名解析记录
+   * 
+   * @param request - DissociateInstanceWithPrivateDNSRequest
+   * @returns DissociateInstanceWithPrivateDNSResponse
+   */
+  async dissociateInstanceWithPrivateDNS(request: DissociateInstanceWithPrivateDNSRequest): Promise<DissociateInstanceWithPrivateDNSResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dissociateInstanceWithPrivateDNSWithOptions(request, runtime);
+  }
+
+  /**
    * Checks the syntax before Swagger-compliant data is imported.
    * 
    * @param tmpReq - DryRunSwaggerRequest
@@ -54976,6 +56161,56 @@ export default class Client extends OpenApi {
   async importSwagger(request: ImportSwaggerRequest): Promise<ImportSwaggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importSwaggerWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询内网域名解析
+   * 
+   * @param request - ListPrivateDNSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPrivateDNSResponse
+   */
+  async listPrivateDNSWithOptions(request: ListPrivateDNSRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateDNSResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.intranetDomain)) {
+      query["IntranetDomain"] = request.intranetDomain;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPrivateDNS",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPrivateDNSResponse>(await this.callApi(params, req, runtime), new ListPrivateDNSResponse({}));
+  }
+
+  /**
+   * 查询内网域名解析
+   * 
+   * @param request - ListPrivateDNSRequest
+   * @returns ListPrivateDNSResponse
+   */
+  async listPrivateDNS(request: ListPrivateDNSRequest): Promise<ListPrivateDNSResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPrivateDNSWithOptions(request, runtime);
   }
 
   /**
@@ -58825,6 +60060,68 @@ export default class Client extends OpenApi {
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新内网域名解析
+   * 
+   * @param tmpReq - UpdatePrivateDNSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePrivateDNSResponse
+   */
+  async updatePrivateDNSWithOptions(tmpReq: UpdatePrivateDNSRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateDNSResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdatePrivateDNSShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.records)) {
+      request.recordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.records, "Records", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.intranetDomain)) {
+      query["IntranetDomain"] = request.intranetDomain;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.recordsShrink)) {
+      body["Records"] = request.recordsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePrivateDNS",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePrivateDNSResponse>(await this.callApi(params, req, runtime), new UpdatePrivateDNSResponse({}));
+  }
+
+  /**
+   * 更新内网域名解析
+   * 
+   * @param request - UpdatePrivateDNSRequest
+   * @returns UpdatePrivateDNSResponse
+   */
+  async updatePrivateDNS(request: UpdatePrivateDNSRequest): Promise<UpdatePrivateDNSResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePrivateDNSWithOptions(request, runtime);
   }
 
   /**
