@@ -82,6 +82,7 @@ export class BatchDeleteJobsRequest extends $tea.Model {
 }
 
 export class BatchDeleteJobsResponseBody extends $tea.Model {
+  accessDeniedDetail?: BatchDeleteJobsResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -119,6 +120,7 @@ export class BatchDeleteJobsResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -128,6 +130,7 @@ export class BatchDeleteJobsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: BatchDeleteJobsResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -215,6 +218,7 @@ export class BatchDeleteRouteStrategyRequest extends $tea.Model {
 }
 
 export class BatchDeleteRouteStrategyResponseBody extends $tea.Model {
+  accessDeniedDetail?: BatchDeleteRouteStrategyResponseBodyAccessDeniedDetail;
   /**
    * @example
    * 200
@@ -237,6 +241,7 @@ export class BatchDeleteRouteStrategyResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -246,6 +251,7 @@ export class BatchDeleteRouteStrategyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: BatchDeleteRouteStrategyResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -356,6 +362,7 @@ export class BatchDisableJobsRequest extends $tea.Model {
 }
 
 export class BatchDisableJobsResponseBody extends $tea.Model {
+  accessDeniedDetail?: BatchDisableJobsResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -393,6 +400,7 @@ export class BatchDisableJobsResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -402,6 +410,7 @@ export class BatchDisableJobsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: BatchDisableJobsResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -512,6 +521,7 @@ export class BatchEnableJobsRequest extends $tea.Model {
 }
 
 export class BatchEnableJobsResponseBody extends $tea.Model {
+  accessDeniedDetail?: BatchEnableJobsResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -549,6 +559,7 @@ export class BatchEnableJobsResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -558,6 +569,7 @@ export class BatchEnableJobsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: BatchEnableJobsResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -774,6 +786,7 @@ export class CreateAppGroupRequest extends $tea.Model {
 }
 
 export class CreateAppGroupResponseBody extends $tea.Model {
+  accessDeniedDetail?: CreateAppGroupResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -816,6 +829,7 @@ export class CreateAppGroupResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -826,6 +840,7 @@ export class CreateAppGroupResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: CreateAppGroupResponseBodyAccessDeniedDetail,
       code: 'number',
       data: CreateAppGroupResponseBodyData,
       message: 'string',
@@ -1294,6 +1309,7 @@ export class CreateJobRequest extends $tea.Model {
 }
 
 export class CreateJobResponseBody extends $tea.Model {
+  accessDeniedDetail?: CreateJobResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -1336,6 +1352,7 @@ export class CreateJobResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -1346,6 +1363,7 @@ export class CreateJobResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: CreateJobResponseBodyAccessDeniedDetail,
       code: 'number',
       data: CreateJobResponseBodyData,
       message: 'string',
@@ -1445,6 +1463,7 @@ export class CreateNamespaceRequest extends $tea.Model {
 }
 
 export class CreateNamespaceResponseBody extends $tea.Model {
+  accessDeniedDetail?: CreateNamespaceResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -1487,6 +1506,7 @@ export class CreateNamespaceResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -1497,6 +1517,7 @@ export class CreateNamespaceResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: CreateNamespaceResponseBodyAccessDeniedDetail,
       code: 'number',
       data: CreateNamespaceResponseBodyData,
       message: 'string',
@@ -1645,6 +1666,7 @@ export class CreateRouteStrategyRequest extends $tea.Model {
 }
 
 export class CreateRouteStrategyResponseBody extends $tea.Model {
+  accessDeniedDetail?: CreateRouteStrategyResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -1687,6 +1709,7 @@ export class CreateRouteStrategyResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -1697,6 +1720,7 @@ export class CreateRouteStrategyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: CreateRouteStrategyResponseBodyAccessDeniedDetail,
       code: 'number',
       data: CreateRouteStrategyResponseBodyData,
       message: 'string',
@@ -1868,6 +1892,7 @@ export class CreateWorkflowRequest extends $tea.Model {
 }
 
 export class CreateWorkflowResponseBody extends $tea.Model {
+  accessDeniedDetail?: CreateWorkflowResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -1910,6 +1935,7 @@ export class CreateWorkflowResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -1920,6 +1946,7 @@ export class CreateWorkflowResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: CreateWorkflowResponseBodyAccessDeniedDetail,
       code: 'string',
       data: CreateWorkflowResponseBodyData,
       message: 'string',
@@ -2012,6 +2039,7 @@ export class DeleteAppGroupRequest extends $tea.Model {
 }
 
 export class DeleteAppGroupResponseBody extends $tea.Model {
+  accessDeniedDetail?: DeleteAppGroupResponseBodyAccessDeniedDetail;
   /**
    * @example
    * 200
@@ -2034,6 +2062,7 @@ export class DeleteAppGroupResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -2043,6 +2072,7 @@ export class DeleteAppGroupResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: DeleteAppGroupResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -2155,6 +2185,7 @@ export class DeleteJobRequest extends $tea.Model {
 }
 
 export class DeleteJobResponseBody extends $tea.Model {
+  accessDeniedDetail?: DeleteJobResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -2192,6 +2223,7 @@ export class DeleteJobResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -2201,6 +2233,7 @@ export class DeleteJobResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: DeleteJobResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -2301,6 +2334,7 @@ export class DeleteRouteStrategyRequest extends $tea.Model {
 }
 
 export class DeleteRouteStrategyResponseBody extends $tea.Model {
+  accessDeniedDetail?: DeleteRouteStrategyResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code that is returned.
@@ -2338,6 +2372,7 @@ export class DeleteRouteStrategyResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -2347,6 +2382,7 @@ export class DeleteRouteStrategyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: DeleteRouteStrategyResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -2457,6 +2493,7 @@ export class DeleteWorkflowRequest extends $tea.Model {
 }
 
 export class DeleteWorkflowResponseBody extends $tea.Model {
+  accessDeniedDetail?: DeleteWorkflowResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -2494,6 +2531,7 @@ export class DeleteWorkflowResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -2503,6 +2541,7 @@ export class DeleteWorkflowResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: DeleteWorkflowResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -2776,6 +2815,7 @@ export class DesignateWorkersRequest extends $tea.Model {
 }
 
 export class DesignateWorkersResponseBody extends $tea.Model {
+  accessDeniedDetail?: DesignateWorkersResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -2810,6 +2850,7 @@ export class DesignateWorkersResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -2819,6 +2860,7 @@ export class DesignateWorkersResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: DesignateWorkersResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -2929,6 +2971,7 @@ export class DisableJobRequest extends $tea.Model {
 }
 
 export class DisableJobResponseBody extends $tea.Model {
+  accessDeniedDetail?: DisableJobResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -2966,6 +3009,7 @@ export class DisableJobResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -2975,6 +3019,7 @@ export class DisableJobResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: DisableJobResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -3085,6 +3130,7 @@ export class DisableWorkflowRequest extends $tea.Model {
 }
 
 export class DisableWorkflowResponseBody extends $tea.Model {
+  accessDeniedDetail?: DisableWorkflowResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -3122,6 +3168,7 @@ export class DisableWorkflowResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -3131,6 +3178,7 @@ export class DisableWorkflowResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: DisableWorkflowResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -3241,6 +3289,7 @@ export class EnableJobRequest extends $tea.Model {
 }
 
 export class EnableJobResponseBody extends $tea.Model {
+  accessDeniedDetail?: EnableJobResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -3278,6 +3327,7 @@ export class EnableJobResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -3287,6 +3337,7 @@ export class EnableJobResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: EnableJobResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -3397,6 +3448,7 @@ export class EnableWorkflowRequest extends $tea.Model {
 }
 
 export class EnableWorkflowResponseBody extends $tea.Model {
+  accessDeniedDetail?: EnableWorkflowResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -3434,6 +3486,7 @@ export class EnableWorkflowResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -3443,6 +3496,7 @@ export class EnableWorkflowResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: EnableWorkflowResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -3605,6 +3659,7 @@ export class ExecuteJobRequest extends $tea.Model {
 }
 
 export class ExecuteJobResponseBody extends $tea.Model {
+  accessDeniedDetail?: ExecuteJobResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -3647,6 +3702,7 @@ export class ExecuteJobResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -3657,6 +3713,7 @@ export class ExecuteJobResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: ExecuteJobResponseBodyAccessDeniedDetail,
       code: 'number',
       data: ExecuteJobResponseBodyData,
       message: 'string',
@@ -6420,6 +6477,7 @@ export class RerunJobRequest extends $tea.Model {
 }
 
 export class RerunJobResponseBody extends $tea.Model {
+  accessDeniedDetail?: RerunJobResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code.
@@ -6457,6 +6515,7 @@ export class RerunJobResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -6466,6 +6525,7 @@ export class RerunJobResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: RerunJobResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -7270,6 +7330,7 @@ export class StopInstanceRequest extends $tea.Model {
 }
 
 export class StopInstanceResponseBody extends $tea.Model {
+  accessDeniedDetail?: StopInstanceResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The HTTP status code that is returned.
@@ -7307,6 +7368,7 @@ export class StopInstanceResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -7316,6 +7378,7 @@ export class StopInstanceResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: StopInstanceResponseBodyAccessDeniedDetail,
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -8425,6 +8488,191 @@ export class UpdateWorkflowDagResponse extends $tea.Model {
   }
 }
 
+export class BatchDeleteJobsResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteRouteStrategyResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDisableJobsResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchEnableJobsResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppGroupResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppGroupResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -8517,6 +8765,43 @@ export class CreateJobRequestContactInfo extends $tea.Model {
   }
 }
 
+export class CreateJobResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateJobResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -8535,6 +8820,43 @@ export class CreateJobResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       jobId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNamespaceResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
     };
   }
 
@@ -8569,6 +8891,43 @@ export class CreateNamespaceResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateRouteStrategyResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRouteStrategyResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
@@ -8577,6 +8936,43 @@ export class CreateRouteStrategyResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkflowResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
     };
   }
 
@@ -8603,6 +8999,154 @@ export class CreateWorkflowResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       workflowId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppGroupResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteJobResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRouteStrategyResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWorkflowResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
     };
   }
 
@@ -8649,6 +9193,228 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
       localName: 'string',
       regionEndpoint: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DesignateWorkersResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableJobResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableWorkflowResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableJobResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableWorkflowResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteJobResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
     };
   }
 
@@ -11736,6 +12502,43 @@ export class ListWorkflowInstanceResponseBodyData extends $tea.Model {
   }
 }
 
+export class RerunJobResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RetryJobInstanceResponseBodyAccessDeniedDetail extends $tea.Model {
   authAction?: string;
   authPrincipalDisplayName?: string;
@@ -11848,6 +12651,43 @@ export class SetJobInstanceSuccessResponseBodyAccessDeniedDetail extends $tea.Mo
 }
 
 export class SetWfInstanceSuccessResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopInstanceResponseBodyAccessDeniedDetail extends $tea.Model {
   authAction?: string;
   authPrincipalDisplayName?: string;
   authPrincipalOwnerId?: string;
