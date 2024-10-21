@@ -2223,6 +2223,7 @@ export class CreateCenRouteMapRequest extends $tea.Model {
    * false
    */
   destinationInstanceIdsReverseMatch?: boolean;
+  destinationRegionIds?: string[];
   /**
    * @remarks
    * The IDs of the destination route tables to which routes are evaluated. You can enter at most 32 route table IDs.
@@ -2475,6 +2476,7 @@ export class CreateCenRouteMapRequest extends $tea.Model {
       destinationCidrBlocks: 'DestinationCidrBlocks',
       destinationInstanceIds: 'DestinationInstanceIds',
       destinationInstanceIdsReverseMatch: 'DestinationInstanceIdsReverseMatch',
+      destinationRegionIds: 'DestinationRegionIds',
       destinationRouteTableIds: 'DestinationRouteTableIds',
       mapResult: 'MapResult',
       matchAddressType: 'MatchAddressType',
@@ -2513,6 +2515,7 @@ export class CreateCenRouteMapRequest extends $tea.Model {
       destinationCidrBlocks: { 'type': 'array', 'itemType': 'string' },
       destinationInstanceIds: { 'type': 'array', 'itemType': 'string' },
       destinationInstanceIdsReverseMatch: 'boolean',
+      destinationRegionIds: { 'type': 'array', 'itemType': 'string' },
       destinationRouteTableIds: { 'type': 'array', 'itemType': 'string' },
       mapResult: 'string',
       matchAddressType: 'string',
@@ -19868,6 +19871,7 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
    * false
    */
   destinationInstanceIdsReverseMatch?: boolean;
+  destinationRegionIds?: string[];
   /**
    * @remarks
    * The IDs of the destination route tables to which the routes belong. You can enter at most 32 route table IDs.
@@ -20096,6 +20100,7 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
       destinationCidrBlocks: 'DestinationCidrBlocks',
       destinationInstanceIds: 'DestinationInstanceIds',
       destinationInstanceIdsReverseMatch: 'DestinationInstanceIdsReverseMatch',
+      destinationRegionIds: 'DestinationRegionIds',
       destinationRouteTableIds: 'DestinationRouteTableIds',
       mapResult: 'MapResult',
       matchAddressType: 'MatchAddressType',
@@ -20133,6 +20138,7 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
       destinationCidrBlocks: { 'type': 'array', 'itemType': 'string' },
       destinationInstanceIds: { 'type': 'array', 'itemType': 'string' },
       destinationInstanceIdsReverseMatch: 'boolean',
+      destinationRegionIds: { 'type': 'array', 'itemType': 'string' },
       destinationRouteTableIds: { 'type': 'array', 'itemType': 'string' },
       mapResult: 'string',
       matchAddressType: 'string',
@@ -20373,6 +20379,130 @@ export class ModifyFlowLogAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyFlowLogAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tm-u9nxup5kww5po8****
+   */
+  trafficMarkingPolicyId?: string;
+  /**
+   * @example
+   * descriptiontest
+   */
+  trafficMatchRuleDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tm-rule-fa9kgq1e90rmhc****
+   */
+  trafficMatchRuleId?: string;
+  /**
+   * @example
+   * nametest
+   */
+  trafficMatchRuleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      trafficMarkingPolicyId: 'TrafficMarkingPolicyId',
+      trafficMatchRuleDescription: 'TrafficMatchRuleDescription',
+      trafficMatchRuleId: 'TrafficMatchRuleId',
+      trafficMatchRuleName: 'TrafficMatchRuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      trafficMarkingPolicyId: 'string',
+      trafficMatchRuleDescription: 'string',
+      trafficMatchRuleId: 'string',
+      trafficMatchRuleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTrafficMatchRuleToTrafficMarkingPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 13526224-5780-4426-8ADF-BC8B08700F23
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTrafficMatchRuleToTrafficMarkingPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyTrafficMatchRuleToTrafficMarkingPolicyResponseBody,
     };
   }
 
@@ -28208,6 +28338,25 @@ export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationInstanc
   }
 }
 
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRegionIds extends $tea.Model {
+  destinationRegionId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      destinationRegionId: 'DestinationRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationRegionId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRouteTableIds extends $tea.Model {
   destinationRouteTableId?: string[];
   static names(): { [key: string]: string } {
@@ -28509,6 +28658,7 @@ export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMap extends $tea.Mode
    * false
    */
   destinationInstanceIdsReverseMatch?: boolean;
+  destinationRegionIds?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRegionIds;
   /**
    * @remarks
    * The IDs of the destination route tables to which the routes belong. You can enter at most 32 route table IDs.
@@ -28683,6 +28833,7 @@ export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMap extends $tea.Mode
       destinationCidrBlocks: 'DestinationCidrBlocks',
       destinationInstanceIds: 'DestinationInstanceIds',
       destinationInstanceIdsReverseMatch: 'DestinationInstanceIdsReverseMatch',
+      destinationRegionIds: 'DestinationRegionIds',
       destinationRouteTableIds: 'DestinationRouteTableIds',
       mapResult: 'MapResult',
       matchAddressType: 'MatchAddressType',
@@ -28719,6 +28870,7 @@ export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMap extends $tea.Mode
       destinationCidrBlocks: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationCidrBlocks,
       destinationInstanceIds: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationInstanceIds,
       destinationInstanceIdsReverseMatch: 'boolean',
+      destinationRegionIds: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRegionIds,
       destinationRouteTableIds: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRouteTableIds,
       mapResult: 'string',
       matchAddressType: 'string',
@@ -36211,6 +36363,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.destinationInstanceIdsReverseMatch)) {
       query["DestinationInstanceIdsReverseMatch"] = request.destinationInstanceIdsReverseMatch;
+    }
+
+    if (!Util.isUnset(request.destinationRegionIds)) {
+      query["DestinationRegionIds"] = request.destinationRegionIds;
     }
 
     if (!Util.isUnset(request.destinationRouteTableIds)) {
@@ -45030,6 +45186,10 @@ export default class Client extends OpenApi {
       query["DestinationInstanceIdsReverseMatch"] = request.destinationInstanceIdsReverseMatch;
     }
 
+    if (!Util.isUnset(request.destinationRegionIds)) {
+      query["DestinationRegionIds"] = request.destinationRegionIds;
+    }
+
     if (!Util.isUnset(request.destinationRouteTableIds)) {
       query["DestinationRouteTableIds"] = request.destinationRouteTableIds;
     }
@@ -45233,6 +45393,84 @@ export default class Client extends OpenApi {
   async modifyFlowLogAttribute(request: ModifyFlowLogAttributeRequest): Promise<ModifyFlowLogAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyFlowLogAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 编辑流分类规则的名称和描述
+   * 
+   * @param request - ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse
+   */
+  async modifyTrafficMatchRuleToTrafficMarkingPolicyWithOptions(request: ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.trafficMarkingPolicyId)) {
+      query["TrafficMarkingPolicyId"] = request.trafficMarkingPolicyId;
+    }
+
+    if (!Util.isUnset(request.trafficMatchRuleDescription)) {
+      query["TrafficMatchRuleDescription"] = request.trafficMatchRuleDescription;
+    }
+
+    if (!Util.isUnset(request.trafficMatchRuleId)) {
+      query["TrafficMatchRuleId"] = request.trafficMatchRuleId;
+    }
+
+    if (!Util.isUnset(request.trafficMatchRuleName)) {
+      query["TrafficMatchRuleName"] = request.trafficMatchRuleName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyTrafficMatchRuleToTrafficMarkingPolicy",
+      version: "2017-09-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse>(await this.callApi(params, req, runtime), new ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse({}));
+  }
+
+  /**
+   * 编辑流分类规则的名称和描述
+   * 
+   * @param request - ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest
+   * @returns ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse
+   */
+  async modifyTrafficMatchRuleToTrafficMarkingPolicy(request: ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest): Promise<ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyTrafficMatchRuleToTrafficMarkingPolicyWithOptions(request, runtime);
   }
 
   /**
