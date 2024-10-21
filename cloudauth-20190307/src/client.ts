@@ -1473,6 +1473,104 @@ export class DeepfakeDetectResponse extends $tea.Model {
   }
 }
 
+export class DeleteFaceVerifyResultRequest extends $tea.Model {
+  /**
+   * @example
+   * shae18209d29ce4e8ba252caae98ab15
+   */
+  certifyId?: string;
+  /**
+   * @example
+   * Y
+   */
+  deleteAfterQuery?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certifyId: 'CertifyId',
+      deleteAfterQuery: 'DeleteAfterQuery',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certifyId: 'string',
+      deleteAfterQuery: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFaceVerifyResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 5A6229C0-E156-48E4-B6EC-0F528BDF60D2
+   */
+  requestId?: string;
+  resultObject?: DeleteFaceVerifyResultResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: DeleteFaceVerifyResultResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFaceVerifyResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFaceVerifyResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFaceVerifyResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDeviceInfoRequest extends $tea.Model {
   /**
    * @example
@@ -5105,6 +5203,43 @@ export class DeepfakeDetectResponseBodyResultObject extends $tea.Model {
   }
 }
 
+export class DeleteFaceVerifyResultResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * sha58aeae7ea2f5ed069530f58df4e6d
+   */
+  certifyId?: string;
+  /**
+   * @example
+   * N
+   */
+  deleteResult?: string;
+  /**
+   * @example
+   * NOT_DELETE_REPEATEDLY
+   */
+  failReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certifyId: 'CertifyId',
+      deleteResult: 'DeleteResult',
+      failReason: 'FailReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certifyId: 'string',
+      deleteResult: 'string',
+      failReason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDeviceInfoResponseBodyDeviceInfoListDeviceInfo extends $tea.Model {
   /**
    * @example
@@ -7258,6 +7393,52 @@ export default class Client extends OpenApi {
   async deepfakeDetect(request: DeepfakeDetectRequest): Promise<DeepfakeDetectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deepfakeDetectWithOptions(request, runtime);
+  }
+
+  /**
+   * 金融级服务敏感数据删除接口
+   * 
+   * @param request - DeleteFaceVerifyResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFaceVerifyResultResponse
+   */
+  async deleteFaceVerifyResultWithOptions(request: DeleteFaceVerifyResultRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceVerifyResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certifyId)) {
+      query["CertifyId"] = request.certifyId;
+    }
+
+    if (!Util.isUnset(request.deleteAfterQuery)) {
+      query["DeleteAfterQuery"] = request.deleteAfterQuery;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFaceVerifyResult",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFaceVerifyResultResponse>(await this.callApi(params, req, runtime), new DeleteFaceVerifyResultResponse({}));
+  }
+
+  /**
+   * 金融级服务敏感数据删除接口
+   * 
+   * @param request - DeleteFaceVerifyResultRequest
+   * @returns DeleteFaceVerifyResultResponse
+   */
+  async deleteFaceVerifyResult(request: DeleteFaceVerifyResultRequest): Promise<DeleteFaceVerifyResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteFaceVerifyResultWithOptions(request, runtime);
   }
 
   /**
