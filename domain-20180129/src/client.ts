@@ -940,6 +940,80 @@ export class CheckDomainSunriseClaimResponse extends $tea.Model {
   }
 }
 
+export class CheckIntlFixPriceDomainStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * appp16.com
+   */
+  domain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckIntlFixPriceDomainStatusResponseBody extends $tea.Model {
+  module?: CheckIntlFixPriceDomainStatusResponseBodyModule;
+  /**
+   * @example
+   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      module: 'Module',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: CheckIntlFixPriceDomainStatusResponseBodyModule,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckIntlFixPriceDomainStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckIntlFixPriceDomainStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckIntlFixPriceDomainStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckMaxYearOfServerLockRequest extends $tea.Model {
   /**
    * @remarks
@@ -1366,6 +1440,101 @@ export class ConfirmTransferInEmailResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ConfirmTransferInEmailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIntlFixedPriceDomainOrderRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @example
+   * 13350500
+   */
+  contactId?: number;
+  /**
+   * @example
+   * appp16.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * 58.00
+   */
+  expectedPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      contactId: 'ContactId',
+      domain: 'Domain',
+      expectedPrice: 'ExpectedPrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      contactId: 'number',
+      domain: 'string',
+      expectedPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIntlFixedPriceDomainOrderResponseBody extends $tea.Model {
+  module?: CreateIntlFixedPriceDomainOrderResponseBodyModule;
+  /**
+   * @example
+   * E879DC07-38EE-4408-9F33-73B30CD965CD
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      module: 'Module',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: CreateIntlFixedPriceDomainOrderResponseBodyModule,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIntlFixedPriceDomainOrderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIntlFixedPriceDomainOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateIntlFixedPriceDomainOrderResponseBody,
     };
   }
 
@@ -2100,6 +2269,80 @@ export class FuzzyMatchDomainSensitiveWordResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FuzzyMatchDomainSensitiveWordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIntlFixPriceDomainListUrlRequest extends $tea.Model {
+  /**
+   * @example
+   * 20240809
+   */
+  listDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      listDate: 'ListDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIntlFixPriceDomainListUrlResponseBody extends $tea.Model {
+  module?: GetIntlFixPriceDomainListUrlResponseBodyModule;
+  /**
+   * @example
+   * BF014B60-C708-4253-B5F2-3F9B493F398B
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      module: 'Module',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: GetIntlFixPriceDomainListUrlResponseBodyModule,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIntlFixPriceDomainListUrlResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIntlFixPriceDomainListUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIntlFixPriceDomainListUrlResponseBody,
     };
   }
 
@@ -6536,6 +6779,101 @@ export class QueryFailingReasonListForQualificationResponse extends $tea.Model {
   }
 }
 
+export class QueryIntlFixedPriceOrderListRequest extends $tea.Model {
+  /**
+   * @example
+   * T2024061115213700****
+   */
+  bizId?: string;
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 6
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      currentPage: 'number',
+      pageSize: 'number',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryIntlFixedPriceOrderListResponseBody extends $tea.Model {
+  module?: QueryIntlFixedPriceOrderListResponseBodyModule;
+  /**
+   * @example
+   * D6CB3623-4726-4947-AC2B-2C6E673B447C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      module: 'Module',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: QueryIntlFixedPriceOrderListResponseBodyModule,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryIntlFixedPriceOrderListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryIntlFixedPriceOrderListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryIntlFixedPriceOrderListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryLocalEnsAssociationRequest extends $tea.Model {
   /**
    * @remarks
@@ -10091,6 +10429,98 @@ export class SaveBatchTaskForReserveDropListDomainResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SaveBatchTaskForReserveDropListDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveBatchTaskForTransferOutByAuthorizationCodeRequest extends $tea.Model {
+  /**
+   * @example
+   * en
+   */
+  long?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  transferOutParamList?: SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList[];
+  /**
+   * @example
+   * 127.0.0.1
+   */
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      long: 'Long',
+      transferOutParamList: 'TransferOutParamList',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      long: 'string',
+      transferOutParamList: { 'type': 'array', 'itemType': SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList },
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveBatchTaskForTransferOutByAuthorizationCodeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E2598CAF-DBFE-494E-95EF-B42A33C178AA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
+   */
+  taskNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskNo: 'TaskNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveBatchTaskForTransferOutByAuthorizationCodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveBatchTaskForTransferOutByAuthorizationCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveBatchTaskForTransferOutByAuthorizationCodeResponseBody,
     };
   }
 
@@ -13949,6 +14379,111 @@ export class SaveSingleTaskForSynchronizingDnsHostResponse extends $tea.Model {
   }
 }
 
+export class SaveSingleTaskForTransferOutByAuthorizationCodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Test2o#Lck
+   */
+  authorizationCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
+  domainName?: string;
+  /**
+   * @example
+   * en
+   */
+  lang?: string;
+  /**
+   * @example
+   * 127.0.0.1
+   */
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationCode: 'AuthorizationCode',
+      domainName: 'DomainName',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationCode: 'string',
+      domainName: 'string',
+      lang: 'string',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForTransferOutByAuthorizationCodeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C560A803-B975-481D-A66B-A4395EA863A1
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
+   */
+  taskNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskNo: 'TaskNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForTransferOutByAuthorizationCodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSingleTaskForTransferOutByAuthorizationCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveSingleTaskForTransferOutByAuthorizationCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveSingleTaskForTransferProhibitionLockRequest extends $tea.Model {
   /**
    * @remarks
@@ -16874,6 +17409,71 @@ export class CheckDomainResponseBodyStaticPriceInfo extends $tea.Model {
   }
 }
 
+export class CheckIntlFixPriceDomainStatusResponseBodyModule extends $tea.Model {
+  /**
+   * @example
+   * USD
+   */
+  currency?: string;
+  /**
+   * @example
+   * 1567353497
+   */
+  deadDate?: number;
+  /**
+   * @example
+   * example.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * 1567353497
+   */
+  endTime?: number;
+  /**
+   * @example
+   * true
+   */
+  premium?: boolean;
+  /**
+   * @example
+   * 20.00
+   */
+  price?: number;
+  /**
+   * @example
+   * 1566353497
+   */
+  regDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      deadDate: 'DeadDate',
+      domain: 'Domain',
+      endTime: 'EndTime',
+      premium: 'Premium',
+      price: 'Price',
+      regDate: 'RegDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      deadDate: 'number',
+      domain: 'string',
+      endTime: 'number',
+      premium: 'boolean',
+      price: 'number',
+      regDate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConfirmTransferInEmailResponseBodyFailList extends $tea.Model {
   failDomain?: string[];
   static names(): { [key: string]: string } {
@@ -16904,6 +17504,50 @@ export class ConfirmTransferInEmailResponseBodySuccessList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       successDomain: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIntlFixedPriceDomainOrderResponseBodyModule extends $tea.Model {
+  /**
+   * @example
+   * example.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * 31199295f2074ce895645d386cb2****
+   */
+  orderNo?: string;
+  /**
+   * @example
+   * 100.00
+   */
+  payPrice?: number;
+  /**
+   * @example
+   * https://
+   */
+  payUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      orderNo: 'OrderNo',
+      payPrice: 'PayPrice',
+      payUrl: 'PayUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      orderNo: 'string',
+      payPrice: 'number',
+      payUrl: 'string',
     };
   }
 
@@ -17020,6 +17664,29 @@ export class FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWords extend
   static types(): { [key: string]: any } {
     return {
       matchedSensitiveWord: { 'type': 'array', 'itemType': FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWordsMatchedSensitiveWord },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIntlFixPriceDomainListUrlResponseBodyModule extends $tea.Model {
+  /**
+   * @example
+   * http://intl-fixed-price.oss-cn-zhangjiakou.aliyuncs.com/aliyun_intl_fixed_price_domain_20240827.gz?Expires=1724830838&OSSAccessKeyId=LTAI5tPMAybR4gfSEjdfAk1F&Signature=tb0SPs6tKb9gLKyQ5ibpQnBUuTY%3D
+   */
+  downloadUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadUrl: 'DownloadUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadUrl: 'string',
     };
   }
 
@@ -20070,6 +20737,77 @@ export class QueryFailingReasonListForQualificationResponseBodyData extends $tea
   }
 }
 
+export class QueryIntlFixedPriceOrderListResponseBodyModuleData extends $tea.Model {
+  bizId?: string;
+  createTime?: number;
+  domain?: string;
+  orderType?: number;
+  price?: number;
+  status?: number;
+  updateTime?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      createTime: 'CreateTime',
+      domain: 'Domain',
+      orderType: 'OrderType',
+      price: 'Price',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      createTime: 'number',
+      domain: 'string',
+      orderType: 'number',
+      price: 'number',
+      status: 'number',
+      updateTime: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryIntlFixedPriceOrderListResponseBodyModule extends $tea.Model {
+  currentPageNum?: number;
+  data?: QueryIntlFixedPriceOrderListResponseBodyModuleData[];
+  pageSize?: number;
+  totalItemNum?: number;
+  totalPageNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPageNum: 'CurrentPageNum',
+      data: 'Data',
+      pageSize: 'PageSize',
+      totalItemNum: 'TotalItemNum',
+      totalPageNum: 'TotalPageNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPageNum: 'number',
+      data: { 'type': 'array', 'itemType': QueryIntlFixedPriceOrderListResponseBodyModuleData },
+      pageSize: 'number',
+      totalItemNum: 'number',
+      totalPageNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryOperationAuditInfoListResponseBodyData extends $tea.Model {
   auditInfo?: string;
   /**
@@ -21858,6 +22596,36 @@ export class SaveBatchTaskForReserveDropListDomainRequestDomains extends $tea.Mo
   }
 }
 
+export class SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList extends $tea.Model {
+  /**
+   * @example
+   * Test2o#Lck
+   */
+  authorizationCode?: string;
+  /**
+   * @example
+   * example.com
+   */
+  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationCode: 'AuthorizationCode',
+      domainName: 'DomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationCode: 'string',
+      domainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScrollDomainListResponseBodyDataDomainDnsList extends $tea.Model {
   dns?: string[];
   static names(): { [key: string]: string } {
@@ -22842,6 +23610,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 校验在售国际一口价域名状态和询价
+   * 
+   * @param request - CheckIntlFixPriceDomainStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckIntlFixPriceDomainStatusResponse
+   */
+  async checkIntlFixPriceDomainStatusWithOptions(request: CheckIntlFixPriceDomainStatusRequest, runtime: $Util.RuntimeOptions): Promise<CheckIntlFixPriceDomainStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckIntlFixPriceDomainStatus",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckIntlFixPriceDomainStatusResponse>(await this.callApi(params, req, runtime), new CheckIntlFixPriceDomainStatusResponse({}));
+  }
+
+  /**
+   * 校验在售国际一口价域名状态和询价
+   * 
+   * @param request - CheckIntlFixPriceDomainStatusRequest
+   * @returns CheckIntlFixPriceDomainStatusResponse
+   */
+  async checkIntlFixPriceDomainStatus(request: CheckIntlFixPriceDomainStatusRequest): Promise<CheckIntlFixPriceDomainStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkIntlFixPriceDomainStatusWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - CheckMaxYearOfServerLockRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckMaxYearOfServerLockResponse
@@ -23039,6 +23849,60 @@ export default class Client extends OpenApi {
   async confirmTransferInEmail(request: ConfirmTransferInEmailRequest): Promise<ConfirmTransferInEmailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.confirmTransferInEmailWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建国际一口价订单
+   * 
+   * @param request - CreateIntlFixedPriceDomainOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIntlFixedPriceDomainOrderResponse
+   */
+  async createIntlFixedPriceDomainOrderWithOptions(request: CreateIntlFixedPriceDomainOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateIntlFixedPriceDomainOrderResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.expectedPrice)) {
+      query["ExpectedPrice"] = request.expectedPrice;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateIntlFixedPriceDomainOrder",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIntlFixedPriceDomainOrderResponse>(await this.callApi(params, req, runtime), new CreateIntlFixedPriceDomainOrderResponse({}));
+  }
+
+  /**
+   * 创建国际一口价订单
+   * 
+   * @param request - CreateIntlFixedPriceDomainOrderRequest
+   * @returns CreateIntlFixedPriceDomainOrderResponse
+   */
+  async createIntlFixedPriceDomainOrder(request: CreateIntlFixedPriceDomainOrderRequest): Promise<CreateIntlFixedPriceDomainOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createIntlFixedPriceDomainOrderWithOptions(request, runtime);
   }
 
   /**
@@ -23383,6 +24247,48 @@ export default class Client extends OpenApi {
   async fuzzyMatchDomainSensitiveWord(request: FuzzyMatchDomainSensitiveWordRequest): Promise<FuzzyMatchDomainSensitiveWordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fuzzyMatchDomainSensitiveWordWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询国际一口价在售域名列表
+   * 
+   * @param request - GetIntlFixPriceDomainListUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIntlFixPriceDomainListUrlResponse
+   */
+  async getIntlFixPriceDomainListUrlWithOptions(request: GetIntlFixPriceDomainListUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetIntlFixPriceDomainListUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listDate)) {
+      query["ListDate"] = request.listDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetIntlFixPriceDomainListUrl",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetIntlFixPriceDomainListUrlResponse>(await this.callApi(params, req, runtime), new GetIntlFixPriceDomainListUrlResponse({}));
+  }
+
+  /**
+   * 查询国际一口价在售域名列表
+   * 
+   * @param request - GetIntlFixPriceDomainListUrlRequest
+   * @returns GetIntlFixPriceDomainListUrlResponse
+   */
+  async getIntlFixPriceDomainListUrl(request: GetIntlFixPriceDomainListUrlRequest): Promise<GetIntlFixPriceDomainListUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getIntlFixPriceDomainListUrlWithOptions(request, runtime);
   }
 
   /**
@@ -24875,6 +25781,60 @@ export default class Client extends OpenApi {
   async queryFailingReasonListForQualification(request: QueryFailingReasonListForQualificationRequest): Promise<QueryFailingReasonListForQualificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryFailingReasonListForQualificationWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询国际一口价订单列表
+   * 
+   * @param request - QueryIntlFixedPriceOrderListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryIntlFixedPriceOrderListResponse
+   */
+  async queryIntlFixedPriceOrderListWithOptions(request: QueryIntlFixedPriceOrderListRequest, runtime: $Util.RuntimeOptions): Promise<QueryIntlFixedPriceOrderListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryIntlFixedPriceOrderList",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryIntlFixedPriceOrderListResponse>(await this.callApi(params, req, runtime), new QueryIntlFixedPriceOrderListResponse({}));
+  }
+
+  /**
+   * 查询国际一口价订单列表
+   * 
+   * @param request - QueryIntlFixedPriceOrderListRequest
+   * @returns QueryIntlFixedPriceOrderListResponse
+   */
+  async queryIntlFixedPriceOrderList(request: QueryIntlFixedPriceOrderListRequest): Promise<QueryIntlFixedPriceOrderListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryIntlFixedPriceOrderListWithOptions(request, runtime);
   }
 
   /**
@@ -26397,6 +27357,56 @@ export default class Client extends OpenApi {
   async saveBatchTaskForReserveDropListDomain(request: SaveBatchTaskForReserveDropListDomainRequest): Promise<SaveBatchTaskForReserveDropListDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveBatchTaskForReserveDropListDomainWithOptions(request, runtime);
+  }
+
+  /**
+   * 基于转移码的批量转出任务提交
+   * 
+   * @param request - SaveBatchTaskForTransferOutByAuthorizationCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveBatchTaskForTransferOutByAuthorizationCodeResponse
+   */
+  async saveBatchTaskForTransferOutByAuthorizationCodeWithOptions(request: SaveBatchTaskForTransferOutByAuthorizationCodeRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForTransferOutByAuthorizationCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.long)) {
+      query["Long"] = request.long;
+    }
+
+    if (!Util.isUnset(request.transferOutParamList)) {
+      query["TransferOutParamList"] = request.transferOutParamList;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForTransferOutByAuthorizationCode",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForTransferOutByAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForTransferOutByAuthorizationCodeResponse({}));
+  }
+
+  /**
+   * 基于转移码的批量转出任务提交
+   * 
+   * @param request - SaveBatchTaskForTransferOutByAuthorizationCodeRequest
+   * @returns SaveBatchTaskForTransferOutByAuthorizationCodeResponse
+   */
+  async saveBatchTaskForTransferOutByAuthorizationCode(request: SaveBatchTaskForTransferOutByAuthorizationCodeRequest): Promise<SaveBatchTaskForTransferOutByAuthorizationCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveBatchTaskForTransferOutByAuthorizationCodeWithOptions(request, runtime);
   }
 
   /**
@@ -28429,6 +29439,60 @@ export default class Client extends OpenApi {
   async saveSingleTaskForSynchronizingDnsHost(request: SaveSingleTaskForSynchronizingDnsHostRequest): Promise<SaveSingleTaskForSynchronizingDnsHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForSynchronizingDnsHostWithOptions(request, runtime);
+  }
+
+  /**
+   * 基于转移码的单个转出任务提交
+   * 
+   * @param request - SaveSingleTaskForTransferOutByAuthorizationCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveSingleTaskForTransferOutByAuthorizationCodeResponse
+   */
+  async saveSingleTaskForTransferOutByAuthorizationCodeWithOptions(request: SaveSingleTaskForTransferOutByAuthorizationCodeRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForTransferOutByAuthorizationCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authorizationCode)) {
+      query["AuthorizationCode"] = request.authorizationCode;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForTransferOutByAuthorizationCode",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForTransferOutByAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForTransferOutByAuthorizationCodeResponse({}));
+  }
+
+  /**
+   * 基于转移码的单个转出任务提交
+   * 
+   * @param request - SaveSingleTaskForTransferOutByAuthorizationCodeRequest
+   * @returns SaveSingleTaskForTransferOutByAuthorizationCodeResponse
+   */
+  async saveSingleTaskForTransferOutByAuthorizationCode(request: SaveSingleTaskForTransferOutByAuthorizationCodeRequest): Promise<SaveSingleTaskForTransferOutByAuthorizationCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveSingleTaskForTransferOutByAuthorizationCodeWithOptions(request, runtime);
   }
 
   /**
