@@ -861,6 +861,7 @@ export class CreateServiceRequest extends $tea.Model {
    * ros
    */
   deployType?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * The duration for which hosted O\\&M is implemented. Unit: seconds.
@@ -1044,6 +1045,7 @@ export class CreateServiceRequest extends $tea.Model {
       clientToken: 'ClientToken',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
+      dryRun: 'DryRun',
       duration: 'Duration',
       isSupportOperated: 'IsSupportOperated',
       licenseMetadata: 'LicenseMetadata',
@@ -1075,6 +1077,7 @@ export class CreateServiceRequest extends $tea.Model {
       clientToken: 'string',
       deployMetadata: 'string',
       deployType: 'string',
+      dryRun: 'boolean',
       duration: 'number',
       isSupportOperated: 'boolean',
       licenseMetadata: 'string',
@@ -1104,6 +1107,7 @@ export class CreateServiceRequest extends $tea.Model {
 }
 
 export class CreateServiceResponseBody extends $tea.Model {
+  dryRunResult?: CreateServiceResponseBodyDryRunResult;
   /**
    * @remarks
    * The request ID.
@@ -1138,6 +1142,7 @@ export class CreateServiceResponseBody extends $tea.Model {
   version?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRunResult: 'DryRunResult',
       requestId: 'RequestId',
       serviceId: 'ServiceId',
       status: 'Status',
@@ -1147,6 +1152,7 @@ export class CreateServiceResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRunResult: CreateServiceResponseBodyDryRunResult,
       requestId: 'string',
       serviceId: 'string',
       status: 'string',
@@ -4273,6 +4279,127 @@ export class GetUploadCredentialsResponse extends $tea.Model {
   }
 }
 
+export class LaunchServiceRequest extends $tea.Model {
+  categories?: string[];
+  /**
+   * @example
+   * 10CM943JP0EN9D51H
+   */
+  clientToken?: string;
+  recommend?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * service-0e6fca6a51a544xxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1.0
+   */
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      clientToken: 'ClientToken',
+      recommend: 'Recommend',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      clientToken: 'string',
+      recommend: 'boolean',
+      regionId: 'string',
+      serviceId: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LaunchServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * PublishNewVersion
+   */
+  serviceLaunchResultType?: string;
+  /**
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      serviceLaunchResultType: 'ServiceLaunchResultType',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      serviceLaunchResultType: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LaunchServiceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LaunchServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LaunchServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAcrImageRepositoriesRequest extends $tea.Model {
   /**
    * @remarks
@@ -5664,6 +5791,97 @@ export class ModifyServiceInstanceResourcesResponse extends $tea.Model {
   }
 }
 
+export class PreLaunchServiceRequest extends $tea.Model {
+  /**
+   * @example
+   * 10CM943JP0EN9D51H
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * service-f7024a22ea5149xxxxxx
+   */
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreLaunchServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreLaunchServiceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PreLaunchServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PreLaunchServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PushMeteringDataRequest extends $tea.Model {
   /**
    * @remarks
@@ -6937,6 +7155,7 @@ export class UpdateServiceRequest extends $tea.Model {
    * ros
    */
   deployType?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * The duration for which hosted O\\&M is implemented. Unit: seconds.
@@ -7109,6 +7328,7 @@ export class UpdateServiceRequest extends $tea.Model {
       commodity: 'Commodity',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
+      dryRun: 'DryRun',
       duration: 'Duration',
       isSupportOperated: 'IsSupportOperated',
       licenseMetadata: 'LicenseMetadata',
@@ -7138,6 +7358,7 @@ export class UpdateServiceRequest extends $tea.Model {
       commodity: UpdateServiceRequestCommodity,
       deployMetadata: 'string',
       deployType: 'string',
+      dryRun: 'boolean',
       duration: 'number',
       isSupportOperated: 'boolean',
       licenseMetadata: 'string',
@@ -7222,6 +7443,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
    * ros
    */
   deployType?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * The duration for which hosted O\\&M is implemented. Unit: seconds.
@@ -7394,6 +7616,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
       commodityShrink: 'Commodity',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
+      dryRun: 'DryRun',
       duration: 'Duration',
       isSupportOperated: 'IsSupportOperated',
       licenseMetadata: 'LicenseMetadata',
@@ -7423,6 +7646,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
       commodityShrink: 'string',
       deployMetadata: 'string',
       deployType: 'string',
+      dryRun: 'boolean',
       duration: 'number',
       isSupportOperated: 'boolean',
       licenseMetadata: 'string',
@@ -7450,6 +7674,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
 }
 
 export class UpdateServiceResponseBody extends $tea.Model {
+  dryRunResult?: UpdateServiceResponseBodyDryRunResult;
   /**
    * @remarks
    * The request ID.
@@ -7460,12 +7685,14 @@ export class UpdateServiceResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRunResult: 'DryRunResult',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dryRunResult: UpdateServiceResponseBodyDryRunResult,
       requestId: 'string',
     };
   }
@@ -7516,6 +7743,7 @@ export class UpdateServiceInstanceAttributeRequest extends $tea.Model {
    * The License Data
    */
   licenseData?: UpdateServiceInstanceAttributeRequestLicenseData;
+  reason?: string;
   /**
    * @remarks
    * The region ID.
@@ -7540,6 +7768,7 @@ export class UpdateServiceInstanceAttributeRequest extends $tea.Model {
     return {
       endTime: 'EndTime',
       licenseData: 'LicenseData',
+      reason: 'Reason',
       regionId: 'RegionId',
       serviceInstanceId: 'ServiceInstanceId',
     };
@@ -7549,6 +7778,7 @@ export class UpdateServiceInstanceAttributeRequest extends $tea.Model {
     return {
       endTime: 'string',
       licenseData: UpdateServiceInstanceAttributeRequestLicenseData,
+      reason: 'string',
       regionId: 'string',
       serviceInstanceId: 'string',
     };
@@ -7575,6 +7805,7 @@ export class UpdateServiceInstanceAttributeShrinkRequest extends $tea.Model {
    * The License Data
    */
   licenseDataShrink?: string;
+  reason?: string;
   /**
    * @remarks
    * The region ID.
@@ -7599,6 +7830,7 @@ export class UpdateServiceInstanceAttributeShrinkRequest extends $tea.Model {
     return {
       endTime: 'EndTime',
       licenseDataShrink: 'LicenseData',
+      reason: 'Reason',
       regionId: 'RegionId',
       serviceInstanceId: 'ServiceInstanceId',
     };
@@ -7608,6 +7840,7 @@ export class UpdateServiceInstanceAttributeShrinkRequest extends $tea.Model {
     return {
       endTime: 'string',
       licenseDataShrink: 'string',
+      reason: 'string',
       regionId: 'string',
       serviceInstanceId: 'string',
     };
@@ -8463,6 +8696,28 @@ export class CreateServiceRequestServiceInfoAgreements extends $tea.Model {
   }
 }
 
+export class CreateServiceRequestServiceInfoSoftwares extends $tea.Model {
+  name?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateServiceRequestServiceInfo extends $tea.Model {
   /**
    * @remarks
@@ -8516,6 +8771,7 @@ export class CreateServiceRequestServiceInfo extends $tea.Model {
    * TiDB是A公司自主设计、研发的开源分布式关系型数据库。
    */
   shortDescription?: string;
+  softwares?: CreateServiceRequestServiceInfoSoftwares[];
   static names(): { [key: string]: string } {
     return {
       agreements: 'Agreements',
@@ -8524,6 +8780,7 @@ export class CreateServiceRequestServiceInfo extends $tea.Model {
       longDescriptionUrl: 'LongDescriptionUrl',
       name: 'Name',
       shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
     };
   }
 
@@ -8535,6 +8792,7 @@ export class CreateServiceRequestServiceInfo extends $tea.Model {
       longDescriptionUrl: 'string',
       name: 'string',
       shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': CreateServiceRequestServiceInfoSoftwares },
     };
   }
 
@@ -8571,6 +8829,72 @@ export class CreateServiceRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy extends $tea.Model {
+  action?: string[];
+  resource?: string;
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      resource: 'Resource',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: { 'type': 'array', 'itemType': 'string' },
+      resource: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceResponseBodyDryRunResultRolePolicy extends $tea.Model {
+  missingPolicy?: CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy[];
+  policy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      missingPolicy: 'MissingPolicy',
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      missingPolicy: { 'type': 'array', 'itemType': CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy },
+      policy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceResponseBodyDryRunResult extends $tea.Model {
+  rolePolicy?: CreateServiceResponseBodyDryRunResultRolePolicy;
+  static names(): { [key: string]: string } {
+    return {
+      rolePolicy: 'RolePolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rolePolicy: CreateServiceResponseBodyDryRunResultRolePolicy,
     };
   }
 
@@ -9381,6 +9705,28 @@ export class GetServiceResponseBodyServiceInfosAgreements extends $tea.Model {
   }
 }
 
+export class GetServiceResponseBodyServiceInfosSoftwares extends $tea.Model {
+  name?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceResponseBodyServiceInfos extends $tea.Model {
   /**
    * @remarks
@@ -9430,6 +9776,7 @@ export class GetServiceResponseBodyServiceInfos extends $tea.Model {
    * B是A公司自主设计并研发的开源分布式的关系型数据库
    */
   shortDescription?: string;
+  softwares?: GetServiceResponseBodyServiceInfosSoftwares[];
   static names(): { [key: string]: string } {
     return {
       agreements: 'Agreements',
@@ -9438,6 +9785,7 @@ export class GetServiceResponseBodyServiceInfos extends $tea.Model {
       longDescriptionUrl: 'LongDescriptionUrl',
       name: 'Name',
       shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
     };
   }
 
@@ -9449,6 +9797,7 @@ export class GetServiceResponseBodyServiceInfos extends $tea.Model {
       longDescriptionUrl: 'string',
       name: 'string',
       shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfosSoftwares },
     };
   }
 
@@ -12521,7 +12870,7 @@ export class UpdateServiceRequestCommodityComponentsMappings extends $tea.Model 
    * @example
    * This parameter is not publicly accessible.
    */
-  mappings?: string;
+  mappings?: { [key: string]: string };
   /**
    * @remarks
    * This parameter is not publicly accessible.
@@ -12539,7 +12888,7 @@ export class UpdateServiceRequestCommodityComponentsMappings extends $tea.Model 
 
   static types(): { [key: string]: any } {
     return {
-      mappings: 'string',
+      mappings: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       templateName: 'string',
     };
   }
@@ -12789,6 +13138,28 @@ export class UpdateServiceRequestServiceInfoAgreements extends $tea.Model {
   }
 }
 
+export class UpdateServiceRequestServiceInfoSoftwares extends $tea.Model {
+  name?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServiceRequestServiceInfo extends $tea.Model {
   /**
    * @remarks
@@ -12838,6 +13209,7 @@ export class UpdateServiceRequestServiceInfo extends $tea.Model {
    * B是A公司自主设计并研发的开源分布式的关系型数据库
    */
   shortDescription?: string;
+  softwares?: UpdateServiceRequestServiceInfoSoftwares[];
   static names(): { [key: string]: string } {
     return {
       agreements: 'Agreements',
@@ -12846,6 +13218,7 @@ export class UpdateServiceRequestServiceInfo extends $tea.Model {
       longDescriptionUrl: 'LongDescriptionUrl',
       name: 'Name',
       shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
     };
   }
 
@@ -12857,6 +13230,7 @@ export class UpdateServiceRequestServiceInfo extends $tea.Model {
       longDescriptionUrl: 'string',
       name: 'string',
       shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': UpdateServiceRequestServiceInfoSoftwares },
     };
   }
 
@@ -12866,6 +13240,13 @@ export class UpdateServiceRequestServiceInfo extends $tea.Model {
 }
 
 export class UpdateServiceRequestUpdateOption extends $tea.Model {
+  /**
+   * @remarks
+   * Is need to update the artifacts
+   * 
+   * @example
+   * true
+   */
   updateArtifact?: boolean;
   /**
    * @remarks
@@ -12932,6 +13313,28 @@ export class UpdateServiceShrinkRequestServiceInfoAgreements extends $tea.Model 
   }
 }
 
+export class UpdateServiceShrinkRequestServiceInfoSoftwares extends $tea.Model {
+  name?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServiceShrinkRequestServiceInfo extends $tea.Model {
   /**
    * @remarks
@@ -12981,6 +13384,7 @@ export class UpdateServiceShrinkRequestServiceInfo extends $tea.Model {
    * B是A公司自主设计并研发的开源分布式的关系型数据库
    */
   shortDescription?: string;
+  softwares?: UpdateServiceShrinkRequestServiceInfoSoftwares[];
   static names(): { [key: string]: string } {
     return {
       agreements: 'Agreements',
@@ -12989,6 +13393,7 @@ export class UpdateServiceShrinkRequestServiceInfo extends $tea.Model {
       longDescriptionUrl: 'LongDescriptionUrl',
       name: 'Name',
       shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
     };
   }
 
@@ -13000,6 +13405,73 @@ export class UpdateServiceShrinkRequestServiceInfo extends $tea.Model {
       longDescriptionUrl: 'string',
       name: 'string',
       shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': UpdateServiceShrinkRequestServiceInfoSoftwares },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy extends $tea.Model {
+  action?: string[];
+  resource?: string;
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      resource: 'Resource',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: { 'type': 'array', 'itemType': 'string' },
+      resource: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceResponseBodyDryRunResultRolePolicy extends $tea.Model {
+  missingPolicy?: UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy[];
+  policy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      missingPolicy: 'MissingPolicy',
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      missingPolicy: { 'type': 'array', 'itemType': UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy },
+      policy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceResponseBodyDryRunResult extends $tea.Model {
+  rolePolicy?: UpdateServiceResponseBodyDryRunResultRolePolicy;
+  static names(): { [key: string]: string } {
+    return {
+      rolePolicy: 'RolePolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rolePolicy: UpdateServiceResponseBodyDryRunResultRolePolicy,
     };
   }
 
@@ -13347,6 +13819,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deployType)) {
       query["DeployType"] = request.deployType;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.duration)) {
@@ -14212,6 +14688,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - LaunchServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LaunchServiceResponse
+   */
+  async launchServiceWithOptions(request: LaunchServiceRequest, runtime: $Util.RuntimeOptions): Promise<LaunchServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.categories)) {
+      query["Categories"] = request.categories;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.recommend)) {
+      query["Recommend"] = request.recommend;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "LaunchService",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<LaunchServiceResponse>(await this.callApi(params, req, runtime), new LaunchServiceResponse({}));
+  }
+
+  /**
+   * @param request - LaunchServiceRequest
+   * @returns LaunchServiceResponse
+   */
+  async launchService(request: LaunchServiceRequest): Promise<LaunchServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.launchServiceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of images uploaded to Container Registry.
    * 
    * @param request - ListAcrImageRepositoriesRequest
@@ -14754,6 +15288,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 预发布服务
+   * 
+   * @param request - PreLaunchServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PreLaunchServiceResponse
+   */
+  async preLaunchServiceWithOptions(request: PreLaunchServiceRequest, runtime: $Util.RuntimeOptions): Promise<PreLaunchServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PreLaunchService",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PreLaunchServiceResponse>(await this.callApi(params, req, runtime), new PreLaunchServiceResponse({}));
+  }
+
+  /**
+   * 预发布服务
+   * 
+   * @param request - PreLaunchServiceRequest
+   * @returns PreLaunchServiceResponse
+   */
+  async preLaunchService(request: PreLaunchServiceRequest): Promise<PreLaunchServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.preLaunchServiceWithOptions(request, runtime);
+  }
+
+  /**
    * Pushes metering data of an Alibaba Cloud Marketplace commodity.
    * 
    * @param request - PushMeteringDataRequest
@@ -15265,6 +15849,10 @@ export default class Client extends OpenApi {
       query["DeployType"] = request.deployType;
     }
 
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.duration)) {
       query["Duration"] = request.duration;
     }
@@ -15387,6 +15975,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.licenseDataShrink)) {
       query["LicenseData"] = request.licenseDataShrink;
+    }
+
+    if (!Util.isUnset(request.reason)) {
+      query["Reason"] = request.reason;
     }
 
     if (!Util.isUnset(request.regionId)) {
