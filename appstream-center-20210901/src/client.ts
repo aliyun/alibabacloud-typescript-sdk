@@ -596,12 +596,14 @@ export class AuthorizeInstanceGroupRequest extends $tea.Model {
    */
   productType?: string;
   unAuthorizeUserIds?: string[];
+  userMeta?: AuthorizeInstanceGroupRequestUserMeta;
   static names(): { [key: string]: string } {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
       authorizeUserIds: 'AuthorizeUserIds',
       productType: 'ProductType',
       unAuthorizeUserIds: 'UnAuthorizeUserIds',
+      userMeta: 'UserMeta',
     };
   }
 
@@ -611,6 +613,52 @@ export class AuthorizeInstanceGroupRequest extends $tea.Model {
       authorizeUserIds: { 'type': 'array', 'itemType': 'string' },
       productType: 'string',
       unAuthorizeUserIds: { 'type': 'array', 'itemType': 'string' },
+      userMeta: AuthorizeInstanceGroupRequestUserMeta,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthorizeInstanceGroupShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  authorizeUserIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  unAuthorizeUserIds?: string[];
+  userMetaShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      authorizeUserIds: 'AuthorizeUserIds',
+      productType: 'ProductType',
+      unAuthorizeUserIds: 'UnAuthorizeUserIds',
+      userMetaShrink: 'UserMeta',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      authorizeUserIds: { 'type': 'array', 'itemType': 'string' },
+      productType: 'string',
+      unAuthorizeUserIds: { 'type': 'array', 'itemType': 'string' },
+      userMetaShrink: 'string',
     };
   }
 
@@ -1057,10 +1105,6 @@ export class CreateAppInstanceGroupRequest extends $tea.Model {
    * img-8z4nztpaqvay4****
    */
   appCenterImageId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   appInstanceGroupName?: string;
   /**
    * @example
@@ -1212,10 +1256,6 @@ export class CreateAppInstanceGroupShrinkRequest extends $tea.Model {
    * img-8z4nztpaqvay4****
    */
   appCenterImageId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   appInstanceGroupName?: string;
   /**
    * @example
@@ -3210,6 +3250,7 @@ export class ListAppInstanceGroupRequest extends $tea.Model {
    * appstreaming.vgpu.4c8g.2g
    */
   nodeInstanceType?: string;
+  officeSiteId?: string;
   /**
    * @example
    * 1
@@ -3243,6 +3284,7 @@ export class ListAppInstanceGroupRequest extends $tea.Model {
       appInstanceGroupName: 'AppInstanceGroupName',
       bizRegionId: 'BizRegionId',
       nodeInstanceType: 'NodeInstanceType',
+      officeSiteId: 'OfficeSiteId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       productType: 'ProductType',
@@ -3258,6 +3300,7 @@ export class ListAppInstanceGroupRequest extends $tea.Model {
       appInstanceGroupName: 'string',
       bizRegionId: 'string',
       nodeInstanceType: 'string',
+      officeSiteId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       productType: 'string',
@@ -3492,6 +3535,9 @@ export class ListNodeInstanceTypeRequest extends $tea.Model {
    * cn-hangzhou
    */
   bizRegionId?: string;
+  cpu?: number;
+  gpu?: number;
+  gpuMemory?: number;
   /**
    * @remarks
    * 语言类型。
@@ -3500,11 +3546,14 @@ export class ListNodeInstanceTypeRequest extends $tea.Model {
    * zh-CN
    */
   language?: string;
+  memory?: number;
   /**
    * @example
    * appstreaming.vgpu.4c8g.2g
    */
   nodeInstanceType?: string;
+  nodeInstanceTypeFamily?: string;
+  orderBy?: string;
   /**
    * @remarks
    * 支持的操作系统类型。
@@ -3537,27 +3586,42 @@ export class ListNodeInstanceTypeRequest extends $tea.Model {
    * CloudApp
    */
   productType?: string;
+  sortType?: string;
   static names(): { [key: string]: string } {
     return {
       bizRegionId: 'BizRegionId',
+      cpu: 'Cpu',
+      gpu: 'Gpu',
+      gpuMemory: 'GpuMemory',
       language: 'Language',
+      memory: 'Memory',
       nodeInstanceType: 'NodeInstanceType',
+      nodeInstanceTypeFamily: 'NodeInstanceTypeFamily',
+      orderBy: 'OrderBy',
       osType: 'OsType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       productType: 'ProductType',
+      sortType: 'SortType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       bizRegionId: 'string',
+      cpu: 'number',
+      gpu: 'number',
+      gpuMemory: 'number',
       language: 'string',
+      memory: 'number',
       nodeInstanceType: 'string',
+      nodeInstanceTypeFamily: 'string',
+      orderBy: 'string',
       osType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       productType: 'string',
+      sortType: 'string',
     };
   }
 
@@ -6020,6 +6084,28 @@ export class AskSessionPackageRenewPriceResponseBodyData extends $tea.Model {
   }
 }
 
+export class AuthorizeInstanceGroupRequestUserMeta extends $tea.Model {
+  adDomain?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adDomain: 'AdDomain',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adDomain: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppInstanceGroupRequestNetworkDomainRules extends $tea.Model {
   domain?: string;
   policy?: string;
@@ -6079,18 +6165,22 @@ export class CreateAppInstanceGroupRequestNetwork extends $tea.Model {
    * 60
    */
   ipExpireMinutes?: number;
+  officeSiteId?: string;
   routes?: CreateAppInstanceGroupRequestNetworkRoutes[];
   /**
    * @example
    * Shared
    */
   strategyType?: string;
+  vSwitchIds?: string[];
   static names(): { [key: string]: string } {
     return {
       domainRules: 'DomainRules',
       ipExpireMinutes: 'IpExpireMinutes',
+      officeSiteId: 'OfficeSiteId',
       routes: 'Routes',
       strategyType: 'StrategyType',
+      vSwitchIds: 'VSwitchIds',
     };
   }
 
@@ -6098,8 +6188,10 @@ export class CreateAppInstanceGroupRequestNetwork extends $tea.Model {
     return {
       domainRules: { 'type': 'array', 'itemType': CreateAppInstanceGroupRequestNetworkDomainRules },
       ipExpireMinutes: 'number',
+      officeSiteId: 'string',
       routes: { 'type': 'array', 'itemType': CreateAppInstanceGroupRequestNetworkRoutes },
       strategyType: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -6877,6 +6969,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
    */
   minAmount?: number;
   nodePool?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool[];
+  officeSiteId?: string;
   /**
    * @example
    * Windows
@@ -6966,6 +7059,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
       maxAmount: 'MaxAmount',
       minAmount: 'MinAmount',
       nodePool: 'NodePool',
+      officeSiteId: 'OfficeSiteId',
       osType: 'OsType',
       otaInfo: 'OtaInfo',
       productType: 'ProductType',
@@ -7002,6 +7096,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
       maxAmount: 'number',
       minAmount: 'number',
       nodePool: { 'type': 'array', 'itemType': GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool },
+      officeSiteId: 'string',
       osType: 'string',
       otaInfo: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo,
       productType: 'string',
@@ -8002,6 +8097,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
    */
   minAmount?: number;
   nodePool?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool[];
+  officeSiteId?: string;
   /**
    * @example
    * Windows
@@ -8089,6 +8185,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
       maxAmount: 'MaxAmount',
       minAmount: 'MinAmount',
       nodePool: 'NodePool',
+      officeSiteId: 'OfficeSiteId',
       osType: 'OsType',
       otaInfo: 'OtaInfo',
       productType: 'ProductType',
@@ -8123,6 +8220,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
       maxAmount: 'number',
       minAmount: 'number',
       nodePool: { 'type': 'array', 'itemType': ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool },
+      officeSiteId: 'string',
       osType: 'string',
       otaInfo: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo,
       productType: 'string',
@@ -9396,12 +9494,18 @@ export default class Client extends OpenApi {
   /**
    * 授权用户
    * 
-   * @param request - AuthorizeInstanceGroupRequest
+   * @param tmpReq - AuthorizeInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AuthorizeInstanceGroupResponse
    */
-  async authorizeInstanceGroupWithOptions(request: AuthorizeInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeInstanceGroupResponse> {
-    Util.validateModel(request);
+  async authorizeInstanceGroupWithOptions(tmpReq: AuthorizeInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeInstanceGroupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AuthorizeInstanceGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.userMeta)) {
+      request.userMetaShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userMeta, "UserMeta", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
@@ -9418,6 +9522,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.unAuthorizeUserIds)) {
       bodyFlat["UnAuthorizeUserIds"] = request.unAuthorizeUserIds;
+    }
+
+    if (!Util.isUnset(request.userMetaShrink)) {
+      body["UserMeta"] = request.userMetaShrink;
     }
 
     body = {
@@ -10644,6 +10752,10 @@ export default class Client extends OpenApi {
       query["NodeInstanceType"] = request.nodeInstanceType;
     }
 
+    if (!Util.isUnset(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -10776,12 +10888,36 @@ export default class Client extends OpenApi {
       query["BizRegionId"] = request.bizRegionId;
     }
 
+    if (!Util.isUnset(request.cpu)) {
+      query["Cpu"] = request.cpu;
+    }
+
+    if (!Util.isUnset(request.gpu)) {
+      query["Gpu"] = request.gpu;
+    }
+
+    if (!Util.isUnset(request.gpuMemory)) {
+      query["GpuMemory"] = request.gpuMemory;
+    }
+
     if (!Util.isUnset(request.language)) {
       query["Language"] = request.language;
     }
 
+    if (!Util.isUnset(request.memory)) {
+      query["Memory"] = request.memory;
+    }
+
     if (!Util.isUnset(request.nodeInstanceType)) {
       query["NodeInstanceType"] = request.nodeInstanceType;
+    }
+
+    if (!Util.isUnset(request.nodeInstanceTypeFamily)) {
+      query["NodeInstanceTypeFamily"] = request.nodeInstanceTypeFamily;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
     }
 
     if (!Util.isUnset(request.osType)) {
@@ -10798,6 +10934,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.productType)) {
       query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      query["SortType"] = request.sortType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
