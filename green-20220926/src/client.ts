@@ -1236,6 +1236,7 @@ export class DeleteImagesFromLibResponse extends $tea.Model {
 }
 
 export class DeleteKeywordRequest extends $tea.Model {
+  keywordIdList?: string;
   /**
    * @example
    * [16754493]
@@ -1253,6 +1254,7 @@ export class DeleteKeywordRequest extends $tea.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      keywordIdList: 'KeywordIdList',
       keywordIds: 'KeywordIds',
       libId: 'LibId',
       regionId: 'RegionId',
@@ -1261,6 +1263,7 @@ export class DeleteKeywordRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      keywordIdList: 'string',
       keywordIds: 'string',
       libId: 'string',
       regionId: 'string',
@@ -9545,6 +9548,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keywordIdList)) {
+      body["KeywordIdList"] = request.keywordIdList;
+    }
+
     if (!Util.isUnset(request.keywordIds)) {
       body["KeywordIds"] = request.keywordIds;
     }
