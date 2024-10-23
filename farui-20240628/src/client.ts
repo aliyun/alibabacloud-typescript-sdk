@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
@@ -14,7 +13,15 @@ import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateTextFileRequest extends $tea.Model {
+  /**
+   * @example
+   * e9a93201-7e96-4dc1-9678-2832fc132d08
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1714476549
+   */
   createTime?: string;
   textFileName?: string;
   textFileUrl?: string;
@@ -42,7 +49,15 @@ export class CreateTextFileRequest extends $tea.Model {
 }
 
 export class CreateTextFileAdvanceRequest extends $tea.Model {
+  /**
+   * @example
+   * e9a93201-7e96-4dc1-9678-2832fc132d08
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1714476549
+   */
   createTime?: string;
   textFileName?: string;
   textFileUrlObject?: Readable;
@@ -70,11 +85,30 @@ export class CreateTextFileAdvanceRequest extends $tea.Model {
 }
 
 export class CreateTextFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Request.Signature.Error
+   */
   code?: string;
   data?: CreateTextFileResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 81E6F6D2-8ACB-5BDA-9C7C-4D6268CD9652
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -129,8 +163,16 @@ export class CreateTextFileResponse extends $tea.Model {
 }
 
 export class RunContractResultGenerationRequest extends $tea.Model {
+  /**
+   * @example
+   * farui
+   */
   appId?: string;
   assistant?: RunContractResultGenerationRequestAssistant;
+  /**
+   * @example
+   * true
+   */
   stream?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -154,8 +196,16 @@ export class RunContractResultGenerationRequest extends $tea.Model {
 }
 
 export class RunContractResultGenerationShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * farui
+   */
   appId?: string;
   assistantShrink?: string;
+  /**
+   * @example
+   * true
+   */
   stream?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -179,12 +229,32 @@ export class RunContractResultGenerationShrinkRequest extends $tea.Model {
 }
 
 export class RunContractResultGenerationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   message?: string;
   output?: RunContractResultGenerationResponseBodyOutput;
+  /**
+   * @example
+   * 744419D0-671A-5997-9840-E8AE48356194
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   usage?: RunContractResultGenerationResponseBodyUsage;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -241,8 +311,16 @@ export class RunContractResultGenerationResponse extends $tea.Model {
 }
 
 export class RunContractRuleGenerationRequest extends $tea.Model {
+  /**
+   * @example
+   * farui
+   */
   appId?: string;
   assistant?: RunContractRuleGenerationRequestAssistant;
+  /**
+   * @example
+   * true
+   */
   stream?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -266,8 +344,16 @@ export class RunContractRuleGenerationRequest extends $tea.Model {
 }
 
 export class RunContractRuleGenerationShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * farui
+   */
   appId?: string;
   assistantShrink?: string;
+  /**
+   * @example
+   * true
+   */
   stream?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -291,12 +377,32 @@ export class RunContractRuleGenerationShrinkRequest extends $tea.Model {
 }
 
 export class RunContractRuleGenerationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   message?: string;
   output?: RunContractRuleGenerationResponseBodyOutput;
+  /**
+   * @example
+   * 744419D0-671A-5997-9840-E8AE48356194
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   usage?: RunContractRuleGenerationResponseBodyUsage;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -353,8 +459,16 @@ export class RunContractRuleGenerationResponse extends $tea.Model {
 }
 
 export class RunLegalAdviceConsultationRequest extends $tea.Model {
+  /**
+   * @example
+   * farui
+   */
   appId?: string;
   assistant?: RunLegalAdviceConsultationRequestAssistant;
+  /**
+   * @example
+   * true
+   */
   stream?: boolean;
   thread?: RunLegalAdviceConsultationRequestThread;
   static names(): { [key: string]: string } {
@@ -381,8 +495,16 @@ export class RunLegalAdviceConsultationRequest extends $tea.Model {
 }
 
 export class RunLegalAdviceConsultationShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * farui
+   */
   appId?: string;
   assistantShrink?: string;
+  /**
+   * @example
+   * true
+   */
   stream?: boolean;
   threadShrink?: string;
   static names(): { [key: string]: string } {
@@ -409,14 +531,34 @@ export class RunLegalAdviceConsultationShrinkRequest extends $tea.Model {
 }
 
 export class RunLegalAdviceConsultationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Request.Signature.Error
+   */
   code?: string;
   message?: string;
+  /**
+   * @example
+   * 744419D0-671A-5997-9840-E8AE48356194
+   */
   requestId?: string;
   responseMarkdown?: string;
+  /**
+   * @example
+   * 1
+   */
   round?: number;
   status?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   usage?: RunLegalAdviceConsultationResponseBodyUsage;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -477,6 +619,10 @@ export class RunLegalAdviceConsultationResponse extends $tea.Model {
 }
 
 export class CreateTextFileResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 36d6447d277c4a1c9fd0def1d16341f1
+   */
   textFileId?: string;
   textFileName?: string;
   textFileUrl?: string;
@@ -502,6 +648,10 @@ export class CreateTextFileResponseBodyData extends $tea.Model {
 }
 
 export class RunContractResultGenerationRequestAssistantMetaDataCustomRuleConfigCustomRules extends $tea.Model {
+  /**
+   * @example
+   * high
+   */
   riskLevel?: string;
   ruleDesc?: string;
   ruleTitle?: string;
@@ -546,7 +696,15 @@ export class RunContractResultGenerationRequestAssistantMetaDataCustomRuleConfig
 }
 
 export class RunContractResultGenerationRequestAssistantMetaDataRules extends $tea.Model {
+  /**
+   * @example
+   * medium
+   */
   riskLevel?: string;
+  /**
+   * @example
+   * 2.1
+   */
   ruleSequence?: string;
   ruleTag?: string;
   ruleTitle?: string;
@@ -575,8 +733,20 @@ export class RunContractResultGenerationRequestAssistantMetaDataRules extends $t
 
 export class RunContractResultGenerationRequestAssistantMetaData extends $tea.Model {
   customRuleConfig?: RunContractResultGenerationRequestAssistantMetaDataCustomRuleConfig;
+  /**
+   * @example
+   * 9a6b1ba60d9944249363ec3cc1529b7b
+   */
   fileId?: string;
+  /**
+   * @example
+   * 1
+   */
   position?: string;
+  /**
+   * @example
+   * b265b416-ca1f-425d-9340-c968f39624e1
+   */
   ruleTaskId?: string;
   rules?: RunContractResultGenerationRequestAssistantMetaDataRules[];
   static names(): { [key: string]: string } {
@@ -606,7 +776,15 @@ export class RunContractResultGenerationRequestAssistantMetaData extends $tea.Mo
 
 export class RunContractResultGenerationRequestAssistant extends $tea.Model {
   metaData?: RunContractResultGenerationRequestAssistantMetaData;
+  /**
+   * @example
+   * contract_examime
+   */
   type?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -666,7 +844,15 @@ export class RunContractResultGenerationResponseBodyOutputResultSubRisks extends
 export class RunContractResultGenerationResponseBodyOutputResult extends $tea.Model {
   examineBrief?: string;
   examineResult?: string;
+  /**
+   * @example
+   * high
+   */
   riskLevel?: string;
+  /**
+   * @example
+   * 1.1
+   */
   ruleSequence?: string;
   ruleTag?: string;
   ruleTitle?: string;
@@ -702,6 +888,10 @@ export class RunContractResultGenerationResponseBodyOutputResult extends $tea.Mo
 
 export class RunContractResultGenerationResponseBodyOutput extends $tea.Model {
   result?: RunContractResultGenerationResponseBodyOutputResult;
+  /**
+   * @example
+   * eaa56e1e-e205-4f5e-926e-5e2269ae7f68
+   */
   resultTaskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -723,7 +913,15 @@ export class RunContractResultGenerationResponseBodyOutput extends $tea.Model {
 }
 
 export class RunContractResultGenerationResponseBodyUsage extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
   input?: number;
+  /**
+   * @example
+   * page
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -745,7 +943,15 @@ export class RunContractResultGenerationResponseBodyUsage extends $tea.Model {
 }
 
 export class RunContractRuleGenerationRequestAssistantMetaData extends $tea.Model {
+  /**
+   * @example
+   * 9a6b1ba60d9944249363ec3cc1529b7b
+   */
   fileId?: string;
+  /**
+   * @example
+   * 1
+   */
   position?: string;
   static names(): { [key: string]: string } {
     return {
@@ -768,7 +974,15 @@ export class RunContractRuleGenerationRequestAssistantMetaData extends $tea.Mode
 
 export class RunContractRuleGenerationRequestAssistant extends $tea.Model {
   metaData?: RunContractRuleGenerationRequestAssistantMetaData;
+  /**
+   * @example
+   * contract_examime
+   */
   type?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -792,7 +1006,15 @@ export class RunContractRuleGenerationRequestAssistant extends $tea.Model {
 }
 
 export class RunContractRuleGenerationResponseBodyOutputRules extends $tea.Model {
+  /**
+   * @example
+   * medium
+   */
   riskLevel?: string;
+  /**
+   * @example
+   * 1.1
+   */
   ruleSequence?: string;
   ruleTag?: string;
   ruleTitle?: string;
@@ -820,6 +1042,10 @@ export class RunContractRuleGenerationResponseBodyOutputRules extends $tea.Model
 }
 
 export class RunContractRuleGenerationResponseBodyOutput extends $tea.Model {
+  /**
+   * @example
+   * b265b416-ca1f-425d-9340-c968f39624e9
+   */
   ruleTaskId?: string;
   rules?: RunContractRuleGenerationResponseBodyOutputRules[];
   static names(): { [key: string]: string } {
@@ -842,7 +1068,15 @@ export class RunContractRuleGenerationResponseBodyOutput extends $tea.Model {
 }
 
 export class RunContractRuleGenerationResponseBodyUsage extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
   input?: number;
+  /**
+   * @example
+   * page
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -864,9 +1098,21 @@ export class RunContractRuleGenerationResponseBodyUsage extends $tea.Model {
 }
 
 export class RunLegalAdviceConsultationRequestAssistant extends $tea.Model {
+  /**
+   * @example
+   * assitant_abc_123
+   */
   id?: string;
   metaData?: { [key: string]: string };
+  /**
+   * @example
+   * legal_advice_consult
+   */
   type?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -893,6 +1139,10 @@ export class RunLegalAdviceConsultationRequestAssistant extends $tea.Model {
 
 export class RunLegalAdviceConsultationRequestThreadMessages extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * user
+   */
   role?: string;
   static names(): { [key: string]: string } {
     return {
@@ -933,8 +1183,20 @@ export class RunLegalAdviceConsultationRequestThread extends $tea.Model {
 }
 
 export class RunLegalAdviceConsultationResponseBodyUsage extends $tea.Model {
+  /**
+   * @example
+   * 500
+   */
   inputTokens?: number;
+  /**
+   * @example
+   * 700
+   */
   outputTokens?: number;
+  /**
+   * @example
+   * 1200
+   */
   totalTokens?: number;
   static names(): { [key: string]: string } {
     return {
@@ -981,12 +1243,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上传合同文件
-   *
-   * @param request CreateTextFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTextFileResponse
+   * 上传合同文件
+   * 
+   * @param request - CreateTextFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTextFileResponse
    */
   async createTextFileWithOptions(WorkspaceId: string, request: CreateTextFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTextFileResponse> {
     Util.validateModel(request);
@@ -1026,10 +1288,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上传合同文件
-   *
-   * @param request CreateTextFileRequest
-   * @return CreateTextFileResponse
+   * 上传合同文件
+   * 
+   * @param request - CreateTextFileRequest
+   * @returns CreateTextFileResponse
    */
   async createTextFile(WorkspaceId: string, request: CreateTextFileRequest): Promise<CreateTextFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1113,12 +1375,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成合同审查结果
-   *
-   * @param tmpReq RunContractResultGenerationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RunContractResultGenerationResponse
+   * 生成合同审查结果
+   * 
+   * @param tmpReq - RunContractResultGenerationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunContractResultGenerationResponse
    */
   async runContractResultGenerationWithOptions(workspaceId: string, tmpReq: RunContractResultGenerationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunContractResultGenerationResponse> {
     Util.validateModel(tmpReq);
@@ -1160,10 +1422,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成合同审查结果
-   *
-   * @param request RunContractResultGenerationRequest
-   * @return RunContractResultGenerationResponse
+   * 生成合同审查结果
+   * 
+   * @param request - RunContractResultGenerationRequest
+   * @returns RunContractResultGenerationResponse
    */
   async runContractResultGeneration(workspaceId: string, request: RunContractResultGenerationRequest): Promise<RunContractResultGenerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1172,12 +1434,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成合同审查规则
-   *
-   * @param tmpReq RunContractRuleGenerationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RunContractRuleGenerationResponse
+   * 生成合同审查规则
+   * 
+   * @param tmpReq - RunContractRuleGenerationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunContractRuleGenerationResponse
    */
   async runContractRuleGenerationWithOptions(workspaceId: string, tmpReq: RunContractRuleGenerationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunContractRuleGenerationResponse> {
     Util.validateModel(tmpReq);
@@ -1219,10 +1481,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成合同审查规则
-   *
-   * @param request RunContractRuleGenerationRequest
-   * @return RunContractRuleGenerationResponse
+   * 生成合同审查规则
+   * 
+   * @param request - RunContractRuleGenerationRequest
+   * @returns RunContractRuleGenerationResponse
    */
   async runContractRuleGeneration(workspaceId: string, request: RunContractRuleGenerationRequest): Promise<RunContractRuleGenerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1231,12 +1493,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 法律咨询
-   *
-   * @param tmpReq RunLegalAdviceConsultationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RunLegalAdviceConsultationResponse
+   * 法律咨询
+   * 
+   * @param tmpReq - RunLegalAdviceConsultationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunLegalAdviceConsultationResponse
    */
   async runLegalAdviceConsultationWithOptions(workspaceId: string, tmpReq: RunLegalAdviceConsultationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunLegalAdviceConsultationResponse> {
     Util.validateModel(tmpReq);
@@ -1286,10 +1548,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 法律咨询
-   *
-   * @param request RunLegalAdviceConsultationRequest
-   * @return RunLegalAdviceConsultationResponse
+   * 法律咨询
+   * 
+   * @param request - RunLegalAdviceConsultationRequest
+   * @returns RunLegalAdviceConsultationResponse
    */
   async runLegalAdviceConsultation(workspaceId: string, request: RunLegalAdviceConsultationRequest): Promise<RunLegalAdviceConsultationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
