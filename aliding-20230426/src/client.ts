@@ -29850,13 +29850,19 @@ export class QueryGroupLiveInfoShrinkHeaders extends $tea.Model {
 
 export class QueryGroupLiveInfoRequest extends $tea.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * Eijxxx
+   * 333d
    */
   anchorUnionId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 123456
+   * 4d38xxxxx
    */
   liveUuid?: string;
   tenantContext?: QueryGroupLiveInfoRequestTenantContext;
@@ -29883,13 +29889,19 @@ export class QueryGroupLiveInfoRequest extends $tea.Model {
 
 export class QueryGroupLiveInfoShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * Eijxxx
+   * 333d
    */
   anchorUnionId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 123456
+   * 4d38xxxxx
    */
   liveUuid?: string;
   tenantContextShrink?: string;
@@ -29955,6 +29967,7 @@ export class QueryGroupLiveInfoResponseBody extends $tea.Model {
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
+  staffId?: string;
   /**
    * @example
    * 1687924800000
@@ -29971,7 +29984,15 @@ export class QueryGroupLiveInfoResponseBody extends $tea.Model {
    * 10
    */
   uv?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29984,6 +30005,7 @@ export class QueryGroupLiveInfoResponseBody extends $tea.Model {
       liveStatus: 'liveStatus',
       playbackDuration: 'playbackDuration',
       requestId: 'requestId',
+      staffId: 'staffId',
       startTime: 'startTime',
       subscribeCount: 'subscribeCount',
       title: 'title',
@@ -30004,6 +30026,7 @@ export class QueryGroupLiveInfoResponseBody extends $tea.Model {
       liveStatus: 'number',
       playbackDuration: 'number',
       requestId: 'string',
+      staffId: 'string',
       startTime: 'number',
       subscribeCount: 'number',
       title: 'string',
@@ -79980,7 +80003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播信息
+   * 查询群直播详情
    * 
    * @param tmpReq - QueryGroupLiveInfoRequest
    * @param tmpHeader - QueryGroupLiveInfoHeaders
@@ -80001,16 +80024,15 @@ export default class Client extends OpenApi {
       request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
     }
 
-    let query : {[key: string ]: any} = { };
+    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.anchorUnionId)) {
-      query["AnchorUnionId"] = request.anchorUnionId;
+      body["AnchorUnionId"] = request.anchorUnionId;
     }
 
     if (!Util.isUnset(request.liveUuid)) {
-      query["LiveUuid"] = request.liveUuid;
+      body["LiveUuid"] = request.liveUuid;
     }
 
-    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.tenantContextShrink)) {
       body["TenantContext"] = request.tenantContextShrink;
     }
@@ -80026,7 +80048,6 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -80034,7 +80055,7 @@ export default class Client extends OpenApi {
       version: "2023-04-26",
       protocol: "HTTPS",
       pathname: `/dingtalk/v1/ysp/queryGroupLiveInfo`,
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
@@ -80044,7 +80065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播信息
+   * 查询群直播详情
    * 
    * @param request - QueryGroupLiveInfoRequest
    * @returns QueryGroupLiveInfoResponse
