@@ -1699,7 +1699,7 @@ export class GPUConfig extends $tea.Model {
   gpuMemorySize?: number;
   /**
    * @example
-   * fc.gpu.ampere.1
+   * fc.gpu.tesla.1
    */
   gpuType?: string;
   static names(): { [key: string]: string } {
@@ -4521,6 +4521,11 @@ export class UpdateTriggerInput extends $tea.Model {
 export class VPCConfig extends $tea.Model {
   /**
    * @example
+   * acs:ram::188077086902****:role/fc-test
+   */
+  role?: string;
+  /**
+   * @example
    * sg-bp18hj1wtxgy3b0***
    */
   securityGroupId?: string;
@@ -4532,6 +4537,7 @@ export class VPCConfig extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      role: 'role',
       securityGroupId: 'securityGroupId',
       vSwitchIds: 'vSwitchIds',
       vpcId: 'vpcId',
@@ -4540,6 +4546,7 @@ export class VPCConfig extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      role: 'string',
       securityGroupId: 'string',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
@@ -4907,7 +4914,7 @@ export class CreateTriggerResponse extends $tea.Model {
 export class CreateVpcBindingRequest extends $tea.Model {
   /**
    * @remarks
-   * The configurations of the virtual private cloud (VPC) binding.
+   * The VPC binding configurations.
    * 
    * This parameter is required.
    */
@@ -5403,7 +5410,7 @@ export class GetCustomDomainResponse extends $tea.Model {
 export class GetFunctionRequest extends $tea.Model {
   /**
    * @remarks
-   * The version or alias of the function.
+   * 2023-03-10T10:10:10Z
    * 
    * @example
    * LATEST
@@ -5898,7 +5905,7 @@ export class ListAsyncTasksRequest extends $tea.Model {
   includePayload?: boolean;
   /**
    * @remarks
-   * The number of asynchronous tasks to return. Valid values: [1,100]. Default value: 50.
+   * The number of asynchronous tasks to return. Valid values: [1,100]. Default value: 20.
    * 
    * @example
    * 10
@@ -6246,6 +6253,9 @@ export class ListFunctionVersionsResponse extends $tea.Model {
 
 export class ListFunctionsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The version of Function Compute to which the functions belong. Valid values: v3 and v2. v3: only lists functions of Function Compute 3.0. v2: only lists functions of Function Compute 2.0. By default, this parameter is left empty and functions in both Function Compute 2.0 and Function Compute 3.0 are listed.
+   * 
    * @example
    * v3
    */
@@ -7667,7 +7677,7 @@ export default class Client extends OpenApi {
    * Creates a custom domain name.
    * 
    * @remarks
-   * If you wish to access applications or functions created in Function Compute via a fixed domain name in a production environment, or if you need to address the forced download behavior when accessing HTTP triggers, you can achieve this by binding a custom domain to your application or function.
+   * If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
    * 
    * @param request - CreateCustomDomainRequest
    * @param headers - map
@@ -7698,7 +7708,7 @@ export default class Client extends OpenApi {
    * Creates a custom domain name.
    * 
    * @remarks
-   * If you wish to access applications or functions created in Function Compute via a fixed domain name in a production environment, or if you need to address the forced download behavior when accessing HTTP triggers, you can achieve this by binding a custom domain to your application or function.
+   * If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
    * 
    * @param request - CreateCustomDomainRequest
    * @returns CreateCustomDomainResponse
@@ -7713,7 +7723,7 @@ export default class Client extends OpenApi {
    * Creates a function.
    * 
    * @remarks
-   * In Function Compute, a function serves as the smallest unit of resource scheduling and execution, typically referring to a piece of code written by users that can execute independently in response to specific events or requests.
+   * Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
    * 
    * @param request - CreateFunctionRequest
    * @param headers - map
@@ -7744,7 +7754,7 @@ export default class Client extends OpenApi {
    * Creates a function.
    * 
    * @remarks
-   * In Function Compute, a function serves as the smallest unit of resource scheduling and execution, typically referring to a piece of code written by users that can execute independently in response to specific events or requests.
+   * Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
    * 
    * @param request - CreateFunctionRequest
    * @returns CreateFunctionResponse
@@ -8441,7 +8451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a function.
+   * http://pre.hhht/#vpc
    * 
    * @param request - GetFunctionRequest
    * @param headers - map
@@ -8474,7 +8484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a function.
+   * http://pre.hhht/#vpc
    * 
    * @param request - GetFunctionRequest
    * @returns GetFunctionResponse
