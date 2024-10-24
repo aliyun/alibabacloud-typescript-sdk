@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,8 +8,29 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AttachEaiRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i-wz93g6pyat2g7t7o****
+   */
   clientInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais-sz8t15a7gt7z7j7i****
+   */
   elasticAcceleratedInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,8 +54,20 @@ export class AttachEaiRequest extends $tea.Model {
 }
 
 export class AttachEaiResponseBody extends $tea.Model {
+  /**
+   * @example
+   * i-wz93g6pyat2g7t7o****
+   */
   clientInstanceId?: string;
+  /**
+   * @example
+   * eais-sz8t15a7gt7z7j7i****
+   */
   elasticAcceleratedInstanceId?: string;
+  /**
+   * @example
+   * C3BCB7DA-BEB6-4982-A765-6EA61EC84474
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,9 +91,9 @@ export class AttachEaiResponseBody extends $tea.Model {
 }
 
 export class AttachEaiResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachEaiResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachEaiResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -84,9 +116,31 @@ export class AttachEaiResponse extends $tea.Model {
 }
 
 export class AttachEaisEiRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp14ws9hbt1oe0u9****
+   */
   clientInstanceId?: string;
+  /**
+   * @example
+   * eais-hzu00xufs1c8j5nn****
+   */
   eiInstanceId?: string;
+  /**
+   * @example
+   * eais.ei-a6.2xlarge
+   */
   eiInstanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -112,8 +166,20 @@ export class AttachEaisEiRequest extends $tea.Model {
 }
 
 export class AttachEaisEiResponseBody extends $tea.Model {
+  /**
+   * @example
+   * i-bp14ws9hbt1oe0u9****
+   */
   clientInstanceId?: string;
+  /**
+   * @example
+   * eais-hzu00xufs1c8j5nn****
+   */
   eiInstanceId?: string;
+  /**
+   * @example
+   * C3BCB7DA-BEB6-4982-A765-6EA61EC8****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -137,9 +203,9 @@ export class AttachEaisEiResponseBody extends $tea.Model {
 }
 
 export class AttachEaisEiResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachEaisEiResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachEaisEiResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -162,8 +228,29 @@ export class AttachEaisEiResponse extends $tea.Model {
 }
 
 export class ChangeResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rg-acfmvpuy4a5****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais-hzs4h26yyt5xkcke****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   resourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -187,6 +274,10 @@ export class ChangeResourceGroupRequest extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C3BCB7DA-BEB6-4982-A765-6EA61EC8****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -206,9 +297,9 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -231,13 +322,43 @@ export class ChangeResourceGroupResponse extends $tea.Model {
 }
 
 export class CreateEaiRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
   image?: string;
+  /**
+   * @example
+   * eais-test01
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais.ei-a6.2xlarge
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   resourceGroupId?: string;
+  /**
+   * @example
+   * sg-uf66jeqopgqa9hdn****
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * vsw-uf6h3rbwbm90urjwa****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -271,7 +392,15 @@ export class CreateEaiRequest extends $tea.Model {
 }
 
 export class CreateEaiResponseBody extends $tea.Model {
+  /**
+   * @example
+   * eais-sz8t15a7gt7z7j7i****
+   */
   elasticAcceleratedInstanceId?: string;
+  /**
+   * @example
+   * A655AB0E-31BB-45AD-9255-FCE93F6*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -293,9 +422,9 @@ export class CreateEaiResponseBody extends $tea.Model {
 }
 
 export class CreateEaiResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEaiResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEaiResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -317,128 +446,54 @@ export class CreateEaiResponse extends $tea.Model {
   }
 }
 
-export class CreateEaiAllRequest extends $tea.Model {
-  clientImageId?: string;
-  clientInstanceName?: string;
-  clientInstanceType?: string;
-  clientInternetMaxBandwidthIn?: number;
-  clientInternetMaxBandwidthOut?: number;
-  clientPassword?: string;
-  clientSecurityGroupId?: string;
-  clientSystemDiskCategory?: string;
-  clientSystemDiskSize?: number;
-  clientToken?: string;
-  clientVSwitchId?: string;
-  clientZoneId?: string;
-  eaiInstanceType?: string;
-  instanceName?: string;
-  regionId?: string;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientImageId: 'ClientImageId',
-      clientInstanceName: 'ClientInstanceName',
-      clientInstanceType: 'ClientInstanceType',
-      clientInternetMaxBandwidthIn: 'ClientInternetMaxBandwidthIn',
-      clientInternetMaxBandwidthOut: 'ClientInternetMaxBandwidthOut',
-      clientPassword: 'ClientPassword',
-      clientSecurityGroupId: 'ClientSecurityGroupId',
-      clientSystemDiskCategory: 'ClientSystemDiskCategory',
-      clientSystemDiskSize: 'ClientSystemDiskSize',
-      clientToken: 'ClientToken',
-      clientVSwitchId: 'ClientVSwitchId',
-      clientZoneId: 'ClientZoneId',
-      eaiInstanceType: 'EaiInstanceType',
-      instanceName: 'InstanceName',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientImageId: 'string',
-      clientInstanceName: 'string',
-      clientInstanceType: 'string',
-      clientInternetMaxBandwidthIn: 'number',
-      clientInternetMaxBandwidthOut: 'number',
-      clientPassword: 'string',
-      clientSecurityGroupId: 'string',
-      clientSystemDiskCategory: 'string',
-      clientSystemDiskSize: 'number',
-      clientToken: 'string',
-      clientVSwitchId: 'string',
-      clientZoneId: 'string',
-      eaiInstanceType: 'string',
-      instanceName: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiAllResponseBody extends $tea.Model {
-  clientInstanceId?: string;
-  elasticAcceleratedInstanceId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientInstanceId: 'ClientInstanceId',
-      elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientInstanceId: 'string',
-      elasticAcceleratedInstanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiAllResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEaiAllResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateEaiAllResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateEaiEciRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * eais-test01
+   */
   eaisName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais.ei-a6.2xlarge
+   */
   eaisType?: string;
   eci?: CreateEaiEciRequestEci;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-acfmvpuy4a5****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sg-uf66jeqopgqa9hdn****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-uf6h3rbwbm90urjwa****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -472,13 +527,53 @@ export class CreateEaiEciRequest extends $tea.Model {
 }
 
 export class CreateEaiEciShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * eais-test01
+   */
   eaisName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais.ei-a6.2xlarge
+   */
   eaisType?: string;
   eciShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-acfmvpuy4a5****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sg-uf66jeqopgqa9hdn****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-uf6h3rbwbm90urjwa****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -512,8 +607,20 @@ export class CreateEaiEciShrinkRequest extends $tea.Model {
 }
 
 export class CreateEaiEciResponseBody extends $tea.Model {
+  /**
+   * @example
+   * eci-2zeh03ygxlrzmfi6****
+   */
   clientInstanceId?: string;
+  /**
+   * @example
+   * eais-sz8t15a7gt7z7j7i****
+   */
   elasticAcceleratedInstanceId?: string;
+  /**
+   * @example
+   * F5FEB9AA-C108-577C-AB3D-D13524AF****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -537,9 +644,9 @@ export class CreateEaiEciResponseBody extends $tea.Model {
 }
 
 export class CreateEaiEciResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEaiEciResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEaiEciResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -562,13 +669,53 @@ export class CreateEaiEciResponse extends $tea.Model {
 }
 
 export class CreateEaiEcsRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * eais-test01
+   */
   eaisName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais.ei-a6.2xlarge
+   */
   eaisType?: string;
   ecs?: CreateEaiEcsRequestEcs;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-acfmvpuy4a5****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sg-uf66jeqopgqa9hdn****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-uf6h3rbwbm90urjwa****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -602,13 +749,53 @@ export class CreateEaiEcsRequest extends $tea.Model {
 }
 
 export class CreateEaiEcsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * eais-test01
+   */
   eaisName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais.ei-a6.2xlarge
+   */
   eaisType?: string;
   ecsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-acfmvpuy4a5****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sg-uf66jeqopgqa9hdn****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-uf6h3rbwbm90urjwa****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -642,8 +829,20 @@ export class CreateEaiEcsShrinkRequest extends $tea.Model {
 }
 
 export class CreateEaiEcsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * i-bp1hjrvleawl4ogb****
+   */
   clientInstanceId?: string;
+  /**
+   * @example
+   * eais-sz8t15a7gt7z7j7i****
+   */
   elasticAcceleratedInstanceId?: string;
+  /**
+   * @example
+   * F5FEB9AA-C108-577C-AB3D-D13524AF****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -667,9 +866,9 @@ export class CreateEaiEcsResponseBody extends $tea.Model {
 }
 
 export class CreateEaiEcsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEaiEcsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEaiEcsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -692,13 +891,45 @@ export class CreateEaiEcsResponse extends $tea.Model {
 }
 
 export class CreateEaiJupyterRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
   eaisName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais.ei-a6.2xlarge
+   */
   eaisType?: string;
   environmentVar?: CreateEaiJupyterRequestEnvironmentVar[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sg-uf66jeqopgqa9hdn****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-uf6h3rbwbm90urjwa****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -732,13 +963,45 @@ export class CreateEaiJupyterRequest extends $tea.Model {
 }
 
 export class CreateEaiJupyterShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
   eaisName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais.ei-a6.2xlarge
+   */
   eaisType?: string;
   environmentVarShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sg-uf66jeqopgqa9hdn****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-uf6h3rbwbm90urjwa****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -772,7 +1035,15 @@ export class CreateEaiJupyterShrinkRequest extends $tea.Model {
 }
 
 export class CreateEaiJupyterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * eais-hz8t15a7gt7z7j7i****
+   */
   elasticAcceleratedInstanceId?: string;
+  /**
+   * @example
+   * A655AB0E-31BB-45AD-9255-FCE93F6*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -794,9 +1065,9 @@ export class CreateEaiJupyterResponseBody extends $tea.Model {
 }
 
 export class CreateEaiJupyterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEaiJupyterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEaiJupyterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -819,12 +1090,52 @@ export class CreateEaiJupyterResponse extends $tea.Model {
 }
 
 export class CreateEaisEiRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * test_ei
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais.ei-a6.2xlarge
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-acfmvpuy4a5****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sg-bp16jgp51ttnkbdr****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp17wmd1wb6fwlimk****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -856,7 +1167,15 @@ export class CreateEaisEiRequest extends $tea.Model {
 }
 
 export class CreateEaisEiResponseBody extends $tea.Model {
+  /**
+   * @example
+   * eais-hzu00xufs1c8j5nn****
+   */
   eiInstanceId?: string;
+  /**
+   * @example
+   * F5FEB9AA-C108-577C-AB3D-D13524AF****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -878,9 +1197,9 @@ export class CreateEaisEiResponseBody extends $tea.Model {
 }
 
 export class CreateEaisEiResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEaisEiResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEaisEiResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -903,8 +1222,26 @@ export class CreateEaisEiResponse extends $tea.Model {
 }
 
 export class DeleteEaiRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais-sz8t15a7gt7z7j7i****
+   */
   elasticAcceleratedInstanceId?: string;
+  /**
+   * @example
+   * false
+   */
   force?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -928,6 +1265,10 @@ export class DeleteEaiRequest extends $tea.Model {
 }
 
 export class DeleteEaiResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F23AEEC7-4D98-4657-A104-0269270*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -947,9 +1288,9 @@ export class DeleteEaiResponseBody extends $tea.Model {
 }
 
 export class DeleteEaiResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEaiResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEaiResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -972,8 +1313,26 @@ export class DeleteEaiResponse extends $tea.Model {
 }
 
 export class DeleteEaiAllRequest extends $tea.Model {
+  /**
+   * @example
+   * i-bp1fvhi60e1zizsp****
+   */
   clientInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais-hza1ahi0uuw0re33****
+   */
   elasticAcceleratedInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -997,6 +1356,10 @@ export class DeleteEaiAllRequest extends $tea.Model {
 }
 
 export class DeleteEaiAllResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AD4EA714-A35B-4710-BF92-8275BCDDB69F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1016,9 +1379,9 @@ export class DeleteEaiAllResponseBody extends $tea.Model {
 }
 
 export class DeleteEaiAllResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEaiAllResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEaiAllResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1041,8 +1404,26 @@ export class DeleteEaiAllResponse extends $tea.Model {
 }
 
 export class DeleteEaisEiRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais-hzu00xufs1c8j5nn****
+   */
   eiInstanceId?: string;
+  /**
+   * @example
+   * false
+   */
   force?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1066,6 +1447,10 @@ export class DeleteEaisEiRequest extends $tea.Model {
 }
 
 export class DeleteEaisEiResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F23AEEC7-4D98-4657-A104-02692701****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1085,9 +1470,9 @@ export class DeleteEaisEiResponseBody extends $tea.Model {
 }
 
 export class DeleteEaisEiResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEaisEiResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEaisEiResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1111,13 +1496,44 @@ export class DeleteEaisEiResponse extends $tea.Model {
 
 export class DescribeEaisRequest extends $tea.Model {
   clientInstanceId?: string;
+  /**
+   * @example
+   * ["eais-id1", "eais-id2"]
+   */
   elasticAcceleratedInstanceIds?: string;
+  /**
+   * @example
+   * eais*
+   */
   instanceName?: string;
+  /**
+   * @example
+   * eais.ei-a6.2xlarge
+   */
   instanceType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 200
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   resourceGroupId?: string;
+  /**
+   * @example
+   * InUse
+   */
   status?: string;
   tag?: DescribeEaisRequestTag[];
   static names(): { [key: string]: string } {
@@ -1157,9 +1573,25 @@ export class DescribeEaisRequest extends $tea.Model {
 
 export class DescribeEaisResponseBody extends $tea.Model {
   instances?: DescribeEaisResponseBodyInstances;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1E23D585-BBD8-436F-9615-54CACD6*****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1187,9 +1619,9 @@ export class DescribeEaisResponseBody extends $tea.Model {
 }
 
 export class DescribeEaisResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeEaisResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEaisResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1213,6 +1645,10 @@ export class DescribeEaisResponse extends $tea.Model {
 
 export class DescribeRegionsResponseBody extends $tea.Model {
   regions?: DescribeRegionsResponseBodyRegions;
+  /**
+   * @example
+   * F5FEB9AA-C108-577C-AB3D-D13524AF1840
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1234,9 +1670,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1259,7 +1695,21 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DetachEaiRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais-sz8t15a7gt7z7j7i****
+   */
   elasticAcceleratedInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1281,6 +1731,10 @@ export class DetachEaiRequest extends $tea.Model {
 }
 
 export class DetachEaiResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 04DEB304-2436-4CB9-BB63-468BCEA03D9D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1300,9 +1754,9 @@ export class DetachEaiResponseBody extends $tea.Model {
 }
 
 export class DetachEaiResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachEaiResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachEaiResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1325,7 +1779,21 @@ export class DetachEaiResponse extends $tea.Model {
 }
 
 export class DetachEaisEiRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais-hzu00xufs1c8j5nn****
+   */
   eiInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1347,6 +1815,10 @@ export class DetachEaisEiRequest extends $tea.Model {
 }
 
 export class DetachEaisEiResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 04DEB304-2436-4CB9-BB63-468BCEA0****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1366,9 +1838,9 @@ export class DetachEaisEiResponseBody extends $tea.Model {
 }
 
 export class DetachEaisEiResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachEaisEiResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachEaisEiResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1391,11 +1863,37 @@ export class DetachEaisEiResponse extends $tea.Model {
 }
 
 export class GetInstanceMetricsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2022-11-22T16:30:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais-hznzre6ffmz9num4****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MemoryUsage
+   */
   metricType?: string;
   regionId?: string;
+  /**
+   * @example
+   * 2022-11-22T16:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * 5m
+   */
   timeStep?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1425,8 +1923,16 @@ export class GetInstanceMetricsRequest extends $tea.Model {
 }
 
 export class GetInstanceMetricsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * eais-bj8b53it29hfhj******
+   */
   instanceId?: string;
   podMetrics?: GetInstanceMetricsResponseBodyPodMetrics[];
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1450,9 +1956,9 @@ export class GetInstanceMetricsResponseBody extends $tea.Model {
 }
 
 export class GetInstanceMetricsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceMetricsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1474,8 +1980,216 @@ export class GetInstanceMetricsResponse extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a4884
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a4885
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * F23AEEC7-4D98-4657-A104-02692701****
+   */
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartEaiJupyterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais-hze3x2gv9wimdj0k****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartEaiJupyterResponseBody extends $tea.Model {
+  accessDeniedDetail?: StartEaiJupyterResponseBodyAccessDeniedDetail;
+  /**
+   * @example
+   * 04DEB304-2436-4CB9-BB63-468BCEA0****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: StartEaiJupyterResponseBodyAccessDeniedDetail,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartEaiJupyterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartEaiJupyterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartEaiJupyterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartEaisEiRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais-hzu00xufs1c8j5nn****
+   */
   eiInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1497,6 +2211,10 @@ export class StartEaisEiRequest extends $tea.Model {
 }
 
 export class StartEaisEiResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F23AEEC7-4D98-4657-A104-02692701****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1516,9 +2234,9 @@ export class StartEaisEiResponseBody extends $tea.Model {
 }
 
 export class StartEaisEiResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartEaisEiResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartEaisEiResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1540,8 +2258,109 @@ export class StartEaisEiResponse extends $tea.Model {
   }
 }
 
+export class StopEaiJupyterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais-hze3x2gv9wimdj0k****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopEaiJupyterResponseBody extends $tea.Model {
+  accessDeniedDetail?: StopEaiJupyterResponseBodyAccessDeniedDetail;
+  /**
+   * @example
+   * F5FEB9AA-C108-577C-AB3D-D13524AF****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: StopEaiJupyterResponseBodyAccessDeniedDetail,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopEaiJupyterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopEaiJupyterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopEaiJupyterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopEaisEiRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eais-hzu00xufs1c8j5nn****
+   */
   eiInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1563,6 +2382,10 @@ export class StopEaisEiRequest extends $tea.Model {
 }
 
 export class StopEaisEiResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F23AEEC7-4D98-4657-A104-02692701****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1582,9 +2405,9 @@ export class StopEaisEiResponseBody extends $tea.Model {
 }
 
 export class StopEaisEiResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopEaisEiResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopEaisEiResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1606,11 +2429,230 @@ export class StopEaisEiResponse extends $tea.Model {
   }
 }
 
+export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  all?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1E23D585-BBD8-436F-9615-54CACD67****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEaiEciRequestEciContainer extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   arg?: string;
+  /**
+   * @example
+   * sleep
+   */
   command?: string;
+  /**
+   * @example
+   * nginx
+   */
   image?: string;
+  /**
+   * @example
+   * test1
+   */
   name?: string;
+  /**
+   * @example
+   * /mnt/eais=eais,/models=eais/models
+   */
   volumes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1639,9 +2681,25 @@ export class CreateEaiEciRequestEciContainer extends $tea.Model {
 
 export class CreateEaiEciRequestEci extends $tea.Model {
   container?: CreateEaiEciRequestEciContainer;
+  /**
+   * @example
+   * eip-uf66jeqopgqa9hdn****
+   */
   eipId?: string;
+  /**
+   * @example
+   * test-nginx
+   */
   name?: string;
+  /**
+   * @example
+   * ecs.c5.xlarge
+   */
   type?: string;
+  /**
+   * @example
+   * 00c7****-rivj.cn-hangzhou.extreme.nas.aliyuncs.com:/share
+   */
   volume?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1669,14 +2727,50 @@ export class CreateEaiEciRequestEci extends $tea.Model {
 }
 
 export class CreateEaiEcsRequestEcs extends $tea.Model {
+  /**
+   * @example
+   * aliyun_2_1903_x64_20G_alibase_20200324.vhd
+   */
   imageId?: string;
+  /**
+   * @example
+   * 10
+   */
   internetMaxBandwidthIn?: string;
+  /**
+   * @example
+   * 10
+   */
   internetMaxBandwidthOut?: string;
+  /**
+   * @example
+   * test1
+   */
   name?: string;
+  /**
+   * @example
+   * EcsV587!
+   */
   password?: string;
+  /**
+   * @example
+   * cloud_ssd
+   */
   systemDiskCategory?: string;
+  /**
+   * @example
+   * 40
+   */
   systemDiskSize?: number;
+  /**
+   * @example
+   * ecs.g7.4xlarge
+   */
   type?: string;
+  /**
+   * @example
+   * cn-shenzhen-e
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1712,7 +2806,15 @@ export class CreateEaiEcsRequestEcs extends $tea.Model {
 }
 
 export class CreateEaiJupyterRequestEnvironmentVar extends $tea.Model {
+  /**
+   * @example
+   * MY_USER_NAME
+   */
   key?: string;
+  /**
+   * @example
+   * test123
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1756,7 +2858,15 @@ export class DescribeEaisRequestTag extends $tea.Model {
 }
 
 export class DescribeEaisResponseBodyInstancesInstanceTagsTag extends $tea.Model {
+  /**
+   * @example
+   * TestKey
+   */
   tagKey?: string;
+  /**
+   * @example
+   * TestValue
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1797,23 +2907,83 @@ export class DescribeEaisResponseBodyInstancesInstanceTags extends $tea.Model {
 }
 
 export class DescribeEaisResponseBodyInstancesInstance extends $tea.Model {
+  /**
+   * @example
+   * jupyter
+   */
   category?: string;
+  /**
+   * @example
+   * i-wz93g6pyat2g****
+   */
   clientInstanceId?: string;
+  /**
+   * @example
+   * test1
+   */
   clientInstanceName?: string;
+  /**
+   * @example
+   * ecs.g5ne.large
+   */
   clientInstanceType?: string;
+  /**
+   * @example
+   * 2020-11-11T03:11Z
+   */
   creationTime?: string;
+  /**
+   * @example
+   * testDescription
+   */
   description?: string;
+  /**
+   * @example
+   * eais-sz8t15a7gt7****
+   */
   elasticAcceleratedInstanceId?: string;
+  /**
+   * @example
+   * testName
+   */
   instanceName?: string;
+  /**
+   * @example
+   * eais.ei-a6.2xlarge
+   */
   instanceType?: string;
+  /**
+   * @example
+   * http://121.41.**.24:8888
+   */
   jupyterUrl?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   resourceGroupId?: string;
+  /**
+   * @example
+   * sg-bp1gppir818lx4******
+   */
   securityGroupId?: string;
   startTime?: string;
+  /**
+   * @example
+   * InUse
+   */
   status?: string;
   tags?: DescribeEaisResponseBodyInstancesInstanceTags;
+  /**
+   * @example
+   * vsw-bp1sd131hfmd76r******
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * cn-shenzhen-e
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1887,7 +3057,15 @@ export class DescribeEaisResponseBodyInstances extends $tea.Model {
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
   localName?: string;
+  /**
+   * @example
+   * eais.cn-shenzhen.aliyuncs.com
+   */
   regionEndpoint?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1930,7 +3108,15 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class GetInstanceMetricsResponseBodyPodMetricsMetrics extends $tea.Model {
+  /**
+   * @example
+   * 1669107528450
+   */
   time?: string;
+  /**
+   * @example
+   * 4.536552540058814
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1953,6 +3139,13 @@ export class GetInstanceMetricsResponseBodyPodMetricsMetrics extends $tea.Model 
 
 export class GetInstanceMetricsResponseBodyPodMetrics extends $tea.Model {
   metrics?: GetInstanceMetricsResponseBodyPodMetricsMetrics[];
+  /**
+   * @remarks
+   * Pod ID。
+   * 
+   * @example
+   * eais-hznzre6ffmz9num4****-579b587ddf-9txr6
+   */
   podId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1965,6 +3158,240 @@ export class GetInstanceMetricsResponseBodyPodMetrics extends $tea.Model {
     return {
       metrics: { 'type': 'array', 'itemType': GetInstanceMetricsResponseBodyPodMetricsMetrics },
       podId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  /**
+   * @example
+   * eais-hzs4h26yyt5xkcke****
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * instance
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * TestKey
+   */
+  tagKey?: string;
+  /**
+   * @example
+   * TestValue
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartEaiJupyterResponseBodyAccessDeniedDetail extends $tea.Model {
+  /**
+   * @example
+   * eais:StartEaiJupyter
+   */
+  authAction?: string;
+  /**
+   * @example
+   * 20560152949032****
+   */
+  authPrincipalDisplayName?: string;
+  /**
+   * @example
+   * 170718266783****
+   */
+  authPrincipalOwnerId?: string;
+  /**
+   * @example
+   * SubUser
+   */
+  authPrincipalType?: string;
+  /**
+   * @example
+   * AQFmfh3BZn4dwUQyNzY4MDVELTgzQkUtNTBEOC04QjQyLTNGM0U1QUI5MjhBRA==
+   */
+  encodedDiagnosticMessage?: string;
+  /**
+   * @example
+   * ExplicitDeny
+   */
+  noPermissionType?: string;
+  /**
+   * @example
+   * AccountLevelIdentityBasedPolicy
+   */
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopEaiJupyterResponseBodyAccessDeniedDetail extends $tea.Model {
+  /**
+   * @example
+   * eais:StopEaiJupyter
+   */
+  authAction?: string;
+  /**
+   * @example
+   * 20560152949032****
+   */
+  authPrincipalDisplayName?: string;
+  /**
+   * @example
+   * 170718266783****
+   */
+  authPrincipalOwnerId?: string;
+  /**
+   * @example
+   * SubUser
+   */
+  authPrincipalType?: string;
+  /**
+   * @example
+   * AQFmj0FOZo9BTjMyQTFDRkIzLUE5MTItNUIwNC1BQzkxLTcyMUFFQTUyQjhGQQ==
+   */
+  encodedDiagnosticMessage?: string;
+  /**
+   * @example
+   * ExplicitDeny
+   */
+  noPermissionType?: string;
+  /**
+   * @example
+   * AccountLevelIdentityBasedPolicy
+   */
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -2049,6 +3476,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * 将弹性加速计算实例挂载到ECS实例上
+   * 
+   * @param request - AttachEaiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachEaiResponse
+   */
   async attachEaiWithOptions(request: AttachEaiRequest, runtime: $Util.RuntimeOptions): Promise<AttachEaiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2081,11 +3515,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachEaiResponse>(await this.callApi(params, req, runtime), new AttachEaiResponse({}));
   }
 
+  /**
+   * 将弹性加速计算实例挂载到ECS实例上
+   * 
+   * @param request - AttachEaiRequest
+   * @returns AttachEaiResponse
+   */
   async attachEai(request: AttachEaiRequest): Promise<AttachEaiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachEaiWithOptions(request, runtime);
   }
 
+  /**
+   * 将EI绑定到ECS或ECI实例上。
+   * 
+   * @param request - AttachEaisEiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachEaisEiResponse
+   */
   async attachEaisEiWithOptions(request: AttachEaisEiRequest, runtime: $Util.RuntimeOptions): Promise<AttachEaisEiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2122,11 +3569,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachEaisEiResponse>(await this.callApi(params, req, runtime), new AttachEaisEiResponse({}));
   }
 
+  /**
+   * 将EI绑定到ECS或ECI实例上。
+   * 
+   * @param request - AttachEaisEiRequest
+   * @returns AttachEaisEiResponse
+   */
   async attachEaisEi(request: AttachEaisEiRequest): Promise<AttachEaisEiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachEaisEiWithOptions(request, runtime);
   }
 
+  /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
+   */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2159,11 +3619,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
+  /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
+   */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * 创建一个弹性加速计算实例
+   * 
+   * @param request - CreateEaiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEaiResponse
+   */
   async createEaiWithOptions(request: CreateEaiRequest, runtime: $Util.RuntimeOptions): Promise<CreateEaiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2216,115 +3689,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEaiResponse>(await this.callApi(params, req, runtime), new CreateEaiResponse({}));
   }
 
+  /**
+   * 创建一个弹性加速计算实例
+   * 
+   * @param request - CreateEaiRequest
+   * @returns CreateEaiResponse
+   */
   async createEai(request: CreateEaiRequest): Promise<CreateEaiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEaiWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateEaiAllRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateEaiAllResponse
+   * 创建一个EAIS实例和ECI实例并绑定
+   * 
+   * @param tmpReq - CreateEaiEciRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEaiEciResponse
    */
-  // Deprecated
-  async createEaiAllWithOptions(request: CreateEaiAllRequest, runtime: $Util.RuntimeOptions): Promise<CreateEaiAllResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.clientImageId)) {
-      query["ClientImageId"] = request.clientImageId;
-    }
-
-    if (!Util.isUnset(request.clientInstanceName)) {
-      query["ClientInstanceName"] = request.clientInstanceName;
-    }
-
-    if (!Util.isUnset(request.clientInstanceType)) {
-      query["ClientInstanceType"] = request.clientInstanceType;
-    }
-
-    if (!Util.isUnset(request.clientInternetMaxBandwidthIn)) {
-      query["ClientInternetMaxBandwidthIn"] = request.clientInternetMaxBandwidthIn;
-    }
-
-    if (!Util.isUnset(request.clientInternetMaxBandwidthOut)) {
-      query["ClientInternetMaxBandwidthOut"] = request.clientInternetMaxBandwidthOut;
-    }
-
-    if (!Util.isUnset(request.clientPassword)) {
-      query["ClientPassword"] = request.clientPassword;
-    }
-
-    if (!Util.isUnset(request.clientSecurityGroupId)) {
-      query["ClientSecurityGroupId"] = request.clientSecurityGroupId;
-    }
-
-    if (!Util.isUnset(request.clientSystemDiskCategory)) {
-      query["ClientSystemDiskCategory"] = request.clientSystemDiskCategory;
-    }
-
-    if (!Util.isUnset(request.clientSystemDiskSize)) {
-      query["ClientSystemDiskSize"] = request.clientSystemDiskSize;
-    }
-
-    if (!Util.isUnset(request.clientToken)) {
-      query["ClientToken"] = request.clientToken;
-    }
-
-    if (!Util.isUnset(request.clientVSwitchId)) {
-      query["ClientVSwitchId"] = request.clientVSwitchId;
-    }
-
-    if (!Util.isUnset(request.clientZoneId)) {
-      query["ClientZoneId"] = request.clientZoneId;
-    }
-
-    if (!Util.isUnset(request.eaiInstanceType)) {
-      query["EaiInstanceType"] = request.eaiInstanceType;
-    }
-
-    if (!Util.isUnset(request.instanceName)) {
-      query["InstanceName"] = request.instanceName;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateEaiAll",
-      version: "2019-06-24",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateEaiAllResponse>(await this.callApi(params, req, runtime), new CreateEaiAllResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request CreateEaiAllRequest
-    * @return CreateEaiAllResponse
-   */
-  // Deprecated
-  async createEaiAll(request: CreateEaiAllRequest): Promise<CreateEaiAllResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createEaiAllWithOptions(request, runtime);
-  }
-
   async createEaiEciWithOptions(tmpReq: CreateEaiEciRequest, runtime: $Util.RuntimeOptions): Promise<CreateEaiEciResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateEaiEciShrinkRequest({ });
@@ -2383,11 +3765,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEaiEciResponse>(await this.callApi(params, req, runtime), new CreateEaiEciResponse({}));
   }
 
+  /**
+   * 创建一个EAIS实例和ECI实例并绑定
+   * 
+   * @param request - CreateEaiEciRequest
+   * @returns CreateEaiEciResponse
+   */
   async createEaiEci(request: CreateEaiEciRequest): Promise<CreateEaiEciResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEaiEciWithOptions(request, runtime);
   }
 
+  /**
+   * 创建一个EAIS实例和ECS实例并绑定
+   * 
+   * @param tmpReq - CreateEaiEcsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEaiEcsResponse
+   */
   async createEaiEcsWithOptions(tmpReq: CreateEaiEcsRequest, runtime: $Util.RuntimeOptions): Promise<CreateEaiEcsResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateEaiEcsShrinkRequest({ });
@@ -2446,11 +3841,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEaiEcsResponse>(await this.callApi(params, req, runtime), new CreateEaiEcsResponse({}));
   }
 
+  /**
+   * 创建一个EAIS实例和ECS实例并绑定
+   * 
+   * @param request - CreateEaiEcsRequest
+   * @returns CreateEaiEcsResponse
+   */
   async createEaiEcs(request: CreateEaiEcsRequest): Promise<CreateEaiEcsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEaiEcsWithOptions(request, runtime);
   }
 
+  /**
+   * 创建一个EAIS Jupyter环境
+   * 
+   * @param tmpReq - CreateEaiJupyterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEaiJupyterResponse
+   */
   async createEaiJupyterWithOptions(tmpReq: CreateEaiJupyterRequest, runtime: $Util.RuntimeOptions): Promise<CreateEaiJupyterResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateEaiJupyterShrinkRequest({ });
@@ -2509,11 +3917,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEaiJupyterResponse>(await this.callApi(params, req, runtime), new CreateEaiJupyterResponse({}));
   }
 
+  /**
+   * 创建一个EAIS Jupyter环境
+   * 
+   * @param request - CreateEaiJupyterRequest
+   * @returns CreateEaiJupyterResponse
+   */
   async createEaiJupyter(request: CreateEaiJupyterRequest): Promise<CreateEaiJupyterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEaiJupyterWithOptions(request, runtime);
   }
 
+  /**
+   * 创建一个弹性加速计算实例
+   * 
+   * @param request - CreateEaisEiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEaisEiResponse
+   */
   async createEaisEiWithOptions(request: CreateEaisEiRequest, runtime: $Util.RuntimeOptions): Promise<CreateEaisEiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2562,11 +3983,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEaisEiResponse>(await this.callApi(params, req, runtime), new CreateEaisEiResponse({}));
   }
 
+  /**
+   * 创建一个弹性加速计算实例
+   * 
+   * @param request - CreateEaisEiRequest
+   * @returns CreateEaisEiResponse
+   */
   async createEaisEi(request: CreateEaisEiRequest): Promise<CreateEaisEiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEaisEiWithOptions(request, runtime);
   }
 
+  /**
+   * 释放一个弹性加速计算实例
+   * 
+   * @param request - DeleteEaiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEaiResponse
+   */
   async deleteEaiWithOptions(request: DeleteEaiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEaiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2599,11 +4033,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEaiResponse>(await this.callApi(params, req, runtime), new DeleteEaiResponse({}));
   }
 
+  /**
+   * 释放一个弹性加速计算实例
+   * 
+   * @param request - DeleteEaiRequest
+   * @returns DeleteEaiResponse
+   */
   async deleteEai(request: DeleteEaiRequest): Promise<DeleteEaiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEaiWithOptions(request, runtime);
   }
 
+  /**
+   * 释放一个弹性加速计算实例以及与其绑定的ECS或ECI实例
+   * 
+   * @param request - DeleteEaiAllRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEaiAllResponse
+   */
   async deleteEaiAllWithOptions(request: DeleteEaiAllRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEaiAllResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2636,11 +4083,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEaiAllResponse>(await this.callApi(params, req, runtime), new DeleteEaiAllResponse({}));
   }
 
+  /**
+   * 释放一个弹性加速计算实例以及与其绑定的ECS或ECI实例
+   * 
+   * @param request - DeleteEaiAllRequest
+   * @returns DeleteEaiAllResponse
+   */
   async deleteEaiAll(request: DeleteEaiAllRequest): Promise<DeleteEaiAllResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEaiAllWithOptions(request, runtime);
   }
 
+  /**
+   * 释放弹性加速计算实例
+   * 
+   * @param request - DeleteEaisEiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEaisEiResponse
+   */
   async deleteEaisEiWithOptions(request: DeleteEaisEiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEaisEiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2673,11 +4133,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEaisEiResponse>(await this.callApi(params, req, runtime), new DeleteEaisEiResponse({}));
   }
 
+  /**
+   * 释放弹性加速计算实例
+   * 
+   * @param request - DeleteEaisEiRequest
+   * @returns DeleteEaisEiResponse
+   */
   async deleteEaisEi(request: DeleteEaisEiRequest): Promise<DeleteEaisEiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEaisEiWithOptions(request, runtime);
   }
 
+  /**
+   * 查询一个或多个弹性加速计算实例的详细信息
+   * 
+   * @param request - DescribeEaisRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEaisResponse
+   */
   async describeEaisWithOptions(request: DescribeEaisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEaisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2738,11 +4211,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEaisResponse>(await this.callApi(params, req, runtime), new DescribeEaisResponse({}));
   }
 
+  /**
+   * 查询一个或多个弹性加速计算实例的详细信息
+   * 
+   * @param request - DescribeEaisRequest
+   * @returns DescribeEaisResponse
+   */
   async describeEais(request: DescribeEaisRequest): Promise<DescribeEaisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEaisWithOptions(request, runtime);
   }
 
+  /**
+   * 查询您可以使用的阿里云地域
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -2759,11 +4245,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * 查询您可以使用的阿里云地域
+   * @returns DescribeRegionsResponse
+   */
   async describeRegions(): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(runtime);
   }
 
+  /**
+   * 从ECS实例上卸载弹性加速计算实例
+   * 
+   * @param request - DetachEaiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachEaiResponse
+   */
   async detachEaiWithOptions(request: DetachEaiRequest, runtime: $Util.RuntimeOptions): Promise<DetachEaiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2792,11 +4289,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachEaiResponse>(await this.callApi(params, req, runtime), new DetachEaiResponse({}));
   }
 
+  /**
+   * 从ECS实例上卸载弹性加速计算实例
+   * 
+   * @param request - DetachEaiRequest
+   * @returns DetachEaiResponse
+   */
   async detachEai(request: DetachEaiRequest): Promise<DetachEaiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachEaiWithOptions(request, runtime);
   }
 
+  /**
+   * 将EI实例与ECS或ECI实例解绑
+   * 
+   * @param request - DetachEaisEiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachEaisEiResponse
+   */
   async detachEaisEiWithOptions(request: DetachEaisEiRequest, runtime: $Util.RuntimeOptions): Promise<DetachEaisEiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2825,11 +4335,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachEaisEiResponse>(await this.callApi(params, req, runtime), new DetachEaisEiResponse({}));
   }
 
+  /**
+   * 将EI实例与ECS或ECI实例解绑
+   * 
+   * @param request - DetachEaisEiRequest
+   * @returns DetachEaisEiResponse
+   */
   async detachEaisEi(request: DetachEaisEiRequest): Promise<DetachEaisEiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachEaisEiWithOptions(request, runtime);
   }
 
+  /**
+   * 获取EAIS实例级别的监控数据
+   * 
+   * @param request - GetInstanceMetricsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceMetricsResponse
+   */
   async getInstanceMetricsWithOptions(request: GetInstanceMetricsRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceMetricsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2874,11 +4397,128 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceMetricsResponse>(await this.callApi(params, req, runtime), new GetInstanceMetricsResponse({}));
   }
 
+  /**
+   * 获取EAIS实例级别的监控数据
+   * 
+   * @param request - GetInstanceMetricsRequest
+   * @returns GetInstanceMetricsResponse
+   */
   async getInstanceMetrics(request: GetInstanceMetricsRequest): Promise<GetInstanceMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceMetricsWithOptions(request, runtime);
   }
 
+  /**
+   * 查询标签列表
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2019-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  /**
+   * 查询标签列表
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 启动一个部署了notebook的弹性加速计算实例
+   * 
+   * @param request - StartEaiJupyterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartEaiJupyterResponse
+   */
+  async startEaiJupyterWithOptions(request: StartEaiJupyterRequest, runtime: $Util.RuntimeOptions): Promise<StartEaiJupyterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartEaiJupyter",
+      version: "2019-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartEaiJupyterResponse>(await this.callApi(params, req, runtime), new StartEaiJupyterResponse({}));
+  }
+
+  /**
+   * 启动一个部署了notebook的弹性加速计算实例
+   * 
+   * @param request - StartEaiJupyterRequest
+   * @returns StartEaiJupyterResponse
+   */
+  async startEaiJupyter(request: StartEaiJupyterRequest): Promise<StartEaiJupyterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startEaiJupyterWithOptions(request, runtime);
+  }
+
+  /**
+   * 启动一个弹性加速计算实例
+   * 
+   * @param request - StartEaisEiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartEaisEiResponse
+   */
   async startEaisEiWithOptions(request: StartEaisEiRequest, runtime: $Util.RuntimeOptions): Promise<StartEaisEiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2907,11 +4547,70 @@ export default class Client extends OpenApi {
     return $tea.cast<StartEaisEiResponse>(await this.callApi(params, req, runtime), new StartEaisEiResponse({}));
   }
 
+  /**
+   * 启动一个弹性加速计算实例
+   * 
+   * @param request - StartEaisEiRequest
+   * @returns StartEaisEiResponse
+   */
   async startEaisEi(request: StartEaisEiRequest): Promise<StartEaisEiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startEaisEiWithOptions(request, runtime);
   }
 
+  /**
+   * 停止一个部署了notebook的弹性加速计算实例
+   * 
+   * @param request - StopEaiJupyterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopEaiJupyterResponse
+   */
+  async stopEaiJupyterWithOptions(request: StopEaiJupyterRequest, runtime: $Util.RuntimeOptions): Promise<StopEaiJupyterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopEaiJupyter",
+      version: "2019-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopEaiJupyterResponse>(await this.callApi(params, req, runtime), new StopEaiJupyterResponse({}));
+  }
+
+  /**
+   * 停止一个部署了notebook的弹性加速计算实例
+   * 
+   * @param request - StopEaiJupyterRequest
+   * @returns StopEaiJupyterResponse
+   */
+  async stopEaiJupyter(request: StopEaiJupyterRequest): Promise<StopEaiJupyterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopEaiJupyterWithOptions(request, runtime);
+  }
+
+  /**
+   * 停止一个弹性加速计算实例
+   * 
+   * @param request - StopEaisEiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopEaisEiResponse
+   */
   async stopEaisEiWithOptions(request: StopEaisEiRequest, runtime: $Util.RuntimeOptions): Promise<StopEaisEiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2940,9 +4639,127 @@ export default class Client extends OpenApi {
     return $tea.cast<StopEaisEiResponse>(await this.callApi(params, req, runtime), new StopEaisEiResponse({}));
   }
 
+  /**
+   * 停止一个弹性加速计算实例
+   * 
+   * @param request - StopEaisEiRequest
+   * @returns StopEaisEiResponse
+   */
   async stopEaisEi(request: StopEaisEiRequest): Promise<StopEaisEiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopEaisEiWithOptions(request, runtime);
+  }
+
+  /**
+   * 为弹性加速计算实例创建并绑定标签
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2019-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  /**
+   * 为弹性加速计算实例创建并绑定标签
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 解绑并删除标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2019-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  /**
+   * 解绑并删除标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
   }
 
 }
