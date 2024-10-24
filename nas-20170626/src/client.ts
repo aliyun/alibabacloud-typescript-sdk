@@ -688,20 +688,31 @@ export class CancelDataFlowAutoRefreshResponse extends $tea.Model {
 
 export class CancelDataFlowSubTaskRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * 
+   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence?](https://help.aliyun.com/document_detail/25693.html)
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the data flow.
+   * 
    * This parameter is required.
    * 
    * @example
-   * dfid-194433a5be31****
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
    * @remarks
+   * The ID of the data streaming task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -710,19 +721,33 @@ export class CancelDataFlowSubTaskRequest extends $tea.Model {
   dataFlowSubTaskId?: string;
   /**
    * @remarks
+   * The ID of the data flow task.
+   * 
    * This parameter is required.
    * 
    * @example
-   * taskId-12345678
+   * task-38aa8e890f45****
    */
   dataFlowTaskId?: string;
   /**
+   * @remarks
+   * Specifies whether to perform a dry run.
+   * 
+   * During the dry run, the system checks whether the request parameters are valid and whether the requested resources are available. During the dry run, no data streaming task is created and no fee is incurred.
+   * 
+   * Valid values:
+   * 
+   * *   true: performs a dry run. The system checks the required parameters, request syntax, service limits, and available Apsara File Storage NAS (NAS) resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned.
+   * *   false (default): performs a dry run and sends the request. If the request passes the dry run, a data streaming task is created.
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
    * @remarks
+   * The ID of the file system.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -758,6 +783,9 @@ export class CancelDataFlowSubTaskRequest extends $tea.Model {
 
 export class CancelDataFlowSubTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
@@ -824,7 +852,7 @@ export class CancelDataFlowTaskRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * dfid-194433a5be31****
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
@@ -846,6 +874,11 @@ export class CancelDataFlowTaskRequest extends $tea.Model {
    * @remarks
    * The ID of the file system.
    * 
+   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
+   * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
+   * 
+   * >  CPFS is not supported on the international site.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -859,7 +892,7 @@ export class CancelDataFlowTaskRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * taskId-1345768****
+   * task-38aa8e890f45****
    */
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -2149,7 +2182,7 @@ export class CreateDataFlowRequest extends $tea.Model {
    * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
    * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
    * 
-   * >  CPFS file systems are available only on the China site (aliyun.com).
+   * >  CPFS is not supported on the international site.
    * 
    * This parameter is required.
    * 
@@ -2198,19 +2231,27 @@ export class CreateDataFlowRequest extends $tea.Model {
   sourceSecurityType?: string;
   /**
    * @remarks
-   * The access path of the source storage. Format: `<storage type>://<path>`.
+   * The access path of the source storage. Format: `<storage type>://[<account id>:]<path>`.
    * 
    * Parameters:
    * 
    * *   storage type: Only OSS is supported.
    * 
+   * *   account id (optional): the UID of the account of the source storage.
+   * 
    * *   path: the name of the OSS bucket. Limits:
    * 
-   *     *   The path can contain only lowercase letters, digits, and hyphens (-). The path must start and end with a lowercase letter or digit.
-   *     *   The path can be up to 128 characters in length.
-   *     *   The path must be encoded in UTF-8.
+   *     *   The name can contain only lowercase letters, digits, and hyphens (-). The name must start and end with a lowercase letter or digit.
+   *     *   The name can be up to 128 characters in length.
+   *     *   The name must be encoded in UTF-8.
    * 
-   * >  The OSS bucket must be an existing bucket in the region.
+   * > 
+   * 
+   * *   The OSS bucket must be an existing bucket in the region.
+   * 
+   * *   Only CPFS for LINGJUN V2.6.0 and later support the account id parameter.
+   * 
+   * *   The account id parameter is optional. This parameter is required when you use OSS buckets across accounts.
    * 
    * This parameter is required.
    * 
@@ -2294,7 +2335,7 @@ export class CreateDataFlowResponseBody extends $tea.Model {
    * The dataflow ID.
    * 
    * @example
-   * dfid-194433a5be31****
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
@@ -3417,6 +3458,7 @@ export class CreateFilesetRequest extends $tea.Model {
    * /test/
    */
   fileSystemPath?: string;
+  quota?: CreateFilesetRequestQuota;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -3425,6 +3467,7 @@ export class CreateFilesetRequest extends $tea.Model {
       dryRun: 'DryRun',
       fileSystemId: 'FileSystemId',
       fileSystemPath: 'FileSystemPath',
+      quota: 'Quota',
     };
   }
 
@@ -3436,6 +3479,7 @@ export class CreateFilesetRequest extends $tea.Model {
       dryRun: 'boolean',
       fileSystemId: 'string',
       fileSystemPath: 'string',
+      quota: CreateFilesetRequestQuota,
     };
   }
 
@@ -5386,7 +5430,7 @@ export class DeleteDataFlowRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * dfid-123456
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
@@ -5408,10 +5452,15 @@ export class DeleteDataFlowRequest extends $tea.Model {
    * @remarks
    * The ID of the file system.
    * 
+   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
+   * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
+   * 
+   * >  CPFS is not supported on the international site.
+   * 
    * This parameter is required.
    * 
    * @example
-   * cpfs-12345678
+   * cpfs-099394bd928c****
    */
   fileSystemId?: string;
   static names(): { [key: string]: string } {
@@ -7429,6 +7478,8 @@ export class DescribeBlackListClientsResponse extends $tea.Model {
 export class DescribeDataFlowSubTasksRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the file system.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7436,16 +7487,28 @@ export class DescribeDataFlowSubTasksRequest extends $tea.Model {
    */
   fileSystemId?: string;
   /**
+   * @remarks
+   * The filter that is used to query data streaming tasks.
+   * 
    * **if can be null:**
    * false
    */
   filters?: DescribeDataFlowSubTasksRequestFilters[];
   /**
+   * @remarks
+   * The number of results for each query.
+   * 
+   * *   Valid values: 20 to 100.
+   * *   Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * iWk0AQAAAAAvY2FzZS8=
    */
@@ -7474,13 +7537,23 @@ export class DescribeDataFlowSubTasksRequest extends $tea.Model {
 }
 
 export class DescribeDataFlowSubTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about data streaming tasks.
+   */
   dataFlowSubTask?: DescribeDataFlowSubTasksResponseBodyDataFlowSubTask;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * pUJaUwAAAABhdGUyNTk1MQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 98696EF0-1607-4E9D-B01D-F20930B6****
    */
@@ -8320,6 +8393,8 @@ export class DescribeFilesetsResponseBody extends $tea.Model {
    * 
    * @example
    * cpfs-099394bd928c****
+   * 
+   * @deprecated
    */
   fileSystemId?: string;
   /**
@@ -12536,7 +12611,7 @@ export class ModifyDataFlowAutoRefreshRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * dfid-194433a5be31****
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
@@ -13813,6 +13888,21 @@ export class ModifySmbAclResponse extends $tea.Model {
 }
 
 export class OpenNASServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the failed permission verification.
+   * 
+   * @example
+   * {
+   *     "PolicyType": "AccountLevelIdentityBasedPolicy",
+   *     "AuthPrincipalOwnerId": "178321033379****",
+   *     "EncodedDiagnosticMessage": "AJpt/382mjxDSIYIqa/cUIFvOg9tajlLyN+LJA0C78kWfKIl****",
+   *     "AuthPrincipalType": "SubUser",
+   *     "AuthPrincipalDisplayName": "21794847602038****",
+   *     "NoPermissionType": "ImplicitDeny",
+   *     "AuthAction": "nas:OpenNASService"
+   *   }
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -14449,7 +14539,7 @@ export class StartDataFlowRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * dfid-194433a5be31****
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
@@ -14571,7 +14661,7 @@ export class StopDataFlowRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * dfid-194433a5be31****
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
@@ -15285,6 +15375,28 @@ export class CreateDataFlowSubTaskRequestCondition extends $tea.Model {
     return {
       modifyTime: 'number',
       size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFilesetRequestQuota extends $tea.Model {
+  fileCountLimit?: number;
+  sizeLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileCountLimit: 'FileCountLimit',
+      sizeLimit: 'SizeLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileCountLimit: 'number',
+      sizeLimit: 'number',
     };
   }
 
@@ -16358,11 +16470,33 @@ export class DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasks extends $tea
 
 export class DescribeDataFlowSubTasksRequestFilters extends $tea.Model {
   /**
+   * @remarks
+   * The filter name.
+   * 
+   * Valid values:
+   * 
+   * *   DataFlowIds: filters data flow subtasks by data flow ID.
+   * *   DataFlowTaskIds: filters data flow subtasks by data flow task ID.
+   * *   DataFlowSubTaskIds: filters data flow subtasks by data streaming task ID.
+   * *   Status: filters data flow subtasks by status.
+   * *   SrcFilePath: filters data flow subtasks by source file path.
+   * *   DstFilePath: filters data flow subtasks by destination file path.
+   * 
    * @example
    * DataFlowSubTaskIds
    */
   key?: string;
   /**
+   * @remarks
+   * The filter value. This parameter does not support wildcards.
+   * 
+   * *   If Key is set to DataFlowIds, set Value to a data flow ID or a part of the data flow ID. You can specify a data flow ID or a group of data flow IDs. You can specify a maximum of 10 data flow IDs. Example: `df-194433a5be31****` or `df-194433a5be31****,df-244433a5be31****`.
+   * *   If Key is set to DataFlowTaskIds, set Value to a data flow task ID or a part of the data flow task ID. You can specify a data flow task ID or a group of data flow task IDs. You can specify a maximum of 10 data flow task IDs. Example:  `task-38aa8e890f45****` or `task-38aa8e890f45****,task-27aa8e890f45****`.
+   * *   If Key is set to DataFlowSubTaskIds, set Value to a data streaming task ID or a part of the data streaming task ID. You can specify a data streaming task ID or a group of data streaming task IDs. You can specify a maximum of 10 data streaming task IDs. Example: ` subTaskId-370kyfmyknxcyzw****  `or `subTaskId-370kyfmyknxcyzw****,subTaskId-280kyfmyknxcyzw****`.
+   * *   If Key is set to Status, set Value to the status of the data flow task. The status can be EXPIRED, CREATED, RUNNING, COMPLETE, CANCELING, FAILED, or CANCELED. Combined query is supported.
+   * *   If Key is set to SrcFilePath, set Value to the path of the source file. The path can be up to 1,023 characters in length.
+   * *   If Key is set to DstFilePath, set Value to the path of the destination file. The path can be up to 1,023 characters in length.
+   * 
    * @example
    * subTaskId-370kyfmyknxcyzw****
    */
@@ -16388,16 +16522,25 @@ export class DescribeDataFlowSubTasksRequestFilters extends $tea.Model {
 
 export class DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTaskFileDetail extends $tea.Model {
   /**
+   * @remarks
+   * The checksum. Format example: crc64:123456.
+   * 
    * @example
    * crc64:850309505450944****
    */
   checksum?: string;
   /**
+   * @remarks
+   * The time when the file was modified. The value is a UNIX timestamp. Unit: ns.
+   * 
    * @example
    * 1721167603
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 68
    */
@@ -16425,21 +16568,33 @@ export class DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTaskF
 
 export class DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTaskProgressStats extends $tea.Model {
   /**
+   * @remarks
+   * The actual amount of data for which the data flow task is complete. Unit: bytes.
+   * 
    * @example
    * 68
    */
   actualBytes?: number;
   /**
+   * @remarks
+   * The average flow velocity. Unit: bytes/s.
+   * 
    * @example
    * 34
    */
   averageSpeed?: number;
   /**
+   * @remarks
+   * The amount of data (including skipped data) for which the data flow task is complete. Unit: bytes.
+   * 
    * @example
    * 68
    */
   bytesDone?: number;
   /**
+   * @remarks
+   * The amount of data scanned on the source. Unit: bytes.
+   * 
    * @example
    * 68
    */
@@ -16469,59 +16624,122 @@ export class DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTaskP
 
 export class DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTask extends $tea.Model {
   /**
+   * @remarks
+   * The time when the data streaming task was created.
+   * 
    * @example
    * 2024-07-01 19:59:29
    */
   createTime?: string;
   /**
+   * @remarks
+   * The ID of the data flow.
+   * 
    * @example
-   * dfid-194433a5be31****
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
+   * @remarks
+   * The ID of the data streaming task.
+   * 
    * @example
    * subTaskId-370kyfmyknxcyzw****
    */
   dataFlowSubTaskId?: string;
   /**
+   * @remarks
+   * The ID of the data flow task.
+   * 
    * @example
-   * taskId-12345678
+   * task-38aa8e890f45****
    */
   dataFlowTaskId?: string;
   /**
+   * @remarks
+   * The path of the destination file. Limits:
+   * 
+   * *   The path must be 1 to 1,023 characters in length.
+   * *   The path must be encoded in UTF-8.
+   * *   The path must start with a forward slash (/).
+   * *   The path must end with the file name.
+   * 
    * @example
    * /mnt/file.png
    */
   dstFilePath?: string;
   /**
+   * @remarks
+   * The time when the data streaming task ended.
+   * 
    * @example
    * 2024-07-04 11:14:22
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The error message returned when the task failed.
+   */
   errorMsg?: string;
+  /**
+   * @remarks
+   * The file information.
+   */
   fileDetail?: DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTaskFileDetail;
   /**
+   * @remarks
+   * The ID of the file system.
+   * 
    * @example
    * bmcpfs-370lx1ev9ss27o0****
    */
   fileSystemId?: string;
   /**
+   * @remarks
+   * The progress of the data streaming task. Valid values: 0 to 10000.
+   * 
    * @example
    * 10000
    */
   progress?: number;
+  /**
+   * @remarks
+   * The progress information about data streaming tasks.
+   */
   progressStats?: DescribeDataFlowSubTasksResponseBodyDataFlowSubTaskDataFlowSubTaskProgressStats;
   /**
+   * @remarks
+   * The path of the source file. Limits:
+   * 
+   * *   The path must be 1 to 1,023 characters in length.
+   * *   The path must be encoded in UTF-8.
+   * *   The path must start with a forward slash (/).
+   * *   The path must end with the file name.
+   * 
    * @example
    * /test/file.png
    */
   srcFilePath?: string;
   /**
+   * @remarks
+   * The time when the data streaming task started.
+   * 
    * @example
    * 2024-07-03 10:43:16
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the data streaming task. Valid values:
+   * 
+   * *   EXPIRED: The task is terminated.
+   * *   CREATED: The task is created.
+   * *   RUNNING: The task is running.
+   * *   COMPLETE: The task is complete.
+   * *   CANCELING: The task is being canceled.
+   * *   FAILED: The task failed to be executed.
+   * *   CANCELED: The task is canceled.
+   * 
    * @example
    * COMPLETE
    */
@@ -18835,6 +19053,28 @@ export class DescribeFilesetsRequestFilters extends $tea.Model {
   }
 }
 
+export class DescribeFilesetsResponseBodyEntriesEntrieQuota extends $tea.Model {
+  fileCountLimit?: number;
+  sizeLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileCountLimit: 'FileCountLimit',
+      sizeLimit: 'SizeLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileCountLimit: 'number',
+      sizeLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFilesetsResponseBodyEntriesEntrie extends $tea.Model {
   /**
    * @remarks
@@ -18867,6 +19107,8 @@ export class DescribeFilesetsResponseBodyEntriesEntrie extends $tea.Model {
    * test
    */
   description?: string;
+  fileCountUsage?: number;
+  fileSystemId?: string;
   /**
    * @remarks
    * The fileset path.
@@ -18883,6 +19125,8 @@ export class DescribeFilesetsResponseBodyEntriesEntrie extends $tea.Model {
    * fset-1902718ea0ae****
    */
   fsetId?: string;
+  quota?: DescribeFilesetsResponseBodyEntriesEntrieQuota;
+  spaceUsage?: number;
   /**
    * @remarks
    * The fileset status. Valid values:
@@ -18911,8 +19155,12 @@ export class DescribeFilesetsResponseBodyEntriesEntrie extends $tea.Model {
       createTime: 'CreateTime',
       deletionProtection: 'DeletionProtection',
       description: 'Description',
+      fileCountUsage: 'FileCountUsage',
+      fileSystemId: 'FileSystemId',
       fileSystemPath: 'FileSystemPath',
       fsetId: 'FsetId',
+      quota: 'Quota',
+      spaceUsage: 'SpaceUsage',
       status: 'Status',
       updateTime: 'UpdateTime',
     };
@@ -18923,8 +19171,12 @@ export class DescribeFilesetsResponseBodyEntriesEntrie extends $tea.Model {
       createTime: 'string',
       deletionProtection: 'boolean',
       description: 'string',
+      fileCountUsage: 'number',
+      fileSystemId: 'string',
       fileSystemPath: 'string',
       fsetId: 'string',
+      quota: DescribeFilesetsResponseBodyEntriesEntrieQuota,
+      spaceUsage: 'number',
       status: 'string',
       updateTime: 'string',
     };
@@ -21972,7 +22224,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消数据流动任务队列中尚未执行的子任务
+   * Cancels a data streaming task.
+   * 
+   * @remarks
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
+   * *   You can cancel a data streaming task only when the task is in the CREATED or RUNNING state.
+   * *   Data streaming tasks are executed asynchronously. You can call the DescribeDataFlowSubTasks operation to query the task execution status.
    * 
    * @param request - CancelDataFlowSubTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22023,7 +22280,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消数据流动任务队列中尚未执行的子任务
+   * Cancels a data streaming task.
+   * 
+   * @remarks
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
+   * *   You can cancel a data streaming task only when the task is in the CREATED or RUNNING state.
+   * *   Data streaming tasks are executed asynchronously. You can call the DescribeDataFlowSubTasks operation to query the task execution status.
    * 
    * @param request - CancelDataFlowSubTaskRequest
    * @returns CancelDataFlowSubTaskResponse
@@ -22037,10 +22299,9 @@ export default class Client extends OpenApi {
    * Cancels a dataflow task that is not running.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support dataflow tasks. You can view the version information on the file system details page in the console.
-   * *   You can cancel only the dataflow tasks that are in the `Pending` and `Executing` states.
-   * *   It generally takes 5 to 10 minutes to cancel a dataflow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation.
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flow tasks. You can view the version information on the file system details page in the console.
+   * *   You can cancel only the data flow tasks that are in the `Pending` and `Executing` states.
+   * *   It generally takes 5 to 10 minutes to cancel a data flow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation.
    * 
    * @param request - CancelDataFlowTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22090,10 +22351,9 @@ export default class Client extends OpenApi {
    * Cancels a dataflow task that is not running.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support dataflow tasks. You can view the version information on the file system details page in the console.
-   * *   You can cancel only the dataflow tasks that are in the `Pending` and `Executing` states.
-   * *   It generally takes 5 to 10 minutes to cancel a dataflow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation.
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flow tasks. You can view the version information on the file system details page in the console.
+   * *   You can cancel only the data flow tasks that are in the `Pending` and `Executing` states.
+   * *   It generally takes 5 to 10 minutes to cancel a data flow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation.
    * 
    * @param request - CancelDataFlowTaskRequest
    * @returns CancelDataFlowTaskResponse
@@ -22622,45 +22882,23 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   Basic operations
-   *     *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for LINGJUN V2.4.0 and later support data flows.
-   *     *   You can create a data flow only when a CPFS or CPFS for LINGJUN file system is in the Running state.
-   *     *   A maximum of 10 data flows can be created for a CPFS or CPFS for LINGJUN file system.
+   *     *   Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows.
+   *     *   You can create a data flow only when a CPFS for LINGJUN file system is in the Running state.
+   *     *   A maximum of 10 data flows can be created for a CPFS for LINGJUN file system.
    *     *   It generally takes 2 to 5 minutes to create a data flow. You can call the DescribeDataFlows operation to check whether the data flow has been created.
    * *   Permissions
-   *     When you create a data flow, CPFS obtains the following two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/185138.html).
-   * *   CPFS usage notes
-   *     *   Billing
-   *         *   If you create a data flow, you are charged for using the data flow throughput. For more information, see [Billing of CPFS](https://help.aliyun.com/document_detail/111858.html).
-   *         *   When you configure the AutoRefresh feature for a data flow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](https://help.aliyun.com/document_detail/163752.html).
-   *     *   Data flow specifications
-   *         *   The data flow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The data flow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a data flow.
-   *         *   When you create a data flow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
-   *         *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the data flow whose throughput is changed meet the requirements.
-   *     *   Fileset
-   *         *   The destination for a data flow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
-   *         *   When you create a data flow for a CPFS file system, the related fileset must already exist and cannot be nested with other filesets. Only one data flow can be created in a fileset, which corresponds to one source storage.
-   *         *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
-   *      >   If data already exists in the fileset, after you create a data flow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
-   *     *   AutoRefresh
-   *         *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a data flow task to load the updated data.
-   *         *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
-   *         *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a data flow.
-   *         *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS data flow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the data flow status becomes `Misconfigured`. To resolve these issues, you can increase the data flow specifications or reduce the frequency of triggering the object modification event.
-   *         *   When you add an AutoRefresh configuration to the prefix for a CPFS data flow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS data flow.
-   *         > The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
-   *     *   Source storage
-   *         *   The source storage is an OSS bucket. SourceStorage for a data flow must be an OSS bucket.
-   *         *   CPFS data flows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
-   *         *   If data flows for multiple CPFS file systems or multiple data flows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
-   *         *   Data flows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-   *          >  Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS cannot access the data in the OSS bucket.
+   *     When you create a data flow, CPFS for LINGJUN obtains the following two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/185138.html).
    * *   CPFS for LINGJUN usage notes
    *     *   Source storage
-   *         *   The source storage is an OSS bucket. SourceStorage for a data flow must be an OSS bucket.
+   *         *   The source storage is an Object Storage Service (OSS) bucket. SourceStorage for a data flow must be an OSS bucket.
    *         *   CPFS for LINGJUN data flows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
    *         *   If data flows for multiple CPFS for LINGJUN file systems or multiple data flows for the same CPFS for LINGJUN file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS for LINGJUN file systems to one OSS bucket.
    *         *   Data flows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-   *         > Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS for LINGJUN cannot access the data in the OSS bucket.
+   *         *   CPFS for LINGJUN V2.6.0 and later allows you to create data flows for OSS buckets across accounts.
+   *         *   The account id parameter is required only when you use OSS buckets across accounts.
+   *         *   To use OSS buckets across accounts, you must first grant permissions to the related accounts. For more information, see [Cross-account authorization on data flows](https://help.aliyun.com/document_detail/182246.html).
+   *             **
+   *             **Note** Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS for LINGJUN cannot access the data in the OSS bucket.
    *     *   Limits of data flows on file systems
    *         *   You cannot rename a non-empty directory in a path that is associated with a data flow. Otherwise, the Permission Denied error message or an error message indicating that the directory is not empty is returned.
    *         *   Proceed with caution when you use special characters in the names of directories and files. The following characters are supported: letters, digits, exclamation points (!), hyphens (-), underscores (_), periods (.), asterisks (\\*), and parentheses (()).
@@ -22756,45 +22994,23 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   Basic operations
-   *     *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for LINGJUN V2.4.0 and later support data flows.
-   *     *   You can create a data flow only when a CPFS or CPFS for LINGJUN file system is in the Running state.
-   *     *   A maximum of 10 data flows can be created for a CPFS or CPFS for LINGJUN file system.
+   *     *   Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows.
+   *     *   You can create a data flow only when a CPFS for LINGJUN file system is in the Running state.
+   *     *   A maximum of 10 data flows can be created for a CPFS for LINGJUN file system.
    *     *   It generally takes 2 to 5 minutes to create a data flow. You can call the DescribeDataFlows operation to check whether the data flow has been created.
    * *   Permissions
-   *     When you create a data flow, CPFS obtains the following two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/185138.html).
-   * *   CPFS usage notes
-   *     *   Billing
-   *         *   If you create a data flow, you are charged for using the data flow throughput. For more information, see [Billing of CPFS](https://help.aliyun.com/document_detail/111858.html).
-   *         *   When you configure the AutoRefresh feature for a data flow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](https://help.aliyun.com/document_detail/163752.html).
-   *     *   Data flow specifications
-   *         *   The data flow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The data flow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a data flow.
-   *         *   When you create a data flow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
-   *         *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the data flow whose throughput is changed meet the requirements.
-   *     *   Fileset
-   *         *   The destination for a data flow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
-   *         *   When you create a data flow for a CPFS file system, the related fileset must already exist and cannot be nested with other filesets. Only one data flow can be created in a fileset, which corresponds to one source storage.
-   *         *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
-   *      >   If data already exists in the fileset, after you create a data flow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
-   *     *   AutoRefresh
-   *         *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a data flow task to load the updated data.
-   *         *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
-   *         *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a data flow.
-   *         *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS data flow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the data flow status becomes `Misconfigured`. To resolve these issues, you can increase the data flow specifications or reduce the frequency of triggering the object modification event.
-   *         *   When you add an AutoRefresh configuration to the prefix for a CPFS data flow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS data flow.
-   *         > The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
-   *     *   Source storage
-   *         *   The source storage is an OSS bucket. SourceStorage for a data flow must be an OSS bucket.
-   *         *   CPFS data flows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
-   *         *   If data flows for multiple CPFS file systems or multiple data flows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
-   *         *   Data flows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-   *          >  Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS cannot access the data in the OSS bucket.
+   *     When you create a data flow, CPFS for LINGJUN obtains the following two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/185138.html).
    * *   CPFS for LINGJUN usage notes
    *     *   Source storage
-   *         *   The source storage is an OSS bucket. SourceStorage for a data flow must be an OSS bucket.
+   *         *   The source storage is an Object Storage Service (OSS) bucket. SourceStorage for a data flow must be an OSS bucket.
    *         *   CPFS for LINGJUN data flows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
    *         *   If data flows for multiple CPFS for LINGJUN file systems or multiple data flows for the same CPFS for LINGJUN file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS for LINGJUN file systems to one OSS bucket.
    *         *   Data flows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-   *         > Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS for LINGJUN cannot access the data in the OSS bucket.
+   *         *   CPFS for LINGJUN V2.6.0 and later allows you to create data flows for OSS buckets across accounts.
+   *         *   The account id parameter is required only when you use OSS buckets across accounts.
+   *         *   To use OSS buckets across accounts, you must first grant permissions to the related accounts. For more information, see [Cross-account authorization on data flows](https://help.aliyun.com/document_detail/182246.html).
+   *             **
+   *             **Note** Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS for LINGJUN cannot access the data in the OSS bucket.
    *     *   Limits of data flows on file systems
    *         *   You cannot rename a non-empty directory in a path that is associated with a data flow. Otherwise, the Permission Denied error message or an error message indicating that the directory is not empty is returned.
    *         *   Proceed with caution when you use special characters in the names of directories and files. The following characters are supported: letters, digits, exclamation points (!), hyphens (-), underscores (_), periods (.), asterisks (\\*), and parentheses (()).
@@ -23277,6 +23493,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileSystemPath)) {
       query["FileSystemPath"] = request.fileSystemPath;
+    }
+
+    if (!Util.isUnset(request.quota)) {
+      query["Quota"] = request.quota;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24215,10 +24435,9 @@ export default class Client extends OpenApi {
    * Deletes a dataflow.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   You can create filesets only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
-   * *   You can delete the dataflows that are only in the `Running` or `Stopped` state.
-   * *   After a dataflow is deleted, the resources related to the dataflow are released and cannot be restored. You must create a dataflow again if required.
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
+   * *   You can delete the data flows that are only in the `Running` or `Stopped` state.
+   * *   After a data flow is deleted, the resources related to the data flow are released and cannot be restored. You must create a data flow again if required.
    * 
    * @param request - DeleteDataFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24264,10 +24483,9 @@ export default class Client extends OpenApi {
    * Deletes a dataflow.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   You can create filesets only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
-   * *   You can delete the dataflows that are only in the `Running` or `Stopped` state.
-   * *   After a dataflow is deleted, the resources related to the dataflow are released and cannot be restored. You must create a dataflow again if required.
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
+   * *   You can delete the data flows that are only in the `Running` or `Stopped` state.
+   * *   After a data flow is deleted, the resources related to the data flow are released and cannot be restored. You must create a data flow again if required.
    * 
    * @param request - DeleteDataFlowRequest
    * @returns DeleteDataFlowResponse
@@ -25174,7 +25392,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据流动子任务
+   * Queries data flow subtasks in batches.
+   * 
+   * @remarks
+   * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
    * 
    * @param request - DescribeDataFlowSubTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25217,7 +25438,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据流动子任务
+   * Queries data flow subtasks in batches.
+   * 
+   * @remarks
+   * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
    * 
    * @param request - DescribeDataFlowSubTasksRequest
    * @returns DescribeDataFlowSubTasksResponse
@@ -27312,7 +27536,7 @@ export default class Client extends OpenApi {
    *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
    * *   You can modify the AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-   * *   It generally takes 2 to 5 minutes to modify an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the task of modifying an AutoRefresh configuration.
+   * *   It generally takes 2 to 5 minutes to modify an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation to query the task of modifying an AutoRefresh configuration.
    * 
    * @param request - ModifyDataFlowAutoRefreshRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27369,7 +27593,7 @@ export default class Client extends OpenApi {
    *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
    * *   You can modify the AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-   * *   It generally takes 2 to 5 minutes to modify an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the task of modifying an AutoRefresh configuration.
+   * *   It generally takes 2 to 5 minutes to modify an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation to query the task of modifying an AutoRefresh configuration.
    * 
    * @param request - ModifyDataFlowAutoRefreshRequest
    * @returns ModifyDataFlowAutoRefreshResponse
@@ -28226,10 +28450,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-   * *   You can enable the dataflows that are only in the `Stopped` state.
-   * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified dataflow. If the resources are insufficient, the dataflow cannot be enabled.
-   * *   It generally takes 2 to 5 minutes to enable a dataflow. You can query the dataflow status by calling the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation.
+   * *   Only CPFS V2.2.0 and later support data flows. You can view the version information on the file system details page in the console.
+   * *   You can enable the data flows that are only in the `Stopped` state.
+   * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified data flow. If the resources are insufficient, the data flow cannot be enabled.
+   * *   It generally takes 2 to 5 minutes to enable a data flow. You can query the data flow status by calling the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation.
    * 
    * @param request - StartDataFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28276,10 +28500,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-   * *   You can enable the dataflows that are only in the `Stopped` state.
-   * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified dataflow. If the resources are insufficient, the dataflow cannot be enabled.
-   * *   It generally takes 2 to 5 minutes to enable a dataflow. You can query the dataflow status by calling the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation.
+   * *   Only CPFS V2.2.0 and later support data flows. You can view the version information on the file system details page in the console.
+   * *   You can enable the data flows that are only in the `Stopped` state.
+   * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified data flow. If the resources are insufficient, the data flow cannot be enabled.
+   * *   It generally takes 2 to 5 minutes to enable a data flow. You can query the data flow status by calling the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation.
    * 
    * @param request - StartDataFlowRequest
    * @returns StartDataFlowResponse
