@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -8,12 +7,167 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddExtCodeSignRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 扩展码A3
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 01
+   */
+  extCode?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 签名
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值
+   */
+  signName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extCode: 'ExtCode',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signName: 'SignName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extCode: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddExtCodeSignResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 90E63D28-E31D-1EB2-8939-A9486641****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddExtCodeSignResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddExtCodeSignResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddExtCodeSignResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddShortUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The validity period of the short URL. Unit: days. The maximum validity period is 90 days.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7
+   */
   effectiveDays?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The service name of the short URL. The name cannot exceed 13 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * The Alibaba Cloud Short Link service.
+   */
   shortUrlName?: string;
+  /**
+   * @remarks
+   * The source URL. The URL cannot exceed 1,000 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * https://www.****.com/product/sms
+   */
   sourceUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,9 +197,37 @@ export class AddShortUrlRequest extends $tea.Model {
 }
 
 export class AddShortUrlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The details of the short URL.
+   */
   data?: AddShortUrlResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 819BE656-D2E0-4858-8B21-B2E477085AAF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -97,12 +279,68 @@ export class AddShortUrlResponse extends $tea.Model {
 
 export class AddSmsSignRequest extends $tea.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The description of the signature application. The description cannot exceed 200 characters in length. The description is one of the reference information for signature review. We recommend that you describe the use scenarios of your services in detail, and provide information that can verify the services, such as a website URL, a domain name with an ICP filing, an app download URL, an official account name, or a mini program name. For sign-in scenarios, you must also provide an account and password for tests. A detailed description can improve the review efficiency of signatures and templates.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * This is the abbreviation of our company.
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The signature files.
+   * 
+   * This parameter is required.
+   */
   signFileList?: AddSmsSignRequestSignFileList[];
+  /**
+   * @remarks
+   * The name of the signature.
+   * 
+   * > 
+   * 
+   * *   The signature name is not case-sensitive. For example, [Alibaba Cloud Communication] and [alibaba cloud communication] are considered as the same name.
+   * 
+   * *   If your verification code signature and general-purpose signature have the same name, the system uses the general-purpose signature to send messages by default.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
+  /**
+   * @remarks
+   * The source of the signature. Valid values:
+   * 
+   * *   **0**: the full name or abbreviation of an enterprise or institution
+   * *   **1**: the full name or abbreviation of a website that has obtained an ICP filing from the Ministry of Industry and Information Technology (MIIT) of China
+   * *   **2**: the full name or abbreviation of an app
+   * *   **3**: the full name or abbreviation of an official account or mini-program
+   * *   **4**: the full name or abbreviation of an e-commerce store
+   * *   **5**: the full name or abbreviation of a trademark
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   signSource?: number;
+  /**
+   * @remarks
+   * The type of the signature. Valid values:
+   * 
+   * *   **0**: verification code
+   * *   **1**: general-purpose
+   * 
+   * @example
+   * 1
+   */
   signType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -136,9 +374,40 @@ export class AddSmsSignRequest extends $tea.Model {
 }
 
 export class AddSmsSignResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8DE990
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The name of the signature.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -190,11 +459,54 @@ export class AddSmsSignResponse extends $tea.Model {
 
 export class AddSmsTemplateRequest extends $tea.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The description of the message template. It is one of the reference information for template review. The description cannot exceed 100 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Apply for a template to send verification codes.
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The content of the template. The content can be up to 500 characters in length. For more information, see [Message template specifications](https://help.aliyun.com/document_detail/108253.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * You are applying for mobile registration. The verification code is: ${code}, valid for 5 minutes!
+   */
   templateContent?: string;
+  /**
+   * @remarks
+   * The name of the template. The name can be up to 30 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Aliyun Test
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The type of the message. Valid values:
+   * 
+   * *   **0**: verification code
+   * *   **1**: notification
+   * *   **2**: promotional message
+   * *   **3**: message sent to countries or regions outside the Chinese mainland
+   * 
+   * > Only enterprise users can send promotional messages, or send messages to countries or regions outside the Chinese mainland.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -226,9 +538,40 @@ export class AddSmsTemplateRequest extends $tea.Model {
 }
 
 export class AddSmsTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8DE990
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * @example
+   * SMS_15255****
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -279,7 +622,24 @@ export class AddSmsTemplateResponse extends $tea.Model {
 }
 
 export class CheckMobilesCardSupportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of mobile phone numbers that receive messages.
+   * 
+   * This parameter is required.
+   */
   mobiles?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The code of the message template. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > Make sure that the message template has been approved.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CARD_SMS_****
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -301,9 +661,40 @@ export class CheckMobilesCardSupportRequest extends $tea.Model {
 }
 
 export class CheckMobilesCardSupportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: CheckMobilesCardSupportResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 819BE656-D2E0-4858-8B21-B2E477085AAF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -354,8 +745,28 @@ export class CheckMobilesCardSupportResponse extends $tea.Model {
 }
 
 export class ConversionDataIntlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The conversion rate.
+   * 
+   * > The value of this parameter is a double, and ranges from 0 to 1.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0.53
+   */
   conversionRate?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The time point at which the conversion rate is monitored. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * > If you do not specify this parameter, the current timestamp is used by default.
+   * 
+   * @example
+   * 1349055900000
+   */
   reportTime?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -385,8 +796,29 @@ export class ConversionDataIntlRequest extends $tea.Model {
 }
 
 export class ConversionDataIntlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status code. If OK is returned, the request is successful. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html?spm=a2c4g.101345.0.0.74326ff2J5EZyt).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8D****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -435,9 +867,107 @@ export class ConversionDataIntlResponse extends $tea.Model {
 }
 
 export class CreateCardSmsTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The mobile phone manufacturer. Valid values:
+   * 
+   * *   **HuaWei**: HUAWEI
+   * *   **XiaoMi**: Xiaomi
+   * *   **OPPO**: OPPO
+   * *   **VIVO**: vivo
+   * *   **MEIZU**: MEIZU
+   * 
+   * > If this parameter is not specified, the system automatically specifies a supported mobile phone manufacturer.
+   * 
+   * @example
+   * XiaoMi
+   */
   factorys?: string;
+  /**
+   * @remarks
+   * The description of the message template.
+   * 
+   * @example
+   * Image and Text Template
+   */
   memo?: string;
+  /**
+   * @remarks
+   * The content of the card message template.
+   * 
+   * > 
+   * 
+   * *   For information about fields such as Template, ExtendInfo, TemplateContent, TmpCard, and Action, see [Parameters of card message templates](https://help.aliyun.com/document_detail/434929.html).
+   * 
+   * *   Message template content varies based on the template type. For more information, see [Sample message templates](https://help.aliyun.com/document_detail/435361.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {
+   *        "extendInfo":{
+   *               "scene":"HMOVM",
+   *               "purpose":"2",
+   *               "userExt":{
+   *                      "outId":"1234554321"
+   *               }
+   *        },
+   *        "templateContent":{
+   *               "pages":[
+   *                      {
+   * "tmpCards":[
+   *                                    {
+   *                                           "type":"IMAGE",
+   *                                           "srcType":1,
+   *                                           "src":"28755",
+   *                                           "actionType":"OPEN_APP",
+   *                                           "action":{
+   *                                                  "target":"https://s.tb.cn/c.KxzZ",
+   *                                                  "merchantName":"test-template",
+   *                                                  "packageName":[
+   *                                                         "com.taobao.taobao"],
+   *                                                  "floorUrl":"https://s.tb.cn/c.KxzZ"
+   *                                           },
+   *                                           "positionNumber":1
+   *                                    },
+   *                                    {
+   *                                           "type":"TEXT",
+   *                                           "content":"this is a test msg.",
+   *                                           "isTextTitle":true,
+   *                                           "positionNumber":2
+   *                                    },
+   *                                    {
+   *                                           "type":"TEXT",
+   *                                           "content":"Promotional information",
+   *                                           "isTextTitle":false,
+   *                                           "positionNumber":3
+   *                                    },
+   *                                    {
+   *                                           "type":"BUTTON",
+   *                                           "content":"Promotional information,",
+   *                                           "actionType":"OPEN_BROWSER",
+   *                                           "action":{
+   *                                                  "target":"https://www.aliyun.com",
+   *                                                  "merchantName":"Currently on the Alibaba Cloud official website."
+   * },
+   *                                           "positionNumber":4
+   *                                    }]
+   *                      }]
+   *        },
+   *        "cardSignName":"aliyun",
+   *        "cardType":5
+   * }
+   */
   template?: { [key: string]: any };
+  /**
+   * @remarks
+   * The name of the card message template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Aliyun Image and Text Template
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -463,9 +993,107 @@ export class CreateCardSmsTemplateRequest extends $tea.Model {
 }
 
 export class CreateCardSmsTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The mobile phone manufacturer. Valid values:
+   * 
+   * *   **HuaWei**: HUAWEI
+   * *   **XiaoMi**: Xiaomi
+   * *   **OPPO**: OPPO
+   * *   **VIVO**: vivo
+   * *   **MEIZU**: MEIZU
+   * 
+   * > If this parameter is not specified, the system automatically specifies a supported mobile phone manufacturer.
+   * 
+   * @example
+   * XiaoMi
+   */
   factorys?: string;
+  /**
+   * @remarks
+   * The description of the message template.
+   * 
+   * @example
+   * Image and Text Template
+   */
   memo?: string;
+  /**
+   * @remarks
+   * The content of the card message template.
+   * 
+   * > 
+   * 
+   * *   For information about fields such as Template, ExtendInfo, TemplateContent, TmpCard, and Action, see [Parameters of card message templates](https://help.aliyun.com/document_detail/434929.html).
+   * 
+   * *   Message template content varies based on the template type. For more information, see [Sample message templates](https://help.aliyun.com/document_detail/435361.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {
+   *        "extendInfo":{
+   *               "scene":"HMOVM",
+   *               "purpose":"2",
+   *               "userExt":{
+   *                      "outId":"1234554321"
+   *               }
+   *        },
+   *        "templateContent":{
+   *               "pages":[
+   *                      {
+   * "tmpCards":[
+   *                                    {
+   *                                           "type":"IMAGE",
+   *                                           "srcType":1,
+   *                                           "src":"28755",
+   *                                           "actionType":"OPEN_APP",
+   *                                           "action":{
+   *                                                  "target":"https://s.tb.cn/c.KxzZ",
+   *                                                  "merchantName":"test-template",
+   *                                                  "packageName":[
+   *                                                         "com.taobao.taobao"],
+   *                                                  "floorUrl":"https://s.tb.cn/c.KxzZ"
+   *                                           },
+   *                                           "positionNumber":1
+   *                                    },
+   *                                    {
+   *                                           "type":"TEXT",
+   *                                           "content":"this is a test msg.",
+   *                                           "isTextTitle":true,
+   *                                           "positionNumber":2
+   *                                    },
+   *                                    {
+   *                                           "type":"TEXT",
+   *                                           "content":"Promotional information",
+   *                                           "isTextTitle":false,
+   *                                           "positionNumber":3
+   *                                    },
+   *                                    {
+   *                                           "type":"BUTTON",
+   *                                           "content":"Promotional information,",
+   *                                           "actionType":"OPEN_BROWSER",
+   *                                           "action":{
+   *                                                  "target":"https://www.aliyun.com",
+   *                                                  "merchantName":"Currently on the Alibaba Cloud official website."
+   * },
+   *                                           "positionNumber":4
+   *                                    }]
+   *                      }]
+   *        },
+   *        "cardSignName":"aliyun",
+   *        "cardType":5
+   * }
+   */
   templateShrink?: string;
+  /**
+   * @remarks
+   * The name of the card message template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Aliyun Image and Text Template
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -491,9 +1119,40 @@ export class CreateCardSmsTemplateShrinkRequest extends $tea.Model {
 }
 
 export class CreateCardSmsTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   If OK is returned, the request is successful.
+   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: CreateCardSmsTemplateResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8DE990
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -544,11 +1203,29 @@ export class CreateCardSmsTemplateResponse extends $tea.Model {
 }
 
 export class CreateSmartShortUrlRequest extends $tea.Model {
+  /**
+   * @example
+   * 示例值示例值
+   */
   outId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15900195***
+   */
   phoneNumbers?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值
+   */
   sourceUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -578,9 +1255,21 @@ export class CreateSmartShortUrlRequest extends $tea.Model {
 }
 
 export class CreateSmartShortUrlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
   code?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
   message?: string;
   model?: CreateSmartShortUrlResponseBodyModel[];
+  /**
+   * @example
+   * 示例值示例值
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -631,16 +1320,114 @@ export class CreateSmartShortUrlResponse extends $tea.Model {
 }
 
 export class CreateSmsSignRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Application scenarios, instructions as follows:
+   * - For registered websites, enter the domain name with HTTP or HTTPS that has been registered with the MIIT.
+   * 
+   * - For launched apps, provide a display link from the app store with HTTP or HTTPS, ensuring the app is online.
+   * 
+   * - For public accounts or mini-programs, input the full name, ensuring they are online.
+   * 
+   * - For e-commerce platform store names, applicable only to enterprise users, provide a display link with HTTP or HTTPS for the store.
+   * 
+   * @example
+   * http://www.aliyun.com/
+   */
   applySceneContent?: string;
+  /**
+   * @remarks
+   * Additional information to supplement uploaded business proof documents or screenshots, which helps reviewers understand your business details.
+   * 
+   * This parameter is optional; please fill it out based on your actual needs.
+   */
   moreData?: string[];
   ownerId?: number;
+  /**
+   * @remarks
+   * Approved or under-review qualification ID.
+   * 
+   * > - Before applying for an SMS signature, please first [Apply for Qualification](https://help.aliyun.com/zh/sms/user-guide/new-qualification?spm=a2c4g.11186623.0.0.718d187bbkpMRK).
+   * > - You can view the qualification ID on the [Qualification Management](https://dysms.console.aliyun.com/domestic/text/qualification) page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8563**
+   */
   qualificationId?: number;
+  /**
+   * @remarks
+   * Explanation of the SMS signature scenario, with a maximum length of 200 characters.
+   * 
+   * > The scenario explanation is one of the reference materials for signature review. Please provide a detailed description of the usage scenarios for your live services, along with links to verify these services such as website URLs with MIIT备案, app store display links, full names of public accounts or mini-programs, etc. For login scenarios, test account credentials are also required. A comprehensive application explanation enhances the efficiency of signature and template reviews. Refer to the **Application Scenario** column in the [Signature Source](https://help.aliyun.com/zh/sms/user-guide/signature-specifications-1?spm=a2c4g.11186623.0.i2#section-xup-k46-yi4) table for filling in SMS scenarios.
+   * 
+   * @example
+   * SMS signature for the login scenario using verification code.
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Signature name. Please adhere to the [Signature Specifications](https://help.aliyun.com/zh/sms/user-guide/signature-specifications-1?spm=a2c4g.11186623.0.0.4f9710fder2gR7#section-0p8-qn8-mmy).
+   * 
+   * > - Signature names are case-insensitive; e.g., 【Aliyun Communication】 and 【aliyun communication】 are considered identical.
+   * > - If your verification code signature and general signature names are the same, the system defaults to using the general signature for sending SMS messages.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
+  /**
+   * @remarks
+   * Signature source. Values:
+   * 
+   * - **0**: Full name or abbreviation of an enterprise or institution.
+   * - **1**: Full name or abbreviation of a MIIT-registered website.
+   * - **2**: Full name or abbreviation of an App.
+   * - **3**: Full name or abbreviation of an official account or mini-program.
+   * - **4**: Full name or abbreviation of an e-commerce platform store.
+   * - **5**: Full name or abbreviation of a trademark.
+   * 
+   * For detailed information on signature sources, refer to [Signature Source](https://help.aliyun.com/zh/sms/user-guide/signature-specifications-1?spm=a2c4g.11186623.0.0.4f9710fder2gR7#section-xup-k46-yi4).
+   * 
+   * > This interface does not support applying for signatures with sources as **Test or Learning** and **Trial Use**. If you need to apply for signatures with these sources, please go to the [SMS Service Console](https://dysms.console.aliyun.com/domestic/text/sign/add/qualification).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   signSource?: number;
+  /**
+   * @remarks
+   * Signature type. Values:
+   * 
+   * - **0**: Verification Code
+   * 
+   * - **1**: General (Default)
+   * 
+   * > It is recommended to use the default value: **General**.
+   * 
+   * @example
+   * 1
+   */
   signType?: number;
+  /**
+   * @remarks
+   * Choose whether the applied signature is for self-use or third-party use.
+   * 
+   * - false: Self-use (default)
+   * 
+   * - true: Third-party use
+   * >Notice: Please select self-use qualification ID when the signature is for self-use; choose third-party use qualification ID when it\\"s for third-party use.
+   * 
+   * @example
+   * false
+   */
   thirdParty?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -680,16 +1467,114 @@ export class CreateSmsSignRequest extends $tea.Model {
 }
 
 export class CreateSmsSignShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Application scenarios, instructions as follows:
+   * - For registered websites, enter the domain name with HTTP or HTTPS that has been registered with the MIIT.
+   * 
+   * - For launched apps, provide a display link from the app store with HTTP or HTTPS, ensuring the app is online.
+   * 
+   * - For public accounts or mini-programs, input the full name, ensuring they are online.
+   * 
+   * - For e-commerce platform store names, applicable only to enterprise users, provide a display link with HTTP or HTTPS for the store.
+   * 
+   * @example
+   * http://www.aliyun.com/
+   */
   applySceneContent?: string;
+  /**
+   * @remarks
+   * Additional information to supplement uploaded business proof documents or screenshots, which helps reviewers understand your business details.
+   * 
+   * This parameter is optional; please fill it out based on your actual needs.
+   */
   moreDataShrink?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * Approved or under-review qualification ID.
+   * 
+   * > - Before applying for an SMS signature, please first [Apply for Qualification](https://help.aliyun.com/zh/sms/user-guide/new-qualification?spm=a2c4g.11186623.0.0.718d187bbkpMRK).
+   * > - You can view the qualification ID on the [Qualification Management](https://dysms.console.aliyun.com/domestic/text/qualification) page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8563**
+   */
   qualificationId?: number;
+  /**
+   * @remarks
+   * Explanation of the SMS signature scenario, with a maximum length of 200 characters.
+   * 
+   * > The scenario explanation is one of the reference materials for signature review. Please provide a detailed description of the usage scenarios for your live services, along with links to verify these services such as website URLs with MIIT备案, app store display links, full names of public accounts or mini-programs, etc. For login scenarios, test account credentials are also required. A comprehensive application explanation enhances the efficiency of signature and template reviews. Refer to the **Application Scenario** column in the [Signature Source](https://help.aliyun.com/zh/sms/user-guide/signature-specifications-1?spm=a2c4g.11186623.0.i2#section-xup-k46-yi4) table for filling in SMS scenarios.
+   * 
+   * @example
+   * SMS signature for the login scenario using verification code.
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Signature name. Please adhere to the [Signature Specifications](https://help.aliyun.com/zh/sms/user-guide/signature-specifications-1?spm=a2c4g.11186623.0.0.4f9710fder2gR7#section-0p8-qn8-mmy).
+   * 
+   * > - Signature names are case-insensitive; e.g., 【Aliyun Communication】 and 【aliyun communication】 are considered identical.
+   * > - If your verification code signature and general signature names are the same, the system defaults to using the general signature for sending SMS messages.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
+  /**
+   * @remarks
+   * Signature source. Values:
+   * 
+   * - **0**: Full name or abbreviation of an enterprise or institution.
+   * - **1**: Full name or abbreviation of a MIIT-registered website.
+   * - **2**: Full name or abbreviation of an App.
+   * - **3**: Full name or abbreviation of an official account or mini-program.
+   * - **4**: Full name or abbreviation of an e-commerce platform store.
+   * - **5**: Full name or abbreviation of a trademark.
+   * 
+   * For detailed information on signature sources, refer to [Signature Source](https://help.aliyun.com/zh/sms/user-guide/signature-specifications-1?spm=a2c4g.11186623.0.0.4f9710fder2gR7#section-xup-k46-yi4).
+   * 
+   * > This interface does not support applying for signatures with sources as **Test or Learning** and **Trial Use**. If you need to apply for signatures with these sources, please go to the [SMS Service Console](https://dysms.console.aliyun.com/domestic/text/sign/add/qualification).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   signSource?: number;
+  /**
+   * @remarks
+   * Signature type. Values:
+   * 
+   * - **0**: Verification Code
+   * 
+   * - **1**: General (Default)
+   * 
+   * > It is recommended to use the default value: **General**.
+   * 
+   * @example
+   * 1
+   */
   signType?: number;
+  /**
+   * @remarks
+   * Choose whether the applied signature is for self-use or third-party use.
+   * 
+   * - false: Self-use (default)
+   * 
+   * - true: Third-party use
+   * >Notice: Please select self-use qualification ID when the signature is for self-use; choose third-party use qualification ID when it\\"s for third-party use.
+   * 
+   * @example
+   * false
+   */
   thirdParty?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -729,10 +1614,50 @@ export class CreateSmsSignShrinkRequest extends $tea.Model {
 }
 
 export class CreateSmsSignResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Request status code.
+   * 
+   * - OK indicates a successful request.
+   * - For other error codes, refer to the [Error Code List](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * Description of the status code.
+   * 
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @remarks
+   * Work order number.
+   * 
+   * This parameter is used by auditors when querying the audit. You will need to provide this work order number if you require expedited review.
+   * 
+   * @example
+   * 2004415****
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID of this call request, which is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting and issue localization.
+   * 
+   * @example
+   * CCA2BCFF-2BA7-427C-90EE-AC6994748607
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Signature name.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -785,17 +1710,103 @@ export class CreateSmsSignResponse extends $tea.Model {
 }
 
 export class CreateSmsTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * If there is an applicable scenario, you can fill it in.
+   * 
+   * @example
+   * http://www.aliyun.com/
+   */
   applySceneContent?: string;
+  /**
+   * @remarks
+   * International/Hong Kong, Macao, and Taiwan template type. When the **TemplateType** parameter is **3**, this parameter is required for international/Hong Kong, Macao, and Taiwan templates, with values:
+   * - **0**: Verification code.
+   * - **1**: SMS notification.
+   * - **2**: Promotional message.
+   * 
+   * @example
+   * 0
+   */
   intlType?: number;
+  /**
+   * @remarks
+   * Additional materials you can upload, such as business proof documents or screenshots, to help reviewers understand your business details.
+   * 
+   * This parameter is optional; please fill it in according to actual needs.
+   */
   moreData?: string[];
   ownerId?: number;
+  /**
+   * @remarks
+   * The signature name that the template needs to be associated with. The associated SMS signature must have passed the review.
+   * 
+   * This parameter is mandatory when the TemplateType parameter is **0**, **1**, or **2**.
+   * 
+   * <notice>Associating a signature can expedite the review process. Note that this associated signature is unrelated to the signature selected when sending SMS messages.</notice>
+   * 
+   * @example
+   * Aliyun
+   */
   relatedSignName?: string;
+  /**
+   * @remarks
+   * Please describe the business scenario where you use SMS or provide an online link to the scenario, along with a complete example of the SMS (with variable contents filled), as complete information helps increase the template approval rate. Failure to follow guidelines or leaving this field blank may affect the approval of your template.
+   * 
+   * @example
+   * Request verification code SMS.
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Template content, up to 500 characters in length.
+   * 
+   * Both the template content and variable content must comply with SMS specifications; otherwise, the template will fail the review. You can also view common template examples on the template application page. Using sample templates can enhance review efficiency and success rates. For variable specifications, see [TemplateContent Variable Parameter Filling Specifications](https://help.aliyun.com/zh/sms/templaterule-template-variable-parameter-filling-example).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * You are applying for mobile registration. The verification code is: ${code}. It is valid for 5 minutes!
+   */
   templateContent?: string;
+  /**
+   * @remarks
+   * Template name, up to 30 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aliyunCode
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * Template variable rules.
+   * 
+   * For filling in variable rules, refer to the [Sample Documentation](https://help.aliyun.com/zh/sms/templaterule-template-variable-parameter-filling-example).
+   * 
+   * @example
+   * {"code":"characterWithNumber"}
+   */
   templateRule?: string;
+  /**
+   * @remarks
+   * SMS type. Values:
+   * 
+   * - **0**: Verification code.
+   * - **1**: SMS notification.
+   * - **2**: Promotional message.
+   * - **3**: International/Hong Kong, Macao, and Taiwan messages.
+   * 
+   * > Only enterprise-verified users can apply for promotional messages and international/Hong Kong, Macao, and Taiwan messages. For details on the differences between personal and enterprise user rights, please refer to [Usage Instructions](https://help.aliyun.com/zh/sms/user-guide/usage-notes?spm=a2c4g.11186623.0.0.67447f576NJnE8).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -837,17 +1848,103 @@ export class CreateSmsTemplateRequest extends $tea.Model {
 }
 
 export class CreateSmsTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * If there is an applicable scenario, you can fill it in.
+   * 
+   * @example
+   * http://www.aliyun.com/
+   */
   applySceneContent?: string;
+  /**
+   * @remarks
+   * International/Hong Kong, Macao, and Taiwan template type. When the **TemplateType** parameter is **3**, this parameter is required for international/Hong Kong, Macao, and Taiwan templates, with values:
+   * - **0**: Verification code.
+   * - **1**: SMS notification.
+   * - **2**: Promotional message.
+   * 
+   * @example
+   * 0
+   */
   intlType?: number;
+  /**
+   * @remarks
+   * Additional materials you can upload, such as business proof documents or screenshots, to help reviewers understand your business details.
+   * 
+   * This parameter is optional; please fill it in according to actual needs.
+   */
   moreDataShrink?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The signature name that the template needs to be associated with. The associated SMS signature must have passed the review.
+   * 
+   * This parameter is mandatory when the TemplateType parameter is **0**, **1**, or **2**.
+   * 
+   * <notice>Associating a signature can expedite the review process. Note that this associated signature is unrelated to the signature selected when sending SMS messages.</notice>
+   * 
+   * @example
+   * Aliyun
+   */
   relatedSignName?: string;
+  /**
+   * @remarks
+   * Please describe the business scenario where you use SMS or provide an online link to the scenario, along with a complete example of the SMS (with variable contents filled), as complete information helps increase the template approval rate. Failure to follow guidelines or leaving this field blank may affect the approval of your template.
+   * 
+   * @example
+   * Request verification code SMS.
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Template content, up to 500 characters in length.
+   * 
+   * Both the template content and variable content must comply with SMS specifications; otherwise, the template will fail the review. You can also view common template examples on the template application page. Using sample templates can enhance review efficiency and success rates. For variable specifications, see [TemplateContent Variable Parameter Filling Specifications](https://help.aliyun.com/zh/sms/templaterule-template-variable-parameter-filling-example).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * You are applying for mobile registration. The verification code is: ${code}. It is valid for 5 minutes!
+   */
   templateContent?: string;
+  /**
+   * @remarks
+   * Template name, up to 30 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aliyunCode
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * Template variable rules.
+   * 
+   * For filling in variable rules, refer to the [Sample Documentation](https://help.aliyun.com/zh/sms/templaterule-template-variable-parameter-filling-example).
+   * 
+   * @example
+   * {"code":"characterWithNumber"}
+   */
   templateRule?: string;
+  /**
+   * @remarks
+   * SMS type. Values:
+   * 
+   * - **0**: Verification code.
+   * - **1**: SMS notification.
+   * - **2**: Promotional message.
+   * - **3**: International/Hong Kong, Macao, and Taiwan messages.
+   * 
+   * > Only enterprise-verified users can apply for promotional messages and international/Hong Kong, Macao, and Taiwan messages. For details on the differences between personal and enterprise user rights, please refer to [Usage Instructions](https://help.aliyun.com/zh/sms/user-guide/usage-notes?spm=a2c4g.11186623.0.0.67447f576NJnE8).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -889,11 +1986,60 @@ export class CreateSmsTemplateShrinkRequest extends $tea.Model {
 }
 
 export class CreateSmsTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Request status code.
+   * 
+   * * OK indicates a successful request.
+   * * For other error codes, refer to the **Error Codes** section of this chapter or the product\\"s [API Error Codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * Description of the status code.
+   * 
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @remarks
+   * Work order ID.
+   * 
+   * This parameter is used by auditors when querying audits. If you need expedited review, you must provide this work order number.
+   * 
+   * @example
+   * 2005020****
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID generated by Alibaba Cloud for this request, which is a unique identifier that can be used for troubleshooting and issue定位.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8DE990
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * SMS template code.
+   * 
+   * After submitting the template application, you can use the SMS template code to query the template audit details via the [GetSmsTemplate](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-getsmstemplate?) API. You can also [configure delivery receipts](https://help.aliyun.com/zh/sms/developer-reference/configure-delivery-receipts-1?spm), and obtain the template audit status messages through TemplateSmsReport.
+   * 
+   * @example
+   * SMS_10000****
+   */
   templateCode?: string;
+  /**
+   * @remarks
+   * SMS template name.
+   * 
+   * @example
+   * aliyunCode
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -947,10 +2093,147 @@ export class CreateSmsTemplateResponse extends $tea.Model {
   }
 }
 
+export class DeleteExtCodeSignRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 扩展码A3
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 01
+   */
+  extCode?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 签名
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值
+   */
+  signName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extCode: 'ExtCode',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signName: 'SignName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extCode: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExtCodeSignResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * false
+   */
+  data?: boolean;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 90E63D28-E31D-1EB2-8939-A9486641****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExtCodeSignResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteExtCodeSignResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteExtCodeSignResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteShortUrlRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The source address. The address can be up to 1,000 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * https://www.****.com/product/sms
+   */
   sourceUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -976,8 +2259,32 @@ export class DeleteShortUrlRequest extends $tea.Model {
 }
 
 export class DeleteShortUrlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   If OK is returned, the request is successful.
+   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 819BE656-D2E0-4858-8B21-B2E477085AAF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1029,6 +2336,17 @@ export class DeleteSmsSignRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The signature.
+   * 
+   * > The signature must be submitted by the current Alibaba Cloud account, and has been approved.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1054,9 +2372,40 @@ export class DeleteSmsSignRequest extends $tea.Model {
 }
 
 export class DeleteSmsSignResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   If OK is returned, the request is successful.
+   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The signature.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1110,6 +2459,17 @@ export class DeleteSmsTemplateRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * You can log on to the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm) and obtain the message template code on the **Message Templates** tab. You can also obtain the message template code by calling the [AddSmsTemplate](https://help.aliyun.com/document_detail/121208.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SMS_152550****
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1135,9 +2495,40 @@ export class DeleteSmsTemplateRequest extends $tea.Model {
 }
 
 export class DeleteSmsTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CCA2BCFF-2BA7-427C-90EE-AC6994748607
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * @example
+   * SMS_20375****
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1187,15 +2578,270 @@ export class DeleteSmsTemplateResponse extends $tea.Model {
   }
 }
 
+export class GetCardSmsDetailsRequest extends $tea.Model {
+  /**
+   * @example
+   * 123456^0
+   */
+  bizCardId?: string;
+  /**
+   * @example
+   * 12346^0
+   */
+  bizDigitId?: string;
+  /**
+   * @example
+   * 1234576^0
+   */
+  bizSmsId?: string;
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  ownerId?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1390000****
+   */
+  phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20240112
+   */
+  sendDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCardId: 'BizCardId',
+      bizDigitId: 'BizDigitId',
+      bizSmsId: 'BizSmsId',
+      currentPage: 'CurrentPage',
+      ownerId: 'OwnerId',
+      pageSize: 'PageSize',
+      phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sendDate: 'SendDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCardId: 'string',
+      bizDigitId: 'string',
+      bizSmsId: 'string',
+      currentPage: 'number',
+      ownerId: 'number',
+      pageSize: 'number',
+      phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      sendDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardSmsDetailsResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * 卡片短信发送结果
+   */
+  cardSendDetailDTO?: GetCardSmsDetailsResponseBodyCardSendDetailDTO;
+  /**
+   * @remarks
+   * 状态码
+   * 
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @remarks
+   * 状态描述
+   * 
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      cardSendDetailDTO: 'CardSendDetailDTO',
+      code: 'Code',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      cardSendDetailDTO: GetCardSmsDetailsResponseBodyCardSendDetailDTO,
+      code: 'string',
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardSmsDetailsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCardSmsDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCardSmsDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCardSmsLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The code type of the URLs.
+   * 
+   * *   **1**: group texting
+   * *   **2**: personalization
+   * 
+   * @example
+   * 2
+   */
   cardCodeType?: number;
+  /**
+   * @remarks
+   * The type of the short URLs.
+   * 
+   * *   1: standard short code.
+   * *   2: custom short code.
+   * 
+   * > If the **CardLinkType** is not specified, standard short codes are generated. If you need to generate custom short codes, contact Alibaba Cloud SMS technical support.
+   * 
+   * @example
+   * 1
+   */
   cardLinkType?: number;
+  /**
+   * @remarks
+   * The code of the message template. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > Make sure that the message template has been approved.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CARD_SMS_****
+   */
   cardTemplateCode?: string;
+  /**
+   * @remarks
+   * The variables of the message template.
+   * 
+   * @example
+   * [{},{}]
+   */
   cardTemplateParamJson?: string;
+  /**
+   * @remarks
+   * The custom short code. It can contain 4 to 8 digits or letters.
+   * 
+   * > If the CardLinkType parameter is set to 2, the CustomShortCodeJson parameter is required.
+   * 
+   * @example
+   * abCde
+   */
   customShortCodeJson?: string;
+  /**
+   * @remarks
+   * The original domain name. You must submit domain names for approval in advance.
+   * 
+   * > 
+   * 
+   * *   If the **CardLinkType** parameter is set to **2**, the **Domain** parameter is required.
+   * 
+   * *   The **Domain** parameter cannot exceed 100 characters in length. If the parameter is not specified, a default domain name is used.
+   * 
+   * @example
+   * xxx.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The extension field.
+   * 
+   * @example
+   * BC20220608102511660860762****
+   */
   outId?: string;
+  /**
+   * @remarks
+   * The mobile phone numbers of recipients, custom identifiers, or system identifiers.
+   * 
+   * > 
+   * 
+   * *   A maximum of 10,000 mobile phone numbers are supported.
+   * 
+   * *   You can enter custom identifier. Each identifier can be a maximum of 60 characters in length.
+   * 
+   * *   You can apply for a maximum of 10 OPPO templates at a time.
+   * 
+   * @example
+   * [\\"1390000****
+   * \\",\\"1370000****
+   * \\"]
+   */
   phoneNumberJson?: string;
+  /**
+   * @remarks
+   * The signature. You can view the template code in the **Signature** column on the **Signaturess** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > The signatures must be approved and correspond to the mobile numbers in sequence.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [\\"aliyun\\", \\"aliyun2\\"]
+   */
   signNameJson?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1231,9 +2877,40 @@ export class GetCardSmsLinkRequest extends $tea.Model {
 }
 
 export class GetCardSmsLinkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetCardSmsLinkResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CC89A90C-978F-46AC-B80D-54738371E7CA
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1284,10 +2961,70 @@ export class GetCardSmsLinkResponse extends $tea.Model {
 }
 
 export class GetMediaResourceIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The extended fields.
+   * 
+   * > If you set the ResourceType parameter to **2**, this parameter is required.
+   * 
+   * @example
+   * {\\"img_rate\\":\\"oneToOne\\"}
+   */
   extendInfo?: string;
+  /**
+   * @remarks
+   * The size of the resource. Unit: bytes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
   fileSize?: number;
+  /**
+   * @remarks
+   * The description of the resource.
+   * 
+   * @example
+   * remark
+   */
   memo?: string;
+  /**
+   * @remarks
+   * The address of the resource.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * oss://alicom-fc-media/1947741454322274/alicom-fc-media/pic/202205191526575398603697152.png
+   */
   ossKey?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * *   **1**: text.
+   * *   **2**: image. A small image cannot exceed 100 KB in size, and a large image cannot exceed 2 MB in size. The image must be clear. Supported format: JPG, JPEG, and PNG.
+   * *   **3**: audio.
+   * *   **4**: video. Supported format: MP4.
+   * 
+   * > 
+   * 
+   * *   If you set the ResourceType parameter to 2, the **img_rate** required is required. Valid values:
+   * 
+   * *   1:1
+   * 
+   * *   16:9
+   * 
+   * *   3:1
+   * 
+   * *   48:65
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   resourceType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1315,9 +3052,40 @@ export class GetMediaResourceIdRequest extends $tea.Model {
 }
 
 export class GetMediaResourceIdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   If OK is returned, the request is successful.
+   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetMediaResourceIdResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F07CF237-F6E3-5F77-B91B-F9B7C5DE84AB
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1368,9 +3136,40 @@ export class GetMediaResourceIdResponse extends $tea.Model {
 }
 
 export class GetOSSInfoForCardTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetOSSInfoForCardTemplateResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A90E4451-FED7-49D2-87C8-00700A8C4D0D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1421,6 +3220,15 @@ export class GetOSSInfoForCardTemplateResponse extends $tea.Model {
 }
 
 export class GetOSSInfoForUploadFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Business type, default value is **fcMediaSms**.
+   * 
+   * When creating signatures and templates, and uploading **additional materials**, this value is **fcMediaSms**.
+   * 
+   * @example
+   * fcMediaSms
+   */
   bizType?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -1449,10 +3257,48 @@ export class GetOSSInfoForUploadFileRequest extends $tea.Model {
 }
 
 export class GetOSSInfoForUploadFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Request status code.
+   * 
+   * - OK return represents a successful request.
+   * - For other error codes, please refer to the [Error Code List](https://help.aliyun.com/document_detail/101346.htm).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * Description of the status code.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * Return result.
+   */
   model?: GetOSSInfoForUploadFileResponseBodyModel;
+  /**
+   * @remarks
+   * The ID of this call request, which is a unique identifier generated by Alibaba Cloud for the request, can be used for troubleshooting and issue定位.
+   * 
+   * @example
+   * A90E4451-FED7-49D2-87C8-00700EDCFD0D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates success. Values:
+   * 
+   * - **true**
+   * - **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1508,6 +3354,18 @@ export class GetSmsSignRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Signature name. Must be an SMS signature already applied for by this account.
+   * 
+   * - Obtain from the return parameters after calling the [CreateSmsSign](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-createsmssign?spm) API.
+   * - View the signature on the [Signature Management](https://dysms.console.aliyun.com/domestic/text/sign) page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1533,21 +3391,146 @@ export class GetSmsSignRequest extends $tea.Model {
 }
 
 export class GetSmsSignResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Content of application scenarios.
+   * 
+   * @example
+   * http://www.aliyun.com/
+   */
   applyScene?: string;
+  /**
+   * @remarks
+   * Audit information.
+   */
   auditInfo?: GetSmsSignResponseBodyAuditInfo;
+  /**
+   * @remarks
+   * Request status code.
+   * 
+   * - OK indicates a successful request.
+   * - For other error codes, see [API Error Codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * Creation date and time of the SMS signature.
+   * 
+   * @example
+   * 2024-06-03 10:02:34
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * 更多资料信息，补充上传业务证明文件或业务截图文件列表。
+   */
   fileUrlList?: string[];
+  /**
+   * @remarks
+   * Description of the status code.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * Work order number.
+   * 
+   * Used by reviewers when querying the review. You need to provide this work order number if you require expedited review.
+   * 
+   * @example
+   * 20044156924
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * Credential ID, the credential ID associated when applying for the signature.
+   * 
+   * @example
+   * 2004393****
+   */
   qualificationId?: number;
+  /**
+   * @remarks
+   * Explanation of the SMS signature scenario, with a maximum length of 200 characters.
+   * 
+   * @example
+   * Send verification code text message during login.
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The ID of this call request, which is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting and issue localization.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8DE990
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * SMS signature code.
+   * 
+   * @example
+   * SIGN_100000077042023_17174665*****_ZM2kG
+   */
   signCode?: string;
+  /**
+   * @remarks
+   * SMS signature name.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
+  /**
+   * @remarks
+   * Signature review status. Values:
+   * 
+   * - **0**: Under review.
+   * - **1**: Approved.
+   * - **2**: Review failed, please check the Reason parameter for the failure cause.
+   * - **10**: Review canceled.
+   * 
+   * @example
+   * 2
+   */
   signStatus?: number;
+  /**
+   * @remarks
+   * Signature tag indicating whether the signature is user-defined, system-provided, test, or trial. Values:
+   * 
+   * - 2: User-defined signature
+   * - 3: System-provided signature
+   * - 4: Test signature
+   * - 5: Trial signature
+   * 
+   * @example
+   * 2
+   */
   signTag?: string;
+  /**
+   * @remarks
+   * scenarios for using signatures.
+   * 
+   * @example
+   * App.
+   */
   signUsage?: string;
+  /**
+   * @remarks
+   * Signature usage indication—self-use or third-party use.
+   * 
+   * - false: Self-use (default)
+   * 
+   * - true: Third-party use
+   * 
+   * @example
+   * false
+   */
   thirdParty?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1625,6 +3608,18 @@ export class GetSmsTemplateRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * SMS template code.
+   * 
+   * - Obtain the SMS template code from the return parameters of the [CreateSmsTemplate](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-createsmstemplate?spm) API.
+   * - View the SMS template code on the [Template Management](https://dysms.console.aliyun.com/domestic/text/template) page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SMS_20375****
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1650,24 +3645,174 @@ export class GetSmsTemplateRequest extends $tea.Model {
 }
 
 export class GetSmsTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Application scenario content.
+   * 
+   * @example
+   * http://www.aliyun.com/
+   */
   applyScene?: string;
+  /**
+   * @remarks
+   * Audit information.
+   */
   auditInfo?: GetSmsTemplateResponseBodyAuditInfo;
+  /**
+   * @remarks
+   * Request status code.
+   * 
+   * * OK indicates a successful request.
+   * * For other error codes, please refer to [API Error Codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the SMS template was created.
+   * 
+   * @example
+   * 2024-06-03 10:02:34
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * File information, compatible with signatures created by the [AddSmsSign](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-addsmstemplate?spm) API.
+   */
   fileUrlList?: GetSmsTemplateResponseBodyFileUrlList;
+  /**
+   * @remarks
+   * International/Hong Kong, Macao, and Taiwan template type. When the **TemplateType** parameter is **3**, this parameter is required for international/Hong Kong, Macao, and Taiwan templates, with values:
+   * - **0**: Verification code.
+   * - **1**: SMS notification.
+   * - **2**: Promotional SMS.
+   * 
+   * @example
+   * 0
+   */
   intlType?: number;
+  /**
+   * @remarks
+   * Description of the status code.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * Additional documentation information, supplementing uploaded business proof files or operational screenshots file list.
+   */
   moreDataFileUrlList?: GetSmsTemplateResponseBodyMoreDataFileUrlList;
+  /**
+   * @remarks
+   * Work order number.
+   * 
+   * This parameter is used by auditors when querying the audit. You need to provide this work order number when requesting expedited review.
+   * 
+   * @example
+   * 2003019****
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The SMS signature associated with the template when applied.
+   * 
+   * @example
+   * 阿里云
+   */
   relatedSignName?: string;
+  /**
+   * @remarks
+   * Explanation for the SMS template application, which is one of the reference information for template review.
+   * 
+   * @example
+   * 申请验证码模板
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The ID of this call request, which is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting and issue定位.
+   * 
+   * @example
+   * 819BE656-D2E0-4858-8B21-B2E47708****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * SMS template code.
+   * 
+   * @example
+   * SMS_20375****
+   */
   templateCode?: string;
+  /**
+   * @remarks
+   * Content of the SMS template.
+   * 
+   * @example
+   * 您正在申请手机注册，验证码为：${code}，5分钟内有效！
+   */
   templateContent?: string;
+  /**
+   * @remarks
+   * Name of the SMS template.
+   * 
+   * @example
+   * 验证码
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * Template review status. Return values:
+   * 
+   * - **0**: Under review.
+   * - **1**: Approved.
+   * - **2**: Not approved, with reasons for failure returned. Please refer to [Handling Suggestions for Failed SMS Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm=a2c4g.11186623.0.0.41fd339f3bPSCQ), invoke the [UpdateSmsTemplate](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-updatesmstemplate?spm) API or modify the SMS template on the [Template Management](https://dysms.console.aliyun.com/domestic/text/template) page.
+   * - **10**: Review canceled.
+   * 
+   * @example
+   * 2
+   */
   templateStatus?: string;
+  /**
+   * @remarks
+   * Template identifier, indicating whether the template is user-defined or system-provided. Values:
+   * 
+   * - **2**: User-defined template.
+   * 
+   * - **3**: System-provided template.
+   * 
+   * @example
+   * 2
+   */
   templateTag?: number;
+  /**
+   * @remarks
+   * SMS type. Values:
+   * 
+   * - **0**: Verification code.
+   * - **1**: SMS notification.
+   * - **2**: Promotional SMS.
+   * - **3**: International/Hong Kong, Macao, and Taiwan messages.
+   * 
+   * > Only enterprise-certified users can apply for promotional SMS and international/Hong Kong, Macao, and Taiwan messages. For details on the differences between personal and enterprise user rights, please refer to [Usage Notes](https://help.aliyun.com/zh/sms/user-guide/usage-notes?spm=a2c4g.11186623.0.0.67447f576NJnE8).
+   * 
+   * @example
+   * 0
+   */
   templateType?: string;
+  /**
+   * @remarks
+   * Template variable rules.
+   * 
+   * For detailed rules of template variables, refer to the [Example Document](https://help.aliyun.com/zh/sms/templaterule-template-variable-parameter-filling-example).
+   * 
+   * @example
+   * {"code":"characterWithNumber"}
+   */
   variableAttribute?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1748,15 +3893,65 @@ export class GetSmsTemplateResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The token used to query the next page.
+   * 
+   * @example
+   * 23432453245
+   */
   nextToken?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the cloud service. Set the value to **dysms**.
+   * 
+   * @example
+   * dysms
+   */
   prodCode?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to **cn-hangzhou**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The code of the message template. Specify either the Tag or the ResourceId parameter.
+   * 
+   * @example
+   * SMS_23423423
+   */
   resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The type of the resource. Set the value to TEMPLATE.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TEMPLATE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag list. Specify either the Tag or the ResourceId parameter. You can specify a maximum of 20 tags.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -1794,9 +3989,37 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   If OK is returned, the request is successful.
+   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The token used to query the next page.
+   * 
+   * @example
+   * "23432453245"
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A90E4451-FED7-49D2-87C8-00700A8C4D0D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {
@@ -1848,12 +4071,64 @@ export class ListTagResourcesResponse extends $tea.Model {
 
 export class ModifySmsSignRequest extends $tea.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The scenario description of your released services. Provide the information of your services, such as a website URL, a domain name with an ICP filing, an app download URL, or the name of your WeChat official account or mini program. For sign-in scenarios, you must also provide an account and password for tests. A detailed description can improve the review efficiency of signatures and templates.
+   * 
+   * > The description can be up to 200 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * This is the abbreviation of our company.
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The list of signature files.
+   * 
+   * This parameter is required.
+   */
   signFileList?: ModifySmsSignRequestSignFileList[];
+  /**
+   * @remarks
+   * The signature.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
+  /**
+   * @remarks
+   * The source of the signature. Valid values:
+   * 
+   * *   **0**: full name or abbreviation of an enterprise or institution.
+   * *   **1**: full name or abbreviation of a website with Ministry of Industry and Information Technology (MIIT) filing.
+   * *   **2**: full name or abbreviation of an app.
+   * *   **3**: full name or abbreviation of a WeChat official account or applet.
+   * *   **4**: full name or abbreviation of an e-commerce store.
+   * *   **5**: full name or abbreviation of a trademark.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   signSource?: number;
+  /**
+   * @remarks
+   * The type of the signature. Valid values:
+   * 
+   * *   **0**: verification-code signature
+   * *   **1**: general-purpose signature
+   * 
+   * @example
+   * 1
+   */
   signType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1887,9 +4162,40 @@ export class ModifySmsSignRequest extends $tea.Model {
 }
 
 export class ModifySmsSignResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8DE990
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The signature.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1941,12 +4247,66 @@ export class ModifySmsSignResponse extends $tea.Model {
 
 export class ModifySmsTemplateRequest extends $tea.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The description of the message template. It is one of the reference information for template review. The description cannot exceed 100 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Modify the parameters of the template.
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * You can log on to the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm), click **Go China** or **Go Globe** in the left-side navigation pane, and then view the template code on the **Templates** tab. You can also call the [AddSmsTemplate](https://help.aliyun.com/document_detail/121208.html) operation to obtain the template code.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SMS_15255****
+   */
   templateCode?: string;
+  /**
+   * @remarks
+   * The content of the template. The content must be 1 to 500 characters in length.
+   * 
+   * > When you modify a template, design the template content based on the review comments.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * You are applying for mobile registration. The verification code is: ${code}, valid for 5 minutes!
+   */
   templateContent?: string;
+  /**
+   * @remarks
+   * The name of the template. The name must be 1 to 30 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aliyun verification code
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The type of the message. Valid values:
+   * 
+   * *   **0**: verification code
+   * *   **1**: text message
+   * *   **2**: promotional message
+   * *   **3**: message sent to countries or regions outside the Chinese mainland
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1980,9 +4340,40 @@ export class ModifySmsTemplateRequest extends $tea.Model {
 }
 
 export class ModifySmsTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8DE990
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * @example
+   * SMS_15255****
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2033,6 +4424,19 @@ export class ModifySmsTemplateResponse extends $tea.Model {
 }
 
 export class QueryCardSmsTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > Make sure that the message template has been approved.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CARD_SMS_4139
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2052,9 +4456,40 @@ export class QueryCardSmsTemplateRequest extends $tea.Model {
 }
 
 export class QueryCardSmsTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: QueryCardSmsTemplateResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8DE990
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2105,8 +4540,28 @@ export class QueryCardSmsTemplateResponse extends $tea.Model {
 }
 
 export class QueryCardSmsTemplateReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+   * 
+   * @example
+   * 2020-10-11 00:00:01
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+   * 
+   * @example
+   * 2020-10-10 00:00:01
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * The array of message templates.
+   * 
+   * This parameter is required.
+   */
   templateCodes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2130,9 +4585,40 @@ export class QueryCardSmsTemplateReportRequest extends $tea.Model {
 }
 
 export class QueryCardSmsTemplateReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: QueryCardSmsTemplateReportResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CC89A90C-978F-46AC-B80D-54738371E7CA
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2182,8 +4668,163 @@ export class QueryCardSmsTemplateReportResponse extends $tea.Model {
   }
 }
 
+export class QueryExtCodeSignRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 扩展码A3
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 01
+   */
+  extCode?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 签名
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值
+   */
+  signName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extCode: 'ExtCode',
+      ownerId: 'OwnerId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signName: 'SignName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extCode: 'string',
+      ownerId: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryExtCodeSignResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: QueryExtCodeSignResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 90E63D28-E31D-1EB2-8939-A9486641****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: QueryExtCodeSignResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryExtCodeSignResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryExtCodeSignResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryExtCodeSignResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryMobilesCardSupportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of mobile phone numbers.
+   * 
+   * This parameter is required.
+   */
   mobiles?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The code of the message template. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > Make sure that the message template has been approved.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CARD_SMS_0000
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2205,7 +4846,24 @@ export class QueryMobilesCardSupportRequest extends $tea.Model {
 }
 
 export class QueryMobilesCardSupportShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of mobile phone numbers.
+   * 
+   * This parameter is required.
+   */
   mobilesShrink?: string;
+  /**
+   * @remarks
+   * The code of the message template. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > Make sure that the message template has been approved.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CARD_SMS_0000
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2227,9 +4885,40 @@ export class QueryMobilesCardSupportShrinkRequest extends $tea.Model {
 }
 
 export class QueryMobilesCardSupportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: QueryMobilesCardSupportResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 08C17DFE-2E10-54F4-BAFB-7180039CC217
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2280,14 +4969,50 @@ export class QueryMobilesCardSupportResponse extends $tea.Model {
 }
 
 export class QueryPageSmartShortUrlLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20181225
+   */
   createDateEnd?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20181225
+   */
   createDateStart?: number;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1390000****
+   */
   phoneNumber?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * http://ays.cn/****
+   */
   shortUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2323,10 +5048,26 @@ export class QueryPageSmartShortUrlLogRequest extends $tea.Model {
 }
 
 export class QueryPageSmartShortUrlLogResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 示例值示例值
+   */
   code?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
   message?: string;
   model?: QueryPageSmartShortUrlLogResponseBodyModel;
+  /**
+   * @example
+   * 示例值示例值
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2379,13 +5120,63 @@ export class QueryPageSmartShortUrlLogResponse extends $tea.Model {
 }
 
 export class QuerySendDetailsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery receipt. The delivery receipt ID is the value of the BizId parameter that is returned when you call the SendSms or SendBatchSms operation.
+   * 
+   * @example
+   * 134523^435****
+   */
   bizId?: string;
+  /**
+   * @remarks
+   * The page number of the first page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of items displayed per page.
+   * 
+   * Valid values: 1 to 50.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The mobile numbers of the recipients. Format:
+   * 
+   * *   If you send messages in the Chinese mainland, specify an 11-digit mobile number, for example, 1390000\\*\\*\\*\\*.
+   * *   If you send messages to countries or regions outside the Chinese mainland, specify this parameter in the \\<Area code>\\<Mobile number> format. Example: 8520000\\*\\*\\*\\*.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1390000****
+   */
   phoneNumber?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The date when the message was sent. You can query messages that were sent within the last 30 days.
+   * 
+   * Format: yyyyMMdd. Example: 20181225.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20181228
+   */
   sendDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2419,10 +5210,45 @@ export class QuerySendDetailsRequest extends $tea.Model {
 }
 
 export class QuerySendDetailsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 819BE656-D2E0-4858-8B21-B2E477085AAF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the message.
+   */
   smsSendDetailDTOs?: QuerySendDetailsResponseBodySmsSendDetailDTOs;
+  /**
+   * @remarks
+   * The number of sent messages.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2475,15 +5301,83 @@ export class QuerySendDetailsResponse extends $tea.Model {
 }
 
 export class QuerySendStatisticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. Format: yyyyMMdd. Example: 20181225.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20201003
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The site from where the message is sent. Valid values:
+   * 
+   * *   **1**: China site
+   * *   **2**: international site
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   isGlobe?: number;
   ownerId?: number;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: **1 to 50**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The signature.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Format: yyyyMMdd. Example: 20181225.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20201002
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * The type of the message template. Valid values: Valid values:
+   * 
+   * *   **0**: verification code
+   * *   **1**: notification
+   * *   **2**: promotional message (Enterprise users only)
+   * *   **3**: international purpose (Enterprise users only)
+   * *   **7**: digital message
+   * 
+   * @example
+   * 0
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2521,9 +5415,37 @@ export class QuerySendStatisticsRequest extends $tea.Model {
 }
 
 export class QuerySendStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   If OK is returned, the request is successful.
+   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: QuerySendStatisticsResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 819BE656-D2E0-4858-8B21-B2E47708****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2577,6 +5499,15 @@ export class QueryShortUrlRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The short URL. You can query the short URL by calling the [AddShortUrl](https://help.aliyun.com/document_detail/186774.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http://****.cn/6y8uy7
+   */
   shortUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2602,9 +5533,37 @@ export class QueryShortUrlRequest extends $tea.Model {
 }
 
 export class QueryShortUrlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   If OK is returned, the request is successful.
+   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The details of the short URL.
+   */
   data?: QueryShortUrlResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 819BE656-D2E0-4858-8B21-B2E477085AAF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2658,6 +5617,15 @@ export class QuerySmsSignRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The signature.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2683,12 +5651,72 @@ export class QuerySmsSignRequest extends $tea.Model {
 }
 
 export class QuerySmsSignResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   If OK is returned, the request is successful.
+   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The date and time when the signature was created.
+   * 
+   * @example
+   * 2019-01-08 16:44:13
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The remarks of the review. Valid values:
+   * 
+   * *   If the signature is in the **Approved** or **Pending Approval** state, No Remarks is returned.
+   * *   If the signature is in the **Not Approved** state, the reason why the signature is rejected is returned.
+   * 
+   * @example
+   * The document cannot verify the authenticity of the information. Please upload it again.
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CC89A90C-978F-46AC-B80D-54738371E7CA
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The signature.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
+  /**
+   * @remarks
+   * The status of the signature. Valid values:
+   * 
+   * *   **0**: The signature is pending approval.
+   * *   **1**: The signature is approved.
+   * *   **2**: The signature is rejected. The Reason parameter indicates the reason why the signature is rejected.
+   * *   **10**: The signature is cancelled.
+   * 
+   * @example
+   * 1
+   */
   signStatus?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2746,7 +5774,21 @@ export class QuerySmsSignResponse extends $tea.Model {
 
 export class QuerySmsSignListRequest extends $tea.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of signatures per page. Valid values: **1 to 50**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2776,12 +5818,61 @@ export class QuerySmsSignListRequest extends $tea.Model {
 }
 
 export class QuerySmsSignListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The number of signatures per page. Valid values: **1 to 50**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 819BE656-D2E0-4858-8B21-B2E47708****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The queried message signatures.
+   */
   smsSignList?: QuerySmsSignListResponseBodySmsSignList[];
+  /**
+   * @remarks
+   * The total number of signatures.
+   * 
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2841,6 +5932,17 @@ export class QuerySmsTemplateRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * You can log on to the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm), click **Go China** or **Go Globe** in the left-side navigation pane, and then view the template code on the **Templates** tab. You can also call the [AddSmsTemplate](https://help.aliyun.com/document_detail/121208.html) operation to obtain the template code.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SMS_1525***
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2866,15 +5968,101 @@ export class QuerySmsTemplateRequest extends $tea.Model {
 }
 
 export class QuerySmsTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the message template was created.
+   * 
+   * @example
+   * 2019-06-04 11:42:17
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The approval remarks.
+   * 
+   * *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
+   * *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the message template is rejected is returned.
+   * 
+   * @example
+   * The document cannot verify the authenticity of the information. Please upload it again.
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0A974B78-02BF-4C79-ADF3-90CFBA1B55B1
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * @example
+   * SMS_16703****
+   */
   templateCode?: string;
+  /**
+   * @remarks
+   * The content of the message template.
+   * 
+   * @example
+   * You are applying for mobile registration. The verification code is: ${code}, valid for 5 minutes!
+   */
   templateContent?: string;
+  /**
+   * @remarks
+   * The name of the message template.
+   * 
+   * @example
+   * aliyun verification code
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The approval status of the message template. Valid values:
+   * 
+   * *   **0**: The message template is pending approval.
+   * *   **1**: The message template is approved.
+   * *   **AUDIT_STATE_NOT_PASS**: The message template is rejected. You can view the reason in the Reason response parameter.
+   * *   **10**: The approval is canceled.
+   * 
+   * @example
+   * 1
+   */
   templateStatus?: number;
+  /**
+   * @remarks
+   * The type of the message. Valid values:
+   * 
+   * *   **0**: verification code
+   * *   **1**: notification message
+   * *   **2**: promotional message
+   * *   **3**: message sent to countries or regions outside the Chinese mainland
+   * 
+   * @example
+   * 1
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2938,7 +6126,21 @@ export class QuerySmsTemplateResponse extends $tea.Model {
 
 export class QuerySmsTemplateListRequest extends $tea.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of templates per page. Valid values: **1 to 50**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2968,12 +6170,61 @@ export class QuerySmsTemplateListRequest extends $tea.Model {
 }
 
 export class QuerySmsTemplateListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The number of templates per page. Valid values: **1 to 50**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 819BE656-D2E0-4858-8B21-B2E47708****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The queried message templates.
+   */
   smsTemplateList?: QuerySmsTemplateListResponseBodySmsTemplateList[];
+  /**
+   * @remarks
+   * The total number of templates.
+   * 
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3030,18 +6281,135 @@ export class QuerySmsTemplateListResponse extends $tea.Model {
 }
 
 export class SendBatchCardSmsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the message template. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > Make sure that the message template has been approved.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CARD_SMS_3245
+   */
   cardTemplateCode?: string;
+  /**
+   * @remarks
+   * The variables of the card message template.
+   * 
+   * @example
+   * [{\\"customurl\\":\\"http://www.alibaba.com\\",\\"dyncParams\\":\\"{\\\\\\"a\\\\\\":\\\\\\"hello\\\\\\",\\\\\\"b\\\\\\":\\\\\\"world\\\\\\"}\\"}]
+   */
   cardTemplateParamJson?: string;
+  /**
+   * @remarks
+   * The code of the digital message template that applies when the card message is rolled back. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > Make sure that the message template has been approved.
+   * 
+   * @example
+   * DIGITAL_SMS_234080176
+   */
   digitalTemplateCode?: string;
+  /**
+   * @remarks
+   * The variables of the digital message template.
+   * 
+   * @example
+   * [{"a":1,"b":2},{"a":9,"b":8}]
+   */
   digitalTemplateParamJson?: string;
+  /**
+   * @remarks
+   * The rollback type. Valid values:
+   * 
+   * *   **SMS**: text message
+   * *   **DIGITALSMS**: digital message
+   * *   **NONE**: none
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SMS
+   */
   fallbackType?: string;
+  /**
+   * @remarks
+   * The ID that is reserved for the caller of the operation.
+   * 
+   * @example
+   * 16545681783595370
+   */
   outId?: string;
+  /**
+   * @remarks
+   * The mobile numbers of the recipients.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [\\"1390000****\\",\\"1370000****\\"]"
+   */
   phoneNumberJson?: string;
+  /**
+   * @remarks
+   * The signature. You can view the template code in the **Signature** column on the **Signaturess** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > The signatures must be approved and correspond to the mobile numbers in sequence.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [\\"aliyun\\",\\"aliyuncode\\"]
+   */
   signNameJson?: string;
+  /**
+   * @remarks
+   * The code of the text message template that applies when the card message is rolled back. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > Make sure that the message template has been approved.
+   * 
+   * @example
+   * SMS_234251075
+   */
   smsTemplateCode?: string;
+  /**
+   * @remarks
+   * The variables of the text message template.
+   * 
+   * @example
+   * [{"a":1,"b":2},{"a":9,"b":8}]
+   */
   smsTemplateParamJson?: string;
+  /**
+   * @remarks
+   * The extension code of the upstream message.
+   * 
+   * @example
+   * [\\"6\\",\\"6\\"]
+   */
   smsUpExtendCodeJson?: string;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * You can log on to the [Alibaba Cloud console](https://dysms.console.aliyun.com/dysms.htm?spm=5176.12818093.categories-n-products.ddysms.3b2816d0xml2NA#/overview), click **Go China** or **Go Globe** in the left-side navigation pane, and then view the **template code** on the **Templates** tab.
+   * 
+   * > You must specify a message template that is created in the SMS console and approved by Alibaba Cloud. If you send messages to countries or regions outside the Chinese mainland, use the corresponding message templates.
+   * 
+   * @example
+   * SMS_20375****
+   */
   templateCode?: string;
+  /**
+   * @remarks
+   * The value of the variable in the message template.
+   * 
+   * > If you need to add line breaks to the JSON template, make sure that the format is valid. In addition, the sequence of variable values must be the same as that of the mobile numbers and signatures.
+   * 
+   * @example
+   * [{"name":"TemplateParamJson"},{"name":"TemplateParamJson"}]
+   */
   templateParamJson?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3085,9 +6453,40 @@ export class SendBatchCardSmsRequest extends $tea.Model {
 }
 
 export class SendBatchCardSmsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: SendBatchCardSmsResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A90E4451-FED7-49D2-87C8-00700A8C4D0D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3138,14 +6537,81 @@ export class SendBatchCardSmsResponse extends $tea.Model {
 }
 
 export class SendBatchSmsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The extension field of the external record. The value is a string that contains no more than 256 characters.
+   * 
+   * > The parameter is optional.
+   * 
+   * @example
+   * abcdefg
+   */
   outId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The mobile number of the recipient. Format:
+   * 
+   * *   Message delivery to the Chinese mainland: +/+86/0086/86 or an 11-digit mobile number without a prefix. Example: 1590000\\*\\*\\*\\*.
+   * *   Message delivery to countries or regions outside the Chinese mainland: Dialing code + Mobile number. Example: 852000012\\*\\*\\*\\*.
+   * 
+   * > We recommend that you call the SendSms operation to send verification codes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["1590000****","1350000****"]
+   */
   phoneNumberJson?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The signature.
+   * 
+   * Log on to the Alibaba Cloud SMS console. In the left-side navigation pane, click **Go Globe** or **Go China**. You can view the signature in the **Signature** column on the **Signatures** tab.
+   * 
+   * > The signatures must be approved and correspond to the mobile numbers in sequence.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["Aliyun","Alibaba"]
+   */
   signNameJson?: string;
+  /**
+   * @remarks
+   * The extension code of the MO message. Format: JSON array.
+   * 
+   * > The parameter is optional.
+   * 
+   * @example
+   * ["90999","90998"]
+   */
   smsUpExtendCodeJson?: string;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * Log on to the Alibaba Cloud SMS console. In the left-side navigation pane, click **Go Globe** or **Go China**. You can view the message template in the **Template Code** column on the **Message Templates** tab.
+   * 
+   * > The message templates must be created on the Go Globe page and approved.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SMS_15255****
+   */
   templateCode?: string;
+  /**
+   * @remarks
+   * The value of the variable in the message template.
+   * 
+   * > If you need to add line breaks to the JSON template, make sure that the format is valid. In addition, the sequence of variable values must be the same as that of the mobile numbers and signatures.
+   * 
+   * @example
+   * [{"name":"TemplateParamJson"},{"name":"TemplateParamJson"}]
+   */
   templateParamJson?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3181,9 +6647,43 @@ export class SendBatchSmsRequest extends $tea.Model {
 }
 
 export class SendBatchSmsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery receipt. You can use one of the following methods to query the delivery status of a message based on the ID.
+   * 
+   * *   Call the [QuerySendDetails](https://help.aliyun.com/document_detail/102352.html) operation.
+   * *   Log on to the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview). In the left-side navigation pane, choose **Analytics** > **Delivery Report**.
+   * 
+   * @example
+   * 9006197469364984400
+   */
   bizId?: string;
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   If OK is returned, the request is successful.
+   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8D230E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3234,17 +6734,132 @@ export class SendBatchSmsResponse extends $tea.Model {
 }
 
 export class SendCardSmsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The objects of the message template.
+   * 
+   * This parameter is required.
+   */
   cardObjects?: SendCardSmsRequestCardObjects[];
+  /**
+   * @remarks
+   * The code of the message template. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > Make sure that the message template has been approved.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CARD_SMS_70
+   */
   cardTemplateCode?: string;
+  /**
+   * @remarks
+   * The code of the digital message template that applies when the card message is rolled back. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > Make sure that the message template has been approved.
+   * 
+   * @example
+   * SMS_003
+   */
   digitalTemplateCode?: string;
+  /**
+   * @remarks
+   * The variables of the digital message template.
+   * 
+   * > If you need to add line breaks to the JSON template, make sure that the format is valid.
+   * 
+   * @example
+   * {\\"msg\\",\\"xxxd\\"}
+   */
   digitalTemplateParam?: string;
+  /**
+   * @remarks
+   * The rollback type. Valid values:
+   * 
+   * *   **SMS**: text message
+   * *   **DIGITALSMS**: digital message
+   * *   **NONE**: none
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SMS
+   */
   fallbackType?: string;
+  /**
+   * @remarks
+   * The ID that is reserved for the caller of the operation.
+   * 
+   * @example
+   * 38d76c9b-4a9a-4c89-afae-61fd8e0e****
+   */
   outId?: string;
+  /**
+   * @remarks
+   * The signature. You can view the template code in the **Signature** column on the **Signaturess** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > The signature must be approved.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aliyun
+   */
   signName?: string;
+  /**
+   * @remarks
+   * The code of the text message template that applies when the card message is rolled back. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+   * 
+   * > Make sure that the message template has been approved. If you set the **FallbackType** parameter to **SMS**, this parameter is required.
+   * 
+   * @example
+   * SIER_TEST_01
+   */
   smsTemplateCode?: string;
+  /**
+   * @remarks
+   * The variables of the text message template.
+   * 
+   * > If you need to add line breaks to the JSON template, make sure that the format is valid.
+   * 
+   * @example
+   * {\\"uri\\":\\"Zg11tZ\\"}
+   */
   smsTemplateParam?: string;
+  /**
+   * @remarks
+   * The extension code of the upstream message. Upstream messages are messages sent to the communication service provider. Upstream messages are used to customize a service, complete an inquiry, or send a request. You are charged for sending upstream messages based on the billing standards of the service provider.
+   * 
+   * > If you do not need upstream messages, ignore this parameter.
+   * 
+   * @example
+   * 1
+   */
   smsUpExtendCode?: string;
+  /**
+   * @remarks
+   * The code of the text message template.
+   * 
+   * Log on to the Alibaba Cloud SMS console. In the left-side navigation pane, click **Go Globe** or **Go China**. You can view the message template in the **Template Code** column on the **Message Templates** tab.
+   * 
+   * > The message templates must be created on the Go Globe page and approved.
+   * 
+   * @example
+   * SMS_2322****
+   */
   templateCode?: string;
+  /**
+   * @remarks
+   * The variables of the message template. Format: JSON.
+   * 
+   * > If you need to add line breaks to the JSON template, make sure that the format is valid.
+   * 
+   * @example
+   * {
+   *       \\"code\\": \\"1111\\"
+   * }
+   */
   templateParam?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3286,9 +6901,40 @@ export class SendCardSmsRequest extends $tea.Model {
 }
 
 export class SendCardSmsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   If OK is returned, the request is successful.
+   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: SendCardSmsResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8D28D0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3339,14 +6985,87 @@ export class SendCardSmsResponse extends $tea.Model {
 }
 
 export class SendSmsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The extension field.
+   * 
+   * > You can ignore this parameter if you do not have special requirements.
+   * 
+   * @example
+   * abcdefgh
+   */
   outId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The mobile numbers of the recipients. Format:
+   * 
+   * *   If you send messages to the Chinese mainland, specify mobile numbers that are prefixed with +, +86, 0086, or 86, or 11-digit mobile numbers without prefixes. Example: 1390000\\*\\*\\*\\*.
+   * *   If you send messages to countries or regions outside the Chinese mainland, specify this parameter in the \\<Area code>\\<Mobile number> format. Example: 852000012\\*\\*\\*\\*.
+   * 
+   * You can send messages to multiple mobile numbers, separate the mobile numbers with commas (,). You can specify up to 1,000 mobile numbers in each request. Compared with sending messages to a single mobile number, sending messages to multiple mobile numbers requires longer response time.
+   * 
+   * > We recommend that you send one verification code message to a mobile number in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1390000****
+   */
   phoneNumbers?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The signature.
+   * 
+   * You can log on to the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm?spm=5176.12818093.categories-n-products.ddysms.3b2816d0xml2NA#/overview), click **Go China** or **Go Globe** in the left-side navigation pane, and then view the signature on the **Signatures** tab.
+   * 
+   * > You must specify a signature that is created in the SMS console and approved by Alibaba Cloud. For more information about SMS signature specifications, see [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
+  /**
+   * @remarks
+   * The extension code of the upstream message. Upstream messages are messages sent to the communication service provider. Upstream messages are used to customize a service, complete an inquiry, or send a request. You are charged for sending upstream messages based on the billing standards of the service provider.
+   * 
+   * > The extension code is automatically generated by the system when the signature is generated. You do not need to specify the extension code. You can ignore this parameter if you do not have special requirements.
+   * 
+   * @example
+   * 90999
+   */
   smsUpExtendCode?: string;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * You can log on to the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm?spm=5176.12818093.categories-n-products.ddysms.3b2816d0xml2NA#/overview), click **Go China** or **Go Globe** in the left-side navigation pane, and then view the **template code** on the **Templates** tab.
+   * 
+   * > You must specify a message template that is created in the SMS console and approved by Alibaba Cloud. If you send messages to countries or regions outside the Chinese mainland, use the corresponding message templates.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SMS_15305****
+   */
   templateCode?: string;
+  /**
+   * @remarks
+   * The value of the variable in the message template. You can specify multiple parameter values. Example:{"name":"Sam","number":"1390000\\*\\*\\*\\*"}.
+   * 
+   * > 
+   * 
+   * *   If line breaks are required in JSON-formatted data, they must meet the relevant requirements that are specified in the standard JSON protocol.
+   * 
+   * *   For more information about template variables, see [SMS template specifications](https://help.aliyun.com/document_detail/108253.html).
+   * 
+   * @example
+   * {"code":"1111"}
+   */
   templateParam?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3382,9 +7101,42 @@ export class SendSmsRequest extends $tea.Model {
 }
 
 export class SendSmsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery receipt.
+   * 
+   * You can call the [QuerySendDetails](~~QuerySendDetails~~) operation to query the delivery status based on the receipt ID.
+   * 
+   * @example
+   * 9006197469364984****
+   */
   bizId?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8DE990
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3435,8 +7187,36 @@ export class SendSmsResponse extends $tea.Model {
 }
 
 export class SmsConversionIntlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the OTP message was delivered. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * *   If you leave the parameter empty, the current timestamp is specified by default.
+   * *   If you specify the parameter, the timestamp must be greater than the message sending time and less than the current timestamp.
+   * 
+   * @example
+   * 1349055900000
+   */
   conversionTime?: number;
+  /**
+   * @remarks
+   * Specifies whether customers replied to the OTP message. Valid values: true and false.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   delivered?: boolean;
+  /**
+   * @remarks
+   * The ID of the message.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1008030300****
+   */
   messageId?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -3469,8 +7249,29 @@ export class SmsConversionIntlRequest extends $tea.Model {
 }
 
 export class SmsConversionIntlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code. If OK is returned, the request is successful. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html?spm=a2c4g.101345.0.0.74326ff2J5EZyt).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8D****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3520,12 +7321,50 @@ export class SmsConversionIntlResponse extends $tea.Model {
 
 export class TagResourcesRequest extends $tea.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The name of the cloud service. Set the value to **dysms**.
+   * 
+   * @example
+   * dysms
+   */
   prodCode?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to **cn-hangzhou**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * @example
+   * SMS_23423423
+   */
   resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The type of the resource. Set the value to **TEMPLATE**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TEMPLATE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag.
+   * 
+   * This parameter is required.
+   */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -3559,8 +7398,35 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * *   If OK is returned, the request is successful.
+   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * Indicates whether tags were attached. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   data?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A90E4451-FED7-49D2-87C8-00700A8C****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3609,14 +7475,63 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to delete all tags from the message template. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   all?: boolean;
   ownerId?: number;
+  /**
+   * @remarks
+   * The name of the cloud service. Set the value to **dysms**.
+   * 
+   * @example
+   * dysms
+   */
   prodCode?: string;
+  /**
+   * @remarks
+   * The region. Set the value to cn-hangzhou.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The array of message template codes. You can specify 1 to 20 message templates.
+   * 
+   * @example
+   * SMS_23423423
+   */
   resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The type of the resource. Set the value to TEMPLATE.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TEMPLATE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The array of tag keys. You can specify 1 to 20 tag keys.
+   * 
+   * @example
+   * TestKey
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3652,8 +7567,35 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   data?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A90E4451-FED7-49D2-87C8-00700A8C****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3701,17 +7643,239 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class UpdateExtCodeSignRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 要修改的扩展码A3
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 01
+   */
+  existExtCode?: string;
+  /**
+   * @remarks
+   * 修改后的扩展码A3
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 02
+   */
+  newExtCode?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 签名
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  signName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      existExtCode: 'ExistExtCode',
+      newExtCode: 'NewExtCode',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signName: 'SignName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      existExtCode: 'string',
+      newExtCode: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExtCodeSignResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * false
+   */
+  data?: boolean;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 90E63D28-E31D-1EB2-8939-A9486641****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExtCodeSignResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateExtCodeSignResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateExtCodeSignResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateSmsSignRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Application scenarios, instructions as follows:
+   * - For registered websites, please enter the domain name registered with MIIT, including HTTP or HTTPS.
+   * - For launched apps, provide the display link from the app store with HTTP or HTTPS, ensuring the app is online.
+   * - For public accounts or mini-programs, fill in the full name, ensuring they are online.
+   * - For e-commerce platform store names (for enterprise users only), provide the display link with HTTP or HTTPS.
+   * 
+   * @example
+   * http://www.aliyun.com/
+   */
   applySceneContent?: string;
+  /**
+   * @remarks
+   * Additional materials, such as uploading business proof documents or screenshots of business operations, to help reviewers understand your business details.
+   */
   moreData?: string[];
   ownerId?: number;
+  /**
+   * @remarks
+   * Approved or under-review qualification ID.
+   * 
+   * > - Before applying for an SMS signature, please first [apply for qualifications](https://help.aliyun.com/zh/sms/user-guide/new-qualification?spm=a2c4g.11186623.0.0.718d187bbkpMRK).
+   * > - You can view the qualification ID on the [Qualification Management](https://dysms.console.aliyun.com/domestic/text/qualification) page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8563**
+   */
   qualificationId?: number;
+  /**
+   * @remarks
+   * Explanation of the SMS signature scenario, with a maximum length of 200 characters.
+   * 
+   * > The scenario explanation is one of the reference information for signature review. Please provide a detailed description of the usage scenarios of the launched business, along with verifiable information such as website links, registered domain addresses, app store download links, full names of public accounts or mini-programs, etc. For login scenarios, test account credentials are also required. A well-informed application explanation will enhance the efficiency of signature and template reviews. Refer to the **Application Scenarios** column in the [Signature Source](https://help.aliyun.com/zh/sms/user-guide/signature-specifications-1?spm=a2c4g.11186623.0.i2#section-xup-k46-yi4) table for filling in SMS scenarios.
+   * 
+   * @example
+   * 登录场景申请验证码
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Signature not yet approved.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 阿里云验证码
+   */
   signName?: string;
+  /**
+   * @remarks
+   * Source of the signature. Values:
+   * 
+   * - **0**: Full name or abbreviation of enterprises and institutions.
+   * - **1**: Full name or abbreviation of MIIT-registered websites.
+   * - **2**: Full name or abbreviation of app applications.
+   * - **3**: Full name or abbreviation of public accounts or mini-programs.
+   * - **4**: Full name or abbreviation of e-commerce platform store names.
+   * - **5**: Full name or abbreviation of trademarks.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   signSource?: number;
+  /**
+   * @remarks
+   * Signature type. It is recommended to use the default value.
+   * 
+   * - **0**: Verification code
+   * - **1**: General (default)
+   * 
+   * @example
+   * 1
+   */
   signType?: number;
+  /**
+   * @remarks
+   * Whether the signature is for self-use or others.
+   * 
+   * - false: Self-use
+   * - true: Others
+   * >Notice: When the signature is for self-use, select the self-use qualification ID; when it\\"s for others, choose the others\\" qualification ID.
+   * 
+   * @example
+   * false
+   */
   thirdParty?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3751,16 +7915,98 @@ export class UpdateSmsSignRequest extends $tea.Model {
 }
 
 export class UpdateSmsSignShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Application scenarios, instructions as follows:
+   * - For registered websites, please enter the domain name registered with MIIT, including HTTP or HTTPS.
+   * - For launched apps, provide the display link from the app store with HTTP or HTTPS, ensuring the app is online.
+   * - For public accounts or mini-programs, fill in the full name, ensuring they are online.
+   * - For e-commerce platform store names (for enterprise users only), provide the display link with HTTP or HTTPS.
+   * 
+   * @example
+   * http://www.aliyun.com/
+   */
   applySceneContent?: string;
+  /**
+   * @remarks
+   * Additional materials, such as uploading business proof documents or screenshots of business operations, to help reviewers understand your business details.
+   */
   moreDataShrink?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * Approved or under-review qualification ID.
+   * 
+   * > - Before applying for an SMS signature, please first [apply for qualifications](https://help.aliyun.com/zh/sms/user-guide/new-qualification?spm=a2c4g.11186623.0.0.718d187bbkpMRK).
+   * > - You can view the qualification ID on the [Qualification Management](https://dysms.console.aliyun.com/domestic/text/qualification) page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8563**
+   */
   qualificationId?: number;
+  /**
+   * @remarks
+   * Explanation of the SMS signature scenario, with a maximum length of 200 characters.
+   * 
+   * > The scenario explanation is one of the reference information for signature review. Please provide a detailed description of the usage scenarios of the launched business, along with verifiable information such as website links, registered domain addresses, app store download links, full names of public accounts or mini-programs, etc. For login scenarios, test account credentials are also required. A well-informed application explanation will enhance the efficiency of signature and template reviews. Refer to the **Application Scenarios** column in the [Signature Source](https://help.aliyun.com/zh/sms/user-guide/signature-specifications-1?spm=a2c4g.11186623.0.i2#section-xup-k46-yi4) table for filling in SMS scenarios.
+   * 
+   * @example
+   * 登录场景申请验证码
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Signature not yet approved.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 阿里云验证码
+   */
   signName?: string;
+  /**
+   * @remarks
+   * Source of the signature. Values:
+   * 
+   * - **0**: Full name or abbreviation of enterprises and institutions.
+   * - **1**: Full name or abbreviation of MIIT-registered websites.
+   * - **2**: Full name or abbreviation of app applications.
+   * - **3**: Full name or abbreviation of public accounts or mini-programs.
+   * - **4**: Full name or abbreviation of e-commerce platform store names.
+   * - **5**: Full name or abbreviation of trademarks.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   signSource?: number;
+  /**
+   * @remarks
+   * Signature type. It is recommended to use the default value.
+   * 
+   * - **0**: Verification code
+   * - **1**: General (default)
+   * 
+   * @example
+   * 1
+   */
   signType?: number;
+  /**
+   * @remarks
+   * Whether the signature is for self-use or others.
+   * 
+   * - false: Self-use
+   * - true: Others
+   * >Notice: When the signature is for self-use, select the self-use qualification ID; when it\\"s for others, choose the others\\" qualification ID.
+   * 
+   * @example
+   * false
+   */
   thirdParty?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3800,10 +8046,50 @@ export class UpdateSmsSignShrinkRequest extends $tea.Model {
 }
 
 export class UpdateSmsSignResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Request status code.
+   * 
+   * * OK indicates a successful request.
+   * * For other error codes, refer to [Error Code List](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * Description of the status code.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * Work order number.
+   * 
+   * This parameter is used by auditors when querying audits. You need to provide this work order number for expedited review.
+   * 
+   * @example
+   * 2004417****
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID of this call request, uniquely generated by Alibaba Cloud, which can be used for troubleshooting and issue localization.
+   * 
+   * @example
+   * A90E4451-FED7-49D2-87C8-00700A8C4D0D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The modified signature name.
+   * 
+   * @example
+   * 登录验证
+   */
   signName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3856,18 +8142,111 @@ export class UpdateSmsSignResponse extends $tea.Model {
 }
 
 export class UpdateSmsTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Application scenarios, instructions as follows:
+   * - For registered websites, please enter the MIIT-registered domain with HTTP or HTTPS.
+   * - For launched apps, provide the app store display link with HTTP or HTTPS, ensuring the app is online.
+   * - For public accounts or mini-programs, enter the full name of the public account or mini-program, ensuring they are online.
+   * - For e-commerce platform stores, applicable only to enterprise users, enter the display link of the e-commerce store with HTTP or HTTPS.
+   * 
+   * @example
+   * http://www.aliyun.com/
+   */
   applySceneContent?: string;
+  /**
+   * @remarks
+   * International/Hong Kong, Macao, and Taiwan template type. When the **TemplateType** parameter is **3**, this parameter is required for international/Hong Kong, Macao, and Taiwan templates, with values:
+   * - **0**: Verification code.
+   * - **1**: SMS notification.
+   * - **2**: Promotional SMS.
+   * 
+   * @example
+   * 0
+   */
   intlType?: number;
+  /**
+   * @remarks
+   * Additional information, such as uploading business proof documents or screenshots, to help reviewers understand your business details. Optional and can be left unset.
+   */
   moreData?: string[];
   ownerId?: number;
+  /**
+   * @remarks
+   * SMS signature associated with the template during the application.
+   * 
+   * @example
+   * 阿里云
+   */
   relatedSignName?: string;
+  /**
+   * @remarks
+   * Explanation for the SMS template application, which serves as a reference for template review.
+   * 
+   * @example
+   * 登录场景使用验证码
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Template Code of an unapproved template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SMS_152550****
+   */
   templateCode?: string;
+  /**
+   * @remarks
+   * Template content, up to 500 characters in length.
+   * 
+   * Both the template content and variable content must comply with SMS regulations; otherwise, the template will fail the review. You can also view common template examples on the template application page. Using sample templates can enhance review efficiency and success rates. Variable specifications can be found in [TemplateContent Parameter Variable Specifications](https://help.aliyun.com/zh/sms/templaterule-template-variable-parameter-filling-example?spm).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 您正在申请手机注册，验证码为：${code}，5分钟内有效！
+   */
   templateContent?: string;
+  /**
+   * @remarks
+   * Template name, up to 30 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 验证码
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * Template variable rules.
+   * 
+   * For guidance on filling variable rules, refer to the [Sample Documentation](https://help.aliyun.com/zh/sms/templaterule-template-variable-parameter-filling-example?spm).
+   * 
+   * @example
+   * {"code":"characterWithNumber"}
+   */
   templateRule?: string;
+  /**
+   * @remarks
+   * SMS type. Values:
+   * 
+   * - **0**: Verification code.
+   * - **1**: SMS notification.
+   * - **2**: Promotional SMS.
+   * - **3**: International/Hong Kong, Macao, and Taiwan messages.
+   * 
+   * > Only enterprise-certified users can apply for promotional SMS and international/Hong Kong, Macao, and Taiwan messages. Details on differences between personal and enterprise user rights are available in [Usage Guidelines](https://help.aliyun.com/zh/sms/user-guide/usage-notes?spm=a2c4g.11186623.0.0.67447f576NJnE8).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3911,18 +8290,111 @@ export class UpdateSmsTemplateRequest extends $tea.Model {
 }
 
 export class UpdateSmsTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Application scenarios, instructions as follows:
+   * - For registered websites, please enter the MIIT-registered domain with HTTP or HTTPS.
+   * - For launched apps, provide the app store display link with HTTP or HTTPS, ensuring the app is online.
+   * - For public accounts or mini-programs, enter the full name of the public account or mini-program, ensuring they are online.
+   * - For e-commerce platform stores, applicable only to enterprise users, enter the display link of the e-commerce store with HTTP or HTTPS.
+   * 
+   * @example
+   * http://www.aliyun.com/
+   */
   applySceneContent?: string;
+  /**
+   * @remarks
+   * International/Hong Kong, Macao, and Taiwan template type. When the **TemplateType** parameter is **3**, this parameter is required for international/Hong Kong, Macao, and Taiwan templates, with values:
+   * - **0**: Verification code.
+   * - **1**: SMS notification.
+   * - **2**: Promotional SMS.
+   * 
+   * @example
+   * 0
+   */
   intlType?: number;
+  /**
+   * @remarks
+   * Additional information, such as uploading business proof documents or screenshots, to help reviewers understand your business details. Optional and can be left unset.
+   */
   moreDataShrink?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * SMS signature associated with the template during the application.
+   * 
+   * @example
+   * 阿里云
+   */
   relatedSignName?: string;
+  /**
+   * @remarks
+   * Explanation for the SMS template application, which serves as a reference for template review.
+   * 
+   * @example
+   * 登录场景使用验证码
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Template Code of an unapproved template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SMS_152550****
+   */
   templateCode?: string;
+  /**
+   * @remarks
+   * Template content, up to 500 characters in length.
+   * 
+   * Both the template content and variable content must comply with SMS regulations; otherwise, the template will fail the review. You can also view common template examples on the template application page. Using sample templates can enhance review efficiency and success rates. Variable specifications can be found in [TemplateContent Parameter Variable Specifications](https://help.aliyun.com/zh/sms/templaterule-template-variable-parameter-filling-example?spm).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 您正在申请手机注册，验证码为：${code}，5分钟内有效！
+   */
   templateContent?: string;
+  /**
+   * @remarks
+   * Template name, up to 30 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 验证码
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * Template variable rules.
+   * 
+   * For guidance on filling variable rules, refer to the [Sample Documentation](https://help.aliyun.com/zh/sms/templaterule-template-variable-parameter-filling-example?spm).
+   * 
+   * @example
+   * {"code":"characterWithNumber"}
+   */
   templateRule?: string;
+  /**
+   * @remarks
+   * SMS type. Values:
+   * 
+   * - **0**: Verification code.
+   * - **1**: SMS notification.
+   * - **2**: Promotional SMS.
+   * - **3**: International/Hong Kong, Macao, and Taiwan messages.
+   * 
+   * > Only enterprise-certified users can apply for promotional SMS and international/Hong Kong, Macao, and Taiwan messages. Details on differences between personal and enterprise user rights are available in [Usage Guidelines](https://help.aliyun.com/zh/sms/user-guide/usage-notes?spm=a2c4g.11186623.0.0.67447f576NJnE8).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3966,11 +8438,58 @@ export class UpdateSmsTemplateShrinkRequest extends $tea.Model {
 }
 
 export class UpdateSmsTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Request status code.
+   * 
+   * * OK indicates a successful request.
+   * * For other error codes, refer to the **Error Codes** section of this chapter or the product\\"s [API Error Codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * Description of the status code.
+   * 
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * Work order number.
+   * 
+   * This parameter is used by auditors when querying audits. You need to provide this work order number when requesting expedited review.
+   * 
+   * @example
+   * 20041271****
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID of this call request, which is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
+   * 
+   * @example
+   * 819BE656-D2E0-4858-8B21-B2E477085AAF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Code of the SMS template.
+   * 
+   * @example
+   * SMS_152550****
+   */
   templateCode?: string;
+  /**
+   * @remarks
+   * Name of the SMS template.
+   * 
+   * @example
+   * 验证码
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4025,8 +8544,31 @@ export class UpdateSmsTemplateResponse extends $tea.Model {
 }
 
 export class AddShortUrlResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the short URL expires.
+   * 
+   * > The value of **ExpireDate** is on the hour.
+   * 
+   * @example
+   * 2021-09-19 00:00:00
+   */
   expireDate?: string;
+  /**
+   * @remarks
+   * The short URL.
+   * 
+   * @example
+   * http://****.cn/6y8uy7
+   */
   shortUrl?: string;
+  /**
+   * @remarks
+   * The source URL.
+   * 
+   * @example
+   * https://www.****.com/product/sms
+   */
   sourceUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4050,7 +8592,29 @@ export class AddShortUrlResponseBodyData extends $tea.Model {
 }
 
 export class AddSmsSignRequestSignFileList extends $tea.Model {
+  /**
+   * @remarks
+   * The Base64-encoded string of the qualification document. An image cannot exceed 2 MB in size. In some scenarios, you must upload supporting documents to apply for signatures. For more information, see [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * R0lGODlhHAAmAKIHAKqqqsvLy0hISObm5vf394uL****
+   */
   fileContents?: string;
+  /**
+   * @remarks
+   * The format of the qualification document. You can upload multiple images. Images in JPG, PNG, GIF, or JPEG format are supported.
+   * 
+   * In some scenarios, you must upload supporting documents to apply for signatures. For more information, see [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html).
+   * 
+   * > If you apply for a signature for other users or if the signature source is the name of an enterprise or public institution, you must upload a certificate and a letter of authorization. For more information, see [Certificate](https://help.aliyun.com/document_detail/108076.html) and [Letter of authorization](https://help.aliyun.com/document_detail/56741.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * jpg
+   */
   fileSuffix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4072,7 +8636,24 @@ export class AddSmsSignRequestSignFileList extends $tea.Model {
 }
 
 export class CheckMobilesCardSupportResponseBodyDataQueryResult extends $tea.Model {
+  /**
+   * @remarks
+   * The mobile phone number.
+   * 
+   * @example
+   * 1390000****
+   */
   mobile?: string;
+  /**
+   * @remarks
+   * Indicates whether the mobile phone number supports card messages.
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   support?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4094,6 +8675,10 @@ export class CheckMobilesCardSupportResponseBodyDataQueryResult extends $tea.Mod
 }
 
 export class CheckMobilesCardSupportResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The list of returned results.
+   */
   queryResult?: CheckMobilesCardSupportResponseBodyDataQueryResult[];
   static names(): { [key: string]: string } {
     return {
@@ -4113,6 +8698,17 @@ export class CheckMobilesCardSupportResponseBodyData extends $tea.Model {
 }
 
 export class CreateCardSmsTemplateResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm?spm=5176.12818093.categories-n-products.ddysms.3b2816d0xml2NA#/overview).
+   * 
+   * > Make sure that the message template has been approved.
+   * 
+   * @example
+   * CARD_SMS_60000****
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4132,10 +8728,30 @@ export class CreateCardSmsTemplateResponseBodyData extends $tea.Model {
 }
 
 export class CreateSmartShortUrlResponseBodyModel extends $tea.Model {
+  /**
+   * @example
+   * 示例值
+   */
   domain?: string;
+  /**
+   * @example
+   * 11
+   */
   expiration?: number;
+  /**
+   * @example
+   * 示例值
+   */
   phoneNumber?: string;
+  /**
+   * @example
+   * 示例值
+   */
   shortName?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
   shortUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4162,11 +8778,227 @@ export class CreateSmartShortUrlResponseBodyModel extends $tea.Model {
   }
 }
 
+export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.Model {
+  /**
+   * @remarks
+   * 发送错误码
+   * 
+   * @example
+   * Success
+   */
+  errCode?: string;
+  /**
+   * @remarks
+   * 客户传输outId
+   * 
+   * @example
+   * 12345678
+   */
+  outId?: string;
+  /**
+   * @remarks
+   * 接收短信手机号
+   * 
+   * @example
+   * 156****9080
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * 接收时间
+   * 
+   * @example
+   * 2024-09-27 11:26:35
+   */
+  receiveDate?: string;
+  /**
+   * @remarks
+   * 接收短信类型
+   * 
+   * @example
+   * CARD_SMS
+   */
+  receiveType?: string;
+  /**
+   * @remarks
+   * 渲染时间
+   * 
+   * @example
+   * 2024-09-27 12:13:39
+   */
+  renderDate?: string;
+  /**
+   * @remarks
+   * 解析状态.。0：未解析；1：解析成功；3：未解析
+   * 
+   * @example
+   * 1
+   */
+  renderStatus?: number;
+  /**
+   * @remarks
+   * 短信发送时间
+   * 
+   * @example
+   * 2024-09-27 11:26:32
+   */
+  sendDate?: string;
+  /**
+   * @remarks
+   * 发送状态 1：发送中；2：发送失败；3：发送成功；4：寻址失败
+   * 
+   * @example
+   * 3
+   */
+  sendStatus?: number;
+  /**
+   * @remarks
+   * 短信内容。只有文本短信有值
+   * 
+   * @example
+   * 您收到一条短信消息
+   */
+  smsContent?: string;
+  /**
+   * @remarks
+   * 模板code
+   * 
+   * @example
+   * CARD_SMS_6***
+   */
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errCode: 'ErrCode',
+      outId: 'OutId',
+      phoneNumber: 'PhoneNumber',
+      receiveDate: 'ReceiveDate',
+      receiveType: 'ReceiveType',
+      renderDate: 'RenderDate',
+      renderStatus: 'RenderStatus',
+      sendDate: 'SendDate',
+      sendStatus: 'SendStatus',
+      smsContent: 'SmsContent',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errCode: 'string',
+      outId: 'string',
+      phoneNumber: 'string',
+      receiveDate: 'string',
+      receiveType: 'string',
+      renderDate: 'string',
+      renderStatus: 'number',
+      sendDate: 'string',
+      sendStatus: 'number',
+      smsContent: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardSmsDetailsResponseBodyCardSendDetailDTO extends $tea.Model {
+  /**
+   * @remarks
+   * 页码
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * 页数
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  records?: GetCardSmsDetailsResponseBodyCardSendDetailDTORecords[];
+  /**
+   * @remarks
+   * 总量
+   * 
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      records: 'Records',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      records: { 'type': 'array', 'itemType': GetCardSmsDetailsResponseBodyCardSendDetailDTORecords },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCardSmsLinkResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The mobile phone numbers that support card messages.
+   * 
+   * @example
+   * [\\"1390000****\\",\\"1370000****\\"]
+   */
   cardPhoneNumbers?: string;
+  /**
+   * @remarks
+   * The signatures must correspond to the mobile numbers and short URLs in sequence.
+   * 
+   * @example
+   * ["aliyun","aliyun2"]
+   */
   cardSignNames?: string;
+  /**
+   * @remarks
+   * The short URLs.
+   * 
+   * @example
+   * [\\"mw2m.cn/LAaGGa\\",\\"mw2m.cn/LAAaes\\"]
+   */
   cardSmsLinks?: string;
+  /**
+   * @remarks
+   * The review status of the card message template.
+   * 
+   * *   **0**: pending approval
+   * *   **1**: approved
+   * *   **2**: rejected
+   * 
+   * > Unapproved card messages are rolled back.
+   * 
+   * @example
+   * 0
+   */
   cardTmpState?: number;
+  /**
+   * @remarks
+   * The mobile phone numbers that do not support card messages.
+   * 
+   * @example
+   * 1390000****
+   */
   notMediaMobiles?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4194,7 +9026,21 @@ export class GetCardSmsLinkResponseBodyData extends $tea.Model {
 }
 
 export class GetMediaResourceIdResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The download URL of the resource.
+   * 
+   * @example
+   * http://test-example.com/download.jpg
+   */
   resUrlDownload?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * SMS_14571****
+   */
   resourceId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4216,13 +9062,69 @@ export class GetMediaResourceIdResponseBodyData extends $tea.Model {
 }
 
 export class GetOSSInfoForCardTemplateResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID.
+   * 
+   * @example
+   * LTAIxetqt1Dg****
+   */
   accessKeyId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 599333677478****
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * alicom-cardsms-resources
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The timeout period.
+   * 
+   * @example
+   * 1634209418
+   */
   expireTime?: string;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * @example
+   * https://alicom-cardsms-resources.oss-cn-zhangjiakou.aliyuncs.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * The signature policy.
+   * 
+   * @example
+   * eyJxxx0=
+   */
   policy?: string;
+  /**
+   * @remarks
+   * The signature.
+   * 
+   * @example
+   * Aliyun
+   */
   signature?: string;
+  /**
+   * @remarks
+   * The path of the policy.
+   * 
+   * @example
+   * 1631792777
+   */
   startPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4256,11 +9158,53 @@ export class GetOSSInfoForCardTemplateResponseBodyData extends $tea.Model {
 }
 
 export class GetOSSInfoForUploadFileResponseBodyModel extends $tea.Model {
+  /**
+   * @remarks
+   * AccessKey ID used for signing.
+   * 
+   * @example
+   * LTAIxetqt1Dg****
+   */
   accessKeyId?: string;
+  /**
+   * @remarks
+   * Expiration time.
+   * 
+   * @example
+   * 1719297445
+   */
   expireTime?: string;
+  /**
+   * @remarks
+   * Host address.
+   * 
+   * @example
+   * https://alicom-fc-media.oss-cn-zhangjiakou.aliyuncs.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * Signature policy.
+   * 
+   * @example
+   * eyJleHBpcmF0aW9uIjoiMjAyN***Ni0yNVQwNjozNzoyNS45NzBaI**iY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF0sWyJzdGFydHMtd2l0***sIiRrZXkiLCIiXV19
+   */
   policy?: string;
+  /**
+   * @remarks
+   * Signature information calculated based on **AccessKey Secret** and **Policy**. When calling the OSS API, OSS verifies this signature information to confirm the legitimacy of the Post request.
+   * 
+   * @example
+   * BXnwCWPrhVb*****aoZHZfli5KE=
+   */
   signature?: string;
+  /**
+   * @remarks
+   * Policy path.
+   * 
+   * @example
+   * 123456
+   */
   startPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4290,7 +9234,21 @@ export class GetOSSInfoForUploadFileResponseBodyModel extends $tea.Model {
 }
 
 export class GetSmsSignResponseBodyAuditInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Audit date and time.
+   * 
+   * @example
+   * 2024-06-03 12:02:34
+   */
   auditDate?: string;
+  /**
+   * @remarks
+   * Reasons for not passing the review.
+   * 
+   * @example
+   * reason for rejection.
+   */
   rejectInfo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4312,7 +9270,21 @@ export class GetSmsSignResponseBodyAuditInfo extends $tea.Model {
 }
 
 export class GetSmsTemplateResponseBodyAuditInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Audit date and time.
+   * 
+   * @example
+   * 2024-06-03 11:20:34
+   */
   auditDate?: string;
+  /**
+   * @remarks
+   * Reasons for failed audit.
+   * 
+   * @example
+   * 模板内容中包含错别字。
+   */
   rejectInfo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4372,7 +9344,21 @@ export class GetSmsTemplateResponseBodyMoreDataFileUrlList extends $tea.Model {
 }
 
 export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * TestKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4394,9 +9380,37 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * @example
+   * SMS_23423****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of resource.
+   * 
+   * @example
+   * ALIYUN::DYSMS::TEMPLATE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * TestKey
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * TestValue
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4441,7 +9455,31 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class ModifySmsSignRequestSignFileList extends $tea.Model {
+  /**
+   * @remarks
+   * The base64-encoded string of the signed files. The size of the image cannot exceed 2 MB.
+   * 
+   * In some scenarios, documents are required to prove your identity. For more information, see [Signature specifications](https://help.aliyun.com/document_detail/108076.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * R0lGODlhHAAmAKIHAKqqqsvLy0hISObm5vf394uLiwAA
+   */
   fileContents?: string;
+  /**
+   * @remarks
+   * The format of the documents. You can upload multiple images. JPG, PNG, GIF, and JPEG are supported.
+   * 
+   * In some scenarios, documents are required to prove your identity. For more information, see [Signature specifications](https://help.aliyun.com/document_detail/108076.html).
+   * 
+   * > If the signature is used for other purposes or the signature source is an enterprise or public institution, you must upload some documents and an authorization letter. For more information, see [Documents](https://help.aliyun.com/document_detail/108076.html) and [Letter of authorization](https://help.aliyun.com/document_detail/56741.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * jpg
+   */
   fileSuffix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4463,6 +9501,10 @@ export class ModifySmsSignRequestSignFileList extends $tea.Model {
 }
 
 export class QueryCardSmsTemplateResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The array of objects.
+   */
   templates?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
@@ -4482,6 +9524,10 @@ export class QueryCardSmsTemplateResponseBodyData extends $tea.Model {
 }
 
 export class QueryCardSmsTemplateReportResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the data returned.
+   */
   model?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
@@ -4500,8 +9546,131 @@ export class QueryCardSmsTemplateReportResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryExtCodeSignResponseBodyDataList extends $tea.Model {
+  /**
+   * @remarks
+   * 是否可回收
+   * 
+   * @example
+   * 1
+   */
+  active?: number;
+  /**
+   * @remarks
+   * 扩展码A3
+   * 
+   * @example
+   * 01
+   */
+  extCode?: string;
+  /**
+   * @remarks
+   * 近1个月发送成功条数（只读）
+   * 
+   * @example
+   * 69
+   */
+  sendCount?: number;
+  /**
+   * @remarks
+   * 签名
+   * 
+   * @example
+   * 示例值示例值
+   */
+  signName?: string;
+  /**
+   * @remarks
+   * 来源
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      active: 'Active',
+      extCode: 'ExtCode',
+      sendCount: 'SendCount',
+      signName: 'SignName',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      active: 'number',
+      extCode: 'string',
+      sendCount: 'number',
+      signName: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryExtCodeSignResponseBodyData extends $tea.Model {
+  list?: QueryExtCodeSignResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': QueryExtCodeSignResponseBodyDataList },
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryMobilesCardSupportResponseBodyDataQueryResult extends $tea.Model {
+  /**
+   * @remarks
+   * The mobile phone number.
+   * 
+   * @example
+   * 1380000****
+   */
   mobile?: string;
+  /**
+   * @remarks
+   * Indicates whether the mobile phone number supports card messages. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   support?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4523,6 +9692,10 @@ export class QueryMobilesCardSupportResponseBodyDataQueryResult extends $tea.Mod
 }
 
 export class QueryMobilesCardSupportResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The list of returned results.
+   */
   queryResult?: QueryMobilesCardSupportResponseBodyDataQueryResult[];
   static names(): { [key: string]: string } {
     return {
@@ -4542,11 +9715,35 @@ export class QueryMobilesCardSupportResponseBodyData extends $tea.Model {
 }
 
 export class QueryPageSmartShortUrlLogResponseBodyModelList extends $tea.Model {
+  /**
+   * @example
+   * 87
+   */
   clickState?: number;
+  /**
+   * @example
+   * 51
+   */
   clickTime?: number;
+  /**
+   * @example
+   * 64
+   */
   createTime?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
   phoneNumber?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
   shortName?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
   shortUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4577,9 +9774,25 @@ export class QueryPageSmartShortUrlLogResponseBodyModelList extends $tea.Model {
 
 export class QueryPageSmartShortUrlLogResponseBodyModel extends $tea.Model {
   list?: QueryPageSmartShortUrlLogResponseBodyModelList[];
+  /**
+   * @example
+   * 74
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 15
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 66
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 86
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4607,13 +9820,76 @@ export class QueryPageSmartShortUrlLogResponseBodyModel extends $tea.Model {
 }
 
 export class QuerySendDetailsResponseBodySmsSendDetailDTOsSmsSendDetailDTO extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the message.
+   * 
+   * @example
+   * 【Aliyun】This is a test message.
+   */
   content?: string;
+  /**
+   * @remarks
+   * The status code returned by the carrier.
+   * 
+   * *   If the message is delivered, "DELIVERED" is returned.
+   * *   For information about the error codes that may be returned if the message is not delivered, see [error codes](https://help.aliyun.com/document_detail/101347.html).
+   * 
+   * @example
+   * DELIVERED
+   */
   errCode?: string;
+  /**
+   * @remarks
+   * The extended field.
+   * 
+   * @example
+   * 123
+   */
   outId?: string;
+  /**
+   * @remarks
+   * The mobile numbers of the recipients.
+   * 
+   * @example
+   * 1390000****
+   */
   phoneNum?: string;
+  /**
+   * @remarks
+   * The date and time when the message was received.
+   * 
+   * @example
+   * 2019-01-08 16:44:13
+   */
   receiveDate?: string;
+  /**
+   * @remarks
+   * The date and time when the message was sent.
+   * 
+   * @example
+   * 2019-01-08 16:44:10
+   */
   sendDate?: string;
+  /**
+   * @remarks
+   * The delivery status of the message. Valid values:
+   * 
+   * *   **1**: The message has not received a delivery receipt yet.
+   * *   **2**: The message failed to be delivered.
+   * *   **3**: The message was delivered.
+   * 
+   * @example
+   * 3
+   */
   sendStatus?: number;
+  /**
+   * @remarks
+   * The ID of the message template.
+   * 
+   * @example
+   * SMS_12231****
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4666,10 +9942,45 @@ export class QuerySendDetailsResponseBodySmsSendDetailDTOs extends $tea.Model {
 }
 
 export class QuerySendStatisticsResponseBodyDataTargetList extends $tea.Model {
+  /**
+   * @remarks
+   * The number of messages without a delivery receipt.
+   * 
+   * @example
+   * 1
+   */
   noRespondedCount?: number;
+  /**
+   * @remarks
+   * The number of messages with a delivery receipt that indicates a failure.
+   * 
+   * @example
+   * 2
+   */
   respondedFailCount?: number;
+  /**
+   * @remarks
+   * The number of messages with a delivery receipt that indicates a success.
+   * 
+   * @example
+   * 17
+   */
   respondedSuccessCount?: number;
+  /**
+   * @remarks
+   * The date when the message is sent. Format: yyyyMMdd. Example: 20181225.
+   * 
+   * @example
+   * 20201010
+   */
   sendDate?: string;
+  /**
+   * @remarks
+   * The number of delivered messages.
+   * 
+   * @example
+   * 20
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4697,7 +10008,18 @@ export class QuerySendStatisticsResponseBodyDataTargetList extends $tea.Model {
 }
 
 export class QuerySendStatisticsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the data returned.
+   */
   targetList?: QuerySendStatisticsResponseBodyDataTargetList[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4719,13 +10041,74 @@ export class QuerySendStatisticsResponseBodyData extends $tea.Model {
 }
 
 export class QueryShortUrlResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the short URL was created.
+   * 
+   * @example
+   * 2019-01-08 16:44:13
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The time when the short URL expires.
+   * 
+   * @example
+   * 2019-01-22 11:21:11
+   */
   expireDate?: string;
+  /**
+   * @remarks
+   * The PV.
+   * 
+   * @example
+   * 300
+   */
   pageViewCount?: string;
+  /**
+   * @remarks
+   * The short URL.
+   * 
+   * @example
+   * http://****.cn/6y8uy7
+   */
   shortUrl?: string;
+  /**
+   * @remarks
+   * The service name of the short URL.
+   * 
+   * @example
+   * The Alibaba Cloud Short Link service.
+   */
   shortUrlName?: string;
+  /**
+   * @remarks
+   * The status of the short URL. Valid values:
+   * 
+   * *   **expired**
+   * *   **effective**
+   * *   **audit**
+   * *   **reject**
+   * 
+   * @example
+   * expired
+   */
   shortUrlStatus?: string;
+  /**
+   * @remarks
+   * The source address.
+   * 
+   * @example
+   * https://www.****.com/product/sms
+   */
   sourceUrl?: string;
+  /**
+   * @remarks
+   * The UV.
+   * 
+   * @example
+   * 23
+   */
   uniqueVisitorCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4759,8 +10142,29 @@ export class QueryShortUrlResponseBodyData extends $tea.Model {
 }
 
 export class QuerySmsSignListResponseBodySmsSignListReason extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the signature was rejected. Format: yyyy-MM-dd HH:mm:ss.
+   * 
+   * @example
+   * 2020-01-08 19:02:13
+   */
   rejectDate?: string;
+  /**
+   * @remarks
+   * The reason why the signature was rejected.
+   * 
+   * @example
+   * The document cannot verify the authenticity of the information. Please upload it again.
+   */
   rejectInfo?: string;
+  /**
+   * @remarks
+   * The remarks about the rejection.
+   * 
+   * @example
+   * The document cannot verify the authenticity of the information. Please upload it again.
+   */
   rejectSubInfo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4784,11 +10188,61 @@ export class QuerySmsSignListResponseBodySmsSignListReason extends $tea.Model {
 }
 
 export class QuerySmsSignListResponseBodySmsSignList extends $tea.Model {
+  /**
+   * @remarks
+   * The approval status of the signature. Valid values:
+   * 
+   * *   **AUDIT_STATE_INIT**: The signature is pending approval.
+   * *   **AUDIT_STATE_PASS**: The signature is approved.
+   * *   **AUDIT_STATE_NOT_PASS**: The signature is rejected. You can view the reason in the Reason response parameter.
+   * *   **AUDIT_STATE_CANCEL**: The approval is canceled.
+   * 
+   * @example
+   * AUDIT_STATE_NOT_PASS
+   */
   auditStatus?: string;
+  /**
+   * @remarks
+   * The type of the signature scenario. The return value ends with "type". Valid values:
+   * 
+   * *   Verification code type
+   * *   General-purpose type
+   * 
+   * @example
+   * Verification code type
+   */
   businessType?: string;
+  /**
+   * @remarks
+   * The time when the signature was created. Format: yyyy-MM-dd HH:mm:ss.
+   * 
+   * @example
+   * 2020-01-08 16:44:13
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The ticket ID.
+   * 
+   * @example
+   * 236****5
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The approval remarks.
+   * 
+   * *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
+   * *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the signature is rejected is returned.
+   */
   reason?: QuerySmsSignListResponseBodySmsSignListReason;
+  /**
+   * @remarks
+   * The name of the signature.
+   * 
+   * @example
+   * Aliyun
+   */
   signName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4818,8 +10272,29 @@ export class QuerySmsSignListResponseBodySmsSignList extends $tea.Model {
 }
 
 export class QuerySmsTemplateListResponseBodySmsTemplateListReason extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the message template was rejected. Format: yyyy-MM-dd HH:mm:ss.
+   * 
+   * @example
+   * 2020-06-04 16:01:17
+   */
   rejectDate?: string;
+  /**
+   * @remarks
+   * The reason why the message template was rejected.
+   * 
+   * @example
+   * The document cannot verify the authenticity of the information. Please upload it again.
+   */
   rejectInfo?: string;
+  /**
+   * @remarks
+   * The remarks about the rejection.
+   * 
+   * @example
+   * The document cannot verify the authenticity of the information. Please upload it again.
+   */
   rejectSubInfo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4843,14 +10318,98 @@ export class QuerySmsTemplateListResponseBodySmsTemplateListReason extends $tea.
 }
 
 export class QuerySmsTemplateListResponseBodySmsTemplateList extends $tea.Model {
+  /**
+   * @remarks
+   * The approval status of the message template. Valid values:
+   * 
+   * *   **AUDIT_STATE_INIT**: The message template is pending approval.
+   * *   **AUDIT_STATE_PASS**: The message template is approved.
+   * *   **AUDIT_STATE_NOT_PASS**: The message template is rejected. You can view the reason in the Reason response parameter.
+   * *   **AUDIT_STATE_CANCEL** or **AUDIT_SATE_CANCEL**: The approval is canceled.
+   * 
+   * @example
+   * AUDIT_STATE_PASS
+   */
   auditStatus?: string;
+  /**
+   * @remarks
+   * The time when the message template was created. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * 
+   * @example
+   * 2020-06-04 11:42:17
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The ticket ID.
+   * 
+   * @example
+   * 2361****
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The type of the message template. We recommend that you specify this parameter. Valid values:
+   * 
+   * *   **0**: verification code
+   * *   **1**: notification message
+   * *   **2**: promotional message
+   * *   **3**: message sent to countries or regions outside the Chinese mainland
+   * *   **7**: digital message
+   * 
+   * > The template type is the same as the value of the TemplateType parameter in the AddSmsTemplate and ModifySmsTemplate operations.
+   * 
+   * @example
+   * 0
+   */
   outerTemplateType?: number;
+  /**
+   * @remarks
+   * The approval remarks.
+   * 
+   * *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
+   * *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the message template is rejected is returned.
+   */
   reason?: QuerySmsTemplateListResponseBodySmsTemplateListReason;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * You can log on to the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm), click **Go China** or **Go Globe** in the left-side navigation pane, and then view the template code on the **Templates** tab. You can also call the [AddSmsTemplate](https://help.aliyun.com/document_detail/121208.html) operation to obtain the template code.
+   * 
+   * @example
+   * SMS_1525***
+   */
   templateCode?: string;
+  /**
+   * @remarks
+   * The content of the message template.
+   * 
+   * @example
+   * 123456789
+   */
   templateContent?: string;
+  /**
+   * @remarks
+   * The name of the message template.
+   * 
+   * @example
+   * aliyun verification code
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The type of the message template. Valid values:
+   * 
+   * *   **0**: notification message
+   * *   **1**: promotional message
+   * *   **2**: verification code
+   * *   **6**: message sent to countries or regions outside the Chinese mainland
+   * *   **7**: digital message
+   * 
+   * @example
+   * 7
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4886,11 +10445,59 @@ export class QuerySmsTemplateListResponseBodySmsTemplateList extends $tea.Model 
 }
 
 export class SendBatchCardSmsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the card message.
+   * 
+   * @example
+   * 123
+   */
   bizCardId?: string;
+  /**
+   * @remarks
+   * The ID of the digital message.
+   * 
+   * @example
+   * 3214
+   */
   bizDigitalId?: string;
+  /**
+   * @remarks
+   * The ID of the text message.
+   * 
+   * @example
+   * 3256
+   */
   bizSmsId?: string;
+  /**
+   * @remarks
+   * The review status of the card message template.
+   * 
+   * *   **0**: pending approval
+   * *   **1**: approved
+   * *   **2**: rejected
+   * 
+   * > Unapproved card messages are rolled back.
+   * 
+   * @example
+   * 0
+   */
   cardTmpState?: number;
+  /**
+   * @remarks
+   * The mobile phone number from which the card message is sent.
+   * 
+   * @example
+   * 1390000****
+   */
   mediaMobiles?: string;
+  /**
+   * @remarks
+   * The mobile phone number whose card message is rolled back.
+   * 
+   * @example
+   * 1390000****
+   */
   notMediaMobiles?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4920,8 +10527,29 @@ export class SendBatchCardSmsResponseBodyData extends $tea.Model {
 }
 
 export class SendCardSmsRequestCardObjects extends $tea.Model {
+  /**
+   * @remarks
+   * The URL to which the message is redirected if the message fails to be rendered.
+   * 
+   * @example
+   * https://alibaba.com
+   */
   customUrl?: string;
+  /**
+   * @remarks
+   * The variables. Special characters, such as $ and {}, do not need to be entered.
+   * 
+   * @example
+   * {\\"param3\\":\\"three\\",\\"param1\\":\\"one\\",\\"param2\\":\\"two\\"}
+   */
   dyncParams?: string;
+  /**
+   * @remarks
+   * The mobile phone number.
+   * 
+   * @example
+   * 1390000****
+   */
   mobile?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4945,11 +10573,59 @@ export class SendCardSmsRequestCardObjects extends $tea.Model {
 }
 
 export class SendCardSmsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the card message.
+   * 
+   * @example
+   * 123
+   */
   bizCardId?: string;
+  /**
+   * @remarks
+   * The ID of the digital message.
+   * 
+   * @example
+   * 232
+   */
   bizDigitalId?: string;
+  /**
+   * @remarks
+   * The ID of the text message.
+   * 
+   * @example
+   * 524
+   */
   bizSmsId?: string;
+  /**
+   * @remarks
+   * The review status of the card message template.
+   * 
+   * *   **0**: pending approval
+   * *   **1**: approved
+   * *   **2**: rejected
+   * 
+   * > Unapproved card messages are rolled back.
+   * 
+   * @example
+   * 0
+   */
   cardTmpState?: number;
+  /**
+   * @remarks
+   * The mobile phone number from which the card message is sent.
+   * 
+   * @example
+   * 1390000****
+   */
   mediaMobiles?: string;
+  /**
+   * @remarks
+   * The mobile phone number whose card message is rolled back.
+   * 
+   * @example
+   * 1390000****
+   */
   notMediaMobiles?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4979,7 +10655,21 @@ export class SendCardSmsResponseBodyData extends $tea.Model {
 }
 
 export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The array of tag keys. Valid values of N: 1 to 20.
+   * 
+   * @example
+   * TestKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The array of tag values. Valid values of N: 1 to 20.
+   * 
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5032,15 +10722,74 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a short URL.
-   *
-   * @description *   Before you call this operation, you must register the primary domain name of the source URL in the Short Message Service (SMS) console. After the domain name is registered, you can call this operation to create a short URL. For more information, see [Domain name registration](https://help.aliyun.com/document_detail/302325.html#title-mau-zdh-hd0).
+   * 添加验证码签名信息
+   * 
+   * @param request - AddExtCodeSignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddExtCodeSignResponse
+   */
+  async addExtCodeSignWithOptions(request: AddExtCodeSignRequest, runtime: $Util.RuntimeOptions): Promise<AddExtCodeSignResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.extCode)) {
+      query["ExtCode"] = request.extCode;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddExtCodeSign",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddExtCodeSignResponse>(await this.callApi(params, req, runtime), new AddExtCodeSignResponse({}));
+  }
+
+  /**
+   * 添加验证码签名信息
+   * 
+   * @param request - AddExtCodeSignRequest
+   * @returns AddExtCodeSignResponse
+   */
+  async addExtCodeSign(request: AddExtCodeSignRequest): Promise<AddExtCodeSignResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addExtCodeSignWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a short URL.
+   * 
+   * @remarks
+   *   Before you call this operation, you must register the primary domain name of the source URL in the Short Message Service (SMS) console. After the domain name is registered, you can call this operation to create a short URL. For more information, see [Domain name registration](https://help.aliyun.com/document_detail/302325.html#title-mau-zdh-hd0).
    * *   You can create up to 3,000 short URLs within a natural day.
    * *   After a short URL is generated, a security review is required. Generally, the review takes 10 minutes to 2 hours to complete. Before the security review is passed, the short URL cannot be directly accessed.
-   *
-   * @param request AddShortUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddShortUrlResponse
+   * 
+   * @param request - AddShortUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddShortUrlResponse
    */
   async addShortUrlWithOptions(request: AddShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<AddShortUrlResponse> {
     Util.validateModel(request);
@@ -5089,14 +10838,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a short URL.
-   *
-   * @description *   Before you call this operation, you must register the primary domain name of the source URL in the Short Message Service (SMS) console. After the domain name is registered, you can call this operation to create a short URL. For more information, see [Domain name registration](https://help.aliyun.com/document_detail/302325.html#title-mau-zdh-hd0).
+   * Creates a short URL.
+   * 
+   * @remarks
+   *   Before you call this operation, you must register the primary domain name of the source URL in the Short Message Service (SMS) console. After the domain name is registered, you can call this operation to create a short URL. For more information, see [Domain name registration](https://help.aliyun.com/document_detail/302325.html#title-mau-zdh-hd0).
    * *   You can create up to 3,000 short URLs within a natural day.
    * *   After a short URL is generated, a security review is required. Generally, the review takes 10 minutes to 2 hours to complete. Before the security review is passed, the short URL cannot be directly accessed.
-   *
-   * @param request AddShortUrlRequest
-   * @return AddShortUrlResponse
+   * 
+   * @param request - AddShortUrlRequest
+   * @returns AddShortUrlResponse
    */
   async addShortUrl(request: AddShortUrlRequest): Promise<AddShortUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5104,9 +10854,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a signature.
-   *
-   * @description You can call the AddSmsSign operation or use the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm#/overview) to create an SMS signature. The signature must comply with the [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html). You can call the QuerySmsSign operation or use the SMS console to query the review status of the signature.
+   * Creates a signature.
+   * 
+   * @remarks
+   * You can call the AddSmsSign operation or use the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm#/overview) to create an SMS signature. The signature must comply with the [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html). You can call the QuerySmsSign operation or use the SMS console to query the review status of the signature.
    * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
    * ### QPS limit
    * You can call this operation only once per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -5116,10 +10867,10 @@ export default class Client extends OpenApi {
    * *   If you need to use the same signature for messages sent to recipients both in and outside the Chinese mainland, the signature must be a general-purpose signature.
    * *   If you apply for a signature or message template, you must specify the signature scenario or template type. You must also provide the information of your services, such as a website URL, a domain name with an ICP filing, an application download URL, or the name of your WeChat official account or mini program. For sign-in scenarios, you must also provide an account and password for tests. A detailed description can improve the review efficiency of signatures and templates.
    * *   An SMS signature must undergo a thorough review process before it can be approved for use.
-   *
-   * @param request AddSmsSignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddSmsSignResponse
+   * 
+   * @param request - AddSmsSignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddSmsSignResponse
    */
   async addSmsSignWithOptions(request: AddSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<AddSmsSignResponse> {
     Util.validateModel(request);
@@ -5176,9 +10927,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a signature.
-   *
-   * @description You can call the AddSmsSign operation or use the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm#/overview) to create an SMS signature. The signature must comply with the [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html). You can call the QuerySmsSign operation or use the SMS console to query the review status of the signature.
+   * Creates a signature.
+   * 
+   * @remarks
+   * You can call the AddSmsSign operation or use the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm#/overview) to create an SMS signature. The signature must comply with the [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html). You can call the QuerySmsSign operation or use the SMS console to query the review status of the signature.
    * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
    * ### QPS limit
    * You can call this operation only once per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -5188,9 +10940,9 @@ export default class Client extends OpenApi {
    * *   If you need to use the same signature for messages sent to recipients both in and outside the Chinese mainland, the signature must be a general-purpose signature.
    * *   If you apply for a signature or message template, you must specify the signature scenario or template type. You must also provide the information of your services, such as a website URL, a domain name with an ICP filing, an application download URL, or the name of your WeChat official account or mini program. For sign-in scenarios, you must also provide an account and password for tests. A detailed description can improve the review efficiency of signatures and templates.
    * *   An SMS signature must undergo a thorough review process before it can be approved for use.
-   *
-   * @param request AddSmsSignRequest
-   * @return AddSmsSignResponse
+   * 
+   * @param request - AddSmsSignRequest
+   * @returns AddSmsSignResponse
    */
   async addSmsSign(request: AddSmsSignRequest): Promise<AddSmsSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5198,9 +10950,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a message template.
-   *
-   * @description You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to apply for a message template. The template must comply with the [message template specifications](https://help.aliyun.com/document_detail/108253.html). You can call the [QuerySmsTemplate](https://help.aliyun.com/document_detail/419289.html) operation or use the Alibaba Cloud SMS console to check whether the message template is approved.
+   * Creates a message template.
+   * 
+   * @remarks
+   * You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to apply for a message template. The template must comply with the [message template specifications](https://help.aliyun.com/document_detail/108253.html). You can call the [QuerySmsTemplate](https://help.aliyun.com/document_detail/419289.html) operation or use the Alibaba Cloud SMS console to check whether the message template is approved.
    * > 
    * *   Message templates pending approval can be withdrawn. You can withdraw a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
    * *   Message templates that have been approved can be deleted, and cannot be modified. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
@@ -5210,10 +10963,10 @@ export default class Client extends OpenApi {
    * *   A signature must undergo a thorough review process before it can be approved for use. For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
    * ### QPS limits
    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request AddSmsTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddSmsTemplateResponse
+   * 
+   * @param request - AddSmsTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddSmsTemplateResponse
    */
   async addSmsTemplateWithOptions(request: AddSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddSmsTemplateResponse> {
     Util.validateModel(request);
@@ -5264,9 +11017,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a message template.
-   *
-   * @description You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to apply for a message template. The template must comply with the [message template specifications](https://help.aliyun.com/document_detail/108253.html). You can call the [QuerySmsTemplate](https://help.aliyun.com/document_detail/419289.html) operation or use the Alibaba Cloud SMS console to check whether the message template is approved.
+   * Creates a message template.
+   * 
+   * @remarks
+   * You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to apply for a message template. The template must comply with the [message template specifications](https://help.aliyun.com/document_detail/108253.html). You can call the [QuerySmsTemplate](https://help.aliyun.com/document_detail/419289.html) operation or use the Alibaba Cloud SMS console to check whether the message template is approved.
    * > 
    * *   Message templates pending approval can be withdrawn. You can withdraw a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
    * *   Message templates that have been approved can be deleted, and cannot be modified. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
@@ -5276,9 +11030,9 @@ export default class Client extends OpenApi {
    * *   A signature must undergo a thorough review process before it can be approved for use. For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
    * ### QPS limits
    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request AddSmsTemplateRequest
-   * @return AddSmsTemplateResponse
+   * 
+   * @param request - AddSmsTemplateRequest
+   * @returns AddSmsTemplateResponse
    */
   async addSmsTemplate(request: AddSmsTemplateRequest): Promise<AddSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5286,14 +11040,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether a mobile phone number can receive card messages.
-   *
-   * @description ### QPS limit
+   * Checks whether a mobile phone number can receive card messages.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 2,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request CheckMobilesCardSupportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckMobilesCardSupportResponse
+   * 
+   * @param request - CheckMobilesCardSupportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckMobilesCardSupportResponse
    */
   async checkMobilesCardSupportWithOptions(request: CheckMobilesCardSupportRequest, runtime: $Util.RuntimeOptions): Promise<CheckMobilesCardSupportResponse> {
     Util.validateModel(request);
@@ -5324,13 +11079,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether a mobile phone number can receive card messages.
-   *
-   * @description ### QPS limit
+   * Checks whether a mobile phone number can receive card messages.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 2,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request CheckMobilesCardSupportRequest
-   * @return CheckMobilesCardSupportResponse
+   * 
+   * @param request - CheckMobilesCardSupportRequest
+   * @returns CheckMobilesCardSupportResponse
    */
   async checkMobilesCardSupport(request: CheckMobilesCardSupportRequest): Promise<CheckMobilesCardSupportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5338,11 +11094,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sends conversion rate information to Alibaba Cloud SMS.
-   *
-   * @param request ConversionDataIntlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConversionDataIntlResponse
+   * Sends conversion rate information to Alibaba Cloud SMS.
+   * 
+   * @param request - ConversionDataIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConversionDataIntlResponse
    */
   async conversionDataIntlWithOptions(request: ConversionDataIntlRequest, runtime: $Util.RuntimeOptions): Promise<ConversionDataIntlResponse> {
     Util.validateModel(request);
@@ -5385,10 +11141,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sends conversion rate information to Alibaba Cloud SMS.
-   *
-   * @param request ConversionDataIntlRequest
-   * @return ConversionDataIntlResponse
+   * Sends conversion rate information to Alibaba Cloud SMS.
+   * 
+   * @param request - ConversionDataIntlRequest
+   * @returns ConversionDataIntlResponse
    */
   async conversionDataIntl(request: ConversionDataIntlRequest): Promise<ConversionDataIntlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5396,17 +11152,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a card message template.
-   *
-   * @description *   The CreateCardSmsTemplate operation saves the card message template information, submits it to the mobile phone manufacturer for approval, and returns the message template ID.
+   * Creates a card message template.
+   * 
+   * @remarks
+   *   The CreateCardSmsTemplate operation saves the card message template information, submits it to the mobile phone manufacturer for approval, and returns the message template ID.
    * *   If the type of the message template is not supported or events that are not supported by the mobile phone manufacturer are specified, the template is not submitted. For more information, see [Supported message templates](https://help.aliyun.com/document_detail/434611.html).
    * *   For information about sample card message templates, see [Sample card message templates](https://help.aliyun.com/document_detail/435361.html).
    * ### QPS limit
    * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param tmpReq CreateCardSmsTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCardSmsTemplateResponse
+   * 
+   * @param tmpReq - CreateCardSmsTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCardSmsTemplateResponse
    */
   async createCardSmsTemplateWithOptions(tmpReq: CreateCardSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCardSmsTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -5451,16 +11208,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a card message template.
-   *
-   * @description *   The CreateCardSmsTemplate operation saves the card message template information, submits it to the mobile phone manufacturer for approval, and returns the message template ID.
+   * Creates a card message template.
+   * 
+   * @remarks
+   *   The CreateCardSmsTemplate operation saves the card message template information, submits it to the mobile phone manufacturer for approval, and returns the message template ID.
    * *   If the type of the message template is not supported or events that are not supported by the mobile phone manufacturer are specified, the template is not submitted. For more information, see [Supported message templates](https://help.aliyun.com/document_detail/434611.html).
    * *   For information about sample card message templates, see [Sample card message templates](https://help.aliyun.com/document_detail/435361.html).
    * ### QPS limit
    * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request CreateCardSmsTemplateRequest
-   * @return CreateCardSmsTemplateResponse
+   * 
+   * @param request - CreateCardSmsTemplateRequest
+   * @returns CreateCardSmsTemplateResponse
    */
   async createCardSmsTemplate(request: CreateCardSmsTemplateRequest): Promise<CreateCardSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5468,11 +11226,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建短链
-   *
-   * @param request CreateSmartShortUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSmartShortUrlResponse
+   * 创建短链
+   * 
+   * @param request - CreateSmartShortUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSmartShortUrlResponse
    */
   async createSmartShortUrlWithOptions(request: CreateSmartShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmartShortUrlResponse> {
     Util.validateModel(request);
@@ -5519,10 +11277,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建短链
-   *
-   * @param request CreateSmartShortUrlRequest
-   * @return CreateSmartShortUrlResponse
+   * 创建短链
+   * 
+   * @param request - CreateSmartShortUrlRequest
+   * @returns CreateSmartShortUrlResponse
    */
   async createSmartShortUrl(request: CreateSmartShortUrlRequest): Promise<CreateSmartShortUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5530,11 +11288,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建短信签名
-   *
-   * @param tmpReq CreateSmsSignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSmsSignResponse
+   * Create SMS Signature
+   * 
+   * @remarks
+   * - For details about the announcement of changes to the new and original interfaces, see [Announcement on Updates to SMS Service Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+   * - Individual authenticated users can apply for one formal signature per natural day under the same Alibaba Cloud account, while enterprise authenticated users have no current restrictions. For details on the differences in rights between individual and enterprise users, please refer to [User Guide](https://help.aliyun.com/zh/sms/user-guide/usage-notes?spm).
+   * - Signature information applied through the interface will be synchronized in the SMS service console. For operations related to signatures in the console, see [SMS Signatures](https://help.aliyun.com/zh/sms/user-guide/create-signatures?spm).
+   * - After submitting the signature application, you can query the signature review status and details via the [GetSmsSign](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-getsmssign?spm) interface. You can also [Configure Receipt Messages](https://help.aliyun.com/zh/sms/developer-reference/configure-delivery-receipts-1?spm) and obtain signature review status messages through SignSmsReport.
+   * 
+   * @param tmpReq - CreateSmsSignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSmsSignResponse
    */
   async createSmsSignWithOptions(tmpReq: CreateSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmsSignResponse> {
     Util.validateModel(tmpReq);
@@ -5607,10 +11371,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建短信签名
-   *
-   * @param request CreateSmsSignRequest
-   * @return CreateSmsSignResponse
+   * Create SMS Signature
+   * 
+   * @remarks
+   * - For details about the announcement of changes to the new and original interfaces, see [Announcement on Updates to SMS Service Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+   * - Individual authenticated users can apply for one formal signature per natural day under the same Alibaba Cloud account, while enterprise authenticated users have no current restrictions. For details on the differences in rights between individual and enterprise users, please refer to [User Guide](https://help.aliyun.com/zh/sms/user-guide/usage-notes?spm).
+   * - Signature information applied through the interface will be synchronized in the SMS service console. For operations related to signatures in the console, see [SMS Signatures](https://help.aliyun.com/zh/sms/user-guide/create-signatures?spm).
+   * - After submitting the signature application, you can query the signature review status and details via the [GetSmsSign](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-getsmssign?spm) interface. You can also [Configure Receipt Messages](https://help.aliyun.com/zh/sms/developer-reference/configure-delivery-receipts-1?spm) and obtain signature review status messages through SignSmsReport.
+   * 
+   * @param request - CreateSmsSignRequest
+   * @returns CreateSmsSignResponse
    */
   async createSmsSign(request: CreateSmsSignRequest): Promise<CreateSmsSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5618,11 +11388,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建短信模板
-   *
-   * @param tmpReq CreateSmsTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSmsTemplateResponse
+   * Create SMS Template
+   * 
+   * @remarks
+   * - For details about the changes of this new interface compared to the original one, please refer to [Announcement on the Update of SMS Service Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+   * - It is recommended to apply for SMS templates via the API with at least a 30-second interval between each request.
+   * - The template information applied through the API will be synchronized in the SMS service console. For operations related to templates in the console, please refer to SMS Templates.
+   * - After submitting the template application, you can query the audit status and details using the GetSmsTemplate interface. You can also configure delivery receipts to obtain the audit status messages via TemplateSmsReport.
+   * - Domestic SMS templates are not interchangeable with international/Hong Kong, Macao, and Taiwan SMS templates. Please apply for templates based on your business scenario.
+   * - Only enterprise-verified users can apply for promotional messages and international/Hong Kong, Macao, and Taiwan messages. For differences in rights between personal and enterprise users, please refer to Usage Instructions.
+   * 
+   * @param tmpReq - CreateSmsTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSmsTemplateResponse
    */
   async createSmsTemplateWithOptions(tmpReq: CreateSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmsTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -5699,10 +11477,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建短信模板
-   *
-   * @param request CreateSmsTemplateRequest
-   * @return CreateSmsTemplateResponse
+   * Create SMS Template
+   * 
+   * @remarks
+   * - For details about the changes of this new interface compared to the original one, please refer to [Announcement on the Update of SMS Service Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+   * - It is recommended to apply for SMS templates via the API with at least a 30-second interval between each request.
+   * - The template information applied through the API will be synchronized in the SMS service console. For operations related to templates in the console, please refer to SMS Templates.
+   * - After submitting the template application, you can query the audit status and details using the GetSmsTemplate interface. You can also configure delivery receipts to obtain the audit status messages via TemplateSmsReport.
+   * - Domestic SMS templates are not interchangeable with international/Hong Kong, Macao, and Taiwan SMS templates. Please apply for templates based on your business scenario.
+   * - Only enterprise-verified users can apply for promotional messages and international/Hong Kong, Macao, and Taiwan messages. For differences in rights between personal and enterprise users, please refer to Usage Instructions.
+   * 
+   * @param request - CreateSmsTemplateRequest
+   * @returns CreateSmsTemplateResponse
    */
   async createSmsTemplate(request: CreateSmsTemplateRequest): Promise<CreateSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5710,14 +11496,73 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a short URL. After you delete a short URL, it cannot be changed to its original state.
-   *
-   * @description ### QPS limits
+   * 删除验证码签名
+   * 
+   * @param request - DeleteExtCodeSignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteExtCodeSignResponse
+   */
+  async deleteExtCodeSignWithOptions(request: DeleteExtCodeSignRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExtCodeSignResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.extCode)) {
+      query["ExtCode"] = request.extCode;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteExtCodeSign",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteExtCodeSignResponse>(await this.callApi(params, req, runtime), new DeleteExtCodeSignResponse({}));
+  }
+
+  /**
+   * 删除验证码签名
+   * 
+   * @param request - DeleteExtCodeSignRequest
+   * @returns DeleteExtCodeSignResponse
+   */
+  async deleteExtCodeSign(request: DeleteExtCodeSignRequest): Promise<DeleteExtCodeSignResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteExtCodeSignWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a short URL. After you delete a short URL, it cannot be changed to its original state.
+   * 
+   * @remarks
+   * ### QPS limits
    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DeleteShortUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteShortUrlResponse
+   * 
+   * @param request - DeleteShortUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteShortUrlResponse
    */
   async deleteShortUrlWithOptions(request: DeleteShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteShortUrlResponse> {
     Util.validateModel(request);
@@ -5758,13 +11603,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a short URL. After you delete a short URL, it cannot be changed to its original state.
-   *
-   * @description ### QPS limits
+   * Deletes a short URL. After you delete a short URL, it cannot be changed to its original state.
+   * 
+   * @remarks
+   * ### QPS limits
    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DeleteShortUrlRequest
-   * @return DeleteShortUrlResponse
+   * 
+   * @param request - DeleteShortUrlRequest
+   * @returns DeleteShortUrlResponse
    */
   async deleteShortUrl(request: DeleteShortUrlRequest): Promise<DeleteShortUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5772,16 +11618,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a signature.
-   *
-   * @description *   You cannot delete a signature that has not been approved.
+   * Deletes a signature.
+   * 
+   * @remarks
+   *   You cannot delete a signature that has not been approved.
    * *   After you delete a signature, you cannot recover it. Proceed with caution.
    * ### QPS limits
    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DeleteSmsSignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSmsSignResponse
+   * 
+   * @param request - DeleteSmsSignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSmsSignResponse
    */
   async deleteSmsSignWithOptions(request: DeleteSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmsSignResponse> {
     Util.validateModel(request);
@@ -5820,15 +11667,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a signature.
-   *
-   * @description *   You cannot delete a signature that has not been approved.
+   * Deletes a signature.
+   * 
+   * @remarks
+   *   You cannot delete a signature that has not been approved.
    * *   After you delete a signature, you cannot recover it. Proceed with caution.
    * ### QPS limits
    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DeleteSmsSignRequest
-   * @return DeleteSmsSignResponse
+   * 
+   * @param request - DeleteSmsSignRequest
+   * @returns DeleteSmsSignResponse
    */
   async deleteSmsSign(request: DeleteSmsSignRequest): Promise<DeleteSmsSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5836,17 +11684,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a message template.
-   *
-   * @description *   Message templates pending approval can be withdrawn. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+   * Deletes a message template.
+   * 
+   * @remarks
+   *   Message templates pending approval can be withdrawn. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
    * *   Message templates that have been approved can be deleted, and cannot be modified. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
    * *   You cannot recover deleted message templates. Proceed with caution.
    * ### QPS limits
    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DeleteSmsTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSmsTemplateResponse
+   * 
+   * @param request - DeleteSmsTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSmsTemplateResponse
    */
   async deleteSmsTemplateWithOptions(request: DeleteSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmsTemplateResponse> {
     Util.validateModel(request);
@@ -5885,16 +11734,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a message template.
-   *
-   * @description *   Message templates pending approval can be withdrawn. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+   * Deletes a message template.
+   * 
+   * @remarks
+   *   Message templates pending approval can be withdrawn. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
    * *   Message templates that have been approved can be deleted, and cannot be modified. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
    * *   You cannot recover deleted message templates. Proceed with caution.
    * ### QPS limits
    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DeleteSmsTemplateRequest
-   * @return DeleteSmsTemplateResponse
+   * 
+   * @param request - DeleteSmsTemplateRequest
+   * @returns DeleteSmsTemplateResponse
    */
   async deleteSmsTemplate(request: DeleteSmsTemplateRequest): Promise<DeleteSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5902,14 +11752,93 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the short URLs of a card messages template.
-   *
-   * @description ### QPS limit
+   * 查询卡片发送详情
+   * 
+   * @param request - GetCardSmsDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCardSmsDetailsResponse
+   */
+  async getCardSmsDetailsWithOptions(request: GetCardSmsDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetCardSmsDetailsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bizCardId)) {
+      query["BizCardId"] = request.bizCardId;
+    }
+
+    if (!Util.isUnset(request.bizDigitId)) {
+      query["BizDigitId"] = request.bizDigitId;
+    }
+
+    if (!Util.isUnset(request.bizSmsId)) {
+      query["BizSmsId"] = request.bizSmsId;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sendDate)) {
+      query["SendDate"] = request.sendDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCardSmsDetails",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCardSmsDetailsResponse>(await this.callApi(params, req, runtime), new GetCardSmsDetailsResponse({}));
+  }
+
+  /**
+   * 查询卡片发送详情
+   * 
+   * @param request - GetCardSmsDetailsRequest
+   * @returns GetCardSmsDetailsResponse
+   */
+  async getCardSmsDetails(request: GetCardSmsDetailsRequest): Promise<GetCardSmsDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCardSmsDetailsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the short URLs of a card messages template.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request GetCardSmsLinkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCardSmsLinkResponse
+   * 
+   * @param request - GetCardSmsLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCardSmsLinkResponse
    */
   async getCardSmsLinkWithOptions(request: GetCardSmsLinkRequest, runtime: $Util.RuntimeOptions): Promise<GetCardSmsLinkResponse> {
     Util.validateModel(request);
@@ -5968,13 +11897,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the short URLs of a card messages template.
-   *
-   * @description ### QPS limit
+   * Queries the short URLs of a card messages template.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request GetCardSmsLinkRequest
-   * @return GetCardSmsLinkResponse
+   * 
+   * @param request - GetCardSmsLinkRequest
+   * @returns GetCardSmsLinkResponse
    */
   async getCardSmsLink(request: GetCardSmsLinkRequest): Promise<GetCardSmsLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5982,14 +11912,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Converts a resource uploaded to the specified Object Storage Service (OSS) bucket for unified management. Then, a resource ID is returned. You can manage the resource based on the ID.
-   *
-   * @description ### QPS limit
+   * Converts a resource uploaded to the specified Object Storage Service (OSS) bucket for unified management. Then, a resource ID is returned. You can manage the resource based on the ID.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request GetMediaResourceIdRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMediaResourceIdResponse
+   * 
+   * @param request - GetMediaResourceIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaResourceIdResponse
    */
   async getMediaResourceIdWithOptions(request: GetMediaResourceIdRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaResourceIdResponse> {
     Util.validateModel(request);
@@ -6032,13 +11963,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Converts a resource uploaded to the specified Object Storage Service (OSS) bucket for unified management. Then, a resource ID is returned. You can manage the resource based on the ID.
-   *
-   * @description ### QPS limit
+   * Converts a resource uploaded to the specified Object Storage Service (OSS) bucket for unified management. Then, a resource ID is returned. You can manage the resource based on the ID.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request GetMediaResourceIdRequest
-   * @return GetMediaResourceIdResponse
+   * 
+   * @param request - GetMediaResourceIdRequest
+   * @returns GetMediaResourceIdResponse
    */
   async getMediaResourceId(request: GetMediaResourceIdRequest): Promise<GetMediaResourceIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6046,15 +11978,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the OSS configuration information about card messages.
-   *
-   * @description Resources such as images and videos used for card message templates can be uploaded to Object Storage Service (OSS) buckets for storage. For more information, see [Upload files to OSS](https://help.aliyun.com/document_detail/437303.html).
+   * Queries the OSS configuration information about card messages.
+   * 
+   * @remarks
+   * Resources such as images and videos used for card message templates can be uploaded to Object Storage Service (OSS) buckets for storage. For more information, see [Upload files to OSS](https://help.aliyun.com/document_detail/437303.html).
    * ### QPS limit
    * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request GetOSSInfoForCardTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetOSSInfoForCardTemplateResponse
+   * 
+   * @param request - GetOSSInfoForCardTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOSSInfoForCardTemplateResponse
    */
   async getOSSInfoForCardTemplateWithOptions(runtime: $Util.RuntimeOptions): Promise<GetOSSInfoForCardTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -6073,13 +12006,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the OSS configuration information about card messages.
-   *
-   * @description Resources such as images and videos used for card message templates can be uploaded to Object Storage Service (OSS) buckets for storage. For more information, see [Upload files to OSS](https://help.aliyun.com/document_detail/437303.html).
+   * Queries the OSS configuration information about card messages.
+   * 
+   * @remarks
+   * Resources such as images and videos used for card message templates can be uploaded to Object Storage Service (OSS) buckets for storage. For more information, see [Upload files to OSS](https://help.aliyun.com/document_detail/437303.html).
    * ### QPS limit
    * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @return GetOSSInfoForCardTemplateResponse
+   * @returns GetOSSInfoForCardTemplateResponse
    */
   async getOSSInfoForCardTemplate(): Promise<GetOSSInfoForCardTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6087,11 +12020,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 短信上传文件，获取授权信息
-   *
-   * @param request GetOSSInfoForUploadFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetOSSInfoForUploadFileResponse
+   * SMS File Upload, Get Authorization Info
+   * 
+   * @remarks
+   * - When creating signatures or templates, you can upload materials such as login pages with links, backend page screenshots, software copyrights, supplementary agreements, etc. This helps the review personnel understand your business details. If there are multiple materials, they can be combined into one file, supporting png, jpg, jpeg, doc, docx, pdf formats.
+   * - For additional materials needed when creating signatures or templates, you can upload them to the OSS file system for storage. For file upload operations, refer to [OSS File Upload](https://help.aliyun.com/zh/sms/upload-files-through-oss).
+   * 
+   * @param request - GetOSSInfoForUploadFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOSSInfoForUploadFileResponse
    */
   async getOSSInfoForUploadFileWithOptions(request: GetOSSInfoForUploadFileRequest, runtime: $Util.RuntimeOptions): Promise<GetOSSInfoForUploadFileResponse> {
     Util.validateModel(request);
@@ -6130,10 +12067,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 短信上传文件，获取授权信息
-   *
-   * @param request GetOSSInfoForUploadFileRequest
-   * @return GetOSSInfoForUploadFileResponse
+   * SMS File Upload, Get Authorization Info
+   * 
+   * @remarks
+   * - When creating signatures or templates, you can upload materials such as login pages with links, backend page screenshots, software copyrights, supplementary agreements, etc. This helps the review personnel understand your business details. If there are multiple materials, they can be combined into one file, supporting png, jpg, jpeg, doc, docx, pdf formats.
+   * - For additional materials needed when creating signatures or templates, you can upload them to the OSS file system for storage. For file upload operations, refer to [OSS File Upload](https://help.aliyun.com/zh/sms/upload-files-through-oss).
+   * 
+   * @param request - GetOSSInfoForUploadFileRequest
+   * @returns GetOSSInfoForUploadFileResponse
    */
   async getOSSInfoForUploadFile(request: GetOSSInfoForUploadFileRequest): Promise<GetOSSInfoForUploadFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6141,11 +12082,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询短信签名详情
-   *
-   * @param request GetSmsSignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSmsSignResponse
+   * Query SMS Signature Details
+   * 
+   * @remarks
+   * - For details about the changes of this new interface and the original one, please refer to [Announcement on the Update of SMS Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+   * - Review Time: Generally, after submitting the signature, Alibaba Cloud expects to complete the review within 2 hours (Review Business Hours: Monday to Sunday 9:00~21:00, with legal holidays postponed). It is recommended to submit your application before 18:00.
+   * - If the signature fails the review, the reason for the failure will be returned. Please refer to [Handling Suggestions for Failed SMS Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm), invoke the [UpdateSmsSign](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-updatesmssign?spm) API, or modify the unapproved SMS signature on the [Signature Management](https://dysms.console.aliyun.com/domestic/text/sign) page.
+   * 
+   * @param request - GetSmsSignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSmsSignResponse
    */
   async getSmsSignWithOptions(request: GetSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<GetSmsSignResponse> {
     Util.validateModel(request);
@@ -6184,10 +12130,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询短信签名详情
-   *
-   * @param request GetSmsSignRequest
-   * @return GetSmsSignResponse
+   * Query SMS Signature Details
+   * 
+   * @remarks
+   * - For details about the changes of this new interface and the original one, please refer to [Announcement on the Update of SMS Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+   * - Review Time: Generally, after submitting the signature, Alibaba Cloud expects to complete the review within 2 hours (Review Business Hours: Monday to Sunday 9:00~21:00, with legal holidays postponed). It is recommended to submit your application before 18:00.
+   * - If the signature fails the review, the reason for the failure will be returned. Please refer to [Handling Suggestions for Failed SMS Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm), invoke the [UpdateSmsSign](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-updatesmssign?spm) API, or modify the unapproved SMS signature on the [Signature Management](https://dysms.console.aliyun.com/domestic/text/sign) page.
+   * 
+   * @param request - GetSmsSignRequest
+   * @returns GetSmsSignResponse
    */
   async getSmsSign(request: GetSmsSignRequest): Promise<GetSmsSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6195,11 +12146,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询文本短信模板详情
-   *
-   * @param request GetSmsTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSmsTemplateResponse
+   * Query Text SMS Template Details
+   * 
+   * @remarks
+   * - For details about the announcement of changes to the new and original interfaces, see [Announcement on Updates to SMS Service Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+   * - Review Time: Under normal circumstances, Alibaba Cloud expects to complete the review within 2 hours after template submission (review working hours: Monday to Sunday 9:00~21:00, with statutory holidays postponed). It is recommended to submit your application before 18:00.
+   * - If the template fails the review, the reason for the failure will be returned. Please refer to [Handling Suggestions for Failed SMS Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm=a2c4g.11186623.0.0.41fd339f3bPSCQ), invoke the [ModifySmsTemplate](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-modifysmstemplate?spm=a2c4g.11186623.0.0.5b1f6e8bQloFit) API or modify the SMS template on the [Template Management](https://dysms.console.aliyun.com/domestic/text/template) page.
+   * - The current QuerySmsTemplate interface queries the audit details of a single template by template code. The [QuerySmsTemplateList](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-querysmstemplatelist?spm=a2c4g.11186623.0.0.24086e8bO8cFn4) interface can query the template details of all templates under your current account.
+   * 
+   * @param request - GetSmsTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSmsTemplateResponse
    */
   async getSmsTemplateWithOptions(request: GetSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetSmsTemplateResponse> {
     Util.validateModel(request);
@@ -6238,10 +12195,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询文本短信模板详情
-   *
-   * @param request GetSmsTemplateRequest
-   * @return GetSmsTemplateResponse
+   * Query Text SMS Template Details
+   * 
+   * @remarks
+   * - For details about the announcement of changes to the new and original interfaces, see [Announcement on Updates to SMS Service Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+   * - Review Time: Under normal circumstances, Alibaba Cloud expects to complete the review within 2 hours after template submission (review working hours: Monday to Sunday 9:00~21:00, with statutory holidays postponed). It is recommended to submit your application before 18:00.
+   * - If the template fails the review, the reason for the failure will be returned. Please refer to [Handling Suggestions for Failed SMS Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm=a2c4g.11186623.0.0.41fd339f3bPSCQ), invoke the [ModifySmsTemplate](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-modifysmstemplate?spm=a2c4g.11186623.0.0.5b1f6e8bQloFit) API or modify the SMS template on the [Template Management](https://dysms.console.aliyun.com/domestic/text/template) page.
+   * - The current QuerySmsTemplate interface queries the audit details of a single template by template code. The [QuerySmsTemplateList](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-querysmstemplatelist?spm=a2c4g.11186623.0.0.24086e8bO8cFn4) interface can query the template details of all templates under your current account.
+   * 
+   * @param request - GetSmsTemplateRequest
+   * @returns GetSmsTemplateResponse
    */
   async getSmsTemplate(request: GetSmsTemplateRequest): Promise<GetSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6249,14 +12212,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags of a message template.
-   *
-   * @description ### QPS limit
+   * Queries the tags of a message template.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ListTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -6319,13 +12283,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags of a message template.
-   *
-   * @description ### QPS limit
+   * Queries the tags of a message template.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6333,9 +12298,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a rejected signature and submit it for approval. Signatures that are pending approval or have been approved cannot be modified.
-   *
-   * @description You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to modify an existing signature and submit the signature for approval. The signature must comply with the [signature specifications](https://help.aliyun.com/document_detail/108076.html).
+   * Modifies a rejected signature and submit it for approval. Signatures that are pending approval or have been approved cannot be modified.
+   * 
+   * @remarks
+   * You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to modify an existing signature and submit the signature for approval. The signature must comply with the [signature specifications](https://help.aliyun.com/document_detail/108076.html).
    * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
    * ### QPS limits
    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -6343,10 +12309,10 @@ export default class Client extends OpenApi {
    * *   Signatures pending approval cannot be modified.
    * *   You cannot modify a signature after it is approved. If you no longer need the signature, you can delete it.
    * *   If you are an individual user, you cannot apply for a new signature on the same day that your signature is rejected or deleted. We recommend that you modify the rejected signature and submit it again.
-   *
-   * @param request ModifySmsSignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifySmsSignResponse
+   * 
+   * @param request - ModifySmsSignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySmsSignResponse
    */
   async modifySmsSignWithOptions(request: ModifySmsSignRequest, runtime: $Util.RuntimeOptions): Promise<ModifySmsSignResponse> {
     Util.validateModel(request);
@@ -6403,9 +12369,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a rejected signature and submit it for approval. Signatures that are pending approval or have been approved cannot be modified.
-   *
-   * @description You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to modify an existing signature and submit the signature for approval. The signature must comply with the [signature specifications](https://help.aliyun.com/document_detail/108076.html).
+   * Modifies a rejected signature and submit it for approval. Signatures that are pending approval or have been approved cannot be modified.
+   * 
+   * @remarks
+   * You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to modify an existing signature and submit the signature for approval. The signature must comply with the [signature specifications](https://help.aliyun.com/document_detail/108076.html).
    * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
    * ### QPS limits
    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -6413,9 +12380,9 @@ export default class Client extends OpenApi {
    * *   Signatures pending approval cannot be modified.
    * *   You cannot modify a signature after it is approved. If you no longer need the signature, you can delete it.
    * *   If you are an individual user, you cannot apply for a new signature on the same day that your signature is rejected or deleted. We recommend that you modify the rejected signature and submit it again.
-   *
-   * @param request ModifySmsSignRequest
-   * @return ModifySmsSignResponse
+   * 
+   * @param request - ModifySmsSignRequest
+   * @returns ModifySmsSignResponse
    */
   async modifySmsSign(request: ModifySmsSignRequest): Promise<ModifySmsSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6423,17 +12390,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the information of an unapproved message template and submits it for review again.
-   *
-   * @description After you apply for a message template, if the template fails to pass the review, you can call this operation to modify the template and submit the template again. You can call this operation to modify only a template for a specific message type.
+   * Modifies the information of an unapproved message template and submits it for review again.
+   * 
+   * @remarks
+   * After you apply for a message template, if the template fails to pass the review, you can call this operation to modify the template and submit the template again. You can call this operation to modify only a template for a specific message type.
    * The template content must comply with the [SMS template specifications](https://help.aliyun.com/document_detail/108253.html).
    * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
    * ### QPS limit
    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifySmsTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifySmsTemplateResponse
+   * 
+   * @param request - ModifySmsTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySmsTemplateResponse
    */
   async modifySmsTemplateWithOptions(request: ModifySmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifySmsTemplateResponse> {
     Util.validateModel(request);
@@ -6488,16 +12456,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the information of an unapproved message template and submits it for review again.
-   *
-   * @description After you apply for a message template, if the template fails to pass the review, you can call this operation to modify the template and submit the template again. You can call this operation to modify only a template for a specific message type.
+   * Modifies the information of an unapproved message template and submits it for review again.
+   * 
+   * @remarks
+   * After you apply for a message template, if the template fails to pass the review, you can call this operation to modify the template and submit the template again. You can call this operation to modify only a template for a specific message type.
    * The template content must comply with the [SMS template specifications](https://help.aliyun.com/document_detail/108253.html).
    * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
    * ### QPS limit
    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifySmsTemplateRequest
-   * @return ModifySmsTemplateResponse
+   * 
+   * @param request - ModifySmsTemplateRequest
+   * @returns ModifySmsTemplateResponse
    */
   async modifySmsTemplate(request: ModifySmsTemplateRequest): Promise<ModifySmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6505,14 +12474,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the review status of a message template.
-   *
-   * @description ### QPS limit
+   * Queries the review status of a message template.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QueryCardSmsTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryCardSmsTemplateResponse
+   * 
+   * @param request - QueryCardSmsTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCardSmsTemplateResponse
    */
   async queryCardSmsTemplateWithOptions(request: QueryCardSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QueryCardSmsTemplateResponse> {
     Util.validateModel(request);
@@ -6539,13 +12509,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the review status of a message template.
-   *
-   * @description ### QPS limit
+   * Queries the review status of a message template.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QueryCardSmsTemplateRequest
-   * @return QueryCardSmsTemplateResponse
+   * 
+   * @param request - QueryCardSmsTemplateRequest
+   * @returns QueryCardSmsTemplateResponse
    */
   async queryCardSmsTemplate(request: QueryCardSmsTemplateRequest): Promise<QueryCardSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6553,14 +12524,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries sent card messages.
-   *
-   * @description ### QPS limit
+   * Queries sent card messages.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QueryCardSmsTemplateReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryCardSmsTemplateReportResponse
+   * 
+   * @param request - QueryCardSmsTemplateReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCardSmsTemplateReportResponse
    */
   async queryCardSmsTemplateReportWithOptions(request: QueryCardSmsTemplateReportRequest, runtime: $Util.RuntimeOptions): Promise<QueryCardSmsTemplateReportResponse> {
     Util.validateModel(request);
@@ -6595,13 +12567,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries sent card messages.
-   *
-   * @description ### QPS limit
+   * Queries sent card messages.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QueryCardSmsTemplateReportRequest
-   * @return QueryCardSmsTemplateReportResponse
+   * 
+   * @param request - QueryCardSmsTemplateReportRequest
+   * @returns QueryCardSmsTemplateReportResponse
    */
   async queryCardSmsTemplateReport(request: QueryCardSmsTemplateReportRequest): Promise<QueryCardSmsTemplateReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6609,11 +12582,77 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether a mobile phone number can receive card messages.
-   *
-   * @param tmpReq QueryMobilesCardSupportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMobilesCardSupportResponse
+   * 查询验证码签名
+   * 
+   * @param request - QueryExtCodeSignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryExtCodeSignResponse
+   */
+  async queryExtCodeSignWithOptions(request: QueryExtCodeSignRequest, runtime: $Util.RuntimeOptions): Promise<QueryExtCodeSignResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.extCode)) {
+      query["ExtCode"] = request.extCode;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryExtCodeSign",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryExtCodeSignResponse>(await this.callApi(params, req, runtime), new QueryExtCodeSignResponse({}));
+  }
+
+  /**
+   * 查询验证码签名
+   * 
+   * @param request - QueryExtCodeSignRequest
+   * @returns QueryExtCodeSignResponse
+   */
+  async queryExtCodeSign(request: QueryExtCodeSignRequest): Promise<QueryExtCodeSignResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryExtCodeSignWithOptions(request, runtime);
+  }
+
+  /**
+   * Checks whether a mobile phone number can receive card messages.
+   * 
+   * @param tmpReq - QueryMobilesCardSupportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMobilesCardSupportResponse
    */
   async queryMobilesCardSupportWithOptions(tmpReq: QueryMobilesCardSupportRequest, runtime: $Util.RuntimeOptions): Promise<QueryMobilesCardSupportResponse> {
     Util.validateModel(tmpReq);
@@ -6650,10 +12689,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether a mobile phone number can receive card messages.
-   *
-   * @param request QueryMobilesCardSupportRequest
-   * @return QueryMobilesCardSupportResponse
+   * Checks whether a mobile phone number can receive card messages.
+   * 
+   * @param request - QueryMobilesCardSupportRequest
+   * @returns QueryMobilesCardSupportResponse
    */
   async queryMobilesCardSupport(request: QueryMobilesCardSupportRequest): Promise<QueryMobilesCardSupportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6661,11 +12700,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 点击明细查询
-   *
-   * @param request QueryPageSmartShortUrlLogRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryPageSmartShortUrlLogResponse
+   * 点击明细查询
+   * 
+   * @param request - QueryPageSmartShortUrlLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPageSmartShortUrlLogResponse
    */
   async queryPageSmartShortUrlLogWithOptions(request: QueryPageSmartShortUrlLogRequest, runtime: $Util.RuntimeOptions): Promise<QueryPageSmartShortUrlLogResponse> {
     Util.validateModel(request);
@@ -6724,10 +12763,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 点击明细查询
-   *
-   * @param request QueryPageSmartShortUrlLogRequest
-   * @return QueryPageSmartShortUrlLogResponse
+   * 点击明细查询
+   * 
+   * @param request - QueryPageSmartShortUrlLogRequest
+   * @returns QueryPageSmartShortUrlLogResponse
    */
   async queryPageSmartShortUrlLog(request: QueryPageSmartShortUrlLogRequest): Promise<QueryPageSmartShortUrlLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6735,11 +12774,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a message.
-   *
-   * @param request QuerySendDetailsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QuerySendDetailsResponse
+   * Queries the information about a message.
+   * 
+   * @param request - QuerySendDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySendDetailsResponse
    */
   async querySendDetailsWithOptions(request: QuerySendDetailsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySendDetailsResponse> {
     Util.validateModel(request);
@@ -6794,10 +12833,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a message.
-   *
-   * @param request QuerySendDetailsRequest
-   * @return QuerySendDetailsResponse
+   * Queries the information about a message.
+   * 
+   * @param request - QuerySendDetailsRequest
+   * @returns QuerySendDetailsResponse
    */
   async querySendDetails(request: QuerySendDetailsRequest): Promise<QuerySendDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6805,15 +12844,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries message delivery details.
-   *
-   * @description You can call the operation to query message delivery details, including the number of delivered messages, the number of messages with delivery receipts, and the time that a message is sent. If a large number of messages are sent on the specified date, you can specify the number of items displayed on each page and the number of pages to view the details by page.
+   * Queries message delivery details.
+   * 
+   * @remarks
+   * You can call the operation to query message delivery details, including the number of delivered messages, the number of messages with delivery receipts, and the time that a message is sent. If a large number of messages are sent on the specified date, you can specify the number of items displayed on each page and the number of pages to view the details by page.
    * ### QPS limits
    * You can call this operation up to 20 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QuerySendStatisticsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QuerySendStatisticsResponse
+   * 
+   * @param request - QuerySendStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySendStatisticsResponse
    */
   async querySendStatisticsWithOptions(request: QuerySendStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySendStatisticsResponse> {
     Util.validateModel(request);
@@ -6876,14 +12916,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries message delivery details.
-   *
-   * @description You can call the operation to query message delivery details, including the number of delivered messages, the number of messages with delivery receipts, and the time that a message is sent. If a large number of messages are sent on the specified date, you can specify the number of items displayed on each page and the number of pages to view the details by page.
+   * Queries message delivery details.
+   * 
+   * @remarks
+   * You can call the operation to query message delivery details, including the number of delivered messages, the number of messages with delivery receipts, and the time that a message is sent. If a large number of messages are sent on the specified date, you can specify the number of items displayed on each page and the number of pages to view the details by page.
    * ### QPS limits
    * You can call this operation up to 20 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QuerySendStatisticsRequest
-   * @return QuerySendStatisticsResponse
+   * 
+   * @param request - QuerySendStatisticsRequest
+   * @returns QuerySendStatisticsResponse
    */
   async querySendStatistics(request: QuerySendStatisticsRequest): Promise<QuerySendStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6891,14 +12932,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a short URL.
-   *
-   * @description ### QPS limits
+   * Queries the status of a short URL.
+   * 
+   * @remarks
+   * ### QPS limits
    * You can call this operation up to 20 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QueryShortUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryShortUrlResponse
+   * 
+   * @param request - QueryShortUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryShortUrlResponse
    */
   async queryShortUrlWithOptions(request: QueryShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<QueryShortUrlResponse> {
     Util.validateModel(request);
@@ -6939,13 +12981,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a short URL.
-   *
-   * @description ### QPS limits
+   * Queries the status of a short URL.
+   * 
+   * @remarks
+   * ### QPS limits
    * You can call this operation up to 20 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QueryShortUrlRequest
-   * @return QueryShortUrlResponse
+   * 
+   * @param request - QueryShortUrlRequest
+   * @returns QueryShortUrlResponse
    */
   async queryShortUrl(request: QueryShortUrlRequest): Promise<QueryShortUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6953,15 +12996,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a signature.
-   *
-   * @description After you apply for an SMS signature, you can query its status by using the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm) or calling the operation. If the signature is rejected, you can modify the signature based on the reason why it is rejected.
+   * Queries the status of a signature.
+   * 
+   * @remarks
+   * After you apply for an SMS signature, you can query its status by using the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm) or calling the operation. If the signature is rejected, you can modify the signature based on the reason why it is rejected.
    * ### QPS limits
    * You can call this API operation up to 500 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QuerySmsSignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QuerySmsSignResponse
+   * 
+   * @param request - QuerySmsSignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySmsSignResponse
    */
   async querySmsSignWithOptions(request: QuerySmsSignRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsSignResponse> {
     Util.validateModel(request);
@@ -7000,14 +13044,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a signature.
-   *
-   * @description After you apply for an SMS signature, you can query its status by using the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm) or calling the operation. If the signature is rejected, you can modify the signature based on the reason why it is rejected.
+   * Queries the status of a signature.
+   * 
+   * @remarks
+   * After you apply for an SMS signature, you can query its status by using the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm) or calling the operation. If the signature is rejected, you can modify the signature based on the reason why it is rejected.
    * ### QPS limits
    * You can call this API operation up to 500 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QuerySmsSignRequest
-   * @return QuerySmsSignResponse
+   * 
+   * @param request - QuerySmsSignRequest
+   * @returns QuerySmsSignResponse
    */
   async querySmsSign(request: QuerySmsSignRequest): Promise<QuerySmsSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7015,15 +13060,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries message signatures by page.
-   *
-   * @description You can call this operation to query the details of message signatures, including the name, creation time, and approval status of each signature. If a message template is rejected, the reason is returned. Modify the message signature based on the reason.
+   * Queries message signatures by page.
+   * 
+   * @remarks
+   * You can call this operation to query the details of message signatures, including the name, creation time, and approval status of each signature. If a message template is rejected, the reason is returned. Modify the message signature based on the reason.
    * ### QPS limit
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QuerySmsSignListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QuerySmsSignListResponse
+   * 
+   * @param request - QuerySmsSignListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySmsSignListResponse
    */
   async querySmsSignListWithOptions(request: QuerySmsSignListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsSignListResponse> {
     Util.validateModel(request);
@@ -7066,14 +13112,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries message signatures by page.
-   *
-   * @description You can call this operation to query the details of message signatures, including the name, creation time, and approval status of each signature. If a message template is rejected, the reason is returned. Modify the message signature based on the reason.
+   * Queries message signatures by page.
+   * 
+   * @remarks
+   * You can call this operation to query the details of message signatures, including the name, creation time, and approval status of each signature. If a message template is rejected, the reason is returned. Modify the message signature based on the reason.
    * ### QPS limit
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QuerySmsSignListRequest
-   * @return QuerySmsSignListResponse
+   * 
+   * @param request - QuerySmsSignListRequest
+   * @returns QuerySmsSignListResponse
    */
   async querySmsSignList(request: QuerySmsSignListRequest): Promise<QuerySmsSignListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7081,15 +13128,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the approval status of a message template.
-   *
-   * @description After you create a message template, you can call this operation to query the approval status of the template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
+   * Queries the approval status of a message template.
+   * 
+   * @remarks
+   * After you create a message template, you can call this operation to query the approval status of the template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
    * ### QPS limit
    * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QuerySmsTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QuerySmsTemplateResponse
+   * 
+   * @param request - QuerySmsTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySmsTemplateResponse
    */
   async querySmsTemplateWithOptions(request: QuerySmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsTemplateResponse> {
     Util.validateModel(request);
@@ -7128,14 +13176,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the approval status of a message template.
-   *
-   * @description After you create a message template, you can call this operation to query the approval status of the template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
+   * Queries the approval status of a message template.
+   * 
+   * @remarks
+   * After you create a message template, you can call this operation to query the approval status of the template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
    * ### QPS limit
    * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QuerySmsTemplateRequest
-   * @return QuerySmsTemplateResponse
+   * 
+   * @param request - QuerySmsTemplateRequest
+   * @returns QuerySmsTemplateResponse
    */
   async querySmsTemplate(request: QuerySmsTemplateRequest): Promise<QuerySmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7143,15 +13192,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries message templates.
-   *
-   * @description You can call this operation to query the details of message templates, including the name, creation time, and approval status of each template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
+   * Queries message templates.
+   * 
+   * @remarks
+   * You can call this operation to query the details of message templates, including the name, creation time, and approval status of each template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
    * ### QPS limit
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QuerySmsTemplateListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QuerySmsTemplateListResponse
+   * 
+   * @param request - QuerySmsTemplateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySmsTemplateListResponse
    */
   async querySmsTemplateListWithOptions(request: QuerySmsTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsTemplateListResponse> {
     Util.validateModel(request);
@@ -7194,14 +13244,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries message templates.
-   *
-   * @description You can call this operation to query the details of message templates, including the name, creation time, and approval status of each template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
+   * Queries message templates.
+   * 
+   * @remarks
+   * You can call this operation to query the details of message templates, including the name, creation time, and approval status of each template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
    * ### QPS limit
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request QuerySmsTemplateListRequest
-   * @return QuerySmsTemplateListResponse
+   * 
+   * @param request - QuerySmsTemplateListRequest
+   * @returns QuerySmsTemplateListResponse
    */
   async querySmsTemplateList(request: QuerySmsTemplateListRequest): Promise<QuerySmsTemplateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7209,15 +13260,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sends multiple card messages at a time.
-   *
-   * @description You can call the operation to send multiple card messages to a maximum of mobile phone numbers at a time. Different signatures and rollback settings can be specified for the mobile phone numbers.
+   * Sends multiple card messages at a time.
+   * 
+   * @remarks
+   * You can call the operation to send multiple card messages to a maximum of mobile phone numbers at a time. Different signatures and rollback settings can be specified for the mobile phone numbers.
    * ### QPS limit
    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request SendBatchCardSmsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SendBatchCardSmsResponse
+   * 
+   * @param request - SendBatchCardSmsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendBatchCardSmsResponse
    */
   async sendBatchCardSmsWithOptions(request: SendBatchCardSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendBatchCardSmsResponse> {
     Util.validateModel(request);
@@ -7292,14 +13344,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sends multiple card messages at a time.
-   *
-   * @description You can call the operation to send multiple card messages to a maximum of mobile phone numbers at a time. Different signatures and rollback settings can be specified for the mobile phone numbers.
+   * Sends multiple card messages at a time.
+   * 
+   * @remarks
+   * You can call the operation to send multiple card messages to a maximum of mobile phone numbers at a time. Different signatures and rollback settings can be specified for the mobile phone numbers.
    * ### QPS limit
    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request SendBatchCardSmsRequest
-   * @return SendBatchCardSmsResponse
+   * 
+   * @param request - SendBatchCardSmsRequest
+   * @returns SendBatchCardSmsResponse
    */
   async sendBatchCardSms(request: SendBatchCardSmsRequest): Promise<SendBatchCardSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7307,13 +13360,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Uses a single message template and multiple signatures to send messages to multiple recipients.
-   *
-   * @description You can call the operation to send messages to a maximum of 100 recipients at a time.
-   *
-   * @param request SendBatchSmsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SendBatchSmsResponse
+   * Uses a single message template and multiple signatures to send messages to multiple recipients.
+   * 
+   * @remarks
+   * You can call the operation to send messages to a maximum of 100 recipients at a time.
+   * 
+   * @param request - SendBatchSmsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendBatchSmsResponse
    */
   async sendBatchSmsWithOptions(request: SendBatchSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendBatchSmsResponse> {
     Util.validateModel(request);
@@ -7374,12 +13428,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Uses a single message template and multiple signatures to send messages to multiple recipients.
-   *
-   * @description You can call the operation to send messages to a maximum of 100 recipients at a time.
-   *
-   * @param request SendBatchSmsRequest
-   * @return SendBatchSmsResponse
+   * Uses a single message template and multiple signatures to send messages to multiple recipients.
+   * 
+   * @remarks
+   * You can call the operation to send messages to a maximum of 100 recipients at a time.
+   * 
+   * @param request - SendBatchSmsRequest
+   * @returns SendBatchSmsResponse
    */
   async sendBatchSms(request: SendBatchSmsRequest): Promise<SendBatchSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7387,16 +13442,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sends a card message.
-   *
-   * @description *   Make sure that the message template that you want to use has been approved. If the mobile phone number of a recipient does not support card messages, the SendCardSms operation allows the rollback feature to ensure successful delivery.
+   * Sends a card message.
+   * 
+   * @remarks
+   *   Make sure that the message template that you want to use has been approved. If the mobile phone number of a recipient does not support card messages, the SendCardSms operation allows the rollback feature to ensure successful delivery.
    * *   When you call the SendCardSms operation to send card messages, the operation checks whether the mobile phone numbers of the recipients support card messages. If the mobile phone numbers do not support card messages, you can specify whether to enable rollback. Otherwise, the card message cannot be delivered.
    * ### QPS limit
    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request SendCardSmsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SendCardSmsResponse
+   * 
+   * @param request - SendCardSmsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendCardSmsResponse
    */
   async sendCardSmsWithOptions(request: SendCardSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendCardSmsResponse> {
     Util.validateModel(request);
@@ -7467,15 +13523,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sends a card message.
-   *
-   * @description *   Make sure that the message template that you want to use has been approved. If the mobile phone number of a recipient does not support card messages, the SendCardSms operation allows the rollback feature to ensure successful delivery.
+   * Sends a card message.
+   * 
+   * @remarks
+   *   Make sure that the message template that you want to use has been approved. If the mobile phone number of a recipient does not support card messages, the SendCardSms operation allows the rollback feature to ensure successful delivery.
    * *   When you call the SendCardSms operation to send card messages, the operation checks whether the mobile phone numbers of the recipients support card messages. If the mobile phone numbers do not support card messages, you can specify whether to enable rollback. Otherwise, the card message cannot be delivered.
    * ### QPS limit
    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request SendCardSmsRequest
-   * @return SendCardSmsResponse
+   * 
+   * @param request - SendCardSmsRequest
+   * @returns SendCardSmsResponse
    */
   async sendCardSms(request: SendCardSmsRequest): Promise<SendCardSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7483,16 +13540,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sends a message. Before you call this operation, submit a message signature and message template, and make sure that the signature and template are approved.
-   *
-   * @description *   This operation is mainly used to send a single message. In special scenarios, you can send multiple messages with the same content to a maximum of 1,000 mobile numbers. Note that group sending may be delayed.
+   * Sends a message. Before you call this operation, submit a message signature and message template, and make sure that the signature and template are approved.
+   * 
+   * @remarks
+   *   This operation is mainly used to send a single message. In special scenarios, you can send multiple messages with the same content to a maximum of 1,000 mobile numbers. Note that group sending may be delayed.
    * *   To send messages with different signatures and template content to multiple mobile numbers in a single request, call the [SendBatchSms](https://help.aliyun.com/document_detail/102364.html) operation.
    * *   You are charged for using Alibaba Cloud Short Message Service (SMS) based on the amount of messages sent. For more information, see [Pricing](https://www.aliyun.com/price/product#/sms/detail).
    * *   If your verification code signature and general-purpose signature have the same name, the system uses the general-purpose signature to send messages by default.
-   *
-   * @param request SendSmsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SendSmsResponse
+   * 
+   * @param request - SendSmsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendSmsResponse
    */
   async sendSmsWithOptions(request: SendSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendSmsResponse> {
     Util.validateModel(request);
@@ -7551,15 +13609,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sends a message. Before you call this operation, submit a message signature and message template, and make sure that the signature and template are approved.
-   *
-   * @description *   This operation is mainly used to send a single message. In special scenarios, you can send multiple messages with the same content to a maximum of 1,000 mobile numbers. Note that group sending may be delayed.
+   * Sends a message. Before you call this operation, submit a message signature and message template, and make sure that the signature and template are approved.
+   * 
+   * @remarks
+   *   This operation is mainly used to send a single message. In special scenarios, you can send multiple messages with the same content to a maximum of 1,000 mobile numbers. Note that group sending may be delayed.
    * *   To send messages with different signatures and template content to multiple mobile numbers in a single request, call the [SendBatchSms](https://help.aliyun.com/document_detail/102364.html) operation.
    * *   You are charged for using Alibaba Cloud Short Message Service (SMS) based on the amount of messages sent. For more information, see [Pricing](https://www.aliyun.com/price/product#/sms/detail).
    * *   If your verification code signature and general-purpose signature have the same name, the system uses the general-purpose signature to send messages by default.
-   *
-   * @param request SendSmsRequest
-   * @return SendSmsResponse
+   * 
+   * @param request - SendSmsRequest
+   * @returns SendSmsResponse
    */
   async sendSms(request: SendSmsRequest): Promise<SendSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7567,17 +13626,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Reports the status of an OTP message to Alibaba Cloud SMS.
-   *
-   * @description Metrics:
+   * Reports the status of an OTP message to Alibaba Cloud SMS.
+   * 
+   * @remarks
+   * Metrics:
    * *   Requested OTP messages
    * *   Verified OTP messages
    * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
    * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations: 1. Call the SmsConversion operation in an asynchronous manner by configuring queues or events. 2. Manually degrade your services or use a circuit breaker to automatically degrade services.
-   *
-   * @param request SmsConversionIntlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SmsConversionIntlResponse
+   * 
+   * @param request - SmsConversionIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SmsConversionIntlResponse
    */
   async smsConversionIntlWithOptions(request: SmsConversionIntlRequest, runtime: $Util.RuntimeOptions): Promise<SmsConversionIntlResponse> {
     Util.validateModel(request);
@@ -7624,16 +13684,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Reports the status of an OTP message to Alibaba Cloud SMS.
-   *
-   * @description Metrics:
+   * Reports the status of an OTP message to Alibaba Cloud SMS.
+   * 
+   * @remarks
+   * Metrics:
    * *   Requested OTP messages
    * *   Verified OTP messages
    * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
    * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations: 1. Call the SmsConversion operation in an asynchronous manner by configuring queues or events. 2. Manually degrade your services or use a circuit breaker to automatically degrade services.
-   *
-   * @param request SmsConversionIntlRequest
-   * @return SmsConversionIntlResponse
+   * 
+   * @param request - SmsConversionIntlRequest
+   * @returns SmsConversionIntlResponse
    */
   async smsConversionIntl(request: SmsConversionIntlRequest): Promise<SmsConversionIntlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7641,14 +13702,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Attaches tags to a message template.
-   *
-   * @description ### QPS limit
+   * Attaches tags to a message template.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request TagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -7703,13 +13765,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Attaches tags to a message template.
-   *
-   * @description ### QPS limit
+   * Attaches tags to a message template.
+   * 
+   * @remarks
+   * ### QPS limit
    * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7717,9 +13780,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UntagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UntagResourcesResponse
+   * Deletes tags from a message template.
+   * 
+   * @remarks
+   * ### QPS limit
+   * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
    */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
@@ -7778,8 +13847,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UntagResourcesRequest
-   * @return UntagResourcesResponse
+   * Deletes tags from a message template.
+   * 
+   * @remarks
+   * ### QPS limit
+   * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7787,11 +13862,78 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改文本短信签名
-   *
-   * @param tmpReq UpdateSmsSignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSmsSignResponse
+   * 修改验证码签名
+   * 
+   * @param request - UpdateExtCodeSignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateExtCodeSignResponse
+   */
+  async updateExtCodeSignWithOptions(request: UpdateExtCodeSignRequest, runtime: $Util.RuntimeOptions): Promise<UpdateExtCodeSignResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.existExtCode)) {
+      query["ExistExtCode"] = request.existExtCode;
+    }
+
+    if (!Util.isUnset(request.newExtCode)) {
+      query["NewExtCode"] = request.newExtCode;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateExtCodeSign",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateExtCodeSignResponse>(await this.callApi(params, req, runtime), new UpdateExtCodeSignResponse({}));
+  }
+
+  /**
+   * 修改验证码签名
+   * 
+   * @param request - UpdateExtCodeSignRequest
+   * @returns UpdateExtCodeSignResponse
+   */
+  async updateExtCodeSign(request: UpdateExtCodeSignRequest): Promise<UpdateExtCodeSignResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateExtCodeSignWithOptions(request, runtime);
+  }
+
+  /**
+   * Update Text SMS Signature
+   * 
+   * @remarks
+   * - For details about the changes of this new interface and the original one, please refer to [Announcement on the Update of SMS Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+   * - Only signatures that have not passed the review can be modified. Please refer to [Handling Suggestions for Failed SMS Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm) and call this interface to modify and resubmit for review after modification.
+   * - Signature information applied through the interface will be synchronized in the SMS service console. For operations related to signatures in the console, please see [SMS Signatures](https://help.aliyun.com/zh/sms/user-guide/create-signatures?spm).
+   * 
+   * @param tmpReq - UpdateSmsSignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSmsSignResponse
    */
   async updateSmsSignWithOptions(tmpReq: UpdateSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmsSignResponse> {
     Util.validateModel(tmpReq);
@@ -7864,10 +14006,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改文本短信签名
-   *
-   * @param request UpdateSmsSignRequest
-   * @return UpdateSmsSignResponse
+   * Update Text SMS Signature
+   * 
+   * @remarks
+   * - For details about the changes of this new interface and the original one, please refer to [Announcement on the Update of SMS Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+   * - Only signatures that have not passed the review can be modified. Please refer to [Handling Suggestions for Failed SMS Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm) and call this interface to modify and resubmit for review after modification.
+   * - Signature information applied through the interface will be synchronized in the SMS service console. For operations related to signatures in the console, please see [SMS Signatures](https://help.aliyun.com/zh/sms/user-guide/create-signatures?spm).
+   * 
+   * @param request - UpdateSmsSignRequest
+   * @returns UpdateSmsSignResponse
    */
   async updateSmsSign(request: UpdateSmsSignRequest): Promise<UpdateSmsSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7875,11 +14022,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改文本短信模板
-   *
-   * @param tmpReq UpdateSmsTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSmsTemplateResponse
+   * Update Text SMS Template
+   * 
+   * @remarks
+   * - For details about the changes of this new interface compared to the original one, please refer to [Announcement on SMS Service Update: Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+   * - Only templates that have not passed the review can be modified. Please refer to [Handling Suggestions for Failed SMS Template Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm=a2c4g.11186623.0.0.4bf5561ajcFtMQ) and call this interface to modify and resubmit for review.
+   * - Modifications made through the interface will be synchronized in the SMS service console. For related operations on templates in the console, see [SMS Templates](https://help.aliyun.com/zh/sms/user-guide/message-templates/?spm=a2c4g.11186623.0.0.35a947464Itaxp).
+   * ### QPS Limit
+   * The single-user QPS limit for this interface is 1000 times/second. Exceeding this limit will result in API throttling, which may impact your business. Please make calls reasonably.
+   * 
+   * @param tmpReq - UpdateSmsTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSmsTemplateResponse
    */
   async updateSmsTemplateWithOptions(tmpReq: UpdateSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmsTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -7960,10 +14114,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改文本短信模板
-   *
-   * @param request UpdateSmsTemplateRequest
-   * @return UpdateSmsTemplateResponse
+   * Update Text SMS Template
+   * 
+   * @remarks
+   * - For details about the changes of this new interface compared to the original one, please refer to [Announcement on SMS Service Update: Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+   * - Only templates that have not passed the review can be modified. Please refer to [Handling Suggestions for Failed SMS Template Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm=a2c4g.11186623.0.0.4bf5561ajcFtMQ) and call this interface to modify and resubmit for review.
+   * - Modifications made through the interface will be synchronized in the SMS service console. For related operations on templates in the console, see [SMS Templates](https://help.aliyun.com/zh/sms/user-guide/message-templates/?spm=a2c4g.11186623.0.0.35a947464Itaxp).
+   * ### QPS Limit
+   * The single-user QPS limit for this interface is 1000 times/second. Exceeding this limit will result in API throttling, which may impact your business. Please make calls reasonably.
+   * 
+   * @param request - UpdateSmsTemplateRequest
+   * @returns UpdateSmsTemplateResponse
    */
   async updateSmsTemplate(request: UpdateSmsTemplateRequest): Promise<UpdateSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
