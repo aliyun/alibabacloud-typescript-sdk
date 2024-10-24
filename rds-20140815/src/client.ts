@@ -920,6 +920,110 @@ export class CalculateDBInstanceWeightResponse extends $tea.Model {
   }
 }
 
+export class CancelActiveOperationTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * List of IDs for batch cancellation, separated by English commas (,). It is recommended to not exceed 25 at a time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 188****,188****,188****
+   */
+  ids?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelActiveOperationTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Batch cancellation task IDs, separated by English commas (,).
+   * 
+   * @example
+   * 188****,188****,188****
+   */
+  ids?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * A807C95D-410C-5BB5-96C0-C6E09F2C3D36
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelActiveOperationTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelActiveOperationTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckAccountNameAvailableRequest extends $tea.Model {
   /**
    * @remarks
@@ -32203,6 +32307,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
    * The private IP addresses of the instance in the classic network.
    */
   innerIpAddress?: DescribeRCInstanceAttributeResponseBodyInnerIpAddress;
+  instanceChargeType?: string;
   /**
    * @remarks
    * The instance ID.
@@ -32320,6 +32425,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
    * EA2D4F34-01A7-46EB-A339-D80882135206
    */
   requestId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The security groups.
@@ -32404,6 +32510,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       hostType: 'HostType',
       imageId: 'ImageId',
       innerIpAddress: 'InnerIpAddress',
+      instanceChargeType: 'InstanceChargeType',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       instanceNetworkType: 'InstanceNetworkType',
@@ -32418,6 +32525,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       publicIpAddress: 'PublicIpAddress',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       securityGroupIds: 'SecurityGroupIds',
       serialNumber: 'SerialNumber',
       status: 'Status',
@@ -32447,6 +32555,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       hostType: 'string',
       imageId: 'string',
       innerIpAddress: DescribeRCInstanceAttributeResponseBodyInnerIpAddress,
+      instanceChargeType: 'string',
       instanceId: 'string',
       instanceName: 'string',
       instanceNetworkType: 'string',
@@ -32461,6 +32570,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       publicIpAddress: DescribeRCInstanceAttributeResponseBodyPublicIpAddress,
       regionId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       securityGroupIds: DescribeRCInstanceAttributeResponseBodySecurityGroupIds,
       serialNumber: 'string',
       status: 'string',
@@ -32542,6 +32652,7 @@ export class DescribeRCInstancesRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  tag?: string;
   /**
    * @remarks
    * The virtual private cloud (VPC) ID.
@@ -32556,6 +32667,7 @@ export class DescribeRCInstancesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      tag: 'Tag',
       vpcId: 'VpcId',
     };
   }
@@ -32566,6 +32678,7 @@ export class DescribeRCInstancesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      tag: 'string',
       vpcId: 'string',
     };
   }
@@ -32702,7 +32815,7 @@ export class DescribeRCMetricListRequest extends $tea.Model {
   length?: string;
   /**
    * @remarks
-   * The metric that you want to use. For more information, see [CloudMonitor metrics](javascript:void\\(0\\)).
+   * The metric that you want to use. For more information, see [CloudMonitor metrics](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
    * 
    * This parameter is required.
    * 
@@ -44355,6 +44468,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * Postpaid
    */
   payType?: string;
+  readOnlyDBInstanceClass?: string;
   /**
    * @remarks
    * The ID of the resource group.
@@ -44465,6 +44579,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       payType: 'PayType',
+      readOnlyDBInstanceClass: 'ReadOnlyDBInstanceClass',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -44498,6 +44613,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       payType: 'string',
+      readOnlyDBInstanceClass: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -44713,6 +44829,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * Postpaid
    */
   payType?: string;
+  readOnlyDBInstanceClass?: string;
   /**
    * @remarks
    * The ID of the resource group.
@@ -44823,6 +44940,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       payType: 'PayType',
+      readOnlyDBInstanceClass: 'ReadOnlyDBInstanceClass',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -44856,6 +44974,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       payType: 'string',
+      readOnlyDBInstanceClass: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -53477,6 +53596,7 @@ export class RunRCInstancesRequest extends $tea.Model {
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  createMode?: string;
   /**
    * @remarks
    * The information about the data disks.
@@ -53509,6 +53629,7 @@ export class RunRCInstancesRequest extends $tea.Model {
    * false
    */
   dryRun?: boolean;
+  hostName?: string;
   /**
    * @remarks
    * The ID of the image used by the instance.
@@ -53612,6 +53733,7 @@ export class RunRCInstancesRequest extends $tea.Model {
    * cn-beijing
    */
   regionId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The reserved parameter. This parameter is not supported.
@@ -53635,6 +53757,7 @@ export class RunRCInstancesRequest extends $tea.Model {
    * The specification of the system disk.
    */
   systemDisk?: RunRCInstancesRequestSystemDisk;
+  tag?: RunRCInstancesRequestTag[];
   /**
    * @remarks
    * The vSwitch ID of the instance. You must specify this parameter when you create an instance of the virtual private cloud (VPC) type. The specified vSwitch and security group must belong to the same VPC.
@@ -53663,10 +53786,12 @@ export class RunRCInstancesRequest extends $tea.Model {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       clientToken: 'ClientToken',
+      createMode: 'CreateMode',
       dataDisk: 'DataDisk',
       deploymentSetId: 'DeploymentSetId',
       description: 'Description',
       dryRun: 'DryRun',
+      hostName: 'HostName',
       imageId: 'ImageId',
       instanceChargeType: 'InstanceChargeType',
       instanceName: 'InstanceName',
@@ -53679,9 +53804,11 @@ export class RunRCInstancesRequest extends $tea.Model {
       period: 'Period',
       periodUnit: 'PeriodUnit',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       systemDisk: 'SystemDisk',
+      tag: 'Tag',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
     };
@@ -53693,10 +53820,12 @@ export class RunRCInstancesRequest extends $tea.Model {
       autoPay: 'boolean',
       autoRenew: 'boolean',
       clientToken: 'string',
+      createMode: 'string',
       dataDisk: { 'type': 'array', 'itemType': RunRCInstancesRequestDataDisk },
       deploymentSetId: 'string',
       description: 'string',
       dryRun: 'boolean',
+      hostName: 'string',
       imageId: 'string',
       instanceChargeType: 'string',
       instanceName: 'string',
@@ -53709,9 +53838,11 @@ export class RunRCInstancesRequest extends $tea.Model {
       period: 'number',
       periodUnit: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       systemDisk: RunRCInstancesRequestSystemDisk,
+      tag: { 'type': 'array', 'itemType': RunRCInstancesRequestTag },
       vSwitchId: 'string',
       zoneId: 'string',
     };
@@ -53767,6 +53898,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  createMode?: string;
   /**
    * @remarks
    * The information about the data disks.
@@ -53799,6 +53931,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
    * false
    */
   dryRun?: boolean;
+  hostName?: string;
   /**
    * @remarks
    * The ID of the image used by the instance.
@@ -53902,6 +54035,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
    * cn-beijing
    */
   regionId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The reserved parameter. This parameter is not supported.
@@ -53925,6 +54059,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
    * The specification of the system disk.
    */
   systemDiskShrink?: string;
+  tag?: RunRCInstancesShrinkRequestTag[];
   /**
    * @remarks
    * The vSwitch ID of the instance. You must specify this parameter when you create an instance of the virtual private cloud (VPC) type. The specified vSwitch and security group must belong to the same VPC.
@@ -53953,10 +54088,12 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       clientToken: 'ClientToken',
+      createMode: 'CreateMode',
       dataDiskShrink: 'DataDisk',
       deploymentSetId: 'DeploymentSetId',
       description: 'Description',
       dryRun: 'DryRun',
+      hostName: 'HostName',
       imageId: 'ImageId',
       instanceChargeType: 'InstanceChargeType',
       instanceName: 'InstanceName',
@@ -53969,9 +54106,11 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       period: 'Period',
       periodUnit: 'PeriodUnit',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       systemDiskShrink: 'SystemDisk',
+      tag: 'Tag',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
     };
@@ -53983,10 +54122,12 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       autoPay: 'boolean',
       autoRenew: 'boolean',
       clientToken: 'string',
+      createMode: 'string',
       dataDiskShrink: 'string',
       deploymentSetId: 'string',
       description: 'string',
       dryRun: 'boolean',
+      hostName: 'string',
       imageId: 'string',
       instanceChargeType: 'string',
       instanceName: 'string',
@@ -53999,9 +54140,11 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       period: 'number',
       periodUnit: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       systemDiskShrink: 'string',
+      tag: { 'type': 'array', 'itemType': RunRCInstancesShrinkRequestTag },
       vSwitchId: 'string',
       zoneId: 'string',
     };
@@ -73553,6 +73696,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
    * testrdscustom
    */
   clusterName?: string;
+  createMode?: string;
   /**
    * @remarks
    * The database type.
@@ -73593,6 +73737,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
    * i-2zeaiz4g9u23f40m****
    */
   hostName?: string;
+  instanceChargeType?: string;
   /**
    * @remarks
    * The instance ID.
@@ -73636,11 +73781,13 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clusterName: 'ClusterName',
+      createMode: 'CreateMode',
       dbType: 'DbType',
       description: 'Description',
       gmtCreated: 'GmtCreated',
       hostIp: 'HostIp',
       hostName: 'HostName',
+      instanceChargeType: 'InstanceChargeType',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       status: 'Status',
@@ -73651,11 +73798,13 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clusterName: 'string',
+      createMode: 'string',
       dbType: 'string',
       description: 'string',
       gmtCreated: 'string',
       hostIp: 'string',
       hostName: 'string',
+      instanceChargeType: 'string',
       instanceId: 'string',
       regionId: 'string',
       status: 'string',
@@ -78646,6 +78795,50 @@ export class RunRCInstancesRequestSystemDisk extends $tea.Model {
   }
 }
 
+export class RunRCInstancesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunRCInstancesShrinkRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunRCInstancesResponseBodyInstanceIdSets extends $tea.Model {
   instanceIdSet?: string[];
   static names(): { [key: string]: string } {
@@ -79348,6 +79541,104 @@ export default class Client extends OpenApi {
   async calculateDBInstanceWeight(request: CalculateDBInstanceWeightRequest): Promise<CalculateDBInstanceWeightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.calculateDBInstanceWeightWithOptions(request, runtime);
+  }
+
+  /**
+   * This interface is used to cancel maintenance tasks that have not yet started.
+   * 
+   * @remarks
+   * ### Supported Engines
+   * - RDS MySQL
+   * - RDS PostgreSQL
+   * - RDS SQL Server
+   * - RDS MariaDB
+   * ### Related Function Documentation
+   * >Notice: Before using this interface, please carefully read the function documentation to ensure you fully understand the prerequisites and the impact of using the interface before proceeding with the operation.
+   * - [RDS MySQL Scheduled Events](https://help.aliyun.com/document_detail/104183.html)
+   * - [RDS PostgreSQL Scheduled Events](https://help.aliyun.com/document_detail/104452.html)
+   * - [RDS SQL Server Scheduled Events](https://help.aliyun.com/document_detail/104451.html)
+   * - [RDS MariaDB Scheduled Events](https://help.aliyun.com/document_detail/104454.html)
+   * ### Usage Restrictions
+   * The task cannot be canceled under the following conditions:
+   * - `allowCancel` is 0.
+   * - The current time is later than the task start time.
+   * - The task status is not 3 (waiting for execution).
+   * 
+   * @param request - CancelActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelActiveOperationTasksResponse
+   */
+  async cancelActiveOperationTasksWithOptions(request: CancelActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<CancelActiveOperationTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelActiveOperationTasks",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new CancelActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * This interface is used to cancel maintenance tasks that have not yet started.
+   * 
+   * @remarks
+   * ### Supported Engines
+   * - RDS MySQL
+   * - RDS PostgreSQL
+   * - RDS SQL Server
+   * - RDS MariaDB
+   * ### Related Function Documentation
+   * >Notice: Before using this interface, please carefully read the function documentation to ensure you fully understand the prerequisites and the impact of using the interface before proceeding with the operation.
+   * - [RDS MySQL Scheduled Events](https://help.aliyun.com/document_detail/104183.html)
+   * - [RDS PostgreSQL Scheduled Events](https://help.aliyun.com/document_detail/104452.html)
+   * - [RDS SQL Server Scheduled Events](https://help.aliyun.com/document_detail/104451.html)
+   * - [RDS MariaDB Scheduled Events](https://help.aliyun.com/document_detail/104454.html)
+   * ### Usage Restrictions
+   * The task cannot be canceled under the following conditions:
+   * - `allowCancel` is 0.
+   * - The current time is later than the task start time.
+   * - The task status is not 3 (waiting for execution).
+   * 
+   * @param request - CancelActiveOperationTasksRequest
+   * @returns CancelActiveOperationTasksResponse
+   */
+  async cancelActiveOperationTasks(request: CancelActiveOperationTasksRequest): Promise<CancelActiveOperationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelActiveOperationTasksWithOptions(request, runtime);
   }
 
   /**
@@ -93250,6 +93541,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
@@ -99429,6 +99724,10 @@ export default class Client extends OpenApi {
       query["PayType"] = request.payType;
     }
 
+    if (!Util.isUnset(request.readOnlyDBInstanceClass)) {
+      query["ReadOnlyDBInstanceClass"] = request.readOnlyDBInstanceClass;
+    }
+
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -100391,7 +100690,8 @@ export default class Client extends OpenApi {
    * ### [](#)Supported database engines
    * *   SQL Server
    * ### [](#)References
-   * You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
+   * <props="china">You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
+   * <props="intl">You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html).
    * > : Before you call this operation, read the preceding topics and make sure that you fully understand the prerequisites and impacts of this operation.
    * 
    * @param request - ModifyDatabaseConfigRequest
@@ -100457,7 +100757,8 @@ export default class Client extends OpenApi {
    * ### [](#)Supported database engines
    * *   SQL Server
    * ### [](#)References
-   * You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
+   * <props="china">You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
+   * <props="intl">You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html).
    * > : Before you call this operation, read the preceding topics and make sure that you fully understand the prerequisites and impacts of this operation.
    * 
    * @param request - ModifyDatabaseConfigRequest
@@ -104161,6 +104462,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.createMode)) {
+      query["CreateMode"] = request.createMode;
+    }
+
     if (!Util.isUnset(request.dataDiskShrink)) {
       query["DataDisk"] = request.dataDiskShrink;
     }
@@ -104175,6 +104480,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.hostName)) {
+      query["HostName"] = request.hostName;
     }
 
     if (!Util.isUnset(request.imageId)) {
@@ -104225,6 +104534,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.securityEnhancementStrategy)) {
       query["SecurityEnhancementStrategy"] = request.securityEnhancementStrategy;
     }
@@ -104235,6 +104548,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.systemDiskShrink)) {
       query["SystemDisk"] = request.systemDiskShrink;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.vSwitchId)) {
