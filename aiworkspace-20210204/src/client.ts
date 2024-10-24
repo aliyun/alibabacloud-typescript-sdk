@@ -1722,6 +1722,212 @@ export class CreateDatasetLabelsResponse extends $tea.Model {
   }
 }
 
+export class CreateDatasetVersionRequest extends $tea.Model {
+  /**
+   * @example
+   * 300
+   */
+  dataCount?: number;
+  /**
+   * @example
+   * 19000
+   */
+  dataSize?: number;
+  /**
+   * @example
+   * OSS
+   */
+  dataSourceType?: string;
+  description?: string;
+  labels?: Label[];
+  /**
+   * @example
+   * {
+   *   "mountPath": "/mnt/data/"
+   * }
+   */
+  options?: string;
+  /**
+   * @example
+   * DIRECTORY
+   */
+  property?: string;
+  /**
+   * @example
+   * d-a0xbe5n03bhqof46ce
+   */
+  sourceId?: string;
+  /**
+   * @example
+   * USER
+   */
+  sourceType?: string;
+  /**
+   * @example
+   * oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/
+   */
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataCount: 'DataCount',
+      dataSize: 'DataSize',
+      dataSourceType: 'DataSourceType',
+      description: 'Description',
+      labels: 'Labels',
+      options: 'Options',
+      property: 'Property',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataCount: 'number',
+      dataSize: 'number',
+      dataSourceType: 'string',
+      description: 'string',
+      labels: { 'type': 'array', 'itemType': Label },
+      options: 'string',
+      property: 'string',
+      sourceId: 'string',
+      sourceType: 'string',
+      uri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetVersionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * v1
+   */
+  versionName?: string;
+  /**
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      versionName: 'VersionName',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      versionName: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDatasetVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDatasetVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetVersionLabelsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  labels?: Label[];
+  static names(): { [key: string]: string } {
+    return {
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labels: { 'type': 'array', 'itemType': Label },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetVersionLabelsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetVersionLabelsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDatasetVersionLabelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDatasetVersionLabelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateExperimentRequest extends $tea.Model {
   /**
    * @example
@@ -2941,6 +3147,128 @@ export class DeleteDatasetLabelsResponse extends $tea.Model {
   }
 }
 
+export class DeleteDatasetVersionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDatasetVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDatasetVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetVersionLabelsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * key1,key2
+   */
+  keys?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keys: 'Keys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keys: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetVersionLabelsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetVersionLabelsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDatasetVersionLabelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDatasetVersionLabelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteExperimentResponseBody extends $tea.Model {
   /**
    * @example
@@ -3919,6 +4247,57 @@ export class GetDatasetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDatasetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetVersionResponseBody extends $tea.Model {
+  datasetVersion?: DatasetVersion;
+  /**
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetVersion: 'DatasetVersion',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetVersion: DatasetVersion,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDatasetVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDatasetVersionResponseBody,
     };
   }
 
@@ -5098,6 +5477,170 @@ export class ListCodeSourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCodeSourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetVersionsRequest extends $tea.Model {
+  /**
+   * @example
+   * OSS
+   */
+  dataSourcesTypes?: string;
+  /**
+   * @example
+   * key1,key2
+   */
+  labelKeys?: string;
+  /**
+   * @example
+   * value1,value2
+   */
+  lableValues?: string;
+  /**
+   * @example
+   * ASC
+   */
+  order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * DIRECTORY
+   */
+  properties?: string;
+  /**
+   * @example
+   * GmtCreateTime
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * d-a0xbe5n03bhqof46ce
+   */
+  sourceId?: string;
+  /**
+   * @example
+   * USER
+   */
+  sourceTypes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourcesTypes: 'DataSourcesTypes',
+      labelKeys: 'LabelKeys',
+      lableValues: 'LableValues',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      properties: 'Properties',
+      sortBy: 'SortBy',
+      sourceId: 'SourceId',
+      sourceTypes: 'SourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourcesTypes: 'string',
+      labelKeys: 'string',
+      lableValues: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      properties: 'string',
+      sortBy: 'string',
+      sourceId: 'string',
+      sourceTypes: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetVersionsResponseBody extends $tea.Model {
+  datasetVersions?: DatasetVersion[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetVersions: 'DatasetVersions',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetVersions: { 'type': 'array', 'itemType': DatasetVersion },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetVersionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDatasetVersionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDatasetVersionsResponseBody,
     };
   }
 
@@ -7622,6 +8165,96 @@ export class UpdateDatasetResponse extends $tea.Model {
   }
 }
 
+export class UpdateDatasetVersionRequest extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  dataCount?: number;
+  /**
+   * @example
+   * 100000
+   */
+  dataSize?: number;
+  description?: string;
+  /**
+   * @example
+   * {
+   *   "mountPath": "/mnt/data/"
+   * }
+   */
+  options?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataCount: 'DataCount',
+      dataSize: 'DataSize',
+      description: 'Description',
+      options: 'Options',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataCount: 'number',
+      dataSize: 'number',
+      description: 'string',
+      options: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetVersionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDatasetVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDatasetVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDefaultWorkspaceRequest extends $tea.Model {
   /**
    * @example
@@ -10120,6 +10753,132 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建数据集版本
+   * 
+   * @param request - CreateDatasetVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatasetVersionResponse
+   */
+  async createDatasetVersionWithOptions(DatasetId: string, request: CreateDatasetVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDatasetVersionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataCount)) {
+      body["DataCount"] = request.dataCount;
+    }
+
+    if (!Util.isUnset(request.dataSize)) {
+      body["DataSize"] = request.dataSize;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      body["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.options)) {
+      body["Options"] = request.options;
+    }
+
+    if (!Util.isUnset(request.property)) {
+      body["Property"] = request.property;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      body["SourceId"] = request.sourceId;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      body["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.uri)) {
+      body["Uri"] = request.uri;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDatasetVersion",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datasets/${OpenApiUtil.getEncodeParam(DatasetId)}/versions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDatasetVersionResponse>(await this.callApi(params, req, runtime), new CreateDatasetVersionResponse({}));
+  }
+
+  /**
+   * 创建数据集版本
+   * 
+   * @param request - CreateDatasetVersionRequest
+   * @returns CreateDatasetVersionResponse
+   */
+  async createDatasetVersion(DatasetId: string, request: CreateDatasetVersionRequest): Promise<CreateDatasetVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDatasetVersionWithOptions(DatasetId, request, headers, runtime);
+  }
+
+  /**
+   * 创建数据集版本的标签
+   * 
+   * @param request - CreateDatasetVersionLabelsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatasetVersionLabelsResponse
+   */
+  async createDatasetVersionLabelsWithOptions(DatasetId: string, VersionName: string, request: CreateDatasetVersionLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDatasetVersionLabelsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDatasetVersionLabels",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datasets/${OpenApiUtil.getEncodeParam(DatasetId)}/versions/${OpenApiUtil.getEncodeParam(VersionName)}/labels`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDatasetVersionLabelsResponse>(await this.callApi(params, req, runtime), new CreateDatasetVersionLabelsResponse({}));
+  }
+
+  /**
+   * 创建数据集版本的标签
+   * 
+   * @param request - CreateDatasetVersionLabelsRequest
+   * @returns CreateDatasetVersionLabelsResponse
+   */
+  async createDatasetVersionLabels(DatasetId: string, VersionName: string, request: CreateDatasetVersionLabelsRequest): Promise<CreateDatasetVersionLabelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDatasetVersionLabelsWithOptions(DatasetId, VersionName, request, headers, runtime);
+  }
+
+  /**
    * 创建实验
    * 
    * @param request - CreateExperimentRequest
@@ -10845,6 +11604,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除指定版本的数据集信息，如果删除的版本是该数据集的仅存版本，版本删除后会联动删除dataset 表中的数据集信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatasetVersionResponse
+   */
+  async deleteDatasetVersionWithOptions(DatasetId: string, VersionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetVersionResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDatasetVersion",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datasets/${OpenApiUtil.getEncodeParam(DatasetId)}/versions/${OpenApiUtil.getEncodeParam(VersionName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDatasetVersionResponse>(await this.callApi(params, req, runtime), new DeleteDatasetVersionResponse({}));
+  }
+
+  /**
+   * 删除指定版本的数据集信息，如果删除的版本是该数据集的仅存版本，版本删除后会联动删除dataset 表中的数据集信息
+   * @returns DeleteDatasetVersionResponse
+   */
+  async deleteDatasetVersion(DatasetId: string, VersionName: string): Promise<DeleteDatasetVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDatasetVersionWithOptions(DatasetId, VersionName, headers, runtime);
+  }
+
+  /**
+   * 删除数据集版本的标签。
+   * 
+   * @param request - DeleteDatasetVersionLabelsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatasetVersionLabelsResponse
+   */
+  async deleteDatasetVersionLabelsWithOptions(DatasetId: string, VersionName: string, request: DeleteDatasetVersionLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetVersionLabelsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keys)) {
+      query["Keys"] = request.keys;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDatasetVersionLabels",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datasets/${OpenApiUtil.getEncodeParam(DatasetId)}/versions/${OpenApiUtil.getEncodeParam(VersionName)}/labels`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDatasetVersionLabelsResponse>(await this.callApi(params, req, runtime), new DeleteDatasetVersionLabelsResponse({}));
+  }
+
+  /**
+   * 删除数据集版本的标签。
+   * 
+   * @param request - DeleteDatasetVersionLabelsRequest
+   * @returns DeleteDatasetVersionLabelsResponse
+   */
+  async deleteDatasetVersionLabels(DatasetId: string, VersionName: string, request: DeleteDatasetVersionLabelsRequest): Promise<DeleteDatasetVersionLabelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDatasetVersionLabelsWithOptions(DatasetId, VersionName, request, headers, runtime);
+  }
+
+  /**
    * 删除实验
    * 
    * @param headers - map
@@ -11360,6 +12199,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取指定版本的数据集信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatasetVersionResponse
+   */
+  async getDatasetVersionWithOptions(DatasetId: string, VersionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDatasetVersionResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDatasetVersion",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datasets/${OpenApiUtil.getEncodeParam(DatasetId)}/versions/${OpenApiUtil.getEncodeParam(VersionName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDatasetVersionResponse>(await this.callApi(params, req, runtime), new GetDatasetVersionResponse({}));
+  }
+
+  /**
+   * 获取指定版本的数据集信息
+   * @returns GetDatasetVersionResponse
+   */
+  async getDatasetVersion(DatasetId: string, VersionName: string): Promise<GetDatasetVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDatasetVersionWithOptions(DatasetId, VersionName, headers, runtime);
+  }
+
+  /**
    * 获取默认工作空间
    * 
    * @param request - GetDefaultWorkspaceRequest
@@ -11823,6 +12697,87 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCodeSourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取数据集版本列表
+   * 
+   * @param request - ListDatasetVersionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatasetVersionsResponse
+   */
+  async listDatasetVersionsWithOptions(DatasetId: string, request: ListDatasetVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDatasetVersionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataSourcesTypes)) {
+      query["DataSourcesTypes"] = request.dataSourcesTypes;
+    }
+
+    if (!Util.isUnset(request.labelKeys)) {
+      query["LabelKeys"] = request.labelKeys;
+    }
+
+    if (!Util.isUnset(request.lableValues)) {
+      query["LableValues"] = request.lableValues;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.properties)) {
+      query["Properties"] = request.properties;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!Util.isUnset(request.sourceTypes)) {
+      query["SourceTypes"] = request.sourceTypes;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDatasetVersions",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datasets/${OpenApiUtil.getEncodeParam(DatasetId)}/versions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDatasetVersionsResponse>(await this.callApi(params, req, runtime), new ListDatasetVersionsResponse({}));
+  }
+
+  /**
+   * 获取数据集版本列表
+   * 
+   * @param request - ListDatasetVersionsRequest
+   * @returns ListDatasetVersionsResponse
+   */
+  async listDatasetVersions(DatasetId: string, request: ListDatasetVersionsRequest): Promise<ListDatasetVersionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDatasetVersionsWithOptions(DatasetId, request, headers, runtime);
   }
 
   /**
@@ -13263,6 +14218,63 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateDatasetWithOptions(DatasetId, request, headers, runtime);
+  }
+
+  /**
+   * 更新指定版本的数据集信息
+   * 
+   * @param request - UpdateDatasetVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDatasetVersionResponse
+   */
+  async updateDatasetVersionWithOptions(DatasetId: string, VersionName: string, request: UpdateDatasetVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDatasetVersionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataCount)) {
+      body["DataCount"] = request.dataCount;
+    }
+
+    if (!Util.isUnset(request.dataSize)) {
+      body["DataSize"] = request.dataSize;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.options)) {
+      body["Options"] = request.options;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDatasetVersion",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datasets/${OpenApiUtil.getEncodeParam(DatasetId)}/versions/${OpenApiUtil.getEncodeParam(VersionName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDatasetVersionResponse>(await this.callApi(params, req, runtime), new UpdateDatasetVersionResponse({}));
+  }
+
+  /**
+   * 更新指定版本的数据集信息
+   * 
+   * @param request - UpdateDatasetVersionRequest
+   * @returns UpdateDatasetVersionResponse
+   */
+  async updateDatasetVersion(DatasetId: string, VersionName: string, request: UpdateDatasetVersionRequest): Promise<UpdateDatasetVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDatasetVersionWithOptions(DatasetId, VersionName, request, headers, runtime);
   }
 
   /**
