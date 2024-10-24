@@ -451,6 +451,7 @@ export class CreateAndroidInstanceGroupRequest extends $tea.Model {
    * acp.basic.small
    */
   instanceGroupSpec?: string;
+  keyPairId?: string;
   /**
    * @example
    * 1
@@ -496,6 +497,7 @@ export class CreateAndroidInstanceGroupRequest extends $tea.Model {
       imageId: 'ImageId',
       instanceGroupName: 'InstanceGroupName',
       instanceGroupSpec: 'InstanceGroupSpec',
+      keyPairId: 'KeyPairId',
       numberOfInstances: 'NumberOfInstances',
       officeSiteId: 'OfficeSiteId',
       period: 'Period',
@@ -517,6 +519,7 @@ export class CreateAndroidInstanceGroupRequest extends $tea.Model {
       imageId: 'string',
       instanceGroupName: 'string',
       instanceGroupSpec: 'string',
+      keyPairId: 'string',
       numberOfInstances: 'number',
       officeSiteId: 'string',
       period: 'number',
@@ -6695,6 +6698,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceGroupSpec)) {
       query["InstanceGroupSpec"] = request.instanceGroupSpec;
+    }
+
+    if (!Util.isUnset(request.keyPairId)) {
+      query["KeyPairId"] = request.keyPairId;
     }
 
     if (!Util.isUnset(request.numberOfInstances)) {
