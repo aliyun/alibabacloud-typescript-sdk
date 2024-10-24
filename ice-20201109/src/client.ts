@@ -9,10 +9,12 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class AIAgentRuntimeConfig extends $tea.Model {
   avatarChat3D?: AIAgentRuntimeConfigAvatarChat3D;
+  visionChat?: AIAgentRuntimeConfigVisionChat;
   voiceChat?: AIAgentRuntimeConfigVoiceChat;
   static names(): { [key: string]: string } {
     return {
       avatarChat3D: 'AvatarChat3D',
+      visionChat: 'VisionChat',
       voiceChat: 'VoiceChat',
     };
   }
@@ -20,6 +22,7 @@ export class AIAgentRuntimeConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       avatarChat3D: AIAgentRuntimeConfigAvatarChat3D,
+      visionChat: AIAgentRuntimeConfigVisionChat,
       voiceChat: AIAgentRuntimeConfigVoiceChat,
     };
   }
@@ -31,10 +34,12 @@ export class AIAgentRuntimeConfig extends $tea.Model {
 
 export class AIAgentTemplateConfig extends $tea.Model {
   avatarChat3D?: AIAgentTemplateConfigAvatarChat3D;
+  visionChat?: AIAgentTemplateConfigVisionChat;
   voiceChat?: AIAgentTemplateConfigVoiceChat;
   static names(): { [key: string]: string } {
     return {
       avatarChat3D: 'AvatarChat3D',
+      visionChat: 'VisionChat',
       voiceChat: 'VoiceChat',
     };
   }
@@ -42,7 +47,95 @@ export class AIAgentTemplateConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       avatarChat3D: AIAgentTemplateConfigAvatarChat3D,
+      visionChat: AIAgentTemplateConfigVisionChat,
       voiceChat: AIAgentTemplateConfigVoiceChat,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AppInfoDTO extends $tea.Model {
+  appName?: string;
+  /**
+   * @example
+   * 1-普通应用，2-内嵌SDK.
+   */
+  appType?: number;
+  gmtCreate?: string;
+  itemId?: string;
+  platforms?: AppInfoDTOPlatforms[];
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      appType: 'AppType',
+      gmtCreate: 'GmtCreate',
+      itemId: 'ItemId',
+      platforms: 'Platforms',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      appType: 'number',
+      gmtCreate: 'string',
+      itemId: 'string',
+      platforms: { 'type': 'array', 'itemType': AppInfoDTOPlatforms },
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LicenseInstanceAppDTO extends $tea.Model {
+  appId?: string;
+  beginOn?: string;
+  contractNo?: string;
+  creationTime?: string;
+  expiredOn?: string;
+  instanceId?: string;
+  itemId?: string;
+  licenseConfigs?: LicenseInstanceAppDTOLicenseConfigs[];
+  modificationTime?: string;
+  status?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      beginOn: 'BeginOn',
+      contractNo: 'ContractNo',
+      creationTime: 'CreationTime',
+      expiredOn: 'ExpiredOn',
+      instanceId: 'InstanceId',
+      itemId: 'ItemId',
+      licenseConfigs: 'LicenseConfigs',
+      modificationTime: 'ModificationTime',
+      status: 'Status',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      beginOn: 'string',
+      contractNo: 'string',
+      creationTime: 'string',
+      expiredOn: 'string',
+      instanceId: 'string',
+      itemId: 'string',
+      licenseConfigs: { 'type': 'array', 'itemType': LicenseInstanceAppDTOLicenseConfigs },
+      modificationTime: 'string',
+      status: 'string',
+      userId: 'number',
     };
   }
 
@@ -54,15 +147,29 @@ export class AIAgentTemplateConfig extends $tea.Model {
 export class AddCategoryRequest extends $tea.Model {
   /**
    * @remarks
+   * The category name.
+   * 
+   * *   The value can be up to 64 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
    * This parameter is required.
    */
   cateName?: string;
   /**
+   * @remarks
+   * The ID of the parent category.
+   * 
    * @example
    * 5
    */
   parentId?: number;
   /**
+   * @remarks
+   * The type of the category. Valid values:
+   * 
+   * *   default: audio, video, and image files. This is the default value.
+   * *   material: short video materials.
+   * 
    * @example
    * default
    */
@@ -89,8 +196,15 @@ export class AddCategoryRequest extends $tea.Model {
 }
 
 export class AddCategoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the category.
+   */
   category?: AddCategoryResponseBodyCategory;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
@@ -142,6 +256,14 @@ export class AddCategoryResponse extends $tea.Model {
 export class AddEditingProjectMaterialsRequest extends $tea.Model {
   /**
    * @remarks
+   * The material ID. Separate multiple material IDs with commas (,). Each type supports up to 10 material IDs. The following material types are supported:
+   * 
+   * *   video
+   * *   audio
+   * *   image
+   * *   liveStream
+   * *   editingProject
+   * 
    * This parameter is required.
    * 
    * @example
@@ -150,6 +272,8 @@ export class AddEditingProjectMaterialsRequest extends $tea.Model {
   materialMaps?: string;
   /**
    * @remarks
+   * The ID of the online editing project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -176,19 +300,36 @@ export class AddEditingProjectMaterialsRequest extends $tea.Model {
 }
 
 export class AddEditingProjectMaterialsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The materials associated with the live stream.
+   */
   liveMaterials?: AddEditingProjectMaterialsResponseBodyLiveMaterials[];
+  /**
+   * @remarks
+   * The media assets that meet the specified conditions.
+   */
   mediaInfos?: AddEditingProjectMaterialsResponseBodyMediaInfos[];
   /**
+   * @remarks
+   * The ID of the online editing project.
+   * 
    * @example
    * *****67ae06542b9b93e0d1c387*****
    */
   projectId?: string;
   /**
+   * @remarks
+   * The materials associated with the editing project. A live stream editing project will be associated with a regular editing project after the live streaming ends.
+   * 
    * @example
    * *****9b145c5cafc2e057304fcd*****
    */
   projectMaterials?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * *****ACB-44F2-5F2D-88D7-1283E70*****
    */
@@ -320,6 +461,8 @@ export class AddFavoritePublicMediaResponse extends $tea.Model {
 export class AddMediaMarksRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -328,6 +471,8 @@ export class AddMediaMarksRequest extends $tea.Model {
   mediaId?: string;
   /**
    * @remarks
+   * The mark information. The value must be a JSONArray.
+   * 
    * This parameter is required.
    */
   mediaMarks?: string;
@@ -352,16 +497,25 @@ export class AddMediaMarksRequest extends $tea.Model {
 
 export class AddMediaMarksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 53afdf003a******6a16b5feac6402
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The IDs of the marks that are added.
+   * 
    * @example
    * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
    */
   mediaMarkIds?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 771A1414-27BF-53E6-AB73-EFCB*****ACF
    */
@@ -540,13 +694,36 @@ export class AddTemplateResponse extends $tea.Model {
 
 export class AlterSearchIndexRequest extends $tea.Model {
   /**
+   * @remarks
+   * The configurations of the index.
+   * 
+   * >  You must specify either IndexStatus or IndexConfig.
+   * 
    * @example
    * {}
    */
   indexConfig?: string;
+  /**
+   * @remarks
+   * The state of the index. Valid values:
+   * 
+   * *   active (default): the index is enabled.
+   * *   Deactive: the index is not enabled.
+   * 
+   * >  You must specify either IndexStatus or IndexConfig.
+   * 
+   * @example
+   * Active
+   */
   indexStatus?: string;
   /**
    * @remarks
+   * The category of the index. Valid values:
+   * 
+   * *   mm: large visual model.
+   * *   face: face recognition.
+   * *   aiLabel: smart tagging.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -554,6 +731,12 @@ export class AlterSearchIndexRequest extends $tea.Model {
    */
   indexType?: string;
   /**
+   * @remarks
+   * The name of the search library.
+   * 
+   * *   If you leave this parameter empty, the search index is created in the default search library of Intelligent Media Service (IMS). Default value: ims-default-search-lib.
+   * *   To query information about an existing search library, call the [QuerySearchLib](https://help.aliyun.com/document_detail/2584455.html) API operation.
+   * 
    * @example
    * test1
    */
@@ -582,15 +765,32 @@ export class AlterSearchIndexRequest extends $tea.Model {
 }
 
 export class AlterSearchIndexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -640,11 +840,21 @@ export class AlterSearchIndexResponse extends $tea.Model {
 
 export class BatchGetMediaInfosRequest extends $tea.Model {
   /**
+   * @remarks
+   * The additional information that you want to query about the media assets. By default, only BasicInfo is returned. The following additional information can be queried:
+   * 
+   * \\- FileInfo
+   * 
+   * \\- DynamicMetaData
+   * 
    * @example
    * FileInfo,DynamicMetaData
    */
   additionType?: string;
   /**
+   * @remarks
+   * The IDs of the media assets that you want to query. Separate the IDs with commas (,).
+   * 
    * @example
    * ******b48fb04483915d4f2cd8******,******c48fb37407365d4f2cd8******
    */
@@ -669,8 +879,15 @@ export class BatchGetMediaInfosRequest extends $tea.Model {
 }
 
 export class BatchGetMediaInfosResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried media assets.
+   */
   mediaInfos?: BatchGetMediaInfosResponseBodyMediaInfos[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -1405,36 +1622,74 @@ export class CreateDNADBResponse extends $tea.Model {
 
 export class CreateEditingProjectRequest extends $tea.Model {
   /**
+   * @remarks
+   * The business configuration of the project. This parameter can be ignored for general editing projects.
+   * 
+   * For a live stream editing project, observe the following rules: OutputMediaConfig.StorageLocation is required. OutputMediaConfig.Path is optional. If you do not specify this option, the live streaming clips are stored in the root directory by default.
+   * 
+   * Valid values of OutputMediaTarget include vod-media and oss-object. If you do not specify OutputMediaTarget, the default value oss-object is used.
+   * 
+   * If you set OutputMediaTarget to vod-media, the setting of OutputMediaConfig.Path does not take effect.
+   * 
    * @example
    * { "OutputMediaConfig" : { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path" }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
    */
   businessConfig?: string;
+  /**
+   * @remarks
+   * The material parameter corresponding to the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information<props="china">, see [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html) and [Create and use an advanced template](https://help.aliyun.com/document_detail/291418.html).
+   */
   clipsParam?: string;
   /**
+   * @remarks
+   * The thumbnail URL of the online editing project.
+   * 
    * @example
    * https://example.com/example.png
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The description of the online editing project.
+   * 
    * @example
    * 描述
    */
   description?: string;
   /**
+   * @remarks
+   * The material associated with the project. Separate multiple material IDs with commas (,). Each type supports up to 10 material IDs.
+   * 
    * @example
    * {"video":"*****2e057304fcd9b145c5cafc*****", "image":"****8021a8d493da643c8acd98*****,*****cb6307a4edea614d8b3f3c*****", "liveStream": "[{\\"appName\\":\\"testrecord\\",\\"domainName\\":\\"test.alivecdn.com\\",\\"liveUrl\\":\\"rtmp://test.alivecdn.com/testrecord/teststream\\",\\"streamName\\":\\"teststream\\"}]", "editingProject": "*****9b145c5cafc2e057304fcd*****"}
    */
   materialMaps?: string;
   /**
+   * @remarks
+   * The type of the editing project. Valid values: EditingProject and LiveEditingProject. A value of EditingProject indicates a regular editing project, and a value of LiveEditingProject indicates a live stream editing project.
+   * 
    * @example
    * LiveEditingProject
    */
   projectType?: string;
   /**
+   * @remarks
+   * The template ID. This parameter is used to quickly build a timeline with ease. Note: Only one of Timeline and TemplateId can be specified. If TemplateId is specified, ClipsParam must also be specified.
+   * 
    * @example
    * ****96e8864746a0b6f3****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The template type. This parameter is required if you create a template-based online editing project. Default value: Timeline. Valid values:
+   * 
+   * *   Timeline: a regular template.
+   * *   VETemplate: an advanced template.
+   * 
+   * @example
+   * Timeline
+   */
   templateType?: string;
   /**
    * @example
@@ -1443,6 +1698,8 @@ export class CreateEditingProjectRequest extends $tea.Model {
   timeline?: string;
   /**
    * @remarks
+   * The title of the online editing project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1485,10 +1742,14 @@ export class CreateEditingProjectRequest extends $tea.Model {
 }
 
 export class CreateEditingProjectResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the online editing project.
+   */
   project?: CreateEditingProjectResponseBodyProject;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
@@ -1999,9 +2260,22 @@ export class CreateSearchIndexRequest extends $tea.Model {
    * {}
    */
   indexConfig?: string;
+  /**
+   * @example
+   * Active
+   */
   indexStatus?: string;
   /**
    * @remarks
+   * The category of the index. Valid values:
+   * 
+   * *   mm: large visual model. You can use this model to describe complex visual features and identify and search for specific actions, movements, and events in videos, such as when athletes score a goal or get injured.
+   * 
+   * >  This feature is in the public preview phase. You can use this feature for free for 1,000 hours of videos.
+   * 
+   * *   face: face recognition. You can use the face recognition technology to describe face characteristics and automatically mark or search for faces in videos.
+   * *   aiLabel: smart tagging. The smart tagging category is used to describe content such as subtitles and audio in videos. You can use the speech recognition technology to automatically extract, mark, and search for subtitles and dialog content from videos. This helps you quickly locate the video content that is related to specific topics or keywords.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2037,12 +2311,20 @@ export class CreateSearchIndexRequest extends $tea.Model {
 }
 
 export class CreateSearchIndexResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   /**
    * @example
    * *****ACB-44F2-5F2D-88D7-1283E70*****
    */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2093,6 +2375,8 @@ export class CreateSearchIndexResponse extends $tea.Model {
 export class CreateSearchLibRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the search library. The name can contain letters and digits and must start with a letter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2117,20 +2401,40 @@ export class CreateSearchLibRequest extends $tea.Model {
 }
 
 export class CreateSearchLibResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The name of the search library.
+   * 
    * @example
    * test1
    */
   searchLibName?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2182,36 +2486,92 @@ export class CreateSearchLibResponse extends $tea.Model {
 
 export class CreateUploadMediaRequest extends $tea.Model {
   /**
+   * @remarks
+   * The application ID. Default value: app-1000000.
+   * 
    * @example
    * app-1000000
    */
   appId?: string;
   /**
+   * @remarks
+   * The entity ID. You can call the CreateEntity operation to create an entity and specify a dynamic metadata structure.
+   * 
    * @example
    * 9e177cac2fb44f8b8c67b199fcc7bffd
    */
   entityId?: string;
   /**
+   * @remarks
+   * The file information, which is in the JSON format and contains the following fields:
+   * 
+   * *   Type: required. The file type. Valid values: video, image, audio, text, and other.
+   * *   Name: required. The file name without the extension.
+   * *   Size: optional. The file size.
+   * *   Ext: required. The file name extension.
+   * 
    * @example
    * {\\"Type\\":\\"video\\",\\"Name\\":\\"test.mp4\\",\\"Size\\":108078336,\\"Ext\\":\\"mp4\\"}
    */
   fileInfo?: string;
   /**
+   * @remarks
+   * The metadata of the media asset, which is a JSON string that contains the following fields:
+   * 
+   * Title: required.
+   * 
+   * *   The value can be up to 128 characters in length.
+   * *   The value must be encoded in UTF-8.
+   * 
+   * Description: optional.
+   * 
+   * *   The value can be up to 1,024 characters in length.
+   * *   The value must be encoded in UTF-8.
+   * 
+   * CateId: optional.
+   * 
+   * Tags: optional.
+   * 
+   * BusinessType: required. Valid values:
+   * 
+   * *   opening or ending if Type is set to video
+   * *   default or cover if Type is set to image
+   * *   subtitles or font if Type is set to text
+   * *   watermark if Type is set to material
+   * *   general CoverURL: optional.
+   * 
+   * DynamicMetaData: The value is a string.
+   * 
    * @example
    * {\\"Title\\": \\"UploadTest\\", \\"Description\\": \\"UploadImageTest\\", \\"Tags\\": \\"tag1,tag2\\",\\"BusinessType\\":\\"cover\\"}
    */
   mediaMetaData?: string;
   /**
+   * @remarks
+   * The postprocessing configurations. You can specify this parameter if Type is set to video or audio.
+   * 
+   * Set ProcessType to Workflow.
+   * 
    * @example
    * {\\"ProcessType\\":\\"Workflow\\",\\"ProcessID\\":\\"74ba870f1a4873a3ba238e0bf6fa9***\\"}
    */
   postProcessConfig?: string;
   /**
+   * @remarks
+   * The destination storage address.
+   * 
+   * Set StorageType to oss.
+   * 
+   * Set StorageLocation to an address in ApsaraVideo VOD. You cannot set this field to an OSS URL.
+   * 
    * @example
    * {\\"StorageType\\":\\"oss\\",\\"StorageLocation\\":\\"outin-***.oss-cn-shanghai.aliyuncs.com\\"}
    */
   uploadTargetConfig?: string;
   /**
+   * @remarks
+   * The user data. The value must be a JSON string. You can configure settings such as message callbacks.
+   * 
    * @example
    * {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"*****","test":"www"}}
    */
@@ -2247,31 +2607,55 @@ export class CreateUploadMediaRequest extends $tea.Model {
 
 export class CreateUploadMediaResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The OSS URL of the file. The URL does not contain the information used for authentication.
+   * 
    * @example
    * http://outin-***.oss-cn-north-2-gov-1.aliyuncs.com/sv/40360f05-181f63c3110-0004-cd8e-27f-de3c9.mp4
    */
   fileURL?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The URL of the media asset.
+   * 
+   * >  If a domain name for Alibaba Cloud CDN (CDN) is specified, a CDN URL is returned. Otherwise, an OSS URL is returned. If the HTTP status code 403 is returned when you access the URL from your browser, the URL authentication feature of ApsaraVideo VOD is enabled. To resolve this issue, disable URL authentication or generate an authentication signature.
+   * 
    * @example
    * https://xxq-live-playback.oss-cn-shanghai.aliyuncs.com/capture/5d96d2b4-111b-4e5d-a0e5-20f44405bb55.mp4
    */
   mediaURL?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4E84BE44-58A7-****-****-FBEBEA16EF94
    */
   requestId?: string;
   /**
+   * @remarks
+   * The upload URL.
+   * 
+   * >  The returned upload URL is a Base64-encoded URL. You must decode the Base64-encoded upload URL before you use an SDK or call an API operation to upload media files. You need to parse UploadAddress only if you use OSS SDK or call an OSS API operation to upload media files.
+   * 
    * @example
    * eyJFbmRwb2ludCI6Imh0dHBzOi8vb3NzLWNuLXNoYW5naGFpLmFsaXl1bmNzLmNvbSIsIkJ1Y2tldCI6InN6aGQtdmlkZW8iLCJGaWxlTmFtZSI6InZvZC0yOTYzMWEvc3YvNTBmYTJlODQtMTgxMjdhZGRiMTcvNTBmYTJlODQtMTgxMjdhZGRiM***
    */
   uploadAddress?: string;
   /**
+   * @remarks
+   * The upload credential.
+   * 
+   * >  The returned upload credential is a Base64-encoded value. You must decode the Base64-encoded upload URL before you use an SDK or call an API operation to upload media files. You need to parse UploadAuth only if you use OSS SDK or call an OSS API operation to upload media files.
+   * 
    * @example
    * eyJBY2Nlc3NLZXlJZCI6IkxUQUk0Rm53bTk1dHdxQjMxR3IzSE5hRCIsIkFjY2Vzc0tleVNlY3JldCI6Ik9lWllKR0dTMTlkNkZaM1E3UVpJQmdmSVdnM3BPaiIsIkV4cGlyYXRpb24iOiI***
    */
@@ -2330,26 +2714,64 @@ export class CreateUploadMediaResponse extends $tea.Model {
 
 export class CreateUploadStreamRequest extends $tea.Model {
   /**
+   * @remarks
+   * The quality of the media stream. Valid values:
+   * 
+   * *   FD: low definition.
+   * *   LD: standard definition.
+   * *   SD: high definition.
+   * *   HD: ultra-high definition.
+   * *   OD: original quality.
+   * *   2K: 2K resolution.
+   * *   4K: 4K resolution.
+   * *   SQ: standard sound quality.
+   * *   HQ: high sound quality.
+   * 
    * @example
    * HD
    */
   definition?: string;
   /**
+   * @remarks
+   * The file name extension of the media stream.
+   * 
    * @example
    * MP4
    */
   fileExtension?: string;
   /**
+   * @remarks
+   * The high dynamic range (HDR) format of the transcoded stream. Valid values:
+   * 
+   * *   HDR
+   * *   HDR10
+   * *   HLG
+   * *   DolbyVision
+   * *   HDRVivid
+   * *   SDR+
+   * 
+   * > 
+   * 
+   * *   The value is not case-sensitive,
+   * 
+   * *   You can leave this parameter empty for non-HDR streams.
+   * 
    * @example
    * HDR10
    */
   HDRType?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * {"MessageCallback":{"CallbackURL":"http://aliyundoc.com"}, "Extend":{"localId":"xxx","test":"www"}}
    */
@@ -2381,26 +2803,45 @@ export class CreateUploadStreamRequest extends $tea.Model {
 
 export class CreateUploadStreamResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the file. The URL does not contain the information used for authentication.
+   * 
    * @example
    * http://outin-***.oss-cn-shanghai.aliyuncs.com/stream/48555e8b-181dd5a8c07/48555e8b-181dd5a8c07.mp4
    */
   fileURL?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****c469e944b5a856828dc2****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The upload URL.
+   * 
+   * >  The returned upload URL is a Base64-encoded URL. You must decode the Base64-encoded upload URL before you use an SDK or call an API operation to upload media files. You need to parse UploadAddress only if you use OSS SDK or call an OSS API operation to upload media files.
+   * 
    * @example
    * eyJFbmRwb2ludCI6Imh0dHBzOi8vb3NzLWNuLXNoYW5naGFpLmFsaXl1bmNzLmNvbSIsIkJ1Y2tldCI6InN6aGQtdmlkZW8iLCJGaWxlTmFtZSI6InZvZC0yOTYzMWEvc3YvNTBmYTJlODQtMTgxMjdhZGRiMTcvNTBmYTJlODQtMTgxMjdhZGRiM***
    */
   uploadAddress?: string;
   /**
+   * @remarks
+   * The upload credential.
+   * 
+   * >  The returned upload credential is a Base64-encoded value. You must decode the Base64-encoded upload URL before you use an SDK or call an API operation to upload media files. You need to parse UploadAuth only if you use OSS SDK or call an OSS API operation to upload media files.
+   * 
    * @example
    * eyJBY2Nlc3NLZXlJZCI6IkxUQUk0Rm53bTk1dHdxQjMxR3IzSE5hRCIsIkFjY2Vzc0tleVNlY3JldCI6Ik9lWllKR0dTMTlkNkZaM1E3UVpJQmdmSVdnM3BPaiIsIkV4cGlyYXRpb24iOiI***
    */
@@ -2619,6 +3060,12 @@ export class DeleteAvatarTrainingJobResponse extends $tea.Model {
 export class DeleteCategoryRequest extends $tea.Model {
   /**
    * @remarks
+   * The category ID. You can use one of the following methods to obtain the ID:
+   * 
+   * *   Log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com) and choose **Media Asset Management** > **Category Management** to view the category ID.
+   * *   View the value of CateId returned by the AddCategory operation that you called to create a category.
+   * *   View the value of CateId returned by the GetCategories operation that you called to query a category.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2644,6 +3091,9 @@ export class DeleteCategoryRequest extends $tea.Model {
 
 export class DeleteCategoryResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
@@ -3037,6 +3487,8 @@ export class DeleteDNAFilesResponse extends $tea.Model {
 export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
   /**
    * @remarks
+   * The material ID. Separate multiple material IDs with commas (,). You can specify up to 10 IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3045,6 +3497,18 @@ export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
   materialIds?: string;
   /**
    * @remarks
+   * The material type. Valid values:
+   * 
+   * \\- video
+   * 
+   * \\- image
+   * 
+   * \\- audio
+   * 
+   * \\- subtitle
+   * 
+   * \\- text
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3053,6 +3517,8 @@ export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
   materialType?: string;
   /**
    * @remarks
+   * The ID of the online editing project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3082,6 +3548,9 @@ export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
 
 export class DeleteEditingProjectMaterialsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******36-3C1E-4417-BDB2-1E034F******
    */
@@ -3130,6 +3599,9 @@ export class DeleteEditingProjectMaterialsResponse extends $tea.Model {
 
 export class DeleteEditingProjectsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the online editing project. You can specify multiple IDs separated with commas (,).
+   * 
    * @example
    * ****fb2101bf24bf41cb318787dc****,****87dcfb2101bf24bf41cb3187****
    */
@@ -3153,6 +3625,9 @@ export class DeleteEditingProjectsRequest extends $tea.Model {
 
 export class DeleteEditingProjectsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****25818875-5F78-4AF6-D7393642CA58****
    */
@@ -3722,6 +4197,8 @@ export class DeleteLiveTranscodeTemplateResponse extends $tea.Model {
 export class DeleteMediaFromSearchLibRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3729,11 +4206,17 @@ export class DeleteMediaFromSearchLibRequest extends $tea.Model {
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The message body.
+   * 
    * @example
    * {}
    */
   msgBody?: string;
   /**
+   * @remarks
+   * The name of the search library. Default value: ims-default-search-lib.
+   * 
    * @example
    * test1
    */
@@ -3760,17 +4243,40 @@ export class DeleteMediaFromSearchLibRequest extends $tea.Model {
 }
 
 export class DeleteMediaFromSearchLibResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ******b48fb04483915d4f2cd8******
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3822,12 +4328,32 @@ export class DeleteMediaFromSearchLibResponse extends $tea.Model {
 
 export class DeleteMediaInfosRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to delete the physical file of the media asset.
+   * 
+   * If the media asset is stored in your own OSS bucket, you must authorize the service role AliyunICEDefaultRole in advance. For more information<props="china">, see [Authorize IMS to delete recording files in OSS](https://help.aliyun.com/zh/ims/user-guide/record?spm=a2c4g.11186623.0.i8#0737d9c437bmn).
+   * 
    * @example
    * false
    */
   deletePhysicalFiles?: boolean;
+  /**
+   * @remarks
+   * The URL of the media asset that you want to delete. The file corresponding to the URL must be registered with IMS. Separate multiple URLs with commas (,). The following two formats are supported:
+   * 
+   * 1.  http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?
+   * 2.  OSS://example-bucket/example.mp4?\\
+   *     In this format, it is considered by default that the region of the OSS bucket in which the media asset resides is the same as the region in which IMS is activated.
+   */
   inputURLs?: string;
   /**
+   * @remarks
+   * The ID of the media asset that you want to delete from Intelligent Media Services (IMS).
+   * 
+   * *   Separate multiple IDs with commas (,).
+   * 
+   * If you leave MediaIds empty, you must specify InputURLs.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****,****15d4a4b0448391508f2cb486****
    */
@@ -3854,9 +4380,20 @@ export class DeleteMediaInfosRequest extends $tea.Model {
 }
 
 export class DeleteMediaInfosResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs or URLs of media assets that cannot be deleted. Generally, media assets cannot be deleted if you do not have the required permissions.
+   */
   forbiddenList?: string[];
+  /**
+   * @remarks
+   * The IDs or URLs of ignored media assets. An error occurred while obtaining such media assets.
+   */
   ignoredList?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0622C702-41BE-467E-AF2E-883D4517962E
    */
@@ -3909,11 +4446,19 @@ export class DeleteMediaInfosResponse extends $tea.Model {
 
 export class DeleteMediaMarksRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****c469e944b5a856828dc2****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The mark ID. You can specify multiple mark IDs separated with commas (,).
+   * 
+   * If you do not specify MediaMarkIds, all the marks of the media asset are deleted.
+   * 
    * @example
    * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
    */
@@ -3939,16 +4484,25 @@ export class DeleteMediaMarksRequest extends $tea.Model {
 
 export class DeleteMediaMarksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****019b82e24b37a1c2958dec38****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The IDs of the deleted marks separated with commas (,).
+   * 
    * @example
    * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
    */
   mediaMarkIds?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -4082,16 +4636,29 @@ export class DeletePipelineResponse extends $tea.Model {
 
 export class DeletePlayInfoRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to delete the physical file of the media stream.
+   * 
+   * If the media asset is stored in your own Object Storage Service (OSS) bucket, you must authorize the service role AliyunICEDefaultRole in advance. <props="china">For more information, see [Authorize IMS to delete recording files in OSS](https://help.aliyun.com/document_detail/449331.html#p-ko2-wc7-iad).
+   * 
+   * You can delete only the physical files of transcoded streams, but not the physical files of source files.
+   * 
    * @example
    * false
    */
   deletePhysicalFiles?: boolean;
   /**
+   * @remarks
+   * The URL of the media stream file that you want to delete. Separate multiple URLs with commas (,).
+   * 
    * @example
    * https://ice-test001.oss-cn-shanghai.aliyuncs.com/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/%E5%B0%8F%E7%8C%AA%E4%BD%A9%E5%A5%87640*360.mp4
    */
   fileURLs?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 1d3518e0027d71ed80cd909598416303
    */
@@ -4118,9 +4685,20 @@ export class DeletePlayInfoRequest extends $tea.Model {
 }
 
 export class DeletePlayInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The URLs of the media streams that cannot be deleted. Generally, media streams cannot be deleted if you do not have the required permissions.
+   */
   forbiddenList?: string[];
+  /**
+   * @remarks
+   * The URLs of ignored media streams. An error occurred while obtaining such media assets because the IDs or URLs of the media assets do not exist.
+   */
   ignoredList?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -5390,6 +5968,12 @@ export class DetectAudioForCustomizedVoiceJobResponse extends $tea.Model {
 export class DropSearchIndexRequest extends $tea.Model {
   /**
    * @remarks
+   * The category of the index. Valid values:
+   * 
+   * *   mm: large visual model.
+   * *   face: face recognition.
+   * *   aiLabel: smart tagging.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5397,6 +5981,12 @@ export class DropSearchIndexRequest extends $tea.Model {
    */
   indexType?: string;
   /**
+   * @remarks
+   * The name of the search library.
+   * 
+   * *   If you leave this parameter empty, the search index is created in the default search library of Intelligent Media Service (IMS). Default value: ims-default-search-lib.
+   * *   To query information about an existing search library, call the [QuerySearchLib](https://help.aliyun.com/document_detail/2584455.html) API operation.
+   * 
    * @example
    * test1
    */
@@ -5421,12 +6011,32 @@ export class DropSearchIndexRequest extends $tea.Model {
 }
 
 export class DropSearchIndexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5477,6 +6087,8 @@ export class DropSearchIndexResponse extends $tea.Model {
 export class DropSearchLibRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the search library.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5501,15 +6113,32 @@ export class DropSearchLibRequest extends $tea.Model {
 }
 
 export class DropSearchLibResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6021,26 +6650,49 @@ export class GetBatchMediaProducingJobResponse extends $tea.Model {
 
 export class GetCategoriesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The category ID. You can use one of the following methods to obtain the ID:
+   * 
+   * *   Log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com) and choose **Media Asset Management** > **Category Management** to view the category ID.
+   * *   View the value of CateId returned by the AddCategory operation that you called to create a category.
+   * *   View the value of CateId returned by the GetCategories operation that you called to query a category.
+   * 
    * @example
    * 33
    */
   cateId?: number;
   /**
+   * @remarks
+   * The page number. Default value: 1
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 10 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting rule of results. Valid values:
+   * 
+   * \\- CreationTime:Desc (default): The results are sorted in reverse chronological order based on the creation time.
+   * 
+   * \\- CreationTime:Asc: The results are sorted in chronological order based on the creation time.
+   * 
    * @example
    * CreationTime:Desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The type of the category. Valid values: default and material. A value of default indicates audio, video, and image files. This is the default value. A value of material indicates short video materials.
+   * 
    * @example
    * default
    */
@@ -6071,14 +6723,28 @@ export class GetCategoriesRequest extends $tea.Model {
 }
 
 export class GetCategoriesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the category.
+   */
   category?: GetCategoriesResponseBodyCategory;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The subcategories in the category.
+   */
   subCategories?: GetCategoriesResponseBodySubCategories;
   /**
+   * @remarks
+   * The total number of subcategories.
+   * 
    * @example
    * 100
    */
@@ -6672,12 +7338,25 @@ export class GetDynamicImageJobResponse extends $tea.Model {
 export class GetEditingProjectRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the online editing project.
+   * 
    * This parameter is required.
    * 
    * @example
    * ****fb2101bf24b2754cb318787dc****
    */
   projectId?: string;
+  /**
+   * @remarks
+   * The ID of the request source. Valid values:
+   * 
+   * \\- OpenAPI (default): Timeline conversion is not performed.
+   * 
+   * \\- WebSDK: If you specify this value, the project timeline is automatically converted into the frontend style, and the materials in the timeline are associated with the project to enable preview by using frontend web SDKs.
+   * 
+   * @example
+   * WebSDK
+   */
   requestSource?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6699,8 +7378,15 @@ export class GetEditingProjectRequest extends $tea.Model {
 }
 
 export class GetEditingProjectResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the online editing project.
+   */
   project?: GetEditingProjectResponseBodyProject;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
@@ -6752,6 +7438,8 @@ export class GetEditingProjectResponse extends $tea.Model {
 export class GetEditingProjectMaterialsRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the online editing project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6776,19 +7464,36 @@ export class GetEditingProjectMaterialsRequest extends $tea.Model {
 }
 
 export class GetEditingProjectMaterialsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The materials associated with the live stream.
+   */
   liveMaterials?: GetEditingProjectMaterialsResponseBodyLiveMaterials[];
+  /**
+   * @remarks
+   * The media assets that meet the specified conditions.
+   */
   mediaInfos?: GetEditingProjectMaterialsResponseBodyMediaInfos[];
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * *****67ae06542b9b93e0d1c387*****
    */
   projectId?: string;
   /**
+   * @remarks
+   * The materials associated with the editing project. A live stream editing project will be associated with a regular editing project after the live streaming ends.
+   * 
    * @example
    * *****9b145c5cafc2e057304fcd*****
    */
   projectMaterials?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******89-C21D-4B78-AE24-3788B8******
    */
@@ -6935,21 +7640,33 @@ export class GetEventCallbackResponse extends $tea.Model {
 
 export class GetLiveEditingIndexFileRequest extends $tea.Model {
   /**
+   * @remarks
+   * The application name of the live stream.
+   * 
    * @example
    * testrecord
    */
   appName?: string;
   /**
+   * @remarks
+   * The domain name of the live stream.
+   * 
    * @example
    * test.alivecdn.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The ID of the live stream editing project.
+   * 
    * @example
    * *****cb6307a4edea614d8b3f3c*****
    */
   projectId?: string;
   /**
+   * @remarks
+   * The name of the live stream.
+   * 
    * @example
    * teststream
    */
@@ -6978,8 +7695,15 @@ export class GetLiveEditingIndexFileRequest extends $tea.Model {
 }
 
 export class GetLiveEditingIndexFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The URL of the index file.
+   */
   indexFile?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4E84BE44-58A7-****-****-FBEBEA16EF94
    */
@@ -7702,20 +8426,48 @@ export class GetLiveTranscodeTemplateResponse extends $tea.Model {
 
 export class GetMediaInfoRequest extends $tea.Model {
   /**
+   * @remarks
+   * The input URL of the media asset in another service. The URL must be registered in the IMS content library and bound to the ID of the media asset in IMS.
+   * 
+   * *   For a media asset from Object Storage Service (OSS), the URL may have one of the following formats:
+   * 
+   * http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 or
+   * 
+   * oss://example-bucket/example.mp4. The second format indicates that the region in which the OSS bucket of the media asset resides is the same as the region in which OSS is activated.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
    */
   inputURL?: string;
   /**
+   * @remarks
+   * The ID of the media asset in IMS. If this parameter is left empty, the InputURL parameter must be specified.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The type of the URL of the media asset to return in the response. Valid values:
+   * 
+   * *   oss (default): an OSS URL.
+   * *   cdn: a CDN URL. A CDN URL is returned only if the media asset is imported from ApsaraVideo VOD and the relevant domain name is an accelerated domain name in ApsaraVideo VOD.
+   * 
    * @example
    * cdn
    */
   outputType?: string;
+  /**
+   * @remarks
+   * Specifies whether to return detailed information for specific media asset attributes. Supported attributes: AiRoughData.StandardSmartTagJob, which specifies whether to return detailed tag information if a tagging job has been submitted for the media asset. Valid values for the attribute:
+   * 
+   * *   false (default): The job result is returned as a URL.
+   * *   true: The job result is returned as text.
+   * 
+   * @example
+   * {"AiRoughData.StandardSmartTagJob": false}
+   */
   returnDetailedInfo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7741,8 +8493,15 @@ export class GetMediaInfoRequest extends $tea.Model {
 }
 
 export class GetMediaInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the media asset.
+   */
   mediaInfo?: GetMediaInfoResponseBodyMediaInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2FDE2411-DB8D-4A9A-875B-275798F14A5E
    */
@@ -7871,11 +8630,17 @@ export class GetMediaInfoJobResponse extends $tea.Model {
 
 export class GetMediaMarksRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The mark ID. You can specify multiple mark IDs separated with commas (,).
+   * 
    * @example
    * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
    */
@@ -7901,12 +8666,24 @@ export class GetMediaMarksRequest extends $tea.Model {
 
 export class GetMediaMarksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
+  /**
+   * @remarks
+   * The queried marks.
+   * 
+   * *   The value is in the JSONArray format.
+   */
   mediaMarks?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -8186,8 +8963,19 @@ export class GetPipelineResponse extends $tea.Model {
 }
 
 export class GetPlayInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The input URL that you specified for the media asset when you registered the media asset. For more information, see [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html).
+   * 
+   * >  You must specify at least one of the MediaId and InputURL parameters.
+   */
   inputURL?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
+   * >  You must specify at least one of the MediaId and InputURL parameters.
+   * 
    * @example
    * 86434e152b7d4f20be480574439fe***
    */
@@ -8212,9 +9000,20 @@ export class GetPlayInfoRequest extends $tea.Model {
 }
 
 export class GetPlayInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the media asset.
+   */
   mediaBase?: GetPlayInfoResponseBodyMediaBase;
+  /**
+   * @remarks
+   * The information about the audio or video stream.
+   */
   playInfoList?: GetPlayInfoResponseBodyPlayInfoList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -9144,11 +9943,30 @@ export class GetTranscodeJobResponse extends $tea.Model {
 
 export class GetUrlUploadInfosRequest extends $tea.Model {
   /**
+   * @remarks
+   * The IDs of the upload jobs. You can specify one or more job IDs. You can obtain the job IDs from the response parameter JobId of the [UploadMediaByURL](https://help.aliyun.com/document_detail/86311.html) operation.
+   * 
+   * *   You can specify a maximum of 10 job IDs.
+   * *   Separate the job IDs with commas (,).
+   * 
+   * >  You must specify either JobIds or UploadURLs. If you specify both parameters, only the value of JobIds takes effect.
+   * 
    * @example
    * df2ac80b481346daa1db6a7c40edc7f8
    */
   jobIds?: string;
   /**
+   * @remarks
+   * The upload URLs of the source files. You can specify a maximum of 10 URLs. Separate the URLs with commas (,).
+   * 
+   * > 
+   * 
+   * *   The URLs must be encoded.
+   * 
+   * *   If a media file is uploaded multiple times, we recommend that you specify the URL of the media file only once in this parameter.
+   * 
+   * *   You must specify either JobIds or UploadURLs. If you specify both parameters, only the value of JobIds takes effect.
+   * 
    * @example
    * https://media.w3.org/2010/05/sintel/trailer.mp4
    */
@@ -9173,12 +9991,23 @@ export class GetUrlUploadInfosRequest extends $tea.Model {
 }
 
 export class GetUrlUploadInfosResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The job IDs or upload URLs that do not exist.
+   */
   nonExists?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details about URL-based upload jobs.
+   */
   URLUploadInfoList?: GetUrlUploadInfosResponseBodyURLUploadInfoList[];
   static names(): { [key: string]: string } {
     return {
@@ -9228,36 +10057,74 @@ export class GetUrlUploadInfosResponse extends $tea.Model {
 
 export class GetVideoListRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the category.
+   * 
    * @example
    * 781111
    */
   cateId?: number;
   /**
+   * @remarks
+   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2017-01-11T12:59:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 50.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting method of the results. Valid values:
+   * 
+   * *   CreationTime:Desc (default): sorts results in reverse chronological order.
+   * *   CreationTime:Asc: sorts results in chronological order.
+   * 
    * @example
    * CreationTime:Asc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2017-01-11T12:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the video. You can specify multiple video statuses and separate them with commas (,).
+   * 
+   * Valid values:
+   * 
+   * *   PrepareFail: The file is abnormal.
+   * *   UploadFail: The video failed to be uploaded.
+   * *   UploadSucc: The video is uploaded.
+   * *   Transcoding: The video is being transcoded.
+   * *   TranscodeFail: The video failed to be transcoded.
+   * *   ProduceFail: The video failed to be produced.
+   * *   Normal: The video is normal.
+   * *   Uploading: The video is being uploaded.
+   * *   Preparing: The file is being generated.
+   * *   Blocked: The video is blocked.
+   * *   checking: The video is being reviewed.
+   * 
    * @example
    * Uploading,Normal
    */
@@ -9293,25 +10160,41 @@ export class GetVideoListRequest extends $tea.Model {
 
 export class GetVideoListResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code returned.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The information about the audio and video files.
+   */
   mediaList?: GetVideoListResponseBodyMediaList[];
   /**
    * @remarks
-   * Id of the request。
+   * The ID of the request.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   success?: string;
   /**
+   * @remarks
+   * The total number of audio and video files that meet the conditions.
+   * 
    * @example
    * 163
    */
@@ -9446,6 +10329,14 @@ export class GetWorkflowTaskResponse extends $tea.Model {
 export class InsertMediaToSearchLibRequest extends $tea.Model {
   /**
    * @remarks
+   * The URL of the video, audio, or image file that you want to import to the search library.
+   * 
+   * Note: Make sure that you specify a correct file name and the bucket in which the file resides is in the same region where this operation is called. Otherwise, the file cannot be found or the operation may fail.
+   * 
+   * Specify an Object Storage Service (OSS) URL in the following format: oss://[Bucket name]/[File path]. For example, you can specify oss://[example-bucket-****]/[object_path-****].
+   * 
+   * Specify an HTTP URL in the following format: public endpoint. For example, you can specify http://example-test-\\*\\*\\*\\*.mp4.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9453,21 +10344,37 @@ export class InsertMediaToSearchLibRequest extends $tea.Model {
    */
   input?: string;
   /**
+   * @remarks
+   * The ID of the media asset. Each media ID is unique. If you leave this parameter empty, a media ID is automatically generated for this parameter.
+   * 
    * @example
    * 411bed50018971edb60b0764a0ec6***
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The type of the media asset. Valid values:
+   * 
+   * *   video (default)
+   * *   image
+   * *   audio
+   * 
    * @example
    * video
    */
   mediaType?: string;
   /**
+   * @remarks
+   * The message body.
+   * 
    * @example
    * {}
    */
   msgBody?: string;
   /**
+   * @remarks
+   * The name of the search library. Default value: ims-default-search-lib.
+   * 
    * @example
    * test1
    */
@@ -9498,20 +10405,40 @@ export class InsertMediaToSearchLibRequest extends $tea.Model {
 }
 
 export class InsertMediaToSearchLibResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * *****ACB-44F2-5F2D-88D7-1283E70*****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9668,11 +10595,19 @@ export class ListAIAgentInstanceResponse extends $tea.Model {
 
 export class ListAllPublicMediaTagsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The business type of the media asset.
+   * 
    * @example
    * "sticker"
    */
   businessType?: string;
   /**
+   * @remarks
+   * The entity ID, which is used to distinguish between media assets of different types in the public domain.
+   * 
+   * Set this parameter to Copyright_Music, which indicates music in the public domain.
+   * 
    * @example
    * Copyright_Music
    */
@@ -9697,8 +10632,15 @@ export class ListAllPublicMediaTagsRequest extends $tea.Model {
 }
 
 export class ListAllPublicMediaTagsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The tags of media assets in the public media library.
+   */
   mediaTagList?: ListAllPublicMediaTagsResponseBodyMediaTagList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B45F83B7-7F87-4792-BFE9-63CD2137CAF0
    */
@@ -10706,51 +11648,104 @@ export class ListDynamicImageJobsResponse extends $tea.Model {
 
 export class ListEditingProjectsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The method for creating the online editing project. Valid values:
+   * 
+   * \\- OpenAPI
+   * 
+   * \\- AliyunConsole
+   * 
+   * \\- WebSDK
+   * 
    * @example
    * OpenAPI
    */
   createSource?: string;
   /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2022-02-02T23:59:59Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The search keyword. You can search by job ID.
+   * 
    * @example
    * ******6f36bc45d09a9d5cde49******
    */
   keyword?: string;
   /**
+   * @remarks
+   * The number of entries per page. A maximum of 100 entries can be returned on each page.
+   * 
+   * Default value: 10.
+   * 
    * @example
    * 10
    */
   maxResults?: string;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
    * @example
    * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The type of the editing project. Valid values:
+   * 
+   * *   EditingProject: a regular editing project.
+   * *   LiveEditingProject: a live stream editing project.
+   * 
    * @example
    * EditingProject
    */
   projectType?: string;
   /**
+   * @remarks
+   * The order of sorting of the results. Valid values:
+   * 
+   * *   CreationTime:Desc (default): sorts the results in reverse chronological order.
+   * *   CreationTime:Asc: sorts the results in chronological order.
+   * 
    * @example
    * CreationTime:Desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2017-12-21T08:00:01Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the online editing project. By default, online editing projects in all states are queried.
+   * 
    * @example
    * Produced
    */
   status?: string;
   /**
+   * @remarks
+   * The template type. This parameter is required if you create a template-based online editing project. Default value: Timeline.
+   * 
+   * *
+   * *
+   * 
+   * Valid values:
+   * 
+   * *   Timeline: a regular template.
+   * *   VETemplate: an advanced template.
+   * *   None: general editing.
+   * 
    * @example
    * None
    */
@@ -10792,22 +11787,31 @@ export class ListEditingProjectsRequest extends $tea.Model {
 
 export class ListEditingProjectsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
    * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * This parameter is required.
    * 
    * @example
    * Nzv3rcKla9wHUGua9YXHNA==
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The queried online editing projects.
+   */
   projectList?: ListEditingProjectsResponseBodyProjectList[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * *****ACB-44F2-5F2D-88D7-1283E70*****
@@ -11923,56 +12927,137 @@ export class ListLiveTranscodeTemplatesResponse extends $tea.Model {
 
 export class ListMediaBasicInfosRequest extends $tea.Model {
   /**
+   * @remarks
+   * The business type of the media asset. Valid values:
+   * 
+   * \\- subtitles
+   * 
+   * \\- watermark
+   * 
+   * \\- opening
+   * 
+   * \\- ending
+   * 
+   * \\- general
+   * 
    * @example
    * opening
    */
   businessType?: string;
   /**
+   * @remarks
+   * The end time of utcCreated.
+   * 
+   * \\- The value is the end of the left-open right-closed interval.
+   * 
+   * \\- Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. For example, 2017-01-11T12:00:00Z indicates 20:00:00 on January 11, 2017 (UTC +8).
+   * 
    * @example
    * 2020-12-20T13:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * Specifies whether to return the basic information of the source file.
+   * 
    * @example
    * true
    */
   includeFileBasicInfo?: boolean;
   /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
+   * Maximum value: 100. Default value: 10.
+   * 
    * @example
    * 5
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****019b82e24b37a1c2958dec38****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The type of the media asset. Valid values:
+   * 
+   * \\- image
+   * 
+   * \\- video
+   * 
+   * \\- audio
+   * 
+   * \\- text
+   * 
    * @example
    * video
    */
   mediaType?: string;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * pSa1SQ0wCe5pzVrQ6mWZEw==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The order of sorting by utcCreated. Default value: desc. Valid values:
+   * 
+   * \\- desc
+   * 
+   * \\- asc
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The source of the media asset. Valid values:
+   * 
+   * \\- oss: Object Storage Service (OSS).
+   * 
+   * \\- vod: ApsaraVideo VOD.
+   * 
+   * \\- live: ApsaraVideo Live.
+   * 
+   * \\- general: other sources. This is the default value.
+   * 
    * @example
    * oss
    */
   source?: string;
   /**
+   * @remarks
+   * The start time of utcCreated.
+   * 
+   * \\- The value is the beginning of a left-open right-closed interval.
+   * 
+   * \\- Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. For example, 2017-01-11T12:00:00Z indicates 20:00:00 on January 11, 2017 (UTC +8).
+   * 
    * @example
    * 2020-12-20T12:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the media asset. Valid values:
+   * 
+   * \\- Init: the initial state, which indicates that the source file is not ready.
+   * 
+   * \\- Preparing: The source file is being prepared. For example, the file is being uploaded or edited.
+   * 
+   * \\- PrepareFail: The source file failed to be prepared. For example, the information of the source file failed to be obtained.
+   * 
+   * \\- Normal: The source file is ready.
+   * 
    * @example
    * Normal
    */
@@ -12016,22 +13101,38 @@ export class ListMediaBasicInfosRequest extends $tea.Model {
 
 export class ListMediaBasicInfosResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of entries returned in the query.
+   * 
    * @example
    * 2
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The media assets that meet the specified conditions.
+   */
   mediaInfos?: ListMediaBasicInfosResponseBodyMediaInfos[];
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * @example
    * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******B7-7F87-4792-BFE9-63CD21******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 4
    */
@@ -12211,11 +13312,17 @@ export class ListMediaInfoJobsResponse extends $tea.Model {
 
 export class ListMediaMarksRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 411bed50018971edb60b0764a0ec6***
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The mark ID. You can specify multiple IDs separated with commas (,). This parameter is discontinued.
+   * 
    * @example
    * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
    */
@@ -12241,12 +13348,22 @@ export class ListMediaMarksRequest extends $tea.Model {
 
 export class ListMediaMarksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ******b48fb04483915d4f2cd8******
    */
   mediaId?: string;
+  /**
+   * @remarks
+   * The marks of the media asset, in the JSONArray format.
+   */
   mediaMarks?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -12638,33 +13755,90 @@ export class ListPipelinesResponse extends $tea.Model {
 }
 
 export class ListPublicMediaBasicInfosRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The business type of the media asset. Valid values:
+   * 
+   * *   sticker
+   * *   bgm
+   * *   bgi
+   * 
+   * @example
+   * sticker
+   */
   businessType?: string;
   /**
+   * @remarks
+   * Specifies whether to return the basic information of the media asset.
+   * 
    * @example
    * true
    */
   includeFileBasicInfo?: boolean;
   /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
+   * Maximum value: 100. Default value: 10.
+   * 
    * @example
    * 5
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The media tag. All media assets that contain the specified media tag are returned. Valid values:
+   * 
+   * *   Sticker tags:
+   * 
+   *     *   sticker-atmosphere
+   *     *   sticker-bubble
+   *     *   sticker-cute
+   *     *   sticker-daily
+   *     *   sticker-expression
+   *     *   sticker-gif
+   * 
+   * *   Background music (BGM) tags:
+   * 
+   *     *   bgm-romantic
+   *     *   bgm-cuisine
+   *     *   bgm-chinese-style
+   *     *   bgm-upbeat
+   *     *   bgm-dynamic
+   *     *   bgm-relaxing
+   *     *   bgm-quirky
+   *     *   bgm-beauty
+   * 
+   * *   Background image (BGI) tags:
+   * 
+   *     *   bgi-grad
+   *     *   bgi-solid
+   *     *   bgi-pic
+   * 
    * @example
    * ticker-atmosphere
    */
   mediaTagId?: string;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * pSa1SQ0wCe5pzVrQ6mWZEw==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
@@ -12700,22 +13874,38 @@ export class ListPublicMediaBasicInfosRequest extends $tea.Model {
 
 export class ListPublicMediaBasicInfosResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
    * @example
    * 2
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The media assets that meet the specified conditions.
+   */
   mediaInfos?: ListPublicMediaBasicInfosResponseBodyMediaInfos[];
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * @example
    * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******B7-7F87-4792-BFE9-63CD21******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of media assets that meet the specified conditions.
+   * 
    * @example
    * 2
    */
@@ -14123,6 +15313,8 @@ export class QueryMediaCensorJobListResponse extends $tea.Model {
 export class QueryMediaIndexJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14130,6 +15322,9 @@ export class QueryMediaIndexJobRequest extends $tea.Model {
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The name of the search library. Default value: ims-default-search-lib.
+   * 
    * @example
    * test1
    */
@@ -14155,17 +15350,33 @@ export class QueryMediaIndexJobRequest extends $tea.Model {
 
 export class QueryMediaIndexJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The indexing jobs enabled for the media asset.
+   */
   indexJobInfoList?: QueryMediaIndexJobResponseBodyIndexJobInfoList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4E84BE44-58A7-****-****-FBEBEA16EF94
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -14221,6 +15432,12 @@ export class QueryMediaIndexJobResponse extends $tea.Model {
 export class QuerySearchIndexRequest extends $tea.Model {
   /**
    * @remarks
+   * The category of the index. Valid values:
+   * 
+   * *   mm: large visual model.
+   * *   face: face recognition.
+   * *   aiLabel: smart tagging.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14228,6 +15445,12 @@ export class QuerySearchIndexRequest extends $tea.Model {
    */
   indexType?: string;
   /**
+   * @remarks
+   * The name of the search library.
+   * 
+   * *   If you leave this parameter empty, the search index is created in the default search library of Intelligent Media Service (IMS). Default value: ims-default-search-lib.
+   * *   To query information about an existing search library, call the [QuerySearchLib](https://help.aliyun.com/document_detail/2584455.html) API operation.
+   * 
    * @example
    * test1
    */
@@ -14252,27 +15475,71 @@ export class QuerySearchIndexRequest extends $tea.Model {
 }
 
 export class QuerySearchIndexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The state of the index. Valid values:
+   * 
+   * *   active: the index is enabled.
+   * *   Deactive: the index is not enabled.
+   * 
+   * @example
+   * Active
+   */
   indexStatus?: string;
   /**
+   * @remarks
+   * The category of the index. Valid values:
+   * 
+   * *   mm: large visual model.
+   * *   face: face recognition.
+   * *   aiLabel: smart tagging.
+   * 
    * @example
    * mm
    */
   indexType?: string;
+  /**
+   * @remarks
+   * The total number of media assets.
+   * 
+   * @example
+   * 12
+   */
   mediaTotal?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 4E84BE44-58A7-****-****-FBEBEA16EF94
    */
   requestId?: string;
   /**
+   * @remarks
+   * The name of the search library.
+   * 
    * @example
    * test1
    */
   searchLibName?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14331,6 +15598,8 @@ export class QuerySearchIndexResponse extends $tea.Model {
 export class QuerySearchLibRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the search library.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14355,25 +15624,54 @@ export class QuerySearchLibRequest extends $tea.Model {
 }
 
 export class QuerySearchLibResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The name of the search library.
+   * 
    * @example
    * test1
    */
   searchLibName?: string;
   /**
+   * @remarks
+   * The status of the search library.
+   * 
+   * Valid values:
+   * 
+   * *   normal
+   * *   deleting
+   * *   deleteFail
+   * 
    * @example
    * normal
    */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14525,6 +15823,9 @@ export class QuerySmarttagJobResponse extends $tea.Model {
 
 export class RefreshUploadMediaRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 411bed50018971edb60b0764a0ec6***
    */
@@ -14548,21 +15849,37 @@ export class RefreshUploadMediaRequest extends $tea.Model {
 
 export class RefreshUploadMediaResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * c2e77390f75271ec802f0674a2ce6***
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The upload URL.
+   * 
+   * >  The returned upload URL is a Base64-encoded URL. You must decode the Base64-encoded upload URL before you use an SDK or call an API operation to upload media files. You need to parse UploadAddress only if you use Object Storage Service (OSS) SDK or call an OSS API operation to upload media files.
+   * 
    * @example
    * eyJFbmRwb2ludCI6Imh0dHBzOi8vb3NzLWNuLXNoYW5naGFpLmFsaXl1bmNzLmNvbSIsIkJ1Y2tldCI6InN6aGQtdmlkZW8iLCJGaWxlTmFtZSI6InZvZC0yOTYzMWEvc3YvNTBmYTJlODQtMTgxMjdhZGRiMTcvNTBmYTJlODQtMTgxMjdhZGRiM***
    */
   uploadAddress?: string;
   /**
+   * @remarks
+   * The upload credential.
+   * 
+   * >  The returned upload credential is a Base64-encoded value. You must decode the Base64-encoded upload credential before you use an SDK or call an API operation to upload media files. You need to parse UploadAuth only if you use OSS SDK or call an OSS API operation to upload media files.
+   * 
    * @example
    * eyJBY2Nlc3NLZXlJZCI6IkxUQUk0Rm53bTk1dHdxQjMxR3IzSE5hRCIsIkFjY2Vzc0tleVNlY3JldCI6Ik9lWllKR0dTMTlkNkZaM1E3UVpJQmdmSVdnM3BPaiIsIkV4cGlyYXRpb24iOiI***
    */
@@ -14617,64 +15934,175 @@ export class RefreshUploadMediaResponse extends $tea.Model {
 
 export class RegisterMediaInfoRequest extends $tea.Model {
   /**
+   * @remarks
+   * The business type of the media asset. Valid values:
+   * 
+   * *   subtitles
+   * *   watermark
+   * *   opening
+   * *   ending
+   * *   general
+   * 
    * @example
    * opening
    */
   businessType?: string;
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 3048
    */
   cateId?: number;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. The value must be a UUID that contains 32 characters.
+   * 
    * @example
    * ****0311a423d11a5f7dee713535****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The thumbnail URL of the media asset.
+   * 
+   * *   The value can be up to 128 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The description of the media asset.
+   * 
+   * *   The value can be up to 1,024 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
    * @example
    * defaultDescription
    */
   description?: string;
   /**
    * @remarks
+   * The URL of the media asset in another service. The URL is associated with the ID of the media asset in IMS. The URL cannot be modified once registered. The following types of URLs are supported:
+   * 
+   * *   OSS URL in one of the following formats:
+   * 
+   * http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+   * 
+   * oss://example-bucket/example.mp4: In this format, it is considered by default that the region of the OSS bucket in which the media asset resides is the same as the region in which IMS is activated.
+   * 
+   * *   URL of an ApsaraVideo VOD media asset
+   * 
+   * vod://\\*\\*\\*20b48fb04483915d4f2cd8ac\\*\\*\\*\\*
+   * 
    * This parameter is required.
    */
   inputURL?: string;
   /**
+   * @remarks
+   * The tags of the media asset.
+   * 
+   * *   Up to 16 tags are supported.
+   * *   Separate multiple tags with commas (,).
+   * *   Each tag can be up to 32 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
    * @example
    * tag1,tag2
    */
   mediaTags?: string;
   /**
+   * @remarks
+   * The type of the media asset. Valid values:
+   * 
+   * *   image
+   * *   video
+   * *   audio
+   * *   text
+   * 
+   * We recommend that you specify this parameter based on your business requirements. If you set InputURL to an OSS URL, the media asset type can be automatically determined based on the file name extension. For more information
+   * <props="china">, see [File formats](https://help.aliyun.com/document_detail/466207.html).
+   * 
    * @example
    * video
    */
   mediaType?: string;
   /**
+   * @remarks
+   * Specifies whether to overwrite the media asset that has been registered by using the same URL. Default value: false. Valid values:
+   * 
+   * \\- true: If a media asset has been registered by using the same URL, the original media asset is deleted and the new media asset is registered.
+   * 
+   * \\- false: If a media asset has been registered by using the same URL, the new media asset is not registered. A URL cannot be used to register multiple media assets.
+   * 
    * @example
    * true
    */
   overwrite?: boolean;
   /**
+   * @remarks
+   * The custom ID. The ID can be 6 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_). Make sure that the ID is unique among users.
+   * 
    * @example
    * 123-123
    */
   referenceId?: string;
+  /**
+   * @remarks
+   * The registration configurations.
+   * 
+   * By default, a sprite is generated for the media asset. You can set NeedSprite to false to disable automatic sprite generation.
+   * 
+   * By default, a snapshot is generated for the media asset. You can set NeedSnapshot to false to disable automatic snapshot generation.
+   * 
+   * @example
+   * {
+   *       "NeedSprite": "false"
+   * }
+   */
   registerConfig?: string;
+  /**
+   * @remarks
+   * The ID of the smart tagging template. Valid values:
+   * 
+   * *   S00000101-300080: the system template that supports natural language processing (NLP) for content recognition.
+   * *   S00000103-000001: the system template that supports NLP for content recognition and all tagging capabilities.
+   * *   S00000103-000002: the system template that supports all tagging capabilities but does not support NLP for content recognition.
+   * 
+   * After you configure this parameter, a smart tag analysis task is automatically initiated after the media asset is registered. For more information about the billable items<props="china">, see [Smart tagging](https://help.aliyun.com/zh/ims/media-ai-billing?spm=a2c4g.11186623.0.0.3147392dWwlSjL#p-k38-3rb-dug).
+   * 
+   * @example
+   * S00000101-300080
+   */
   smartTagTemplateId?: string;
   /**
+   * @remarks
+   * The title. If you do not specify this parameter, a default title is automatically generated based on the date.
+   * 
+   * *   The value can be up to 128 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
    * @example
    * defaultTitle
    */
   title?: string;
+  /**
+   * @remarks
+   * The user data. You can specify a custom callback URL. For more information<props="china"> ,see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
+   * 
+   * *   The value can be up to 1,024 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * *   The value must be in the JSON format.
+   */
   userData?: string;
   /**
+   * @remarks
+   * The workflow ID.
+   * 
    * @example
    * ******b4fb044839815d4f2cd8******
    */
@@ -14726,11 +16154,17 @@ export class RegisterMediaInfoRequest extends $tea.Model {
 
 export class RegisterMediaInfoResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset in IMS.
+   * 
    * @example
    * ******b48fb04483915d4f2cd8******
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******5A-CAAC-4850-A3AF-B74606******
    */
@@ -14780,13 +16214,29 @@ export class RegisterMediaInfoResponse extends $tea.Model {
 }
 
 export class RegisterMediaStreamRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The URL of the media asset in another service. The URL is associated with the ID of the media asset in IMS. The URL cannot be modified once registered.
+   * 
+   * Set this parameter to the OSS URL of the media asset. The following formats are supported:
+   * 
+   * http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+   * 
+   * oss://example-bucket/example.mp4: In this format, it is considered by default that the region of the OSS bucket in which the media asset resides is the same as the region in which IMS is activated.
+   */
   inputURL?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 5e778ec0027b71ed80a8909598506***
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * {"MessageCallback":{"CallbackURL":"http://test.test.com"}, "Extend":{"localId":"xxx","test":"www"}}
    */
@@ -14814,11 +16264,17 @@ export class RegisterMediaStreamRequest extends $tea.Model {
 
 export class RegisterMediaStreamResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 5e778ec0027b71ed80a8909598506302
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -15134,7 +16590,8 @@ export class SearchMediaRequest extends $tea.Model {
   entityId?: string;
   /**
    * @remarks
-   * The filter conditions. For more information about the parameter syntax, see [Media asset search protocols](https://help.aliyun.com/document_detail/2584256.html).
+   * The filter conditions. For more information about the parameter syntax
+   * <props="china">, see [Media asset search protocols](https://help.aliyun.com/document_detail/2584256.html).
    */
   match?: string;
   /**
@@ -15305,45 +16762,94 @@ export class SearchMediaResponse extends $tea.Model {
 }
 
 export class SearchMediaByAILabelRequest extends $tea.Model {
+  matchingMode?: string;
   /**
+   * @remarks
+   * The ID of the media asset. This parameter is required if you want to query media asset clips.
+   * 
    * @example
    * ****c469e944b5a856828dc2****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The type of the media assets. Valid values:
+   * 
+   * *   image
+   * *   video
+   * *   audio
+   * 
    * @example
    * video
    */
   mediaType?: string;
   /**
+   * @remarks
+   * The type of query. Valid values:
+   * 
+   * *   PersonName: queries media assets based on character names.
+   * *   Ocr: queries media assets based on subtitles.
+   * *   AiCategory: queries media assets based on AI categories.
+   * *   FullSearch (default): queries all media assets.
+   * 
    * @example
    * Ocr
    */
   multimodalSearchType?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 50.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the search library.
+   * 
+   * @example
+   * test-1
+   */
   searchLibName?: string;
   /**
+   * @remarks
+   * The sorting method of the results. Valid values:
+   * 
+   * *   CreationTime:Desc (default): sorts results in reverse chronological order.
+   * *   CreationTime:Asc: sorts results in chronological order.
+   * 
    * @example
    * CreationTime:Desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * Specifies whether to query media asset clips. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   specificSearch?: boolean;
+  /**
+   * @remarks
+   * The content that you want to query.
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
+      matchingMode: 'MatchingMode',
       mediaId: 'MediaId',
       mediaType: 'MediaType',
       multimodalSearchType: 'MultimodalSearchType',
@@ -15358,6 +16864,7 @@ export class SearchMediaByAILabelRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      matchingMode: 'string',
       mediaId: 'string',
       mediaType: 'string',
       multimodalSearchType: 'string',
@@ -15377,22 +16884,38 @@ export class SearchMediaByAILabelRequest extends $tea.Model {
 
 export class SearchMediaByAILabelResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code returned.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The media assets that contain the specified content.
+   */
   mediaList?: SearchMediaByAILabelResponseBodyMediaList[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: string;
   /**
+   * @remarks
+   * The total number of audio and video files that meet the conditions.
+   * 
    * @example
    * 30
    */
@@ -15449,37 +16972,67 @@ export class SearchMediaByAILabelResponse extends $tea.Model {
 
 export class SearchMediaByFaceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the entity.
+   * 
    * @example
    * 2d3bf1e35a1e42b5ab338d701efa****
    */
   entityId?: string;
   /**
    * @remarks
+   * The token that is used to identify the query. You can use this parameter in the SearchMediaClipByFace operation to specify the same query conditions.
+   * 
    * This parameter is required.
    * 
    * @example
    * zxtest-huangxuan-2023-3-7-V1
    */
   faceSearchToken?: string;
+  /**
+   * @remarks
+   * The type of the media asset. Valid values:
+   * 
+   * *   image
+   * *   video
+   * 
+   * @example
+   * video
+   */
   mediaType?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 50.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The URL of the face image.
+   * 
    * This parameter is required.
    * 
    * @example
    * https://****.oss-cn-shanghai.aliyuncs.com/input/huangxuan****.jpg
    */
   personImageUrl?: string;
+  /**
+   * @remarks
+   * The name of the search library.
+   * 
+   * @example
+   * test1
+   */
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15512,22 +17065,38 @@ export class SearchMediaByFaceRequest extends $tea.Model {
 
 export class SearchMediaByFaceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code returned.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The media assets that meet the conditions.
+   */
   mediaInfoList?: SearchMediaByFaceResponseBodyMediaInfoList[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 7CA7D615-CFB1-5437-9A12-2D185C3EE6CB
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true false
+   * 
    * @example
    * true
    */
   success?: string;
   /**
+   * @remarks
+   * The total number of data records that meet the specified filter condition.
+   * 
    * @example
    * 163
    */
@@ -15584,6 +17153,9 @@ export class SearchMediaByFaceResponse extends $tea.Model {
 
 export class SearchMediaByHybridRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset. The details of the media asset are returned.
+   * 
    * @example
    * ****c469e944b5a856828dc2****
    */
@@ -15710,25 +17282,46 @@ export class SearchMediaByHybridResponse extends $tea.Model {
 
 export class SearchMediaByMultimodalRequest extends $tea.Model {
   /**
+   * @remarks
+   * The type of the media assets.
+   * 
+   * Valid values:
+   * 
+   * *   image
+   * *   video (default)
+   * 
    * @example
    * video
    */
   mediaType?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 50.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The search library.
+   * 
    * @example
    * test-1
    */
   searchLibName?: string;
+  /**
+   * @remarks
+   * The content that you want to query. You can describe the content in natural language.
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15757,22 +17350,38 @@ export class SearchMediaByMultimodalRequest extends $tea.Model {
 
 export class SearchMediaByMultimodalResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code returned.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The media assets that contain the specified content.
+   */
   mediaList?: SearchMediaByMultimodalResponseBodyMediaList[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true false
+   * 
    * @example
    * true
    */
   success?: string;
   /**
+   * @remarks
+   * The total number of data records that meet the specified filter condition.
+   * 
    * @example
    * 20
    */
@@ -15829,12 +17438,17 @@ export class SearchMediaByMultimodalResponse extends $tea.Model {
 
 export class SearchMediaClipByFaceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the entity.
+   * 
    * @example
    * 2d3bf1e35a1e42b5ab338d701efa****
    */
   entityId?: string;
   /**
    * @remarks
+   * The value of this parameter is the same as that of the FaceSearchToken parameter in the SearchMediaByFace request. This specifies to return media asset clips that meet the same query conditions.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15843,6 +17457,8 @@ export class SearchMediaClipByFaceRequest extends $tea.Model {
   faceSearchToken?: string;
   /**
    * @remarks
+   * The ID of the media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15850,15 +17466,28 @@ export class SearchMediaClipByFaceRequest extends $tea.Model {
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 50.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the search library.
+   * 
+   * @example
+   * test1
+   */
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15889,22 +17518,38 @@ export class SearchMediaClipByFaceRequest extends $tea.Model {
 
 export class SearchMediaClipByFaceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code returned.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The media asset clips that meet the requirements.
+   */
   mediaClipList?: SearchMediaClipByFaceResponseBodyMediaClipList[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * E44FFACD-9E90-555A-A09A-6FD3B7335E39
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true and false.
+   * 
    * @example
    * true
    */
   success?: string;
   /**
+   * @remarks
+   * The total number of media asset clips that meet the conditions.
+   * 
    * @example
    * 5
    */
@@ -19465,11 +21110,17 @@ export class SubmitLiveTranscodeJobResponse extends $tea.Model {
 
 export class SubmitMediaAiAnalysisJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The analysis parameters.
+   * 
    * @example
    * {"nlpParams":{"sourceLanguage":"cn","diarizationEnabled":true,"speakerCount":0,"summarizationEnabled":false,"translationEnabled":false}}
    */
   analysisParams?: string;
   /**
+   * @remarks
+   * The media asset that you want to analyze. You can specify an Object Storage Service (OSS) URL, a media asset ID, or an external URL.
+   * 
    * @example
    * {"MediaType":"video","Media":"https://xxx.com/your_movie.mp4"}
    */
@@ -19495,13 +21146,16 @@ export class SubmitMediaAiAnalysisJobRequest extends $tea.Model {
 
 export class SubmitMediaAiAnalysisJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ******b48fb04483915d4f2cd8******
    */
   mediaId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
@@ -21191,24 +22845,53 @@ export class SubmitTranscodeJobResponse extends $tea.Model {
 }
 
 export class SubmitVideoTranslationJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * *   The client token.
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * *   The job description.
+   */
   description?: string;
   /**
+   * @remarks
+   * *   The configuration parameters of the video translation job.
+   * *   The value must be in the JSON format.
+   * 
    * @example
    * {"SourceLanguage":"zh","TargetLanguage":"en","DetextArea":"Auto"}
    */
   editingConfig?: string;
   /**
+   * @remarks
+   * *   The input parameters of the video translation job.
+   * *   A video translation job takes a video or subtitle file as the input.
+   * *   The value must be in the JSON format.
+   * 
    * @example
    * {"Type":"Video","Media":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/xxx.mp4"}
    */
   inputConfig?: string;
   /**
+   * @remarks
+   * *   The output parameters of the video translation job.
+   * *   A video translation job can generate a video or subtitle file as the output.
+   * 
    * @example
    * {"MediaURL": "https://your-bucket.oss-cn-shanghai.aliyuncs.com/your-object.mp4"}
    */
   outputConfig?: string;
+  /**
+   * @remarks
+   * *   The job title.
+   */
   title?: string;
+  /**
+   * @remarks
+   * *   The user data.
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21240,12 +22923,31 @@ export class SubmitVideoTranslationJobRequest extends $tea.Model {
 }
 
 export class SubmitVideoTranslationJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: SubmitVideoTranslationJobResponseBodyData;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -21303,10 +23005,12 @@ export class UpdateAIAgentInstanceRequest extends $tea.Model {
    */
   instanceId?: string;
   templateConfig?: AIAgentTemplateConfig;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       templateConfig: 'TemplateConfig',
+      userData: 'UserData',
     };
   }
 
@@ -21314,6 +23018,7 @@ export class UpdateAIAgentInstanceRequest extends $tea.Model {
     return {
       instanceId: 'string',
       templateConfig: AIAgentTemplateConfig,
+      userData: 'string',
     };
   }
 
@@ -21332,10 +23037,12 @@ export class UpdateAIAgentInstanceShrinkRequest extends $tea.Model {
    */
   instanceId?: string;
   templateConfigShrink?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       templateConfigShrink: 'TemplateConfig',
+      userData: 'UserData',
     };
   }
 
@@ -21343,6 +23050,7 @@ export class UpdateAIAgentInstanceShrinkRequest extends $tea.Model {
     return {
       instanceId: 'string',
       templateConfigShrink: 'string',
+      userData: 'string',
     };
   }
 
@@ -21520,6 +23228,12 @@ export class UpdateAvatarTrainingJobResponse extends $tea.Model {
 export class UpdateCategoryRequest extends $tea.Model {
   /**
    * @remarks
+   * The category ID. You can use one of the following methods to obtain the ID:
+   * 
+   * *   Log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com) and choose **Media Asset Management** > **Category Management** to view the category ID.
+   * *   View the value of CateId returned by the AddCategory operation that you called to create a category.
+   * *   View the value of CateId returned by the GetCategories operation that you called to query a category.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21528,6 +23242,8 @@ export class UpdateCategoryRequest extends $tea.Model {
   cateId?: number;
   /**
    * @remarks
+   * The category name.
+   * 
    * This parameter is required.
    */
   cateName?: string;
@@ -21552,6 +23268,9 @@ export class UpdateCategoryRequest extends $tea.Model {
 
 export class UpdateCategoryResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4E84BE44-58A7-****-****-FBEBEA16EF94
    */
@@ -21783,23 +23502,41 @@ export class UpdateCustomizedVoiceResponse extends $tea.Model {
 
 export class UpdateEditingProjectRequest extends $tea.Model {
   /**
+   * @remarks
+   * The business status of the project. This parameter can be ignored for general editing projects. Valid values:
+   * 
+   * *   Reserving
+   * *   ReservationCanceled
+   * 
    * @example
    * Reserving
    */
   businessStatus?: string;
+  /**
+   * @remarks
+   * The material parameter corresponding to the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information<props="china">, see [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html) and [Create and use an advanced template](https://help.aliyun.com/document_detail/291418.html).
+   */
   clipsParam?: string;
   /**
+   * @remarks
+   * The thumbnail URL of the online editing project.
+   * 
    * @example
    * https://****.com/6AB4D0E1E1C7446888****.png
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The description of the online editing project.
+   * 
    * @example
    * testtimeline001desciption
    */
   description?: string;
   /**
    * @remarks
+   * The ID of the online editing project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21807,12 +23544,18 @@ export class UpdateEditingProjectRequest extends $tea.Model {
    */
   projectId?: string;
   /**
+   * @remarks
+   * The template ID. This parameter is used to quickly build a timeline with ease. Note: Only one of ProjectId, Timeline, and TemplateId can be specified. If TemplateId is specified, ClipsParam must also be specified.
+   * 
    * @example
    * ****96e8864746a0b6f3****
    */
   templateId?: string;
   timeline?: string;
   /**
+   * @remarks
+   * The title of the online editing project.
+   * 
    * @example
    * testtimeline
    */
@@ -21850,6 +23593,9 @@ export class UpdateEditingProjectRequest extends $tea.Model {
 
 export class UpdateEditingProjectResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****25818875-5F78-4AF6-D7393642CA58****
    */
@@ -22396,61 +24142,129 @@ export class UpdateLiveTranscodeTemplateResponse extends $tea.Model {
 
 export class UpdateMediaInfoRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to append tags. Default value: false. Valid values:
+   * 
+   * *   true: updates the MediaTags parameter by appending new tags.
+   * *   false: updates the MediaTags parameter by overwriting existing tags with new tags.
+   * 
    * @example
    * true
    */
   appendTags?: boolean;
   /**
+   * @remarks
+   * The business type. Valid values:
+   * 
+   * *   subtitles
+   * *   watermark
+   * *   opening
+   * *   ending
+   * *   general
+   * 
    * @example
    * video
    */
   businessType?: string;
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 3048
    */
   cateId?: number;
   /**
+   * @remarks
+   * The category.
+   * 
+   * *   The value can be up to 64 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
    * @example
    * defaultCategory
    */
   category?: string;
   /**
+   * @remarks
+   * The URL of the thumbnail.
+   * 
+   * *   The value can be up to 128 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The content description.
+   * 
+   * *   The value can be up to 1,024 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
    * @example
    * defaultDescription
    */
   description?: string;
   /**
+   * @remarks
+   * The input URL of the media asset in another service. The URL must be bound to the ID of the media asset in IMS. The URL cannot be modified once registered.
+   * 
+   * For a media asset from Object Storage Service (OSS), the URL may have one of the following formats:
+   * 
+   * 1\\. http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+   * 
+   * 2\\. oss://example-bucket/example.mp4. This format indicates that the region in which the OSS bucket of the media asset resides is the same as the region in which OSS is activated.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
    */
   inputURL?: string;
   /**
+   * @remarks
+   * The ID of the media asset. If this parameter is left empty, you must specify the input URL of the media asset, which has been registered in the IMS content library.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The tags.
+   * 
+   * *   Up to 16 tags are supported.
+   * *   Separate multiple tags with commas (,).
+   * *   Each tag can be up to 32 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
    * @example
    * updateTags1,updateTags2
    */
   mediaTags?: string;
   /**
+   * @remarks
+   * The custom ID. The ID can be 6 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_). Make sure that the ID is unique among users.
+   * 
    * @example
    * 123-123
    */
   referenceId?: string;
   /**
+   * @remarks
+   * The title.
+   * 
+   * *   The value can be up to 128 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
    * @example
    * defaultTitle
    */
   title?: string;
   /**
+   * @remarks
+   * The user data. It can be up to 1,024 bytes in size.
+   * 
    * @example
    * userData
    */
@@ -22496,11 +24310,17 @@ export class UpdateMediaInfoRequest extends $tea.Model {
 
 export class UpdateMediaInfoResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset in IMS.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -22552,6 +24372,8 @@ export class UpdateMediaInfoResponse extends $tea.Model {
 export class UpdateMediaMarksRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22560,6 +24382,8 @@ export class UpdateMediaMarksRequest extends $tea.Model {
   mediaId?: string;
   /**
    * @remarks
+   * The marks of the media asset.
+   * 
    * This parameter is required.
    */
   mediaMarks?: string;
@@ -22584,16 +24408,25 @@ export class UpdateMediaMarksRequest extends $tea.Model {
 
 export class UpdateMediaMarksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 53afdf003a******6a16b5feac6402
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The IDs of the successfully modified marks.
+   * 
    * @example
    * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
    */
   mediaMarkIds?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -22647,6 +24480,8 @@ export class UpdateMediaMarksResponse extends $tea.Model {
 export class UpdateMediaToSearchLibRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22655,6 +24490,8 @@ export class UpdateMediaToSearchLibRequest extends $tea.Model {
   mediaId?: string;
   /**
    * @remarks
+   * The message body.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22662,6 +24499,9 @@ export class UpdateMediaToSearchLibRequest extends $tea.Model {
    */
   msgBody?: string;
   /**
+   * @remarks
+   * The name of the search library. Default value: ims-default-search-lib.
+   * 
    * @example
    * test1
    */
@@ -22688,17 +24528,40 @@ export class UpdateMediaToSearchLibRequest extends $tea.Model {
 }
 
 export class UpdateMediaToSearchLibResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ******b48fb04483915d4f2cd8******
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 4E84BE44-58A7-****-****-FBEBEA16EF94
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23081,36 +24944,76 @@ export class UpdateTemplateResponse extends $tea.Model {
 
 export class UploadMediaByURLRequest extends $tea.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * app-1000000
    */
   appId?: string;
   /**
+   * @remarks
+   * The entity ID. You can call the CreateEntity operation to create an entity and specify a dynamic metadata structure.
+   * 
    * @example
    * d67281da3c8743b8823ad12976187***
    */
   entityId?: string;
   /**
+   * @remarks
+   * The metadata of the media file that you want to upload. The value must be a JSON string.
+   * 
+   * *   This parameter takes effect only if its value matches a URL that is specified in UploadURLs.
+   * *   You must convert the JSON-formatted data, such as [UploadMetadata, UploadMetadata,…], into a JSON string.
+   * *   For more information, see the "UploadMetadata" section of this topic.
+   * 
    * @example
    * [{"SourceURL":"https://example.aliyundoc.com/video01.mp4","Title":"urlUploadTest"}]
    */
   mediaMetaData?: string;
   /**
+   * @remarks
+   * The postprocessing configurations. You can specify this parameter if Type is set to video or audio.
+   * 
+   * Set ProcessType to Workflow.
+   * 
    * @example
    * {"ProcessType": "Workflow","ProcessID":"b72a06c6beeb4dcdb898feef067b1***"}
    */
   postProcessConfig?: string;
   /**
+   * @remarks
+   * The destination storage address.
+   * 
+   * Set StorageType to oss.
+   * 
+   * Set StorageLocation to an address in ApsaraVideo VOD. You cannot set this field to an OSS URL.
+   * 
    * @example
    * {"StorageType":"oss","StorageLocation":"outin-***.oss-cn-shanghai.aliyuncs.com"}
    */
   uploadTargetConfig?: string;
   /**
+   * @remarks
+   * The URL of the source file.
+   * 
+   * *   The URL must contain a file name extension, such as mp4 in `https://****.mp4`.
+   * 
+   *     *   If the URL does not contain a file name extension, you can specify one by setting `FileExtension` in `UploadMetadata`.
+   *     *   If the URL contains a file name extension and `FileExtension` is also specified, the value of `FileExtension` prevails.
+   * 
+   * *   URL encoding is required. Separate multiple URLs with commas (,). You can specify a maximum of 20 URLs.
+   * 
+   * *   Special characters may cause upload failures. Therefore, you must encode URLs before you separate them with commas (,).
+   * 
    * @example
    * https://diffurl.mp4
    */
   uploadURLs?: string;
   /**
+   * @remarks
+   * The user data. The value must be a JSON string. You can configure settings such as message callbacks.
+   * 
    * @example
    * {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"xxx","test":"www"}}
    */
@@ -23146,10 +25049,17 @@ export class UploadMediaByURLRequest extends $tea.Model {
 
 export class UploadMediaByURLResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****83B7-7F87-4792-BFE9-63CD2137****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about upload jobs.
+   */
   uploadJobs?: UploadMediaByURLResponseBodyUploadJobs[];
   static names(): { [key: string]: string } {
     return {
@@ -23197,31 +25107,74 @@ export class UploadMediaByURLResponse extends $tea.Model {
 
 export class UploadStreamByURLRequest extends $tea.Model {
   /**
+   * @remarks
+   * The quality of the media stream. Valid values:
+   * 
+   * *   FD: low definition.
+   * *   LD: standard definition.
+   * *   SD: high definition.
+   * *   HD: ultra-high definition.
+   * *   OD: original quality.
+   * *   2K: 2K resolution.
+   * *   4K: 4K resolution.
+   * *   SQ: standard sound quality.
+   * *   HQ: high sound quality.
+   * 
    * @example
    * HD
    */
   definition?: string;
   /**
+   * @remarks
+   * The file name extension of the media stream.
+   * 
    * @example
    * mp4
    */
   fileExtension?: string;
   /**
+   * @remarks
+   * The high dynamic range (HDR) format of the transcoded stream. Valid values:
+   * 
+   * *   HDR
+   * *   HDR10
+   * *   HLG
+   * *   DolbyVision
+   * *   HDRVivid
+   * *   SDR+
+   * 
+   * > 
+   * 
+   * *   The value is not case-sensitive,
+   * 
+   * *   You can leave this parameter empty for non-HDR streams.
+   * 
    * @example
    * HDR10
    */
   HDRType?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 411bed50018971edb60b0764a0ec6***
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The URL of the transcoded stream file.
+   * 
+   * If the URL of the transcoded stream requires authentication, you must specify the authentication parameters in the stream URL and make sure that the URL can be accessed over the Internet.
+   * 
    * @example
    * https://example.com/sample-stream.mp4
    */
   streamURL?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * {"MessageCallback":{"CallbackURL":"http://test.test.com"}, "Extend":{"localId":"xxx","test":"www"}}
    */
@@ -23255,26 +25208,41 @@ export class UploadStreamByURLRequest extends $tea.Model {
 
 export class UploadStreamByURLResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The OSS URL of the file.
+   * 
    * @example
    * http://outin-***.oss-cn-shanghai.aliyuncs.com/stream/48555e8b-181dd5a8c07/48555e8b-181dd5a8c07.mp4
    */
   fileURL?: string;
   /**
+   * @remarks
+   * The ID of the upload job.
+   * 
    * @example
    * ****cdb3e74639973036bc84****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 411bed50018971edb60b0764a0ec6***
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******89-C21D-4B78-AE24-3788B8******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The URL of the source file that is uploaded in the upload job.
+   * 
    * @example
    * https://example.com/sample-stream.mp4
    */
@@ -23354,6 +25322,31 @@ export class AIAgentRuntimeConfigAvatarChat3D extends $tea.Model {
   }
 }
 
+export class AIAgentRuntimeConfigVisionChat extends $tea.Model {
+  agentUserId?: string;
+  authToken?: string;
+  channelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentUserId: 'AgentUserId',
+      authToken: 'AuthToken',
+      channelId: 'ChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentUserId: 'string',
+      authToken: 'string',
+      channelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AIAgentRuntimeConfigVoiceChat extends $tea.Model {
   agentUserId?: string;
   authToken?: string;
@@ -23380,6 +25373,7 @@ export class AIAgentRuntimeConfigVoiceChat extends $tea.Model {
 }
 
 export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
+  asrMaxSilence?: number;
   avatarId?: string;
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
@@ -23388,6 +25382,7 @@ export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
   volume?: number;
   static names(): { [key: string]: string } {
     return {
+      asrMaxSilence: 'AsrMaxSilence',
       avatarId: 'AvatarId',
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
@@ -23399,6 +25394,7 @@ export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      asrMaxSilence: 'number',
       avatarId: 'string',
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
@@ -23413,7 +25409,9 @@ export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
   }
 }
 
-export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
+export class AIAgentTemplateConfigVisionChat extends $tea.Model {
+  asrMaxSilence?: number;
+  enableIntelligentSegment?: boolean;
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
   greeting?: string;
@@ -23421,6 +25419,8 @@ export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
   volume?: number;
   static names(): { [key: string]: string } {
     return {
+      asrMaxSilence: 'AsrMaxSilence',
+      enableIntelligentSegment: 'EnableIntelligentSegment',
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
       greeting: 'Greeting',
@@ -23431,6 +25431,8 @@ export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      asrMaxSilence: 'number',
+      enableIntelligentSegment: 'boolean',
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
       greeting: 'string',
@@ -23444,24 +25446,148 @@ export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
   }
 }
 
+export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
+  asrMaxSilence?: number;
+  enableVoiceInterrupt?: boolean;
+  gracefulShutdown?: boolean;
+  greeting?: string;
+  voiceId?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      asrMaxSilence: 'AsrMaxSilence',
+      enableVoiceInterrupt: 'EnableVoiceInterrupt',
+      gracefulShutdown: 'GracefulShutdown',
+      greeting: 'Greeting',
+      voiceId: 'VoiceId',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asrMaxSilence: 'number',
+      enableVoiceInterrupt: 'boolean',
+      gracefulShutdown: 'boolean',
+      greeting: 'string',
+      voiceId: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AppInfoDTOPlatforms extends $tea.Model {
+  itemId?: string;
+  licenseItemIds?: string[];
+  pkgName?: string;
+  pkgSignature?: string;
+  platformType?: number;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      itemId: 'ItemId',
+      licenseItemIds: 'LicenseItemIds',
+      pkgName: 'PkgName',
+      pkgSignature: 'PkgSignature',
+      platformType: 'PlatformType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemId: 'string',
+      licenseItemIds: { 'type': 'array', 'itemType': 'string' },
+      pkgName: 'string',
+      pkgSignature: 'string',
+      platformType: 'number',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LicenseInstanceAppDTOLicenseConfigs extends $tea.Model {
+  businessType?: string;
+  featureIds?: string;
+  sdkId?: number;
+  sdkName?: string;
+  subscription?: string;
+  subscriptionImp?: string;
+  subscriptionPkg?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      featureIds: 'FeatureIds',
+      sdkId: 'SdkId',
+      sdkName: 'SdkName',
+      subscription: 'Subscription',
+      subscriptionImp: 'SubscriptionImp',
+      subscriptionPkg: 'SubscriptionPkg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      featureIds: 'string',
+      sdkId: 'number',
+      sdkName: 'string',
+      subscription: 'string',
+      subscriptionImp: 'string',
+      subscriptionPkg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddCategoryResponseBodyCategory extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the created category.
+   * 
    * @example
    * 45
    */
   cateId?: number;
+  /**
+   * @remarks
+   * The category name.
+   */
   cateName?: string;
   /**
+   * @remarks
+   * The level of the category. A value of **0** indicates a level-1 category, a value of **1** indicates a level-2 category, and a value of **2** indicates a level-3 category.
+   * 
    * @example
    * 0
    */
   level?: number;
   /**
+   * @remarks
+   * The ID of the parent category. By default, if ParentId is left empty or less than 1, -1 is returned, which indicates that the created category is the root directory.
+   * 
    * @example
    * -1
    */
   parentId?: number;
   /**
+   * @remarks
+   * The type of the category. Valid values:
+   * 
+   * *   **default**: audio, video, and image files. This is the default value.
+   * *   **material**: short video materials.
+   * 
    * @example
    * default
    */
@@ -23493,21 +25619,33 @@ export class AddCategoryResponseBodyCategory extends $tea.Model {
 
 export class AddEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Model {
   /**
+   * @remarks
+   * The application name of the live stream.
+   * 
    * @example
    * testrecord
    */
   appName?: string;
   /**
+   * @remarks
+   * The domain name of the live stream.
+   * 
    * @example
    * test.alivecdn.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The URL of the live stream.
+   * 
    * @example
    * rtmp://test.alivecdn.com/testrecord/teststream
    */
   liveUrl?: string;
   /**
+   * @remarks
+   * The name of the live stream.
+   * 
    * @example
    * teststream
    */
@@ -23537,56 +25675,99 @@ export class AddEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Mo
 
 export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 1132.68
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The duration.
+   * 
    * @example
    * 216.206667
    */
   duration?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * example.mp4
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 30611502
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The file status.
+   * 
+   * \\-Uploading
+   * 
+   * \\-Normal
+   * 
+   * \\-UploadFail
+   * 
+   * \\-Disable
+   * 
+   * \\-Deleted
+   * 
    * @example
    * Normal
    */
   fileStatus?: string;
   /**
+   * @remarks
+   * The file type.
+   * 
    * @example
    * source_file
    */
   fileType?: string;
   /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the file.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The container format.
+   * 
    * @example
    * mov,mp4,m4a,3gp,3g2,mj2
    */
   formatName?: string;
   /**
+   * @remarks
+   * The height.
+   * 
    * @example
    * 540
    */
   height?: string;
   /**
+   * @remarks
+   * The region in which the file resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The width.
+   * 
    * @example
    * 960
    */
@@ -23629,6 +25810,10 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
 }
 
 export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * The basic information of the file, including the duration and size.
+   */
   fileBasicInfo?: AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
     return {
@@ -23649,91 +25834,153 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoList extend
 
 export class AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The business type of the media asset.
+   * 
    * @example
    * general
    */
   businessType?: string;
   /**
+   * @remarks
+   * The category of the media asset.
+   * 
    * @example
    * audio
    */
   category?: string;
   /**
+   * @remarks
+   * The thumbnail URL of the media asset.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The time when the media asset was created.
+   * 
    * @example
    * 2020-12-23T03:32:59Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the media asset was deleted.
+   * 
    * @example
    * 2020-12-23T03:32:59Z
    */
   deletedTime?: string;
   /**
+   * @remarks
+   * The description of the media asset.
+   * 
    * @example
    * sample_description
    */
   description?: string;
   /**
+   * @remarks
+   * The URL of the media asset in another service.
+   * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/file.mp4
    */
   inputURL?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * *****5cb2e35433198daae94a72*****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The tags of the media asset.
+   * 
    * @example
    * sample_tag
    */
   mediaTags?: string;
   /**
+   * @remarks
+   * The type of the media asset.
+   * 
    * @example
    * Video
    */
   mediaType?: string;
   /**
+   * @remarks
+   * The time when the media asset was last modified.
+   * 
    * @example
    * 2020-12-23T03:32:59Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The snapshots of the media asset.
+   * 
    * @example
    * null
    */
   snapshots?: string;
   /**
+   * @remarks
+   * The source of the media asset.
+   * 
    * @example
    * oss
    */
   source?: string;
   /**
+   * @remarks
+   * The sprite of the media asset.
+   * 
    * @example
    * http://outin-example.oss-cn-shanghai.aliyuncs.com/test.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   spriteImages?: string;
   /**
+   * @remarks
+   * The status of the media asset. Valid values:
+   * 
+   * \\- Init
+   * 
+   * \\- Preparing
+   * 
+   * \\- PrepareFail
+   * 
+   * \\- Normal
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The title of the media asset.
+   * 
    * @example
    * default_title_2020-12-23T03:32:59Z
    */
   title?: string;
   /**
+   * @remarks
+   * The transcoding status of the media asset.
+   * 
    * @example
    * Init
    */
   transcodeStatus?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * userData
    */
@@ -23795,8 +26042,15 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model
    * FileInfos
    */
   fileInfoList?: AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoList[];
+  /**
+   * @remarks
+   * The basic information of the media assets.
+   */
   mediaBasicInfo?: AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * *****5cb2e35433198daae94a72*****
    */
@@ -23903,56 +26157,89 @@ export class AddTemplateResponseBodyTemplate extends $tea.Model {
 
 export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 1132.68
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The duration.
+   * 
    * @example
    * 200
    */
   duration?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * example
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 30611502
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The file status.
+   * 
    * @example
    * Normal
    */
   fileStatus?: string;
   /**
+   * @remarks
+   * The file type.
+   * 
    * @example
    * source_file
    */
   fileType?: string;
   /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the file.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The container format.
+   * 
    * @example
    * mov,mp4,m4a,3gp,3g2,mj2
    */
   formatName?: string;
   /**
+   * @remarks
+   * The height.
+   * 
    * @example
    * 1080
    */
   height?: string;
   /**
+   * @remarks
+   * The region in which the file resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The width.
+   * 
    * @example
    * 1920
    */
@@ -23995,6 +26282,10 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo e
 }
 
 export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * The basic information of the file, including the duration and size.
+   */
   fileBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
     return {
@@ -24015,28 +26306,51 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoList extends $tea.M
 
 export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The business type of the media asset.
+   * 
    * @example
    * general
    */
   businessType?: string;
+  /**
+   * @remarks
+   * The category of the media asset.
+   */
   category?: string;
   /**
+   * @remarks
+   * The thumbnail URL of the media asset.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The time when the media asset was created.
+   * 
    * @example
    * 2020-12-26T04:11:10Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the media asset was deleted.
+   * 
    * @example
    * 2020-12-26T04:11:10Z
    */
   deletedTime?: string;
+  /**
+   * @remarks
+   * The description of the media asset.
+   */
   description?: string;
   /**
+   * @remarks
+   * The URL of the media asset in another service.
+   * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
    */
@@ -24049,44 +26363,88 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $tea
    * ******c48fb37407365d4f2cd8******
    */
   mediaId?: string;
+  /**
+   * @remarks
+   * The tags of the media asset.
+   */
   mediaTags?: string;
   /**
+   * @remarks
+   * The type of the media asset. Valid values:
+   * 
+   * \\- image
+   * 
+   * \\- video
+   * 
+   * \\- audio
+   * 
+   * \\- text
+   * 
    * @example
    * video
    */
   mediaType?: string;
   /**
+   * @remarks
+   * The time when the media asset was last modified.
+   * 
    * @example
    * 2020-12-26T04:11:12Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The snapshots of the media asset.
+   * 
    * @example
    * [{"bucket":"example-bucket","count":"3","iceJobId":"******f48f0e4154976b2b8c45******","location":"oss-cn-beijing","snapshotRegular":"example.jpg","templateId":"******e6a6440b29eb60bd7c******"}]
    */
   snapshots?: string;
   /**
+   * @remarks
+   * The source of the media asset. Valid values:
+   * 
+   * \\- oss
+   * 
+   * \\- vod
+   * 
    * @example
    * oss
    */
   source?: string;
   /**
+   * @remarks
+   * The sprite.
+   * 
    * @example
    * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
    */
   spriteImages?: string;
   /**
+   * @remarks
+   * The status of the media asset.
+   * 
    * @example
    * Normal
    */
   status?: string;
+  /**
+   * @remarks
+   * The title of the media asset.
+   */
   title?: string;
   /**
+   * @remarks
+   * The transcoding status of the media asset.
+   * 
    * @example
    * Init
    */
   transcodeStatus?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * userDataTest
    */
@@ -24148,8 +26506,15 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $tea.Model {
    * FileInfos
    */
   fileInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoList[];
+  /**
+   * @remarks
+   * The basic information of the media asset.
+   */
   mediaBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ******c48fb37407365d4f2cd8******
    */
@@ -24363,87 +26728,190 @@ export class CreateDNADBResponseBodyDBInfo extends $tea.Model {
 
 export class CreateEditingProjectResponseBodyProject extends $tea.Model {
   /**
+   * @remarks
+   * The business configuration of the project. This parameter can be ignored for general editing projects.
+   * 
    * @example
    * { "OutputMediaConfig" :    { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path"   }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
    */
   businessConfig?: string;
   /**
+   * @remarks
+   * The business status of the project. This parameter can be ignored for general editing projects. Valid values:
+   * 
+   * *   Reserving
+   * *   ReservationCanceled
+   * *   BroadCasting
+   * *   LoadingFailed
+   * *   LiveFinished
+   * 
    * @example
    * Reserving
    */
   businessStatus?: string;
+  /**
+   * @remarks
+   * The template material parameters.
+   */
   clipsParam?: string;
   /**
+   * @remarks
+   * The thumbnail URL of the online editing project.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The method for creating the online editing project. Valid values:
+   * 
+   * \\- OpenAPI
+   * 
+   * \\- AliyunConsole
+   * 
+   * \\- WebSDK
+   * 
+   * \\- LiveEditingOpenAPI
+   * 
+   * \\- LiveEditingConsole
+   * 
    * @example
    * WebSDK
    */
   createSource?: string;
   /**
+   * @remarks
+   * The time when the online editing project was created.
+   * 
    * @example
    * 2021-01-08T16:52:07Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description of the online editing project.
+   * 
    * @example
    * example_description
    */
   description?: string;
   /**
+   * @remarks
+   * The duration of the online editing project.
+   * 
    * @example
    * 3.4200000
    */
   duration?: number;
   /**
+   * @remarks
+   * The method for editing the online editing project. Valid values:
+   * 
+   * \\- OpenAPI
+   * 
+   * \\- AliyunConsole
+   * 
+   * \\- WebSDK
+   * 
+   * \\- LiveEditingOpenAPI
+   * 
+   * \\- LiveEditingConsole
+   * 
    * @example
    * WebSDK
    */
   modifiedSource?: string;
   /**
+   * @remarks
+   * The time when the online editing project was last edited.
+   * 
    * @example
    * 2021-01-08T16:52:07Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The ID of the online editing project.
+   * 
    * @example
    * ****01bf24bf41c78b2754cb3187****
    */
   projectId?: string;
   /**
+   * @remarks
+   * The type of the editing project. Default value: EditingProject. Valid values:
+   * 
+   * \\- EditingProject: a regular editing project.
+   * 
+   * \\- LiveEditingProject: a live stream editing project.
+   * 
    * @example
    * LiveEditingProject
    */
   projectType?: string;
   /**
+   * @remarks
+   * The status of the online editing project.
+   * 
+   * Valid values:
+   * 
+   * \\- 1: Draft
+   * 
+   * \\- 2: Editing
+   * 
+   * \\- 3: Producing
+   * 
+   * \\- 4: Produced
+   * 
+   * \\- 5: ProduceFailed
+   * 
+   * \\- 7: Deleted
+   * 
    * @example
    * 2
    */
   status?: number;
   /**
+   * @remarks
+   * The status of the online editing project. For more information, see the status list.
+   * 
    * @example
    * Editing
    */
   statusName?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****96e8864746a0b6f3****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The template type of the online editing project. Valid values:
+   * 
+   * \\- Timeline
+   * 
+   * \\- VETemplate
+   * 
    * @example
    * Timeline
    */
   templateType?: string;
   /**
+   * @remarks
+   * The timeline of the online editing project, in the JSON format. For more information about objects in a timeline, see [Timeline configurations](https://help.aliyun.com/document_detail/198823.htm?spm=a2c4g.11186623.2.9.90dc653dF67srN#topic-2024662). If you leave this parameter empty, an empty timeline is created and the duration of the online editing project is zero.
+   * 
    * @example
    * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
    */
   timeline?: string;
   /**
+   * @remarks
+   * The title of the online editing project.
+   * 
    * @example
    * example_title
    */
@@ -25679,22 +28147,41 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $tea.M
 
 export class GetCategoriesResponseBodyCategory extends $tea.Model {
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 46
    */
   cateId?: number;
+  /**
+   * @remarks
+   * The category name.
+   */
   cateName?: string;
   /**
+   * @remarks
+   * The level of the category. A value of **0** indicates a level-1 category, a value of **1** indicates a level-2 category, and a value of **2** indicates a level-3 category.
+   * 
    * @example
    * 0
    */
   level?: number;
   /**
+   * @remarks
+   * The ID of the parent category.
+   * 
    * @example
    * -1
    */
   parentId?: number;
   /**
+   * @remarks
+   * The type of the category. Valid values:
+   * 
+   * *   **default**: audio, video, and image files. This is the default value.
+   * *   **material**: short video materials.
+   * 
    * @example
    * default
    */
@@ -25726,27 +28213,52 @@ export class GetCategoriesResponseBodyCategory extends $tea.Model {
 
 export class GetCategoriesResponseBodySubCategoriesCategory extends $tea.Model {
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 129
    */
   cateId?: number;
+  /**
+   * @remarks
+   * The category name.
+   * 
+   * *   The value can be up to 64 bytes in length.
+   * *   The value is encoded in UTF-8.
+   */
   cateName?: string;
   /**
+   * @remarks
+   * The level of the category. A value of **0** indicates a level-1 category, a value of **1** indicates a level-2 category, and a value of **2** indicates a level-3 category.
+   * 
    * @example
    * 1
    */
   level?: number;
   /**
+   * @remarks
+   * The ID of the parent category.
+   * 
    * @example
    * 46
    */
   parentId?: number;
   /**
+   * @remarks
+   * The total number of subcategories.
+   * 
    * @example
    * 100
    */
   subTotal?: number;
   /**
+   * @remarks
+   * The type of the category. Valid values:
+   * 
+   * *   **default**: audio, video, and image files. This is the default value.
+   * *   **material**: short video materials.
+   * 
    * @example
    * default
    */
@@ -25834,12 +28346,51 @@ export class GetContentAnalyzeConfigResponseBodyContentAnalyzeConfig extends $te
   }
 }
 
+export class GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTemplateHint extends $tea.Model {
+  bitrateControlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrateControlType: 'BitrateControlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrateControlType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomTemplateResponseBodyCustomTemplateFrontendHint extends $tea.Model {
+  transcodeTemplateHint?: GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTemplateHint;
+  static names(): { [key: string]: string } {
+    return {
+      transcodeTemplateHint: 'TranscodeTemplateHint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      transcodeTemplateHint: GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTemplateHint,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
   /**
    * @example
    * 2022-01-01T10:00:00Z
    */
   createTime?: string;
+  frontendHint?: GetCustomTemplateResponseBodyCustomTemplateFrontendHint;
   /**
    * @example
    * true
@@ -25893,6 +28444,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      frontendHint: 'FrontendHint',
       isDefault: 'IsDefault',
       modifiedTime: 'ModifiedTime',
       status: 'Status',
@@ -25909,6 +28461,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      frontendHint: GetCustomTemplateResponseBodyCustomTemplateFrontendHint,
       isDefault: 'boolean',
       modifiedTime: 'string',
       status: 'string',
@@ -26412,79 +28965,205 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $tea.Model {
 
 export class GetEditingProjectResponseBodyProject extends $tea.Model {
   /**
+   * @remarks
+   * The business configuration of the project. This parameter can be ignored for general editing projects.
+   * 
    * @example
    * { "OutputMediaConfig" : { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path" }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
    */
   businessConfig?: string;
   /**
+   * @remarks
+   * The business status of the project. This parameter can be ignored for general editing projects. Valid values:
+   * 
+   * Reserving
+   * 
+   * ReservationCanceled
+   * 
+   * BroadCasting
+   * 
+   * LoadingFailed
+   * 
+   * LiveFinished
+   * 
    * @example
    * Reserving
    */
   businessStatus?: string;
+  /**
+   * @remarks
+   * The material parameter corresponding to the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information<props="china">, see [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html) and [Create and use an advanced template](https://help.aliyun.com/document_detail/291418.html).
+   */
   clipsParam?: string;
   /**
+   * @remarks
+   * The thumbnail URL of the online editing project.
+   * 
    * @example
    * oss://example-bucket/example.jpg
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The method for creating the online editing project. Valid values:
+   * 
+   * \\- OpenAPI
+   * 
+   * \\- AliyunConsole
+   * 
+   * \\- WebSDK
+   * 
+   * \\- LiveEditingOpenAPI
+   * 
+   * \\- LiveEditingConsole
+   * 
    * @example
    * OpenAPI
    */
   createSource?: string;
   /**
+   * @remarks
+   * The time when the online editing project was created.
+   * 
    * @example
    * 2020-12-20T12:00:00Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the online editing project.
+   */
   description?: string;
   /**
+   * @remarks
+   * The total duration of the online editing project.
+   * 
    * @example
    * 24.120000
    */
   duration?: number;
   /**
+   * @remarks
+   * The method for editing the online editing project. Valid values:
+   * 
+   * \\- OpenAPI
+   * 
+   * \\- AliyunConsole
+   * 
+   * \\- WebSDK
+   * 
+   * \\- LiveEditingOpenAPI
+   * 
+   * \\- LiveEditingConsole
+   * 
    * @example
    * OpenAPI
    */
   modifiedSource?: string;
   /**
+   * @remarks
+   * The time when the online editing project was last modified.
+   * 
    * @example
    * 2020-12-20T13:00:00Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The ID of the online editing project.
+   * 
    * @example
    * ****fb2101bf24b2754cb318787dc****
    */
   projectId?: string;
   /**
+   * @remarks
+   * The type of the editing project. Default value: EditingProject. Valid values:
+   * 
+   * \\- EditingProject: a regular editing project.
+   * 
+   * \\- LiveEditingProject: a live stream editing project.
+   * 
    * @example
    * EditingProject
    */
   projectType?: string;
   /**
+   * @remarks
+   * The status of the online editing project. Valid values:
+   * 
+   * \\- Draft
+   * 
+   * \\- Editing
+   * 
+   * \\- Producing
+   * 
+   * \\- Produced
+   * 
+   * \\- ProduceFailed
+   * 
+   * \\- Deleted
+   * 
    * @example
    * Editing
    */
   status?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****96e8864746a0b6f3****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The template type of the online editing project. Valid values:
+   * 
+   * \\- Timeline
+   * 
+   * \\- VETemplate
+   * 
    * @example
    * Timeline
    */
   templateType?: string;
   /**
+   * @remarks
+   * The timeline of the online editing project.
+   * 
    * @example
    * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****9b4d7cf14dc7b83b0e801cbe****"},{"MediaId":"****9b4d7cf14dc7b83b0e801cbe****"},{"MediaId":"****1656bca4474999c961a6d2a2****"}]}]}
    */
   timeline?: string;
+  /**
+   * @remarks
+   * The error message returned if the project conversion failed. The error message displays the detailed information about the failure, and is returned only if the value of TimelineConvertStatus is ConvertFailed.
+   * 
+   * @example
+   * The StorageLocation must be in the same division(apiRegion) as ICE service access point.
+   */
   timelineConvertErrorMessage?: string;
+  /**
+   * @remarks
+   * The project conversion status. Conversion of an API-style timeline into a frontend-style timeline is an asynchronous process and takes effect only if RequestSource:WebSDK is specified.
+   * 
+   * \\- Unconverted
+   * 
+   * \\- Converting
+   * 
+   * \\- Converted
+   * 
+   * \\- ConvertFailed
+   * 
+   * @example
+   * Converted
+   */
   timelineConvertStatus?: string;
+  /**
+   * @remarks
+   * The title of the online editing project.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26541,21 +29220,33 @@ export class GetEditingProjectResponseBodyProject extends $tea.Model {
 
 export class GetEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Model {
   /**
+   * @remarks
+   * The application name of the live stream.
+   * 
    * @example
    * testrecord
    */
   appName?: string;
   /**
+   * @remarks
+   * The domain name of the live stream.
+   * 
    * @example
    * test.alivecdn.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The URL of the live stream.
+   * 
    * @example
    * rtmp://test.alivecdn.com/testrecord/teststream
    */
   liveUrl?: string;
   /**
+   * @remarks
+   * The name of the live stream.
+   * 
    * @example
    * testrecord
    */
@@ -26585,56 +29276,89 @@ export class GetEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Mo
 
 export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 1132.68
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The duration.
+   * 
    * @example
    * 216.206667
    */
   duration?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * example.mp4
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 30611502
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The file status.
+   * 
    * @example
    * Normal
    */
   fileStatus?: string;
   /**
+   * @remarks
+   * The file type.
+   * 
    * @example
    * source_file
    */
   fileType?: string;
   /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the file.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The container format.
+   * 
    * @example
    * mov,mp4,m4a,3gp,3g2,mj2
    */
   formatName?: string;
   /**
+   * @remarks
+   * The height.
+   * 
    * @example
    * 540
    */
   height?: string;
   /**
+   * @remarks
+   * The region in which the file resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The width.
+   * 
    * @example
    * 960
    */
@@ -26677,6 +29401,10 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
 }
 
 export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * The basic information of the file, such as the duration and size.
+   */
   fileBasicInfo?: GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
     return {
@@ -26697,90 +29425,149 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList extend
 
 export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The business type of the media asset.
+   * 
    * @example
    * general
    */
   businessType?: string;
   /**
+   * @remarks
+   * The category of the media asset.
+   * 
    * @example
    * video
    */
   category?: string;
   /**
+   * @remarks
+   * The thumbnail URL of the media asset.
+   * 
    * @example
    * http://sample-bucket.oss-cn-shanghai.aliyuncs.com/sample-corver.jpg?Expires=1628670610&OSSAccessKeyId=AK&Signature=signature
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The time when the media asset was created.
+   * 
    * @example
    * 2020-12-26T04:11:08Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the media asset was deleted.
+   * 
    * @example
    * 2020-12-26T04:11:08Z
    */
   deletedTime?: string;
   /**
+   * @remarks
+   * The description of the media asset.
+   * 
    * @example
    * sample_description
    */
   description?: string;
   /**
+   * @remarks
+   * The URL of the media asset in another service.
+   * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/file.mp4
    */
   inputURL?: string;
   /**
    * @remarks
-   * MediaId
+   * The ID of the media asset.
    * 
    * @example
    * *****64623a94eca8516569c8f*****
    */
   mediaId?: string;
+  /**
+   * @remarks
+   * The tags of the media asset.
+   */
   mediaTags?: string;
   /**
+   * @remarks
+   * The type of the media asset.
+   * 
    * @example
    * video
    */
   mediaType?: string;
   /**
+   * @remarks
+   * The time when the media asset was last modified.
+   * 
    * @example
    * 2020-12-26T04:11:08Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The snapshots of the media asset.
+   * 
    * @example
    * null
    */
   snapshots?: string;
   /**
+   * @remarks
+   * The source of the media asset.
+   * 
    * @example
    * oss
    */
   source?: string;
   /**
+   * @remarks
+   * The sprite of the media asset
+   * 
    * @example
    * null
    */
   spriteImages?: string;
   /**
+   * @remarks
+   * The status of the media asset.
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The title of the media asset.
+   * 
    * @example
    * file.mp4
    */
   title?: string;
   /**
+   * @remarks
+   * The transcoding status of the media asset.
+   * 
+   * Valid values:
+   * 
+   * *   TranscodeSuccess: transcoding completed.
+   * *   TranscodeFailed: transcoding failed.
+   * *   Init: initializing.
+   * *   Transcoding: transcoding in progress.
+   * 
    * @example
    * Init
    */
   transcodeStatus?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * userData
    */
@@ -26839,15 +29626,18 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
 export class GetEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model {
   /**
    * @remarks
-   * FileInfos
+   * The information about the file.
    */
   fileInfoList?: GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList[];
   /**
    * @remarks
-   * BasicInfo
+   * The basic information of the media asset.
    */
   mediaBasicInfo?: GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * *****64623a94eca8516569c8fe*****
    */
@@ -27819,7 +30609,23 @@ export class GetLiveTranscodeTemplateResponseBodyTemplateContent extends $tea.Mo
 }
 
 export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJobResults extends $tea.Model {
+  /**
+   * @remarks
+   * The result data. The value is a JSON string. For information about the data structures of different data types<props="china">, see [Description of the Results parameter](https://help.aliyun.com/zh/ims/developer-reference/api-ice-2020-11-09-querysmarttagjob?spm=a2c4g.11186623.0.0.521d48b7KfapOL#api-detail-40).
+   * 
+   * @example
+   * {"autoChapters": [...]}
+   */
   data?: string;
+  /**
+   * @remarks
+   * The tagging type. Valid values:
+   * 
+   * *   NLP: natural language processing (NLP)-based tagging
+   * 
+   * @example
+   * NLP
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27841,9 +30647,38 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJobResu
 }
 
 export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJob extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the AI task.
+   * 
+   * @example
+   * ****483915d4f2cd8ac20b48fb04****
+   */
   aiJobId?: string;
+  /**
+   * @remarks
+   * The URL of the tagging result.
+   * 
+   * @example
+   * http://xx.oss-cn-shanghai.aliyuncs.com/result2.txt
+   */
   resultUrl?: string;
+  /**
+   * @remarks
+   * The recognized tags.
+   */
   results?: GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJobResults[];
+  /**
+   * @remarks
+   * The analysis status. Valid values:
+   * 
+   * *   Analyzing
+   * *   AnalyzeSuccess
+   * *   AnalyzeFailed
+   * 
+   * @example
+   * Analyzing
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27869,24 +30704,64 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJob ext
 }
 
 export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $tea.Model {
+  /**
+   * @remarks
+   * The AI category. Valid values:
+   * 
+   * *   Life
+   * *   Good-looking
+   * *   Cute pets
+   * *   News
+   * *   Ads
+   * *   Environmental resources
+   * *   Automobile
+   */
   aiCategory?: string;
   /**
+   * @remarks
+   * The ID of the AI task.
+   * 
    * @example
    * ****483915d4f2cd8ac20b48fb04****
    */
   aiJobId?: string;
   /**
+   * @remarks
+   * The analysis result.
+   * 
    * @example
    * https://sample-bucket.cn-shanghai.aliyuncs.com/result.json
    */
   result?: string;
   /**
+   * @remarks
+   * The storage type. This parameter indicates the library in which the analysis data is stored. Valid values:
+   * 
+   * *   TEXT: the text library.
+   * 
    * @example
    * TEXT
    */
   saveType?: string;
+  /**
+   * @remarks
+   * The information about the tagging job.
+   */
   standardSmartTagJob?: GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJob;
   /**
+   * @remarks
+   * The analysis status. Valid values:
+   * 
+   * *   Analyzing
+   * *   AnalyzeSuccess
+   * *   AnalyzeFailed
+   * *   Saving
+   * *   SaveSuccess
+   * *   SaveFailed
+   * *   Deleting
+   * *   DeleteSuccess
+   * *   DeleteFailed
+   * 
    * @example
    * Analyzing
    */
@@ -27920,91 +30795,145 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $tea.Model {
 
 export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 127.794
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The output layout of sound channels.
+   * 
    * @example
    * stereo
    */
   channelLayout?: string;
   /**
+   * @remarks
+   * The number of sound channels.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The full name of the codec.
+   * 
    * @example
    * AAC (Advanced Audio Coding)
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The short name of the codec.
+   * 
    * @example
    * aac
    */
   codecName?: string;
   /**
+   * @remarks
+   * The tag of the codec.
+   * 
    * @example
    * 0x6134706d
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The tag string of the codec.
+   * 
    * @example
    * mp4a
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the codec.
+   * 
    * @example
    * 1/24000
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The duration.
+   * 
    * @example
    * 16.200998
    */
   duration?: string;
   /**
+   * @remarks
+   * The audio frame rate.
+   * 
    * @example
    * 8
    */
   fps?: string;
   /**
+   * @remarks
+   * The sequence number of the audio track.
+   * 
    * @example
    * 1
    */
   index?: string;
   /**
+   * @remarks
+   * The language.
+   * 
    * @example
    * und
    */
   lang?: string;
   /**
+   * @remarks
+   * The number of frames.
+   * 
    * @example
    * 10
    */
   numFrames?: string;
   /**
+   * @remarks
+   * The codec profile.
+   * 
    * @example
    * High
    */
   profile?: string;
   /**
+   * @remarks
+   * The sampling format.
+   * 
    * @example
    * fltp
    */
   sampleFmt?: string;
   /**
+   * @remarks
+   * The sampling rate.
+   * 
    * @example
    * 44100
    */
   sampleRate?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 0.000000
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/44100
    */
@@ -28062,66 +30991,105 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList ex
 
 export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 1132.68
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The time when the file was created.
+   * 
    * @example
    * 2020-12-26T04:11:08Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The duration.
+   * 
    * @example
    * 216.206667
    */
   duration?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * example.mp4
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 30611502
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The file status.
+   * 
    * @example
    * Normal
    */
   fileStatus?: string;
   /**
+   * @remarks
+   * The file type.
+   * 
    * @example
    * source_file
    */
   fileType?: string;
   /**
+   * @remarks
+   * The OSS URL of the file.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The container format.
+   * 
    * @example
    * mov,mp4,m4a,3gp,3g2,mj2
    */
   formatName?: string;
   /**
+   * @remarks
+   * The height.
+   * 
    * @example
    * 540
    */
   height?: string;
   /**
+   * @remarks
+   * The time when the file was last modified.
+   * 
    * @example
    * 2020-12-26T04:11:10Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The region in which the file is stored.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The width.
+   * 
    * @example
    * 960
    */
@@ -28169,51 +31137,81 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
 
 export class GetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The full name of the codec.
+   * 
    * @example
    * SubRip Text
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The short name of the codec.
+   * 
    * @example
    * srt
    */
   codecName?: string;
   /**
+   * @remarks
+   * The tag of the codec.
+   * 
    * @example
    * unicode
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The tag string of the codec.
+   * 
    * @example
    * unicode
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the codec.
+   * 
    * @example
    * 29.97
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The duration.
+   * 
    * @example
    * 1
    */
   duration?: string;
   /**
+   * @remarks
+   * The sequence number of the subtitle track.
+   * 
    * @example
    * 1
    */
   index?: string;
   /**
+   * @remarks
+   * The language.
+   * 
    * @example
    * und
    */
   lang?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 0
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 30
    */
@@ -28255,121 +31253,193 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList
 
 export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The average video frame rate.
+   * 
    * @example
    * 24.0
    */
   avgFPS?: string;
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 1001.594
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The full name of the codec.
+   * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The short name of the codec.
+   * 
    * @example
    * h264
    */
   codecName?: string;
   /**
+   * @remarks
+   * The tag of the codec.
+   * 
    * @example
    * 0x0000
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The tag string of the codec.
+   * 
    * @example
    * [0][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the codec.
+   * 
    * @example
    * 1/48
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The display aspect ratio (DAR).
+   * 
    * @example
    * 0:1
    */
   dar?: string;
   /**
+   * @remarks
+   * The duration.
+   * 
    * @example
    * 216.206706
    */
   duration?: string;
   /**
+   * @remarks
+   * The video frame rate.
+   * 
    * @example
    * 24.0
    */
   fps?: string;
   /**
+   * @remarks
+   * Indicates whether the video track contains bidirectional frames (B-frames).
+   * 
    * @example
    * 2
    */
   hasBFrames?: string;
   /**
+   * @remarks
+   * The height.
+   * 
    * @example
    * 540
    */
   height?: string;
   /**
+   * @remarks
+   * The sequence number of the video track.
+   * 
    * @example
    * 0
    */
   index?: string;
   /**
+   * @remarks
+   * The language.
+   * 
    * @example
    * und
    */
   lang?: string;
   /**
+   * @remarks
+   * The codec level.
+   * 
    * @example
    * 30
    */
   level?: string;
   /**
+   * @remarks
+   * The total number of frames.
+   * 
    * @example
    * 5184
    */
   nbFrames?: string;
   /**
+   * @remarks
+   * The number of frames.
+   * 
    * @example
    * 5184
    */
   numFrames?: string;
   /**
+   * @remarks
+   * The pixel format.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The codec profile.
+   * 
    * @example
    * High
    */
   profile?: string;
   /**
+   * @remarks
+   * The rotation angle.
+   * 
    * @example
    * 0
    */
   rotate?: string;
   /**
+   * @remarks
+   * The sample aspect ratio (SAR).
+   * 
    * @example
    * 0:1
    */
   sar?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 0.081706
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/12288
    */
   timebase?: string;
   /**
+   * @remarks
+   * The width.
+   * 
    * @example
    * 960
    */
@@ -28438,9 +31508,25 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
 }
 
 export class GetMediaInfoResponseBodyMediaInfoFileInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the audio tracks. A media asset may have multiple audio tracks.
+   */
   audioStreamInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList[];
+  /**
+   * @remarks
+   * The basic information about the file, including the duration and size.
+   */
   fileBasicInfo?: GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo;
+  /**
+   * @remarks
+   * The information about the subtitle tracks. A media asset may have multiple subtitle tracks.
+   */
   subtitleStreamInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList[];
+  /**
+   * @remarks
+   * The information about the video tracks. A media asset may have multiple video tracks.
+   */
   videoStreamInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList[];
   static names(): { [key: string]: string } {
     return {
@@ -28467,94 +31553,169 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoList extends $tea.Model {
 
 export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The service to which the media asset belongs.
+   * 
    * @example
    * ICE
    */
   biz?: string;
   /**
+   * @remarks
+   * The business type.
+   * 
    * @example
    * general
    */
   businessType?: string;
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 3048
    */
   cateId?: number;
   /**
+   * @remarks
+   * The category name.
+   * 
    * @example
    * cateName
    */
   cateName?: string;
+  /**
+   * @remarks
+   * The category.
+   */
   category?: string;
   /**
+   * @remarks
+   * The URL of the thumbnail.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The time when the media asset was created.
+   * 
    * @example
    * 2020-12-26T04:11:08Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the media asset was deleted.
+   * 
    * @example
    * 2020-12-26T04:11:15Z
    */
   deletedTime?: string;
+  /**
+   * @remarks
+   * The content description.
+   */
   description?: string;
   /**
+   * @remarks
+   * The input URL of the media asset in another service.
+   * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
    */
   inputURL?: string;
   /**
    * @remarks
-   * MediaId
+   * The ID of the media asset.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   mediaTags?: string;
   /**
+   * @remarks
+   * The type of the media asset.
+   * 
    * @example
    * video
    */
   mediaType?: string;
   /**
+   * @remarks
+   * The time when the media asset was last modified.
+   * 
    * @example
    * 2020-12-26T04:11:10Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The custom ID. The ID can be 6 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_). The ID is unique among users.
+   * 
    * @example
    * 123-1234
    */
   referenceId?: string;
+  /**
+   * @remarks
+   * The snapshots.
+   * 
+   * @example
+   * [
+   *     "http://example-bucket.oss-cn-shanghai.aliyuncs.com/snapshot-00001.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>",
+   *     "http://example-bucket.oss-cn-shanghai.aliyuncs.com/snapshot-00002.jpg?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>",
+   *     "http://example-bucket.oss-cn-shanghai.aliyuncs.com/snapshot-00003.jpg?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>"
+   * ]
+   */
   snapshots?: string;
   /**
+   * @remarks
+   * The source.
+   * 
    * @example
    * oss
    */
   source?: string;
   /**
+   * @remarks
+   * The sprite.
+   * 
    * @example
    * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
    */
   spriteImages?: string;
   /**
+   * @remarks
+   * The resource status.
+   * 
    * @example
    * Normal
    */
   status?: string;
+  /**
+   * @remarks
+   * The title.
+   */
   title?: string;
   /**
+   * @remarks
+   * The upload source of the media asset.
+   * 
    * @example
    * general
    */
   uploadSource?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * userDataTest
    */
@@ -28619,14 +31780,25 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $tea.Model 
 }
 
 export class GetMediaInfoResponseBodyMediaInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The original AI analysis data.
+   */
   aiRoughData?: GetMediaInfoResponseBodyMediaInfoAiRoughData;
+  /**
+   * @remarks
+   * The file information.
+   */
   fileInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoList[];
   /**
    * @remarks
-   * BasicInfo
+   * The basic information about the media asset.
    */
   mediaBasicInfo?: GetMediaInfoResponseBodyMediaInfoMediaBasicInfo;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
@@ -29616,35 +32788,93 @@ export class GetPipelineResponseBodyPipeline extends $tea.Model {
 }
 
 export class GetPlayInfoResponseBodyMediaBase extends $tea.Model {
+  /**
+   * @remarks
+   * The category ID. You can use one of the following methods to obtain the ID:
+   * 
+   * *   Log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com) and choose **Media Asset Management** > **Category Management** to view the category ID.
+   * *   View the value of the CateId parameter returned by the AddCategory operation that you called to create a category.
+   * *   View the value of the CateId parameter returned by the GetCategories operation that you called to query a category.
+   * 
+   * @example
+   * 4220
+   */
   cateId?: number;
   /**
+   * @remarks
+   * The URL of the thumbnail.
+   * 
    * @example
    * https://***.oss-cn-shanghai.aliyuncs.com/cover/281c64d6-b5fb-4c57-97cd-84da56a8b151_large_cover_url.jpg
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The time when the media asset was created.
+   * 
    * @example
    * 2021-09-22T10:07:31+08:00
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The content description.
+   * 
+   * @example
+   * desc
+   */
   description?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 2eea77a61c7b4ddd95bec34a6f65b***
    */
   mediaId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * *   Up to 16 tags are supported.
+   * *   Multiple tags are separated by commas (,).
+   * *   Each tag can be up to 32 bytes in length.
+   * *   The value is encoded in UTF-8.
+   * 
+   * @example
+   * test,ccc
+   */
   mediaTags?: string;
   /**
+   * @remarks
+   * The type of the media asset. Valid values:
+   * 
+   * video audio
+   * 
    * @example
    * video
    */
   mediaType?: string;
   /**
+   * @remarks
+   * The resource status. Valid values:
+   * 
+   * Init: the initial state, which indicates that the source file is not ready.
+   * 
+   * Preparing: The source file is being prepared. For example, the file is being uploaded or edited.
+   * 
+   * PrepareFail: The source file failed to be prepared. For example, the information of the source file failed to be obtained.
+   * 
+   * Normal: The source file is ready.
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The title.
+   * 
    * @example
    * testTitle
    */
@@ -29684,116 +32914,230 @@ export class GetPlayInfoResponseBodyMediaBase extends $tea.Model {
 
 export class GetPlayInfoResponseBodyPlayInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The color depth.
+   * 
    * @example
    * 8
    */
   bitDepth?: number;
   /**
+   * @remarks
+   * The bitrate of the media stream. Unit: Kbit/s.
+   * 
    * @example
    * 20
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The time when the media stream was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-05-10T02:28:49Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The quality of the media stream. Valid values:
+   * 
+   * *   **FD**: low definition
+   * *   **LD**: standard definition
+   * *   **SD**: high definition
+   * *   **HD**: ultra-high definition
+   * *   **OD**: original definition
+   * *   **2K**
+   * *   **4K**
+   * *   **SQ**: standard sound quality
+   * *   **HQ**: high sound quality
+   * *   **AUTO**: adaptive bitrate
+   * 
    * @example
    * HD
    */
   definition?: string;
   /**
+   * @remarks
+   * The duration of the media stream. Unit: seconds.
+   * 
    * @example
    * 9.0464
    */
   duration?: string;
   /**
+   * @remarks
+   * Indicates whether the media stream is encrypted. Valid values:
+   * 
+   * *   **0**: The media stream is not encrypted.
+   * *   **1**: The media stream is encrypted.
+   * 
    * @example
    * 0
    */
   encrypt?: number;
   /**
+   * @remarks
+   * The encryption type of the media stream. Valid values:
+   * 
+   * *   **AliyunVoDEncryption**: Alibaba Cloud proprietary cryptography
+   * *   **HLSEncryption**: HTTP Live Streaming (HLS) encryption
+   * 
+   * >  If the encryption type is AliyunVoDEncryption, only ApsaraVideo Player SDK can be used to play videos.
+   * 
    * @example
    * AliyunVoDEncryption
    */
   encryptType?: string;
   /**
+   * @remarks
+   * The OSS URL of the file.
+   * 
    * @example
    * http://outin-***.oss-cn-shanghai.aliyuncs.com/sv/43a68ee9-181809b6aba/43a68ee9-181809b6aba.mpeg
    */
   fileURL?: string;
   /**
+   * @remarks
+   * The format of the media stream.
+   * 
+   * *   If the media asset is a video file, the valid values are **mp4** and **m3u8**.
+   * *   If the media asset is an audio-only file, the value is **mp3**.
+   * 
    * @example
    * mp4
    */
   format?: string;
   /**
+   * @remarks
+   * The frame rate of the media stream. Unit: frames per second (FPS).
+   * 
    * @example
    * 25
    */
   fps?: string;
   /**
+   * @remarks
+   * The high dynamic range (HDR) type of the media stream. Valid values:
+   * 
+   * *   HDR
+   * *   HDR10
+   * *   HLG
+   * *   DolbyVision
+   * *   HDRVivid
+   * *   SDR+
+   * 
    * @example
    * HDR
    */
   HDRType?: string;
   /**
+   * @remarks
+   * The height of the media stream. Unit: pixels.
+   * 
    * @example
    * 1080
    */
   height?: number;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 36c9d38e70bf43ed9f7f8f48d6356***
    */
   jobId?: string;
   /**
+   * @remarks
+   * The time when the media stream was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-05-13T11:39:41.714+08:00
    */
   modificationTime?: string;
   /**
+   * @remarks
+   * The type of Narrowband HD™ transcoding. Valid values:
+   * 
+   * *   **0**: standard transcoding
+   * *   **1.0**: Narrowband HD™ 1.0 transcoding
+   * *   **2.0**: Narrowband HD™ 2.0 transcoding
+   * 
+   * This parameter is returned only when a definition that is available in the built-in Narrowband HD™ 1.0 transcoding template is specified. For more information, see the [Definition parameter in TranscodeTemplate](https://help.aliyun.com/document_detail/52839.html) table.
+   * 
    * @example
    * 0
    */
   narrowBandType?: string;
   /**
+   * @remarks
+   * The playback URL of the media stream.
+   * 
    * @example
    * https://***.aliyuncdn.com/sv/756bee1-17f980f0945/756bee1-17f980f0945.mp4
    */
   playURL?: string;
   /**
+   * @remarks
+   * The size of the media stream. Unit: bytes.
+   * 
    * @example
    * 418112
    */
   size?: number;
   /**
+   * @remarks
+   * The status of the media stream. Valid values:
+   * 
+   * *   **Normal**
+   * *   **Invisible**
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The tags of the media stream, which are used to identify the transcoding type.
+   * 
    * @example
    * "{\\"ims.audioServiceType\\": \\"AudioEnhancement\\"}"
    */
   streamTags?: string;
   /**
+   * @remarks
+   * The type of the media stream. If the media stream is a video stream, the value is **video**. If the media stream is an audio-only stream, the value is **audio**.
+   * 
    * @example
    * video
    */
   streamType?: string;
   /**
+   * @remarks
+   * The type of the transcoding template. Valid values:
+   * 
+   * *   Normal: standard transcoding
+   * *   AudioTranscode: audio transcoding
+   * *   Remux: container format conversion
+   * *   NarrowBandV1: Narrowband HD™ 1.0
+   * *   NarrowBandV2: Narrowband HD™ 2.0
+   * *   UHD: audio and video enhancement (ultra-high definition)
+   * 
    * @example
    * Normal
    */
   transTemplateType?: string;
   /**
+   * @remarks
+   * The ID of the watermark that is associated with the media stream.
+   * 
    * @example
    * 5bed88672b1e2520ead228935ed51***
    */
   watermarkId?: string;
   /**
+   * @remarks
+   * The width of the media stream. Unit: pixels.
+   * 
    * @example
    * 1024
    */
@@ -33977,51 +37321,83 @@ export class GetTranscodeJobResponseBodyTranscodeParentJob extends $tea.Model {
 
 export class GetUrlUploadInfosResponseBodyURLUploadInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the upload job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
    * @example
    * 2021-11-26 21:47:37
    */
   completeTime?: string;
   /**
+   * @remarks
+   * The time when the upload job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
    * @example
    * 2021-11-07T10:03:37Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The error code returned if the upload job failed.
+   * 
    * @example
    * 200
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the upload job failed.
+   * 
    * @example
    * Success
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 64610
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The ID of the upload job.
+   * 
    * @example
    * 3829500c0fef429fa4ec1680b122d***
    */
   jobId?: string;
   /**
+   * @remarks
+   * The ID of the uploaded media file.
+   * 
    * @example
    * 5014ca70f08171ecbf940764a0fd6***
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The status of the upload job. For more information about the valid values of the parameter, see the "Status: the status of a URL-based upload job" section of the [Basic data types](https://help.aliyun.com/document_detail/52839.html) topic.
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The upload URL of the source file.
+   * 
+   * >  A maximum of 100 URLs can be returned.
+   * 
    * @example
    * http://****.mp4
    */
   uploadURL?: string;
   /**
+   * @remarks
+   * The user data. The value is a JSON string.
+   * 
    * @example
    * {"MessageCallback":"{"CallbackURL":"http://example.aliyundoc.com"}", "Extend":"{"localId":"***", "test":"www"}"}
    */
@@ -34063,59 +37439,123 @@ export class GetUrlUploadInfosResponseBodyURLUploadInfoList extends $tea.Model {
 
 export class GetVideoListResponseBodyMediaList extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the application. Default value: app-1000000.
+   * 
    * @example
    * app-1000000
    */
   appId?: string;
   /**
+   * @remarks
+   * The ID of the category.
+   * 
    * @example
    * 3679
    */
   cateId?: number;
+  /**
+   * @remarks
+   * The name of the category.
+   */
   cateName?: string;
   /**
+   * @remarks
+   * The URL of the thumbnail.
+   * 
    * @example
    * http://example.aliyundoc.com/snapshot/****.jpg?auth_key=1498476426-0-0-f00b9455c49a423ce69cf4e27333****
    */
   coverUrl?: string;
   /**
+   * @remarks
+   * The time when the audio or video file was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2017-11-14T09:15:50Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The description of the audio or video file.
+   */
   description?: string;
   /**
+   * @remarks
+   * The duration. Unit: seconds.
+   * 
    * @example
    * 135.6
    */
   duration?: number;
   /**
+   * @remarks
+   * The ID of the audio or video file.
+   * 
    * @example
    * 1c6ce34007d571ed94667630a6bc****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The time when the audio or video file was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2017-11-14T09:16:50Z
    */
   modificationTime?: string;
   /**
+   * @remarks
+   * The size of the source file. Unit: bytes.
+   * 
    * @example
    * 10897890
    */
   size?: number;
+  /**
+   * @remarks
+   * The array of video snapshot URLs.
+   */
   snapshots?: string[];
   /**
+   * @remarks
+   * The status of the video.
+   * 
+   * Valid values:
+   * 
+   * *   PrepareFail: The file is abnormal.
+   * *   UploadFail: The video failed to be uploaded.
+   * *   UploadSucc: The video is uploaded.
+   * *   Transcoding: The video is being transcoded.
+   * *   TranscodeFail: The video failed to be transcoded.
+   * *   ProduceFail: The video failed to be produced.
+   * *   Normal: The video is normal.
+   * *   Uploading: The video is being uploaded.
+   * *   Preparing: The file is being generated.
+   * *   Blocked: The video is blocked.
+   * *   checking: The video is being reviewed.
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The storage address.
+   * 
    * @example
    * out-****.oss-cn-shanghai.aliyuncs.com
    */
   storageLocation?: string;
+  /**
+   * @remarks
+   * The tags of the audio or video file.
+   */
   tags?: string;
+  /**
+   * @remarks
+   * The title of the audio or video file.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34335,13 +37775,23 @@ export class ListAIAgentInstanceResponseBodyInstances extends $tea.Model {
 }
 
 export class ListAllPublicMediaTagsResponseBodyMediaTagListOptions extends $tea.Model {
+  /**
+   * @remarks
+   * The option name in Chinese.
+   */
   optionChineseName?: string;
   /**
+   * @remarks
+   * The option name in English.
+   * 
    * @example
    * Angry
    */
   optionEnglishName?: string;
   /**
+   * @remarks
+   * The option ID.
+   * 
    * @example
    * Angry
    */
@@ -34369,16 +37819,30 @@ export class ListAllPublicMediaTagsResponseBodyMediaTagListOptions extends $tea.
 
 export class ListAllPublicMediaTagsResponseBodyMediaTagList extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media tag.
+   * 
    * @example
    * sticker-gif
    */
   mediaTagId?: string;
   /**
+   * @remarks
+   * The name of the media tag in Chinese.
+   * 
    * @example
    * Gif
    */
   mediaTagNameChinese?: string;
+  /**
+   * @remarks
+   * The name of the material tag in English.
+   */
   mediaTagNameEnglish?: string;
+  /**
+   * @remarks
+   * The options.
+   */
   options?: ListAllPublicMediaTagsResponseBodyMediaTagListOptions[];
   static names(): { [key: string]: string } {
     return {
@@ -34687,12 +38151,51 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
   }
 }
 
+export class ListCustomTemplatesResponseBodyCustomTemplateListFrontendHintTranscodeTemplateHint extends $tea.Model {
+  bitrateControlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrateControlType: 'BitrateControlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrateControlType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint extends $tea.Model {
+  transcodeTemplateHint?: ListCustomTemplatesResponseBodyCustomTemplateListFrontendHintTranscodeTemplateHint;
+  static names(): { [key: string]: string } {
+    return {
+      transcodeTemplateHint: 'TranscodeTemplateHint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      transcodeTemplateHint: ListCustomTemplatesResponseBodyCustomTemplateListFrontendHintTranscodeTemplateHint,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCustomTemplatesResponseBodyCustomTemplateList extends $tea.Model {
   /**
    * @example
    * 2022-07-12T16:17:54Z
    */
   createTime?: string;
+  frontendHint?: ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint;
   /**
    * @example
    * true
@@ -34746,6 +38249,7 @@ export class ListCustomTemplatesResponseBodyCustomTemplateList extends $tea.Mode
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      frontendHint: 'FrontendHint',
       isDefault: 'IsDefault',
       modifiedTime: 'ModifiedTime',
       status: 'Status',
@@ -34762,6 +38266,7 @@ export class ListCustomTemplatesResponseBodyCustomTemplateList extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      frontendHint: ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint,
       isDefault: 'boolean',
       modifiedTime: 'string',
       status: 'string',
@@ -35222,71 +38727,140 @@ export class ListDynamicImageJobsResponseBodyJobs extends $tea.Model {
 
 export class ListEditingProjectsResponseBodyProjectList extends $tea.Model {
   /**
+   * @remarks
+   * The business configuration of the project. This parameter can be ignored for general editing projects.
+   * 
    * @example
    * {}
    */
   businessConfig?: string;
   /**
+   * @remarks
+   * The business status of the project. This parameter can be ignored for general editing projects.
+   * 
    * @example
    * {}
    */
   businessStatus?: string;
   /**
+   * @remarks
+   * The thumbnail URL of the online editing project.
+   * 
    * @example
    * https://xxx.com/cover/xxx.jpg
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The method for editing the online editing project. Valid values:
+   * 
+   * \\- OpenAPI
+   * 
+   * \\- AliyunConsole
+   * 
+   * \\- WebSDK
+   * 
    * @example
    * OpenAPI
    */
   createSource?: string;
   /**
+   * @remarks
+   * The time when the online editing project was created.
+   * 
    * @example
    * 2017-01-11T12:00:00Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the online editing project.
+   */
   description?: string;
   /**
+   * @remarks
+   * The error code returned if the production of the online editing project failed.
+   * 
    * @example
    * InvalidParameter
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the production of the online editing project failed.
+   * 
    * @example
    * The specified parameter \\"LiveStreamConfig\\" is not valid. specified parameter example is not valid.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The method for modifying the online editing project last time.
+   * 
    * @example
    * OpenAPI
    */
   modifiedSource?: string;
   /**
+   * @remarks
+   * The time when the online editing project was last modified.
+   * 
    * @example
    * 2017-01-11T12:00:00Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The ID of the online editing project.
+   * 
    * @example
    * ****fddd7748b58bf1d47e95****
    */
   projectId?: string;
   /**
+   * @remarks
+   * The type of the editing project. Valid values:
+   * 
+   * *   EditingProject: a regular editing project.
+   * *   LiveEditingProject: a live stream editing project.
+   * 
    * @example
    * EditingProject
    */
   projectType?: string;
   /**
+   * @remarks
+   * The status of the online editing project. Valid values:
+   * 
+   * \\- Draft
+   * 
+   * \\- Editing
+   * 
+   * \\- Producing
+   * 
+   * \\- Produced
+   * 
+   * \\- ProduceFailed
+   * 
    * @example
    * Produced
    */
   status?: string;
   /**
+   * @remarks
+   * The template type. Valid values:
+   * 
+   * *   Timeline: a regular template.
+   * *   VETemplate: an advanced template.
+   * 
    * @example
    * Timeline
    */
   templateType?: string;
+  /**
+   * @remarks
+   * The title of the online editing project.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36273,66 +39847,105 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentList extends $
 
 export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 1912.13
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The time when the file was created.
+   * 
    * @example
    * 2021-01-08T16:52:04Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The duration.
+   * 
    * @example
    * 60.00000
    */
   duration?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * example.mp4
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 14340962
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The file status.
+   * 
    * @example
    * Normal
    */
   fileStatus?: string;
   /**
+   * @remarks
+   * The file type.
+   * 
    * @example
    * source_file
    */
   fileType?: string;
   /**
+   * @remarks
+   * The OSS URL of the file.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example2.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The container format.
+   * 
    * @example
    * mov,mp4,m4a,3gp,3g2,mj2
    */
   formatName?: string;
   /**
+   * @remarks
+   * The height.
+   * 
    * @example
    * 720
    */
   height?: string;
   /**
+   * @remarks
+   * The time when the file was last modified.
+   * 
    * @example
    * 2021-01-08T16:52:07Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The region in which the file resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The width.
+   * 
    * @example
    * 1280
    */
@@ -36379,6 +39992,10 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo 
 }
 
 export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * The basic information of the file, including the duration and size.
+   */
   fileBasicInfo?: ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
     return {
@@ -36399,99 +40016,168 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoList extends $tea.
 
 export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The service to which the media asset belongs.
+   * 
    * @example
    * ICE
    */
   biz?: string;
   /**
+   * @remarks
+   * The business type of the media asset.
+   * 
    * @example
    * opening
    */
   businessType?: string;
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 3049
    */
   cateId?: number;
+  /**
+   * @remarks
+   * The category of the media asset.
+   */
   category?: string;
   /**
+   * @remarks
+   * The thumbnail URL of the media asset.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The time when the media asset was created.
+   * 
    * @example
    * 2021-01-08T16:52:04Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the media asset was deleted.
+   * 
    * @example
    * 2021-01-08T16:52:07Z
    */
   deletedTime?: string;
+  /**
+   * @remarks
+   * The description of the media asset.
+   */
   description?: string;
   /**
+   * @remarks
+   * The URL of the media asset in another service.
+   * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
    */
   inputURL?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****019b82e24b37a1c2958dec38****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The tags of the media asset.
+   * 
    * @example
    * tags,tags2
    */
   mediaTags?: string;
   /**
+   * @remarks
+   * The type of the media asset.
+   * 
    * @example
    * video
    */
   mediaType?: string;
   /**
+   * @remarks
+   * The time when the media asset was last modified.
+   * 
    * @example
    * 2021-01-08T16:52:07Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The custom ID of the media asset. The ID is a string that contains 6 to 64 characters. Only letters, digits, hyphens (-), and underscores (_) are supported. The ID is unique among users.
+   * 
    * @example
    * 123-123
    */
   referenceId?: string;
   /**
+   * @remarks
+   * The snapshots of the media asset.
+   * 
    * @example
    * [{"bucket":"example-bucket","count":"3","iceJobId":"******f48f0e4154976b2b8c45******","location":"oss-cn-beijing","snapshotRegular":"example.jpg","templateId":"******e6a6440b29eb60bd7c******"}]
    */
   snapshots?: string;
   /**
+   * @remarks
+   * The source of the media asset.
+   * 
    * @example
    * oss
    */
   source?: string;
   /**
+   * @remarks
+   * The sprite.
+   * 
    * @example
    * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
    */
   spriteImages?: string;
   /**
+   * @remarks
+   * The status of the media asset.
+   * 
    * @example
    * Normal
    */
   status?: string;
+  /**
+   * @remarks
+   * The title of the media asset.
+   */
   title?: string;
   /**
+   * @remarks
+   * The transcoding status of the media asset.
+   * 
    * @example
    * Init
    */
   transcodeStatus?: string;
   /**
+   * @remarks
+   * The upload source of the media asset.
+   * 
    * @example
    * general
    */
   uploadSource?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * userData
    */
@@ -36567,6 +40253,9 @@ export class ListMediaBasicInfosResponseBodyMediaInfos extends $tea.Model {
    */
   mediaBasicInfo?: ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****019b82e24b37a1c2958dec38****
    */
@@ -37553,56 +41242,89 @@ export class ListPipelinesResponseBodyPipelineList extends $tea.Model {
 
 export class ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 270112.12
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The duration.
+   * 
    * @example
    * 10.040000
    */
   duration?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * example.mp4
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 338990717
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The file status.
+   * 
    * @example
    * Normal
    */
   fileStatus?: string;
   /**
+   * @remarks
+   * The file type.
+   * 
    * @example
    * source_file
    */
   fileType?: string;
   /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the file.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The container format.
+   * 
    * @example
    * mov,mp4,m4a,3gp,3g2,mj2
    */
   formatName?: string;
   /**
+   * @remarks
+   * The height.
+   * 
    * @example
    * 1080
    */
   height?: string;
   /**
+   * @remarks
+   * The region in which the file resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The width.
+   * 
    * @example
    * 1920
    */
@@ -37645,6 +41367,10 @@ export class ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasi
 }
 
 export class ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * The basic information of the file, such as the duration and size.
+   */
   fileBasicInfo?: ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
     return {
@@ -37665,85 +41391,134 @@ export class ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoList extends
 
 export class ListPublicMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The business type of the media asset.
+   * 
    * @example
    * general
    */
   businessType?: string;
   /**
+   * @remarks
+   * The category of the media asset.
+   * 
    * @example
    * video
    */
   category?: string;
   /**
+   * @remarks
+   * The thumbnail URL of the media asset.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The time when the media asset was created.
+   * 
    * @example
    * 2021-01-08T16:52:04Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the media asset was deleted.
+   * 
    * @example
    * 2021-01-08T16:52:04Z
    */
   deletedTime?: string;
   /**
+   * @remarks
+   * The description of the media asset.
+   * 
    * @example
    * description
    */
   description?: string;
   /**
+   * @remarks
+   * The URL of the media asset in another service.
+   * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
    */
   inputURL?: string;
   /**
    * @remarks
-   * MediaId
+   * The ID of the media asset.
    * 
    * @example
    * ****019b82e24b37a1c2958dec38****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The tags of the media asset.
+   * 
    * @example
    * sticker-daily
    */
   mediaTags?: string;
   /**
+   * @remarks
+   * The type of the media asset.
+   * 
    * @example
    * video
    */
   mediaType?: string;
   /**
+   * @remarks
+   * The time when the media asset was last modified.
+   * 
    * @example
    * 2021-01-08T16:52:04Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The snapshots of the media asset.
+   * 
    * @example
    * null
    */
   snapshots?: string;
   /**
+   * @remarks
+   * The source of the media asset.
+   * 
    * @example
    * oss
    */
   source?: string;
   /**
+   * @remarks
+   * The status of the media asset.
+   * 
    * @example
    * Normal
    */
   status?: string;
+  /**
+   * @remarks
+   * The title of the media asset.
+   */
   title?: string;
   /**
+   * @remarks
+   * The transcoding status of the media asset.
+   * 
    * @example
    * Init
    */
   transcodeStatus?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * userData
    */
@@ -37800,15 +41575,18 @@ export class ListPublicMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo exten
 export class ListPublicMediaBasicInfosResponseBodyMediaInfos extends $tea.Model {
   /**
    * @remarks
-   * FileInfos
+   * The file information of the media asset.
    */
   fileInfoList?: ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoList[];
   /**
    * @remarks
-   * BasicInfo
+   * The basic information of the media asset.
    */
   mediaBasicInfo?: ListPublicMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****019b82e24b37a1c2958dec38****
    */
@@ -41159,21 +44937,41 @@ export class QueryMediaCensorJobListResponseBodyNonExistIds extends $tea.Model {
 
 export class QueryMediaIndexJobResponseBodyIndexJobInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The end time of the indexing job.
+   * 
    * @example
    * 2023-11-21 11:33:51
    */
   gmtFinish?: string;
   /**
+   * @remarks
+   * The time when the index job was submitted.
+   * 
    * @example
    * 2023-11-21 11:33:50
    */
   gmtSubmit?: string;
   /**
+   * @remarks
+   * The index type. Valid values:
+   * 
+   * *   mm: large visual model.
+   * *   face: face recognition.
+   * *   aiLabel: smart tagging.
+   * 
    * @example
    * mm
    */
   indexType?: string;
   /**
+   * @remarks
+   * The job status. Valid values:
+   * 
+   * *   Running
+   * *   Success
+   * *   Fail
+   * 
    * @example
    * Success
    */
@@ -41797,7 +45595,7 @@ export class SearchMediaResponseBodyMediaInfoListAiData extends $tea.Model {
 export class SearchMediaResponseBodyMediaInfoListAiRoughData extends $tea.Model {
   /**
    * @remarks
-   * The category of the AI job.
+   * TV Series
    * 
    * @example
    * TV series
@@ -42030,7 +45828,15 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoList extends $tea.Model
 }
 
 export class SearchMediaResponseBodyMediaInfoListIndexStatusList extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   indexStatus?: string;
+  /**
+   * @example
+   * mm
+   */
   indexType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42192,7 +45998,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $tea.Mod
   spriteImages?: string;
   /**
    * @remarks
-   * The state of the resource.
+   * The state of the media asset.
    * 
    * @example
    * Normal
@@ -42347,16 +46153,25 @@ export class SearchMediaResponseBodyMediaInfoList extends $tea.Model {
 
 export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrencesTracks extends $tea.Model {
   /**
+   * @remarks
+   * The coordinates of the bounding box.
+   * 
    * @example
    * 468.0;67.0;615.0;267.0
    */
   position?: string;
   /**
+   * @remarks
+   * The size of the bounding box.
+   * 
    * @example
    * 50
    */
   size?: number;
   /**
+   * @remarks
+   * The timestamp of the track.
+   * 
    * @example
    * 1.4
    */
@@ -42384,42 +46199,75 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
 
 export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrences extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the clip.
+   * 
    * @example
    * 158730355E4B82257D8AA1583A58****
    */
   clipId?: string;
+  /**
+   * @remarks
+   * The content of the text.
+   */
   content?: string;
   /**
+   * @remarks
+   * The fine-grained ID of the entity.
+   * 
    * @example
    * 103102503**
    */
   finegrainId?: string;
+  /**
+   * @remarks
+   * The fine-grained name of the entity.
+   */
   finegrainName?: string;
   /**
+   * @remarks
+   * The start time of the clip.
+   * 
    * @example
    * 1.4
    */
   from?: number;
   /**
+   * @remarks
+   * The image that contains the most face information.
+   * 
    * @example
    * https://service-****-public.oss-cn-hangzhou.aliyuncs.com/1563457****438522/service-image/f788974f-9595-43b2-a478-7c7a1afb****.jpg
    */
   image?: string;
   /**
+   * @remarks
+   * The score.
+   * 
    * @example
    * 0.75287705
    */
   score?: number;
   /**
+   * @remarks
+   * The sequence ID of the vector table.
+   * 
    * @example
    * 85010D1**
    */
   tableBatchSeqId?: string;
   /**
+   * @remarks
+   * The end time of the clip.
+   * 
    * @example
    * 2.5
    */
   to?: number;
+  /**
+   * @remarks
+   * The tracks.
+   */
   tracks?: SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrencesTracks[];
   static names(): { [key: string]: string } {
     return {
@@ -42457,21 +46305,46 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
 }
 
 export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The category.
+   */
   category?: string;
   /**
+   * @remarks
+   * The ID of the face.
+   * 
    * @example
    * 5FE19530C7A422197535FE74F5DB****
    */
   faceId?: string;
   /**
+   * @remarks
+   * The ID of the entity.
+   * 
    * @example
    * 103102503**
    */
   labelId?: string;
+  /**
+   * @remarks
+   * The name of the entity.
+   */
   labelName?: string;
+  /**
+   * @remarks
+   * The type of the tag.
+   */
   labelType?: string;
+  /**
+   * @remarks
+   * The information about the clips.
+   */
   occurrences?: SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrences[];
   /**
+   * @remarks
+   * The source.
+   * 
    * @example
    * vision
    */
@@ -42507,22 +46380,38 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo extends 
 
 export class SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the clip.
+   * 
    * @example
    * 5FE19530C7A422197535FE74F5DB****
    */
   clipId?: string;
+  /**
+   * @remarks
+   * The content of the audio.
+   */
   content?: string;
   /**
+   * @remarks
+   * The start time of the clip.
+   * 
    * @example
    * 1.4
    */
   from?: number;
   /**
+   * @remarks
+   * The timestamp of the clip.
+   * 
    * @example
    * 1.4
    */
   timestamp?: number;
   /**
+   * @remarks
+   * The end time of the clip.
+   * 
    * @example
    * 2.5
    */
@@ -42554,22 +46443,38 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo extends $tea
 
 export class SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the clip.
+   * 
    * @example
    * 5FE19530C7A422197535FE74F5DB****
    */
   clipId?: string;
+  /**
+   * @remarks
+   * The content of the text.
+   */
   content?: string;
   /**
+   * @remarks
+   * The start time of the clip.
+   * 
    * @example
    * 1.4
    */
   from?: number;
   /**
+   * @remarks
+   * The timestamp of the clip.
+   * 
    * @example
    * 1.4
    */
   timestamp?: number;
   /**
+   * @remarks
+   * The end time of the clip.
+   * 
    * @example
    * 2.5
    */
@@ -42600,8 +46505,20 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo extends $tea
 }
 
 export class SearchMediaByAILabelResponseBodyMediaListAiData extends $tea.Model {
+  /**
+   * @remarks
+   * The tags of the AI job.
+   */
   aiLabelInfo?: SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo[];
+  /**
+   * @remarks
+   * The information about audio files.
+   */
   asrInfo?: SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo[];
+  /**
+   * @remarks
+   * The information about subtitle files.
+   */
   ocrInfo?: SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -42625,55 +46542,117 @@ export class SearchMediaByAILabelResponseBodyMediaListAiData extends $tea.Model 
 }
 
 export class SearchMediaByAILabelResponseBodyMediaList extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the AI job.
+   */
   aiData?: SearchMediaByAILabelResponseBodyMediaListAiData;
   /**
+   * @remarks
+   * The ID of the application. Default value: app-1000000.
+   * 
    * @example
    * app-1000000
    */
   appId?: string;
   /**
+   * @remarks
+   * The URL of the thumbnail.
+   * 
    * @example
    * http://example.aliyundoc.com/snapshot/****.jpg?auth_key=1498476426-0-0-f00b9455c49a423ce69cf4e27333****
    */
   coverUrl?: string;
   /**
+   * @remarks
+   * The time when the media asset was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2017-11-14T09:15:50Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The description of the media asset.
+   */
   description?: string;
   /**
+   * @remarks
+   * The duration. Unit: seconds.
+   * 
    * @example
    * 12.2
    */
   duration?: number;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 1c6ce34007d571ed94667630a6bc****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The time when the media asset was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2017-11-14T09:15:50Z
    */
   modificationTime?: string;
   /**
+   * @remarks
+   * The size of the source file. Unit: bytes.
+   * 
    * @example
    * 10897890
    */
   size?: number;
+  /**
+   * @remarks
+   * The array of video snapshot URLs.
+   */
   snapshots?: string[];
   /**
+   * @remarks
+   * The status of the video.
+   * 
+   * Valid values:
+   * 
+   * *   PrepareFail
+   * *   UploadFail
+   * *   Init
+   * *   UploadSucc
+   * *   Transcoding
+   * *   TranscodeFail
+   * *   Deleted
+   * *   Normal
+   * *   Uploading
+   * *   Preparing
+   * *   Blocked
+   * *   Checking
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The storage address.
+   * 
    * @example
    * out-****.oss-cn-shanghai.aliyuncs.com
    */
   storageLocation?: string;
+  /**
+   * @remarks
+   * The tags of the media asset.
+   */
   tags?: string;
+  /**
+   * @remarks
+   * The title of the media asset.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42720,6 +46699,9 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $tea.Model {
 
 export class SearchMediaByFaceResponseBodyMediaInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 3b187b3620c8490886cfc2a9578c****
    */
@@ -42806,16 +46788,25 @@ export class SearchMediaByHybridResponseBodyMediaList extends $tea.Model {
 
 export class SearchMediaByMultimodalResponseBodyMediaListClipInfo extends $tea.Model {
   /**
+   * @remarks
+   * The start time of the clip.
+   * 
    * @example
    * 2
    */
   from?: number;
   /**
+   * @remarks
+   * The score.
+   * 
    * @example
    * 1.2
    */
   score?: number;
   /**
+   * @remarks
+   * The end time of the clip.
+   * 
    * @example
    * 4
    */
@@ -42842,8 +46833,15 @@ export class SearchMediaByMultimodalResponseBodyMediaListClipInfo extends $tea.M
 }
 
 export class SearchMediaByMultimodalResponseBodyMediaList extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the clip.
+   */
   clipInfo?: SearchMediaByMultimodalResponseBodyMediaListClipInfo[];
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * a18936e0e28771edb59ae6f6f47a****
    */
@@ -42869,21 +46867,33 @@ export class SearchMediaByMultimodalResponseBodyMediaList extends $tea.Model {
 
 export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackDataBoxPosition extends $tea.Model {
   /**
+   * @remarks
+   * The height of the rectangle frame. Unit: pixels.
+   * 
    * @example
    * 168
    */
   h?: number;
   /**
+   * @remarks
+   * The width of the rectangle frame. Unit: pixels.
+   * 
    * @example
    * 128
    */
   w?: number;
   /**
+   * @remarks
+   * The x-axis coordinate of the upper-left corner. Unit: pixels.
+   * 
    * @example
    * 517
    */
   x?: number;
   /**
+   * @remarks
+   * The y-axis coordinate of the upper-left corner. Unit: pixels.
+   * 
    * @example
    * 409
    */
@@ -42912,8 +46922,15 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrack
 }
 
 export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackData extends $tea.Model {
+  /**
+   * @remarks
+   * The coordinates of the face.
+   */
   boxPosition?: SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackDataBoxPosition;
   /**
+   * @remarks
+   * The timestamp when the face appears in the clip. Unit: seconds. The value is of the Float type.
+   * 
    * @example
    * 62.03302
    */
@@ -42939,15 +46956,25 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrack
 
 export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos extends $tea.Model {
   /**
+   * @remarks
+   * The end time of the clip. Unit: seconds. The value is of the Float type.
+   * 
    * @example
    * 69.06635
    */
   endTime?: number;
   /**
+   * @remarks
+   * The start time of the clip. Unit: seconds. The value is of the Float type.
+   * 
    * @example
    * 61.066353
    */
   startTime?: number;
+  /**
+   * @remarks
+   * The information about the face in the clip.
+   */
   trackData?: SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackData[];
   static names(): { [key: string]: string } {
     return {
@@ -42972,18 +46999,35 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos exte
 
 export class SearchMediaClipByFaceResponseBodyMediaClipList extends $tea.Model {
   /**
+   * @remarks
+   * The type of the character. Valid values: celebrity sensitive politician custom unknown
+   * 
    * @example
    * celebrity
    */
   category?: string;
   /**
+   * @remarks
+   * The ID of the entity, which is the same as the entity ID returned in tag analysis.
+   * 
    * @example
    * 1031025****
    */
   entityId?: string;
+  /**
+   * @remarks
+   * The name of the entity.
+   */
   labelName?: string;
+  /**
+   * @remarks
+   * The information about clips related to the face.
+   */
   occurrencesInfos?: SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos[];
   /**
+   * @remarks
+   * The score of the clip. The value is of the Float type. The value is in the range of [0,1].
+   * 
    * @example
    * 0.99041677
    */
@@ -49444,6 +53488,13 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $tea.Model
 }
 
 export class SubmitVideoTranslationJobResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the video translation job.
+   * 
+   * @example
+   * ****d718e2ff4f018ccf419a7b71****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -49825,16 +53876,25 @@ export class UpdateRtcRobotInstanceRequestConfig extends $tea.Model {
 
 export class UploadMediaByURLResponseBodyUploadJobs extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the upload job.
+   * 
    * @example
    * 20ce1e05dba64576b96e9683879f0***
    */
   jobId?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * f476988629f54a7b8a4ba90d1a6c7***
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The URL of the source file that is uploaded in the upload job.
+   * 
    * @example
    * http://example****.mp4
    */
@@ -49943,7 +54003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建媒资分类
+   * Creates a category.
+   * 
+   * @remarks
+   * You can create at most three levels of categories. Each category level can contain a maximum of 100 subcategories.
    * 
    * @param request - AddCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49982,7 +54045,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建媒资分类
+   * Creates a category.
+   * 
+   * @remarks
+   * You can create at most three levels of categories. Each category level can contain a maximum of 100 subcategories.
    * 
    * @param request - AddCategoryRequest
    * @returns AddCategoryResponse
@@ -49993,7 +54059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 剪辑工程增加素材
+   * Adds one or more materials to an online editing project.
    * 
    * @param request - AddEditingProjectMaterialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50028,7 +54094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 剪辑工程增加素材
+   * Adds one or more materials to an online editing project.
    * 
    * @param request - AddEditingProjectMaterialsRequest
    * @returns AddEditingProjectMaterialsResponse
@@ -50081,7 +54147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为媒资增加标注信息
+   * Adds marks for a media asset.
    * 
    * @param request - AddMediaMarksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50116,7 +54182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为媒资增加标注信息
+   * Adds marks for a media asset.
    * 
    * @param request - AddMediaMarksRequest
    * @returns AddMediaMarksResponse
@@ -50199,7 +54265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新搜索索引
+   * Modifies search index information including index status and configurations.
    * 
    * @param request - AlterSearchIndexRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50242,7 +54308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新搜索索引
+   * Modifies search index information including index status and configurations.
    * 
    * @param request - AlterSearchIndexRequest
    * @returns AlterSearchIndexResponse
@@ -50253,7 +54319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量获取媒资信息
+   * Queries the information about multiple media assets at a time based on media asset IDs.
    * 
    * @param request - BatchGetMediaInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50288,7 +54354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量获取媒资信息
+   * Queries the information about multiple media assets at a time based on media asset IDs.
    * 
    * @param request - BatchGetMediaInfosRequest
    * @returns BatchGetMediaInfosResponse
@@ -50685,7 +54751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建云剪辑工程
+   * Creates an online editing project. You can specify configurations such as the title, description, timeline, and thumbnail for the project.
    * 
    * @param request - CreateEditingProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50754,7 +54820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建云剪辑工程
+   * Creates an online editing project. You can specify configurations such as the title, description, timeline, and thumbnail for the project.
    * 
    * @param request - CreateEditingProjectRequest
    * @returns CreateEditingProjectResponse
@@ -50979,6 +55045,9 @@ export default class Client extends OpenApi {
   /**
    * 创建搜索索引
    * 
+   * @remarks
+   * The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
+   * 
    * @param request - CreateSearchIndexRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSearchIndexResponse
@@ -51022,6 +55091,9 @@ export default class Client extends OpenApi {
   /**
    * 创建搜索索引
    * 
+   * @remarks
+   * The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
+   * 
    * @param request - CreateSearchIndexRequest
    * @returns CreateSearchIndexResponse
    */
@@ -51031,7 +55103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建库
+   * Creates a search library to store media assets.
    * 
    * @param request - CreateSearchLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51062,7 +55134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建库
+   * Creates a search library to store media assets.
    * 
    * @param request - CreateSearchLibRequest
    * @returns CreateSearchLibResponse
@@ -51073,7 +55145,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 本地媒资上传
+   * Obtains the upload URL and credential of a media asset and creates information about the media asset.
+   * 
+   * @remarks
+   *   You can call this operation to obtain the upload URLs and credentials of audio and video files. You can also call this operation to obtain the upload URLs and credentials of images and auxiliary media assets.
+   * *   Obtaining an upload URL and credential is essential for Intelligent Media Services (IMS) and is required in each upload operation.
+   * *   If the video upload credential expires, you can call the RefreshUploadMedia operation to obtain a new upload credential. The default validity period of a video upload credential is 3,000 seconds.
+   * *   After you upload a media asset, you can configure a callback to receive upload event notifications or call the GetMediaInfo operation to determine whether the media asset is uploaded based on the returned status.
+   * *   The MediaId parameter returned by this operation can be used for media asset lifecycle management or media processing.
+   * *   You can call this operation to upload media assets only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media asset to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
+   * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
    * 
    * @param request - CreateUploadMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51128,7 +55209,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 本地媒资上传
+   * Obtains the upload URL and credential of a media asset and creates information about the media asset.
+   * 
+   * @remarks
+   *   You can call this operation to obtain the upload URLs and credentials of audio and video files. You can also call this operation to obtain the upload URLs and credentials of images and auxiliary media assets.
+   * *   Obtaining an upload URL and credential is essential for Intelligent Media Services (IMS) and is required in each upload operation.
+   * *   If the video upload credential expires, you can call the RefreshUploadMedia operation to obtain a new upload credential. The default validity period of a video upload credential is 3,000 seconds.
+   * *   After you upload a media asset, you can configure a callback to receive upload event notifications or call the GetMediaInfo operation to determine whether the media asset is uploaded based on the returned status.
+   * *   The MediaId parameter returned by this operation can be used for media asset lifecycle management or media processing.
+   * *   You can call this operation to upload media assets only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media asset to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
+   * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
    * 
    * @param request - CreateUploadMediaRequest
    * @returns CreateUploadMediaResponse
@@ -51139,7 +55229,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 本地上传媒体流
+   * Obtains the upload URL and credential of a media stream.
+   * 
+   * @remarks
+   *   You can call this operation to upload only a local media stream. After the media stream is uploaded, it is associated with the specified media asset ID.
+   * *   You can call this operation to upload media streams only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
+   * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
    * 
    * @param request - CreateUploadStreamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51186,7 +55281,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 本地上传媒体流
+   * Obtains the upload URL and credential of a media stream.
+   * 
+   * @remarks
+   *   You can call this operation to upload only a local media stream. After the media stream is uploaded, it is associated with the specified media asset ID.
+   * *   You can call this operation to upload media streams only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
+   * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
    * 
    * @param request - CreateUploadStreamRequest
    * @returns CreateUploadStreamResponse
@@ -51281,7 +55381,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒资分类
+   * Deletes a media asset category.
+   * 
+   * @remarks
+   * This operation also deletes the subcategories, including the level-2 and level-3 categories, of the category.
    * 
    * @param request - DeleteCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51312,7 +55415,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒资分类
+   * Deletes a media asset category.
+   * 
+   * @remarks
+   * This operation also deletes the subcategories, including the level-2 and level-3 categories, of the category.
    * 
    * @param request - DeleteCategoryRequest
    * @returns DeleteCategoryResponse
@@ -51527,7 +55633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除剪辑工程关联素材
+   * Deletes one or more materials from an online editing project.
    * 
    * @param request - DeleteEditingProjectMaterialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51566,7 +55672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除剪辑工程关联素材
+   * Deletes one or more materials from an online editing project.
    * 
    * @param request - DeleteEditingProjectMaterialsRequest
    * @returns DeleteEditingProjectMaterialsResponse
@@ -51577,7 +55683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除云剪辑工程
+   * Deletes one or more online editing project.
    * 
    * @param request - DeleteEditingProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51608,7 +55714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除云剪辑工程
+   * Deletes one or more online editing project.
    * 
    * @param request - DeleteEditingProjectsRequest
    * @returns DeleteEditingProjectsResponse
@@ -51889,7 +55995,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒资从搜索
+   * Deletes a specific media asset from a search library.
    * 
    * @param request - DeleteMediaFromSearchLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51928,7 +56034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒资从搜索
+   * Deletes a specific media asset from a search library.
    * 
    * @param request - DeleteMediaFromSearchLibRequest
    * @returns DeleteMediaFromSearchLibResponse
@@ -51939,7 +56045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒资信息
+   * Deletes multiple media assets at a time. You can delete at most 20 media assets at a time. If MediaIds is specified, it is preferentially used. If MediaIds is empty, InputURLs must be specified.
    * 
    * @param request - DeleteMediaInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51978,7 +56084,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒资信息
+   * Deletes multiple media assets at a time. You can delete at most 20 media assets at a time. If MediaIds is specified, it is preferentially used. If MediaIds is empty, InputURLs must be specified.
    * 
    * @param request - DeleteMediaInfosRequest
    * @returns DeleteMediaInfosResponse
@@ -51989,7 +56095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒资标注信息
+   * Deletes the marks of a media asset.
    * 
    * @param request - DeleteMediaMarksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -52024,7 +56130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒资标注信息
+   * Deletes the marks of a media asset.
    * 
    * @param request - DeleteMediaMarksRequest
    * @returns DeleteMediaMarksResponse
@@ -52077,7 +56183,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除播放信息
+   * Deletes media streams such as video streams and audio streams.
+   * 
+   * @remarks
+   * You can call this operation to delete multiple media streams at a time.
    * 
    * @param request - DeletePlayInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -52116,7 +56225,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除播放信息
+   * Deletes media streams such as video streams and audio streams.
+   * 
+   * @remarks
+   * You can call this operation to delete multiple media streams at a time.
    * 
    * @param request - DeletePlayInfoRequest
    * @returns DeletePlayInfoResponse
@@ -52703,7 +56815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除搜索索引
+   * Deletes a search index. After you delete a search index, the existing index data is cleared and index-based analysis, storage, and query are not supported for subsequent media assets.
    * 
    * @param request - DropSearchIndexRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -52738,7 +56850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除搜索索引
+   * Deletes a search index. After you delete a search index, the existing index data is cleared and index-based analysis, storage, and query are not supported for subsequent media assets.
    * 
    * @param request - DropSearchIndexRequest
    * @returns DropSearchIndexResponse
@@ -52749,7 +56861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除库
+   * Deletes a search library and all media assets in the library.
    * 
    * @param request - DropSearchLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -52780,7 +56892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除库
+   * Deletes a search library and all media assets in the library.
    * 
    * @param request - DropSearchLibRequest
    * @returns DropSearchLibResponse
@@ -53009,7 +57121,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询媒资分类
+   * Queries the information about a category and its subcategories.
+   * 
+   * @remarks
+   * You can call this operation to query the information about a category and its subcategories based on the category ID and category type.
    * 
    * @param request - GetCategoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -53056,7 +57171,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询媒资分类
+   * Queries the information about a category and its subcategories.
+   * 
+   * @remarks
+   * You can call this operation to query the information about a category and its subcategories based on the category ID and category type.
    * 
    * @param request - GetCategoriesRequest
    * @returns GetCategoriesResponse
@@ -53349,7 +57467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个云剪辑工程
+   * Queries the information about an online editing project.
    * 
    * @param request - GetEditingProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -53384,7 +57502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个云剪辑工程
+   * Queries the information about an online editing project.
    * 
    * @param request - GetEditingProjectRequest
    * @returns GetEditingProjectResponse
@@ -53395,7 +57513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取剪辑工程关联素材
+   * Queries all materials associated with an online editing project.
    * 
    * @param request - GetEditingProjectMaterialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -53426,7 +57544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取剪辑工程关联素材
+   * Queries all materials associated with an online editing project.
    * 
    * @param request - GetEditingProjectMaterialsRequest
    * @returns GetEditingProjectMaterialsResponse
@@ -53469,7 +57587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取直播剪辑m3u8索引文件
+   * Queries the index file of a live stream. The index file is used to preview an editing project in the console.
    * 
    * @param request - GetLiveEditingIndexFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -53512,7 +57630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取直播剪辑m3u8索引文件
+   * Queries the index file of a live stream. The index file is used to preview an editing project in the console.
    * 
    * @param request - GetLiveEditingIndexFileRequest
    * @returns GetLiveEditingIndexFileResponse
@@ -53801,7 +57919,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒资内容信息
+   * Queries information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
+   * 
+   * @remarks
+   * If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified.
    * 
    * @param request - GetMediaInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -53844,7 +57965,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒资内容信息
+   * Queries information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
+   * 
+   * @remarks
+   * If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified.
    * 
    * @param request - GetMediaInfoRequest
    * @returns GetMediaInfoResponse
@@ -53893,7 +58017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒资标注信息
+   * Queries the information about marks based on mark IDs.
    * 
    * @param request - GetMediaMarksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -53928,7 +58052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒资标注信息
+   * Queries the information about marks based on mark IDs.
    * 
    * @param request - GetMediaMarksRequest
    * @returns GetMediaMarksResponse
@@ -54061,7 +58185,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取播放信息
+   * Queries the playback URL of a video or audio file based on its ID.
+   * 
+   * @remarks
+   * You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
    * 
    * @param request - GetPlayInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54096,7 +58223,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取播放信息
+   * Queries the playback URL of a video or audio file based on its ID.
+   * 
+   * @remarks
+   * You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
    * 
    * @param request - GetPlayInfoRequest
    * @returns GetPlayInfoResponse
@@ -54551,7 +58681,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取URL上传信息
+   * Queries the information about URL-based upload jobs.
+   * 
+   * @remarks
+   * You can call this operation to query the information, including the upload status, user data, creation time, and completion time, about URL-based upload jobs based on the returned job IDs or the URLs used during the upload.
+   * If an upload job fails, you can view the error code and error message. If an upload job is successful, you can obtain the video ID.
    * 
    * @param request - GetUrlUploadInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54586,7 +58720,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取URL上传信息
+   * Queries the information about URL-based upload jobs.
+   * 
+   * @remarks
+   * You can call this operation to query the information, including the upload status, user data, creation time, and completion time, about URL-based upload jobs based on the returned job IDs or the URLs used during the upload.
+   * If an upload job fails, you can view the error code and error message. If an upload job is successful, you can obtain the video ID.
    * 
    * @param request - GetUrlUploadInfosRequest
    * @returns GetUrlUploadInfosResponse
@@ -54597,7 +58735,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒资新增列表
+   * Queries information about video and audio files.
+   * 
+   * @remarks
+   * You can call this operation to query information about up to the first 5,000 audio and video files based on the filter condition, such as the status or category ID of the file. We recommend that you set the StartTime and EndTime parameters to narrow down the time range and perform multiple queries to obtain data.
    * 
    * @param request - GetVideoListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54652,7 +58793,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒资新增列表
+   * Queries information about video and audio files.
+   * 
+   * @remarks
+   * You can call this operation to query information about up to the first 5,000 audio and video files based on the filter condition, such as the status or category ID of the file. We recommend that you set the StartTime and EndTime parameters to narrow down the time range and perform multiple queries to obtain data.
    * 
    * @param request - GetVideoListRequest
    * @returns GetVideoListResponse
@@ -54705,7 +58849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 插入媒资到搜索
+   * Adds a media asset in a search library. Before you call this operation, you must create a search library.
    * 
    * @param request - InsertMediaToSearchLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54752,7 +58896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 插入媒资到搜索
+   * Adds a media asset in a search library. Before you call this operation, you must create a search library.
    * 
    * @param request - InsertMediaToSearchLibRequest
    * @returns InsertMediaToSearchLibResponse
@@ -54821,7 +58965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出公共素材库所有标签
+   * Queries a list of tags of media assets in the public media library.
    * 
    * @param request - ListAllPublicMediaTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54856,7 +59000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出公共素材库所有标签
+   * Queries a list of tags of media assets in the public media library.
    * 
    * @param request - ListAllPublicMediaTagsRequest
    * @returns ListAllPublicMediaTagsResponse
@@ -55393,7 +59537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取云剪辑工程列表
+   * Queries a list of projects that meet the specified conditions. You can filter projects by project creation time.
    * 
    * @param request - ListEditingProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55460,7 +59604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取云剪辑工程列表
+   * Queries a list of projects that meet the specified conditions. You can filter projects by project creation time.
    * 
    * @param request - ListEditingProjectsRequest
    * @returns ListEditingProjectsResponse
@@ -55831,7 +59975,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出符合条件的媒资基础信息
+   * Queries the basic information of all media assets that meet the specified conditions.
+   * 
+   * @remarks
+   * If includeFileBasicInfo is set to true, the basic information, such as the duration and file size, of the source file is also returned. At most the first 100 entries that meet the specified conditions are returned. All media assets must exactly match all non-empty fields. The fields that support exact match include MediaType, Source, BusinessType, Category, and Status. If all information cannot be returned at a time, you can use NextToken to initiate a request to retrieve a new page of results.
    * 
    * @param request - ListMediaBasicInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55902,7 +60049,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出符合条件的媒资基础信息
+   * Queries the basic information of all media assets that meet the specified conditions.
+   * 
+   * @remarks
+   * If includeFileBasicInfo is set to true, the basic information, such as the duration and file size, of the source file is also returned. At most the first 100 entries that meet the specified conditions are returned. All media assets must exactly match all non-empty fields. The fields that support exact match include MediaType, Source, BusinessType, Category, and Status. If all information cannot be returned at a time, you can use NextToken to initiate a request to retrieve a new page of results.
    * 
    * @param request - ListMediaBasicInfosRequest
    * @returns ListMediaBasicInfosResponse
@@ -55975,7 +60125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒资的标注信息
+   * Queries a list of marks of a media asset.
    * 
    * @param request - ListMediaMarksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -56010,7 +60160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒资的标注信息
+   * Queries a list of marks of a media asset.
    * 
    * @param request - ListMediaMarksRequest
    * @returns ListMediaMarksResponse
@@ -56207,7 +60357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出公共素材库素材的基础信息
+   * Queries a list of media assets in the public media library that meet the specified conditions. A maximum of 100 media assets can be returned.
    * 
    * @param request - ListPublicMediaBasicInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -56262,7 +60412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出公共素材库素材的基础信息
+   * Queries a list of media assets in the public media library that meet the specified conditions. A maximum of 100 media assets can be returned.
    * 
    * @param request - ListPublicMediaBasicInfosRequest
    * @returns ListPublicMediaBasicInfosResponse
@@ -56943,7 +61093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询索引任务
+   * Queries the indexing jobs enabled for a media asset.
    * 
    * @param request - QueryMediaIndexJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -56978,7 +61128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询索引任务
+   * Queries the indexing jobs enabled for a media asset.
    * 
    * @param request - QueryMediaIndexJobRequest
    * @returns QueryMediaIndexJobResponse
@@ -56989,7 +61139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询搜索索引
+   * Queries the details of a search index.
    * 
    * @param request - QuerySearchIndexRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57024,7 +61174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询搜索索引
+   * Queries the details of a search index.
    * 
    * @param request - QuerySearchIndexRequest
    * @returns QuerySearchIndexResponse
@@ -57035,7 +61185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询库
+   * Queries the information about a search library.
    * 
    * @param request - QuerySearchLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57066,7 +61216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询库
+   * Queries the information about a search library.
    * 
    * @param request - QuerySearchLibRequest
    * @returns QuerySearchLibResponse
@@ -57119,7 +61269,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 刷新媒资上传凭证
+   * Obtain a new upload credential for a media asset after its upload credential expires.
+   * 
+   * @remarks
+   * You can also call this operation to overwrite media files. After you obtain the upload URL of a media file, you can upload the media file again without changing the audio or video ID.
    * 
    * @param request - RefreshUploadMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57150,7 +61303,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 刷新媒资上传凭证
+   * Obtain a new upload credential for a media asset after its upload credential expires.
+   * 
+   * @remarks
+   * You can also call this operation to overwrite media files. After you obtain the upload URL of a media file, you can upload the media file again without changing the audio or video ID.
    * 
    * @param request - RefreshUploadMediaRequest
    * @returns RefreshUploadMediaResponse
@@ -57161,7 +61317,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册内容库资源
+   * Registers a media asset with Intelligent Media Services (IMS). IMS assigns an ID to the media asset. This operation asynchronously accesses the media asset service in which the media asset is stored to obtain the file information of the media asset based on the input URL. You can also specify basic information, such as the title, tags, and description, for the media asset. This operation returns the ID of the media asset. You can call the GetMediaInfo operation based on the ID to query the details of the media asset. You can set InputURL only to the URL of an Object Storage Service (OSS) file or an ApsaraVideo VOD media asset.
+   * 
+   * @remarks
+   * Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the GetMediaInfo operation at this time, you may fail to obtain the information about the media asset.
    * 
    * @param request - RegisterMediaInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57248,7 +61407,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册内容库资源
+   * Registers a media asset with Intelligent Media Services (IMS). IMS assigns an ID to the media asset. This operation asynchronously accesses the media asset service in which the media asset is stored to obtain the file information of the media asset based on the input URL. You can also specify basic information, such as the title, tags, and description, for the media asset. This operation returns the ID of the media asset. You can call the GetMediaInfo operation based on the ID to query the details of the media asset. You can set InputURL only to the URL of an Object Storage Service (OSS) file or an ApsaraVideo VOD media asset.
+   * 
+   * @remarks
+   * Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the GetMediaInfo operation at this time, you may fail to obtain the information about the media asset.
    * 
    * @param request - RegisterMediaInfoRequest
    * @returns RegisterMediaInfoResponse
@@ -57259,7 +61421,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册媒体流
+   * Registers a media stream.
+   * 
+   * @remarks
+   * You can call this operation to register a media stream file in an Object Storage Service (OSS) bucket with Intelligent Media Services (IMS) and associate the media stream with the specified media asset ID.
    * 
    * @param request - RegisterMediaStreamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57298,7 +61463,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册媒体流
+   * Registers a media stream.
+   * 
+   * @remarks
+   * You can call this operation to register a media stream file in an Object Storage Service (OSS) bucket with Intelligent Media Services (IMS) and associate the media stream with the specified media asset ID.
    * 
    * @param request - RegisterMediaStreamRequest
    * @returns RegisterMediaStreamResponse
@@ -57505,7 +61673,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 智能标签搜索
+   * Queries media assets based on character names, subtitles, or AI categories.
+   * 
+   * @remarks
+   * You can call this operation to query media assets or media asset clips based on character names, subtitles, or AI categories.
    * 
    * @param request - SearchMediaByAILabelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57514,6 +61685,10 @@ export default class Client extends OpenApi {
   async searchMediaByAILabelWithOptions(request: SearchMediaByAILabelRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaByAILabelResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.matchingMode)) {
+      query["MatchingMode"] = request.matchingMode;
+    }
+
     if (!Util.isUnset(request.mediaId)) {
       query["MediaId"] = request.mediaId;
     }
@@ -57568,7 +61743,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 智能标签搜索
+   * Queries media assets based on character names, subtitles, or AI categories.
+   * 
+   * @remarks
+   * You can call this operation to query media assets or media asset clips based on character names, subtitles, or AI categories.
    * 
    * @param request - SearchMediaByAILabelRequest
    * @returns SearchMediaByAILabelResponse
@@ -57579,7 +61757,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸搜粗搜接口，输入一张人脸图片，搜索该人物所在媒资的相关信息
+   * Queries the information about media assets that are related to a specific face.
+   * 
+   * @remarks
+   * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
    * 
    * @param request - SearchMediaByFaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57634,7 +61815,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸搜粗搜接口，输入一张人脸图片，搜索该人物所在媒资的相关信息
+   * Queries the information about media assets that are related to a specific face.
+   * 
+   * @remarks
+   * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
    * 
    * @param request - SearchMediaByFaceRequest
    * @returns SearchMediaByFaceResponse
@@ -57645,7 +61829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 混合搜索
+   * Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
    * 
    * @param request - SearchMediaByHybridRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57696,7 +61880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 混合搜索
+   * Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
    * 
    * @param request - SearchMediaByHybridRequest
    * @returns SearchMediaByHybridResponse
@@ -57707,7 +61891,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 多模态搜索
+   * Queries media assets by using the large visual model. You can use natural language for the query.
+   * 
+   * @remarks
+   * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
    * 
    * @param request - SearchMediaByMultimodalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57754,7 +61941,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 多模态搜索
+   * Queries media assets by using the large visual model. You can use natural language for the query.
+   * 
+   * @remarks
+   * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
    * 
    * @param request - SearchMediaByMultimodalRequest
    * @returns SearchMediaByMultimodalResponse
@@ -57765,7 +61955,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸搜精搜接口，基于粗搜结果返回该人物所在媒资的相关人物片段信息
+   * Queries the information about media asset clips that are related to a specific face based on the response to the SearchMediaByFace operation.
+   * 
+   * @remarks
+   * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
    * 
    * @param request - SearchMediaClipByFaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57816,7 +62009,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸搜精搜接口，基于粗搜结果返回该人物所在媒资的相关人物片段信息
+   * Queries the information about media asset clips that are related to a specific face based on the response to the SearchMediaByFace operation.
+   * 
+   * @remarks
+   * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
    * 
    * @param request - SearchMediaClipByFaceRequest
    * @returns SearchMediaClipByFaceResponse
@@ -59525,7 +63721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交媒资结构化分析任务
+   * Submits a structural analysis job for a media asset. For example, you can submit a job to analyze the speaker, translate the video, and obtain the paragraph summary.
    * 
    * @param request - SubmitMediaAiAnalysisJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59560,7 +63756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交媒资结构化分析任务
+   * Submits a structural analysis job for a media asset. For example, you can submit a job to analyze the speaker, translate the video, and obtain the paragraph summary.
    * 
    * @param request - SubmitMediaAiAnalysisJobRequest
    * @returns SubmitMediaAiAnalysisJobResponse
@@ -60343,7 +64539,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频翻译任务
+   * Submits a video translation job. You can call this operation to translate the subtitle that appears in a video into the specified language. In the future, this operation will support voice translation and lip synchronization for spoken content.
+   * 
+   * @remarks
+   * After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
    * 
    * @param request - SubmitVideoTranslationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60398,7 +64597,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频翻译任务
+   * Submits a video translation job. You can call this operation to translate the subtitle that appears in a video into the specified language. In the future, this operation will support voice translation and lip synchronization for spoken content.
+   * 
+   * @remarks
+   * After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
    * 
    * @param request - SubmitVideoTranslationJobRequest
    * @returns SubmitVideoTranslationJobResponse
@@ -60430,6 +64632,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.templateConfigShrink)) {
       query["TemplateConfig"] = request.templateConfigShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -60527,7 +64733,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新媒资分类
+   * Updates a category.
+   * 
+   * @remarks
+   * After you create a media asset category, you can call this operation to find the category based on the category ID and change the name of the category.
    * 
    * @param request - UpdateCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60562,7 +64771,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新媒资分类
+   * Updates a category.
+   * 
+   * @remarks
+   * After you create a media asset category, you can call this operation to find the category based on the category ID and change the name of the category.
    * 
    * @param request - UpdateCategoryRequest
    * @returns UpdateCategoryResponse
@@ -60669,7 +64881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改云剪辑工程
+   * Modifies an online editing project. You can call this operation to modify the configurations such as the title, timeline, and thumbnail of an online editing project.
    * 
    * @param request - UpdateEditingProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60730,7 +64942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改云剪辑工程
+   * Modifies an online editing project. You can call this operation to modify the configurations such as the title, timeline, and thumbnail of an online editing project.
    * 
    * @param request - UpdateEditingProjectRequest
    * @returns UpdateEditingProjectResponse
@@ -60983,7 +65195,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateMediaInfo
+   * Updates information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
+   * 
+   * @remarks
+   * If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified. The request ID and media asset ID are returned. You cannot modify the input URL of a media asset by specifying the ID of the media asset.
    * 
    * @param request - UpdateMediaInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61058,7 +65273,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateMediaInfo
+   * Updates information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
+   * 
+   * @remarks
+   * If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified. The request ID and media asset ID are returned. You cannot modify the input URL of a media asset by specifying the ID of the media asset.
    * 
    * @param request - UpdateMediaInfoRequest
    * @returns UpdateMediaInfoResponse
@@ -61069,7 +65287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为媒资修改标注信息
+   * Modifies the marks of a media asset.
    * 
    * @param request - UpdateMediaMarksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61104,7 +65322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为媒资修改标注信息
+   * Modifies the marks of a media asset.
    * 
    * @param request - UpdateMediaMarksRequest
    * @returns UpdateMediaMarksResponse
@@ -61115,7 +65333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新媒资到搜索
+   * Updates the media asset information in a search library.
    * 
    * @param request - UpdateMediaToSearchLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61154,7 +65372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新媒资到搜索
+   * Updates the media asset information in a search library.
    * 
    * @param request - UpdateMediaToSearchLibRequest
    * @returns UpdateMediaToSearchLibResponse
@@ -61343,7 +65561,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * URL拉取上传
+   * Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
+   * 
+   * @remarks
+   *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
+   * *   After a request is submitted, the upload job is queued as an asynchronous job in the cloud. You can query the status of the upload job based on information such as the URL and media asset ID that are returned in the event notification.
+   * *   You can call this operation to upload media files that are not stored on a local server or device and must be uploaded by using URLs that are accessible over the Internet.
+   * *   You can call this operation to upload media files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
+   * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+   * *   You can call this operation to upload only audio and video files.
    * 
    * @param request - UploadMediaByURLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61398,7 +65624,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * URL拉取上传
+   * Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
+   * 
+   * @remarks
+   *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
+   * *   After a request is submitted, the upload job is queued as an asynchronous job in the cloud. You can query the status of the upload job based on information such as the URL and media asset ID that are returned in the event notification.
+   * *   You can call this operation to upload media files that are not stored on a local server or device and must be uploaded by using URLs that are accessible over the Internet.
+   * *   You can call this operation to upload media files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
+   * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+   * *   You can call this operation to upload only audio and video files.
    * 
    * @param request - UploadMediaByURLRequest
    * @returns UploadMediaByURLResponse
@@ -61409,7 +65643,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * URL拉取上传媒体流
+   * Uploads a media stream file based on the URL of the source file.
+   * 
+   * @remarks
+   *   You can call this operation to pull a media stream file based on a URL and upload the file. After the media stream file is uploaded, the media stream is associated with the specified media asset ID.
+   * *   You can call this operation to upload media stream files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
+   * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
    * 
    * @param request - UploadStreamByURLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61460,7 +65699,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * URL拉取上传媒体流
+   * Uploads a media stream file based on the URL of the source file.
+   * 
+   * @remarks
+   *   You can call this operation to pull a media stream file based on a URL and upload the file. After the media stream file is uploaded, the media stream is associated with the specified media asset ID.
+   * *   You can call this operation to upload media stream files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
+   * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
    * 
    * @param request - UploadStreamByURLRequest
    * @returns UploadStreamByURLResponse
