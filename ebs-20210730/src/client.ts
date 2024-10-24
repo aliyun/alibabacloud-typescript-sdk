@@ -2334,7 +2334,7 @@ export class DescribeDedicatedBlockStorageClustersRequest extends $tea.Model {
 export class DescribeDedicatedBlockStorageClustersResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The queried dedicated block storage clusters.
+   * Details about the dedicated block storage clusters.
    */
   dedicatedBlockStorageClusters?: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters[];
   /**
@@ -2953,9 +2953,9 @@ export class DescribeDiskMonitorDataListResponse extends $tea.Model {
 export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
   /**
    * @remarks
-   * The IDs of replication pair-consistent groups. You can specify the IDs of one or more replication pair-consistent groups. Separate the IDs with commas (,).
+   * The IDs of the replication pair-consistent groups. You can specify the IDs of one or more replication pair-consistent groups. Separate the IDs with commas (,).
    * 
-   * This parameter is empty by default, which indicates that all replication pair-consistent groups in the specified region are queried.
+   * This parameter is empty by default, which indicates that all replication pair-consistent groups in the specified region are queried. You can specify up to the IDs of 100 replication pair-consistent groups.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -2963,7 +2963,9 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
   groupIds?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page. Valid values: 1 to 500.
+   * The maximum number of entries per page. You can use this parameter together with NextToken.
+   * 
+   * Valid values: 1 to 500.
    * 
    * Default value: 10.
    * 
@@ -2971,10 +2973,17 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the replication pair-consistent group. You can perform a fuzzy search.
+   * 
+   * @example
+   * pg-name***
+   */
   name?: string;
   /**
    * @remarks
-   * The query token. Set the value to the NextToken value returned in the previous call to the DescribeDiskReplicaGroups operation. Leave this parameter empty the first time you call this operation. When NextToken is specified, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -2990,9 +2999,7 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Valid values: 1 to 100.
+   * The number of entries to return on each page. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -3000,7 +3007,7 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the replication pair-consistent group.
+   * The ID of the region to which the replication pair-consistent group belongs.
    * 
    * This parameter is required.
    * 
@@ -3010,7 +3017,7 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the replication group belongs.
+   * The ID of the resource group to which the replication pair-consistent group belongs.
    * 
    * @example
    * rg-aekz*****
@@ -3020,9 +3027,9 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
    * @remarks
    * The type of the site from which the information of replication pair-consistent groups is retrieved. This parameter is used for scenarios where data is replicated across zones in replication pairs.
    * 
-   * *   If the Site parameter is not specified, information such as the state of replication pair-consistent groups at the primary site is queried and returned.
+   * *   If this parameter is not specified, information such as the status of replication pair-consistent groups at the primary site is queried and returned.
    * 
-   * *   Otherwise, information such as the state of replication pair-consistent groups at the site specified by the Site parameter is queried and returned. Valid values:
+   * *   Otherwise, information such as the state of replication pairs at the site specified by the Site parameter is queried and returned. Valid values:
    * 
    *     *   production: primary site
    *     *   backup: secondary site
@@ -3033,7 +3040,7 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
   site?: string;
   /**
    * @remarks
-   * The resource tags. You can specify up to 20 tags.
+   * The tags to add to the replication pair-consistent group. You can specify up to 20 tags.
    */
   tag?: DescribeDiskReplicaGroupsRequestTag[];
   static names(): { [key: string]: string } {
@@ -3074,7 +3081,7 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
 export class DescribeDiskReplicaGroupsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The query token returned in this call.
+   * A pagination token.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -3082,7 +3089,7 @@ export class DescribeDiskReplicaGroupsResponseBody extends $tea.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -3090,7 +3097,7 @@ export class DescribeDiskReplicaGroupsResponseBody extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -3098,12 +3105,12 @@ export class DescribeDiskReplicaGroupsResponseBody extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Details about the replication pair-consistent groups.
+   * The information about the replication pair-consistent groups.
    */
   replicaGroups?: DescribeDiskReplicaGroupsResponseBodyReplicaGroups[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
@@ -3293,6 +3300,13 @@ export class DescribeDiskReplicaPairsRequest extends $tea.Model {
    * 1
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the replication pair. Fuzzy search is supported.
+   * 
+   * @example
+   * name***
+   */
   name?: string;
   /**
    * @remarks
@@ -5483,6 +5497,245 @@ export class GetDiskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDiskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetReportRequest extends $tea.Model {
+  /**
+   * @example
+   * App1
+   */
+  appName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * report-74fbea80e802xxxx
+   */
+  reportId?: string;
+  /**
+   * @example
+   * history
+   */
+  reportType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      regionId: 'RegionId',
+      reportId: 'ReportId',
+      reportType: 'ReportType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      regionId: 'string',
+      reportId: 'string',
+      reportType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetReportResponseBody extends $tea.Model {
+  datas?: GetReportResponseBodyDatas[];
+  /**
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datas: 'Datas',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datas: { 'type': 'array', 'itemType': GetReportResponseBodyDatas },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetReportResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListReportsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * App1
+   */
+  appName?: string;
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * a6792e832ff0XXXXX
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListReportsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * historyReports
+   */
+  historyReports?: ListReportsResponseBodyHistoryReports[];
+  /**
+   * @example
+   * a6792e832ff0XXXX
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      historyReports: 'HistoryReports',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      historyReports: { 'type': 'array', 'itemType': ListReportsResponseBodyHistoryReports },
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListReportsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListReportsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListReportsResponseBody,
     };
   }
 
@@ -9250,7 +9503,7 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
   clusterDeliveryCapacity?: number;
   /**
    * @remarks
-   * The to-be-delivered capacity of the dedicated block storage cluster. Unit: GB.
+   * The capacity to be delivered for the dedicated block storage cluster. Unit: GiB.
    * 
    * @example
    * 0
@@ -9282,7 +9535,7 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
   totalSpaceCapacity?: number;
   /**
    * @remarks
-   * The used capacity of the dedicated block storage cluster. Unit: GB.
+   * The used capacity of the dedicated block storage cluster. Unit: GiB.
    * 
    * @example
    * 1440
@@ -9382,7 +9635,7 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
 export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters extends $tea.Model {
   /**
    * @remarks
-   * The unique ID (UID) of the Alibaba Cloud account.
+   * The user ID.
    * 
    * @example
    * 12345601234560***
@@ -9406,7 +9659,7 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
   createTime?: string;
   /**
    * @remarks
-   * The storage capacity of the dedicated block storage cluster.
+   * Details about the storage capacity of the dedicated block storage cluster.
    */
   dedicatedBlockStorageClusterCapacity?: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity;
   /**
@@ -9435,7 +9688,7 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
   description?: string;
   /**
    * @remarks
-   * The dedicated block storage cluster enable thin provison.
+   * Indicates whether Thin Provision is enabled.
    * 
    * @example
    * true
@@ -9458,7 +9711,7 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
    * *   PL2
    * *   PL3
    * 
-   * >  This parameter takes effect only if Category is set to cloud_essd.
+   * >  This parameter is valid only when the SupportedCategory value is cloud_essd.
    * 
    * @example
    * PL0
@@ -9474,7 +9727,7 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the dedicated block storage cluster belongs.
+   * The ID of the resource group to which the dedicated block storage cluster belongs. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to obtain the ID of the resource group.
    * 
    * @example
    * rg-aekzsoux****
@@ -9482,7 +9735,7 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
   resourceGroupId?: string;
   /**
    * @remarks
-   * Oversold ratio of cluster space capacity for creating disk.
+   * The capacity oversold ratio.
    * 
    * @example
    * 1.2
@@ -9503,7 +9756,7 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
   status?: string;
   /**
    * @remarks
-   * StorageDomain.
+   * StorageDomain
    * 
    * @example
    * StorageDomain
@@ -9882,7 +10135,7 @@ export class DescribeDiskMonitorDataListResponseBodyMonitorData extends $tea.Mod
 export class DescribeDiskReplicaGroupsRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The key of tag N of the replication group.
+   * The key of tag N of the replication pair-consistent group.
    * 
    * @example
    * tag-key
@@ -9890,7 +10143,7 @@ export class DescribeDiskReplicaGroupsRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the replication group.
+   * The value of tag N of the replication pair-consistent group.
    * 
    * @example
    * tag-value
@@ -9918,7 +10171,7 @@ export class DescribeDiskReplicaGroupsRequestTag extends $tea.Model {
 export class DescribeDiskReplicaGroupsResponseBodyReplicaGroupsTags extends $tea.Model {
   /**
    * @remarks
-   * The tag key of the replication group.
+   * The tag key of the replication pair-consistent group.
    * 
    * @example
    * testKey
@@ -9926,7 +10179,7 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroupsTags extends $tea
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the replication group.
+   * The tag value of the replication pair-consistent group.
    * 
    * @example
    * testValue
@@ -9954,7 +10207,7 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroupsTags extends $tea
 export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Model {
   /**
    * @remarks
-   * The bandwidth value. Unit: Mbit/s. This parameter is unavailable and has a system-preset value.
+   * The bandwidth value. Unit: Kbit/s. This parameter is not publicly available and has a system-preset value.
    * 
    * @example
    * 0
@@ -10002,12 +10255,12 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
   lastRecoverPoint?: number;
   /**
    * @remarks
-   * The IDs of the replications pairs that belong to the replication pair-consistent group.
+   * The IDs of replication pairs that belong to the replication pair-consistent group.
    */
   pairIds?: Buffer[];
   /**
    * @remarks
-   * The number of replications pairs that belong to the replication pair-consistent group.
+   * The number of replication pairs that belong to the replication pair-consistent group.
    * 
    * @example
    * 2
@@ -10039,7 +10292,7 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
   RPO?: number;
   /**
    * @remarks
-   * The ID of the replication pair-consistent group.
+   * The IDs of the replication pair-consistent groups.
    * 
    * @example
    * pg-myreplica****
@@ -10047,7 +10300,7 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
   replicaGroupId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the replication group belongs.
+   * The ID of the resource group to which the replication pair-consistent group belongs.
    * 
    * @example
    * rg-aek2a*******
@@ -10055,7 +10308,7 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
   resourceGroupId?: string;
   /**
    * @remarks
-   * The type of the site from which the information of the replication pair and replication pair-consistent group is obtained. Valid values:
+   * The type of the site from which the information about the replication pairs and replication pair-consistent group was obtained. Valid values:
    * 
    * *   production: primary site
    * *   backup: secondary site
@@ -10098,26 +10351,26 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
   standbyZone?: string;
   /**
    * @remarks
-   * The state of the replication pair-consistent group. Valid values:
+   * The status of the replication pair-consistent group. Valid values:
    * 
    * *   invalid: The replication pair-consistent group is invalid, which indicates that abnormal replication pairs are present in the replication pair-consistent group.
    * *   creating: The replication pair-consistent group is being created.
-   * *   created: The replication pair-consistent group is created.
-   * *   create_failed: The replication pair-consistent group cannot be created.
-   * *   manual_syncing: Data is being manually synchronized between the disks in the replication pair-consistent group. The first time data is being manually synchronized between the disks in a replication pair-consistent group, the replication pair-consistent group is in this state.
-   * *   syncing: Data is being synchronized between the disks in the replication pair-consistent group. While data is being asynchronously replicated from the primary disks to the secondary disks not for the first time, the replication pair-consistent group is in this state.
-   * *   normal: The replication pair-consistent group is working as expected. When the system finishes replicating data from the primary disks to the secondary disks within the current replication cycle, the replication pair-consistent group enters this state.
-   * *   stopping: The replication pair-consistent group is being stopped.
-   * *   stopped: The replication pair-consistent group is stopped.
-   * *   stop_failed: The replication pair-consistent group cannot be stopped.
-   * *   failovering: A failover is being performed.
-   * *   failovered: A failover is performed.
-   * *   failover_failed: A failover cannot be performed.
-   * *   reprotecting: A reverse replication is being performed.
-   * *   reprotect_failed: A reverse replication cannot be performed.
-   * *   deleting: The replication pair-consistent group is being deleted.
-   * *   delete_failed: The replication pair-consistent group cannot be deleted.
-   * *   deleted: The replication pair-consistent group is deleted.
+   * *   created: The replication pair-consistent group was created.
+   * *   create_failed: The replication pair-consistent group failed to be created.
+   * *   manual_syncing: Data was being manually synchronized between the disks in the replication pair-consistent group. When data was being manually synchronized for the first time, the replication pair is in this state.
+   * *   syncing: Data was being synchronized between the disks. When data is being asynchronously replicated from the primary disk to the secondary disk again in subsequent operations, the replication pair is in this state.
+   * *   normal: The replication pair was working as expected. When the system finishes replicating data from the primary disk to the secondary disk within the current replication cycle, the replication pair enters this state.
+   * *   stopping: The replication pair was being stopped.
+   * *   stopped: The replication pair was stopped.
+   * *   stop_failed: The replication pair failed to be stopped.
+   * *   failovering: A failover was being performed.
+   * *   failovered: A failover was performed.
+   * *   failover_failed: A failover failed to be performed.
+   * *   reprotecting: A reverse replication was being performed.
+   * *   reprotect_failed: A reverse replication failed to be performed.
+   * *   deleting: The replication pair was being deleted.
+   * *   delete_failed: The replication pair failed to be deleted.
+   * *   deleted: The replication pair was deleted.
    * 
    * @example
    * created
@@ -10125,7 +10378,7 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
   status?: string;
   /**
    * @remarks
-   * The tags of the replication pair.
+   * The tags of the replication pair-consistent group.
    */
   tags?: DescribeDiskReplicaGroupsResponseBodyReplicaGroupsTags[];
   static names(): { [key: string]: string } {
@@ -12841,6 +13094,124 @@ export class GetDiskResponseBodyDisk extends $tea.Model {
   }
 }
 
+export class GetReportResponseBodyDatasData extends $tea.Model {
+  /**
+   * @example
+   * {
+   *   "1726416000": 0.44,
+   *   "1726502400": 0.44,
+   *   "1726588800": 0.44,
+   *   "1726675200": 0.44,
+   *   "1726761600": 0.43,
+   *   "1726848000": 0.43,
+   *   "1726934400": 0.43,
+   *   "1727020800": 0.43
+   * }
+   */
+  dataPoints?: { [key: string]: any };
+  /**
+   * @example
+   * {
+   *   "category": "cloud"
+   * }
+   */
+  labels?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      dataPoints: 'DataPoints',
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataPoints: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetReportResponseBodyDatas extends $tea.Model {
+  data?: GetReportResponseBodyDatasData[];
+  /**
+   * @example
+   * disk_count_percent_by_category
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GetReportResponseBodyDatasData },
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListReportsResponseBodyHistoryReports extends $tea.Model {
+  /**
+   * @example
+   * default
+   */
+  appName?: string;
+  /**
+   * @example
+   * report-e19c7b597f5fXX
+   */
+  reportId?: string;
+  /**
+   * @example
+   * default-2024-09-30~2024-10-07-Usage Report
+   */
+  reportName?: string;
+  /**
+   * @example
+   * 2024-10-07T02:09:17Z
+   */
+  reportTime?: string;
+  /**
+   * @example
+   * Weekly
+   */
+  subscribePeriod?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      reportId: 'ReportId',
+      reportName: 'ReportName',
+      reportTime: 'ReportTime',
+      subscribePeriod: 'SubscribePeriod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      reportId: 'string',
+      reportName: 'string',
+      reportTime: 'string',
+      subscribePeriod: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   /**
    * @remarks
@@ -14756,11 +15127,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more replication pair-consistent groups in a specific region.
+   * Queries the details of replication pair-consistent groups in a specific region.
    * 
    * @remarks
-   * To perform a paged query, set the MaxResults and NextToken parameters.
-   * During a paged query, when you call the DescribeDiskReplicaGroups operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaGroups operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+   * ## [](#)Usage notes
+   * To perform a paged query, specify the MaxResults and NextToken parameters.
+   * During a paged query, when you call the DescribeDiskReplicaGroups operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaGroups operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
    * 
    * @param request - DescribeDiskReplicaGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14827,11 +15199,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more replication pair-consistent groups in a specific region.
+   * Queries the details of replication pair-consistent groups in a specific region.
    * 
    * @remarks
-   * To perform a paged query, set the MaxResults and NextToken parameters.
-   * During a paged query, when you call the DescribeDiskReplicaGroups operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaGroups operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+   * ## [](#)Usage notes
+   * To perform a paged query, specify the MaxResults and NextToken parameters.
+   * During a paged query, when you call the DescribeDiskReplicaGroups operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaGroups operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
    * 
    * @param request - DescribeDiskReplicaGroupsRequest
    * @returns DescribeDiskReplicaGroupsResponse
@@ -14888,7 +15261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about replication pairs in a region.
+   * Queries information about replication pairs in a specific region.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -14965,7 +15338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about replication pairs in a region.
+   * Queries information about replication pairs in a specific region.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -15781,6 +16154,126 @@ export default class Client extends OpenApi {
   async getDisk(request: GetDiskRequest): Promise<GetDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDiskWithOptions(request, runtime);
+  }
+
+  /**
+   * 中心化角色：使用reportId获取用户使用报告
+   * 
+   * @param request - GetReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetReportResponse
+   */
+  async getReportWithOptions(request: GetReportRequest, runtime: $Util.RuntimeOptions): Promise<GetReportResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.reportType)) {
+      query["ReportType"] = request.reportType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.reportId)) {
+      body["ReportId"] = request.reportId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetReport",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetReportResponse>(await this.callApi(params, req, runtime), new GetReportResponse({}));
+  }
+
+  /**
+   * 中心化角色：使用reportId获取用户使用报告
+   * 
+   * @param request - GetReportRequest
+   * @returns GetReportResponse
+   */
+  async getReport(request: GetReportRequest): Promise<GetReportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getReportWithOptions(request, runtime);
+  }
+
+  /**
+   * 中心化角色：查询历史报告
+   * 
+   * @param request - ListReportsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListReportsResponse
+   */
+  async listReportsWithOptions(request: ListReportsRequest, runtime: $Util.RuntimeOptions): Promise<ListReportsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListReports",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListReportsResponse>(await this.callApi(params, req, runtime), new ListReportsResponse({}));
+  }
+
+  /**
+   * 中心化角色：查询历史报告
+   * 
+   * @param request - ListReportsRequest
+   * @returns ListReportsResponse
+   */
+  async listReports(request: ListReportsRequest): Promise<ListReportsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listReportsWithOptions(request, runtime);
   }
 
   /**
