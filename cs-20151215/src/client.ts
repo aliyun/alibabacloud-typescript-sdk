@@ -1105,6 +1105,13 @@ export class CancelComponentUpgradeResponse extends $tea.Model {
 }
 
 export class CancelOperationPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * db82195b-75a8-40e5-9be4-16f1829dc624
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4328,6 +4335,9 @@ export class DeleteClusterNodepoolResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * task IDs
+   * 
    * @example
    * T-655ace947e0e6603af000004
    */
@@ -23091,6 +23101,26 @@ export class DescribePolicyInstancesResponseBody extends $tea.Model {
    * deny
    */
   policyAction?: string;
+  /**
+   * @deprecated
+   */
+  created?: string;
+  /**
+   * @deprecated
+   */
+  updated?: string;
+  /**
+   * @deprecated
+   */
+  resourceId?: string;
+  /**
+   * @deprecated
+   */
+  totalViolations?: number;
+  /**
+   * @deprecated
+   */
+  isDeleted?: number;
   static names(): { [key: string]: string } {
     return {
       aliUid: 'ali_uid',
@@ -23103,6 +23133,11 @@ export class DescribePolicyInstancesResponseBody extends $tea.Model {
       policySeverity: 'policy_severity',
       policyScope: 'policy_scope',
       policyAction: 'policy_action',
+      created: 'Created',
+      updated: 'Updated',
+      resourceId: 'resource_id',
+      totalViolations: 'total_violations',
+      isDeleted: 'is_deleted',
     };
   }
 
@@ -23118,6 +23153,11 @@ export class DescribePolicyInstancesResponseBody extends $tea.Model {
       policySeverity: 'string',
       policyScope: 'string',
       policyAction: 'string',
+      created: 'string',
+      updated: 'string',
+      resourceId: 'string',
+      totalViolations: 'number',
+      isDeleted: 'number',
     };
   }
 
@@ -27290,7 +27330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\&M plan.
+   * You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\\\\\\\&M plan.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27315,7 +27355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\&M plan.
+   * You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\\\\\\\&M plan.
    * @returns CancelOperationPlanResponse
    */
   async cancelOperationPlan(planId: string): Promise<CancelOperationPlanResponse> {
@@ -28637,7 +28677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the DeleteClusterNodepool operation to delete a node pool by node pool ID.
+   * null
    * 
    * @param request - DeleteClusterNodepoolRequest
    * @param headers - map
@@ -28670,7 +28710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the DeleteClusterNodepool operation to delete a node pool by node pool ID.
+   * null
    * 
    * @param request - DeleteClusterNodepoolRequest
    * @returns DeleteClusterNodepoolResponse
