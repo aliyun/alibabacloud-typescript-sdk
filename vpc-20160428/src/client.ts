@@ -6546,9 +6546,7 @@ export class CreateCommonBandwidthPackageRequest extends $tea.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > 
-   * 
-   * If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -6558,7 +6556,7 @@ export class CreateCommonBandwidthPackageRequest extends $tea.Model {
    * @remarks
    * The description of the Internet Shared Bandwidth instance.
    * 
-   * The description must be 2 to 256 characters in length and start with a letter. The description cannot start with `http://` or `https://`.
+   * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * abc
@@ -6568,7 +6566,7 @@ export class CreateCommonBandwidthPackageRequest extends $tea.Model {
    * @remarks
    * The line type. Valid values:
    * 
-   * *   **BGP** All regions support BGP (Multi-ISP).
+   * *   **BGP** (default) All regions support BGP (Multi-ISP).
    * *   **BGP_PRO** BGP (Multi-ISP) Pro lines are available in the China (Hong Kong), Singapore, Japan (Tokyo), Philippines (Manila), Malaysia (Kuala Lumpur), Indonesia (Jakarta), and Thailand (Bangkok) regions.
    * 
    * If you are allowed to use single-ISP bandwidth, you can also use one of the following values:
@@ -6595,7 +6593,7 @@ export class CreateCommonBandwidthPackageRequest extends $tea.Model {
    * @remarks
    * The name of the Internet Shared Bandwidth instance.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * test123
@@ -6607,9 +6605,7 @@ export class CreateCommonBandwidthPackageRequest extends $tea.Model {
    * @remarks
    * The percentage of the minimum bandwidth commitment. Set the parameter to **20**.
    * 
-   * > 
-   * 
-   * This parameter is available only on the Alibaba Cloud China site.
+   * > This parameter is available only on the Alibaba Cloud China site.
    * 
    * @example
    * 20
@@ -8672,6 +8668,7 @@ export class CreateFlowLogRequest extends $tea.Model {
    * myFlowlog
    */
   flowLogName?: string;
+  ipVersion?: string;
   /**
    * @remarks
    * The name of the Logstore that stores the captured traffic data.
@@ -8778,6 +8775,7 @@ export class CreateFlowLogRequest extends $tea.Model {
       aggregationInterval: 'AggregationInterval',
       description: 'Description',
       flowLogName: 'FlowLogName',
+      ipVersion: 'IpVersion',
       logStoreName: 'LogStoreName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -8799,6 +8797,7 @@ export class CreateFlowLogRequest extends $tea.Model {
       aggregationInterval: 'number',
       description: 'string',
       flowLogName: 'string',
+      ipVersion: 'string',
       logStoreName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -11320,6 +11319,7 @@ export class CreateIpv6GatewayResponse extends $tea.Model {
 }
 
 export class CreateNatGatewayRequest extends $tea.Model {
+  accessMode?: CreateNatGatewayRequestAccessMode;
   /**
    * @remarks
    * Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
@@ -11446,6 +11446,7 @@ export class CreateNatGatewayRequest extends $tea.Model {
    * Invalid parameter.
    */
   pricingCycle?: string;
+  privateLinkEnabled?: boolean;
   /**
    * @remarks
    * The region ID of the NAT gateway.
@@ -11512,6 +11513,7 @@ export class CreateNatGatewayRequest extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessMode: 'AccessMode',
       autoPay: 'AutoPay',
       clientToken: 'ClientToken',
       description: 'Description',
@@ -11526,6 +11528,7 @@ export class CreateNatGatewayRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pricingCycle: 'PricingCycle',
+      privateLinkEnabled: 'PrivateLinkEnabled',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -11539,6 +11542,7 @@ export class CreateNatGatewayRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessMode: CreateNatGatewayRequestAccessMode,
       autoPay: 'boolean',
       clientToken: 'string',
       description: 'string',
@@ -11553,12 +11557,269 @@ export class CreateNatGatewayRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       pricingCycle: 'string',
+      privateLinkEnabled: 'boolean',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityProtectionEnabled: 'boolean',
       spec: 'string',
       tag: { 'type': 'array', 'itemType': CreateNatGatewayRequestTag },
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNatGatewayShrinkRequest extends $tea.Model {
+  accessModeShrink?: string;
+  /**
+   * @remarks
+   * Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
+   * 
+   * @example
+   * Invalid parameter.
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the NAT gateway.
+   * 
+   * You can leave this parameter empty or enter a description. If you enter a description, the description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
+   * @example
+   * testnat
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
+   * 
+   * @example
+   * Invalid parameter.
+   */
+  duration?: string;
+  /**
+   * @remarks
+   * The mode in which the EIP is associated with the NAT gateway. Valid values:
+   * 
+   * *   **MULTI_BINDED** (default): Multi-EIP-to-ENI mode.
+   * 
+   * *   **NAT**: NAT mode. IPv4 gateways are supported in this mode.
+   * 
+   *     **
+   * 
+   *     **Note** If a NAT gateway is associated with an EIP in NAT mode, the EIP occupies one private IP address in the vSwitch. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, the NAT gateway fails to be associated with the EIP. In NAT mode, a maximum number of 50 EIPs can be associated with each NAT gateway.
+   * 
+   * @example
+   * MULTI_BINDED
+   */
+  eipBindMode?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable ICMP retrieval. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
+  icmpReplyEnabled?: boolean;
+  /**
+   * @remarks
+   * The billing method of the NAT gateway.
+   * 
+   * Set the value to **PostPaid** (pay-as-you-go), which is the default value.
+   * 
+   * For more information, see [Internet NAT gateway billing](https://help.aliyun.com/document_detail/48126.html) and [VPC NAT gateway billing](https://help.aliyun.com/document_detail/270913.html).
+   * 
+   * @example
+   * PostPaid
+   */
+  instanceChargeType?: string;
+  /**
+   * @remarks
+   * The metering method of the NAT gateway. Set the value to **PayByLcu**, which specifies the pay-by-CU metering method.
+   * 
+   * @example
+   * PayByLcu
+   */
+  internetChargeType?: string;
+  /**
+   * @remarks
+   * The name of the NAT gateway.
+   * 
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * If this parameter is not set, the system assigns a default name to the NAT gateway.
+   * 
+   * @example
+   * fortest
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The type of NAT gateway. Set the value to **Enhanced**, which specifies enhanced NAT gateway.
+   * 
+   * @example
+   * Enhanced
+   */
+  natType?: string;
+  /**
+   * @remarks
+   * The network type of the NAT gateway. Valid values:
+   * 
+   * *   **internet**: Internet
+   * *   **intranet**: VPC
+   * 
+   * @example
+   * internet
+   */
+  networkType?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
+   * 
+   * @example
+   * Invalid parameter.
+   */
+  pricingCycle?: string;
+  privateLinkEnabled?: boolean;
+  /**
+   * @remarks
+   * The region ID of the NAT gateway.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the firewall feature. Valid values:
+   * 
+   * *   **false** (default)>Notice: This parameter is deprecated.
+   * 
+   * @example
+   * false
+   * 
+   * @deprecated
+   */
+  securityProtectionEnabled?: boolean;
+  /**
+   * @remarks
+   * Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
+   * 
+   * @example
+   * Invalid parameter.
+   */
+  spec?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
+  tag?: CreateNatGatewayShrinkRequestTag[];
+  /**
+   * @remarks
+   * The ID of the vSwitch to which the NAT gateway is attached.
+   * 
+   * When you create a NAT gateway, you must specify a vSwitch for the NAT gateway. Then, the system assigns an idle private IP address from the vSwitch to the NAT gateway.
+   * 
+   * *   To attach the NAT gateway to an existing vSwitch, make sure that the zone to which the vSwitch belongs supports NAT gateways. In addition, the vSwitch must have idle IP addresses.
+   * *   If no vSwitch exists in the VPC, create a vSwitch in a zone that supports NAT gateways. Then, specify the vSwitch for the NAT gateway.
+   * 
+   * >  You can call the [ListEnhanhcedNatGatewayAvailableZones](https://help.aliyun.com/document_detail/182292.html) operation to query zones that support NAT gateways. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query idle IP addresses in a vSwitch.
+   * 
+   * @example
+   * vsw-bp1e3se98n9fq8hle****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC where you want to create the NAT gateway.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp1di7uewzmtvfuq8****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessModeShrink: 'AccessMode',
+      autoPay: 'AutoPay',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      duration: 'Duration',
+      eipBindMode: 'EipBindMode',
+      icmpReplyEnabled: 'IcmpReplyEnabled',
+      instanceChargeType: 'InstanceChargeType',
+      internetChargeType: 'InternetChargeType',
+      name: 'Name',
+      natType: 'NatType',
+      networkType: 'NetworkType',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pricingCycle: 'PricingCycle',
+      privateLinkEnabled: 'PrivateLinkEnabled',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityProtectionEnabled: 'SecurityProtectionEnabled',
+      spec: 'Spec',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessModeShrink: 'string',
+      autoPay: 'boolean',
+      clientToken: 'string',
+      description: 'string',
+      duration: 'string',
+      eipBindMode: 'string',
+      icmpReplyEnabled: 'boolean',
+      instanceChargeType: 'string',
+      internetChargeType: 'string',
+      name: 'string',
+      natType: 'string',
+      networkType: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pricingCycle: 'string',
+      privateLinkEnabled: 'boolean',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityProtectionEnabled: 'boolean',
+      spec: 'string',
+      tag: { 'type': 'array', 'itemType': CreateNatGatewayShrinkRequestTag },
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -44609,6 +44870,7 @@ export class GetNatGatewayAttributeRequest extends $tea.Model {
 }
 
 export class GetNatGatewayAttributeResponseBody extends $tea.Model {
+  accessMode?: GetNatGatewayAttributeResponseBodyAccessMode;
   /**
    * @remarks
    * The billing information.
@@ -44797,6 +45059,7 @@ export class GetNatGatewayAttributeResponseBody extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessMode: 'AccessMode',
       billingConfig: 'BillingConfig',
       businessStatus: 'BusinessStatus',
       creationTime: 'CreationTime',
@@ -44827,6 +45090,7 @@ export class GetNatGatewayAttributeResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessMode: GetNatGatewayAttributeResponseBodyAccessMode,
       billingConfig: GetNatGatewayAttributeResponseBodyBillingConfig,
       businessStatus: 'string',
       creationTime: 'string',
@@ -52346,7 +52610,7 @@ export class ModifyExpressCloudConnectionAttributeRequest extends $tea.Model {
    * The peer IP address when the SAG device is connected to the cloud.
    * 
    * @example
-   * 172.16.\*\*.**
+   * ``172.16.**.**``
    */
   ceIp?: string;
   /**
@@ -52382,7 +52646,7 @@ export class ModifyExpressCloudConnectionAttributeRequest extends $tea.Model {
    * The on-premises IP address when the SAG device is connected to the cloud.
    * 
    * @example
-   * 10.10.\*\*.**
+   * ``10.10.**.**``
    */
   peIp?: string;
   /**
@@ -53259,6 +53523,7 @@ export class ModifyFlowLogAttributeRequest extends $tea.Model {
    * myFlowlog
    */
   flowLogName?: string;
+  ipVersion?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -53281,6 +53546,7 @@ export class ModifyFlowLogAttributeRequest extends $tea.Model {
       description: 'Description',
       flowLogId: 'FlowLogId',
       flowLogName: 'FlowLogName',
+      ipVersion: 'IpVersion',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -53295,6 +53561,7 @@ export class ModifyFlowLogAttributeRequest extends $tea.Model {
       description: 'string',
       flowLogId: 'string',
       flowLogName: 'string',
+      ipVersion: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -56518,6 +56785,13 @@ export class ModifyRouteEntryRequest extends $tea.Model {
    * EntryDescription
    */
   description?: string;
+  /**
+   * @remarks
+   * The destination CIDR block of the route entry. Only IPv4 CIDR blocks, IPv6 CIDR blocks, and prefix lists are supported.
+   * 
+   * @example
+   * 192.168.0.0/24
+   */
   destinationCidrBlock?: string;
   /**
    * @remarks
@@ -56569,6 +56843,13 @@ export class ModifyRouteEntryRequest extends $tea.Model {
    * EntryName
    */
   routeEntryName?: string;
+  /**
+   * @remarks
+   * The ID of the route table to which the route entry belongs.
+   * 
+   * @example
+   * vtb-bp1nk7zk65du3pni8z9td
+   */
   routeTableId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70360,7 +70641,65 @@ export class CreateIpv6GatewayRequestTag extends $tea.Model {
   }
 }
 
+export class CreateNatGatewayRequestAccessMode extends $tea.Model {
+  modeValue?: string;
+  tunnelType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modeValue: 'ModeValue',
+      tunnelType: 'TunnelType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modeValue: 'string',
+      tunnelType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateNatGatewayRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The format of Tag.N.Key when you call the operation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value. The format of Tag.N.Value when you call the operation. Valid values of N: 1 to 20. The tag value cannot be an empty string. The tag value can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNatGatewayShrinkRequestTag extends $tea.Model {
   /**
    * @remarks
    * The tag key. The format of Tag.N.Key when you call the operation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
@@ -76605,6 +76944,7 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $tea.Model {
    * myFlowlog
    */
   flowLogName?: string;
+  ipVersion?: string;
   /**
    * @remarks
    * The Logstore that stores the captured traffic data.
@@ -76719,6 +77059,7 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $tea.Model {
       flowLogDeliverStatus: 'FlowLogDeliverStatus',
       flowLogId: 'FlowLogId',
       flowLogName: 'FlowLogName',
+      ipVersion: 'IpVersion',
       logStoreName: 'LogStoreName',
       projectName: 'ProjectName',
       regionId: 'RegionId',
@@ -76743,6 +77084,7 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $tea.Model {
       flowLogDeliverStatus: 'string',
       flowLogId: 'string',
       flowLogName: 'string',
+      ipVersion: 'string',
       logStoreName: 'string',
       projectName: 'string',
       regionId: 'string',
@@ -79145,7 +79487,7 @@ export class DescribeNatGatewayAssociateNetworkInterfacesRequestTag extends $tea
 export class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4SetsIPv4Set extends $tea.Model {
   /**
    * @example
-   * 172.17.\*\*.**
+   * ``172.17.**.**``
    */
   IPv4Address?: string;
   /**
@@ -79213,6 +79555,7 @@ export class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNe
    * PrivateLink
    */
   resourceType?: string;
+  tunnelIndex?: string;
   static names(): { [key: string]: string } {
     return {
       IPv4Sets: 'IPv4Sets',
@@ -79220,6 +79563,7 @@ export class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNe
       resourceId: 'ResourceId',
       resourceOwnerId: 'ResourceOwnerId',
       resourceType: 'ResourceType',
+      tunnelIndex: 'TunnelIndex',
     };
   }
 
@@ -79230,6 +79574,7 @@ export class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNe
       resourceId: 'string',
       resourceOwnerId: 'string',
       resourceType: 'string',
+      tunnelIndex: 'string',
     };
   }
 
@@ -79289,6 +79634,28 @@ export class DescribeNatGatewaysRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode extends $tea.Model {
+  modeValue?: string;
+  tunnelType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modeValue: 'ModeValue',
+      tunnelType: 'TunnelType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modeValue: 'string',
+      tunnelType: 'string',
     };
   }
 
@@ -79602,6 +79969,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayTags extends $t
 }
 
 export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $tea.Model {
+  accessMode?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode;
   /**
    * @remarks
    * Indicates whether automatic payment is enabled. Valid values:
@@ -79864,6 +80232,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $tea.M
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessMode: 'AccessMode',
       autoPay: 'AutoPay',
       businessStatus: 'BusinessStatus',
       creationTime: 'CreationTime',
@@ -79899,6 +80268,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
+      accessMode: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode,
       autoPay: 'boolean',
       businessStatus: 'string',
       creationTime: 'string',
@@ -91695,6 +92065,28 @@ export class GetIpv4GatewayAttributeResponseBodyTags extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNatGatewayAttributeResponseBodyAccessMode extends $tea.Model {
+  modeValue?: string;
+  tunnelType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modeValue: 'ModeValue',
+      tunnelType: 'TunnelType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modeValue: 'string',
+      tunnelType: 'string',
     };
   }
 
@@ -103910,6 +104302,10 @@ export default class Client extends OpenApi {
       query["FlowLogName"] = request.flowLogName;
     }
 
+    if (!Util.isUnset(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
     if (!Util.isUnset(request.logStoreName)) {
       query["LogStoreName"] = request.logStoreName;
     }
@@ -105211,13 +105607,23 @@ export default class Client extends OpenApi {
    * It takes 1 to 3 minutes to create a NAT gateway.
    * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
    * 
-   * @param request - CreateNatGatewayRequest
+   * @param tmpReq - CreateNatGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateNatGatewayResponse
    */
-  async createNatGatewayWithOptions(request: CreateNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatGatewayResponse> {
-    Util.validateModel(request);
+  async createNatGatewayWithOptions(tmpReq: CreateNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatGatewayResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateNatGatewayShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.accessMode)) {
+      request.accessModeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accessMode, "AccessMode", "json");
+    }
+
     let query = { };
+    if (!Util.isUnset(request.accessModeShrink)) {
+      query["AccessMode"] = request.accessModeShrink;
+    }
+
     if (!Util.isUnset(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
     }
@@ -105272,6 +105678,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pricingCycle)) {
       query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.privateLinkEnabled)) {
+      query["PrivateLinkEnabled"] = request.privateLinkEnabled;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -119655,10 +120065,13 @@ export default class Client extends OpenApi {
   /**
    * Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
    * 
+   * @deprecated OpenAPI DisableNatGatewayEcsMetric is deprecated
+   * 
    * @param request - DisableNatGatewayEcsMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableNatGatewayEcsMetricResponse
    */
+  // Deprecated
   async disableNatGatewayEcsMetricWithOptions(request: DisableNatGatewayEcsMetricRequest, runtime: $Util.RuntimeOptions): Promise<DisableNatGatewayEcsMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -119698,9 +120111,12 @@ export default class Client extends OpenApi {
   /**
    * Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
    * 
+   * @deprecated OpenAPI DisableNatGatewayEcsMetric is deprecated
+   * 
    * @param request - DisableNatGatewayEcsMetricRequest
    * @returns DisableNatGatewayEcsMetricResponse
    */
+  // Deprecated
   async disableNatGatewayEcsMetric(request: DisableNatGatewayEcsMetricRequest): Promise<DisableNatGatewayEcsMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableNatGatewayEcsMetricWithOptions(request, runtime);
@@ -120067,10 +120483,13 @@ export default class Client extends OpenApi {
   /**
    * Enables Elastic Compute Service (ECS) traffic monitoring.
    * 
+   * @deprecated OpenAPI EnableNatGatewayEcsMetric is deprecated
+   * 
    * @param request - EnableNatGatewayEcsMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableNatGatewayEcsMetricResponse
    */
+  // Deprecated
   async enableNatGatewayEcsMetricWithOptions(request: EnableNatGatewayEcsMetricRequest, runtime: $Util.RuntimeOptions): Promise<EnableNatGatewayEcsMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -120110,9 +120529,12 @@ export default class Client extends OpenApi {
   /**
    * Enables Elastic Compute Service (ECS) traffic monitoring.
    * 
+   * @deprecated OpenAPI EnableNatGatewayEcsMetric is deprecated
+   * 
    * @param request - EnableNatGatewayEcsMetricRequest
    * @returns EnableNatGatewayEcsMetricResponse
    */
+  // Deprecated
   async enableNatGatewayEcsMetric(request: EnableNatGatewayEcsMetricRequest): Promise<EnableNatGatewayEcsMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableNatGatewayEcsMetricWithOptions(request, runtime);
@@ -124386,6 +124808,10 @@ export default class Client extends OpenApi {
       query["FlowLogName"] = request.flowLogName;
     }
 
+    if (!Util.isUnset(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -126121,7 +126547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改路由条目属性
+   * Modifies the name and description of a custom route entry.
    * 
    * @remarks
    * You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
@@ -126199,7 +126625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改路由条目属性
+   * Modifies the name and description of a custom route entry.
    * 
    * @remarks
    * You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
@@ -131777,10 +132203,13 @@ export default class Client extends OpenApi {
    * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
    * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
    * 
+   * @deprecated OpenAPI UpdateNatGatewayNatType is deprecated
+   * 
    * @param request - UpdateNatGatewayNatTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateNatGatewayNatTypeResponse
    */
+  // Deprecated
   async updateNatGatewayNatTypeWithOptions(request: UpdateNatGatewayNatTypeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNatGatewayNatTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -131859,9 +132288,12 @@ export default class Client extends OpenApi {
    * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
    * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
    * 
+   * @deprecated OpenAPI UpdateNatGatewayNatType is deprecated
+   * 
    * @param request - UpdateNatGatewayNatTypeRequest
    * @returns UpdateNatGatewayNatTypeResponse
    */
+  // Deprecated
   async updateNatGatewayNatType(request: UpdateNatGatewayNatTypeRequest): Promise<UpdateNatGatewayNatTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNatGatewayNatTypeWithOptions(request, runtime);
