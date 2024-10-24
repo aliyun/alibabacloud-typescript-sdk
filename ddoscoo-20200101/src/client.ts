@@ -7060,6 +7060,221 @@ export class DescribeDomainAttackEventsResponse extends $tea.Model {
   }
 }
 
+export class DescribeDomainBpsRequest extends $tea.Model {
+  /**
+   * @example
+   * www.example.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1722339300
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 600
+   */
+  interval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn
+   */
+  region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1719211800
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      region: 'Region',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      endTime: 'number',
+      interval: 'number',
+      region: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainBpsResponseBody extends $tea.Model {
+  domainBps?: DescribeDomainBpsResponseBodyDomainBps[];
+  /**
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainBps: 'DomainBps',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainBps: { 'type': 'array', 'itemType': DescribeDomainBpsResponseBodyDomainBps },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainBpsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainBpsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDomainBpsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainH2FingerprintRequest extends $tea.Model {
+  /**
+   * @example
+   * example.aliyundoc.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * 1726318200
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
+  limit?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1716435180
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      endTime: 'EndTime',
+      limit: 'Limit',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      endTime: 'number',
+      limit: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainH2FingerprintResponseBody extends $tea.Model {
+  domainH2Fp?: DescribeDomainH2FingerprintResponseBodyDomainH2Fp[];
+  /**
+   * @example
+   * 112777CC-2AD6-46FC-A263-00B931406FCD
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainH2Fp: 'DomainH2Fp',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainH2Fp: { 'type': 'array', 'itemType': DescribeDomainH2FingerprintResponseBodyDomainH2Fp },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainH2FingerprintResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainH2FingerprintResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDomainH2FingerprintResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDomainOverviewRequest extends $tea.Model {
   /**
    * @remarks
@@ -8042,6 +8257,472 @@ export class DescribeDomainTopAttackListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDomainTopAttackListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopFingerprintRequest extends $tea.Model {
+  /**
+   * @example
+   * example.aliyundoc.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1723552200
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
+  interval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  limit?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn
+   */
+  region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1719211800
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      limit: 'Limit',
+      region: 'Region',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      endTime: 'number',
+      interval: 'number',
+      limit: 'number',
+      region: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopFingerprintResponseBody extends $tea.Model {
+  domainTopFp?: DescribeDomainTopFingerprintResponseBodyDomainTopFp[];
+  /**
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainTopFp: 'DomainTopFp',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainTopFp: { 'type': 'array', 'itemType': DescribeDomainTopFingerprintResponseBodyDomainTopFp },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopFingerprintResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainTopFingerprintResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDomainTopFingerprintResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopHttpMethodRequest extends $tea.Model {
+  /**
+   * @example
+   * example.aliyundoc.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1722339300
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
+  limit?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn
+   */
+  region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1712449710
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      endTime: 'EndTime',
+      limit: 'Limit',
+      region: 'Region',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      endTime: 'number',
+      limit: 'number',
+      region: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopHttpMethodResponseBody extends $tea.Model {
+  domainTopMethod?: DescribeDomainTopHttpMethodResponseBodyDomainTopMethod[];
+  /**
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainTopMethod: 'DomainTopMethod',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainTopMethod: { 'type': 'array', 'itemType': DescribeDomainTopHttpMethodResponseBodyDomainTopMethod },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopHttpMethodResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainTopHttpMethodResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDomainTopHttpMethodResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopRefererRequest extends $tea.Model {
+  /**
+   * @example
+   * example.aliyundoc.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1721561100
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  limit?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn
+   */
+  region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1701991920
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      endTime: 'EndTime',
+      limit: 'Limit',
+      region: 'Region',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      endTime: 'number',
+      limit: 'number',
+      region: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopRefererResponseBody extends $tea.Model {
+  domainTopReferer?: DescribeDomainTopRefererResponseBodyDomainTopReferer[];
+  /**
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainTopReferer: 'DomainTopReferer',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainTopReferer: { 'type': 'array', 'itemType': DescribeDomainTopRefererResponseBodyDomainTopReferer },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopRefererResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainTopRefererResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDomainTopRefererResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopUserAgentRequest extends $tea.Model {
+  /**
+   * @example
+   * www.example.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1708352700
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
+  limit?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn
+   */
+  region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1609430400
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      endTime: 'EndTime',
+      limit: 'Limit',
+      region: 'Region',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      endTime: 'number',
+      limit: 'number',
+      region: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopUserAgentResponseBody extends $tea.Model {
+  domainTopUa?: DescribeDomainTopUserAgentResponseBodyDomainTopUa[];
+  /**
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainTopUa: 'DomainTopUa',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainTopUa: { 'type': 'array', 'itemType': DescribeDomainTopUserAgentResponseBodyDomainTopUa },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopUserAgentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainTopUserAgentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDomainTopUserAgentResponseBody,
     };
   }
 
@@ -10163,6 +10844,10 @@ export class DescribeL7RsPolicyResponseBody extends $tea.Model {
    * 9E7F6B2C-03F2-462F-9076-B782CF0DD502
    */
   requestId?: string;
+  /**
+   * @example
+   * 300
+   */
   rsAttrRwTimeoutMax?: number;
   /**
    * @remarks
@@ -11505,7 +12190,7 @@ export class DescribePortCcAttackTopIPResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the source IP address of the attack.
+   * The top IP addresses from which most attacks are initiated.
    */
   topIp?: DescribePortCcAttackTopIPResponseBodyTopIp[];
   static names(): { [key: string]: string } {
@@ -14257,7 +14942,7 @@ export class DescribeUnBlockCountRequest extends $tea.Model {
 export class DescribeUnBlockCountResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The remaining quota that you can use the Diversion from Origin Server policy.
+   * The remaining number of times that you can enable the near-origin traffic diversion feature.
    * 
    * @example
    * 7
@@ -14265,7 +14950,7 @@ export class DescribeUnBlockCountResponseBody extends $tea.Model {
   remainCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
@@ -14273,7 +14958,7 @@ export class DescribeUnBlockCountResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total quota that you can use the Diversion from Origin Server policy.
+   * The total number of times that you can enable the near-origin traffic diversion feature.
    * 
    * @example
    * 10
@@ -15765,7 +16450,7 @@ export class DescribeWebRulesRequest extends $tea.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * When paginating, set the page number of the current page. The default value is 1.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -15773,7 +16458,7 @@ export class DescribeWebRulesRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * When paginating, set the number of forwarding rules per page. The range of values is: 1~10.
+   * The number of entries per page. Valid values: **1** to **10**.
    * 
    * @example
    * 10
@@ -17187,9 +17872,9 @@ export class ModifyBlockStatusRequest extends $tea.Model {
   duration?: number;
   /**
    * @remarks
-   * The ID of the Anti-DDoS Pro instance to manage.
+   * The ID of the Anti-DDoS Proxy (Chinese Mainland) instance to manage.
    * 
-   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * >  You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all Anti-DDoS Proxy instances.
    * 
    * This parameter is required.
    * 
@@ -18440,12 +19125,12 @@ export class ModifyNetworkRuleAttributeRequest extends $tea.Model {
    * *   **Maxconn**: the source rate limit on concurrent connections in the DDoS mitigation policy. This field is required and of the integer type. Valid values: 1 to 50000.
    * *   **CpsEnable**: specifies whether to enable Cps. This field is required and of the integer type. Valid values: 0 and 1. Default value: 1. The value 0 indicates that Cps is disabled, and the value 1 indicates that Cps is enabled.
    * *   **MaxconnEnable**: specifies whether to enable Maxconn. This field is required and of the integer type. Valid values: 0 and 1. Default value: 1. The value 0 indicates that Maxconn is disabled, and the value 1 indicates that Maxconn is enabled.
-   * *   **CpsMode**: specifies whether to enable the source rate limit on new connections. This field is required and of the integer type. Valid values: 1 and 2. The value 1 indicates the source rate limit is enabled. The value 2 indicates that the system determines whether to enable the source rate limit.
+   * *   **CpsMode**: specifies whether to enable the source rate limit on new connections. This field is required and of the integer type. Valid values: 1 and 2. The value 1 indicates that the source rate limit is disabled. The value 2 indicates that the system determines whether to enable the source rate limit.
    * 
    * PayloadLen contains the following fields:
    * 
-   * *   **Min**: the minimum packet length in the DDoS mitigation policy. This field is required and of the integer type. Valid values: 0 to 2000.
-   * *   **Max**: the maximum packet length in the DDoS mitigation policy. This field is required and of the integer type. Valid values: 0 to 6000.
+   * *   **Min**: the minimum packet length in the DDoS mitigation policy. This field is required and of the integer type. Valid values: 0 to 1500.
+   * *   **Max**: the maximum packet length in the DDoS mitigation policy. This field is required and of the integer type. Valid values: 0 to 1500.
    * 
    * This parameter is required.
    * 
@@ -22518,6 +23203,80 @@ export class DescribeDomainAttackEventsResponseBodyDomainAttackEvents extends $t
   }
 }
 
+export class DescribeDomainBpsResponseBodyDomainBps extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  inBps?: number;
+  /**
+   * @example
+   * 1
+   */
+  index?: number;
+  /**
+   * @example
+   * 0
+   */
+  outBps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inBps: 'InBps',
+      index: 'Index',
+      outBps: 'OutBps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inBps: 'number',
+      index: 'number',
+      outBps: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainH2FingerprintResponseBodyDomainH2Fp extends $tea.Model {
+  /**
+   * @example
+   * example.aliyundoc.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * 532501bc316d02c8b1a007db76f2c796
+   */
+  h2Fingerprint?: string;
+  /**
+   * @example
+   * 471755
+   */
+  pv?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      h2Fingerprint: 'H2Fingerprint',
+      pv: 'Pv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      h2Fingerprint: 'string',
+      pv: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDomainQPSListResponseBodyDomainQPSList extends $tea.Model {
   /**
    * @remarks
@@ -23203,6 +23962,154 @@ export class DescribeDomainTopAttackListResponseBodyAttackList extends $tea.Mode
       attack: 'number',
       count: 'number',
       domain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopFingerprintResponseBodyDomainTopFp extends $tea.Model {
+  /**
+   * @example
+   * example.aliyundoc.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * 8a374c9724582b14a4cfa58c8c9fb2bc
+   */
+  fingerprinting?: string;
+  /**
+   * @example
+   * 22121
+   */
+  pv?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      fingerprinting: 'Fingerprinting',
+      pv: 'Pv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      fingerprinting: 'string',
+      pv: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopHttpMethodResponseBodyDomainTopMethod extends $tea.Model {
+  /**
+   * @example
+   * example.aliyundoc.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * GET
+   */
+  httpMethod?: string;
+  /**
+   * @example
+   * 22121
+   */
+  pv?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      httpMethod: 'HttpMethod',
+      pv: 'Pv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      httpMethod: 'string',
+      pv: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopRefererResponseBodyDomainTopReferer extends $tea.Model {
+  /**
+   * @example
+   * example.aliyundoc.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * 257031
+   */
+  pv?: number;
+  /**
+   * @example
+   * aHR0cHM6Ly9zZXJ2aWNld2VjaGF0LmNvbS93eGY3ZDc5YWY0YzU4ZDH3NTEvNC9wYWdlLWZyYW1lLmh0bWw=
+   */
+  referer?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      pv: 'Pv',
+      referer: 'Referer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      pv: 'number',
+      referer: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainTopUserAgentResponseBodyDomainTopUa extends $tea.Model {
+  /**
+   * @example
+   * www.example.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * 22121
+   */
+  pv?: number;
+  /**
+   * @example
+   * TW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvOTYuMC40NjY0LjExMCACYWZhcmkvNTM3LjM2
+   */
+  userAgent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      pv: 'Pv',
+      userAgent: 'UserAgent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      pv: 'number',
+      userAgent: 'string',
     };
   }
 
@@ -32095,6 +33002,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名业务带宽流量
+   * 
+   * @param request - DescribeDomainBpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainBpsResponse
+   */
+  async describeDomainBpsWithOptions(request: DescribeDomainBpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainBpsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainBps",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainBpsResponse>(await this.callApi(params, req, runtime), new DescribeDomainBpsResponse({}));
+  }
+
+  /**
+   * 查询域名业务带宽流量
+   * 
+   * @param request - DescribeDomainBpsRequest
+   * @returns DescribeDomainBpsResponse
+   */
+  async describeDomainBps(request: DescribeDomainBpsRequest): Promise<DescribeDomainBpsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDomainBpsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询HTTP2指纹
+   * 
+   * @param request - DescribeDomainH2FingerprintRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainH2FingerprintResponse
+   */
+  async describeDomainH2FingerprintWithOptions(request: DescribeDomainH2FingerprintRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainH2FingerprintResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainH2Fingerprint",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainH2FingerprintResponse>(await this.callApi(params, req, runtime), new DescribeDomainH2FingerprintResponse({}));
+  }
+
+  /**
+   * 查询HTTP2指纹
+   * 
+   * @param request - DescribeDomainH2FingerprintRequest
+   * @returns DescribeDomainH2FingerprintResponse
+   */
+  async describeDomainH2Fingerprint(request: DescribeDomainH2FingerprintRequest): Promise<DescribeDomainH2FingerprintResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDomainH2FingerprintWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
    * 
    * @param request - DescribeDomainOverviewRequest
@@ -32485,6 +33504,242 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名 top fingerprint
+   * 
+   * @param request - DescribeDomainTopFingerprintRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainTopFingerprintResponse
+   */
+  async describeDomainTopFingerprintWithOptions(request: DescribeDomainTopFingerprintRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTopFingerprintResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainTopFingerprint",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainTopFingerprintResponse>(await this.callApi(params, req, runtime), new DescribeDomainTopFingerprintResponse({}));
+  }
+
+  /**
+   * 查询域名 top fingerprint
+   * 
+   * @param request - DescribeDomainTopFingerprintRequest
+   * @returns DescribeDomainTopFingerprintResponse
+   */
+  async describeDomainTopFingerprint(request: DescribeDomainTopFingerprintRequest): Promise<DescribeDomainTopFingerprintResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDomainTopFingerprintWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询域名 top HttpMethod
+   * 
+   * @param request - DescribeDomainTopHttpMethodRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainTopHttpMethodResponse
+   */
+  async describeDomainTopHttpMethodWithOptions(request: DescribeDomainTopHttpMethodRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTopHttpMethodResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainTopHttpMethod",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainTopHttpMethodResponse>(await this.callApi(params, req, runtime), new DescribeDomainTopHttpMethodResponse({}));
+  }
+
+  /**
+   * 查询域名 top HttpMethod
+   * 
+   * @param request - DescribeDomainTopHttpMethodRequest
+   * @returns DescribeDomainTopHttpMethodResponse
+   */
+  async describeDomainTopHttpMethod(request: DescribeDomainTopHttpMethodRequest): Promise<DescribeDomainTopHttpMethodResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDomainTopHttpMethodWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询域名top referer
+   * 
+   * @param request - DescribeDomainTopRefererRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainTopRefererResponse
+   */
+  async describeDomainTopRefererWithOptions(request: DescribeDomainTopRefererRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTopRefererResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainTopReferer",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainTopRefererResponse>(await this.callApi(params, req, runtime), new DescribeDomainTopRefererResponse({}));
+  }
+
+  /**
+   * 查询域名top referer
+   * 
+   * @param request - DescribeDomainTopRefererRequest
+   * @returns DescribeDomainTopRefererResponse
+   */
+  async describeDomainTopReferer(request: DescribeDomainTopRefererRequest): Promise<DescribeDomainTopRefererResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDomainTopRefererWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询top user agent
+   * 
+   * @param request - DescribeDomainTopUserAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainTopUserAgentResponse
+   */
+  async describeDomainTopUserAgentWithOptions(request: DescribeDomainTopUserAgentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTopUserAgentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainTopUserAgent",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainTopUserAgentResponse>(await this.callApi(params, req, runtime), new DescribeDomainTopUserAgentResponse({}));
+  }
+
+  /**
+   * 查询top user agent
+   * 
+   * @param request - DescribeDomainTopUserAgentRequest
+   * @returns DescribeDomainTopUserAgentResponse
+   */
+  async describeDomainTopUserAgent(request: DescribeDomainTopUserAgentRequest): Promise<DescribeDomainTopUserAgentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDomainTopUserAgentWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the areas and countries from which requests are sent to a website within a specified period of time.
    * 
    * @param request - DescribeDomainViewSourceCountriesRequest
@@ -32755,10 +34010,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available burstable protection bandwidths of an Anti-DDoS Pro instance.
+   * Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
    * 
    * @remarks
-   * > This operation is suitable only for Anti-DDoS Pro.
+   * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
    * 
    * @param request - DescribeElasticBandwidthSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32789,10 +34044,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available burstable protection bandwidths of an Anti-DDoS Pro instance.
+   * Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
    * 
    * @remarks
-   * > This operation is suitable only for Anti-DDoS Pro.
+   * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
    * 
    * @param request - DescribeElasticBandwidthSpecRequest
    * @returns DescribeElasticBandwidthSpecResponse
@@ -35215,10 +36470,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the remaining quota that allows you to use the Diversion from Origin Server policy.
+   * Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
    * 
    * @remarks
-   * > This operation is suitable only for Anti-DDoS Pro.
+   * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
    * 
    * @param request - DescribeUnBlockCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35249,10 +36504,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the remaining quota that allows you to use the Diversion from Origin Server policy.
+   * Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
    * 
    * @remarks
-   * > This operation is suitable only for Anti-DDoS Pro.
+   * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
    * 
    * @param request - DescribeUnBlockCountRequest
    * @returns DescribeUnBlockCountResponse
