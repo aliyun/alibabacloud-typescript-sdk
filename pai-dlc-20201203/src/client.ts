@@ -1327,6 +1327,12 @@ export class JobElasticSpec extends $tea.Model {
 }
 
 export class JobItem extends $tea.Model {
+  /**
+   * @example
+   * PUBLIC
+   */
+  accessibility?: string;
+  clusterId?: string;
   codeSource?: JobItemCodeSource;
   credentialConfig?: CredentialConfig;
   dataSources?: JobItemDataSources[];
@@ -1340,6 +1346,12 @@ export class JobItem extends $tea.Model {
    * 3602
    */
   duration?: number;
+  elasticSpec?: JobElasticSpec;
+  /**
+   * @example
+   * false
+   */
+  enablePreemptibleJob?: boolean;
   /**
    * @example
    * false
@@ -1363,6 +1375,11 @@ export class JobItem extends $tea.Model {
   gmtFinishTime?: string;
   /**
    * @example
+   * 2021-01-12T15:36:08Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @example
    * 2021-01-12T14:35:01Z
    */
   gmtRunningTime?: string;
@@ -1383,15 +1400,32 @@ export class JobItem extends $tea.Model {
   gmtSuccessedTime?: string;
   /**
    * @example
+   * false
+   */
+  isDeleted?: boolean;
+  /**
+   * @example
    * dlc-20210126170216-mtl37ge7gkvdz
    */
   jobId?: string;
+  /**
+   * @example
+   * 1
+   */
+  jobMaxRunningTimeMinutes?: number;
   jobSpecs?: JobSpec[];
   /**
    * @example
    * TFJob
    */
   jobType?: string;
+  /**
+   * @example
+   * 1
+   */
+  nodeCount?: string;
+  nodeNames?: string[];
+  pods?: PodItem[];
   /**
    * @example
    * 1
@@ -1409,6 +1443,21 @@ export class JobItem extends $tea.Model {
   reasonMessage?: string;
   /**
    * @example
+   * 1
+   */
+  requestCPU?: number;
+  /**
+   * @example
+   * 1
+   */
+  requestGPU?: string;
+  /**
+   * @example
+   * 1Gi
+   */
+  requestMemory?: string;
+  /**
+   * @example
    * dlc-quota
    */
   resourceId?: string;
@@ -1424,20 +1473,33 @@ export class JobItem extends $tea.Model {
   resourceName?: string;
   /**
    * @example
+   * test
+   */
+  resourceQuotaName?: string;
+  /**
+   * @example
    * ECS
    */
   resourceType?: string;
+  /**
+   * @example
+   * 1
+   */
+  restartTimes?: string;
   settings?: JobSettings;
   /**
    * @example
    * Stopped
    */
   status?: string;
+  statusHistory?: StatusTransitionItem[];
   /**
    * @example
    * Restarting
    */
   subStatus?: string;
+  systemEnvs?: { [key: string]: string };
+  tenantId?: string;
   /**
    * @example
    * /root/code/
@@ -1461,9 +1523,24 @@ export class JobItem extends $tea.Model {
   userId?: string;
   /**
    * @example
+   * ls
+   */
+  userScript?: string;
+  /**
+   * @example
+   * vpc-1
+   */
+  userVpc?: string;
+  /**
+   * @example
    * pai-dlc-role
    */
   username?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
+  workingDir?: string;
   /**
    * @example
    * 268
@@ -1476,39 +1553,60 @@ export class JobItem extends $tea.Model {
   workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
+      clusterId: 'ClusterId',
       codeSource: 'CodeSource',
       credentialConfig: 'CredentialConfig',
       dataSources: 'DataSources',
       displayName: 'DisplayName',
       duration: 'Duration',
+      elasticSpec: 'ElasticSpec',
+      enablePreemptibleJob: 'EnablePreemptibleJob',
       enabledDebugger: 'EnabledDebugger',
       envs: 'Envs',
       gmtCreateTime: 'GmtCreateTime',
       gmtFailedTime: 'GmtFailedTime',
       gmtFinishTime: 'GmtFinishTime',
+      gmtModifiedTime: 'GmtModifiedTime',
       gmtRunningTime: 'GmtRunningTime',
       gmtStoppedTime: 'GmtStoppedTime',
       gmtSubmittedTime: 'GmtSubmittedTime',
       gmtSuccessedTime: 'GmtSuccessedTime',
+      isDeleted: 'IsDeleted',
       jobId: 'JobId',
+      jobMaxRunningTimeMinutes: 'JobMaxRunningTimeMinutes',
       jobSpecs: 'JobSpecs',
       jobType: 'JobType',
+      nodeCount: 'NodeCount',
+      nodeNames: 'NodeNames',
+      pods: 'Pods',
       priority: 'Priority',
       reasonCode: 'ReasonCode',
       reasonMessage: 'ReasonMessage',
+      requestCPU: 'RequestCPU',
+      requestGPU: 'RequestGPU',
+      requestMemory: 'RequestMemory',
       resourceId: 'ResourceId',
       resourceLevel: 'ResourceLevel',
       resourceName: 'ResourceName',
+      resourceQuotaName: 'ResourceQuotaName',
       resourceType: 'ResourceType',
+      restartTimes: 'RestartTimes',
       settings: 'Settings',
       status: 'Status',
+      statusHistory: 'StatusHistory',
       subStatus: 'SubStatus',
+      systemEnvs: 'SystemEnvs',
+      tenantId: 'TenantId',
       thirdpartyLibDir: 'ThirdpartyLibDir',
       thirdpartyLibs: 'ThirdpartyLibs',
       useOversoldResource: 'UseOversoldResource',
       userCommand: 'UserCommand',
       userId: 'UserId',
+      userScript: 'UserScript',
+      userVpc: 'UserVpc',
       username: 'Username',
+      workingDir: 'WorkingDir',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
     };
@@ -1516,39 +1614,60 @@ export class JobItem extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
+      clusterId: 'string',
       codeSource: JobItemCodeSource,
       credentialConfig: CredentialConfig,
       dataSources: { 'type': 'array', 'itemType': JobItemDataSources },
       displayName: 'string',
       duration: 'number',
+      elasticSpec: JobElasticSpec,
+      enablePreemptibleJob: 'boolean',
       enabledDebugger: 'boolean',
       envs: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gmtCreateTime: 'string',
       gmtFailedTime: 'string',
       gmtFinishTime: 'string',
+      gmtModifiedTime: 'string',
       gmtRunningTime: 'string',
       gmtStoppedTime: 'string',
       gmtSubmittedTime: 'string',
       gmtSuccessedTime: 'string',
+      isDeleted: 'boolean',
       jobId: 'string',
+      jobMaxRunningTimeMinutes: 'number',
       jobSpecs: { 'type': 'array', 'itemType': JobSpec },
       jobType: 'string',
+      nodeCount: 'string',
+      nodeNames: { 'type': 'array', 'itemType': 'string' },
+      pods: { 'type': 'array', 'itemType': PodItem },
       priority: 'number',
       reasonCode: 'string',
       reasonMessage: 'string',
+      requestCPU: 'number',
+      requestGPU: 'string',
+      requestMemory: 'string',
       resourceId: 'string',
       resourceLevel: 'string',
       resourceName: 'string',
+      resourceQuotaName: 'string',
       resourceType: 'string',
+      restartTimes: 'string',
       settings: JobSettings,
       status: 'string',
+      statusHistory: { 'type': 'array', 'itemType': StatusTransitionItem },
       subStatus: 'string',
+      systemEnvs: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      tenantId: 'string',
       thirdpartyLibDir: 'string',
       thirdpartyLibs: { 'type': 'array', 'itemType': 'string' },
       useOversoldResource: 'boolean',
       userCommand: 'string',
       userId: 'string',
+      userScript: 'string',
+      userVpc: 'string',
       username: 'string',
+      workingDir: 'string',
       workspaceId: 'string',
       workspaceName: 'string',
     };
@@ -3350,6 +3469,7 @@ export class GetJobRequest extends $tea.Model {
 }
 
 export class GetJobResponseBody extends $tea.Model {
+  accessibility?: string;
   /**
    * @example
    * a*****
@@ -3503,6 +3623,7 @@ export class GetJobResponseBody extends $tea.Model {
   workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       clusterId: 'ClusterId',
       codeSource: 'CodeSource',
       credentialConfig: 'CredentialConfig',
@@ -3547,6 +3668,7 @@ export class GetJobResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       clusterId: 'string',
       codeSource: GetJobResponseBodyCodeSource,
       credentialConfig: CredentialConfig,
@@ -5430,6 +5552,7 @@ export class StopTensorboardResponse extends $tea.Model {
 }
 
 export class UpdateJobRequest extends $tea.Model {
+  accessibility?: string;
   /**
    * @example
    * 5
@@ -5437,12 +5560,14 @@ export class UpdateJobRequest extends $tea.Model {
   priority?: number;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       priority: 'Priority',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       priority: 'number',
     };
   }
@@ -5508,6 +5633,7 @@ export class UpdateJobResponse extends $tea.Model {
 }
 
 export class UpdateTensorboardRequest extends $tea.Model {
+  accessibility?: string;
   /**
    * @example
    * MaxRunningTimeMinutes
@@ -5520,6 +5646,7 @@ export class UpdateTensorboardRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       maxRunningTimeMinutes: 'MaxRunningTimeMinutes',
       workspaceId: 'WorkspaceId',
     };
@@ -5527,6 +5654,7 @@ export class UpdateTensorboardRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       maxRunningTimeMinutes: 'number',
       workspaceId: 'string',
     };
@@ -7562,6 +7690,10 @@ export default class Client extends OpenApi {
   async updateJobWithOptions(JobId: string, request: UpdateJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateJobResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
     if (!Util.isUnset(request.priority)) {
       body["Priority"] = request.priority;
     }
@@ -7607,6 +7739,10 @@ export default class Client extends OpenApi {
   async updateTensorboardWithOptions(TensorboardId: string, request: UpdateTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTensorboardResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessibility)) {
+      query["Accessibility"] = request.accessibility;
+    }
+
     if (!Util.isUnset(request.maxRunningTimeMinutes)) {
       query["MaxRunningTimeMinutes"] = request.maxRunningTimeMinutes;
     }
