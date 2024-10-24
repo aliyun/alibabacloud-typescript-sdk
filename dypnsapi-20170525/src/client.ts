@@ -967,6 +967,10 @@ export class DescribeVerifySchemeResponse extends $tea.Model {
 }
 
 export class GetAuthTokenRequest extends $tea.Model {
+  bizType?: number;
+  cmApiCode?: number;
+  ctApiCode?: number;
+  cuApiCode?: number;
   /**
    * @remarks
    * The requested domain name.
@@ -991,25 +995,36 @@ export class GetAuthTokenRequest extends $tea.Model {
    * https://www.aliyundoc.com/
    */
   url?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
+      bizType: 'BizType',
+      cmApiCode: 'CmApiCode',
+      ctApiCode: 'CtApiCode',
+      cuApiCode: 'CuApiCode',
       origin: 'Origin',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       sceneCode: 'SceneCode',
       url: 'Url',
+      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizType: 'number',
+      cmApiCode: 'number',
+      ctApiCode: 'number',
+      cuApiCode: 'number',
       origin: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       sceneCode: 'string',
       url: 'string',
+      version: 'string',
     };
   }
 
@@ -4730,6 +4745,22 @@ export default class Client extends OpenApi {
   async getAuthTokenWithOptions(request: GetAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthTokenResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.cmApiCode)) {
+      query["CmApiCode"] = request.cmApiCode;
+    }
+
+    if (!Util.isUnset(request.ctApiCode)) {
+      query["CtApiCode"] = request.ctApiCode;
+    }
+
+    if (!Util.isUnset(request.cuApiCode)) {
+      query["CuApiCode"] = request.cuApiCode;
+    }
+
     if (!Util.isUnset(request.origin)) {
       query["Origin"] = request.origin;
     }
@@ -4752,6 +4783,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.url)) {
       query["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.version)) {
+      query["Version"] = request.version;
     }
 
     let req = new $OpenApi.OpenApiRequest({
