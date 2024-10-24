@@ -1158,6 +1158,7 @@ export class PushRequest extends $tea.Model {
    * 100001
    */
   androidNotificationNotifyId?: number;
+  androidNotificationThreadId?: string;
   /**
    * @example
    * classification
@@ -1460,6 +1461,7 @@ export class PushRequest extends $tea.Model {
       androidNotificationHonorChannel: 'AndroidNotificationHonorChannel',
       androidNotificationHuaweiChannel: 'AndroidNotificationHuaweiChannel',
       androidNotificationNotifyId: 'AndroidNotificationNotifyId',
+      androidNotificationThreadId: 'AndroidNotificationThreadId',
       androidNotificationVivoChannel: 'AndroidNotificationVivoChannel',
       androidNotificationXiaomiChannel: 'AndroidNotificationXiaomiChannel',
       androidNotifyType: 'AndroidNotifyType',
@@ -1560,6 +1562,7 @@ export class PushRequest extends $tea.Model {
       androidNotificationHonorChannel: 'string',
       androidNotificationHuaweiChannel: 'string',
       androidNotificationNotifyId: 'number',
+      androidNotificationThreadId: 'string',
       androidNotificationVivoChannel: 'string',
       androidNotificationXiaomiChannel: 'string',
       androidNotifyType: 'string',
@@ -3933,6 +3936,7 @@ export class MassPushRequestPushTask extends $tea.Model {
    * 100001
    */
   androidNotificationNotifyId?: number;
+  androidNotificationThreadId?: string;
   /**
    * @example
    * 0
@@ -4210,6 +4214,7 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidNotificationHonorChannel: 'AndroidNotificationHonorChannel',
       androidNotificationHuaweiChannel: 'AndroidNotificationHuaweiChannel',
       androidNotificationNotifyId: 'AndroidNotificationNotifyId',
+      androidNotificationThreadId: 'AndroidNotificationThreadId',
       androidNotificationVivoChannel: 'AndroidNotificationVivoChannel',
       androidNotificationXiaomiChannel: 'AndroidNotificationXiaomiChannel',
       androidNotifyType: 'AndroidNotifyType',
@@ -4304,6 +4309,7 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidNotificationHonorChannel: 'string',
       androidNotificationHuaweiChannel: 'string',
       androidNotificationNotifyId: 'number',
+      androidNotificationThreadId: 'string',
       androidNotificationVivoChannel: 'string',
       androidNotificationXiaomiChannel: 'string',
       androidNotifyType: 'string',
@@ -5124,6 +5130,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 绑定别名
+   * 
    * @param request - BindAliasRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindAliasResponse
@@ -5161,6 +5169,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 绑定别名
+   * 
    * @param request - BindAliasRequest
    * @returns BindAliasResponse
    */
@@ -5170,6 +5180,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 绑定手机号码
+   * 
    * @param request - BindPhoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindPhoneResponse
@@ -5207,6 +5219,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 绑定手机号码
+   * 
    * @param request - BindPhoneRequest
    * @returns BindPhoneResponse
    */
@@ -5216,6 +5230,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 绑定标签
+   * 
    * @param request - BindTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindTagResponse
@@ -5257,6 +5273,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 绑定标签
+   * 
    * @param request - BindTagRequest
    * @returns BindTagResponse
    */
@@ -5266,6 +5284,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消定时推送任务
+   * 
    * @param request - CancelPushRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelPushResponse
@@ -5299,6 +5319,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消定时推送任务
+   * 
    * @param request - CancelPushRequest
    * @returns CancelPushResponse
    */
@@ -5346,6 +5368,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 【废弃】验证设备有效性
+   * 
    * @deprecated OpenAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
    * 
    * @param request - CheckDeviceRequest
@@ -5382,6 +5406,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 【废弃】验证设备有效性
+   * 
    * @deprecated OpenAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
    * 
    * @param request - CheckDeviceRequest
@@ -5394,6 +5420,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量检查设备有效性
+   * 
    * @param request - CheckDevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckDevicesResponse
@@ -5427,6 +5455,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量检查设备有效性
+   * 
    * @param request - CheckDevicesRequest
    * @returns CheckDevicesResponse
    */
@@ -5436,6 +5466,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 完成持续推送任务
+   * 
    * @param request - CompleteContinuouslyPushRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CompleteContinuouslyPushResponse
@@ -5469,6 +5501,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 完成持续推送任务
+   * 
    * @param request - CompleteContinuouslyPushRequest
    * @returns CompleteContinuouslyPushResponse
    */
@@ -5478,6 +5512,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 持续推送
+   * 
    * @param request - ContinuouslyPushRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ContinuouslyPushResponse
@@ -5519,6 +5555,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 持续推送
+   * 
    * @param request - ContinuouslyPushRequest
    * @returns ContinuouslyPushResponse
    */
@@ -5528,6 +5566,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 【废弃】查询用户已创建的app列表
+   * 
    * @deprecated OpenAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
    * 
    * @param request - ListSummaryAppsRequest
@@ -5552,6 +5592,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 【废弃】查询用户已创建的app列表
+   * 
    * @deprecated OpenAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
    * @returns ListSummaryAppsResponse
    */
@@ -5562,6 +5604,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取标签列表
+   * 
    * @param request - ListTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagsResponse
@@ -5591,6 +5635,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取标签列表
+   * 
    * @param request - ListTagsRequest
    * @returns ListTagsResponse
    */
@@ -5600,6 +5646,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量推送
+   * 
    * @param request - MassPushRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns MassPushResponse
@@ -5635,6 +5683,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量推送
+   * 
    * @param request - MassPushRequest
    * @returns MassPushResponse
    */
@@ -5644,6 +5694,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 高级推送接口
+   * 
    * @param request - PushRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushResponse
@@ -5745,6 +5797,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.androidNotificationNotifyId)) {
       query["AndroidNotificationNotifyId"] = request.androidNotificationNotifyId;
+    }
+
+    if (!Util.isUnset(request.androidNotificationThreadId)) {
+      query["AndroidNotificationThreadId"] = request.androidNotificationThreadId;
     }
 
     if (!Util.isUnset(request.androidNotificationVivoChannel)) {
@@ -6049,6 +6105,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 高级推送接口
+   * 
    * @param request - PushRequest
    * @returns PushResponse
    */
@@ -6058,6 +6116,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 推送消息给Android设备
+   * 
    * @param request - PushMessageToAndroidRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushMessageToAndroidResponse
@@ -6111,6 +6171,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 推送消息给Android设备
+   * 
    * @param request - PushMessageToAndroidRequest
    * @returns PushMessageToAndroidResponse
    */
@@ -6120,6 +6182,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 推送消息给iOS设备
+   * 
    * @param request - PushMessageToiOSRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushMessageToiOSResponse
@@ -6173,6 +6237,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 推送消息给iOS设备
+   * 
    * @param request - PushMessageToiOSRequest
    * @returns PushMessageToiOSResponse
    */
@@ -6182,6 +6248,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 推送通知给Android设备
+   * 
    * @param request - PushNoticeToAndroidRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushNoticeToAndroidResponse
@@ -6239,6 +6307,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 推送通知给Android设备
+   * 
    * @param request - PushNoticeToAndroidRequest
    * @returns PushNoticeToAndroidResponse
    */
@@ -6248,6 +6318,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 推送通知给iOS设备
+   * 
    * @param request - PushNoticeToiOSRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushNoticeToiOSResponse
@@ -6305,6 +6377,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 推送通知给iOS设备
+   * 
    * @param request - PushNoticeToiOSRequest
    * @returns PushNoticeToiOSResponse
    */
@@ -6314,6 +6388,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询别名
+   * 
    * @param request - QueryAliasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryAliasesResponse
@@ -6347,6 +6423,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询别名
+   * 
    * @param request - QueryAliasesRequest
    * @returns QueryAliasesResponse
    */
@@ -6356,6 +6434,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询设备详情
+   * 
    * @param request - QueryDeviceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDeviceInfoResponse
@@ -6389,6 +6469,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询设备详情
+   * 
    * @param request - QueryDeviceInfoRequest
    * @returns QueryDeviceInfoResponse
    */
@@ -6398,6 +6480,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设备新增与留存
+   * 
    * @param request - QueryDeviceStatRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDeviceStatResponse
@@ -6443,6 +6527,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设备新增与留存
+   * 
    * @param request - QueryDeviceStatRequest
    * @returns QueryDeviceStatResponse
    */
@@ -6452,6 +6538,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过账户查询设备列表
+   * 
    * @param request - QueryDevicesByAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDevicesByAccountResponse
@@ -6485,6 +6573,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过账户查询设备列表
+   * 
    * @param request - QueryDevicesByAccountRequest
    * @returns QueryDevicesByAccountResponse
    */
@@ -6494,6 +6584,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过别名查询设备列表
+   * 
    * @param request - QueryDevicesByAliasRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDevicesByAliasResponse
@@ -6527,6 +6619,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过别名查询设备列表
+   * 
    * @param request - QueryDevicesByAliasRequest
    * @returns QueryDevicesByAliasResponse
    */
@@ -6610,6 +6704,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * App维度推送统计
+   * 
    * @param request - QueryPushStatByAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPushStatByAppResponse
@@ -6651,6 +6747,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * App维度推送统计
+   * 
    * @param request - QueryPushStatByAppRequest
    * @returns QueryPushStatByAppResponse
    */
@@ -6660,6 +6758,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 任务维度推送统计
+   * 
    * @param request - QueryPushStatByMsgRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPushStatByMsgResponse
@@ -6693,6 +6793,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 任务维度推送统计
+   * 
    * @param request - QueryPushStatByMsgRequest
    * @returns QueryPushStatByMsgResponse
    */
@@ -6702,6 +6804,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询标签列表
+   * 
    * @param request - QueryTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTagsResponse
@@ -6739,6 +6843,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询标签列表
+   * 
    * @param request - QueryTagsRequest
    * @returns QueryTagsResponse
    */
@@ -6748,6 +6854,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 去重设备统计
+   * 
    * @param request - QueryUniqueDeviceStatRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryUniqueDeviceStatResponse
@@ -6789,6 +6897,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 去重设备统计
+   * 
    * @param request - QueryUniqueDeviceStatRequest
    * @returns QueryUniqueDeviceStatResponse
    */
@@ -6798,6 +6908,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除标签
+   * 
    * @param request - RemoveTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveTagResponse
@@ -6831,6 +6943,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除标签
+   * 
    * @param request - RemoveTagRequest
    * @returns RemoveTagResponse
    */
@@ -6840,6 +6954,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解绑别名
+   * 
    * @param request - UnbindAliasRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindAliasResponse
@@ -6881,6 +6997,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解绑别名
+   * 
    * @param request - UnbindAliasRequest
    * @returns UnbindAliasResponse
    */
@@ -6890,6 +7008,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解绑手机号码
+   * 
    * @param request - UnbindPhoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindPhoneResponse
@@ -6923,6 +7043,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解绑手机号码
+   * 
    * @param request - UnbindPhoneRequest
    * @returns UnbindPhoneResponse
    */
@@ -6932,6 +7054,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 绑定标签
+   * 
    * @param request - UnbindTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindTagResponse
@@ -6973,6 +7097,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 绑定标签
+   * 
    * @param request - UnbindTagRequest
    * @returns UnbindTagResponse
    */
