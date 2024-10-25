@@ -7,6 +7,264 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DataQualityEvaluationTask extends $tea.Model {
+  /**
+   * @example
+   * 201
+   */
+  dataSourceId?: number;
+  /**
+   * @example
+   * This is a daily run data quality evaluation plan.
+   */
+  description?: string;
+  hooks?: DataQualityEvaluationTaskHooks[];
+  /**
+   * @example
+   * 10001
+   */
+  id?: number;
+  /**
+   * @example
+   * 质量校验任务
+   */
+  name?: string;
+  notifications?: DataQualityEvaluationTaskNotifications[];
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * { "queue": "default", "sqlEngine": "SPARK_SQL" }
+   */
+  runtimeConf?: string;
+  target?: DataQualityEvaluationTaskTarget;
+  /**
+   * @example
+   * 10
+   */
+  tenantId?: number;
+  trigger?: DataQualityEvaluationTaskTrigger;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      description: 'Description',
+      hooks: 'Hooks',
+      id: 'Id',
+      name: 'Name',
+      notifications: 'Notifications',
+      projectId: 'ProjectId',
+      runtimeConf: 'RuntimeConf',
+      target: 'Target',
+      tenantId: 'TenantId',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      description: 'string',
+      hooks: { 'type': 'array', 'itemType': DataQualityEvaluationTaskHooks },
+      id: 'number',
+      name: 'string',
+      notifications: { 'type': 'array', 'itemType': DataQualityEvaluationTaskNotifications },
+      projectId: 'number',
+      runtimeConf: 'string',
+      target: DataQualityEvaluationTaskTarget,
+      tenantId: 'number',
+      trigger: DataQualityEvaluationTaskTrigger,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskInstance extends $tea.Model {
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  finishTime?: number;
+  /**
+   * @example
+   * 10001
+   */
+  id?: number;
+  /**
+   * @example
+   * Passed
+   */
+  status?: string;
+  task?: DataQualityEvaluationTaskInstanceTask;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      finishTime: 'FinishTime',
+      id: 'Id',
+      status: 'Status',
+      task: 'Task',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      finishTime: 'number',
+      id: 'number',
+      status: 'string',
+      task: DataQualityEvaluationTaskInstanceTask,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityResult extends $tea.Model {
+  details?: DataQualityResultDetails[];
+  /**
+   * @example
+   * 10001
+   */
+  id?: number;
+  rule?: DataQualityResultRule;
+  /**
+   * @example
+   * [   {     "gender": "male",     "_count": 100   }, {     "gender": "female",     "_count": 100   } ]
+   */
+  sample?: string;
+  /**
+   * @example
+   * Passed
+   */
+  status?: string;
+  /**
+   * @example
+   * 20001
+   */
+  taskInstanceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      details: 'Details',
+      id: 'Id',
+      rule: 'Rule',
+      sample: 'Sample',
+      status: 'Status',
+      taskInstanceId: 'TaskInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      details: { 'type': 'array', 'itemType': DataQualityResultDetails },
+      id: 'number',
+      rule: DataQualityResultRule,
+      sample: 'string',
+      status: 'string',
+      taskInstanceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityRule extends $tea.Model {
+  checkingConfig?: DataQualityRuleCheckingConfig;
+  /**
+   * @example
+   * this is a odps _sql task
+   */
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  errorHandlers?: DataQualityRuleErrorHandlers[];
+  /**
+   * @example
+   * 1
+   */
+  id?: number;
+  /**
+   * @example
+   * 表不能为空
+   */
+  name?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  samplingConfig?: DataQualityRuleSamplingConfig;
+  /**
+   * @example
+   * High
+   */
+  severity?: string;
+  target?: DataQualityRuleTarget;
+  /**
+   * @example
+   * system::user_defined
+   */
+  templateCode?: string;
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      description: 'Description',
+      enabled: 'Enabled',
+      errorHandlers: 'ErrorHandlers',
+      id: 'Id',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfig: 'SamplingConfig',
+      severity: 'Severity',
+      target: 'Target',
+      templateCode: 'TemplateCode',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: DataQualityRuleCheckingConfig,
+      description: 'string',
+      enabled: 'boolean',
+      errorHandlers: { 'type': 'array', 'itemType': DataQualityRuleErrorHandlers },
+      id: 'number',
+      name: 'string',
+      projectId: 'number',
+      samplingConfig: DataQualityRuleSamplingConfig,
+      severity: 'string',
+      target: DataQualityRuleTarget,
+      templateCode: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AbolishDeploymentRequest extends $tea.Model {
   /**
    * @remarks
@@ -116,6 +374,8 @@ export class AbolishDeploymentResponse extends $tea.Model {
 export class AssociateProjectToResourceGroupRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the DataWorks workspace with which you want to associate the resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -124,6 +384,8 @@ export class AssociateProjectToResourceGroupRequest extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
+   * The ID of the resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -151,11 +413,17 @@ export class AssociateProjectToResourceGroupRequest extends $tea.Model {
 
 export class AssociateProjectToResourceGroupResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true and false.
+   * 
    * @example
    * true
    */
@@ -1750,6 +2018,140 @@ export class CreateProjectResponse extends $tea.Model {
   }
 }
 
+export class CreateProjectMemberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 24054
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  roleCodes?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123422344899
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      roleCodes: 'RoleCodes',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      roleCodes: { 'type': 'array', 'itemType': 'string' },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectMemberShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 24054
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  roleCodesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123422344899
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      roleCodesShrink: 'RoleCodes',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      roleCodesShrink: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectMemberResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2B2F0B26-9253-5780-B6DB-F1A886D44D6F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectMemberResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateProjectMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateProjectMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateResourceRequest extends $tea.Model {
   /**
    * @remarks
@@ -2911,6 +3313,90 @@ export class DeleteProjectResponse extends $tea.Model {
   }
 }
 
+export class DeleteProjectMemberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 534752
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123422344899
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectMemberResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1FF0465F-209C-5964-8F30-FAF21B677CC6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectMemberResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteProjectMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteProjectMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteResourceRequest extends $tea.Model {
   /**
    * @remarks
@@ -3018,6 +3504,8 @@ export class DeleteResourceResponse extends $tea.Model {
 export class DeleteResourceGroupRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3043,11 +3531,17 @@ export class DeleteResourceGroupRequest extends $tea.Model {
 
 export class DeleteResourceGroupResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true and false.
+   * 
    * @example
    * true
    */
@@ -3284,6 +3778,8 @@ export class DeleteWorkflowDefinitionResponse extends $tea.Model {
 export class DissociateProjectFromResourceGroupRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the workspace from which you want to disassociate the resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3292,6 +3788,8 @@ export class DissociateProjectFromResourceGroupRequest extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
+   * The ID of the resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3319,11 +3817,17 @@ export class DissociateProjectFromResourceGroupRequest extends $tea.Model {
 
 export class DissociateProjectFromResourceGroupResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true and false.
+   * 
    * @example
    * true
    */
@@ -3694,6 +4198,8 @@ export class GetDIJobLogResponse extends $tea.Model {
 export class GetDataSourceRequest extends $tea.Model {
   /**
    * @remarks
+   * The data source ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3720,6 +4226,9 @@ export class GetDataSourceRequest extends $tea.Model {
 export class GetDataSourceResponseBody extends $tea.Model {
   dataSource?: GetDataSourceResponseBodyDataSource;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9252F32F-D855-549E-8898-61CF5A733050
    */
@@ -4302,6 +4811,93 @@ export class GetProjectResponse extends $tea.Model {
   }
 }
 
+export class GetProjectMemberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 88757
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123422344899
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectMemberResponseBody extends $tea.Model {
+  projectMember?: GetProjectMemberResponseBodyProjectMember;
+  /**
+   * @example
+   * 8abcb91f-d266-4073-b907-2ed670378ed1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectMember: 'ProjectMember',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectMember: GetProjectMemberResponseBodyProjectMember,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectMemberResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetProjectMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetProjectMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetProjectRoleRequest extends $tea.Model {
   /**
    * @remarks
@@ -4745,6 +5341,140 @@ export class GetWorkflowDefinitionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetWorkflowDefinitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantMemberProjectRolesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 105149
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  roleCodes?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123422344899
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      roleCodes: 'RoleCodes',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      roleCodes: { 'type': 'array', 'itemType': 'string' },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantMemberProjectRolesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 105149
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  roleCodesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123422344899
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      roleCodesShrink: 'RoleCodes',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      roleCodesShrink: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantMemberProjectRolesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2d9ced66-38ef-4923-baf6-391dd3a7e656
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantMemberProjectRolesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GrantMemberProjectRolesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GrantMemberProjectRolesResponseBody,
     };
   }
 
@@ -5473,6 +6203,534 @@ export class ListDIJobsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDIJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTaskInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * 2024-04-01
+   */
+  bizdateFrom?: string;
+  /**
+   * @example
+   * 2024-05-01
+   */
+  bizdateTo?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTimeFrom?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTimeTo?: number;
+  /**
+   * @example
+   * 10000
+   */
+  dataQualityEvaluationTaskId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  /**
+   * @example
+   * CWF2
+   */
+  triggerClient?: string;
+  /**
+   * @example
+   * 1001
+   */
+  triggerClientId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizdateFrom: 'BizdateFrom',
+      bizdateTo: 'BizdateTo',
+      createTimeFrom: 'CreateTimeFrom',
+      createTimeTo: 'CreateTimeTo',
+      dataQualityEvaluationTaskId: 'DataQualityEvaluationTaskId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      tableGuid: 'TableGuid',
+      triggerClient: 'TriggerClient',
+      triggerClientId: 'TriggerClientId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizdateFrom: 'string',
+      bizdateTo: 'string',
+      createTimeFrom: 'number',
+      createTimeTo: 'number',
+      dataQualityEvaluationTaskId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      tableGuid: 'string',
+      triggerClient: 'string',
+      triggerClientId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTaskInstancesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  message?: string;
+  pagingInfo?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo;
+  /**
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      pagingInfo: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTaskInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataQualityEvaluationTaskInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataQualityEvaluationTaskInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTasksRequest extends $tea.Model {
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      tableGuid: 'TableGuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      tableGuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  message?: string;
+  pagingInfo?: ListDataQualityEvaluationTasksResponseBodyPagingInfo;
+  /**
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      pagingInfo: ListDataQualityEvaluationTasksResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataQualityEvaluationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataQualityEvaluationTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2024-05-01
+   */
+  bizdateFrom?: string;
+  /**
+   * @example
+   * 2024-05-04
+   */
+  bizdateTo?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTimeFrom?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTimeTo?: number;
+  /**
+   * @example
+   * 200001
+   */
+  dataQualityEvaluationTaskId?: number;
+  /**
+   * @example
+   * 10001
+   */
+  dataQualityEvaluationTaskInstanceId?: number;
+  /**
+   * @example
+   * 100001
+   */
+  dataQualityRuleId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizdateFrom: 'BizdateFrom',
+      bizdateTo: 'BizdateTo',
+      createTimeFrom: 'CreateTimeFrom',
+      createTimeTo: 'CreateTimeTo',
+      dataQualityEvaluationTaskId: 'DataQualityEvaluationTaskId',
+      dataQualityEvaluationTaskInstanceId: 'DataQualityEvaluationTaskInstanceId',
+      dataQualityRuleId: 'DataQualityRuleId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizdateFrom: 'string',
+      bizdateTo: 'string',
+      createTimeFrom: 'number',
+      createTimeTo: 'number',
+      dataQualityEvaluationTaskId: 'number',
+      dataQualityEvaluationTaskInstanceId: 'number',
+      dataQualityRuleId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  message?: string;
+  pagingInfo?: ListDataQualityResultsResponseBodyPagingInfo;
+  /**
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      pagingInfo: ListDataQualityResultsResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataQualityResultsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataQualityResultsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRulesRequest extends $tea.Model {
+  /**
+   * @example
+   * 10000
+   */
+  dataQualityEvaluationTaskId?: number;
+  /**
+   * @example
+   * unit_test
+   */
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 10002
+   */
+  projectId?: number;
+  /**
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityEvaluationTaskId: 'DataQualityEvaluationTaskId',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      tableGuid: 'TableGuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityEvaluationTaskId: 'number',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      tableGuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRulesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  message?: string;
+  pagingInfo?: ListDataQualityRulesResponseBodyPagingInfo;
+  /**
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      pagingInfo: ListDataQualityRulesResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataQualityRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataQualityRulesResponseBody,
     };
   }
 
@@ -6402,6 +7660,149 @@ export class ListNodesResponse extends $tea.Model {
   }
 }
 
+export class ListProjectMembersRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 62136
+   */
+  projectId?: number;
+  roleCodes?: string[];
+  userIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      roleCodes: 'RoleCodes',
+      userIds: 'UserIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      roleCodes: { 'type': 'array', 'itemType': 'string' },
+      userIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectMembersShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 62136
+   */
+  projectId?: number;
+  roleCodesShrink?: string;
+  userIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      roleCodesShrink: 'RoleCodes',
+      userIdsShrink: 'UserIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      roleCodesShrink: 'string',
+      userIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectMembersResponseBody extends $tea.Model {
+  pagingInfo?: ListProjectMembersResponseBodyPagingInfo;
+  /**
+   * @example
+   * 9FBBBB1F-DD5E-5D8E-8F50-37F77460F056
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListProjectMembersResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectMembersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProjectMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListProjectMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListProjectRolesRequest extends $tea.Model {
   codes?: string[];
   names?: string[];
@@ -6945,10 +8346,10 @@ export class ListResourcesRequest extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   python
-   * *   jar
-   * *   archive
-   * *   file
+   * *   Python
+   * *   Jar
+   * *   Archive
+   * *   File
    * 
    * @example
    * python
@@ -8186,6 +9587,140 @@ export class RenameWorkflowDefinitionResponse extends $tea.Model {
   }
 }
 
+export class RevokeMemberProjectRolesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 105149
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  roleCodes?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123422344899
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      roleCodes: 'RoleCodes',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      roleCodes: { 'type': 'array', 'itemType': 'string' },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeMemberProjectRolesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 105149
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  roleCodesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123422344899
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      roleCodesShrink: 'RoleCodes',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      roleCodesShrink: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeMemberProjectRolesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 676271D6-53B4-57BE-89FA-72F7AE1418DF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeMemberProjectRolesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RevokeMemberProjectRolesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RevokeMemberProjectRolesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartDIJobRequest extends $tea.Model {
   /**
    * @remarks
@@ -9311,6 +10846,8 @@ export class UpdateResourceResponse extends $tea.Model {
 export class UpdateResourceGroupRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9318,11 +10855,17 @@ export class UpdateResourceGroupRequest extends $tea.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The new name that you want to change for the resource group.
+   * 
    * @example
    * common_resource_group
    */
   name?: string;
   /**
+   * @remarks
+   * The new remarks that you want to modify for the resource group.
+   * 
    * @example
    * 创建用于普通任务的通用资源组
    */
@@ -9350,11 +10893,17 @@ export class UpdateResourceGroupRequest extends $tea.Model {
 
 export class UpdateResourceGroupResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true and false.
+   * 
    * @example
    * true
    */
@@ -9599,6 +11148,1121 @@ export class UpdateWorkflowDefinitionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateWorkflowDefinitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskHooks extends $tea.Model {
+  /**
+   * @example
+   * ${severity} == "High" AND ${status} == "Critical"
+   */
+  condition?: string;
+  /**
+   * @example
+   * BlockTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskNotificationsNotificationsNotificationChannels extends $tea.Model {
+  channels?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskNotificationsNotificationsNotificationReceivers extends $tea.Model {
+  /**
+   * @example
+   * {"atAll":"true"}
+   */
+  extension?: string;
+  /**
+   * @example
+   * AliUid
+   */
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskNotificationsNotifications extends $tea.Model {
+  notificationChannels?: DataQualityEvaluationTaskNotificationsNotificationsNotificationChannels[];
+  notificationReceivers?: DataQualityEvaluationTaskNotificationsNotificationsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notificationChannels: { 'type': 'array', 'itemType': DataQualityEvaluationTaskNotificationsNotificationsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': DataQualityEvaluationTaskNotificationsNotificationsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskNotifications extends $tea.Model {
+  /**
+   * @example
+   * ${blockType} == "Strong"
+   */
+  condition?: string;
+  notifications?: DataQualityEvaluationTaskNotificationsNotifications[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      notifications: 'Notifications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      notifications: { 'type': 'array', 'itemType': DataQualityEvaluationTaskNotificationsNotifications },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskTarget extends $tea.Model {
+  /**
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @example
+   * ds=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  /**
+   * @example
+   * Table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskTrigger extends $tea.Model {
+  taskIds?: number[];
+  /**
+   * @example
+   * ByScheduledTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskIds: 'TaskIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIds: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskInstanceTaskHooks extends $tea.Model {
+  /**
+   * @example
+   * ${severity} == "High" AND ${status} == "Critical"
+   */
+  condition?: string;
+  /**
+   * @example
+   * BlockTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationChannels extends $tea.Model {
+  channels?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers extends $tea.Model {
+  /**
+   * @example
+   * {"atAll":"true"}
+   */
+  extension?: string;
+  /**
+   * @example
+   * AliUid
+   */
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskInstanceTaskNotificationsNotifications extends $tea.Model {
+  notificationChannels?: DataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationChannels[];
+  notificationReceivers?: DataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notificationChannels: { 'type': 'array', 'itemType': DataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': DataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskInstanceTaskNotifications extends $tea.Model {
+  /**
+   * @example
+   * ${blockType} == "Strong"
+   */
+  condition?: string;
+  notifications?: DataQualityEvaluationTaskInstanceTaskNotificationsNotifications[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      notifications: 'Notifications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      notifications: { 'type': 'array', 'itemType': DataQualityEvaluationTaskInstanceTaskNotificationsNotifications },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskInstanceTaskTarget extends $tea.Model {
+  /**
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @example
+   * ds=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  /**
+   * @example
+   * Table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskInstanceTaskTrigger extends $tea.Model {
+  taskIds?: number[];
+  /**
+   * @example
+   * ByScheduledTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskIds: 'TaskIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIds: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityEvaluationTaskInstanceTask extends $tea.Model {
+  /**
+   * @example
+   * 201
+   */
+  dataSourceId?: number;
+  hooks?: DataQualityEvaluationTaskInstanceTaskHooks[];
+  /**
+   * @example
+   * 10001
+   */
+  id?: number;
+  /**
+   * @example
+   * 质量校验任务
+   */
+  name?: string;
+  notifications?: DataQualityEvaluationTaskInstanceTaskNotifications[];
+  projectId?: number;
+  /**
+   * @example
+   * { "queue": "default", "sqlEngine": "SPARK_SQL" }
+   */
+  runtimeConf?: string;
+  target?: DataQualityEvaluationTaskInstanceTaskTarget;
+  tenantId?: number;
+  trigger?: DataQualityEvaluationTaskInstanceTaskTrigger;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      hooks: 'Hooks',
+      id: 'Id',
+      name: 'Name',
+      notifications: 'Notifications',
+      projectId: 'ProjectId',
+      runtimeConf: 'RuntimeConf',
+      target: 'Target',
+      tenantId: 'TenantId',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      hooks: { 'type': 'array', 'itemType': DataQualityEvaluationTaskInstanceTaskHooks },
+      id: 'number',
+      name: 'string',
+      notifications: { 'type': 'array', 'itemType': DataQualityEvaluationTaskInstanceTaskNotifications },
+      projectId: 'number',
+      runtimeConf: 'string',
+      target: DataQualityEvaluationTaskInstanceTaskTarget,
+      tenantId: 'number',
+      trigger: DataQualityEvaluationTaskInstanceTaskTrigger,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityResultDetails extends $tea.Model {
+  /**
+   * @example
+   * 100.0
+   */
+  checkedValue?: string;
+  /**
+   * @example
+   * 0.0
+   */
+  referencedValue?: string;
+  /**
+   * @example
+   * Passed
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkedValue: 'CheckedValue',
+      referencedValue: 'ReferencedValue',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkedValue: 'string',
+      referencedValue: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityResultRuleCheckingConfigThresholdsCritical extends $tea.Model {
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityResultRuleCheckingConfigThresholdsExpected extends $tea.Model {
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityResultRuleCheckingConfigThresholdsWarned extends $tea.Model {
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityResultRuleCheckingConfigThresholds extends $tea.Model {
+  critical?: DataQualityResultRuleCheckingConfigThresholdsCritical;
+  expected?: DataQualityResultRuleCheckingConfigThresholdsExpected;
+  warned?: DataQualityResultRuleCheckingConfigThresholdsWarned;
+  static names(): { [key: string]: string } {
+    return {
+      critical: 'Critical',
+      expected: 'Expected',
+      warned: 'Warned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      critical: DataQualityResultRuleCheckingConfigThresholdsCritical,
+      expected: DataQualityResultRuleCheckingConfigThresholdsExpected,
+      warned: DataQualityResultRuleCheckingConfigThresholdsWarned,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityResultRuleCheckingConfig extends $tea.Model {
+  /**
+   * @example
+   * { "bizdate": [ "-1", "-7", "-1m" ] }
+   */
+  referencedSamplesFilter?: string;
+  thresholds?: DataQualityResultRuleCheckingConfigThresholds;
+  /**
+   * @example
+   * Fixed
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      thresholds: 'Thresholds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      thresholds: DataQualityResultRuleCheckingConfigThresholds,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityResultRuleErrorHandlers extends $tea.Model {
+  /**
+   * @example
+   * SELECT * FROM tb_api_log WHERE id IS NULL
+   */
+  errorDataFilter?: string;
+  /**
+   * @example
+   * SaveErrorData
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDataFilter: 'ErrorDataFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDataFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityResultRuleSamplingConfig extends $tea.Model {
+  /**
+   * @example
+   * Min
+   */
+  metric?: string;
+  /**
+   * @example
+   * { "Columns": [ "id", "name" ] }
+   */
+  metricParameters?: string;
+  /**
+   * @example
+   * id IS NULL
+   */
+  samplingFilter?: string;
+  /**
+   * @example
+   * SET odps.sql.udf.timeout=600s;
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      samplingFilter: 'SamplingFilter',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      samplingFilter: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityResultRuleTarget extends $tea.Model {
+  /**
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @example
+   * ds=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  /**
+   * @example
+   * Table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityResultRule extends $tea.Model {
+  checkingConfig?: DataQualityResultRuleCheckingConfig;
+  /**
+   * @example
+   * this is a odps _sql task
+   */
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  errorHandlers?: DataQualityResultRuleErrorHandlers[];
+  /**
+   * @example
+   * 100001
+   */
+  id?: number;
+  /**
+   * @example
+   * 表不能为空
+   */
+  name?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  samplingConfig?: DataQualityResultRuleSamplingConfig;
+  /**
+   * @example
+   * High
+   */
+  severity?: string;
+  target?: DataQualityResultRuleTarget;
+  /**
+   * @example
+   * system::user_defined
+   */
+  templateCode?: string;
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      description: 'Description',
+      enabled: 'Enabled',
+      errorHandlers: 'ErrorHandlers',
+      id: 'Id',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfig: 'SamplingConfig',
+      severity: 'Severity',
+      target: 'Target',
+      templateCode: 'TemplateCode',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: DataQualityResultRuleCheckingConfig,
+      description: 'string',
+      enabled: 'boolean',
+      errorHandlers: { 'type': 'array', 'itemType': DataQualityResultRuleErrorHandlers },
+      id: 'number',
+      name: 'string',
+      projectId: 'number',
+      samplingConfig: DataQualityResultRuleSamplingConfig,
+      severity: 'string',
+      target: DataQualityResultRuleTarget,
+      templateCode: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityRuleCheckingConfigThresholdsCritical extends $tea.Model {
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityRuleCheckingConfigThresholdsExpected extends $tea.Model {
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityRuleCheckingConfigThresholdsWarned extends $tea.Model {
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityRuleCheckingConfigThresholds extends $tea.Model {
+  critical?: DataQualityRuleCheckingConfigThresholdsCritical;
+  expected?: DataQualityRuleCheckingConfigThresholdsExpected;
+  warned?: DataQualityRuleCheckingConfigThresholdsWarned;
+  static names(): { [key: string]: string } {
+    return {
+      critical: 'Critical',
+      expected: 'Expected',
+      warned: 'Warned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      critical: DataQualityRuleCheckingConfigThresholdsCritical,
+      expected: DataQualityRuleCheckingConfigThresholdsExpected,
+      warned: DataQualityRuleCheckingConfigThresholdsWarned,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityRuleCheckingConfig extends $tea.Model {
+  /**
+   * @example
+   * { "bizdate": [ "-1", "-7", "-1m" ] }
+   */
+  referencedSamplesFilter?: string;
+  thresholds?: DataQualityRuleCheckingConfigThresholds;
+  /**
+   * @example
+   * Fixed
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      thresholds: 'Thresholds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      thresholds: DataQualityRuleCheckingConfigThresholds,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityRuleErrorHandlers extends $tea.Model {
+  /**
+   * @example
+   * SELECT * FROM tb_api_log WHERE id IS NULL
+   */
+  errorDataFilter?: string;
+  /**
+   * @example
+   * SaveErrorData
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDataFilter: 'ErrorDataFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDataFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityRuleSamplingConfig extends $tea.Model {
+  /**
+   * @example
+   * Min
+   */
+  metric?: string;
+  /**
+   * @example
+   * { "Columns": [ "id", "name" ] }
+   */
+  metricParameters?: string;
+  /**
+   * @example
+   * id IS NULL
+   */
+  samplingFilter?: string;
+  /**
+   * @example
+   * SET odps.sql.udf.timeout=600s;
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      samplingFilter: 'SamplingFilter',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      samplingFilter: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataQualityRuleTarget extends $tea.Model {
+  /**
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @example
+   * ds=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  /**
+   * @example
+   * Table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+      type: 'string',
     };
   }
 
@@ -10875,6 +13539,9 @@ export class GetDIJobResponseBodyPagingInfo extends $tea.Model {
 
 export class GetDataSourceResponseBodyDataSource extends $tea.Model {
   /**
+   * @remarks
+   * The connection properties of the data source.
+   * 
    * @example
    * {
    * 	"envType": "Prod",
@@ -10888,56 +13555,93 @@ export class GetDataSourceResponseBodyDataSource extends $tea.Model {
    */
   connectionProperties?: any;
   /**
+   * @remarks
+   * The mode in which the data source is added. The mode varies based on the data source type. Valid values:
+   * 
+   * *   InstanceMode: instance mode
+   * *   UrlMode: connection string mode
+   * *   CdhMode: CDH cluster mode
+   * 
    * @example
    * UrlMode
    */
   connectionPropertiesMode?: string;
   /**
+   * @remarks
+   * The time when the data source was added. This value is a UNIX timestamp.
+   * 
    * @example
    * 1698286929333
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the user who adds the data source.
+   * 
    * @example
    * 1107550004253538
    */
   createUser?: string;
   /**
+   * @remarks
+   * The description of the data source.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 16738
    */
   id?: number;
   /**
+   * @remarks
+   * The time when the data source was last modified. This value is a UNIX timestamp.
+   * 
    * @example
    * 1698286929333
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The ID of the user who modifies the data source.
+   * 
    * @example
    * 1107550004253538
    */
   modifyUser?: string;
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the workspace with which the data source is associated.
+   * 
    * @example
    * 52660
    */
   projectId?: number;
   /**
+   * @remarks
+   * The unique business key of the data source. For example, the unique business key of a Hologres data source is in the ${tenantOwnerId}:${regionId}:${type}:${instanceId}:${database} format.
+   * 
    * @example
    * 1107550004253538:cn-beijing:holo:hgprecn-cn-x0r3oun4k001:testdb
    */
   qualifiedName?: string;
   /**
+   * @remarks
+   * The type of the data source.
+   * 
    * @example
    * hologres
    */
@@ -11574,6 +14278,79 @@ export class GetProjectResponseBodyProject extends $tea.Model {
       owner: 'string',
       paiTaskEnabled: 'boolean',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectMemberResponseBodyProjectMemberRoles extends $tea.Model {
+  /**
+   * @example
+   * role_project_guest
+   */
+  code?: string;
+  name?: string;
+  /**
+   * @example
+   * System
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectMemberResponseBodyProjectMember extends $tea.Model {
+  /**
+   * @example
+   * 88757
+   */
+  projectId?: number;
+  roles?: GetProjectMemberResponseBodyProjectMemberRoles[];
+  /**
+   * @example
+   * Normal
+   */
+  status?: string;
+  /**
+   * @example
+   * 123422344899
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      roles: 'Roles',
+      status: 'Status',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      roles: { 'type': 'array', 'itemType': GetProjectMemberResponseBodyProjectMemberRoles },
+      status: 'string',
+      userId: 'string',
     };
   }
 
@@ -12760,7 +15537,7 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $tea.Model {
 export class ListDIJobsResponseBodyPagingInfo extends $tea.Model {
   /**
    * @remarks
-   * The synchronization tasks that are returned.
+   * The synchronization tasks returned.
    */
   DIJobs?: ListDIJobsResponseBodyPagingInfoDIJobs[];
   /**
@@ -12799,6 +15576,1748 @@ export class ListDIJobsResponseBodyPagingInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DIJobs: { 'type': 'array', 'itemType': ListDIJobsResponseBodyPagingInfoDIJobs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskHooks extends $tea.Model {
+  /**
+   * @remarks
+   * Hook触发条件
+   * 
+   * @example
+   * ${severity} == "High" AND ${status} == "Critical"
+   */
+  condition?: string;
+  /**
+   * @remarks
+   * Hook类型
+   * 
+   * @example
+   * BlockTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNofiticationReceivers extends $tea.Model {
+  /**
+   * @remarks
+   * 扩展信息，格式为 json，例如钉钉机器人支持 at 所有人
+   * 
+   * @example
+   * {"atAll":"true"}
+   */
+  extension?: string;
+  /**
+   * @remarks
+   * 告警接收人类型
+   * 
+   * @example
+   * AliUid
+   */
+  receiverType?: string;
+  /**
+   * @remarks
+   * 告警接收人
+   */
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNotificationChannels extends $tea.Model {
+  /**
+   * @remarks
+   * 通知方式
+   */
+  channels?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotifications extends $tea.Model {
+  /**
+   * @remarks
+   * 告警接收人设置
+   */
+  nofiticationReceivers?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNofiticationReceivers[];
+  /**
+   * @remarks
+   * 通知方式
+   */
+  notificationChannels?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNotificationChannels[];
+  static names(): { [key: string]: string } {
+    return {
+      nofiticationReceivers: 'NofiticationReceivers',
+      notificationChannels: 'NotificationChannels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nofiticationReceivers: { 'type': 'array', 'itemType': ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNofiticationReceivers },
+      notificationChannels: { 'type': 'array', 'itemType': ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNotificationChannels },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotifications extends $tea.Model {
+  /**
+   * @remarks
+   * 通知触发条件
+   * 
+   * @example
+   * ${severity} == "High"
+   */
+  condition?: string;
+  /**
+   * @remarks
+   * 具体的消息通知设置
+   */
+  notifications?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotifications[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      notifications: 'Notifications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      notifications: { 'type': 'array', 'itemType': ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotifications },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTarget extends $tea.Model {
+  /**
+   * @remarks
+   * 表所属的数据库类型
+   * 
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @remarks
+   * 分区表的分区设置
+   * 
+   * @example
+   * ds=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @remarks
+   * 表在数据地图中的唯一ID
+   * 
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  /**
+   * @remarks
+   * 监控对象类型
+   * 
+   * @example
+   * Table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTrigger extends $tea.Model {
+  /**
+   * @remarks
+   * 具体指明哪些调度节点的实例执行成功后可以触发
+   */
+  taskIds?: number[];
+  /**
+   * @remarks
+   * 何种事件可以触发质量校验任务执行
+   * 
+   * @example
+   * ByScheduledTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskIds: 'TaskIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIds: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTask extends $tea.Model {
+  /**
+   * @remarks
+   * 质量监控任务描述
+   * 
+   * @example
+   * This is a daily run data quality evaluation plan.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务实例生命周期中的回调设置，目前只支持一个阻塞调度任务的Hook
+   */
+  hooks?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskHooks[];
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * @example
+   * 10001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * 质量监控任务名称
+   * 
+   * This parameter is required.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务通知订阅配置
+   */
+  notifications?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotifications;
+  /**
+   * @remarks
+   * 项目空间Id
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * 代表region的资源属性字段
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * 使用数据源时的一些设置，目前只支持指定EMR的yarn队列、采集EMR表时把SQL引擎指定为SPARK-SQL
+   * 
+   * @example
+   * { "queue": "default", "sqlEngine": "SPARK-SQL" }
+   */
+  runtimeConf?: string;
+  /**
+   * @remarks
+   * 参看 DataQualityTarget示例	数据质量校验任务的监控对象，参考 DataQualityTarget
+   */
+  target?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTarget;
+  /**
+   * @remarks
+   * 租户Id
+   * 
+   * @example
+   * 10
+   */
+  tenantId?: number;
+  /**
+   * @remarks
+   * 数据质量校验任务的触发配置
+   */
+  trigger?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTrigger;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      hooks: 'Hooks',
+      id: 'Id',
+      name: 'Name',
+      notifications: 'Notifications',
+      projectId: 'ProjectId',
+      regionId: 'RegionId',
+      runtimeConf: 'RuntimeConf',
+      target: 'Target',
+      tenantId: 'TenantId',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      hooks: { 'type': 'array', 'itemType': ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskHooks },
+      id: 'number',
+      name: 'string',
+      notifications: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotifications,
+      projectId: 'number',
+      regionId: 'string',
+      runtimeConf: 'string',
+      target: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTarget,
+      tenantId: 'number',
+      trigger: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTrigger,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstances extends $tea.Model {
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  finishTime?: number;
+  /**
+   * @example
+   * 10001
+   */
+  id?: number;
+  /**
+   * @example
+   * {
+   *   "bizdate": "20240517",
+   *   "triggerTime": "1710239005403"
+   * }
+   */
+  parameters?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * Critical
+   */
+  status?: string;
+  task?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTask;
+  /**
+   * @example
+   * {
+   *   "TriggerClientId": 10001,
+   *   "TriggerClient": "CWF2"
+   * }
+   */
+  triggerContext?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      finishTime: 'FinishTime',
+      id: 'Id',
+      parameters: 'Parameters',
+      projectId: 'ProjectId',
+      status: 'Status',
+      task: 'Task',
+      triggerContext: 'TriggerContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      finishTime: 'number',
+      id: 'number',
+      parameters: 'string',
+      projectId: 'number',
+      status: 'string',
+      task: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTask,
+      triggerContext: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo extends $tea.Model {
+  dataQualityEvaluationTaskInstances?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstances[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 294
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityEvaluationTaskInstances: 'DataQualityEvaluationTaskInstances',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityEvaluationTaskInstances: { 'type': 'array', 'itemType': ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstances },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksHooks extends $tea.Model {
+  /**
+   * @example
+   * ${severity} == "High" AND ${status} == "Critical"
+   */
+  condition?: string;
+  /**
+   * @example
+   * BlockTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationChannels extends $tea.Model {
+  channels?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationReceivers extends $tea.Model {
+  /**
+   * @example
+   * {"atAll":"true"}
+   */
+  extension?: string;
+  /**
+   * @example
+   * AliUid
+   */
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotifications extends $tea.Model {
+  notificationChannels?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationChannels[];
+  notificationReceivers?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notificationChannels: { 'type': 'array', 'itemType': ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotifications extends $tea.Model {
+  /**
+   * @example
+   * ${severity} == "High"
+   */
+  condition?: string;
+  notifications?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotifications[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      notifications: 'Notifications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      notifications: { 'type': 'array', 'itemType': ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotifications },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTarget extends $tea.Model {
+  /**
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @example
+   * ds=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  /**
+   * @example
+   * Table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTrigger extends $tea.Model {
+  taskIds?: number[];
+  /**
+   * @example
+   * ByScheduledTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskIds: 'TaskIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIds: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasks extends $tea.Model {
+  /**
+   * @example
+   * This is a daily run data quality evaluation plan
+   */
+  description?: string;
+  hooks?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksHooks[];
+  /**
+   * @example
+   * 10001
+   */
+  id?: number;
+  name?: string;
+  notifications?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotifications;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * { "queue": "default", "sqlEngine": "SPARK-SQL" }
+   */
+  runtimeConf?: string;
+  target?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTarget;
+  /**
+   * @example
+   * 10
+   */
+  tenantId?: number;
+  trigger?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTrigger;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      hooks: 'Hooks',
+      id: 'Id',
+      name: 'Name',
+      notifications: 'Notifications',
+      projectId: 'ProjectId',
+      runtimeConf: 'RuntimeConf',
+      target: 'Target',
+      tenantId: 'TenantId',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      hooks: { 'type': 'array', 'itemType': ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksHooks },
+      id: 'number',
+      name: 'string',
+      notifications: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotifications,
+      projectId: 'number',
+      runtimeConf: 'string',
+      target: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTarget,
+      tenantId: 'number',
+      trigger: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTrigger,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $tea.Model {
+  dataQualityEvaluationTasks?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasks[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * 131
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityEvaluationTasks: 'DataQualityEvaluationTasks',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityEvaluationTasks: { 'type': 'array', 'itemType': ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasks },
+      pageNumber: 'string',
+      pageSize: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetails extends $tea.Model {
+  /**
+   * @example
+   * 100.0
+   */
+  checkedValue?: string;
+  /**
+   * @example
+   * 0.0
+   */
+  referencedValue?: string;
+  /**
+   * @remarks
+   * *   ERROR
+   * *   PASSED
+   * *   WARNED
+   * *   CRITICAL
+   * 
+   * @example
+   * PASSED
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkedValue: 'CheckedValue',
+      referencedValue: 'ReferencedValue',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkedValue: 'string',
+      referencedValue: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsCritical extends $tea.Model {
+  /**
+   * @remarks
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsExpected extends $tea.Model {
+  /**
+   * @remarks
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsWarned extends $tea.Model {
+  /**
+   * @remarks
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholds extends $tea.Model {
+  critical?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsCritical;
+  expected?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsExpected;
+  warned?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsWarned;
+  static names(): { [key: string]: string } {
+    return {
+      critical: 'Critical',
+      expected: 'Expected',
+      warned: 'Warned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      critical: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsCritical,
+      expected: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsExpected,
+      warned: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsWarned,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfig extends $tea.Model {
+  /**
+   * @example
+   * { "bizdate": [ "-1", "-7", "-1m" ] }
+   */
+  referencedSamplesFilter?: string;
+  thresholds?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholds;
+  /**
+   * @remarks
+   * *   FIXED
+   * *   FLUCTATION
+   * *   AUTO
+   * *   AVERAGE
+   * *   VARIANCE
+   * *   FLUCTATION_DISCREATE
+   * 
+   * @example
+   * FIXED
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      thresholds: 'Thresholds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      thresholds: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholds,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleErrorHandlers extends $tea.Model {
+  /**
+   * @example
+   * SELECT * FROM tb_api_log WHERE id IS NULL
+   */
+  errorDataFilter?: string;
+  /**
+   * @remarks
+   * *   SAVE_ERROR_DATA
+   * 
+   * @example
+   * SAVE_ERROR_DATA
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDataFilter: 'ErrorDataFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDataFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleSamplingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * 
+   * @example
+   * COUNT
+   */
+  metric?: string;
+  /**
+   * @example
+   * { "columns": [ "id", "name" ] }
+   */
+  metricParameters?: string;
+  /**
+   * @example
+   * id IS NULL
+   */
+  samplingFilter?: string;
+  /**
+   * @example
+   * SET odps.sql.udf.timeout=600s;
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      samplingFilter: 'SamplingFilter',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      samplingFilter: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleTarget extends $tea.Model {
+  /**
+   * @remarks
+   * *   MAX_COMPUTE
+   * *   EMR
+   * *   CDH
+   * *   HOLOGRES
+   * *   ANALYTICDB_FOR_POSTGRESQL
+   * *   ANALYTICDB_FOR_MYSQL
+   * *   STAR_ROCKS
+   * 
+   * @example
+   * MAX_COMPUTE
+   */
+  databaseType?: string;
+  /**
+   * @example
+   * ds=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  /**
+   * @remarks
+   * *   TABLE
+   * 
+   * @example
+   * TABLE
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule extends $tea.Model {
+  checkingConfig?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfig;
+  /**
+   * @example
+   * this is a odps _sql task
+   */
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  errorHandlers?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleErrorHandlers[];
+  /**
+   * @example
+   * 100001
+   */
+  id?: number;
+  name?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  samplingConfig?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleSamplingConfig;
+  /**
+   * @remarks
+   * *   HIGH
+   * *   NORMAL
+   * 
+   * @example
+   * NORMAL
+   */
+  severity?: string;
+  target?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleTarget;
+  /**
+   * @example
+   * system::user_defined
+   */
+  templateCode?: string;
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      description: 'Description',
+      enabled: 'Enabled',
+      errorHandlers: 'ErrorHandlers',
+      id: 'Id',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfig: 'SamplingConfig',
+      severity: 'Severity',
+      target: 'Target',
+      templateCode: 'TemplateCode',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfig,
+      description: 'string',
+      enabled: 'boolean',
+      errorHandlers: { 'type': 'array', 'itemType': ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleErrorHandlers },
+      id: 'number',
+      name: 'string',
+      projectId: 'number',
+      samplingConfig: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleSamplingConfig,
+      severity: 'string',
+      target: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleTarget,
+      templateCode: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResults extends $tea.Model {
+  /**
+   * @example
+   * 1708284916414
+   */
+  createTime?: number;
+  details?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetails[];
+  /**
+   * @example
+   * 16033
+   */
+  id?: number;
+  rule?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule;
+  /**
+   * @example
+   * [
+   *   {
+   *     "gender": "male",
+   *     "_count": 100
+   *   }, {
+   *     "gender": "female",
+   *     "_count": 100
+   *   }
+   * ]
+   */
+  sample?: string;
+  /**
+   * @remarks
+   * *   RUNNING
+   * *   ERROR
+   * *   PASSED
+   * *   WARNED
+   * *   CRITICAL
+   * 
+   * @example
+   * PASSED
+   */
+  status?: string;
+  /**
+   * @example
+   * 200001
+   */
+  taskInstanceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      details: 'Details',
+      id: 'Id',
+      rule: 'Rule',
+      sample: 'Sample',
+      status: 'Status',
+      taskInstanceId: 'TaskInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      details: { 'type': 'array', 'itemType': ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetails },
+      id: 'number',
+      rule: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule,
+      sample: 'string',
+      status: 'string',
+      taskInstanceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityResultsResponseBodyPagingInfo extends $tea.Model {
+  dataQualityResults?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResults[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 219
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityResults: 'DataQualityResults',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityResults: { 'type': 'array', 'itemType': ListDataQualityResultsResponseBodyPagingInfoDataQualityResults },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsCritical extends $tea.Model {
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsExpected extends $tea.Model {
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsWarned extends $tea.Model {
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholds extends $tea.Model {
+  critical?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsCritical;
+  expected?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsExpected;
+  warned?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsWarned;
+  static names(): { [key: string]: string } {
+    return {
+      critical: 'Critical',
+      expected: 'Expected',
+      warned: 'Warned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      critical: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsCritical,
+      expected: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsExpected,
+      warned: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsWarned,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfig extends $tea.Model {
+  /**
+   * @example
+   * { "bizdate": [ "-1", "-7", "-1m" ] }
+   */
+  referencedSamplesFilter?: string;
+  thresholds?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholds;
+  /**
+   * @example
+   * Fixed
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      thresholds: 'Thresholds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      thresholds: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholds,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesErrorHandlers extends $tea.Model {
+  /**
+   * @example
+   * SELECT * FROM tb_api_log WHERE id IS NULL
+   */
+  errorDataFilter?: string;
+  /**
+   * @example
+   * SaveErrorData
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDataFilter: 'ErrorDataFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDataFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesSamplingConfig extends $tea.Model {
+  /**
+   * @example
+   * Max
+   */
+  metric?: string;
+  /**
+   * @example
+   * { "Columns": [ "id", "name" ] , "SQL": "select count(1) from table;"}
+   */
+  metricParameters?: string;
+  /**
+   * @example
+   * id IS NULL
+   */
+  samplingFilter?: string;
+  /**
+   * @example
+   * SET odps.sql.udf.timeout=600s; 
+   * SET odps.sql.python.version=cp27;
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      samplingFilter: 'SamplingFilter',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      samplingFilter: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget extends $tea.Model {
+  /**
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @example
+   * ds=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  /**
+   * @example
+   * Table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRules extends $tea.Model {
+  checkingConfig?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfig;
+  /**
+   * @example
+   * this is a odps _sql task
+   */
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  errorHandlers?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesErrorHandlers[];
+  /**
+   * @example
+   * 22130
+   */
+  id?: number;
+  name?: string;
+  /**
+   * @example
+   * 100001
+   */
+  projectId?: number;
+  samplingConfig?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesSamplingConfig;
+  /**
+   * @example
+   * High
+   */
+  severity?: string;
+  target?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget;
+  /**
+   * @example
+   * system::user_defined
+   */
+  templateCode?: string;
+  /**
+   * @example
+   * 100001
+   */
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      description: 'Description',
+      enabled: 'Enabled',
+      errorHandlers: 'ErrorHandlers',
+      id: 'Id',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfig: 'SamplingConfig',
+      severity: 'Severity',
+      target: 'Target',
+      templateCode: 'TemplateCode',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfig,
+      description: 'string',
+      enabled: 'boolean',
+      errorHandlers: { 'type': 'array', 'itemType': ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesErrorHandlers },
+      id: 'number',
+      name: 'string',
+      projectId: 'number',
+      samplingConfig: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesSamplingConfig,
+      severity: 'string',
+      target: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget,
+      templateCode: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRulesResponseBodyPagingInfo extends $tea.Model {
+  dataQualityRules?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRules[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 294
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityRules: 'DataQualityRules',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityRules: { 'type': 'array', 'itemType': ListDataQualityRulesResponseBodyPagingInfoDataQualityRules },
       pageNumber: 'number',
       pageSize: 'number',
       totalCount: 'number',
@@ -15710,6 +20229,119 @@ export class ListNodesResponseBodyPagingInfo extends $tea.Model {
   }
 }
 
+export class ListProjectMembersResponseBodyPagingInfoProjectMembersRoles extends $tea.Model {
+  /**
+   * @example
+   * role_project_guest
+   */
+  code?: string;
+  name?: string;
+  /**
+   * @example
+   * System
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectMembersResponseBodyPagingInfoProjectMembers extends $tea.Model {
+  /**
+   * @example
+   * 62136
+   */
+  projectId?: number;
+  roles?: ListProjectMembersResponseBodyPagingInfoProjectMembersRoles[];
+  /**
+   * @example
+   * Normal
+   */
+  status?: string;
+  /**
+   * @example
+   * 123422344899
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      roles: 'Roles',
+      status: 'Status',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      roles: { 'type': 'array', 'itemType': ListProjectMembersResponseBodyPagingInfoProjectMembersRoles },
+      status: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectMembersResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  projectMembers?: ListProjectMembersResponseBodyPagingInfoProjectMembers[];
+  /**
+   * @example
+   * 12
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectMembers: 'ProjectMembers',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectMembers: { 'type': 'array', 'itemType': ListProjectMembersResponseBodyPagingInfoProjectMembers },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $tea.Model {
   /**
    * @example
@@ -16263,7 +20895,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
   script?: ListResourcesResponseBodyPagingInfoResourcesScript;
   /**
    * @remarks
-   * The storage path of the source of the file resource. If the value of the SourecType parameter is local, this parameter is empty.
+   * The path of the source of the file resource. If the SourecType parameter is set to Local, this parameter is left empty.
    * 
    * @example
    * XXX/unknown/ide/1/XXX/20240820200851_963a9da676de44ef8d06a6576a8c4d6a.py
@@ -16272,6 +20904,11 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
   /**
    * @remarks
    * The storage type of the source of the file resource.
+   * 
+   * Valid values:
+   * 
+   * *   Local
+   * *   Oss
    * 
    * @example
    * local
@@ -16289,6 +20926,12 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
    * @remarks
    * The storage type of the destination of the file resource.
    * 
+   * Valid values:
+   * 
+   * *   Gateway
+   * *   Oss
+   * *   Hdfs
+   * 
    * @example
    * oss
    */
@@ -16299,10 +20942,10 @@ export class ListResourcesResponseBodyPagingInfoResources extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   jar
-   * *   python
-   * *   file
-   * *   archive
+   * *   Python
+   * *   Jar
+   * *   Archive
+   * *   File
    * 
    * @example
    * jar
@@ -17366,7 +22009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关联资源组到某个工作空间。
+   * Associates a resource group with a workspace.
    * 
    * @param request - AssociateProjectToResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17401,7 +22044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关联资源组到某个工作空间。
+   * Associates a resource group with a workspace.
    * 
    * @param request - AssociateProjectToResourceGroupRequest
    * @returns AssociateProjectToResourceGroupResponse
@@ -17994,6 +22637,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加工作空间成员
+   * 
+   * @param tmpReq - CreateProjectMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProjectMemberResponse
+   */
+  async createProjectMemberWithOptions(tmpReq: CreateProjectMemberRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectMemberResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateProjectMemberShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.roleCodes)) {
+      request.roleCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roleCodes, "RoleCodes", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.roleCodesShrink)) {
+      body["RoleCodes"] = request.roleCodesShrink;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateProjectMember",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateProjectMemberResponse>(await this.callApi(params, req, runtime), new CreateProjectMemberResponse({}));
+  }
+
+  /**
+   * 添加工作空间成员
+   * 
+   * @param request - CreateProjectMemberRequest
+   * @returns CreateProjectMemberResponse
+   */
+  async createProjectMember(request: CreateProjectMemberRequest): Promise<CreateProjectMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createProjectMemberWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a file resource in DataStudio. The information about the file resource is described by using FlowSpec.
    * 
    * @remarks
@@ -18566,6 +23265,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除工作空间成员
+   * 
+   * @param request - DeleteProjectMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectMemberResponse
+   */
+  async deleteProjectMemberWithOptions(request: DeleteProjectMemberRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectMemberResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteProjectMember",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteProjectMemberResponse>(await this.callApi(params, req, runtime), new DeleteProjectMemberResponse({}));
+  }
+
+  /**
+   * 移除工作空间成员
+   * 
+   * @param request - DeleteProjectMemberRequest
+   * @returns DeleteProjectMemberResponse
+   */
+  async deleteProjectMember(request: DeleteProjectMemberRequest): Promise<DeleteProjectMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteProjectMemberWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a file resource from DataStudio.
    * 
    * @remarks
@@ -18618,7 +23363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除通用资源组。
+   * Deletes a serverless resource group.
    * 
    * @param request - DeleteResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18649,7 +23394,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除通用资源组。
+   * Deletes a serverless resource group.
    * 
    * @param request - DeleteResourceGroupRequest
    * @returns DeleteResourceGroupResponse
@@ -18754,7 +23499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将资源组和某个工作空间解除关联。
+   * Disassociates a resource group from a workspace.
    * 
    * @param request - DissociateProjectFromResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18789,7 +23534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将资源组和某个工作空间解除关联。
+   * Disassociates a resource group from a workspace.
    * 
    * @param request - DissociateProjectFromResourceGroupRequest
    * @returns DissociateProjectFromResourceGroupResponse
@@ -18936,7 +23681,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Queries a data source by ID.
+   * 
+   * @remarks
+   * You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Workspace Administrator, Deployment, Development, Project Owner, and O\\&M
    * 
    * @param request - GetDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18963,7 +23712,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Queries a data source by ID.
+   * 
+   * @remarks
+   * You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Workspace Administrator, Deployment, Development, Project Owner, and O\\&M
    * 
    * @param request - GetDataSourceRequest
    * @returns GetDataSourceResponse
@@ -19202,6 +23955,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询工作空间成员详情
+   * 
+   * @param request - GetProjectMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProjectMemberResponse
+   */
+  async getProjectMemberWithOptions(request: GetProjectMemberRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectMemberResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetProjectMember",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetProjectMemberResponse>(await this.callApi(params, req, runtime), new GetProjectMemberResponse({}));
+  }
+
+  /**
+   * 查询工作空间成员详情
+   * 
+   * @param request - GetProjectMemberRequest
+   * @returns GetProjectMemberResponse
+   */
+  async getProjectMember(request: GetProjectMemberRequest): Promise<GetProjectMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getProjectMemberWithOptions(request, runtime);
+  }
+
+  /**
    * 查询工作空间角色详情
    * 
    * @param request - GetProjectRoleRequest
@@ -19397,6 +24196,62 @@ export default class Client extends OpenApi {
   async getWorkflowDefinition(request: GetWorkflowDefinitionRequest): Promise<GetWorkflowDefinitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 授予工作空间成员角色
+   * 
+   * @param tmpReq - GrantMemberProjectRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GrantMemberProjectRolesResponse
+   */
+  async grantMemberProjectRolesWithOptions(tmpReq: GrantMemberProjectRolesRequest, runtime: $Util.RuntimeOptions): Promise<GrantMemberProjectRolesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GrantMemberProjectRolesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.roleCodes)) {
+      request.roleCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roleCodes, "RoleCodes", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.roleCodesShrink)) {
+      body["RoleCodes"] = request.roleCodesShrink;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GrantMemberProjectRoles",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GrantMemberProjectRolesResponse>(await this.callApi(params, req, runtime), new GrantMemberProjectRolesResponse({}));
+  }
+
+  /**
+   * 授予工作空间成员角色
+   * 
+   * @param request - GrantMemberProjectRolesRequest
+   * @returns GrantMemberProjectRolesResponse
+   */
+  async grantMemberProjectRoles(request: GrantMemberProjectRolesRequest): Promise<GrantMemberProjectRolesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.grantMemberProjectRolesWithOptions(request, runtime);
   }
 
   /**
@@ -19639,6 +24494,150 @@ export default class Client extends OpenApi {
   async listDIJobs(request: ListDIJobsRequest): Promise<ListDIJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDIJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * ListDataQualityEvaluationTaskInstances
+   * 
+   * @param request - ListDataQualityEvaluationTaskInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataQualityEvaluationTaskInstancesResponse
+   */
+  async listDataQualityEvaluationTaskInstancesWithOptions(request: ListDataQualityEvaluationTaskInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListDataQualityEvaluationTaskInstancesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataQualityEvaluationTaskInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataQualityEvaluationTaskInstancesResponse>(await this.callApi(params, req, runtime), new ListDataQualityEvaluationTaskInstancesResponse({}));
+  }
+
+  /**
+   * ListDataQualityEvaluationTaskInstances
+   * 
+   * @param request - ListDataQualityEvaluationTaskInstancesRequest
+   * @returns ListDataQualityEvaluationTaskInstancesResponse
+   */
+  async listDataQualityEvaluationTaskInstances(request: ListDataQualityEvaluationTaskInstancesRequest): Promise<ListDataQualityEvaluationTaskInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataQualityEvaluationTaskInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListDataQualityEvaluationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataQualityEvaluationTasksResponse
+   */
+  async listDataQualityEvaluationTasksWithOptions(request: ListDataQualityEvaluationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListDataQualityEvaluationTasksResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataQualityEvaluationTasks",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataQualityEvaluationTasksResponse>(await this.callApi(params, req, runtime), new ListDataQualityEvaluationTasksResponse({}));
+  }
+
+  /**
+   * @param request - ListDataQualityEvaluationTasksRequest
+   * @returns ListDataQualityEvaluationTasksResponse
+   */
+  async listDataQualityEvaluationTasks(request: ListDataQualityEvaluationTasksRequest): Promise<ListDataQualityEvaluationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataQualityEvaluationTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListDataQualityResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataQualityResultsResponse
+   */
+  async listDataQualityResultsWithOptions(request: ListDataQualityResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListDataQualityResultsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataQualityResults",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataQualityResultsResponse>(await this.callApi(params, req, runtime), new ListDataQualityResultsResponse({}));
+  }
+
+  /**
+   * @param request - ListDataQualityResultsRequest
+   * @returns ListDataQualityResultsResponse
+   */
+  async listDataQualityResults(request: ListDataQualityResultsRequest): Promise<ListDataQualityResultsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataQualityResultsWithOptions(request, runtime);
+  }
+
+  /**
+   * 质量监控规则分页查询
+   * 
+   * @param request - ListDataQualityRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataQualityRulesResponse
+   */
+  async listDataQualityRulesWithOptions(request: ListDataQualityRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListDataQualityRulesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataQualityRules",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataQualityRulesResponse>(await this.callApi(params, req, runtime), new ListDataQualityRulesResponse({}));
+  }
+
+  /**
+   * 质量监控规则分页查询
+   * 
+   * @param request - ListDataQualityRulesRequest
+   * @returns ListDataQualityRulesResponse
+   */
+  async listDataQualityRules(request: ListDataQualityRulesRequest): Promise<ListDataQualityRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataQualityRulesWithOptions(request, runtime);
   }
 
   /**
@@ -19911,6 +24910,74 @@ export default class Client extends OpenApi {
   async listNodes(request: ListNodesRequest): Promise<ListNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询工作空间成员详情
+   * 
+   * @param tmpReq - ListProjectMembersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectMembersResponse
+   */
+  async listProjectMembersWithOptions(tmpReq: ListProjectMembersRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectMembersResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListProjectMembersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.roleCodes)) {
+      request.roleCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roleCodes, "RoleCodes", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.userIds)) {
+      request.userIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userIds, "UserIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.roleCodesShrink)) {
+      body["RoleCodes"] = request.roleCodesShrink;
+    }
+
+    if (!Util.isUnset(request.userIdsShrink)) {
+      body["UserIds"] = request.userIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProjectMembers",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProjectMembersResponse>(await this.callApi(params, req, runtime), new ListProjectMembersResponse({}));
+  }
+
+  /**
+   * 分页查询工作空间成员详情
+   * 
+   * @param request - ListProjectMembersRequest
+   * @returns ListProjectMembersResponse
+   */
+  async listProjectMembers(request: ListProjectMembersRequest): Promise<ListProjectMembersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listProjectMembersWithOptions(request, runtime);
   }
 
   /**
@@ -20640,6 +25707,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 撤销工作空间成员的角色
+   * 
+   * @param tmpReq - RevokeMemberProjectRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeMemberProjectRolesResponse
+   */
+  async revokeMemberProjectRolesWithOptions(tmpReq: RevokeMemberProjectRolesRequest, runtime: $Util.RuntimeOptions): Promise<RevokeMemberProjectRolesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RevokeMemberProjectRolesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.roleCodes)) {
+      request.roleCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roleCodes, "RoleCodes", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.roleCodesShrink)) {
+      body["RoleCodes"] = request.roleCodesShrink;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RevokeMemberProjectRoles",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RevokeMemberProjectRolesResponse>(await this.callApi(params, req, runtime), new RevokeMemberProjectRolesResponse({}));
+  }
+
+  /**
+   * 撤销工作空间成员的角色
+   * 
+   * @param request - RevokeMemberProjectRolesRequest
+   * @returns RevokeMemberProjectRolesResponse
+   */
+  async revokeMemberProjectRoles(request: RevokeMemberProjectRolesRequest): Promise<RevokeMemberProjectRolesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.revokeMemberProjectRolesWithOptions(request, runtime);
+  }
+
+  /**
    * 启动数据集成任务
    * 
    * @param tmpReq - StartDIJobRequest
@@ -21100,7 +26223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新通用资源组基本信息。
+   * Updates basic information about a resource group.
    * 
    * @param request - UpdateResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21139,7 +26262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新通用资源组基本信息。
+   * Updates basic information about a resource group.
    * 
    * @param request - UpdateResourceGroupRequest
    * @returns UpdateResourceGroupResponse
