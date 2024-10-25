@@ -5982,6 +5982,106 @@ export class DescribeDBClusterSSLResponse extends $tea.Model {
   }
 }
 
+export class DescribeDBClusterShardNumberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * am-uf6g8w25jacm7****
+   */
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterShardNumberResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CBE843D8-964D-5EA3-9D31-822125611B6E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 128
+   */
+  shardNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      shardNumber: 'ShardNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      shardNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterShardNumberResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBClusterShardNumberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBClusterShardNumberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClusterSpaceSummaryRequest extends $tea.Model {
   /**
    * @remarks
@@ -28990,6 +29090,68 @@ export default class Client extends OpenApi {
   async describeDBClusterSSL(request: DescribeDBClusterSSLRequest): Promise<DescribeDBClusterSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterSSLWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取实例分片(Shard)数目
+   * 
+   * @param request - DescribeDBClusterShardNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBClusterShardNumberResponse
+   */
+  async describeDBClusterShardNumberWithOptions(request: DescribeDBClusterShardNumberRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterShardNumberResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBClusterShardNumber",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBClusterShardNumberResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterShardNumberResponse({}));
+  }
+
+  /**
+   * 获取实例分片(Shard)数目
+   * 
+   * @param request - DescribeDBClusterShardNumberRequest
+   * @returns DescribeDBClusterShardNumberResponse
+   */
+  async describeDBClusterShardNumber(request: DescribeDBClusterShardNumberRequest): Promise<DescribeDBClusterShardNumberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBClusterShardNumberWithOptions(request, runtime);
   }
 
   /**
