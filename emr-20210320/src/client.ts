@@ -6281,7 +6281,7 @@ export class CreateApiTemplateRequest extends $tea.Model {
   apiName?: string;
   /**
    * @remarks
-   * The content of the cluster API operation template. Set the value to JSON strings of the request parameters of the [CreateCluster](https://help.aliyun.com/zh/emr/emr-on-ecs/developer-reference/api-emr-2021-03-20-createcluster) API operation for creating a cluster.
+   * The content of the cluster API operation template. Set the value to JSON strings of the request parameters of the [CreateCluster](https://help.aliyun.com/document_detail/454393.html) API operation for creating a cluster.
    * 
    * This parameter is required.
    * 
@@ -6291,7 +6291,7 @@ export class CreateApiTemplateRequest extends $tea.Model {
   content?: string;
   /**
    * @remarks
-   * 地域ID。
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -6301,7 +6301,7 @@ export class CreateApiTemplateRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * 资源组ID。
+   * Resource group ID.
    * 
    * @example
    * rg-acfmzabjyop****
@@ -6309,7 +6309,7 @@ export class CreateApiTemplateRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * 集群模板名字。
+   * Cluster template name.
    * 
    * This parameter is required.
    * 
@@ -6345,18 +6345,24 @@ export class CreateApiTemplateRequest extends $tea.Model {
 export class CreateApiTemplateResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 请求ID。
+   * Request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Template ID (to be deprecated).
+   * 
    * @example
    * at-41b4c6a0fc63****
    */
   success?: string;
   /**
+   * @remarks
+   * Template ID (it is recommended to use the parameter TemplateId).
+   * 
    * @example
    * at-41b4c6a0fc63****
    */
@@ -6410,19 +6416,19 @@ export class CreateApiTemplateResponse extends $tea.Model {
 export class CreateClusterRequest extends $tea.Model {
   /**
    * @remarks
-   * The application configurations. You can specify a maximum of 1,000 items.
+   * The service configurations. Number of elements in the array: 1 to 1000.
    */
   applicationConfigs?: ApplicationConfig[];
   /**
    * @remarks
-   * The applications. You can specify a maximum of 100 items.
+   * The services. Number of elements in the array: 1 to 100.
    * 
    * This parameter is required.
    */
   applications?: Application[];
   /**
    * @remarks
-   * The bootstrap actions. You can specify a maximum of 10 items.
+   * The bootstrap actions. Number of elements in the array: 1 to 10.
    */
   bootstrapScripts?: Script[];
   /**
@@ -6473,17 +6479,21 @@ export class CreateClusterRequest extends $tea.Model {
    * HA
    */
   deployMode?: string;
+  /**
+   * @example
+   * Emr cluster for ETL
+   */
   description?: string;
   /**
    * @remarks
-   * The attributes of all ECS instances.
+   * The attributes of all ECS instances. The basic attributes of all ECS instances in the cluster.
    * 
    * This parameter is required.
    */
   nodeAttributes?: NodeAttributes;
   /**
    * @remarks
-   * The node groups. You can specify a maximum of 100 items.
+   * The node groups. Number of elements in the array: 1 to 100.
    * 
    * This parameter is required.
    * 
@@ -6550,7 +6560,7 @@ export class CreateClusterRequest extends $tea.Model {
   subscriptionConfig?: SubscriptionConfig;
   /**
    * @remarks
-   * The tags. You can specify a maximum of 20 items.
+   * The list of tags. Number of elements in the array: 0 to 20.
    * 
    * @example
    * A7D960FA-6DBA-5E07-8746-A63E3E4D****
@@ -7388,7 +7398,7 @@ export class DeleteScriptResponse extends $tea.Model {
 export class GetApiTemplateRequest extends $tea.Model {
   /**
    * @remarks
-   * 区域ID。
+   * Region ID.
    * 
    * This parameter is required.
    * 
@@ -7398,7 +7408,7 @@ export class GetApiTemplateRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * 集群模板id。
+   * Cluster template ID.
    * 
    * This parameter is required.
    * 
@@ -7435,7 +7445,7 @@ export class GetApiTemplateResponseBody extends $tea.Model {
   data?: ApiTemplate;
   /**
    * @remarks
-   * 请求ID。
+   * Request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -8359,7 +8369,7 @@ export class GetDoctorHBaseClusterResponse extends $tea.Model {
 export class GetDoctorHBaseRegionRequest extends $tea.Model {
   /**
    * @remarks
-   * 集群ID。
+   * Cluster ID.
    * 
    * This parameter is required.
    * 
@@ -8369,6 +8379,8 @@ export class GetDoctorHBaseRegionRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
+   * Date.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8377,7 +8389,7 @@ export class GetDoctorHBaseRegionRequest extends $tea.Model {
   dateTime?: string;
   /**
    * @remarks
-   * Region ID。
+   * Region ID.
    * 
    * This parameter is required.
    * 
@@ -8387,7 +8399,7 @@ export class GetDoctorHBaseRegionRequest extends $tea.Model {
   hbaseRegionId?: string;
   /**
    * @remarks
-   * 区域ID。
+   * Region ID.
    * 
    * This parameter is required.
    * 
@@ -8421,12 +8433,12 @@ export class GetDoctorHBaseRegionRequest extends $tea.Model {
 export class GetDoctorHBaseRegionResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The returned data.
+   * Returned data.
    */
   data?: GetDoctorHBaseRegionResponseBodyData;
   /**
    * @remarks
-   * 请求ID。
+   * Request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -8601,7 +8613,7 @@ export class GetDoctorHBaseRegionServerResponse extends $tea.Model {
 export class GetDoctorHBaseTableRequest extends $tea.Model {
   /**
    * @remarks
-   * 集群ID。
+   * Cluster ID.
    * 
    * This parameter is required.
    * 
@@ -8611,6 +8623,8 @@ export class GetDoctorHBaseTableRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
+   * Date.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8619,7 +8633,7 @@ export class GetDoctorHBaseTableRequest extends $tea.Model {
   dateTime?: string;
   /**
    * @remarks
-   * 区域ID。
+   * Region ID.
    * 
    * This parameter is required.
    * 
@@ -8629,6 +8643,8 @@ export class GetDoctorHBaseTableRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * Table name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8661,12 +8677,12 @@ export class GetDoctorHBaseTableRequest extends $tea.Model {
 export class GetDoctorHBaseTableResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The returned data.
+   * Returned data.
    */
   data?: GetDoctorHBaseTableResponseBodyData;
   /**
    * @remarks
-   * 请求ID。
+   * Request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -9552,7 +9568,7 @@ export class GetDoctorJobResponse extends $tea.Model {
 export class GetDoctorReportComponentSummaryRequest extends $tea.Model {
   /**
    * @remarks
-   * 集群ID。
+   * Cluster ID.
    * 
    * This parameter is required.
    * 
@@ -9562,7 +9578,13 @@ export class GetDoctorReportComponentSummaryRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * component type
+   * Select component filter type. Values: 
+   * - compute 
+   * - hive
+   * - hdfs
+   * - yarn
+   * - oss
+   * - hbase
    * 
    * This parameter is required.
    * 
@@ -9572,7 +9594,7 @@ export class GetDoctorReportComponentSummaryRequest extends $tea.Model {
   componentType?: string;
   /**
    * @remarks
-   * dateTime for specify report
+   * Report date.
    * 
    * This parameter is required.
    * 
@@ -9582,7 +9604,7 @@ export class GetDoctorReportComponentSummaryRequest extends $tea.Model {
   dateTime?: string;
   /**
    * @remarks
-   * 区域ID。
+   * Region ID.
    * 
    * This parameter is required.
    * 
@@ -9616,12 +9638,12 @@ export class GetDoctorReportComponentSummaryRequest extends $tea.Model {
 export class GetDoctorReportComponentSummaryResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The content of the report.
+   * Report content.
    */
   data?: GetDoctorReportComponentSummaryResponseBodyData;
   /**
    * @remarks
-   * 请求ID。
+   * Request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -10836,6 +10858,7 @@ export class ListAutoScalingActivitiesRequest extends $tea.Model {
    * SCALE_IN
    */
   scalingActivityType?: string;
+  scalingPolicyType?: string;
   /**
    * @remarks
    * The name of the scaling rule.
@@ -10862,6 +10885,7 @@ export class ListAutoScalingActivitiesRequest extends $tea.Model {
       regionId: 'RegionId',
       scalingActivityStates: 'ScalingActivityStates',
       scalingActivityType: 'ScalingActivityType',
+      scalingPolicyType: 'ScalingPolicyType',
       scalingRuleName: 'ScalingRuleName',
       startTime: 'StartTime',
     };
@@ -10877,6 +10901,7 @@ export class ListAutoScalingActivitiesRequest extends $tea.Model {
       regionId: 'string',
       scalingActivityStates: { 'type': 'array', 'itemType': 'string' },
       scalingActivityType: 'string',
+      scalingPolicyType: 'string',
       scalingRuleName: 'string',
       startTime: 'number',
     };
@@ -13796,7 +13821,7 @@ export class ListDoctorReportsResponse extends $tea.Model {
 export class ListInstanceTypesRequest extends $tea.Model {
   /**
    * @remarks
-   * 集群ID，仅升配场景使用。
+   * The ID of cluster.
    * 
    * @example
    * c-b933c5aac8fe****
@@ -13804,13 +13829,7 @@ export class ListInstanceTypesRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 创建的EMR集群类型。取值范围：
-   * - DATALAKE：新版数据湖。
-   * - OLAP：数据分析。
-   * - DATAFLOW：实时数据流。
-   * - DATASERVING：数据服务。
-   * - CUSTOM：自定义集群。
-   * - HADOOP：旧版数据湖（不推荐使用，建议使用新版数据湖）。
+   * Cluster type.
    * 
    * This parameter is required.
    * 
@@ -13820,11 +13839,7 @@ export class ListInstanceTypesRequest extends $tea.Model {
   clusterType?: string;
   /**
    * @remarks
-   * 集群中的应用部署模式。取值范围：
-   * - NORMAL：非高可用部署。集群1个MASTER节点。
-   * - HA：高可用部署。高可用部署要求至少3个MASTER节点。
-   * 
-   * 默认值：NORMAL。
+   * Deployment mode.
    * 
    * @example
    * HA
@@ -13832,7 +13847,7 @@ export class ListInstanceTypesRequest extends $tea.Model {
   deployMode?: string;
   /**
    * @remarks
-   * 机型
+   * Instance Type
    * 
    * @example
    * ecs.g6.xlarge
@@ -13840,7 +13855,7 @@ export class ListInstanceTypesRequest extends $tea.Model {
   instanceType?: string;
   /**
    * @remarks
-   * 是否变配。
+   * Whether to change the configuration.
    * 
    * @example
    * false
@@ -13848,7 +13863,7 @@ export class ListInstanceTypesRequest extends $tea.Model {
   isModification?: boolean;
   /**
    * @remarks
-   * 节点组ID。
+   * Node group ID.
    * 
    * @example
    * G-F06C4B47966A****
@@ -13856,10 +13871,7 @@ export class ListInstanceTypesRequest extends $tea.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * 节点组类型。取值范围：
-   * - MASTER：管理类型节点组。
-   * - CORE：存储类型节点组。
-   * - TASK：计算类型节点组。
+   * Node group type.
    * 
    * This parameter is required.
    * 
@@ -13869,11 +13881,7 @@ export class ListInstanceTypesRequest extends $tea.Model {
   nodeGroupType?: string;
   /**
    * @remarks
-   * 集群的付费类型。取值范围：
-   * - PayAsYouGo：后付费。
-   * - Subscription：预付费。
-   * 
-   * 默认值：PayAsYouGo。
+   * Payment type.
    * 
    * This parameter is required.
    * 
@@ -13883,7 +13891,7 @@ export class ListInstanceTypesRequest extends $tea.Model {
   paymentType?: string;
   /**
    * @remarks
-   * 区域ID。
+   * The ID of the region in which you want to create the instance.
    * 
    * This parameter is required.
    * 
@@ -13893,15 +13901,15 @@ export class ListInstanceTypesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * EMR发行版。
+   * EMR distribution.
    * 
    * @example
-   * EMR-5.3.0
+   * 线上已发布版本EMR-5.8.0
    */
   releaseVersion?: string;
   /**
    * @remarks
-   * 可用区ID。
+   * Availability Zone ID
    * 
    * This parameter is required.
    * 
@@ -13954,7 +13962,7 @@ export class ListInstanceTypesResponseBody extends $tea.Model {
   instanceTypes?: InstanceType[];
   /**
    * @remarks
-   * 本次请求所返回的最大记录条数。
+   * The maximum number of records returned in this request.
    * 
    * @example
    * 20
@@ -13962,7 +13970,7 @@ export class ListInstanceTypesResponseBody extends $tea.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 返回读取到的数据位置，空代表数据已经读取完毕。
+   * Returns the position of the read data.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -13970,7 +13978,7 @@ export class ListInstanceTypesResponseBody extends $tea.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 请求ID。
+   * Request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -13978,7 +13986,7 @@ export class ListInstanceTypesResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * 本次请求条件下的数据总量。
+   * The total amount of data under the conditions of this request.
    * 
    * @example
    * 200
@@ -16123,7 +16131,7 @@ export class UntagResourcesResponse extends $tea.Model {
 export class UpdateApiTemplateRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the API. You can create only a cluster API operation template. Set the value to CreateCluster.
+   * The name of the API operation. You can create only a cluster API operation template. Set the value to CreateCluster.
    * 
    * This parameter is required.
    * 
@@ -16133,7 +16141,7 @@ export class UpdateApiTemplateRequest extends $tea.Model {
   apiName?: string;
   /**
    * @remarks
-   * The content of the cluster API operation template. Set the value to JSON strings of the request parameters of the [CreateCluster](https://help.aliyun.com/document_detail/454393.html) API for creating a cluster.
+   * The content of the cluster API operation template. Set the value to JSON strings of the request parameters of the [CreateCluster](https://help.aliyun.com/document_detail/454393.html) API operation for creating a cluster.
    * 
    * This parameter is required.
    * 
@@ -17856,6 +17864,7 @@ export class GetAutoScalingActivityResponseBodyScalingActivity extends $tea.Mode
    * op-13c37a77c505****
    */
   operationId?: string;
+  policyType?: string;
   /**
    * @remarks
    * The description of the scaling rule.
@@ -17890,6 +17899,7 @@ export class GetAutoScalingActivityResponseBodyScalingActivity extends $tea.Mode
       nodeGroupId: 'NodeGroupId',
       nodeGroupName: 'NodeGroupName',
       operationId: 'OperationId',
+      policyType: 'PolicyType',
       ruleDetail: 'RuleDetail',
       ruleName: 'RuleName',
       startTime: 'StartTime',
@@ -17909,6 +17919,7 @@ export class GetAutoScalingActivityResponseBodyScalingActivity extends $tea.Mode
       nodeGroupId: 'string',
       nodeGroupName: 'string',
       operationId: 'string',
+      policyType: 'string',
       ruleDetail: ScalingRule,
       ruleName: 'string',
       startTime: 'number',
@@ -18367,7 +18378,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $tea.Model 
   existCloneConfig?: boolean;
   /**
    * @remarks
-   * The attributes of the node.
+   * The attributes of all ECS instances.
    */
   nodeAttributes?: NodeAttributes;
   /**
@@ -20526,21 +20537,33 @@ export class GetDoctorHBaseClusterResponseBodyData extends $tea.Model {
 
 export class GetDoctorHBaseRegionResponseBodyDataMetricsDailyReadRequest extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * Number of read requests per day
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the metric.
+   * 
    * @example
    * dailyReadRequest
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 1000
    */
@@ -20570,21 +20593,33 @@ export class GetDoctorHBaseRegionResponseBodyDataMetricsDailyReadRequest extends
 
 export class GetDoctorHBaseRegionResponseBodyDataMetricsDailyWriteRequest extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * Number of write requests per day
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the metric.
+   * 
    * @example
    * dailyWriteRequest
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 1000
    */
@@ -20614,19 +20649,25 @@ export class GetDoctorHBaseRegionResponseBodyDataMetricsDailyWriteRequest extend
 
 export class GetDoctorHBaseRegionResponseBodyDataMetricsStoreFileCount extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * Number of store file
    */
   description?: string;
   /**
    * @remarks
-   * The name of the metric.
+   * Metric name.
    * 
    * @example
    * storeFileCount
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ""
    */
@@ -20664,21 +20705,33 @@ export class GetDoctorHBaseRegionResponseBodyDataMetricsStoreFileCount extends $
 
 export class GetDoctorHBaseRegionResponseBodyDataMetricsTotalReadRequest extends $tea.Model {
   /**
+   * @remarks
+   * Metric description.
+   * 
    * @example
    * Total read request
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * totalReadRequest
    */
   name?: string;
   /**
+   * @remarks
+   * Metric unit.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * Metric value.
+   * 
    * @example
    * 1000
    */
@@ -20708,21 +20761,33 @@ export class GetDoctorHBaseRegionResponseBodyDataMetricsTotalReadRequest extends
 
 export class GetDoctorHBaseRegionResponseBodyDataMetricsTotalWriteRequest extends $tea.Model {
   /**
+   * @remarks
+   * Metric description.
+   * 
    * @example
    * Total Write Request
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * totalWriteRequest
    */
   name?: string;
   /**
+   * @remarks
+   * Metric unit.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * Metric value.
+   * 
    * @example
    * 1000
    */
@@ -20751,14 +20816,30 @@ export class GetDoctorHBaseRegionResponseBodyDataMetricsTotalWriteRequest extend
 }
 
 export class GetDoctorHBaseRegionResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * Number of read requests in a single day.
+   */
   dailyReadRequest?: GetDoctorHBaseRegionResponseBodyDataMetricsDailyReadRequest;
+  /**
+   * @remarks
+   * Number of write requests in a single day.
+   */
   dailyWriteRequest?: GetDoctorHBaseRegionResponseBodyDataMetricsDailyWriteRequest;
   /**
    * @remarks
-   * The number of StoreFiles.
+   * Store file count.
    */
   storeFileCount?: GetDoctorHBaseRegionResponseBodyDataMetricsStoreFileCount;
+  /**
+   * @remarks
+   * Total read request count
+   */
   totalReadRequest?: GetDoctorHBaseRegionResponseBodyDataMetricsTotalReadRequest;
+  /**
+   * @remarks
+   * Total write request count
+   */
   totalWriteRequest?: GetDoctorHBaseRegionResponseBodyDataMetricsTotalWriteRequest;
   static names(): { [key: string]: string } {
     return {
@@ -20788,15 +20869,21 @@ export class GetDoctorHBaseRegionResponseBodyDataMetrics extends $tea.Model {
 export class GetDoctorHBaseRegionResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * The metric information.
+   * Metrics information.
    */
   metrics?: GetDoctorHBaseRegionResponseBodyDataMetrics;
   /**
+   * @remarks
+   * Host of the RegionServer.
+   * 
    * @example
    * emr-worker-2.cluster-20****
    */
   regionServerHost?: string;
   /**
+   * @remarks
+   * Table name.
+   * 
    * @example
    * tb_item
    */
@@ -21493,38 +21580,59 @@ export class GetDoctorHBaseRegionServerResponseBodyData extends $tea.Model {
 
 export class GetDoctorHBaseTableResponseBodyDataAnalysis extends $tea.Model {
   /**
+   * @remarks
+   * List of read hotspot regions.
+   * 
    * @example
    * null
    */
   readRequestHotspotRegionList?: string[];
   /**
    * @remarks
-   * The description of read imbalance.
+   * Description of read imbalance.
+   * 
+   * @example
+   * read request unbalance is <p class=\\"report-detail-topic\\">表分区总数量为14，分区平均读请求数量为5032486，以下分区存在读请求热点访问：</p><ul class=\\"report-detail-ul\\"><li class=\\".report-detail-li\\">RegionServer： emr-worker-4 Region Id： 4ac818a3ab3fd727490a5b4d4dac7667 读请求数量： 15485664</li><li class=\\".report-detail-li\\">RegionServer： emr-worker-2 Region Id： 021b387ae92959def65041e25eade3aa 读请求数量： 7731980</li><li class=\\".report-detail-li\\">RegionServer： emr-worker-2 Region Id： d58f33abfe857e5fd0045eaa31c93df8 读请求数量： 7705237</li><li class=\\".report-detail-li\\">RegionServer： emr-worker-2 Region Id： 4ca84757a7d0948b8552cfeebefa25a9 读请求数量： 7703492</li><li class=\\".report-detail-li\\">RegionServer： emr-worker-4 Region Id： 1018192dae42995fc75c6d5b5981a9b7 读请求数量： 7695284</li></ul><p style=\\"line-height： 16px; font-size： 16px; margin： 0 auto\\">&nbsp;</p>
    */
   readRequestUnbalanceSuggestion?: string;
   /**
+   * @remarks
+   * List of read/write hotspot regions.
+   * 
    * @example
    * null
    */
   requestHotspotRegionList?: string[];
   /**
    * @remarks
-   * The description of read/write imbalance.
+   * Description of read/write imbalance.
+   * 
+   * @example
+   * read request unbalance is <p class=\\"report-detail-topic\\">表分区总数量为14，分区平均读请求数量为5032486，以下分区存在读请求热点访问：</p><ul class=\\"report-detail-ul\\"><li class=\\".report-detail-li\\">RegionServer： emr-worker-4 Region Id： 4ac818a3ab3fd727490a5b4d4dac7667 读请求数量： 15485664</li><li class=\\".report-detail-li\\">RegionServer： emr-worker-2 Region Id： 021b387ae92959def65041e25eade3aa 读请求数量： 7731980</li><li class=\\".report-detail-li\\">RegionServer： emr-worker-2 Region Id： d58f33abfe857e5fd0045eaa31c93df8 读请求数量： 7705237</li><li class=\\".report-detail-li\\">RegionServer： emr-worker-2 Region Id： 4ca84757a7d0948b8552cfeebefa25a9 读请求数量： 7703492</li><li class=\\".report-detail-li\\">RegionServer： emr-worker-4 Region Id： 1018192dae42995fc75c6d5b5981a9b7 读请求数量： 7695284</li></ul><p style=\\"line-height： 16px; font-size： 16px; margin： 0 auto\\">&nbsp;</p>
    */
   requestUnbalanceSuggestion?: string;
   /**
+   * @remarks
+   * Table score.
+   * 
    * @example
    * 85
    */
   tableScore?: number;
   /**
+   * @remarks
+   * List of write hotspot regions.
+   * 
    * @example
    * null
    */
   writeRequestHotspotRegionList?: string[];
   /**
    * @remarks
-   * The description of write imbalance.
+   * Description of write imbalance.
+   * 
+   * @example
+   * write request unbalance is <p class=\\"report-detail-topic\\">表分区总数量为15，分区平均写请求数量为769954，以下分区存在写请求热点访问：</p><ul class=\\"report-detail-ul\\"><li class=\\".report-detail-li\\">RegionServer： emr-worker-2 Region Id： 4a938c08750869c47b7a92edeeec2ccc 写请求数量： 2115051</li><li class=\\".report-detail-li\\">RegionServer： emr-worker-2 Region Id： b4d21974df92bdf3589e63e4da1fc923 写请求数量： 1592509</li><li class=\\".report-detail-li\\">RegionServer： emr-worker-2 Region Id： 25eb6717470f4ddbabe9187ff0fc0cb3 写请求数量： 1585420</li></ul><p style=\\"line-height： 16px; font-size： 16px; margin： 0 auto\\">&nbsp;</p>
    */
   writeRequestUnbalanceSuggestion?: string;
   static names(): { [key: string]: string } {
@@ -21558,21 +21666,33 @@ export class GetDoctorHBaseTableResponseBodyDataAnalysis extends $tea.Model {
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsColdAccessDay extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * Cold access day
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the metric.
+   * 
    * @example
    * coldAccessDay
    */
   name?: string;
   /**
+   * @remarks
+   * Unit of the metric.
+   * 
    * @example
    * day
    */
   unit?: string;
   /**
+   * @remarks
+   * Value of the metric.
+   * 
    * @example
    * 3
    */
@@ -21602,21 +21722,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsColdAccessDay extends $te
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsColdConfigDay extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * Cold config day
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * coldConfigDay
    */
   name?: string;
   /**
+   * @remarks
+   * Unit of the metric.
+   * 
    * @example
    * day
    */
   unit?: string;
   /**
+   * @remarks
+   * Metric value.
+   * 
    * @example
    * 10
    */
@@ -21646,21 +21778,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsColdConfigDay extends $te
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsColdDataSize extends $tea.Model {
   /**
+   * @remarks
+   * Metric description.
+   * 
    * @example
    * Size of the cold data size
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * coldDataSize
    */
   name?: string;
   /**
+   * @remarks
+   * Metric unit.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * Metric value.
+   * 
    * @example
    * 1000
    */
@@ -21690,21 +21834,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsColdDataSize extends $tea
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsDailyReadRequest extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * test-update
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the item.
+   * 
    * @example
    * dailyReadRequest
    */
   name?: string;
   /**
+   * @remarks
+   * Unit of the metric.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * Value of the metric.
+   * 
    * @example
    * 1000
    */
@@ -21734,21 +21890,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsDailyReadRequest extends 
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsDailyReadRequestDayGrowthRatio extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * Day growth ratio of table size
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * dailyReadRequestDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 1.5
    */
@@ -21778,21 +21946,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsDailyReadRequestDayGrowth
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsDailyWriteRequest extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * Number of write requests per day
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the metric.
+   * 
    * @example
    * dailyWriteRequest
    */
   name?: string;
   /**
+   * @remarks
+   * Unit of the metric.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * Value of the metric.
+   * 
    * @example
    * 1000
    */
@@ -21822,21 +22002,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsDailyWriteRequest extends
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsDailyWriteRequestDayGrowthRatio extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * The balance of distributing requests
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the metric.
+   * 
    * @example
    * dailyWriteRequestDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 0.5
    */
@@ -21866,21 +22058,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsDailyWriteRequestDayGrowt
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsFreezeConfigDay extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * Freeze config day
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the metric.
+   * 
    * @example
    * freezeConfigDay
    */
   name?: string;
   /**
+   * @remarks
+   * Unit of the metric.
+   * 
    * @example
    * day
    */
   unit?: string;
   /**
+   * @remarks
+   * Value of the metric.
+   * 
    * @example
    * 10
    */
@@ -21910,21 +22114,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsFreezeConfigDay extends $
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsFreezeDataSize extends $tea.Model {
   /**
+   * @remarks
+   * Metric description.
+   * 
    * @example
    * Size of the freeze data size
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * freezeDataSize
    */
   name?: string;
   /**
+   * @remarks
+   * Metric unit.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * Metric value.
+   * 
    * @example
    * 1000
    */
@@ -21954,21 +22170,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsFreezeDataSize extends $t
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsHotDataSize extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * Size of the hot data size
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the metric.
+   * 
    * @example
    * hotDataSize
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 1000
    */
@@ -21998,21 +22226,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsHotDataSize extends $tea.
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsLocality extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * The locality of data
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the metric.
+   * 
    * @example
    * locality
    */
   name?: string;
   /**
+   * @remarks
+   * Unit of the metric.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * Value of the metric.
+   * 
    * @example
    * 0.5
    */
@@ -22042,21 +22282,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsLocality extends $tea.Mod
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsReadRequestBalance extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * The balance of distributing read requests
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the metric.
+   * 
    * @example
    * readRequestBalance
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 0.5
    */
@@ -22086,21 +22338,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsReadRequestBalance extend
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsRegionBalance extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * The ability to evenly distribute Regions on different RegionServer nodes
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * regionBalance
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 1.0
    */
@@ -22130,21 +22394,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsRegionBalance extends $te
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsRegionCount extends $tea.Model {
   /**
+   * @remarks
+   * Metric description.
+   * 
    * @example
    * Number of regions count
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * regionCount
    */
   name?: string;
   /**
+   * @remarks
+   * Metric unit.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * Metric value.
+   * 
    * @example
    * 10
    */
@@ -22174,21 +22450,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsRegionCount extends $tea.
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsRegionCountDayGrowthRatio extends $tea.Model {
   /**
+   * @remarks
+   * Metric description.
+   * 
    * @example
    * Day growth ratio of region count
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * regionCountDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * Metric unit.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * Metric value.
+   * 
    * @example
    * 0.8
    */
@@ -22218,21 +22506,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsRegionCountDayGrowthRatio
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsRegionServerCount extends $tea.Model {
   /**
+   * @remarks
+   * Metric description.
+   * 
    * @example
    * Number of region servers count
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * regionServerCount
    */
   name?: string;
   /**
+   * @remarks
+   * Metric unit.
+   * 
    * @example
    * “”
    */
   unit?: string;
   /**
+   * @remarks
+   * Usage.
+   * 
    * @example
    * 10
    */
@@ -22262,21 +22562,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsRegionServerCount extends
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsRequestBalance extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * The balance of distributing requests
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the metric.
+   * 
    * @example
    * requestBalance
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 1.0
    */
@@ -22306,21 +22618,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsRequestBalance extends $t
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsStoreFileCount extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * Number of store files
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the metric.
+   * 
    * @example
    * storeFileCount
    */
   name?: string;
   /**
+   * @remarks
+   * Unit of the metric.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * Value of the metric.
+   * 
    * @example
    * 1000
    */
@@ -22350,21 +22674,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsStoreFileCount extends $t
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsStoreFileCountDayGrowthRatio extends $tea.Model {
   /**
+   * @remarks
+   * Metric description.
+   * 
    * @example
    * Day growth ratio of store file count
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * storeFileCountDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * Metric unit.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * Metric value.
+   * 
    * @example
    * 1.5
    */
@@ -22394,21 +22730,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsStoreFileCountDayGrowthRa
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsTableSize extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * Size of the table
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * tableSize
    */
   name?: string;
   /**
+   * @remarks
+   * Unit of the metric
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * Metric value.
+   * 
    * @example
    * tb_item
    */
@@ -22438,21 +22786,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsTableSize extends $tea.Mo
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsTableSizeDayGrowthRatio extends $tea.Model {
   /**
+   * @remarks
+   * Metric description.
+   * 
    * @example
    * Day growth ratio of table size
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * tableSizeDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * Metric unit.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * Metric value.
+   * 
    * @example
    * 1.5
    */
@@ -22482,21 +22842,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsTableSizeDayGrowthRatio e
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsWarmConfigDay extends $tea.Model {
   /**
+   * @remarks
+   * Metric description.
+   * 
    * @example
    * Size of the warm data size
    */
   description?: string;
   /**
+   * @remarks
+   * Metric name.
+   * 
    * @example
    * warmConfigDay
    */
   name?: string;
   /**
+   * @remarks
+   * Metric unit.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * Metric value.
+   * 
    * @example
    * 1000
    */
@@ -22526,21 +22898,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsWarmConfigDay extends $te
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsWarmDataSize extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * Size of the warm data size
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the metric.
+   * 
    * @example
    * warmDataSize
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * Usage rate.
+   * 
    * @example
    * 1000
    */
@@ -22570,21 +22954,33 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsWarmDataSize extends $tea
 
 export class GetDoctorHBaseTableResponseBodyDataMetricsWriteRequestBalance extends $tea.Model {
   /**
+   * @remarks
+   * Description of the metric.
+   * 
    * @example
    * The balance of distributing write requests
    */
   description?: string;
   /**
+   * @remarks
+   * Name of the metric.
+   * 
    * @example
    * writeRequestBalance
    */
   name?: string;
   /**
+   * @remarks
+   * Unit of the metric.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 0.5
    */
@@ -22613,29 +23009,125 @@ export class GetDoctorHBaseTableResponseBodyDataMetricsWriteRequestBalance exten
 }
 
 export class GetDoctorHBaseTableResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * Number of days the table has not been accessed.
+   */
   coldAccessDay?: GetDoctorHBaseTableResponseBodyDataMetricsColdAccessDay;
+  /**
+   * @remarks
+   * Cold data access days configuration.
+   */
   coldConfigDay?: GetDoctorHBaseTableResponseBodyDataMetricsColdConfigDay;
+  /**
+   * @remarks
+   * Cold data size.
+   */
   coldDataSize?: GetDoctorHBaseTableResponseBodyDataMetricsColdDataSize;
+  /**
+   * @remarks
+   * Number of read requests per day.
+   */
   dailyReadRequest?: GetDoctorHBaseTableResponseBodyDataMetricsDailyReadRequest;
+  /**
+   * @remarks
+   * Daily growth ratio of daily read requests.
+   */
   dailyReadRequestDayGrowthRatio?: GetDoctorHBaseTableResponseBodyDataMetricsDailyReadRequestDayGrowthRatio;
+  /**
+   * @remarks
+   * Number of write requests per day.
+   */
   dailyWriteRequest?: GetDoctorHBaseTableResponseBodyDataMetricsDailyWriteRequest;
+  /**
+   * @remarks
+   * Daily write request growth ratio.
+   */
   dailyWriteRequestDayGrowthRatio?: GetDoctorHBaseTableResponseBodyDataMetricsDailyWriteRequestDayGrowthRatio;
+  /**
+   * @remarks
+   * Configuration for the number of days cold data is accessed.
+   */
   freezeConfigDay?: GetDoctorHBaseTableResponseBodyDataMetricsFreezeConfigDay;
+  /**
+   * @remarks
+   * Frozen data size.
+   */
   freezeDataSize?: GetDoctorHBaseTableResponseBodyDataMetricsFreezeDataSize;
+  /**
+   * @remarks
+   * Hot data size.
+   */
   hotDataSize?: GetDoctorHBaseTableResponseBodyDataMetricsHotDataSize;
+  /**
+   * @remarks
+   * Locality rate.
+   */
   locality?: GetDoctorHBaseTableResponseBodyDataMetricsLocality;
+  /**
+   * @remarks
+   * Read request balance.
+   */
   readRequestBalance?: GetDoctorHBaseTableResponseBodyDataMetricsReadRequestBalance;
+  /**
+   * @remarks
+   * Region balance.
+   */
   regionBalance?: GetDoctorHBaseTableResponseBodyDataMetricsRegionBalance;
+  /**
+   * @remarks
+   * Number of regions.
+   */
   regionCount?: GetDoctorHBaseTableResponseBodyDataMetricsRegionCount;
+  /**
+   * @remarks
+   * Daily incremental ratio of regions
+   */
   regionCountDayGrowthRatio?: GetDoctorHBaseTableResponseBodyDataMetricsRegionCountDayGrowthRatio;
+  /**
+   * @remarks
+   * Number of RegionServers.
+   */
   regionServerCount?: GetDoctorHBaseTableResponseBodyDataMetricsRegionServerCount;
+  /**
+   * @remarks
+   * Request balance.
+   */
   requestBalance?: GetDoctorHBaseTableResponseBodyDataMetricsRequestBalance;
+  /**
+   * @remarks
+   * Number of store files.
+   */
   storeFileCount?: GetDoctorHBaseTableResponseBodyDataMetricsStoreFileCount;
+  /**
+   * @remarks
+   * Daily growth ratio of store file count.
+   */
   storeFileCountDayGrowthRatio?: GetDoctorHBaseTableResponseBodyDataMetricsStoreFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * Table size.
+   */
   tableSize?: GetDoctorHBaseTableResponseBodyDataMetricsTableSize;
+  /**
+   * @remarks
+   * Daily growth ratio of table size.
+   */
   tableSizeDayGrowthRatio?: GetDoctorHBaseTableResponseBodyDataMetricsTableSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * Warm data access days configuration.
+   */
   warmConfigDay?: GetDoctorHBaseTableResponseBodyDataMetricsWarmConfigDay;
+  /**
+   * @remarks
+   * Warm data size.
+   */
   warmDataSize?: GetDoctorHBaseTableResponseBodyDataMetricsWarmDataSize;
+  /**
+   * @remarks
+   * Write request balance.
+   */
   writeRequestBalance?: GetDoctorHBaseTableResponseBodyDataMetricsWriteRequestBalance;
   static names(): { [key: string]: string } {
     return {
@@ -22703,9 +23195,13 @@ export class GetDoctorHBaseTableResponseBodyDataMetrics extends $tea.Model {
 export class GetDoctorHBaseTableResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * The diagnosis result.
+   * Diagnostic results.
    */
   analysis?: GetDoctorHBaseTableResponseBodyDataAnalysis;
+  /**
+   * @remarks
+   * Metrics information.
+   */
   metrics?: GetDoctorHBaseTableResponseBodyDataMetrics;
   static names(): { [key: string]: string } {
     return {
@@ -36968,14 +37464,35 @@ export class GetDoctorJobResponseBodyData extends $tea.Model {
 
 export class GetDoctorReportComponentSummaryResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Score.
+   * 
    * @example
    * 88
    */
   score?: number;
+  /**
+   * @remarks
+   * Optimization suggestions.
+   * 
+   * @example
+   * 计算健康度分数为 88 ，集群处于健康状态，继续保持 
+   * 计算任务扫描
+   * 对集群中 1518 个计算任务进行了扫描，包含 209 个任务处于不健康状态 ，596 个任务处于亚健康状态 ，713 个任务处于健康状态。 
+   * 其中：
+   *        Tez 任务 1518 个，加权平均分为 88 ，内存使用量占整体集群的 100.0% ，CPU 使用量占整体集群的 100.0% ，其中 209 个任务处于不健康状态，596 个任务处于亚健康状态；
+   * 可在下面的任务明细列表中点击\\"\\"查看详情\\"\\"，查看存在的具体问题及解决方案。其中\\"\\"低分任务算力内存时 (GB*Sec)Top20 \\"\\"表根据内存时使用量进行排序，由于大任务对集群整体影响可能更大，建议优先关注。
+   * 内存利用率较低
+   * 集群整体内存利用率为 47.8% ，内存利用率较低，计算资源存在浪费，建议优先对内存算力时较大且内存利用率较低的 TOP 任务进行优化
+   * 其中，Tez作业平均内存利用率为 47.8%
+   */
   suggestion?: string;
   /**
    * @remarks
-   * The summary of the report.
+   * Report summary.
+   * 
+   * @example
+   * <h4> [计算检测]  计算健康度分数为 88 ，健康度良好，继续加油 </h4><p style=\\"\\"text-indent：2em\\"\\">集群中大部分任务保持健康状态 </p><p style=\\"\\"text-indent：2em\\"\\">集群内存利用率为： 47.8% 偏低 </p>
    */
   summary?: string;
   static names(): { [key: string]: string } {
@@ -37273,6 +37790,7 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $tea
    * 10
    */
   expectNum?: number;
+  instanceTypeToNum?: { [key: string]: number };
   /**
    * @remarks
    * The ID of the node group.
@@ -37297,6 +37815,7 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $tea
    * op-13c37a77c505****
    */
   operationId?: string;
+  policyType?: string;
   /**
    * @remarks
    * The name of the scaling rule.
@@ -37322,9 +37841,11 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $tea
       description: 'Description',
       endTime: 'EndTime',
       expectNum: 'ExpectNum',
+      instanceTypeToNum: 'InstanceTypeToNum',
       nodeGroupId: 'NodeGroupId',
       nodeGroupName: 'NodeGroupName',
       operationId: 'OperationId',
+      policyType: 'PolicyType',
       ruleName: 'RuleName',
       startTime: 'StartTime',
     };
@@ -37339,9 +37860,11 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $tea
       description: 'string',
       endTime: 'number',
       expectNum: 'number',
+      instanceTypeToNum: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
       nodeGroupId: 'string',
       nodeGroupName: 'string',
       operationId: 'string',
+      policyType: 'string',
       ruleName: 'string',
       startTime: 'number',
     };
@@ -49830,6 +50353,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a predefined API operation template. The template contains information about an API operation, including the basic structure, request method, URL path, request parameters, and response format.
+   * 
    * @param request - CreateApiTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateApiTemplateResponse
@@ -49875,6 +50400,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a predefined API operation template. The template contains information about an API operation, including the basic structure, request method, URL path, request parameters, and response format.
+   * 
    * @param request - CreateApiTemplateRequest
    * @returns CreateApiTemplateResponse
    */
@@ -50158,6 +50685,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an API operation template.
+   * 
    * @remarks
    * 创建集群模板
    * 
@@ -50202,6 +50731,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an API operation template.
+   * 
    * @remarks
    * 创建集群模板
    * 
@@ -50310,7 +50841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取API模板详情
+   * Queries the detailed configuration information about an API operation template.
    * 
    * @param request - GetApiTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50345,7 +50876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取API模板详情
+   * Queries the detailed configuration information about an API operation template.
    * 
    * @param request - GetApiTemplateRequest
    * @returns GetApiTemplateResponse
@@ -50408,7 +50939,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @remarks
    * 获取弹性伸缩活动详情。
    * 
    * @param request - GetAutoScalingActivityRequest
@@ -50448,7 +50978,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @remarks
    * 获取弹性伸缩活动详情。
    * 
    * @param request - GetAutoScalingActivityRequest
@@ -50774,8 +51303,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get HBase Region information.
+   * 
    * @remarks
-   * list Doctor HBaseRegions
+   * List Doctor HBase Regions
    * 
    * @param request - GetDoctorHBaseRegionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50818,8 +51349,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get HBase Region information.
+   * 
    * @remarks
-   * list Doctor HBaseRegions
+   * List Doctor HBase Regions
    * 
    * @param request - GetDoctorHBaseRegionRequest
    * @returns GetDoctorHBaseRegionResponse
@@ -50890,6 +51423,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get HBase Table information.
+   * 
    * @remarks
    * get Doctor HBaseTable
    * 
@@ -50934,6 +51469,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get HBase Table information.
+   * 
    * @remarks
    * get Doctor HBaseTable
    * 
@@ -51358,8 +51895,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtain the analysis result report of a specified component from EMR Doctor.
+   * 
    * @remarks
-   * get specify component's report analysis by emr doctor
+   * get specify component\\"s report analysis by EMR Doctor
    * 
    * @param request - GetDoctorReportComponentSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51402,8 +51941,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtain the analysis result report of a specified component from EMR Doctor.
+   * 
    * @remarks
-   * get specify component's report analysis by emr doctor
+   * get specify component\\"s report analysis by EMR Doctor
    * 
    * @param request - GetDoctorReportComponentSummaryRequest
    * @returns GetDoctorReportComponentSummaryResponse
@@ -51856,7 +52397,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @remarks
    * 查询弹性伸缩活动列表。
    * 
    * @param request - ListAutoScalingActivitiesRequest
@@ -51898,6 +52438,10 @@ export default class Client extends OpenApi {
       query["ScalingActivityType"] = request.scalingActivityType;
     }
 
+    if (!Util.isUnset(request.scalingPolicyType)) {
+      query["ScalingPolicyType"] = request.scalingPolicyType;
+    }
+
     if (!Util.isUnset(request.scalingRuleName)) {
       query["ScalingRuleName"] = request.scalingRuleName;
     }
@@ -51924,7 +52468,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @remarks
    * 查询弹性伸缩活动列表。
    * 
    * @param request - ListAutoScalingActivitiesRequest
@@ -53000,6 +53543,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists instance types.
+   * 
    * @param request - ListInstanceTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstanceTypesResponse
@@ -53069,6 +53614,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists instance types.
+   * 
    * @param request - ListInstanceTypesRequest
    * @returns ListInstanceTypesResponse
    */
@@ -53286,6 +53833,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the bootstrap actions or common scripts of an E-MapReduce (EMR) cluster.
+   * 
    * @param request - ListScriptsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListScriptsResponse
@@ -53331,6 +53880,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the bootstrap actions or common scripts of an E-MapReduce (EMR) cluster.
+   * 
    * @param request - ListScriptsRequest
    * @returns ListScriptsResponse
    */
