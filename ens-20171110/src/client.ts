@@ -452,7 +452,7 @@ export class AccosicateNetworkAclRequest extends $tea.Model {
   networkAclId?: string;
   /**
    * @remarks
-   * The information about the resources with which you want to associate the network ACL.
+   * The type of resource with which you want to associate the network ACL.
    * 
    * This parameter is required.
    */
@@ -691,7 +691,7 @@ export class AddDeviceInternetPortRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The internal IP address of the instance.
+   * The private IP address of the simple application server.
    * 
    * This parameter is required.
    * 
@@ -1106,7 +1106,7 @@ export class AssignPrivateIpAddressesResponse extends $tea.Model {
 export class AssociateEnsEipAddressRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the EIP.
+   * The ID of the EIP that you want to associate.
    * 
    * This parameter is required.
    * 
@@ -1116,9 +1116,9 @@ export class AssociateEnsEipAddressRequest extends $tea.Model {
   allocationId?: string;
   /**
    * @remarks
-   * The ID of the cloud service with which you want to associate the EIP.
+   * The ID of the cloud service with which the EIP is associated.
    * 
-   * >  IDs of Edge Load Balancer (ELB) are supported.
+   * >  You can specify the ID of an Edge Load Balancer (ELB) instance ID.
    * 
    * This parameter is required.
    * 
@@ -1132,7 +1132,7 @@ export class AssociateEnsEipAddressRequest extends $tea.Model {
    * 
    * *   **Nat**: a NAT gateway.
    * *   **SlbInstance**: an ELB instance.
-   * *   **NetworkInterface**: a secondary ENI.
+   * *   **NetworkInterface**: a secondary elastic network interface (ENI).
    * *   **NatSlbInstance**: If you want to associate multiple EIPs to an ELB instance, you need to set the parameter to this value.
    * *   **EnsInstance** (default): an ENS instance.
    * 
@@ -1522,6 +1522,97 @@ export class AttachEnsInstancesResponse extends $tea.Model {
   }
 }
 
+export class AttachNetworkInterfaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-5p67acfmxazb4p****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the ENI.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eni-58z57orgmt6d1****
+   */
+  networkInterfaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      networkInterfaceId: 'NetworkInterfaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      networkInterfaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachNetworkInterfaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachNetworkInterfaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachNetworkInterfaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AuthorizeSecurityGroupRequest extends $tea.Model {
   /**
    * @remarks
@@ -1569,7 +1660,7 @@ export class AuthorizeSecurityGroupRequest extends $tea.Model {
   portRange?: string;
   /**
    * @remarks
-   * The priority of the security group rule. Valid values: **1** to **100**.
+   * The priority of security group rule N. Valid values: **1** to **100**.
    * 
    * Default value: **1**.
    * 
@@ -1707,12 +1798,12 @@ export class AuthorizeSecurityGroupEgressRequest extends $tea.Model {
   destCidrIp?: string;
   /**
    * @remarks
-   * The transport layer protocol. The values of this parameter are case-sensitive. Valid values:
+   * The transport layer protocol. The value of this parameter is case-sensitive. Valid values:
    * 
-   * *   tcp: TCP.
-   * *   udp: UDP.
-   * *   icmp: ICMP.
-   * *   gre: GRE.
+   * *   tcp
+   * *   udp
+   * *   icmp
+   * *   gre
    * *   all: All protocols are supported.
    * 
    * This parameter is required.
@@ -1723,10 +1814,10 @@ export class AuthorizeSecurityGroupEgressRequest extends $tea.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The action of security group rule N that determines whether to allow inbound access. Valid values:
+   * The action of the security group rule. Valid values:
    * 
    * *   accept: allows access. This is the default value.
-   * *   drop: denies access and returns no responses.
+   * *   drop: denies access and does not return responses.
    * 
    * @example
    * accept
@@ -1749,7 +1840,7 @@ export class AuthorizeSecurityGroupEgressRequest extends $tea.Model {
   portRange?: string;
   /**
    * @remarks
-   * The priority of the security group rule. Valid values: **1 to 100**. Default value: **1**.
+   * The priority of security group rule N. Valid values: **1 to 100**. Default value: **1**.
    * 
    * @example
    * 1
@@ -2792,6 +2883,91 @@ export class CreateClassicNetworkResponse extends $tea.Model {
   }
 }
 
+export class CreateClusterRequest extends $tea.Model {
+  /**
+   * @example
+   * 1.18.8
+   */
+  clusterVersion?: string;
+  /**
+   * @example
+   * mycluster-1
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterVersion: 'ClusterVersion',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterVersion: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * c34b69b095f8241c5a91cc2252dceb976
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * C0003E8B-B930-4F59-ADC0-0E209A9012A8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDiskRequest extends $tea.Model {
   /**
    * @remarks
@@ -2876,6 +3052,7 @@ export class CreateDiskRequest extends $tea.Model {
    * s-897654321****
    */
   snapshotId?: string;
+  tag?: CreateDiskRequestTag[];
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -2886,6 +3063,7 @@ export class CreateDiskRequest extends $tea.Model {
       KMSKeyId: 'KMSKeyId',
       size: 'Size',
       snapshotId: 'SnapshotId',
+      tag: 'Tag',
     };
   }
 
@@ -2899,6 +3077,7 @@ export class CreateDiskRequest extends $tea.Model {
       KMSKeyId: 'string',
       size: 'string',
       snapshotId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateDiskRequestTag },
     };
   }
 
@@ -3044,6 +3223,7 @@ export class CreateEipInstanceRequest extends $tea.Model {
    * EIP1
    */
   name?: string;
+  tag?: CreateEipInstanceRequestTag[];
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -3053,6 +3233,7 @@ export class CreateEipInstanceRequest extends $tea.Model {
       internetChargeType: 'InternetChargeType',
       isp: 'Isp',
       name: 'Name',
+      tag: 'Tag',
     };
   }
 
@@ -3065,6 +3246,7 @@ export class CreateEipInstanceRequest extends $tea.Model {
       internetChargeType: 'string',
       isp: 'string',
       name: 'string',
+      tag: { 'type': 'array', 'itemType': CreateEipInstanceRequestTag },
     };
   }
 
@@ -4187,11 +4369,11 @@ export class CreateInstanceRequest extends $tea.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The type of IP address. Valid values:
+   * The type of the IP address. Valid values:
    * 
-   * *   **ipv4**: IPv4. This is the default value.
-   * *   **ipv6**: IPv6.
-   * *   **ipv4Andipv6**: IPv4 and IPv6.
+   * *   **ipv4** (default)
+   * *   **ipv6**
+   * *   **ipv4Andipv6**
    * 
    * @example
    * ipv4
@@ -4230,7 +4412,7 @@ export class CreateInstanceRequest extends $tea.Model {
   passwordInherit?: boolean;
   /**
    * @remarks
-   * The billing method of the instance. The value is set to Subscription.
+   * The billing method of the instance. Set the value to Subscription.
    * 
    * @example
    * Subscription
@@ -4277,7 +4459,7 @@ export class CreateInstanceRequest extends $tea.Model {
   quantity?: string;
   /**
    * @remarks
-   * Specifies whether to automatically append sequential suffixes to the hostnames specified by the **HostName** parameter and instance names specified by the **InstanceName** parameter. The sequential numbers in the suffix range from **001** to **999**.
+   * Specifies whether to automatically append sequential suffixes to the hostnames specified by the **HostName** parameter and instance names specified by the **InstanceName** parameter. The sequential suffixes range from **001** to **999**.
    * 
    * Examples: **LocalHost001** and **LocalHost002**, and **MyInstance001** and **MyInstance002**.
    * 
@@ -4688,7 +4870,7 @@ export class CreateLoadBalancerRequest extends $tea.Model {
   networkId?: string;
   /**
    * @remarks
-   * The billing method of the instance. Valid value: PostPaid. PostPaid specifies the pay-as-you-go billing method.
+   * The billing method of the cluster. Valid value: PostPaid. PostPaid specifies the pay-as-you-go billing method.
    * 
    * This parameter is required.
    * 
@@ -6196,6 +6378,7 @@ export class CreateNatGatewayRequest extends $tea.Model {
    * n-5qj7ykuxmjn7k96l090sp****
    */
   networkId?: string;
+  tag?: CreateNatGatewayRequestTag[];
   /**
    * @remarks
    * The ID of the vSwitch.
@@ -6212,6 +6395,7 @@ export class CreateNatGatewayRequest extends $tea.Model {
       instanceType: 'InstanceType',
       name: 'Name',
       networkId: 'NetworkId',
+      tag: 'Tag',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -6222,6 +6406,7 @@ export class CreateNatGatewayRequest extends $tea.Model {
       instanceType: 'string',
       name: 'string',
       networkId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateNatGatewayRequestTag },
       vSwitchId: 'string',
     };
   }
@@ -6339,12 +6524,14 @@ export class CreateNetworkRequest extends $tea.Model {
    * abc
    */
   networkName?: string;
+  tag?: CreateNetworkRequestTag[];
   static names(): { [key: string]: string } {
     return {
       cidrBlock: 'CidrBlock',
       description: 'Description',
       ensRegionId: 'EnsRegionId',
       networkName: 'NetworkName',
+      tag: 'Tag',
     };
   }
 
@@ -6354,6 +6541,7 @@ export class CreateNetworkRequest extends $tea.Model {
       description: 'string',
       ensRegionId: 'string',
       networkName: 'string',
+      tag: { 'type': 'array', 'itemType': CreateNetworkRequestTag },
     };
   }
 
@@ -6980,7 +7168,7 @@ export class CreateSnapshotRequest extends $tea.Model {
   diskId?: string;
   /**
    * @remarks
-   * The ID of the ENS node.
+   * The ID of the ENS node. You can query the node ID by calling the [DescribeEnsRegions](~~DescribeEnsRegions~~) operation.
    * 
    * This parameter is required.
    * 
@@ -7091,6 +7279,7 @@ export class CreateSnapshotResponse extends $tea.Model {
 }
 
 export class CreateSnatEntryRequest extends $tea.Model {
+  idleTimeout?: number;
   /**
    * @remarks
    * The ID of the Network Address Translation (NAT) gateway.
@@ -7159,6 +7348,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
   standbySnatIp?: string;
   static names(): { [key: string]: string } {
     return {
+      idleTimeout: 'IdleTimeout',
       natGatewayId: 'NatGatewayId',
       snatEntryName: 'SnatEntryName',
       snatIp: 'SnatIp',
@@ -7171,6 +7361,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      idleTimeout: 'number',
       natGatewayId: 'string',
       snatEntryName: 'string',
       snatIp: 'string',
@@ -7604,6 +7795,7 @@ export class CreateVSwitchRequest extends $tea.Model {
    * n-257gqcdfvx6n****
    */
   networkId?: string;
+  tag?: CreateVSwitchRequestTag[];
   /**
    * @remarks
    * The name of the vSwitch. The name must meet the following requirements:
@@ -7623,6 +7815,7 @@ export class CreateVSwitchRequest extends $tea.Model {
       description: 'Description',
       ensRegionId: 'EnsRegionId',
       networkId: 'NetworkId',
+      tag: 'Tag',
       vSwitchName: 'VSwitchName',
     };
   }
@@ -7633,6 +7826,7 @@ export class CreateVSwitchRequest extends $tea.Model {
       description: 'string',
       ensRegionId: 'string',
       networkId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateVSwitchRequestTag },
       vSwitchName: 'string',
     };
   }
@@ -10200,9 +10394,7 @@ export class DeleteVSwitchResponse extends $tea.Model {
 export class DeployInstanceSDGRequest extends $tea.Model {
   /**
    * @remarks
-   * The deployment type of the SDG. Valid values:
-   * 
-   * *   shared: shared read/write splitting deployment. The content of the SDG is read-only, and data updates are written to the local storage of the instance.
+   * The deployment type of the SDG. shared: shared read/write splitting deployment. The content of the SDG is read-only, and data updates are written to the local storage of the instance.
    * 
    * @example
    * shared
@@ -10249,9 +10441,7 @@ export class DeployInstanceSDGRequest extends $tea.Model {
 export class DeployInstanceSDGShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The deployment type of the SDG. Valid values:
-   * 
-   * *   shared: shared read/write splitting deployment. The content of the SDG is read-only, and data updates are written to the local storage of the instance.
+   * The deployment type of the SDG. shared: shared read/write splitting deployment. The content of the SDG is read-only, and data updates are written to the local storage of the instance.
    * 
    * @example
    * shared
@@ -11883,15 +12073,47 @@ export class DescribeCloudDiskTypesRequest extends $tea.Model {
    * cn-chongqing-cmcc
    */
   ensRegionId?: string;
+  ensRegionIds?: string[];
   static names(): { [key: string]: string } {
     return {
       ensRegionId: 'EnsRegionId',
+      ensRegionIds: 'EnsRegionIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ensRegionId: 'string',
+      ensRegionIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudDiskTypesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the edge node.
+   * 
+   * @example
+   * cn-chongqing-cmcc
+   */
+  ensRegionId?: string;
+  ensRegionIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      ensRegionIdsShrink: 'EnsRegionIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      ensRegionIdsShrink: 'string',
     };
   }
 
@@ -11950,6 +12172,181 @@ export class DescribeCloudDiskTypesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCloudDiskTypesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterRequest extends $tea.Model {
+  /**
+   * @example
+   * c8f0377146d104687ac562eef9403****
+   */
+  clusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterResponseBody extends $tea.Model {
+  clusters?: DescribeClusterResponseBodyClusters[];
+  /**
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusters: 'Clusters',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusters: { 'type': 'array', 'itemType': DescribeClusterResponseBodyClusters },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterKubeConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * c8f0377146d104687ac562eef9403****
+   */
+  clusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterKubeConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * c8f0377146d104687ac562eef9403****
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * apiVersion: v1
+   * clusters:
+   * - cluster:
+   *     certificate-authority-data:***
+   *     server: https://****:6443
+   *   name: kubernetes
+   * contexts:
+   * - context:
+   *     cluster: kubernetes
+   *     user: "2580306074811*****"
+   *   name: 258*******
+   * kind: Config
+   * users:
+   * - name: "2580306074811*****"
+   *   user:
+   *     client-certificate-data:***
+   *     client-key-data: ***
+   */
+  kubeconfig?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      kubeconfig: 'Kubeconfig',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      kubeconfig: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterKubeConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeClusterKubeConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeClusterKubeConfigResponseBody,
     };
   }
 
@@ -12825,6 +13222,116 @@ export class DescribeDeviceServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDeviceServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskIopsListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the disk. Format: d-\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * d-5tzm9wnhzlhjzcbtxo465****
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss. The time range specified by the StartTime and EndTime parameters cannot exceed one day for a query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-12-14 23:59:59
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-12-14 00:00:00
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskId: 'DiskId',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskIopsListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IOPS monitoring data of the cloud disk.
+   */
+  diskIopsList?: DescribeDiskIopsListResponseBodyDiskIopsList[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A7814CAB-DB4E-140A-9D6F-7C8210C1DAC3
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskIopsList: 'DiskIopsList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskIopsList: { 'type': 'array', 'itemType': DescribeDiskIopsListResponseBodyDiskIopsList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskIopsListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskIopsListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiskIopsListResponseBody,
     };
   }
 
@@ -16717,6 +17224,159 @@ export class DescribeInstanceAutoRenewAttributeResponse extends $tea.Model {
   }
 }
 
+export class DescribeInstanceBandwidthDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-01-11 30:00:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * cn-beijing-cmcc
+   */
+  ensRegionId?: string;
+  /**
+   * @example
+   * i-6ecpqvkicnchxccozrpxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * vm
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * vm
+   */
+  serviceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-01-11 00:00:00
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      ensRegionId: 'EnsRegionId',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      serviceType: 'ServiceType',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      ensRegionId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      serviceType: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceBandwidthDetailResponseBody extends $tea.Model {
+  bandwidths?: DescribeInstanceBandwidthDetailResponseBodyBandwidths[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C0003E8B-B930-4F59-ADC0-0E209A9012A8
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidths: 'Bandwidths',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidths: { 'type': 'array', 'itemType': DescribeInstanceBandwidthDetailResponseBodyBandwidths },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceBandwidthDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceBandwidthDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceBandwidthDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceMonitorDataRequest extends $tea.Model {
   /**
    * @remarks
@@ -18767,6 +19427,235 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponse extends $tea.Mod
   }
 }
 
+export class DescribeLoadBalancerListenMonitorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-01-30 08:00:00
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * lb-5q73cv04zeyh43lh74lp4****
+   */
+  loadBalancerId?: string;
+  /**
+   * @example
+   * tcp
+   */
+  proto?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-01-15 16:00:00
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 80
+   */
+  VPort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      loadBalancerId: 'LoadBalancerId',
+      proto: 'Proto',
+      startTime: 'StartTime',
+      VPort: 'VPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      loadBalancerId: 'string',
+      proto: 'string',
+      startTime: 'string',
+      VPort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenMonitorResponseBody extends $tea.Model {
+  loadBalancerMonitorListenData?: DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorListenData[];
+  /**
+   * @remarks
+   * Id of the request.
+   * 
+   * @example
+   * C0003E8B-B930-4F59-ADC0-0E209A9012A8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerMonitorListenData: 'LoadBalancerMonitorListenData',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerMonitorListenData: { 'type': 'array', 'itemType': DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorListenData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenMonitorResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLoadBalancerListenMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLoadBalancerListenMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * lb-5s7crik3yo3p5****
+   */
+  loadBalancerId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersResponseBody extends $tea.Model {
+  listeners?: DescribeLoadBalancerListenersResponseBodyListeners;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * F3B261DD-3858-4D3C-877D-303ADF374600
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 49
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listeners: 'Listeners',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listeners: DescribeLoadBalancerListenersResponseBodyListeners,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLoadBalancerListenersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLoadBalancerListenersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLoadBalancerSpecRequest extends $tea.Model {
   /**
    * @remarks
@@ -20614,7 +21503,7 @@ export class DescribeNetworkInterfacesRequest extends $tea.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * The page number of the returned page. Pages start from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -20622,7 +21511,7 @@ export class DescribeNetworkInterfacesRequest extends $tea.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 100. Default value: 10.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 50.
    * 
    * @example
    * 50
@@ -20662,10 +21551,10 @@ export class DescribeNetworkInterfacesRequest extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the ENI. Valid values:
+   * The type of the ENI. Valid Values:
    * 
-   * *   Primary
-   * *   Secondary
+   * *   Primary: primary ENI.
+   * *   Secondary: secondary ENI.
    * 
    * This parameter is empty by default, which indicates that both primary and secondary ENIs are queried.
    * 
@@ -20766,7 +21655,7 @@ export class DescribeNetworkInterfacesShrinkRequest extends $tea.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * The page number of the returned page. Pages start from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -20774,7 +21663,7 @@ export class DescribeNetworkInterfacesShrinkRequest extends $tea.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 100. Default value: 10.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 50.
    * 
    * @example
    * 50
@@ -20814,10 +21703,10 @@ export class DescribeNetworkInterfacesShrinkRequest extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the ENI. Valid values:
+   * The type of the ENI. Valid Values:
    * 
-   * *   Primary
-   * *   Secondary
+   * *   Primary: primary ENI.
+   * *   Secondary: secondary ENI.
    * 
    * This parameter is empty by default, which indicates that both primary and secondary ENIs are queried.
    * 
@@ -22419,6 +23308,174 @@ export class DescribeSDGsResponse extends $tea.Model {
   }
 }
 
+export class DescribeSecondaryPublicIpAddressesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the edge node.
+   * 
+   * @example
+   * cn-hangzhou-44
+   */
+  ensRegionId?: string;
+  /**
+   * @remarks
+   * The Internet service provider. Valid values:
+   * 
+   * *   cmcc: China Mobile.
+   * *   unicom: China Unicom.
+   * *   telecom: China Telecom.
+   * 
+   * @example
+   * unicom
+   */
+  isp?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 50
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The secondary IP address.
+   * 
+   * @example
+   * 12.XXX.XXX.4
+   */
+  secondaryPublicIpAddress?: string;
+  /**
+   * @remarks
+   * The ID of the secondary public IP address.
+   * 
+   * @example
+   * spi-5wys0pio93c9f9ukzj2f2fwyr
+   */
+  secondaryPublicIpId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      isp: 'Isp',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      secondaryPublicIpAddress: 'SecondaryPublicIpAddress',
+      secondaryPublicIpId: 'SecondaryPublicIpId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      isp: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      secondaryPublicIpAddress: 'string',
+      secondaryPublicIpId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecondaryPublicIpAddressesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number returned.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 50
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The array of returned secondary IP addresses.
+   */
+  secondaryPublicIpAddresses?: DescribeSecondaryPublicIpAddressesResponseBodySecondaryPublicIpAddresses[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 13
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      secondaryPublicIpAddresses: 'SecondaryPublicIpAddresses',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      secondaryPublicIpAddresses: { 'type': 'array', 'itemType': DescribeSecondaryPublicIpAddressesResponseBodySecondaryPublicIpAddresses },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecondaryPublicIpAddressesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSecondaryPublicIpAddressesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSecondaryPublicIpAddressesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSecurityGroupAttributeRequest extends $tea.Model {
   /**
    * @remarks
@@ -22989,6 +24046,220 @@ export class DescribeServcieScheduleResponse extends $tea.Model {
   }
 }
 
+export class DescribeServerLoadBalancerListenMonitorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-05-16 16:00:00
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * lb-5rcvo1n1t3hykfhhjwjgqp****
+   */
+  loadBalancerId?: string;
+  /**
+   * @example
+   * tcp
+   */
+  proto?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-05-16 15:00:00
+   */
+  startTime?: string;
+  /**
+   * @example
+   * 80
+   */
+  VPort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      loadBalancerId: 'LoadBalancerId',
+      proto: 'Proto',
+      startTime: 'StartTime',
+      VPort: 'VPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      loadBalancerId: 'string',
+      proto: 'string',
+      startTime: 'string',
+      VPort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServerLoadBalancerListenMonitorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request。
+   * 
+   * @example
+   * 125B04C7-3D0D-4245-AF96-14E3758E3F06
+   */
+  requestId?: string;
+  serverLoadBalancerMonitorData?: DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalancerMonitorData[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      serverLoadBalancerMonitorData: 'ServerLoadBalancerMonitorData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      serverLoadBalancerMonitorData: { 'type': 'array', 'itemType': DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalancerMonitorData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServerLoadBalancerListenMonitorResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeServerLoadBalancerListenMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeServerLoadBalancerListenMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServerLoadBalancerMonitorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-09-15 17:00:00
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * lb-5sc1s9zrui8lpb8u7cl4f****
+   */
+  loadBalancerId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-09-15 16:00:00
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      loadBalancerId: 'LoadBalancerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      loadBalancerId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServerLoadBalancerMonitorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request。
+   * 
+   * @example
+   * AAE90880-4970-4D81-A534-A6C0F3631F74
+   */
+  requestId?: string;
+  serverLoadBalancerMonitorData?: DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMonitorData[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      serverLoadBalancerMonitorData: 'ServerLoadBalancerMonitorData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      serverLoadBalancerMonitorData: { 'type': 'array', 'itemType': DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMonitorData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServerLoadBalancerMonitorResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeServerLoadBalancerMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeServerLoadBalancerMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSnapshotsRequest extends $tea.Model {
   /**
    * @remarks
@@ -23200,7 +24471,7 @@ export class DescribeSnatAttributeResponseBody extends $tea.Model {
   destCIDR?: string;
   /**
    * @remarks
-   * Timeout period.
+   * The timeout period. Unit: seconds.
    * 
    * @example
    * 10
@@ -23294,11 +24565,10 @@ export class DescribeSnatAttributeResponseBody extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the NAT. Valid values: 
+   * The type of the NAT.
    * 
-   * - Empty: symmetric NAT.
-   * 
-   * - FullCone: full cone NAT.
+   * *   Empty: symmetric NAT.
+   * *   FullCone: full cone NAT.
    * 
    * @example
    * FullCone
@@ -23491,7 +24761,7 @@ export class DescribeSnatTableEntriesResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of SNAT entries.
+   * The details of the SNAT entries.
    */
   snatTableEntries?: DescribeSnatTableEntriesResponseBodySnatTableEntries[];
   /**
@@ -23554,31 +24824,49 @@ export class DescribeSnatTableEntriesResponse extends $tea.Model {
 
 export class DescribeStorageGatewayRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the node.
+   * 
    * @example
    * cn-beijing-cmcc
    */
   ensRegionId?: string;
   /**
+   * @remarks
+   * The ID of the gateway.
+   * 
    * @example
    * sgw-****
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The type of the gateway. Set this parameter to **1**. **1** indicates iSCSI.
+   * 
    * @example
    * 1
    */
   gatewayType?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
    * @example
    * n-***
    */
@@ -23612,11 +24900,19 @@ export class DescribeStorageGatewayRequest extends $tea.Model {
 
 export class DescribeStorageGatewayResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Default value: 10.
+   * 
    * @example
    * 10
    */
@@ -23629,8 +24925,15 @@ export class DescribeStorageGatewayResponseBody extends $tea.Model {
    * 6666C5A5-75ED-422E-A022-7121FA18C968
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list information.
+   */
   storageGateways?: DescribeStorageGatewayResponseBodyStorageGateways[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 16
    */
@@ -23687,36 +24990,60 @@ export class DescribeStorageGatewayResponse extends $tea.Model {
 
 export class DescribeStorageVolumeRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the node.
+   * 
    * @example
    * cn-shenzhen-3
    */
   ensRegionId?: string;
   /**
+   * @remarks
+   * The ID of the gateway.
+   * 
    * @example
    * sgw-****
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the volume. Valid values:
+   * 
+   * *   **1** (default): enables the volume.
+   * *   **0**: disables the volume.
+   * 
    * @example
    * 1
    */
   isEnable?: number;
   /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the storage medium.
+   * 
    * @example
    * d-***
    */
   storageId?: string;
   /**
+   * @remarks
+   * The ID of the volume.
+   * 
    * @example
    * sv-***
    */
@@ -23752,22 +25079,38 @@ export class DescribeStorageVolumeRequest extends $tea.Model {
 
 export class DescribeStorageVolumeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * AAE90880-4970-4D81-A534-A6C0F3631F74
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of returned results.
+   */
   storageVolumes?: DescribeStorageVolumeResponseBodyStorageVolumes[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 15
    */
@@ -24252,6 +25595,85 @@ export class DetachDiskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetachDiskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachNetworkInterfaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ENI.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eni-58z57orgmt6d1****
+   */
+  networkInterfaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      networkInterfaceId: 'NetworkInterfaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkInterfaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachNetworkInterfaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BE1B8ECF-9507-4C78-B197-5DE9FED344AF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachNetworkInterfaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachNetworkInterfaceResponseBody,
     };
   }
 
@@ -26404,9 +27826,7 @@ export class ListTagResourcesRequest extends $tea.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   instance
+   * The type of the resource. Set the value to instance.
    * 
    * This parameter is required.
    * 
@@ -26939,6 +28359,8 @@ export class ModifyForwardEntryResponse extends $tea.Model {
 export class ModifyHaVipAttributeRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the HAVIP that you want to modify.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26946,6 +28368,9 @@ export class ModifyHaVipAttributeRequest extends $tea.Model {
    */
   haVipId?: string;
   /**
+   * @remarks
+   * The name of the HAVIP. The name must be 1 to 128 characters in length and cannot start with http:// or https://.
+   * 
    * @example
    * test
    */
@@ -26971,6 +28396,9 @@ export class ModifyHaVipAttributeRequest extends $tea.Model {
 
 export class ModifyHaVipAttributeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F3B261DD-3858-4D3C-877D-303ADF374600
    */
@@ -27480,6 +28908,107 @@ export class ModifyInstanceAutoRenewAttributeResponse extends $tea.Model {
   }
 }
 
+export class ModifyInstanceBootConfigurationRequest extends $tea.Model {
+  /**
+   * @example
+   * legacy
+   */
+  bootSet?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxe
+   */
+  bootType?: string;
+  /**
+   * @example
+   * on
+   */
+  diskSet?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i-instance****
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bootSet: 'BootSet',
+      bootType: 'BootType',
+      diskSet: 'DiskSet',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bootSet: 'string',
+      bootType: 'string',
+      diskSet: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceBootConfigurationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 6666C5A5-75ED-422E-A022-7121FA18C968
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceBootConfigurationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceBootConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyInstanceBootConfigurationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyInstanceChargeTypeRequest extends $tea.Model {
   /**
    * @remarks
@@ -27960,6 +29489,105 @@ export class ModifyNetworkAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyNetworkAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description. The description must be 1 to 256 characters in length and cannot start with http:// or https://.
+   * 
+   * @example
+   * testDescription
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The ID of the ENI.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eni-5f6533jbifugr5fo***
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The name of the ENI. The name must be 1 to 128 characters in length, The name cannot start with http:// or https://.
+   * 
+   * @example
+   * test-01
+   */
+  networkInterfaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      networkInterfaceId: 'NetworkInterfaceId',
+      networkInterfaceName: 'NetworkInterfaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      networkInterfaceId: 'string',
+      networkInterfaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNetworkInterfaceAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNetworkInterfaceAttributeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyNetworkInterfaceAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyNetworkInterfaceAttributeResponseBody,
     };
   }
 
@@ -30872,10 +32500,10 @@ export class RemoveVSwitchesFromEpnInstanceResponse extends $tea.Model {
 export class RenewARMServerInstanceRequest extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for the subscription. Valid values:
+   * Specifies whether to enable auto-renewal for the premium bandwidth plan. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * *   **true**.
+   * *   **false** (default).
    * 
    * @example
    * true
@@ -32503,7 +34131,7 @@ export class RunInstancesRequest extends $tea.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * The type of the IP address. Valid values:
+   * The type of the IP address. Examples:
    * 
    * *   **ipv4** (default).
    * *   **ipv6**.
@@ -32958,7 +34586,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * The type of the IP address. Valid values:
+   * The type of the IP address. Examples:
    * 
    * *   **ipv4** (default).
    * *   **ipv6**.
@@ -35853,18 +37481,14 @@ export class StopSnatIpForSnatEntryResponse extends $tea.Model {
 export class TagResourcesRequest extends $tea.Model {
   /**
    * @remarks
-   * The IDs of the resources. You can add up to 50 resource IDs in a call.
+   * The resource IDs. You can add up to 50 resource IDs in a call.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of resource to query.
-   * 
-   * Valid values:
-   * 
-   * *   instance
+   * The type of resource. Set the value to instance.
    * 
    * This parameter is required.
    * 
@@ -35903,7 +37527,7 @@ export class TagResourcesRequest extends $tea.Model {
 export class TagResourcesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C50C391C-533A-55D3-AC97-5D9333DE288F
@@ -36121,6 +37745,8 @@ export class UnassignPrivateIpAddressesResponse extends $tea.Model {
 export class UnassociateHaVipRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the HAVIP that you want to disassociate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36129,6 +37755,8 @@ export class UnassociateHaVipRequest extends $tea.Model {
   haVipId?: string;
   /**
    * @remarks
+   * The ID of the ENS instance or ENI that you want to disassociate from the HAVIP.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36156,6 +37784,9 @@ export class UnassociateHaVipRequest extends $tea.Model {
 
 export class UnassociateHaVipResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C0003E8B-B930-4F59-ADC0-0E209A9012A8
    */
@@ -36441,10 +38072,8 @@ export class UntagResourcesRequest extends $tea.Model {
    * @remarks
    * Specifies whether to remove all tags from the resource. This parameter takes effect only if you do not specify TagKey.N. Valid values:
    * 
-   * *   true
-   * *   false
-   * 
-   * Default value: false.
+   * *   **true**
+   * *   **false** (default)
    * 
    * @example
    * true
@@ -36459,11 +38088,7 @@ export class UntagResourcesRequest extends $tea.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type.
-   * 
-   * Valid values:
-   * 
-   * *   instance
+   * The type of the resource.
    * 
    * This parameter is required.
    * 
@@ -36502,7 +38127,7 @@ export class UntagResourcesRequest extends $tea.Model {
 export class UntagResourcesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6AB7715D-8B97-5E81-854B-2429F8C7DEF2
@@ -36963,7 +38588,7 @@ export class TagsInParamsTag extends $tea.Model {
 export class AccosicateNetworkAclRequestResource extends $tea.Model {
   /**
    * @remarks
-   * The ID of the resource with which you want to associate the network ACL.
+   * The ID of the associated resource.
    * 
    * This parameter is required.
    * 
@@ -36973,9 +38598,9 @@ export class AccosicateNetworkAclRequestResource extends $tea.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of resource with which you want to associate the network ACL. Set the value to **Network**.
+   * The type of the associated resource. Set the value to **Network**.
    * 
-   * ****
+   * Valid values of **N**: 0 to 29. You can associate a network ACL with at most 30 resources.
    * 
    * This parameter is required.
    * 
@@ -37176,7 +38801,7 @@ export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet e
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The secondary private IP addresses that are assigned to the ENI.
+   * The assigned private IP addresses.
    */
   privateIpSet?: string[];
   static names(): { [key: string]: string } {
@@ -37382,6 +39007,50 @@ export class CopySnapshotResponseBodyUnAllocationId extends $tea.Model {
   }
 }
 
+export class CreateDiskRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEipInstanceRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEnsSaleControlRequestSaleControlsConditionControls extends $tea.Model {
   conditionControlModuleCode?: string;
   conditionControlModuleValue?: string;
@@ -37545,7 +39214,7 @@ export class CreateFileSystemRequestOrderDetails extends $tea.Model {
   orderType?: string;
   /**
    * @remarks
-   * The storage protocol. Valid values: nsf and smb.
+   * The storage protocol. Set the value to nfs.
    * 
    * This parameter is required.
    * 
@@ -37660,6 +39329,50 @@ export class CreateInstanceResponseBodyInstanceIds extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNatGatewayRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -37804,6 +39517,28 @@ export class CreateStorageGatewayResponseBodyUnAllocationId extends $tea.Model {
     return {
       ensRegionId: 'string',
       instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVSwitchRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -39397,6 +41132,57 @@ export class DescribeCloudDiskTypesResponseBodySupportResources extends $tea.Mod
   }
 }
 
+export class DescribeClusterResponseBodyClusters extends $tea.Model {
+  /**
+   * @example
+   * c8f0377146d104687ac562eef9403****
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * 1.18.8
+   */
+  currentVersion?: string;
+  /**
+   * @example
+   * vc-a622bb**
+   */
+  name?: string;
+  /**
+   * @example
+   * 1.20.8
+   */
+  nextVersion?: string;
+  /**
+   * @example
+   * healthy
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      currentVersion: 'CurrentVersion',
+      name: 'Name',
+      nextVersion: 'NextVersion',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      currentVersion: 'string',
+      name: 'string',
+      nextVersion: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCreatePrePaidInstanceResultResponseBodyInstanceCreateResult extends $tea.Model {
   /**
    * @remarks
@@ -40458,6 +42244,112 @@ export class DescribeDeviceServiceResponseBodyResourceInfos extends $tea.Model {
       regionCode: 'string',
       regionId: 'string',
       regionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskIopsListResponseBodyDiskIopsList extends $tea.Model {
+  /**
+   * @remarks
+   * The business time . The time is displayed in the yyyy-MM-dd HH:mm:ss.
+   * 
+   * @example
+   * 2023-12-14 00:00:00
+   */
+  bizTime?: string;
+  /**
+   * @remarks
+   * The ID of the disk.
+   * 
+   * @example
+   * d-5tzm9wnhzlhjzcbtxo465****
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * The read throughput. Unit: bytes.
+   * 
+   * @example
+   * 10054
+   */
+  readBytes?: number;
+  /**
+   * @remarks
+   * The read latency. Unit: ms.
+   * 
+   * @example
+   * 15646532
+   */
+  readLatency?: number;
+  /**
+   * @remarks
+   * The read IOPS.
+   * 
+   * @example
+   * 4
+   */
+  readOps?: number;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * @example
+   * cn-hangzhou-3
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The write throughput. Unit: bytes.
+   * 
+   * @example
+   * 0
+   */
+  writeBytes?: number;
+  /**
+   * @remarks
+   * The write latency. Unit: microseconds.
+   * 
+   * @example
+   * 0
+   */
+  writeLatency?: number;
+  /**
+   * @remarks
+   * The write IOPS.
+   * 
+   * @example
+   * 0
+   */
+  writeOps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizTime: 'BizTime',
+      diskId: 'DiskId',
+      readBytes: 'ReadBytes',
+      readLatency: 'ReadLatency',
+      readOps: 'ReadOps',
+      regionId: 'RegionId',
+      writeBytes: 'WriteBytes',
+      writeLatency: 'WriteLatency',
+      writeOps: 'WriteOps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizTime: 'string',
+      diskId: 'string',
+      readBytes: 'number',
+      readLatency: 'number',
+      readOps: 'number',
+      regionId: 'string',
+      writeBytes: 'number',
+      writeLatency: 'number',
+      writeOps: 'number',
     };
   }
 
@@ -43630,6 +45522,53 @@ export class DescribeHaVipsResponseBodyHaVips extends $tea.Model {
   }
 }
 
+export class DescribeImageInfosResponseBodyImagesImageDiskDeviceMappingsDiskDeviceMapping extends $tea.Model {
+  format?: string;
+  size?: string;
+  type?: string;
+  imageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      format: 'Format',
+      size: 'Size',
+      type: 'Type',
+      imageId: 'imageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      format: 'string',
+      size: 'string',
+      type: 'string',
+      imageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageInfosResponseBodyImagesImageDiskDeviceMappings extends $tea.Model {
+  diskDeviceMapping?: DescribeImageInfosResponseBodyImagesImageDiskDeviceMappingsDiskDeviceMapping[];
+  static names(): { [key: string]: string } {
+    return {
+      diskDeviceMapping: 'DiskDeviceMapping',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskDeviceMapping: { 'type': 'array', 'itemType': DescribeImageInfosResponseBodyImagesImageDiskDeviceMappingsDiskDeviceMapping },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageInfosResponseBodyImagesImage extends $tea.Model {
   /**
    * @remarks
@@ -43652,6 +45591,7 @@ export class DescribeImageInfosResponseBodyImagesImage extends $tea.Model {
    * centos_6_08_64_20G_alibase_2017****
    */
   description?: string;
+  diskDeviceMappings?: DescribeImageInfosResponseBodyImagesImageDiskDeviceMappings;
   /**
    * @remarks
    * The ID of the image.
@@ -43696,6 +45636,7 @@ export class DescribeImageInfosResponseBodyImagesImage extends $tea.Model {
     return {
       computeType: 'ComputeType',
       description: 'Description',
+      diskDeviceMappings: 'DiskDeviceMappings',
       imageId: 'ImageId',
       imageSize: 'ImageSize',
       imageVersion: 'ImageVersion',
@@ -43708,6 +45649,7 @@ export class DescribeImageInfosResponseBodyImagesImage extends $tea.Model {
     return {
       computeType: 'string',
       description: 'string',
+      diskDeviceMappings: DescribeImageInfosResponseBodyImagesImageDiskDeviceMappings,
       imageId: 'string',
       imageSize: 'string',
       imageVersion: 'string',
@@ -43759,6 +45701,53 @@ export class DescribeImageSharePermissionResponseBodyAccounts extends $tea.Model
   }
 }
 
+export class DescribeImagesResponseBodyImagesImageDiskDeviceMappingsDiskDeviceMapping extends $tea.Model {
+  format?: string;
+  size?: string;
+  type?: string;
+  imageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      format: 'Format',
+      size: 'Size',
+      type: 'Type',
+      imageId: 'imageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      format: 'string',
+      size: 'string',
+      type: 'string',
+      imageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImagesResponseBodyImagesImageDiskDeviceMappings extends $tea.Model {
+  diskDeviceMapping?: DescribeImagesResponseBodyImagesImageDiskDeviceMappingsDiskDeviceMapping[];
+  static names(): { [key: string]: string } {
+    return {
+      diskDeviceMapping: 'DiskDeviceMapping',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskDeviceMapping: { 'type': 'array', 'itemType': DescribeImagesResponseBodyImagesImageDiskDeviceMappingsDiskDeviceMapping },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImagesResponseBodyImagesImage extends $tea.Model {
   /**
    * @remarks
@@ -43776,6 +45765,7 @@ export class DescribeImagesResponseBodyImagesImage extends $tea.Model {
    * 2017-12-08T12:10:03Z
    */
   creationTime?: string;
+  diskDeviceMappings?: DescribeImagesResponseBodyImagesImageDiskDeviceMappings;
   /**
    * @remarks
    * The ID of the image.
@@ -43835,6 +45825,7 @@ export class DescribeImagesResponseBodyImagesImage extends $tea.Model {
     return {
       architecture: 'Architecture',
       creationTime: 'CreationTime',
+      diskDeviceMappings: 'DiskDeviceMappings',
       imageId: 'ImageId',
       imageName: 'ImageName',
       imageOwnerAlias: 'ImageOwnerAlias',
@@ -43848,6 +45839,7 @@ export class DescribeImagesResponseBodyImagesImage extends $tea.Model {
     return {
       architecture: 'string',
       creationTime: 'string',
+      diskDeviceMappings: DescribeImagesResponseBodyImagesImageDiskDeviceMappings,
       imageId: 'string',
       imageName: 'string',
       imageOwnerAlias: 'string',
@@ -43941,6 +45933,99 @@ export class DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttribut
   static types(): { [key: string]: any } {
     return {
       instanceRenewAttribute: { 'type': 'array', 'itemType': DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttributesInstanceRenewAttribute },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceBandwidthDetailResponseBodyBandwidths extends $tea.Model {
+  /**
+   * @example
+   * 1972653484384661
+   */
+  aliUid?: number;
+  /**
+   * @example
+   * 2024-01-11 00:00:00
+   */
+  bizTime?: string;
+  /**
+   * @example
+   * cn-yichang-2
+   */
+  ensRegionId?: string;
+  /**
+   * @example
+   * 1
+   */
+  flowType?: number;
+  /**
+   * @example
+   * i-6ecpqvkicnchxccozrpxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * vm
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * 203.107.***
+   */
+  ip?: string;
+  /**
+   * @example
+   * cmcc
+   */
+  isp?: string;
+  /**
+   * @example
+   * 43795230
+   */
+  rxBw?: number;
+  /**
+   * @example
+   * vm
+   */
+  serviceType?: string;
+  /**
+   * @example
+   * 25415638
+   */
+  txBw?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      bizTime: 'BizTime',
+      ensRegionId: 'EnsRegionId',
+      flowType: 'FlowType',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      ip: 'Ip',
+      isp: 'Isp',
+      rxBw: 'RxBw',
+      serviceType: 'ServiceType',
+      txBw: 'TxBw',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'number',
+      bizTime: 'string',
+      ensRegionId: 'string',
+      flowType: 'number',
+      instanceId: 'string',
+      instanceType: 'string',
+      ip: 'string',
+      isp: 'string',
+      rxBw: 'number',
+      serviceType: 'string',
+      txBw: 'number',
     };
   }
 
@@ -44424,6 +46509,138 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkAttributes ext
       networkId: 'string',
       privateIpAddress: DescribeInstancesResponseBodyInstancesInstanceNetworkAttributesPrivateIpAddress,
       vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesIpv6SetsIpv6Set extends $tea.Model {
+  ipv6Address?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Address: 'Ipv6Address',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Address: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesIpv6Sets extends $tea.Model {
+  ipv6Set?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesIpv6SetsIpv6Set[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Set: 'Ipv6Set',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Set: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesIpv6SetsIpv6Set },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesPrivateIpSetsPrivateIpSet extends $tea.Model {
+  primary?: boolean;
+  privateIpAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      primary: 'Primary',
+      privateIpAddress: 'PrivateIpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      primary: 'boolean',
+      privateIpAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesPrivateIpSets extends $tea.Model {
+  privateIpSet?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesPrivateIpSetsPrivateIpSet[];
+  static names(): { [key: string]: string } {
+    return {
+      privateIpSet: 'PrivateIpSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privateIpSet: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesPrivateIpSetsPrivateIpSet },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaces extends $tea.Model {
+  ipv6Sets?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesIpv6Sets;
+  macAddress?: string;
+  networkInterfaceId?: string;
+  primaryIpAddress?: string;
+  privateIpSets?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesPrivateIpSets;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Sets: 'Ipv6Sets',
+      macAddress: 'MacAddress',
+      networkInterfaceId: 'NetworkInterfaceId',
+      primaryIpAddress: 'PrimaryIpAddress',
+      privateIpSets: 'PrivateIpSets',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Sets: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesIpv6Sets,
+      macAddress: 'string',
+      networkInterfaceId: 'string',
+      primaryIpAddress: 'string',
+      privateIpSets: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesPrivateIpSets,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfaces extends $tea.Model {
+  networkInterfaces?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaces[];
+  static names(): { [key: string]: string } {
+    return {
+      networkInterfaces: 'NetworkInterfaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkInterfaces: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaces },
     };
   }
 
@@ -44926,6 +47143,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
    * Details of the network.
    */
   networkAttributes?: DescribeInstancesResponseBodyInstancesInstanceNetworkAttributes;
+  networkInterfaces?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfaces;
   /**
    * @remarks
    * The name of the image.
@@ -44990,6 +47208,8 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
   /**
    * @remarks
    * The tags of the instance.
+   * 
+   * >  This operation does not return tag information. You can call this operation in combination with the tag-related operations.
    */
   tags?: DescribeInstancesResponseBodyInstancesInstanceTags;
   static names(): { [key: string]: string } {
@@ -45013,6 +47233,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
       keyPairName: 'KeyPairName',
       memory: 'Memory',
       networkAttributes: 'NetworkAttributes',
+      networkInterfaces: 'NetworkInterfaces',
       OSName: 'OSName',
       privateIpAddresses: 'PrivateIpAddresses',
       publicIpAddress: 'PublicIpAddress',
@@ -45047,6 +47268,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
       keyPairName: 'string',
       memory: 'number',
       networkAttributes: DescribeInstancesResponseBodyInstancesInstanceNetworkAttributes,
+      networkInterfaces: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfaces,
       OSName: 'string',
       privateIpAddresses: DescribeInstancesResponseBodyInstancesInstancePrivateIpAddresses,
       publicIpAddress: DescribeInstancesResponseBodyInstancesInstancePublicIpAddress,
@@ -45283,6 +47505,260 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocols 
       listenerForward: 'string',
       listenerPort: 'number',
       listenerProtocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorListenData extends $tea.Model {
+  /**
+   * @example
+   * 80285
+   */
+  actConns?: string;
+  /**
+   * @example
+   * 2024-01-15 16:03:00
+   */
+  bizTime?: string;
+  /**
+   * @example
+   * 37150
+   */
+  conns?: string;
+  /**
+   * @example
+   * 10
+   */
+  dropConns?: string;
+  /**
+   * @example
+   * cn-dongguan-9
+   */
+  ensRegionId?: string;
+  /**
+   * @example
+   * 16322
+   */
+  inActConns?: string;
+  /**
+   * @example
+   * 67532
+   */
+  inBytes?: string;
+  /**
+   * @example
+   * 324
+   */
+  inDropBytes?: string;
+  /**
+   * @example
+   * 27
+   */
+  inDropPkts?: string;
+  /**
+   * @example
+   * 12
+   */
+  inPkts?: string;
+  /**
+   * @example
+   * 0
+   */
+  inValidRsNum?: string;
+  /**
+   * @example
+   * lb-5q73cv04zeyh43lh74lp4****
+   */
+  loadBalancerId?: string;
+  /**
+   * @example
+   * 5155487
+   */
+  outBytes?: string;
+  /**
+   * @example
+   * 0
+   */
+  outDropBytes?: string;
+  /**
+   * @example
+   * 76
+   */
+  outDropPkts?: string;
+  /**
+   * @example
+   * 34
+   */
+  outPkts?: string;
+  /**
+   * @example
+   * tcp
+   */
+  proto?: string;
+  /**
+   * @example
+   * 80
+   */
+  VPort?: string;
+  /**
+   * @example
+   * 2
+   */
+  validRsNum?: string;
+  /**
+   * @example
+   * 10.8.*.*
+   */
+  vip?: string;
+  /**
+   * @example
+   * 53284
+   */
+  vni?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actConns: 'ActConns',
+      bizTime: 'BizTime',
+      conns: 'Conns',
+      dropConns: 'DropConns',
+      ensRegionId: 'EnsRegionId',
+      inActConns: 'InActConns',
+      inBytes: 'InBytes',
+      inDropBytes: 'InDropBytes',
+      inDropPkts: 'InDropPkts',
+      inPkts: 'InPkts',
+      inValidRsNum: 'InValidRsNum',
+      loadBalancerId: 'LoadBalancerId',
+      outBytes: 'OutBytes',
+      outDropBytes: 'OutDropBytes',
+      outDropPkts: 'OutDropPkts',
+      outPkts: 'OutPkts',
+      proto: 'Proto',
+      VPort: 'VPort',
+      validRsNum: 'ValidRsNum',
+      vip: 'Vip',
+      vni: 'Vni',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actConns: 'string',
+      bizTime: 'string',
+      conns: 'string',
+      dropConns: 'string',
+      ensRegionId: 'string',
+      inActConns: 'string',
+      inBytes: 'string',
+      inDropBytes: 'string',
+      inDropPkts: 'string',
+      inPkts: 'string',
+      inValidRsNum: 'string',
+      loadBalancerId: 'string',
+      outBytes: 'string',
+      outDropBytes: 'string',
+      outDropPkts: 'string',
+      outPkts: 'string',
+      proto: 'string',
+      VPort: 'string',
+      validRsNum: 'string',
+      vip: 'string',
+      vni: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersResponseBodyListenersListener extends $tea.Model {
+  /**
+   * @example
+   * 2022-08-15T08:42:57Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 443
+   */
+  forwardPort?: string;
+  /**
+   * @example
+   * off
+   */
+  listenerForward?: string;
+  /**
+   * @example
+   * 8080
+   */
+  listenerPort?: string;
+  /**
+   * @example
+   * lb-51a5fhou****
+   */
+  loadBalancerId?: string;
+  /**
+   * @example
+   * tcp
+   */
+  protocol?: string;
+  /**
+   * @example
+   * running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      forwardPort: 'ForwardPort',
+      listenerForward: 'ListenerForward',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      protocol: 'Protocol',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      forwardPort: 'string',
+      listenerForward: 'string',
+      listenerPort: 'string',
+      loadBalancerId: 'string',
+      protocol: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersResponseBodyListeners extends $tea.Model {
+  listener?: DescribeLoadBalancerListenersResponseBodyListenersListener[];
+  static names(): { [key: string]: string } {
+    return {
+      listener: 'Listener',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listener: { 'type': 'array', 'itemType': DescribeLoadBalancerListenersResponseBodyListenersListener },
     };
   }
 
@@ -49259,6 +51735,109 @@ export class DescribeSDGsResponseBodySDGs extends $tea.Model {
   }
 }
 
+export class DescribeSecondaryPublicIpAddressesResponseBodySecondaryPublicIpAddresses extends $tea.Model {
+  /**
+   * @remarks
+   * The subnet mask of the CIDR block.
+   * 
+   * @example
+   * 24
+   */
+  cidrMask?: number;
+  /**
+   * @remarks
+   * The time when the secondary public IP address was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2023-07-25T09:43:49Z
+   */
+  creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the edge node.
+   * 
+   * @example
+   * cn-beijing-15
+   */
+  ensRegionId?: string;
+  /**
+   * @remarks
+   * The gateway.
+   * 
+   * @example
+   * 12.XXX.XXX.1
+   */
+  gateway?: string;
+  /**
+   * @remarks
+   * The version of the IP address. Valid values:
+   * 
+   * *   **ipv4**
+   * *   **ipv6**
+   * 
+   * @example
+   * ipv4
+   */
+  ipVersion?: string;
+  /**
+   * @remarks
+   * The Internet service provider. Valid values:
+   * 
+   * *   cmcc: China Mobile.
+   * *   unicom: China Unicom.
+   * *   telecom: China Telecom.
+   * 
+   * @example
+   * telecom
+   */
+  isp?: string;
+  /**
+   * @remarks
+   * The secondary public IP address.
+   * 
+   * @example
+   * 12.XXX.XXX.4
+   */
+  secondaryPublicIpAddress?: string;
+  /**
+   * @remarks
+   * The ID of the secondary public IP address.
+   * 
+   * @example
+   * spi-5wys0pio93c9f9ukzj2f2fwyr
+   */
+  secondaryPublicIpId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrMask: 'CidrMask',
+      creationTime: 'CreationTime',
+      ensRegionId: 'EnsRegionId',
+      gateway: 'Gateway',
+      ipVersion: 'IpVersion',
+      isp: 'Isp',
+      secondaryPublicIpAddress: 'SecondaryPublicIpAddress',
+      secondaryPublicIpId: 'SecondaryPublicIpId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrMask: 'number',
+      creationTime: 'string',
+      ensRegionId: 'string',
+      gateway: 'string',
+      ipVersion: 'string',
+      isp: 'string',
+      secondaryPublicIpAddress: 'string',
+      secondaryPublicIpId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSecurityGroupAttributeResponseBodyPermissionsPermission extends $tea.Model {
   /**
    * @remarks
@@ -49479,6 +52058,53 @@ export class DescribeSecurityGroupsResponseBodySecurityGroups extends $tea.Model
   }
 }
 
+export class DescribeSelfImagesResponseBodyImagesImageDiskDeviceMappingsDiskDeviceMapping extends $tea.Model {
+  format?: string;
+  size?: string;
+  type?: string;
+  imageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      format: 'Format',
+      size: 'Size',
+      type: 'Type',
+      imageId: 'imageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      format: 'string',
+      size: 'string',
+      type: 'string',
+      imageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSelfImagesResponseBodyImagesImageDiskDeviceMappings extends $tea.Model {
+  diskDeviceMapping?: DescribeSelfImagesResponseBodyImagesImageDiskDeviceMappingsDiskDeviceMapping[];
+  static names(): { [key: string]: string } {
+    return {
+      diskDeviceMapping: 'DiskDeviceMapping',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskDeviceMapping: { 'type': 'array', 'itemType': DescribeSelfImagesResponseBodyImagesImageDiskDeviceMappingsDiskDeviceMapping },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSelfImagesResponseBodyImagesImage extends $tea.Model {
   /**
    * @remarks
@@ -49507,6 +52133,7 @@ export class DescribeSelfImagesResponseBodyImagesImage extends $tea.Model {
    * 2017-12-08T12:10:03Z
    */
   creationTime?: string;
+  diskDeviceMappings?: DescribeSelfImagesResponseBodyImagesImageDiskDeviceMappings;
   /**
    * @remarks
    * The ID of the image.
@@ -49542,6 +52169,13 @@ export class DescribeSelfImagesResponseBodyImagesImage extends $tea.Model {
    * 20
    */
   imageSize?: string;
+  /**
+   * @remarks
+   * The size of the image storage.
+   * 
+   * @example
+   * 400
+   */
   imageStorageSize?: string;
   /**
    * @remarks
@@ -49604,6 +52238,7 @@ export class DescribeSelfImagesResponseBodyImagesImage extends $tea.Model {
       architecture: 'Architecture',
       computeType: 'ComputeType',
       creationTime: 'CreationTime',
+      diskDeviceMappings: 'DiskDeviceMappings',
       imageId: 'ImageId',
       imageName: 'ImageName',
       imageOwnerAlias: 'ImageOwnerAlias',
@@ -49622,6 +52257,7 @@ export class DescribeSelfImagesResponseBodyImagesImage extends $tea.Model {
       architecture: 'string',
       computeType: 'string',
       creationTime: 'string',
+      diskDeviceMappings: DescribeSelfImagesResponseBodyImagesImageDiskDeviceMappings,
       imageId: 'string',
       imageName: 'string',
       imageOwnerAlias: 'string',
@@ -49779,6 +52415,234 @@ export class DescribeServcieScheduleResponseBodyPodAbstractInfo extends $tea.Mod
       namespace: 'boolean',
       resourceScope: 'boolean',
       status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalancerMonitorData extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
+  acc?: number;
+  /**
+   * @example
+   * 2024-05-16 15:00:00
+   */
+  bizTime?: string;
+  /**
+   * @example
+   * cn-fuzhou-7
+   */
+  ensRegionId?: string;
+  /**
+   * @example
+   * lb-5rcvo1n1t3hykfhhjwjgqp****
+   */
+  loadBalancerId?: string;
+  /**
+   * @example
+   * esk-edge-service-lb-8377****
+   */
+  loadBalancerName?: string;
+  /**
+   * @example
+   * elb.s2.medium
+   */
+  loadBalancerSpec?: string;
+  /**
+   * @example
+   * tcp
+   */
+  proto?: string;
+  /**
+   * @example
+   * 10
+   */
+  reqs2xx?: number;
+  /**
+   * @example
+   * 0
+   */
+  reqs3xx?: number;
+  /**
+   * @example
+   * 0
+   */
+  reqs4xx?: number;
+  /**
+   * @example
+   * 10
+   */
+  reqs5xx?: number;
+  /**
+   * @example
+   * 1037
+   */
+  rtAvg?: number;
+  /**
+   * @example
+   * 10.0****
+   */
+  vip?: string;
+  /**
+   * @example
+   * 52497
+   */
+  vni?: number;
+  /**
+   * @example
+   * 80
+   */
+  vport?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acc: 'Acc',
+      bizTime: 'BizTime',
+      ensRegionId: 'EnsRegionId',
+      loadBalancerId: 'LoadBalancerId',
+      loadBalancerName: 'LoadBalancerName',
+      loadBalancerSpec: 'LoadBalancerSpec',
+      proto: 'Proto',
+      reqs2xx: 'Reqs2xx',
+      reqs3xx: 'Reqs3xx',
+      reqs4xx: 'Reqs4xx',
+      reqs5xx: 'Reqs5xx',
+      rtAvg: 'RtAvg',
+      vip: 'Vip',
+      vni: 'Vni',
+      vport: 'Vport',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acc: 'number',
+      bizTime: 'string',
+      ensRegionId: 'string',
+      loadBalancerId: 'string',
+      loadBalancerName: 'string',
+      loadBalancerSpec: 'string',
+      proto: 'string',
+      reqs2xx: 'number',
+      reqs3xx: 'number',
+      reqs4xx: 'number',
+      reqs5xx: 'number',
+      rtAvg: 'number',
+      vip: 'string',
+      vni: 'number',
+      vport: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMonitorData extends $tea.Model {
+  /**
+   * @example
+   * 30
+   */
+  acc?: number;
+  /**
+   * @example
+   * 2024-09-15 16:00:00
+   */
+  bizTime?: string;
+  /**
+   * @example
+   * cn-wuxi-10
+   */
+  ensRegionId?: string;
+  /**
+   * @example
+   * lb-5sc1s9zrui8lpb8u7cl4f****
+   */
+  loadBalancerId?: string;
+  /**
+   * @example
+   * esk-edge-service-lb-a34****
+   */
+  loadBalancerName?: string;
+  /**
+   * @example
+   * elb.s2.medium
+   */
+  loadBalancerSpec?: string;
+  /**
+   * @example
+   * 25
+   */
+  reqs2xx?: number;
+  /**
+   * @example
+   * 0
+   */
+  reqs3xx?: number;
+  /**
+   * @example
+   * 5
+   */
+  reqs4xx?: number;
+  /**
+   * @example
+   * 0
+   */
+  reqs5xx?: number;
+  /**
+   * @example
+   * 1404
+   */
+  rtAvg?: number;
+  /**
+   * @example
+   * 10.0****
+   */
+  vip?: string;
+  /**
+   * @example
+   * 3018
+   */
+  vni?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acc: 'Acc',
+      bizTime: 'BizTime',
+      ensRegionId: 'EnsRegionId',
+      loadBalancerId: 'LoadBalancerId',
+      loadBalancerName: 'LoadBalancerName',
+      loadBalancerSpec: 'LoadBalancerSpec',
+      reqs2xx: 'Reqs2xx',
+      reqs3xx: 'Reqs3xx',
+      reqs4xx: 'Reqs4xx',
+      reqs5xx: 'Reqs5xx',
+      rtAvg: 'RtAvg',
+      vip: 'Vip',
+      vni: 'Vni',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acc: 'number',
+      bizTime: 'string',
+      ensRegionId: 'string',
+      loadBalancerId: 'string',
+      loadBalancerName: 'string',
+      loadBalancerSpec: 'string',
+      reqs2xx: 'number',
+      reqs3xx: 'number',
+      reqs4xx: 'number',
+      reqs5xx: 'number',
+      rtAvg: 'number',
+      vip: 'string',
+      vni: 'number',
     };
   }
 
@@ -49989,6 +52853,7 @@ export class DescribeSnatAttributeResponseBodySnatIps extends $tea.Model {
 }
 
 export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $tea.Model {
+  idleTimeout?: number;
   /**
    * @remarks
    * The ID of the NAT gateway.
@@ -50064,6 +52929,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $tea.M
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      idleTimeout: 'IdleTimeout',
       natGatewayId: 'NatGatewayId',
       snatEntryId: 'SnatEntryId',
       snatEntryName: 'SnatEntryName',
@@ -50077,6 +52943,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
+      idleTimeout: 'number',
       natGatewayId: 'string',
       snatEntryId: 'string',
       snatEntryName: 'string',
@@ -50095,51 +52962,86 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $tea.M
 
 export class DescribeStorageGatewayResponseBodyStorageGateways extends $tea.Model {
   /**
+   * @remarks
+   * The internal CIDR block.
+   * 
    * @example
    * 192.168.2.0/24
    */
   cidrBlock?: string;
   /**
+   * @remarks
+   * The time when the storage gateway was created. The time is displayed in UTC.
+   * 
    * @example
    * 2024-05-14T03:07:47Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The description of the storage gateway.
+   * 
    * @example
    * testDescription
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the node.
+   * 
    * @example
    * cn-beijing-cmcc
    */
   ensRegionId?: string;
   /**
+   * @remarks
+   * The IP address of the service.
+   * 
    * @example
    * *.*.*.*
    */
   serviceIp?: string;
   /**
+   * @remarks
+   * The status of the storage gateway. Valid values:
+   * 
+   * *   creating
+   * *   available
+   * *   deleting
+   * *   deleted
+   * 
    * @example
    * available
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the storage gateway.
+   * 
    * @example
    * sgw-***
    */
   storageGatewayId?: string;
   /**
+   * @remarks
+   * The name of the storage gateway.
+   * 
    * @example
    * testGateway
    */
   storageGatewayName?: string;
   /**
+   * @remarks
+   * The type of the storage gateway. Default value: 1, which indicates iSCSI.
+   * 
    * @example
    * 1
    */
   storageGatewayType?: number;
   /**
+   * @remarks
+   * The ID of the VPC.
+   * 
    * @example
    * n-***
    */
@@ -50181,61 +53083,108 @@ export class DescribeStorageGatewayResponseBodyStorageGateways extends $tea.Mode
 
 export class DescribeStorageVolumeResponseBodyStorageVolumes extends $tea.Model {
   /**
+   * @remarks
+   * The authentication protocol. The value is set to **CHAP**.
+   * 
    * @example
    * CHAP
    */
   authProtocol?: string;
   /**
+   * @remarks
+   * The time when the volume was created. The time is displayed in UTC.
+   * 
    * @example
    * 2024-03-14T09:35:32Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The description of the volume.
+   * 
    * @example
    * testDescription
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the node.
+   * 
    * @example
    * cn-shenzhen-3
    */
   ensRegionId?: string;
   /**
+   * @remarks
+   * Indicates whether authentication is enabled. Valid values:
+   * 
+   * *   **1**: Authentication is enabled.
+   * *   **0** (default): Authentication is disabled.
+   * 
    * @example
    * 0
    */
   isAuth?: number;
   /**
+   * @remarks
+   * Indicates whether the volume is enabled. Valid values:
+   * 
+   * *   **1** (default): The volume is enabled.
+   * *   **0**: The volume is disabled.
+   * 
    * @example
    * 1
    */
   isEnable?: number;
   /**
+   * @remarks
+   * The status of the volume. Valid values:
+   * 
+   * *   creating
+   * *   available
+   * *   deleting
+   * *   deleted
+   * 
    * @example
    * available
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the storage gateway.
+   * 
    * @example
    * sgw-***
    */
   storageGatewayId?: string;
   /**
+   * @remarks
+   * The ID of the storage medium.
+   * 
    * @example
    * d-***
    */
   storageId?: string;
   /**
+   * @remarks
+   * The ID of the volume.
+   * 
    * @example
    * sv-***
    */
   storageVolumeId?: string;
   /**
+   * @remarks
+   * The name of the volume.
+   * 
    * @example
    * testVolumeName
    */
   storageVolumeName?: string;
   /**
+   * @remarks
+   * The destination of the volume.
+   * 
    * @example
    * iqn.*.*.*:*
    */
@@ -51400,7 +54349,7 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * CLUSTER
@@ -51645,7 +54594,7 @@ export class RemoveBackendServersRequestBackendServers extends $tea.Model {
   ip?: string;
   /**
    * @remarks
-   * The backend port that is used by the ELB instance.
+   * The backend port that is used by the Edge Load Balancer (ELB) instance.
    * 
    * @example
    * 0
@@ -51663,10 +54612,10 @@ export class RemoveBackendServersRequestBackendServers extends $tea.Model {
   serverId?: string;
   /**
    * @remarks
-   * The type of the backend server. Valid values:
+   * The type of backend server. Valid values:
    * 
    * *   **ens**: an Edge Node Service (ENS) instance.
-   * *   **eni**: an elastic network interface (ENI).
+   * *   **eni**: an Elastic Network Interface (ENI).
    * 
    * @example
    * ens
@@ -53241,6 +56190,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Attaches an Elastic Network Interface (ENI) to an Edge Node Service (ECS) instance.
+   * 
+   * @remarks
+   * When you call this operation, take note of the following limits:
+   * *   The ENI must be in the Available state.
+   * *   An ENI can be attached to only one instance that is the same zone and the same Virtual Private Cloud (VPC).
+   * *   The instance must be in the Stopped state.
+   * *   A maximum of 10 ENIs can be attached to an instance.
+   * *   This operation is an asynchronous operation. After you call this operation to attach an ENI, you can view the status of the ENI to check whether the ENI is attached.
+   * 
+   * @param request - AttachNetworkInterfaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachNetworkInterfaceResponse
+   */
+  async attachNetworkInterfaceWithOptions(request: AttachNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<AttachNetworkInterfaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.networkInterfaceId)) {
+      query["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachNetworkInterface",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new AttachNetworkInterfaceResponse({}));
+  }
+
+  /**
+   * Attaches an Elastic Network Interface (ENI) to an Edge Node Service (ECS) instance.
+   * 
+   * @remarks
+   * When you call this operation, take note of the following limits:
+   * *   The ENI must be in the Available state.
+   * *   An ENI can be attached to only one instance that is the same zone and the same Virtual Private Cloud (VPC).
+   * *   The instance must be in the Stopped state.
+   * *   A maximum of 10 ENIs can be attached to an instance.
+   * *   This operation is an asynchronous operation. After you call this operation to attach an ENI, you can view the status of the ENI to check whether the ENI is attached.
+   * 
+   * @param request - AttachNetworkInterfaceRequest
+   * @returns AttachNetworkInterfaceResponse
+   */
+  async attachNetworkInterface(request: AttachNetworkInterfaceRequest): Promise<AttachNetworkInterfaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachNetworkInterfaceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an inbound security group rule. This operation allows or denies the inbound traffic from other devices to instances in the security group.
    * 
    * @param request - AuthorizeSecurityGroupRequest
@@ -53735,6 +56746,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建边缘容器集群
+   * 
+   * @param request - CreateClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateClusterResponse
+   */
+  async createClusterWithOptions(request: CreateClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterVersion)) {
+      query["ClusterVersion"] = request.clusterVersion;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCluster",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
+  }
+
+  /**
+   * 创建边缘容器集群
+   * 
+   * @param request - CreateClusterRequest
+   * @returns CreateClusterResponse
+   */
+  async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createClusterWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a pay-as-you-go or subscription data disk.
    * 
    * @param request - CreateDiskRequest
@@ -53774,6 +56831,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.snapshotId)) {
       query["SnapshotId"] = request.snapshotId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -53844,6 +56905,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -55150,6 +58215,10 @@ export default class Client extends OpenApi {
       query["NetworkId"] = request.networkId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }
@@ -55210,6 +58279,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.networkName)) {
       query["NetworkName"] = request.networkName;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -55526,6 +58599,10 @@ export default class Client extends OpenApi {
   async createSnatEntryWithOptions(request: CreateSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnatEntryResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.idleTimeout)) {
+      query["IdleTimeout"] = request.idleTimeout;
+    }
+
     if (!Util.isUnset(request.natGatewayId)) {
       query["NatGatewayId"] = request.natGatewayId;
     }
@@ -55732,6 +58809,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.networkId)) {
       query["NetworkId"] = request.networkId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.vSwitchName)) {
@@ -57549,12 +60630,18 @@ export default class Client extends OpenApi {
   /**
    * Queries the specifications of resources that you can purchase when you create an instance.
    * 
-   * @param request - DescribeCloudDiskTypesRequest
+   * @param tmpReq - DescribeCloudDiskTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCloudDiskTypesResponse
    */
-  async describeCloudDiskTypesWithOptions(request: DescribeCloudDiskTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudDiskTypesResponse> {
-    Util.validateModel(request);
+  async describeCloudDiskTypesWithOptions(tmpReq: DescribeCloudDiskTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudDiskTypesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeCloudDiskTypesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ensRegionIds)) {
+      request.ensRegionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ensRegionIds, "EnsRegionIds", "json");
+    }
+
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -57582,6 +60669,90 @@ export default class Client extends OpenApi {
   async describeCloudDiskTypes(request: DescribeCloudDiskTypesRequest): Promise<DescribeCloudDiskTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudDiskTypesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询边缘容器集群
+   * 
+   * @param request - DescribeClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClusterResponse
+   */
+  async describeClusterWithOptions(request: DescribeClusterRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCluster",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterResponse>(await this.callApi(params, req, runtime), new DescribeClusterResponse({}));
+  }
+
+  /**
+   * 查询边缘容器集群
+   * 
+   * @param request - DescribeClusterRequest
+   * @returns DescribeClusterResponse
+   */
+  async describeCluster(request: DescribeClusterRequest): Promise<DescribeClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询边缘容器集群证书
+   * 
+   * @param request - DescribeClusterKubeConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClusterKubeConfigResponse
+   */
+  async describeClusterKubeConfigWithOptions(request: DescribeClusterKubeConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterKubeConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterKubeConfig",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterKubeConfigResponse>(await this.callApi(params, req, runtime), new DescribeClusterKubeConfigResponse({}));
+  }
+
+  /**
+   * 查询边缘容器集群证书
+   * 
+   * @param request - DescribeClusterKubeConfigRequest
+   * @returns DescribeClusterKubeConfigResponse
+   */
+  async describeClusterKubeConfig(request: DescribeClusterKubeConfigRequest): Promise<DescribeClusterKubeConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeClusterKubeConfigWithOptions(request, runtime);
   }
 
   /**
@@ -57850,6 +61021,44 @@ export default class Client extends OpenApi {
   async describeDeviceService(request: DescribeDeviceServiceRequest): Promise<DescribeDeviceServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDeviceServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the disk IOPS monitoring data.
+   * 
+   * @param request - DescribeDiskIopsListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDiskIopsListResponse
+   */
+  async describeDiskIopsListWithOptions(request: DescribeDiskIopsListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskIopsListResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDiskIopsList",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDiskIopsListResponse>(await this.callApi(params, req, runtime), new DescribeDiskIopsListResponse({}));
+  }
+
+  /**
+   * Queries the disk IOPS monitoring data.
+   * 
+   * @param request - DescribeDiskIopsListRequest
+   * @returns DescribeDiskIopsListResponse
+   */
+  async describeDiskIopsList(request: DescribeDiskIopsListRequest): Promise<DescribeDiskIopsListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDiskIopsListWithOptions(request, runtime);
   }
 
   /**
@@ -59435,6 +62644,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例5分钟粒度带宽明细
+   * 
+   * @param request - DescribeInstanceBandwidthDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceBandwidthDetailResponse
+   */
+  async describeInstanceBandwidthDetailWithOptions(request: DescribeInstanceBandwidthDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceBandwidthDetailResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceBandwidthDetail",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceBandwidthDetailResponse>(await this.callApi(params, req, runtime), new DescribeInstanceBandwidthDetailResponse({}));
+  }
+
+  /**
+   * 查询实例5分钟粒度带宽明细
+   * 
+   * @param request - DescribeInstanceBandwidthDetailRequest
+   * @returns DescribeInstanceBandwidthDetailResponse
+   */
+  async describeInstanceBandwidthDetail(request: DescribeInstanceBandwidthDetailRequest): Promise<DescribeInstanceBandwidthDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceBandwidthDetailWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the vCPU and memory usage of an instance.
    * 
    * @param request - DescribeInstanceMonitorDataRequest
@@ -59934,6 +63181,94 @@ export default class Client extends OpenApi {
   async describeLoadBalancerHTTPSListenerAttribute(request: DescribeLoadBalancerHTTPSListenerAttributeRequest): Promise<DescribeLoadBalancerHTTPSListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadBalancerHTTPSListenerAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * LB监听级监控数据查询
+   * 
+   * @param request - DescribeLoadBalancerListenMonitorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLoadBalancerListenMonitorResponse
+   */
+  async describeLoadBalancerListenMonitorWithOptions(request: DescribeLoadBalancerListenMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerListenMonitorResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLoadBalancerListenMonitor",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLoadBalancerListenMonitorResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerListenMonitorResponse({}));
+  }
+
+  /**
+   * LB监听级监控数据查询
+   * 
+   * @param request - DescribeLoadBalancerListenMonitorRequest
+   * @returns DescribeLoadBalancerListenMonitorResponse
+   */
+  async describeLoadBalancerListenMonitor(request: DescribeLoadBalancerListenMonitorRequest): Promise<DescribeLoadBalancerListenMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLoadBalancerListenMonitorWithOptions(request, runtime);
+  }
+
+  /**
+   * 调用DescribeLoadBalancerListeners查询负载均衡实例监听列表。
+   * 
+   * @param request - DescribeLoadBalancerListenersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLoadBalancerListenersResponse
+   */
+  async describeLoadBalancerListenersWithOptions(request: DescribeLoadBalancerListenersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerListenersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLoadBalancerListeners",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLoadBalancerListenersResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerListenersResponse({}));
+  }
+
+  /**
+   * 调用DescribeLoadBalancerListeners查询负载均衡实例监听列表。
+   * 
+   * @param request - DescribeLoadBalancerListenersRequest
+   * @returns DescribeLoadBalancerListenersResponse
+   */
+  async describeLoadBalancerListeners(request: DescribeLoadBalancerListenersRequest): Promise<DescribeLoadBalancerListenersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLoadBalancerListenersWithOptions(request, runtime);
   }
 
   /**
@@ -61027,6 +64362,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries created secondary public IP addresses.
+   * 
+   * @param request - DescribeSecondaryPublicIpAddressesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSecondaryPublicIpAddressesResponse
+   */
+  async describeSecondaryPublicIpAddressesWithOptions(request: DescribeSecondaryPublicIpAddressesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecondaryPublicIpAddressesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    if (!Util.isUnset(request.isp)) {
+      query["Isp"] = request.isp;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.secondaryPublicIpAddress)) {
+      query["SecondaryPublicIpAddress"] = request.secondaryPublicIpAddress;
+    }
+
+    if (!Util.isUnset(request.secondaryPublicIpId)) {
+      query["SecondaryPublicIpId"] = request.secondaryPublicIpId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSecondaryPublicIpAddresses",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSecondaryPublicIpAddressesResponse>(await this.callApi(params, req, runtime), new DescribeSecondaryPublicIpAddressesResponse({}));
+  }
+
+  /**
+   * Queries created secondary public IP addresses.
+   * 
+   * @param request - DescribeSecondaryPublicIpAddressesRequest
+   * @returns DescribeSecondaryPublicIpAddressesResponse
+   */
+  async describeSecondaryPublicIpAddresses(request: DescribeSecondaryPublicIpAddressesRequest): Promise<DescribeSecondaryPublicIpAddressesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSecondaryPublicIpAddressesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the rules of a security group.
    * 
    * @param request - DescribeSecurityGroupAttributeRequest
@@ -61231,6 +64628,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ESLB实例监听级监控数据
+   * 
+   * @param request - DescribeServerLoadBalancerListenMonitorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServerLoadBalancerListenMonitorResponse
+   */
+  async describeServerLoadBalancerListenMonitorWithOptions(request: DescribeServerLoadBalancerListenMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServerLoadBalancerListenMonitorResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeServerLoadBalancerListenMonitor",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeServerLoadBalancerListenMonitorResponse>(await this.callApi(params, req, runtime), new DescribeServerLoadBalancerListenMonitorResponse({}));
+  }
+
+  /**
+   * ESLB实例监听级监控数据
+   * 
+   * @param request - DescribeServerLoadBalancerListenMonitorRequest
+   * @returns DescribeServerLoadBalancerListenMonitorResponse
+   */
+  async describeServerLoadBalancerListenMonitor(request: DescribeServerLoadBalancerListenMonitorRequest): Promise<DescribeServerLoadBalancerListenMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeServerLoadBalancerListenMonitorWithOptions(request, runtime);
+  }
+
+  /**
+   * ESLB实例请求监控数据
+   * 
+   * @param request - DescribeServerLoadBalancerMonitorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServerLoadBalancerMonitorResponse
+   */
+  async describeServerLoadBalancerMonitorWithOptions(request: DescribeServerLoadBalancerMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServerLoadBalancerMonitorResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeServerLoadBalancerMonitor",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeServerLoadBalancerMonitorResponse>(await this.callApi(params, req, runtime), new DescribeServerLoadBalancerMonitorResponse({}));
+  }
+
+  /**
+   * ESLB实例请求监控数据
+   * 
+   * @param request - DescribeServerLoadBalancerMonitorRequest
+   * @returns DescribeServerLoadBalancerMonitorResponse
+   */
+  async describeServerLoadBalancerMonitor(request: DescribeServerLoadBalancerMonitorRequest): Promise<DescribeServerLoadBalancerMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeServerLoadBalancerMonitorWithOptions(request, runtime);
+  }
+
+  /**
    * Queries information about snapshots.
    * 
    * @param request - DescribeSnapshotsRequest
@@ -61373,7 +64846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询存储网关
+   * Queries storage gateways.
    * 
    * @param request - DescribeStorageGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61424,7 +64897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询存储网关
+   * Queries storage gateways.
    * 
    * @param request - DescribeStorageGatewayRequest
    * @returns DescribeStorageGatewayResponse
@@ -61435,7 +64908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询存储卷
+   * Queries volumes.
    * 
    * @param request - DescribeStorageVolumeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61490,7 +64963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询存储卷
+   * Queries volumes.
    * 
    * @param request - DescribeStorageVolumeRequest
    * @returns DescribeStorageVolumeResponse
@@ -61672,6 +65145,62 @@ export default class Client extends OpenApi {
   async detachDisk(request: DetachDiskRequest): Promise<DetachDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachDiskWithOptions(request, runtime);
+  }
+
+  /**
+   * Detach an elastic network interface (ENI) from an instance.
+   * 
+   * @remarks
+   * Before you call this operation, take note of the following items:
+   * *   You cannot detach a primary ENI from an instance.
+   * *   The ENI must be in the InUse state.
+   * *   The instances are in the Stopped state.
+   * *   This operation is an asynchronous operation. After this operation is called to detach an ENI, you can check the state of the ENI to determine whether the ENI is detached.
+   * 
+   * @param request - DetachNetworkInterfaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachNetworkInterfaceResponse
+   */
+  async detachNetworkInterfaceWithOptions(request: DetachNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DetachNetworkInterfaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.networkInterfaceId)) {
+      query["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachNetworkInterface",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new DetachNetworkInterfaceResponse({}));
+  }
+
+  /**
+   * Detach an elastic network interface (ENI) from an instance.
+   * 
+   * @remarks
+   * Before you call this operation, take note of the following items:
+   * *   You cannot detach a primary ENI from an instance.
+   * *   The ENI must be in the InUse state.
+   * *   The instances are in the Stopped state.
+   * *   This operation is an asynchronous operation. After this operation is called to detach an ENI, you can check the state of the ENI to determine whether the ENI is detached.
+   * 
+   * @param request - DetachNetworkInterfaceRequest
+   * @returns DetachNetworkInterfaceResponse
+   */
+  async detachNetworkInterface(request: DetachNetworkInterfaceRequest): Promise<DetachNetworkInterfaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachNetworkInterfaceWithOptions(request, runtime);
   }
 
   /**
@@ -61883,7 +65412,11 @@ export default class Client extends OpenApi {
    */
   async getBucketAclWithOptions(request: GetBucketAclRequest, runtime: $Util.RuntimeOptions): Promise<GetBucketAclResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.bucketName)) {
+      query["BucketName"] = request.bucketName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -61892,7 +65425,7 @@ export default class Client extends OpenApi {
       version: "2017-11-10",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -62827,7 +66360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用ModifyHaVipAttribute接口更新高可用VIP的名称和描述。
+   * Modifies the name of a high-availability virtual IP address (HAVIP).
    * 
    * @param request - ModifyHaVipAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -62862,7 +66395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用ModifyHaVipAttribute接口更新高可用VIP的名称和描述。
+   * Modifies the name of a high-availability virtual IP address (HAVIP).
    * 
    * @param request - ModifyHaVipAttributeRequest
    * @returns ModifyHaVipAttributeResponse
@@ -63095,6 +66628,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改启动配置，只支持异构实例(PCFarm裸金属)。
+   * 
+   * @param request - ModifyInstanceBootConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceBootConfigurationResponse
+   */
+  async modifyInstanceBootConfigurationWithOptions(request: ModifyInstanceBootConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceBootConfigurationResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyInstanceBootConfiguration",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInstanceBootConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyInstanceBootConfigurationResponse({}));
+  }
+
+  /**
+   * 修改启动配置，只支持异构实例(PCFarm裸金属)。
+   * 
+   * @param request - ModifyInstanceBootConfigurationRequest
+   * @returns ModifyInstanceBootConfigurationResponse
+   */
+  async modifyInstanceBootConfiguration(request: ModifyInstanceBootConfigurationRequest): Promise<ModifyInstanceBootConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyInstanceBootConfigurationWithOptions(request, runtime);
+  }
+
+  /**
    * Changes the billing method of Edge Node Service (ENS) instances. You can switch between the pay-as-you-go and subscription billing methods for instances. You can also change the billing method for disks that you created with pay-as-you-go instances to subscription.
    * 
    * @remarks
@@ -63284,6 +66855,56 @@ export default class Client extends OpenApi {
   async modifyNetworkAttribute(request: ModifyNetworkAttributeRequest): Promise<ModifyNetworkAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNetworkAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the attributes of an elastic network interface (ENI), such as its name and description.
+   * 
+   * @param request - ModifyNetworkInterfaceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyNetworkInterfaceAttributeResponse
+   */
+  async modifyNetworkInterfaceAttributeWithOptions(request: ModifyNetworkInterfaceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNetworkInterfaceAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.networkInterfaceId)) {
+      query["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.networkInterfaceName)) {
+      query["NetworkInterfaceName"] = request.networkInterfaceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyNetworkInterfaceAttribute",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyNetworkInterfaceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyNetworkInterfaceAttributeResponse({}));
+  }
+
+  /**
+   * Modifies the attributes of an elastic network interface (ENI), such as its name and description.
+   * 
+   * @param request - ModifyNetworkInterfaceAttributeRequest
+   * @returns ModifyNetworkInterfaceAttributeResponse
+   */
+  async modifyNetworkInterfaceAttribute(request: ModifyNetworkInterfaceAttributeRequest): Promise<ModifyNetworkInterfaceAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyNetworkInterfaceAttributeWithOptions(request, runtime);
   }
 
   /**
@@ -64497,7 +68118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a deployed shared data group (SDG) on compute instances.
+   * Removes a shared data group (SDG) that is attached to the compute instance.
    * 
    * @param tmpReq - RemoveInstanceSDGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64534,7 +68155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a deployed shared data group (SDG) on compute instances.
+   * Removes a shared data group (SDG) that is attached to the compute instance.
    * 
    * @param request - RemoveInstanceSDGRequest
    * @returns RemoveInstanceSDGResponse
@@ -65337,7 +68958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates one or more pay-as-you-go or subscription Edge Node Service (ENS) instances.
+   * Purchases instances.
    * 
    * @param tmpReq - RunInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65522,7 +69143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates one or more pay-as-you-go or subscription Edge Node Service (ENS) instances.
+   * Purchases instances.
    * 
    * @param request - RunInstancesRequest
    * @returns RunInstancesResponse
@@ -66835,7 +70456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用UnassociateHaVip接口将高可用VIP从云产品实例上解绑。
+   * Disassociates a high-availability virtual IP address (HAVIP) from an Edge Node Service (ENS) instance or Elastic Network Interface (ENI).
    * 
    * @param request - UnassociateHaVipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -66870,7 +70491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用UnassociateHaVip接口将高可用VIP从云产品实例上解绑。
+   * Disassociates a high-availability virtual IP address (HAVIP) from an Edge Node Service (ENS) instance or Elastic Network Interface (ENI).
    * 
    * @param request - UnassociateHaVipRequest
    * @returns UnassociateHaVipResponse
