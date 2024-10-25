@@ -858,17 +858,18 @@ export class CreateAccountRequest extends $tea.Model {
    * @remarks
    * The permissions that are granted to the account. Valid values:
    * 
-   * *   **ReadWrite**: read and write permissions
-   * *   **ReadOnly**: read-only permissions
-   * *   **DMLOnly**: the permissions to execute only DML statements
-   * *   **DDLOnly**: the permissions to execute only DDL statements
-   * *   **ReadIndex**: the read and index permissions
+   * *   **ReadWrite**: read and write permissions.
+   * *   **ReadOnly**: read-only permissions.
+   * *   **DMLOnly**: the permissions to execute only DML statements.
+   * *   **DDLOnly**: the permissions to execute only DDL statements.
+   * *   **ReadIndex**: the read-only and index permissions.
    * 
    * > 
    * 
-   * *   The `AccountPrivilege` parameter is valid only after you specify the `DBName` parameter.
+   * *   `AccountPrivilege` is valid only after you specify `DBName`.
    * 
-   * *   If multiple database names are specified by the `DBName` parameter, you must grant permissions on the databases. Separate multiple permissions with commas (,). For example, if you want to grant the account the read and write permissions on DB1 and the read-only permissions on DB2, set `DBName` to `DB1,DB2`, and set `AccountPrivilege` to `ReadWrite,ReadOnly`.
+   * *   If multiple database names are specified by the `DBName` parameter, you must grant permissions on the databases. Separate multiple permissions with commas (,), and make sure that the length of the value of `AccountPrivilege` does not exceed 900. For example, if you want to grant the account the read and write permissions on DB1 and the read-only permissions on DB2, set `DBName` to `DB1,DB2` and set `AccountPrivilege` to `ReadWrite,ReadOnly`.
+   * 
    * *   This parameter is valid only for standard accounts of PolarDB for MySQL clusters.
    * 
    * @example
@@ -915,7 +916,7 @@ export class CreateAccountRequest extends $tea.Model {
    * @remarks
    * The name of the database that can be accessed by the account. To enter multiple database names, separate the names with commas (,).
    * 
-   * > This parameter is valid only for standard accounts of PolarDB for MySQL clusters.
+   * >  This parameter is valid only for standard accounts of PolarDB for MySQL clusters.
    * 
    * @example
    * testdb
@@ -923,6 +924,16 @@ export class CreateAccountRequest extends $tea.Model {
   DBName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * Specifies whether to grant the specified account required permissions on all existing databases in the current cluster and databases that will be further created for the current cluster. Valid values:
+   * 
+   * *   **0 or unspecified**: does not grant required permissions.
+   * *   **1**: grants required permissions.
+   * 
+   * @example
+   * 0
+   */
   privForAllDB?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1010,6 +1021,199 @@ export class CreateAccountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateActivationCodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2233****445566
+   */
+  aliyunOrderId?: string;
+  /**
+   * @example
+   * testCode
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12:34:56:78:98:00
+   */
+  macAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testName
+   */
+  name?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @example
+   * 1234567890123456
+   */
+  systemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunOrderId: 'AliyunOrderId',
+      description: 'Description',
+      macAddress: 'MacAddress',
+      name: 'Name',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      systemIdentifier: 'SystemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunOrderId: 'string',
+      description: 'string',
+      macAddress: 'string',
+      name: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      systemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateActivationCodeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2024-10-16 16:46:20
+   */
+  activateAt?: string;
+  /**
+   * @example
+   * AAEAA******AAA=
+   */
+  certContentB64?: string;
+  /**
+   * @example
+   * testCode
+   */
+  description?: string;
+  /**
+   * @example
+   * 2054-10-09 16:46:20
+   */
+  expireAt?: string;
+  /**
+   * @example
+   * 2024-10-16 16:46:20
+   */
+  gmtCreated?: string;
+  /**
+   * @example
+   * 2024-10-16 16:46:20
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 123
+   */
+  id?: number;
+  /**
+   * @example
+   * 12:34:56:78:98:00
+   */
+  macAddress?: string;
+  /**
+   * @example
+   * testName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4CE6DF97-AEA4-484F-906F-C407EE******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1234567890123456
+   */
+  systemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activateAt: 'ActivateAt',
+      certContentB64: 'CertContentB64',
+      description: 'Description',
+      expireAt: 'ExpireAt',
+      gmtCreated: 'GmtCreated',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      macAddress: 'MacAddress',
+      name: 'Name',
+      requestId: 'RequestId',
+      systemIdentifier: 'SystemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activateAt: 'string',
+      certContentB64: 'string',
+      description: 'string',
+      expireAt: 'string',
+      gmtCreated: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      macAddress: 'string',
+      name: 'string',
+      requestId: 'string',
+      systemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateActivationCodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateActivationCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateActivationCodeResponseBody,
     };
   }
 
@@ -1131,17 +1335,25 @@ export class CreateBackupResponse extends $tea.Model {
 
 export class CreateColdStorageInstanceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 6000170000591aed949d0f5********************
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The description of the cluster. The description cannot exceed 256 characters in length.
+   * 
    * @example
    * xxxxxxxxx
    */
   coldStorageInstanceDescription?: string;
   /**
    * @remarks
+   * The cluster ID. > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters within your account, such as cluster IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1151,6 +1363,9 @@ export class CreateColdStorageInstanceRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-************
    */
@@ -1190,11 +1405,17 @@ export class CreateColdStorageInstanceRequest extends $tea.Model {
 
 export class CreateColdStorageInstanceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * pcs_2zeth2gf4i83e578t
    */
   coldStorageInstanceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F6EBB4ED-D12F-5F49-824C-9DD9C0EC4CF2
    */
@@ -1246,12 +1467,13 @@ export class CreateColdStorageInstanceResponse extends $tea.Model {
 export class CreateDBClusterRequest extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to enable the no-activity suspension feature. Default value: false. Valid values:
+   * Whether to enable idle pause. Values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled
    * 
-   * > This parameter is valid only for serverless clusters.
+   * - **false**: Disabled (default)
+   * 
+   * > Only supported by Serverless clusters.
    * 
    * @example
    * true
@@ -1259,10 +1481,9 @@ export class CreateDBClusterRequest extends $tea.Model {
   allowShutDown?: string;
   /**
    * @remarks
-   * The CPU architecture. Valid values:
-   * 
-   * *   X86
-   * *   ARM
+   * CPU architecture. Available values include:
+   * - X86
+   * - ARM
    * 
    * @example
    * X86
@@ -1270,14 +1491,14 @@ export class CreateDBClusterRequest extends $tea.Model {
   architecture?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic renewal. Valid values:
+   * Whether to enable auto-renewal, with available values as follows:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Auto-renew.
+   * - **false**: Do not auto-renew.
    * 
-   * Default value: **false**.
+   * The default is **false**.
    * 
-   * > This parameter is valid only when the **PayType** parameter is set to **Prepaid**.
+   * > This parameter takes effect only when **PayType** is set to **Prepaid**.
    * 
    * @example
    * true
@@ -1285,19 +1506,14 @@ export class CreateDBClusterRequest extends $tea.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The retention policy for the backup sets when you delete the cluster. Valid values:
+   * Backup retention policy upon cluster deletion, with valid values as follows:
+   * * **ALL**: Permanently retain all backups.
+   * * **LATEST**: Permanently retain the latest backup (automatically backed up before deletion).
+   * * **NONE**: Do not retain backup sets upon cluster deletion.
    * 
-   * *   **ALL**: permanently retains all backups.
-   * *   **LATEST**: permanently retains the last backup. A backup is automatically created before you delete the cluster.
-   * *   **NONE**: No backup sets are retained after the cluster is deleted.
-   * 
-   * The default value is **NONE** after you create a cluster.
-   * 
-   * > 
-   * 
-   * *   This parameter is valid only when the **DBType** parameter is set to **MySQL**.
-   * 
-   * *   This parameter is invalid for serverless clusters.
+   * By default, the value is set to **NONE**, indicating no backup sets are retained upon cluster deletion.
+   * > This parameter applies only when **DBType** is **MySQL**.
+   * > Serverless clusters do not support this parameter.
    * 
    * @example
    * NONE
@@ -1305,7 +1521,7 @@ export class CreateDBClusterRequest extends $tea.Model {
   backupRetentionPolicyOnClusterDeletion?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. The token is case-sensitive.
+   * Used to ensure idempotency of the request. Generated by the client, ensuring uniqueness across different requests, case-sensitive, and not exceeding 64 ASCII characters.
    * 
    * @example
    * 6000170000591aed949d0f5********************
@@ -1313,15 +1529,15 @@ export class CreateDBClusterRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The point in time when you want to clone data. Valid values:
+   * The point in time to clone data, with the following options:
    * 
-   * *   **LATEST**: The data of the latest point in time is cloned.
-   * *   **BackupID**: You can specify the ID of a backup set. In this case, data is cloned based on the specified backup set.
-   * *   **Timestamp**: You can specify a point in time in the past in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+   * - **LATEST**: Data from the latest time point.
+   * - **BackupID**: Historical backup set ID, please enter the specific backup set ID.
+   * - **Timestamp**: Historical time point, please enter the specific time in the format `YYYY-MM-DDThh:mm:ssZ` (UTC time).
    * 
-   * Default value: **LATEST**.
+   * The default value is **LATEST**.
    * 
-   * > If the **CreationOption** parameter is set to **CloneFromRDS**, the value of this parameter must be **LATEST**.
+   * > If **CreationOption** is **CloneFromRDS**, this parameter can only be set to **LATEST**.
    * 
    * @example
    * LATEST
@@ -1329,7 +1545,7 @@ export class CreateDBClusterRequest extends $tea.Model {
   cloneDataPoint?: string;
   /**
    * @remarks
-   * The network type of the cluster. Only virtual private clouds (VPCs) are supported. Set the value to **VPC**.
+   * Cluster network type, currently only VPC is supported, with a fixed value of **VPC**.
    * 
    * @example
    * VPC
@@ -1337,20 +1553,18 @@ export class CreateDBClusterRequest extends $tea.Model {
   clusterNetworkType?: string;
   /**
    * @remarks
-   * The edition of the cluster. Default value: Normal. Valid values:
+   * Product series, with valid values as follows:
+   * * **Normal**: Cluster Edition (default)
+   * * **Basic**: Single-node
+   * * **ArchiveNormal**: High Compression Engine (X-Engine)
+   * * **NormalMultimaster**: Multi-master Cluster Edition
+   * * **SENormal**: Standard Edition
    * 
-   * *   **Normal**: Cluster Edition
-   * *   **Basic**: Single Node Edition
-   * *   **ArchiveNormal**: X-Engine Edition
-   * *   **NormalMultimaster**: Multi-master Cluster Edition
+   * > * **MySQL** **5.6**, **5.7**, **8.0**, **PostgreSQL** **14**, and **Oracle Syntax Compatible 2.0** support **Basic**.
+   * > * **MySQL** **8.0** supports **ArchiveNormal** and **NormalMultimaster**.
+   * > * **MySQL** **5.6**, **5.7**, **8.0**, and **PostgreSQL** **14** support **SENormal**.
    * 
-   * > 
-   * 
-   * *   Only when the **DBType** parameter is set to **MySQL** and **the DBVersion** parameter is set to **5.6**, **5.7**, or **8.0**, you can set this parameter to **Basic**.
-   * 
-   * *   Only when the **DBType** parameter is set to **MySQL** and the **DBVersion** parameter is set to **8.0**, you can set this parameter to **ArchiveNormal** or **NormalMultimaster**.
-   * 
-   * For more information, see [Product editions](https://help.aliyun.com/document_detail/183258.html).
+   * For more information about product series, see [Product Series](https://help.aliyun.com/document_detail/183258.html).
    * 
    * @example
    * Normal
@@ -1358,33 +1572,34 @@ export class CreateDBClusterRequest extends $tea.Model {
   creationCategory?: string;
   /**
    * @remarks
-   * The method that is used to create a cluster. Valid values:
+   * Creation method, with the following values supported:
    * 
-   * *   **Normal**: creates a PolarDB cluster. For more information about how to perform this operation in the console, see the following topics:
+   * * **Normal**: Creates a brand new PolarDB cluster. For console operations, refer to the following documents:
+   *     * [Create a PolarDB MySQL Edition Database Cluster](https://help.aliyun.com/document_detail/58769.html)
+   *     * [Create a PolarDB PostgreSQL Edition Database Cluster](https://help.aliyun.com/document_detail/118063.html)
+   *     * [Create a PolarDB PostgreSQL Edition (Oracle Compatible) Database Cluster](https://help.aliyun.com/document_detail/118182.html)
    * 
-   *     *   [Create a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/58769.html)
-   *     *   [Create a PolarDB for PostgreSQL cluster](https://help.aliyun.com/document_detail/118063.html)
-   *     *   [Create a PolarDB for Oracle cluster](https://help.aliyun.com/document_detail/118182.html)
+   * * **CloneFromPolarDB**: Clones data from an existing PolarDB cluster to a new PolarDB cluster. For console operations, refer to the following documents:
+   *     * [Clone a PolarDB MySQL Edition Cluster](https://help.aliyun.com/document_detail/87966.html)
+   *     * [Clone a PolarDB PostgreSQL Edition Cluster](https://help.aliyun.com/document_detail/118108.html)
+   *     * [Clone a PolarDB PostgreSQL Edition (Oracle Compatible) Cluster](https://help.aliyun.com/document_detail/118221.html)
    * 
-   * *   **CloneFromPolarDB**: clones data from an existing PolarDB cluster to a new PolarDB cluster. For more information about how to perform this operation in the console, see the following topics:
+   * * **RecoverFromRecyclebin**: Recovers data from a released PolarDB cluster to a new PolarDB cluster. For console operations, refer to the following documents:
+   *     * [Restore a Released PolarDB MySQL Edition Cluster](https://help.aliyun.com/document_detail/164880.html)
+   *     * [Restore a Released PolarDB PostgreSQL Edition Cluster](https://help.aliyun.com/document_detail/432844.html)
+   *     * [Restore a Released PolarDB PostgreSQL Edition (Oracle Compatible) Cluster](https://help.aliyun.com/document_detail/424632.html)
    * 
-   *     *   [Clone a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/87966.html)
-   *     *   [Clone a PolarDB for PostgreSQL cluster](https://help.aliyun.com/document_detail/118108.html)
-   *     *   [Clone a PolarDB for Oracle cluster](https://help.aliyun.com/document_detail/118221.html)
+   * * **CloneFromRDS**: Clones data from an existing RDS instance to a new PolarDB cluster. Console operation guide is available at [One-click Clone from RDS MySQL to PolarDB MySQL Edition](https://help.aliyun.com/document_detail/121812.html).
    * 
-   * *   **CloneFromRDS**: clones data from an existing ApsaraDB RDS for MySQL instance to a new PolarDB for MySQL cluster. For more information about how to perform this operation in the console, see [Create a PolarDB for MySQL cluster by cloning an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/121812.html).
+   * * **MigrationFromRDS**: Migrates data from an existing RDS instance to a new PolarDB cluster. The created PolarDB cluster operates in read-only mode with Binlog enabled by default. Console operation guide is at [One-click Upgrade from RDS MySQL to PolarDB MySQL Edition](https://help.aliyun.com/document_detail/121582.html).
    * 
-   * *   **MigrationFromRDS**: migrates data from an existing ApsaraDB RDS for MySQL instance to a new PolarDB for MySQL cluster. By default, the created PolarDB cluster is in read-only mode, and the binary logging feature is enabled. For more information about how to perform this operation in the console, see [Create a PolarDB for MySQL cluster from an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/121582.html).
+   * * **CreateGdnStandby**: Creates a standby cluster. Console operation guide can be found at [Add Standby Cluster](https://help.aliyun.com/document_detail/160381.html).
    * 
-   * *   **CreateGdnStandby**: creates a secondary cluster. For more information about how to perform this operation in the console, see [Add a secondary cluster](https://help.aliyun.com/document_detail/160381.html).
+   * * **UpgradeFromPolarDB**: Upgrades and migrates from PolarDB. Console operation guide is detailed in [Major Version Upgrade](https://help.aliyun.com/document_detail/459712.html).
    * 
-   * Default value: **Normal**.
+   * The default value is **Normal**.
    * 
-   * > 
-   * 
-   * *   If the **DBType** parameter is set to **MySQL** and the **DBVersion** parameter is set to **5.6** or **5.7**, this parameter can be set to **CloneFromRDS** or **MigrationFromRDS**.
-   * 
-   * *   If the **DBType** parameter is set to **MySQL** and the **DBVersion** parameter is set to **8.0**, this parameter can be set to **CreateGdnStandby**.
+   * > When **DBType** is **MySQL** and **DBVersion** is **8.0**, this parameter can also take the value **CreateGdnStandby**.
    * 
    * @example
    * Normal
@@ -1392,10 +1607,9 @@ export class CreateDBClusterRequest extends $tea.Model {
   creationOption?: string;
   /**
    * @remarks
-   * The name of the cluster. The name must meet the following requirements:
-   * 
-   * *   It cannot start with `http://` or `https://`.
-   * *   It must be 2 to 256 characters in length.
+   * Cluster name, which must meet the following requirements:
+   * * Cannot start with `http://` or `https://`.
+   * * Length should be between 2 and 256 characters.
    * 
    * @example
    * test
@@ -1403,12 +1617,12 @@ export class CreateDBClusterRequest extends $tea.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
-   * The minor version of the database engine. Valid values:
+   * Database engine minor version number. Valid values include:
    * 
-   * *   **8.0.2**
-   * *   **8.0.1**
+   * - **8.0.2**
+   * - **8.0.1**
    * 
-   * > This parameter is valid only when the **DBType** parameter is set to **MySQL** and the **DBVersion** parameter is set to **8.0**.
+   * > This parameter takes effect only when **DBType** is **MySQL** and **DBVersion** is **8.0**.
    * 
    * @example
    * 8.0.1
@@ -1416,30 +1630,41 @@ export class CreateDBClusterRequest extends $tea.Model {
   DBMinorVersion?: string;
   /**
    * @remarks
-   * The specifications of the node.
+   * Node specifications. For details, refer to the following documents:
    * 
-   * *   For more information about specifications supported by PolarDB for MySQL, see [Specifications of compute nodes](https://help.aliyun.com/document_detail/102542.html).
-   * *   For information about node specifications supported by the Oracle database engine, see [Specifications of compute nodes](https://help.aliyun.com/document_detail/207921.html).
-   * *   For information about node specifications supported by the PostgreSQL database engine, see [Specifications of compute nodes](https://help.aliyun.com/document_detail/209380.html).
+   * - PolarDB MySQL Edition: [Compute Node Specifications](https://help.aliyun.com/document_detail/102542.html).
+   * - PolarDB PostgreSQL Edition (Oracle Compatible): [Compute Node Specifications](https://help.aliyun.com/document_detail/207921.html).
+   * - PolarDB PostgreSQL Edition: [Compute Node Specifications](https://help.aliyun.com/document_detail/209380.html).
+   * 
+   * > - For a Serverless cluster in PolarDB MySQL, enter **polar.mysql.sl.small**.
+   * <props="china">> - For a Serverless cluster in both PolarDB PostgreSQL (Oracle Compatible) and PolarDB PostgreSQL, enter **polar.pg.sl.small.c**.
    * 
    * This parameter is required.
    * 
    * @example
-   * polar.mysql.x2.medium
+   * polar.mysql.x4.medium
    */
   DBNodeClass?: string;
   /**
+   * @remarks
+   * Number of standard edition nodes. Values are as follows:
+   * 
+   * - **1** (default): Indicates there is only one read-write node.
+   * - **2**: Indicates there is one read-only node and one read-write node.
+   * > - Enterprise edition defaults to 2 nodes, while the standard edition defaults to 1 node.
+   * > - Only supported by PolarDB MySQL edition.
+   * 
    * @example
    * 1
    */
   DBNodeNum?: number;
   /**
    * @remarks
-   * The type of the database engine. Valid values:
+   * Database engine type, with available values as follows:
    * 
-   * *   **MySQL**
-   * *   **PostgreSQL**
-   * *   **Oracle**
+   * - **MySQL**
+   * - **PostgreSQL**
+   * - **Oracle**
    * 
    * This parameter is required.
    * 
@@ -1449,20 +1674,23 @@ export class CreateDBClusterRequest extends $tea.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version of the database engine.
-   * 
-   * *   Valid values for the MySQL database engine:
-   * 
-   *     *   **5.6**
-   *     *   **5.7**
-   *     *   **8.0**
-   * 
-   * *   Valid values for the PostgreSQL database engine:
-   * 
-   *     *   **11**
-   *     *   **14**
-   * 
-   * *   Valid value for the Oracle database engine: **11**
+   * Database engine version number.
+   * * For MySQL, the version numbers are as follows:
+   *     * **5.6**
+   *     * **5.7**
+   *     * **8.0**
+   * * For PostgreSQL, the version numbers are as follows:
+   *     * **11**
+   *     * **14**
+   *     * **15**
+   *     <props="china">
+   *       
+   *       > When creating a Serverless cluster in PolarDB PostgreSQL, only version **14** is supported.
+   *     
+   *     
+   * * For Oracle, the version numbers are as follows:
+   *     * **11**
+   *     * **14**
    * 
    * This parameter is required.
    * 
@@ -1472,9 +1700,8 @@ export class CreateDBClusterRequest extends $tea.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The time zone of the cluster. The time must be in UTC. You can set the parameter to a value that is on the hour from **-12:00 to +13:00**. Example: 00:00. Default value: **SYSTEM**, which means that the value is the same as the time zone of the region.
-   * 
-   * > This parameter is valid only when the **DBType** parameter is set to **MySQL**.
+   * Cluster timezone (UTC), with selectable values ranging from **-12:00** to **+13:00** at whole-hour intervals, e.g., **00:00**. The default value is **SYSTEM**, which matches the Region\\"s timezone.
+   * > This parameter applies only when **DBType** is **MySQL**.
    * 
    * @example
    * SYSTEM
@@ -1482,52 +1709,65 @@ export class CreateDBClusterRequest extends $tea.Model {
   defaultTimeZone?: string;
   /**
    * @remarks
-   * The ID of the Global Database Network (GDN).
+   * Global Database Network (GDN) ID.
    * 
-   * > This parameter is required only when the **CreationOption** parameter is set to **CreateGdnStandby**.
+   * > This parameter is required when **CreationOption** is **CreateGdnStandby**.
    * 
    * @example
    * gdn-***********
    */
   GDNId?: string;
   /**
+   * @remarks
+   * Whether to enable the hot standby cluster. Values are as follows:
+   * 
+   * - **ON** (default): Enables the hot standby cluster.
+   * - **OFF**: Disables the hot standby cluster.
+   * - **STANDBY**: Enables the hot standby cluster for the standard edition.
+   * > The default value for standard edition clusters is **STANDBY**.
+   * 
    * @example
    * ON
    */
   hotStandbyCluster?: string;
   /**
+   * @remarks
+   * Enable Binlog feature, valid values are as follows:
+   * - **ON**: Cluster enables the Binlog feature. - **OFF**: Cluster disables the Binlog feature. > This parameter takes effect only when the **DBType** parameter is set to **MySQL**.
+   * 
    * @example
    * ON
    */
   loosePolarLogBin?: string;
   /**
    * @remarks
-   * Specifies whether to enable X-Engine. Valid values:
+   * Enable the X-Engine storage engine feature, with valid values as follows:
    * 
-   * *   **ON**
-   * *   **OFF**
-   * 
-   * >  This parameter takes effect only if you do not set **CreationOption** to **CreateGdnStandby** and you set **DBType** to **MySQL** and **DBVersion** to **8.0**. To enable X-Engine on a node, make sure that the memory of the node is greater than or equal to 8 GB in size.
+   * - **ON**: The cluster enables the X-Engine engine.
+   * - **OFF**: The cluster disables the X-Engine engine.
+   * > This parameter is effective only when **CreationOption** is not **CreateGdnStandby**, **DBType** is **MySQL**, and **DBVersion** is **8.0**. The memory specification of nodes that enable the X-Engine engine must be at least 8 GB.
    * 
    * @example
    * ON
    */
   looseXEngine?: string;
   /**
+   * @remarks
+   * Set the ratio for enabling the X-Engine storage engine, with a range of integers from 10 to 90.
+   * > This parameter takes effect only when **LooseXEngine** is **ON**.
+   * 
    * @example
    * 50
    */
   looseXEngineUseMemoryPct?: string;
   /**
    * @remarks
-   * Specifies whether the table names are case-sensitive. Valid values:
+   * Whether table names are case-sensitive, with valid values as follows:
+   * * **1**: Case-insensitive
+   * * **0**: Case-sensitive
    * 
-   * *   **1**: The table names are case-insensitive.
-   * *   **0**: The table names are case-sensitive.
-   * 
-   * Default value: **1**.
-   * 
-   * > This parameter is valid only when the **DBType** parameter is set to **MySQL**.
+   * The default value is **1**.
+   * > This parameter applies only when **DBType** is **MySQL**.
    * 
    * @example
    * 1
@@ -1537,9 +1777,9 @@ export class CreateDBClusterRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the parameter template.
+   * Parameter template ID.
    * 
-   * > You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to query the details of all parameter templates of a specified region, such as the ID of a parameter template.
+   * > You can view the list of parameter templates in the target region, including the parameter template ID, by calling the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) interface.
    * 
    * @example
    * pcpg-**************
@@ -1547,10 +1787,10 @@ export class CreateDBClusterRequest extends $tea.Model {
   parameterGroupId?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * Payment type, with available values as follows:
    * 
-   * *   **Postpaid**: pay-as-you-go
-   * *   **Prepaid**: subscription
+   * - **Postpaid**: Pay-as-you-go.
+   * - **Prepaid**: Subscription (monthly or yearly).
    * 
    * This parameter is required.
    * 
@@ -1560,10 +1800,10 @@ export class CreateDBClusterRequest extends $tea.Model {
   payType?: string;
   /**
    * @remarks
-   * The subscription type of the subscription cluster. This parameter is required only when the PayType parameter is set to **Prepaid**. Valid values:
+   * If the payment type is **Prepaid**, this parameter is required. It specifies whether the prepaid cluster is on a monthly or yearly basis.
    * 
-   * *   **Year**: annual subscription. Unit: years.
-   * *   **Month**: monthly subscription. Unit: months.
+   * - **Year**: Yearly subscription.
+   * - **Month**: Monthly subscription.
    * 
    * @example
    * Month
@@ -1571,31 +1811,48 @@ export class CreateDBClusterRequest extends $tea.Model {
   period?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
-   * 
-   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}
-   * 
-   * >  This parameter is available only if the StorageType parameter is set to ESSDAUTOPL.
+   * <p id="p_wyg_t4a_glm">The provisioned read and write IOPS for ESSD AutoPL cloud disks. Possible values: 0 to min{50,000, 1000*capacity-Baseline Performance}.</p>
+   * <p id="p_6de_jxy_k2g">Baseline Performance = min{1,800+50*capacity, 50000}.</p>
+   * <note id="note_7kj_j0o_rgs">This parameter is supported only when StorageType is ESSDAUTOPL.</note>
    * 
    * @example
    * 1000
    */
   provisionedIops?: number;
   /**
+   * @remarks
+   * Standard edition database proxy specifications. Values are as follows:
+   * 
+   * - **polar.maxscale.g2.medium.c**: 2 cores.
+   * - **polar.maxscale.g2.large.c**: 4 cores.
+   * - **polar.maxscale.g2.xlarge.c**: 8 cores.
+   * - **polar.maxscale.g2.2xlarge.c**: 16 cores.
+   * - **polar.maxscale.g2.3xlarge.c**: 24 cores.
+   * - **polar.maxscale.g2.4xlarge.c**: 32 cores.
+   * - **polar.maxscale.g2.8xlarge.c**: 64 cores.
+   * 
    * @example
    * polar.maxscale.g2.medium.c
    */
   proxyClass?: string;
   /**
+   * @remarks
+   * Database proxy type, with values including:
+   * - **EXCLUSIVE**: Enterprise Exclusive Edition
+   * - **GENERAL**: Enterprise General Purpose Edition
+   * > The proxy type must match the type of the cluster\\"s node specifications, i.e.,
+   * >- If the node specification is general, the proxy type should be Enterprise General Purpose Edition;
+   * >- If the node specification is dedicated, the proxy type should be Enterprise Exclusive Edition.
+   * 
    * @example
    * Exclusive
    */
   proxyType?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * Region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
+   * > You can view available regions through the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) interface.
    * 
    * This parameter is required.
    * 
@@ -1605,7 +1862,7 @@ export class CreateDBClusterRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * Resource group ID.
    * 
    * @example
    * rg-************
@@ -1615,9 +1872,9 @@ export class CreateDBClusterRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The maximum number of PCUs per node for scaling. Valid values: 1 PCU to 32 PCUs.
+   * Maximum scaling limit for a single node. The value range is: 1 PCU~32 PCU.
    * 
-   * > This parameter is valid only for serverless clusters.
+   * > Only supported by Serverless clusters.
    * 
    * @example
    * 3
@@ -1625,9 +1882,9 @@ export class CreateDBClusterRequest extends $tea.Model {
   scaleMax?: string;
   /**
    * @remarks
-   * The minimum number of PCUs per node for scaling. Valid values: 1 PCU to 31 PCUs.
+   * Minimum scaling limit for a single node. The value range is: 1 PCU~31 PCU.
    * 
-   * > This parameter is valid only for serverless clusters.
+   * > Only supported by Serverless clusters.
    * 
    * @example
    * 1
@@ -1635,9 +1892,9 @@ export class CreateDBClusterRequest extends $tea.Model {
   scaleMin?: string;
   /**
    * @remarks
-   * The maximum number of read-only nodes for scaling. Valid values: 0 to 15.
+   * Maximum scaling limit for the number of read-only nodes. The value range is: 0~15.
    * 
-   * > This parameter is valid only for serverless clusters.
+   * > Only supported by Serverless clusters.
    * 
    * @example
    * 4
@@ -1645,9 +1902,9 @@ export class CreateDBClusterRequest extends $tea.Model {
   scaleRoNumMax?: string;
   /**
    * @remarks
-   * The minimum number of read-only nodes for scaling. Valid values: 0 to 15.
+   * Minimum scaling limit for the number of read-only nodes. The value range is: 0~15.
    * 
-   * > This parameter is valid only for serverless clusters.
+   * > Only supported by Serverless clusters.
    * 
    * @example
    * 2
@@ -1655,9 +1912,8 @@ export class CreateDBClusterRequest extends $tea.Model {
   scaleRoNumMin?: string;
   /**
    * @remarks
-   * The IP whitelist of the cluster.
-   * 
-   * > The whitelist can contain multiple IP addresses. Separate multiple IP addresses with commas (,).
+   * PolarDB cluster whitelist IP address.
+   * > Supports configuring multiple whitelist IP addresses, with English commas separating multiple IP addresses.
    * 
    * @example
    * 10.***.***.***
@@ -1665,9 +1921,8 @@ export class CreateDBClusterRequest extends $tea.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The type of the serverless cluster. Set the value to **AgileServerless**.
-   * 
-   * > This parameter is valid only for serverless clusters.
+   * Serverless type. The current value is fixed to **AgileServerless** (sensitive mode).
+   * > This parameter is only supported by Serverless clusters.
    * 
    * @example
    * AgileServerless
@@ -1675,33 +1930,54 @@ export class CreateDBClusterRequest extends $tea.Model {
   serverlessType?: string;
   /**
    * @remarks
-   * The ID of the source ApsaraDB RDS instance or PolarDB cluster. This parameter is required only when the **CreationOption** parameter is set to **MigrationFromRDS**, **CloneFromRDS**, or **CloneFromPolarDB**.
+   * Source RDS instance ID or source PolarDB cluster ID. This parameter is mandatory only when **CreationOption** is set to **MigrationFromRDS**, **CloneFromRDS**, **CloneFromPolarDB**, or **RecoverFromRecyclebin**.
+   * * If **CreationOption** is **MigrationFromRDS** or **CloneFromRDS**, you need to input the source RDS instance ID. The source RDS instance version must be RDS MySQL 5.6, 5.7, or 8.0 High Availability edition.
    * 
-   * *   If the **CreationOption** parameter is set to **MigrationFromRDS** or **CloneFromRDS**, you must set this parameter to the ID of the source ApsaraDB RDS instance. The source ApsaraDB RDS instance must use ApsaraDB RDS for MySQL 5.6, 5.7, or 8.0 High-availability Edition.
-   * *   If the **CreationOption** parameter is set to **CloneFromPolarDB**, you must set this parameter to the ID of the source PolarDB cluster. By default, the value of DBType of the destination cluster must be the same as that of the source cluster. For example, if a MySQL 8.0 cluster is used as the source cluster, you must set the **DBType** parameter to **MySQL** and the **DBVersion** parameter to **8.0** for the destination cluster.
+   * * If **CreationOption** is **CloneFromPolarDB**, you need to input the source PolarDB cluster ID. The DBType of the cloned cluster will default to match the source cluster. For example, if the source cluster is MySQL 8.0, the cloned cluster must also have **DBType** set to **MySQL** and **DBVersion** to **8.0**.
+   * 
+   * * If **CreationOption** is **RecoverFromRecyclebin**, you need to input the released source PolarDB cluster ID. The DBType of the cluster being recovered from the recycle bin must match the source cluster. For example, if the source cluster was MySQL 8.0, the recovered cluster must also have **DBType** set to **MySQL** and **DBVersion** to **8.0**.
    * 
    * @example
    * rm-*************
    */
   sourceResourceId?: string;
   /**
+   * @remarks
+   * The availability zone where the hot standby cluster is stored. Applicable to the standard edition 3AZ scenario.
+   * 
+   * > This parameter takes effect only when multi-zone data strong consistency is enabled.
+   * 
    * @example
    * cn-hangzhou-g
    */
   standbyAZ?: string;
   /**
+   * @remarks
+   * Whether to enable automatic storage expansion for standard edition clusters, with valid values as follows:
+   * 
+   * - Enable: Enables automatic storage expansion.
+   * - Disable: Disables automatic storage expansion.
+   * 
    * @example
    * Enable
    */
   storageAutoScale?: string;
   /**
+   * @remarks
+   * The storage billing type, with valid values as follows:
+   * 
+   * - Postpaid: Pay-as-you-go (hourly).
+   * - Prepaid: Pay-per-use based on space (subscription).
+   * 
    * @example
    * Prepaid
    */
   storagePayType?: string;
   /**
    * @remarks
-   * The storage space that uses the subscription billing method. Unit: GB.
+   * Storage space for pay-by-space (subscription) billing. Unit: GB.
+   * > - For PolarDB MySQL Standard Edition, the storage space range is 20 to 32000.
+   * > - When the Standard Edition storage type is ESSDAUTOPL, the storage space range is 40 to 64000, with a minimum step size of 10, meaning you can only enter values like 40, 50, 60, and so on.
    * 
    * @example
    * 50
@@ -1709,35 +1985,38 @@ export class CreateDBClusterRequest extends $tea.Model {
   storageSpace?: number;
   /**
    * @remarks
-   * The storage type. Valid values for Enterprise Edition:
+   * Enterprise edition storage types include:
+   * - **PSL5**
+   * - **PSL4**
    * 
-   * *   **PSL5**
-   * *   **PSL4**
-   * 
-   * Valid values for Standard Edition:
-   * *   **ESSDPL0**
-   * *   **ESSDPL1**
-   * *   **ESSDPL2**
-   * *   **ESSDPL3**
-   * *   **ESSDAUTOPL**
-   * 
-   * > This parameter is invalid for serverless clusters.
+   * Standard edition storage types include:
+   * - **ESSDPL0**
+   * - **ESSDPL1**
+   * - **ESSDPL2**
+   * - **ESSDPL3**
+   * - **ESSDAUTOPL**
    * 
    * @example
    * PSL4
    */
   storageType?: string;
   /**
+   * @remarks
+   * Set the upper limit for automatic storage expansion of standard edition clusters, in GB.
+   * 
+   * > The maximum value is 32000.
+   * 
    * @example
    * 800
    */
   storageUpperBound?: number;
   /**
    * @remarks
-   * Specifies whether to enable multi-zone data consistency. Valid values:
+   * Whether the cluster has enabled strong data consistency across multiple zones. Values are as follows:
    * 
-   * *   **ON**: enables multi-zone data consistency. Set this parameter to ON for Standard Edition clusters of Multi-zone Edition.
-   * *   **OFF**: disables multi-zone data consistency.
+   * - **ON**: Indicates strong data consistency across multiple zones is enabled, applicable to the standard edition 3AZ scenario.
+   * 
+   * - **OFF**: Indicates strong data consistency across multiple zones is not enabled.
    * 
    * @example
    * ON
@@ -1745,17 +2024,14 @@ export class CreateDBClusterRequest extends $tea.Model {
   strictConsistency?: string;
   /**
    * @remarks
-   * Specifies whether to enable transparent data encryption (TDE). Default value: false. Valid values:
+   * Enables TDE encryption. Valid values are as follows:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled (default).
    * 
-   * > 
-   * 
-   * *   This parameter is valid only when the **DBType** parameter is set to **PostgreSQL** or **Oracle**.
-   * 
-   * *   You can call the [ModifyDBClusterTDE](https://help.aliyun.com/document_detail/167982.html) operation to enable TDE for a PolarDB for MySQL cluster.
-   * *   TDE cannot be disabled after it is enabled.
+   * > * This parameter takes effect only when **DBType** is **PostgreSQL** or **Oracle**.
+   * > * You can call the [ModifyDBClusterTDE](https://help.aliyun.com/document_detail/167982.html) interface to enable TDE encryption for a PolarDB MySQL cluster.
+   * > * Once the TDE feature is enabled, it cannot be disabled.
    * 
    * @example
    * true
@@ -1763,13 +2039,14 @@ export class CreateDBClusterRequest extends $tea.Model {
   TDEStatus?: boolean;
   /**
    * @remarks
-   * 1
+   * List of tags.
    */
   tag?: CreateDBClusterRequestTag[];
   /**
    * @remarks
-   * *   If the **Period** parameter is set to **Month**, the **UsedTime** parameter can be set to `1, 2, 3, 4, 5, 6, 7, 8, or 9`.
-   * *   If the **Period** parameter is set to **Year**, the **UsedTime** parameter can be set to `1, 2, or 3`.
+   * If the payment type is **Prepaid**, this parameter is required.
+   * - When **Period** is **Month**, **UsedTime** should be an integer within `[1-9]`.
+   * - When **Period** is **Year**, **UsedTime** should be an integer within `[1-3]`.
    * 
    * @example
    * 1
@@ -1777,7 +2054,7 @@ export class CreateDBClusterRequest extends $tea.Model {
   usedTime?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID of the cluster.
+   * VPC ID.
    * 
    * @example
    * vpc-**********
@@ -1785,9 +2062,9 @@ export class CreateDBClusterRequest extends $tea.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID of the cluster.
+   * Virtual switch ID.
    * 
-   * > If the VPCId parameter is specified, the VSwitchId parameter is required.
+   * > If VPCId has been selected, VSwitchId is mandatory.
    * 
    * @example
    * vsw-**********
@@ -1795,12 +2072,12 @@ export class CreateDBClusterRequest extends $tea.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID of the cluster.
+   * Availability Zone ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available zones.
+   * > You can view the available zones through the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) interface.
    * 
    * @example
-   * cn-hangzhou-g
+   * cn-hangzhou-j
    */
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -1929,7 +2206,7 @@ export class CreateDBClusterRequest extends $tea.Model {
 export class CreateDBClusterResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of cluster.
+   * Cluster ID.
    * 
    * @example
    * pc-bp1s826a1up******
@@ -1937,7 +2214,7 @@ export class CreateDBClusterResponseBody extends $tea.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * Order ID.
    * 
    * @example
    * 211454967******
@@ -1945,7 +2222,7 @@ export class CreateDBClusterResponseBody extends $tea.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * E56531A4-E552-40BA-9C58-137B80******
@@ -1953,7 +2230,7 @@ export class CreateDBClusterResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * Resource group ID.
    * 
    * @example
    * rg-***************
@@ -2010,12 +2287,10 @@ export class CreateDBClusterResponse extends $tea.Model {
 export class CreateDBClusterEndpointRequest extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to automatically associate newly added nodes with the cluster endpoint. Valid values:
+   * Specifies whether to enable automatic association of newly added nodes with the cluster endpoint. Valid values:
    * 
-   * *   **Enable**: Newly added nodes are automatically associated with the cluster endpoint.
-   * *   **Disable**: Newly added nodes are not automatically associated with the cluster endpoint.
-   * 
-   * Default value: **Disable**.
+   * *   **Enable**: enables automatic association of newly added nodes with the cluster endpoint.
+   * *   **Disable** (default): disables automatic association of newly added nodes with the cluster endpoint.
    * 
    * @example
    * Disable
@@ -2110,7 +2385,23 @@ export class CreateDBClusterEndpointRequest extends $tea.Model {
   nodes?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * Global consistency timeout strategy. The value range is as follows:
+   * - **0**: Send the request to the primary node
+   * - **2**: Timeout degradation, when a global consistency read times out, the query operation will automatically degrade to an inconsistent read, and the client will not receive an error message
+   * 
+   * @example
+   * 0
+   */
   polarSccTimeoutAction?: string;
+  /**
+   * @remarks
+   * Global consistency timeout
+   * 
+   * @example
+   * 100
+   */
   polarSccWaitTimeout?: string;
   /**
    * @remarks
@@ -2127,6 +2418,14 @@ export class CreateDBClusterEndpointRequest extends $tea.Model {
   readWriteMode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Whether the node has enabled the global consistency (high-performance mode) feature. The value range is as follows:
+   * - **ON**: Enabled - **OFF**: Disabled
+   * 
+   * @example
+   * on
+   */
   sccMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3311,6 +3610,179 @@ export class CreateGlobalSecurityIPGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateOrGetVirtualLicenseOrderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PG
+   */
+  engine?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      engine: 'Engine',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      engine: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrGetVirtualLicenseOrderResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  activatedCodeCount?: number;
+  /**
+   * @example
+   * 10
+   */
+  activationCodeQuota?: number;
+  /**
+   * @example
+   * 2233****445566
+   */
+  aliyunOrderId?: string;
+  /**
+   * @example
+   * false
+   */
+  allowEmptySystemIdentifier?: boolean;
+  /**
+   * @example
+   * 2024-10-16 16:46:20
+   */
+  gmtCreated?: string;
+  /**
+   * @example
+   * 2024-10-16 16:46:20
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * true
+   */
+  isVirtualOrder?: boolean;
+  /**
+   * @example
+   * false
+   */
+  isVirtualOrderFrozen?: boolean;
+  /**
+   * @example
+   * pre_generation_long_term
+   */
+  packageType?: string;
+  /**
+   * @example
+   * 30 years
+   */
+  packageValidity?: string;
+  /**
+   * @example
+   * aliyun_market
+   */
+  purchaseChannel?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 45D24263-7E3A-4140-9472-************
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2024********483
+   */
+  virtualOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activatedCodeCount: 'ActivatedCodeCount',
+      activationCodeQuota: 'ActivationCodeQuota',
+      aliyunOrderId: 'AliyunOrderId',
+      allowEmptySystemIdentifier: 'AllowEmptySystemIdentifier',
+      gmtCreated: 'GmtCreated',
+      gmtModified: 'GmtModified',
+      isVirtualOrder: 'IsVirtualOrder',
+      isVirtualOrderFrozen: 'IsVirtualOrderFrozen',
+      packageType: 'PackageType',
+      packageValidity: 'PackageValidity',
+      purchaseChannel: 'PurchaseChannel',
+      requestId: 'RequestId',
+      virtualOrderId: 'VirtualOrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activatedCodeCount: 'number',
+      activationCodeQuota: 'number',
+      aliyunOrderId: 'string',
+      allowEmptySystemIdentifier: 'boolean',
+      gmtCreated: 'string',
+      gmtModified: 'string',
+      isVirtualOrder: 'boolean',
+      isVirtualOrderFrozen: 'boolean',
+      packageType: 'string',
+      packageValidity: 'string',
+      purchaseChannel: 'string',
+      requestId: 'string',
+      virtualOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrGetVirtualLicenseOrderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateOrGetVirtualLicenseOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOrGetVirtualLicenseOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateParameterGroupRequest extends $tea.Model {
   /**
    * @remarks
@@ -3949,11 +4421,11 @@ export class DeleteBackupResponse extends $tea.Model {
 export class DeleteDBClusterRequest extends $tea.Model {
   /**
    * @remarks
-   * The retention policy for the backup sets when you delete the cluster. Valid values:
+   * The retention policy applied to the backup sets when the cluster is released. Valid values:
    * 
-   * *   **ALL**: permanently retains all backups.
-   * *   **LATEST**: permanently retains the most recent backup. A backup is automatically created before you delete the cluster.
-   * *   **NONE**: No backup sets are retained after you delete the cluster.
+   * *   **ALL**: permanently retains all backup sets.
+   * *   **LATEST**: permanently retains the most recent backup set that is automatically created before the cluster is released.
+   * *   **NONE**: does not retain backup sets.
    * 
    * @example
    * NONE
@@ -5189,6 +5661,9 @@ export class DescribeAITaskStatusResponseBody extends $tea.Model {
   /**
    * @remarks
    * The state description of the PolarDB for AI feature.
+   * 
+   * @example
+   * Closed State
    */
   statusName?: string;
   static names(): { [key: string]: string } {
@@ -5385,6 +5860,299 @@ export class DescribeAccountsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAccountsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActivationCodeDetailsRequest extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
+  activationCodeId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2233****445566
+   */
+  aliyunOrderId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      activationCodeId: 'ActivationCodeId',
+      aliyunOrderId: 'AliyunOrderId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activationCodeId: 'number',
+      aliyunOrderId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActivationCodeDetailsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2024-10-16 16:46:20
+   */
+  activateAt?: string;
+  /**
+   * @example
+   * AAEAA******AAA=
+   */
+  certContentB64?: string;
+  /**
+   * @example
+   * testCode
+   */
+  description?: string;
+  /**
+   * @example
+   * 2054-10-09 16:46:20
+   */
+  expireAt?: string;
+  /**
+   * @example
+   * 2024-10-16 16:46:20
+   */
+  gmtCreated?: string;
+  /**
+   * @example
+   * 2024-10-16 16:46:20
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 123
+   */
+  id?: number;
+  /**
+   * @example
+   * 12:34:56:78:98:00
+   */
+  macAddress?: string;
+  /**
+   * @example
+   * testName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F2A9EFA7-915F-4572-8299-85A307******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1234567890123456
+   */
+  systemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activateAt: 'ActivateAt',
+      certContentB64: 'CertContentB64',
+      description: 'Description',
+      expireAt: 'ExpireAt',
+      gmtCreated: 'GmtCreated',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      macAddress: 'MacAddress',
+      name: 'Name',
+      requestId: 'RequestId',
+      systemIdentifier: 'SystemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activateAt: 'string',
+      certContentB64: 'string',
+      description: 'string',
+      expireAt: 'string',
+      gmtCreated: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      macAddress: 'string',
+      name: 'string',
+      requestId: 'string',
+      systemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActivationCodeDetailsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeActivationCodeDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeActivationCodeDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActivationCodesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2233****445566
+   */
+  aliyunOrderId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunOrderId: 'AliyunOrderId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunOrderId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActivationCodesResponseBody extends $tea.Model {
+  items?: DescribeActivationCodesResponseBodyItems[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageRecordCount?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 65D7ACE6-4A61-4B6E-B357-8CB24A******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalRecordCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageRecordCount: 'PageRecordCount',
+      requestId: 'RequestId',
+      totalRecordCount: 'TotalRecordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeActivationCodesResponseBodyItems },
+      pageNumber: 'number',
+      pageRecordCount: 'number',
+      requestId: 'string',
+      totalRecordCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActivationCodesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeActivationCodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeActivationCodesResponseBody,
     };
   }
 
@@ -6789,9 +7557,8 @@ export class DescribeDBClusterAccessWhitelistResponse extends $tea.Model {
 export class DescribeDBClusterAttributeRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of cluster.
-   * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as cluster IDs.
+   * Cluster ID.
+   * > You can view detailed information about all clusters under your account, including the cluster ID, through the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) interface.
    * 
    * This parameter is required.
    * 
@@ -6801,7 +7568,7 @@ export class DescribeDBClusterAttributeRequest extends $tea.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to query information about AI-related nodes.
+   * Whether to obtain information about AI-related nodes.
    * 
    * @example
    * AI
@@ -6840,29 +7607,37 @@ export class DescribeDBClusterAttributeRequest extends $tea.Model {
 
 export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Start time for free AI activation
+   * 
    * @example
    * 2024-03-13T01:20:28Z
    */
   aiCreatingTime?: string;
   /**
    * @remarks
-   * The information status of the AI node. Valid values:
+   * Types of AI nodes. Values include:
    * 
-   * *   SearchNode: search node.
-   * *   DLNode: AI node
+   * - **SearchNode**: Search node.
+   * - **DLNode**: AI node.
    * 
    * @example
    * DLNode
    */
   aiType?: string;
   /**
+   * @remarks
+   * CPU architecture. Available options are:
+   * - **X86**
+   * - **ARM**
+   * 
    * @example
    * X86
    */
   architecture?: string;
   /**
    * @remarks
-   * Maximum blktags in file system.
+   * Maximum number of blktags in the file system.
    * 
    * @example
    * 7,864,320
@@ -6870,7 +7645,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   blktagTotal?: number;
   /**
    * @remarks
-   * The current blktag usage.
+   * Current blktag usage.
    * 
    * @example
    * 5,242,880
@@ -6878,35 +7653,43 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   blktagUsed?: number;
   /**
    * @remarks
-   * [The edition of PolarDB](https://help.aliyun.com/document_detail/183258.html). Valid values:
+   * [Product Series](https://help.aliyun.com/document_detail/183258.html), with values as follows:
+   * * **Normal**: Cluster Edition
+   * * **Basic**: Single Node
+   * * **Archive**: High Compression Engine (X-Engine)
+   * * **NormalMultimaster**: Multi-Master Cluster Edition
+   * * **SENormal**: Standard Edition
    * 
-   * *   **Normal**: Cluster Edition.
-   * *   **Basic**: Single Node Edition.
-   * *   **Archive**: X-Engine Edition.
-   * *   **NormalMultimaster**: Multi-master Cluster Edition.
-   * *   **SENormal**: Standard Edition.
-   * 
-   * >-  Only PolarDB for MySQL supports Single Node Edition.
-   * >- Only PolarDB for MySQL 8.0.1 supports Standard Edition.
-   * >- Only PolarDB for MySQL 8.0 supports X-Engine Edition and Multi-master Cluster Edition.
+   * > * PolarDB PostgreSQL version 11 does not support single-node.
+   * >* PolarDB MySQL versions 8.0 and 5.7, and PolarDB PostgreSQL version 14 support the Standard Edition.
+   * >* PolarDB MySQL version 8.0 supports High Compression Engine (X-Engine) and Multi-Master Cluster Edition.
    * 
    * @example
    * Normal
    */
   category?: string;
   /**
+   * @remarks
+   * Whether storage compression is enabled. Values are as follows:
+   * - ON: Enabled
+   * - OFF: Disabled
+   * 
    * @example
    * ON
    */
   compressStorageMode?: string;
   /**
+   * @remarks
+   * Compressed storage data size.
+   * > This parameter is supported only when the cluster\\"s storage compression feature is enabled.
+   * 
    * @example
    * 15529410560
    */
   compressStorageUsed?: number;
   /**
    * @remarks
-   * The time when the cluster was created.
+   * Cluster creation time.
    * 
    * @example
    * 2020-08-14T05:58:42Z
@@ -6914,7 +7697,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The description of the cluster.
+   * Cluster description.
    * 
    * @example
    * test
@@ -6922,7 +7705,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
-   * The ID of cluster.
+   * Cluster ID.
    * 
    * @example
    * pc-*****************
@@ -6930,7 +7713,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The network type of the cluster.
+   * Network type of the cluster.
    * 
    * @example
    * VPC
@@ -6938,7 +7721,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   DBClusterNetworkType?: string;
   /**
    * @remarks
-   * The status of the cluster. For information about the valid values, see [Cluster states](https://help.aliyun.com/document_detail/99286.html).
+   * Cluster status. For the full list of values, refer to [Cluster Status Table](https://help.aliyun.com/document_detail/99286.html).
    * 
    * @example
    * Running
@@ -6951,7 +7734,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   DBNodes?: DescribeDBClusterAttributeResponseBodyDBNodes[];
   /**
    * @remarks
-   * The type of the database engine.
+   * Database engine type.
    * 
    * @example
    * MySQL
@@ -6959,7 +7742,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * Database engine version.
    * 
    * @example
    * 8.0
@@ -6970,10 +7753,11 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
    * The status of the minor version. Valid values:
    * 
    * *   **Stable**: The minor version is stable.
-   * *   **Old**: The minor version is outdated. We recommend that you upgrade the cluster to the latest version.
-   * *   **HighRisk**: The minor version has critical defects. We recommend that you immediately upgrade the cluster to the latest version.
+   * *   **Old**: The minor version is outdated. We recommend that you update it to the latest version.
+   * *   **HighRisk**: The minor version has critical defects. We recommend that you immediately update it to the latest version.
+   * *   **Beta**: The minor version is a Beta version.
    * 
-   * > For more information about how to upgrade the minor version, see [Upgrade versions](https://help.aliyun.com/document_detail/158572.html).
+   * >  For information about how to update the minor version, see [Minor version update](https://help.aliyun.com/document_detail/158572.html).
    * 
    * @example
    * Stable
@@ -6981,7 +7765,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   DBVersionStatus?: string;
   /**
    * @remarks
-   * The total physical storage of level-1 backups (snapshots). Unit: bytes.
+   * Total size of Level 1 backups (snapshots), in bytes.
    * 
    * @example
    * 74448896
@@ -6989,7 +7773,9 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   dataLevel1BackupChainSize?: number;
   /**
    * @remarks
-   * Indicates the rule of data replication. Valid values: AsyncSync: asynchronous. SemiSync: semi-synchronous.
+   * Data replication relationship mode. Values are as follows:
+   * - **AsyncSync**: Asynchronous
+   * - **SemiSync**: Semi-synchronous
    * 
    * @example
    * AsyncSync
@@ -6997,10 +7783,9 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   dataSyncMode?: string;
   /**
    * @remarks
-   * Indicates whether the cluster is locked and can be deleted. Valid values:
-   * 
-   * *   **0**: The cluster is not locked and can be deleted.
-   * *   **1**: The cluster is locked and cannot be deleted.
+   * Lock status for cluster deletion, with values as follows:
+   * * **0**: Unlocked, cluster can be deleted.
+   * * **1**: Locked, cluster cannot be deleted.
    * 
    * @example
    * 0
@@ -7008,7 +7793,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   deletionLock?: number;
   /**
    * @remarks
-   * The database type.
+   * Cluster engine.
    * 
    * @example
    * POLARDB
@@ -7016,9 +7801,9 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   engine?: string;
   /**
    * @remarks
-   * The time when the cluster expires.
+   * Cluster expiration time.
    * 
-   * > A specific value will be returned only for subscription (**Prepaid**) clusters. For pay-as-you-go (**Postpaid**) clusters, an empty string will be returned.
+   * > Only clusters with **Prepaid** (subscription) payment methods return specific parameter values; **Postpaid** (pay-as-you-go) clusters return empty values.
    * 
    * @example
    * 2020-11-14T16:00:00Z
@@ -7026,9 +7811,8 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   expireTime?: string;
   /**
    * @remarks
-   * Indicates whether the cluster has expired. Valid values:
-   * 
-   * > This parameter is returned only for subscription (**Prepaid**) clusters.
+   * Whether the cluster has expired.
+   * > This parameter is only supported for clusters with **Prepaid** (Subscription) payment methods.
    * 
    * @example
    * false
@@ -7036,20 +7820,28 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   expired?: string;
   /**
    * @remarks
-   * Indicates whether to replenish resources for the primary database after a cross-zone switchover. Valid values: true false
+   * Whether to replenish resources for the new primary after cross-AZ switch. Values are as follows:
+   * - **true**: Yes
+   * - **false**: No
    * 
    * @example
    * false
    */
   hasCompleteStandbyRes?: boolean;
   /**
+   * @remarks
+   * Whether to enable storage hot backup cluster (and Standby compute nodes). Values are as follows:
+   * - **StandbyClusterON**: Enable storage hot backup/Enable storage hot backup and Standby compute nodes.
+   * - **StandbyClusterOFF**: Disable storage hot backup/Disable storage hot backup and Standby compute nodes.
+   * 
    * @example
    * StandbyClusterON
    */
   hotStandbyCluster?: string;
+  imciAutoIndex?: string;
   /**
    * @remarks
-   * Maximum inodes in file system.
+   * Maximum number of inodes in the file system.
    * 
    * @example
    * 6,291,456
@@ -7057,7 +7849,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   inodeTotal?: number;
   /**
    * @remarks
-   * The current inode usage.
+   * Current inode usage.
    * 
    * @example
    * 4,194,304
@@ -7065,10 +7857,11 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   inodeUsed?: number;
   /**
    * @remarks
-   * Indicates whether the kernel is of the latest version. Valid values:
+   * Indicates whether it is the latest kernel version. Values are as follows:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes
+   * 
+   * - **false**: No
    * 
    * @example
    * false
@@ -7076,10 +7869,10 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   isLatestVersion?: boolean;
   /**
    * @remarks
-   * Indicates whether PolarProxy uses the latest version. Valid values:
+   * Indicates whether it is the latest version of the database proxy, with possible values as follows:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes
+   * - **false**: No
    * 
    * @example
    * false
@@ -7087,11 +7880,11 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   isProxyLatestVersion?: boolean;
   /**
    * @remarks
-   * The lock mode. Valid values:
+   * Lock mode. Possible values are as follows:
    * 
-   * *   **Unlock**: The cluster is not locked.
-   * *   **ManualLock**: The cluster is manually locked.
-   * *   **LockByExpiration**: The cluster is automatically locked due to cluster expiration.
+   * - **Unlock**: Unlocked.
+   * - **ManualLock**: Manually triggered lock.
+   * - **LockByExpiration**: Automatic cluster lock upon expiration.
    * 
    * @example
    * Unlock
@@ -7099,36 +7892,46 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The maintenance window of the cluster. The format is `HH:mmZ-HH:mmZ`. The time is displayed in UTC. For example, the value `16:00Z-17:00Z` indicates that the cluster can be maintained from 00:00 to 01:00 (UTC+08:00).
+   * The maintenance window for the cluster, formatted as `HH:mmZ-HH:mmZ` (UTC time). For example, `16:00Z-17:00Z` indicates that routine maintenance can be performed from 0:00 to 1:00 (UTC+08:00).
    * 
    * @example
    * 18:00Z-19:00Z
    */
   maintainTime?: string;
   /**
+   * @remarks
+   * Orca function with possible values as follows:
+   * 
+   * - **on**: Enabled
+   * 
+   * - **off**: Disabled
+   * 
    * @example
    * ON
    */
   orca?: string;
   /**
    * @remarks
-   * The billing method of the cluster. Valid values:
+   * Payment type. Possible values are:
    * 
-   * *   **Postpaid**: pay-as-you-go.
-   * *   **Prepaid**: subscription
+   * - **Postpaid**: Pay-As-You-Go
+   * - **Prepaid**: Prepaid (Subscription).
    * 
    * @example
    * Prepaid
    */
   payType?: string;
   /**
+   * @remarks
+   * Describes the preconfigured read and write IOPS for ESSD AutoPL cloud disks. Possible values: 0 to min{50,000, 1000*capacity - baseline performance}.<br>Baseline performance = min{1,800 + 50*capacity, 50000}.<br>Note: This parameter is supported only when StorageType is ESSDAUTOPL.
+   * 
    * @example
    * 2500
    */
   provisionedIops?: string;
   /**
    * @remarks
-   * The number of CPU cores for PolarProxy.
+   * Number of CPU cores for the database proxy.
    * 
    * @example
    * 4
@@ -7136,7 +7939,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   proxyCpuCores?: string;
   /**
    * @remarks
-   * The type of the serverless PolarProxy. Valid value: AgileServerless.
+   * Serverless type for the database proxy. Currently, the value is fixed to AgileServerless.
    * 
    * @example
    * AgileServerless
@@ -7144,7 +7947,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   proxyServerlessType?: string;
   /**
    * @remarks
-   * The number of CPU cores for PolarProxy Standard Enterprise Edition.
+   * Standard configuration CPU cores for the database proxy.
    * 
    * @example
    * 2
@@ -7152,19 +7955,19 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   proxyStandardCpuCores?: string;
   /**
    * @remarks
-   * The status of PolarProxy. Valid values:
+   * Status of the database proxy. Possible values include:
    * 
-   * *   **Creating**: PolarProxy is being created.
-   * *   **Running**: PolarProxy is running.
-   * *   **Deleting**: PolarProxy is being released.
-   * *   **Rebooting**: PolarProxy is restarting.
-   * *   **DBNodeCreating**: PolarProxy is being added.
-   * *   **DBNodeDeleting**: PolarProxy is being deleted.
-   * *   **ClassChanging**: The specifications of PolarProxy are being changed.
-   * *   **NetAddressCreating**: The network connection is being created.
-   * *   **NetAddressDeleting**: The network connection is being deleted.
-   * *   **NetAddressModifying**: The network connection is being modified.
-   * *   **Deleted**: PolarProxy is released.
+   * - **Creating**: Creating
+   * - **Running**: Running
+   * - **Deleting**: Releasing
+   * - **Rebooting**: Restarting
+   * - **DBNodeCreating**: Adding nodes
+   * - **DBNodeDeleting**: Deleting nodes
+   * - **ClassChanging**: Changing node specifications
+   * - **NetAddressCreating**: Creating network connections
+   * - **NetAddressDeleting**: Deleting network connections
+   * - **NetAddressModifying**: Modifying network connections
+   * - **Deleted**: Released
    * 
    * @example
    * Running
@@ -7172,10 +7975,10 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   proxyStatus?: string;
   /**
    * @remarks
-   * The type of PolarProxy. Valid values:
+   * Database proxy types, with the following values:
    * 
-   * *   **Exclusive**: Dedicated Enterprise Edition
-   * *   **General**: Standard Enterprise Edition
+   * - **Exclusive**: Enterprise Exclusive Edition
+   * - **General**: Enterprise General Purpose Edition
    * 
    * @example
    * Exclusive
@@ -7183,7 +7986,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   proxyType?: string;
   /**
    * @remarks
-   * The region ID of the security group.
+   * Region ID.
    * 
    * @example
    * cn-hangzhou
@@ -7191,7 +7994,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 074467EF-86B9-4C23-ACBF-E9B81A******
@@ -7199,25 +8002,34 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of your Alibaba Cloud resource group.
+   * Resource group ID.
    * 
    * @example
    * rg-***************
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * If RestoreType is **RestoreByTime** or **RestoreByTimeOss**, this value represents the recovery time point. If RestoreType is **RestoreByBackupSet** or **RestoreByBackupSetOss**, this value indicates the ID of the backup set on which the recovery is based.
+   * <note>Only clusters restored from a backup set or time point after June 1, 2024, support this parameter.</note>
+   * 
    * @example
    * 2179639137
    */
   restoreDataPoint?: string;
   /**
+   * @remarks
+   * Cluster recovery method, with possible values:
+   * * **RestoreByTime**: Restore from a time point based on primary backup. * **RestoreByBackupSet**: Restore from a backup set based on primary backup. * **RestoreByTimeOss**: Restore from a time point based on secondary backup. * **RestoreByBackupSetOss**: Restore from a backup set based on secondary backup. * **CloneFromSourceCluster**: Clone from the source cluster.
+   * <note>This parameter is only supported for clusters restored from a backup set or time point after June 1, 2024.</note>
+   * 
    * @example
    * RestoreByTime
    */
   restoreType?: string;
   /**
    * @remarks
-   * The storage of SQL. Unit: bytes. If the value is -1, no data is stored.
+   * Storage amount of SQL, in bytes. If the value is -1, it indicates no data.
    * 
    * @example
    * 0
@@ -7225,21 +8037,37 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   SQLSize?: number;
   /**
    * @remarks
-   * The type of the serverless cluster. Only **AgileServerless** can be returned.
+   * Serverless type. Valid values are as follows:
+   * - AgileServerless: Agile - SteadyServerless: Stable
    * 
    * @example
    * AgileServerless
    */
   serverlessType?: string;
   /**
+   * @remarks
+   * Source cluster ID. <note>Clusters restored from backup sets or specific points in time after June 1, 2024, support this parameter.</note>
+   * 
    * @example
    * pc-pz51ziv48317b2880
    */
   sourceDBCluster?: string;
+  /**
+   * @remarks
+   * The region ID of the source cluster.
+   * 
+   * >  This parameter is returned only if the source cluster ID exists.
+   * 
+   * @example
+   * cn-beijing
+   */
   sourceRegionId?: string;
   /**
    * @remarks
-   * Indicates whether the cross-zone disaster recovery feature is enabled. Valid values: ON OFF 0: Customer Drill Mode
+   * Cross-AZ disaster recovery mode. Values are as follows:
+   * - **ON**: Enable cross-AZ disaster recovery mode.
+   * - **OFF**: Disable cross-AZ disaster recovery mode.
+   * - **0**: Customer drill mode.
    * 
    * @example
    * OFF
@@ -7247,7 +8075,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   standbyHAMode?: string;
   /**
    * @remarks
-   * The maximum storage capacity of the current cluster specification. Unit: bytes.
+   * The maximum storage capacity of the current cluster specification, in bytes.
    * 
    * @example
    * 10995116277760
@@ -7255,10 +8083,8 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   storageMax?: number;
   /**
    * @remarks
-   * The billing method of the storage. Valid values:
-   * 
-   * *   **Postpaid**: pay-as-you-go
-   * *   **Prepaid**: subscription.
+   * Storage billing type. Valid values are as follows:
+   * - **Postpaid**：Pay-as-you-go (by capacity). - **Prepaid**：Subscription (by space).
    * 
    * @example
    * Prepaid
@@ -7266,7 +8092,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   storagePayType?: string;
   /**
    * @remarks
-   * The storage space that uses the subscription billing method. Unit: bytes.
+   * Storage space for pay-by-space (subscription) billing. Unit: Byte.
    * 
    * @example
    * 50
@@ -7274,7 +8100,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   storageSpace?: number;
   /**
    * @remarks
-   * The storage type. Set the value to **HighPerformance**.
+   * Storage type, with a fixed value of **HighPerformance**.
    * 
    * @example
    * HighPerformance
@@ -7282,7 +8108,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   storageType?: string;
   /**
    * @remarks
-   * The storage space consumed by the cluster. Unit: bytes.
+   * Amount of used storage space, in bytes.
    * 
    * @example
    * 3012558848
@@ -7290,10 +8116,9 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   storageUsed?: number;
   /**
    * @remarks
-   * Indicates whether the multi-zone data consistency feature is enabled for the cluster. Valid values:
-   * 
-   * *   **ON**: Multi-zone data consistency is enabled, which is suitable for Standard Edition clusters that run Multi-zone Edition.
-   * *   **OFF**
+   * Indicates whether multi-AZ data strong consistency is enabled for the cluster. The value ranges are as follows:
+   * - **ON**: Indicates that multi-AZ data strong consistency is enabled, applicable to the Standard 3AZ scenario.
+   * - **OFF**: Indicates that multi-AZ data strong consistency is not enabled.
    * 
    * @example
    * ON
@@ -7301,26 +8126,32 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   strictConsistency?: string;
   /**
    * @remarks
-   * The specification type of the compute node. Valid values:
+   * Specification type of compute nodes, with possible values as follows:
+   * * **Exclusive**: Dedicated specification
+   * * **General**: General-purpose specification
    * 
-   * *   **Exclusive**: dedicated.
-   * *   **General**: general-purpose.
-   * 
-   * > This parameter is supported only for PolarDB for MySQL clusters of Cluster Edition.
+   * > This parameter is supported only for PolarDB MySQL Edition with the product series set to Cluster Edition.
    * 
    * @example
    * Exclusive
    */
   subCategory?: string;
+  /**
+   * @remarks
+   * Indicates whether the failover with hot replica feature is supported if the cluster has In-Memory Column Index (IMCI) nodes.
+   * 
+   * @example
+   * ON
+   */
   supportInstantSwitchWithImci?: string;
   /**
    * @remarks
-   * Details about the tags.
+   * Details of tags.
    */
   tags?: DescribeDBClusterAttributeResponseBodyTags[];
   /**
    * @remarks
-   * The VPC ID of the cluster.
+   * VPC ID.
    * 
    * @example
    * vpc-*******************
@@ -7328,7 +8159,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID of the cluster.
+   * VSwitch ID.
    * 
    * @example
    * vsw-*********************
@@ -7336,7 +8167,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID of the cluster.
+   * Availability Zone IDs.
    * 
    * @example
    * cn-hangzhou-i,cn-hangzhou-g
@@ -7369,6 +8200,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       expired: 'Expired',
       hasCompleteStandbyRes: 'HasCompleteStandbyRes',
       hotStandbyCluster: 'HotStandbyCluster',
+      imciAutoIndex: 'ImciAutoIndex',
       inodeTotal: 'InodeTotal',
       inodeUsed: 'InodeUsed',
       isLatestVersion: 'IsLatestVersion',
@@ -7435,6 +8267,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       expired: 'string',
       hasCompleteStandbyRes: 'boolean',
       hotStandbyCluster: 'string',
+      imciAutoIndex: 'string',
       inodeTotal: 'number',
       inodeUsed: 'number',
       isLatestVersion: 'boolean',
@@ -8004,7 +8837,7 @@ export class DescribeDBClusterEndpointsRequest extends $tea.Model {
 export class DescribeDBClusterEndpointsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details of the endpoints.
+   * The information about the endpoints.
    */
   items?: DescribeDBClusterEndpointsResponseBodyItems[];
   /**
@@ -8627,6 +9460,13 @@ export class DescribeDBClusterPerformanceRequest extends $tea.Model {
    * 2020-09-23T01:01Z
    */
   startTime?: string;
+  /**
+   * @remarks
+   * The Query Type
+   * 
+   * @example
+   * orca
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9109,6 +9949,19 @@ export class DescribeDBClusterTDERequest extends $tea.Model {
 export class DescribeDBClusterTDEResponseBody extends $tea.Model {
   /**
    * @remarks
+   * Indicates whether automatic key rotation is allowed. Valid values:
+   * 
+   * *   **Enabled**: Automatic key rotation is allowed.
+   * *   **Disabled**: Automatic key rotation is not allowed.
+   * 
+   * >  This parameter is returned only for a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+   * 
+   * @example
+   * Enabled
+   */
+  automaticRotation?: string;
+  /**
+   * @remarks
    * The ID of the cluster.
    * 
    * @example
@@ -9121,6 +9974,8 @@ export class DescribeDBClusterTDEResponseBody extends $tea.Model {
    * 
    * *   **ON**
    * *   **OFF**
+   * 
+   * >  This parameter is returned only for a PolarDB for MySQL cluster.
    * 
    * @example
    * ON
@@ -9144,6 +9999,18 @@ export class DescribeDBClusterTDEResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
+   * The automatic key rotation period configured in Key Management Service (KMS). If no automatic key rotation period is configured, 0s is returned. Unit: seconds.
+   * 
+   * For example, if the rotation period is set to 7 days, 604800s is returned.
+   * 
+   * >  This parameter is returned only for a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) cluster whose AutomaticRotation parameter is set to Enabled.
+   * 
+   * @example
+   * 604800s
+   */
+  rotationInterval?: string;
+  /**
+   * @remarks
    * The region where the TDE key resides.
    * 
    * @example
@@ -9163,10 +10030,12 @@ export class DescribeDBClusterTDEResponseBody extends $tea.Model {
   TDEStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      automaticRotation: 'AutomaticRotation',
       DBClusterId: 'DBClusterId',
       encryptNewTables: 'EncryptNewTables',
       encryptionKey: 'EncryptionKey',
       requestId: 'RequestId',
+      rotationInterval: 'RotationInterval',
       TDERegion: 'TDERegion',
       TDEStatus: 'TDEStatus',
     };
@@ -9174,10 +10043,12 @@ export class DescribeDBClusterTDEResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      automaticRotation: 'string',
       DBClusterId: 'string',
       encryptNewTables: 'string',
       encryptionKey: 'string',
       requestId: 'string',
+      rotationInterval: 'string',
       TDERegion: 'string',
       TDEStatus: 'string',
     };
@@ -9306,6 +10177,10 @@ export class DescribeDBClusterVersionResponseBody extends $tea.Model {
    * 8.0.1.1.7
    */
   DBRevisionVersion?: string;
+  /**
+   * @remarks
+   * The versions to which the cluster can be upgraded.
+   */
   DBRevisionVersionList?: DescribeDBClusterVersionResponseBodyDBRevisionVersionList[];
   /**
    * @remarks
@@ -9556,7 +10431,7 @@ export class DescribeDBClustersRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
+   * The page number. The value must be an integer that is greater than 0. Default value: **1**.
    * 
    * @example
    * 10
@@ -9564,7 +10439,7 @@ export class DescribeDBClustersRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **30**, **50**, or **100**.
+   * The number of entries per page. Valid values: **30**, **50**, and **100**.
    * 
    * Default value: **30**.
    * 
@@ -10629,6 +11504,15 @@ export class DescribeDBProxyPerformanceRequest extends $tea.Model {
    * pe-****************
    */
   DBEndpointId?: string;
+  /**
+   * @remarks
+   * Database instance node ID.
+   * 
+   * > It is used to query the metrics of Proxy on different DB nodes, supporting metrics such as PolarProxy_DBConns, PolarProxy_DBQps, and PolarProxy_DBActionOps.
+   * 
+   * @example
+   * pi-******************
+   */
   DBNodeId?: string;
   /**
    * @remarks
@@ -11443,6 +12327,13 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $tea.Model {
    * active
    */
   GDNStatus?: string;
+  /**
+   * @remarks
+   * The global domain name.
+   * 
+   * @example
+   * [gdnid].gdn.rds.aliyuncs.com
+   */
   globalDomainName?: string;
   /**
    * @remarks
@@ -11970,6 +12861,321 @@ export class DescribeGlobalSecurityIPGroupRelationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeGlobalSecurityIPGroupRelationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseOrderDetailsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 239618016570503
+   */
+  aliyunOrderId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunOrderId: 'AliyunOrderId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunOrderId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseOrderDetailsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
+  activatedCodeCount?: number;
+  /**
+   * @example
+   * 8
+   */
+  activationCodeQuota?: number;
+  /**
+   * @example
+   * 239618016570503
+   */
+  aliyunOrderId?: string;
+  /**
+   * @example
+   * false
+   */
+  allowEmptySystemIdentifier?: boolean;
+  /**
+   * @example
+   * PG
+   */
+  engine?: string;
+  /**
+   * @example
+   * 2021-10-19 01:13:45
+   */
+  gmtCreated?: string;
+  /**
+   * @example
+   * 2024-10-16 16:46:20
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * false
+   */
+  isVirtualOrder?: boolean;
+  /**
+   * @example
+   * false
+   */
+  isVirtualOrderFrozen?: boolean;
+  /**
+   * @example
+   * pre_generation_long_term
+   */
+  packageType?: string;
+  /**
+   * @example
+   * 1 year
+   */
+  packageValidity?: string;
+  /**
+   * @example
+   * aliyun_market
+   */
+  purchaseChannel?: string;
+  /**
+   * @example
+   * 22C0ACF0-DD29-4B67-9190-B7A48C******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 239618016570503
+   */
+  virtualOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activatedCodeCount: 'ActivatedCodeCount',
+      activationCodeQuota: 'ActivationCodeQuota',
+      aliyunOrderId: 'AliyunOrderId',
+      allowEmptySystemIdentifier: 'AllowEmptySystemIdentifier',
+      engine: 'Engine',
+      gmtCreated: 'GmtCreated',
+      gmtModified: 'GmtModified',
+      isVirtualOrder: 'IsVirtualOrder',
+      isVirtualOrderFrozen: 'IsVirtualOrderFrozen',
+      packageType: 'PackageType',
+      packageValidity: 'PackageValidity',
+      purchaseChannel: 'PurchaseChannel',
+      requestId: 'RequestId',
+      virtualOrderId: 'VirtualOrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activatedCodeCount: 'number',
+      activationCodeQuota: 'number',
+      aliyunOrderId: 'string',
+      allowEmptySystemIdentifier: 'boolean',
+      engine: 'string',
+      gmtCreated: 'string',
+      gmtModified: 'string',
+      isVirtualOrder: 'boolean',
+      isVirtualOrderFrozen: 'boolean',
+      packageType: 'string',
+      packageValidity: 'string',
+      purchaseChannel: 'string',
+      requestId: 'string',
+      virtualOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseOrderDetailsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLicenseOrderDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLicenseOrderDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseOrdersRequest extends $tea.Model {
+  /**
+   * @example
+   * 239618016570503
+   */
+  aliyunOrderId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * single_node_subscribe
+   */
+  packageType?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * aliyun_market
+   */
+  purchaseChannel?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  virtualOrder?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunOrderId: 'AliyunOrderId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      packageType: 'PackageType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      purchaseChannel: 'PurchaseChannel',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      virtualOrder: 'VirtualOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunOrderId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      packageType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      purchaseChannel: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      virtualOrder: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseOrdersResponseBody extends $tea.Model {
+  items?: DescribeLicenseOrdersResponseBodyItems[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 12
+   */
+  pageRecordCount?: number;
+  /**
+   * @example
+   * 34458CD3-33E0-4624-BFEF-840C15******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 50
+   */
+  totalRecordCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageRecordCount: 'PageRecordCount',
+      requestId: 'RequestId',
+      totalRecordCount: 'TotalRecordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeLicenseOrdersResponseBodyItems },
+      pageNumber: 'number',
+      pageRecordCount: 'number',
+      requestId: 'string',
+      totalRecordCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseOrdersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLicenseOrdersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLicenseOrdersResponseBody,
     };
   }
 
@@ -13625,7 +14831,7 @@ export class DescribeScheduleTasksRequest extends $tea.Model {
 export class DescribeScheduleTasksResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The result data that is returned.
+   * The result data.
    */
   data?: DescribeScheduleTasksResponseBodyData;
   /**
@@ -13705,9 +14911,8 @@ export class DescribeScheduleTasksResponse extends $tea.Model {
 export class DescribeSlowLogRecordsRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of cluster.
-   * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+   * Cluster ID.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) interface to view all cluster information in the target region, including the Cluster ID.
    * 
    * This parameter is required.
    * 
@@ -13717,7 +14922,7 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * Database name.
    * 
    * @example
    * testdb
@@ -13725,9 +14930,9 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. The interval between the start time and end time must be within 24 hours. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+   * End time of the query, which must be later than the start time, and the time interval between the start and end times must not exceed 24 hours. The format is `YYYY-MM-DDThh:mmZ` (UTC time).
    * 
-   * > This parameter must be set to a time value in UTC (UTC+0 time zone). If your service resides in another time zone, convert the time value. For example, if the local time in the time zone where your service resides is 12:00 (UTC +8) and you want to query slow query logs at 08:00 (UTC +8) to 12:00, set this parameter to a time value that ranges from 00:00, set this parameter to 04:00.
+   * > The input is UTC time (i.e., 0 timezone). If your service is currently in a different timezone, please perform a time conversion. For example, if the current timezone of your service is Beijing Time (UTC+8) at 12:00, and you need to query the slow logs between 08:00-12:00 Beijing Time, you should input 00:00-04:00.
    * 
    * This parameter is required.
    * 
@@ -13735,14 +14940,21 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
    * 2022-11-16T04:00Z
    */
   endTime?: string;
+  /**
+   * @remarks
+   * Node ID
+   * 
+   * @example
+   * pi-**********
+   */
   nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is larger than 0.
+   * Page number, with a range greater than 0 and not exceeding the maximum value of Integer.
    * 
-   * Default value: **1**.
+   * The default value is **1**.
    * 
    * @example
    * 1
@@ -13750,13 +14962,12 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
+   * Number of records per page, with the following options:
+   * * **30**
+   * * **50**
+   * * **100**
    * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
-   * 
-   * Default value: **30**.
+   * The default value is **30**.
    * 
    * @example
    * 30
@@ -13764,9 +14975,9 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * Region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all regions that are available for your account, such as the region ID.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) interface to view the available regions under the target account, including the Region ID.
    * 
    * This parameter is required.
    * 
@@ -13778,7 +14989,7 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The unique ID of the SQL statement. The ID is used to obtain the slow query logs of the SQL statement.
+   * Unique identifier of the SQL statement in the slow log statistics, which can be used to obtain the detailed slow logs for that SQL statement.
    * 
    * @example
    * U2FsdGVk****
@@ -13786,13 +14997,10 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
   SQLHASH?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+   * Start time of the query. The format is `YYYY-MM-DDThh:mmZ` (UTC time).
    * 
-   * > 
-   * 
-   * *   You can specify a time range of up to 30 days.
-   * 
-   * *   This parameter must be set to a time value in UTC (UTC+0 time zone). If your service resides in another time zone, convert the time value. For example, if the local time in the time zone where your service resides is 12:00 (UTC +8) and you want to query slow query logs at 08:00 (UTC +8) to 12:00, set this parameter to a time value that ranges from 00:00, set this parameter to 04:00.
+   * > * Supports viewing slow log information up to 30 days.
+   * > * The input is UTC time (i.e., 0 timezone). If your service is currently in a different timezone, please perform a time conversion. For example, if the current timezone of your service is Beijing Time (UTC+8) at 12:00, and you need to query the slow logs between 08:00-12:00 Beijing Time, you should input 00:00-04:00.
    * 
    * This parameter is required.
    * 
@@ -13844,7 +15052,7 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
 export class DescribeSlowLogRecordsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of cluster.
+   * Cluster ID.
    * 
    * @example
    * pc-*****************
@@ -13852,7 +15060,7 @@ export class DescribeSlowLogRecordsResponseBody extends $tea.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The type of the database engine.
+   * Database engine.
    * 
    * @example
    * polardb_mysql
@@ -13860,12 +15068,12 @@ export class DescribeSlowLogRecordsResponseBody extends $tea.Model {
   engine?: string;
   /**
    * @remarks
-   * Details about slow query logs.
+   * List of slow log details.
    */
   items?: DescribeSlowLogRecordsResponseBodyItems;
   /**
    * @remarks
-   * The number of the returned page.
+   * Page number.
    * 
    * @example
    * 1
@@ -13873,7 +15081,7 @@ export class DescribeSlowLogRecordsResponseBody extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * Number of records on this page.
    * 
    * @example
    * 1
@@ -13881,7 +15089,7 @@ export class DescribeSlowLogRecordsResponseBody extends $tea.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * A7E6A8FD-C50B-46B2-BA85-D8B8D3******
@@ -13889,7 +15097,7 @@ export class DescribeSlowLogRecordsResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of SQL statements.
+   * Total number of SQL statements.
    * 
    * @example
    * 1
@@ -14258,7 +15466,7 @@ export class DescribeTasksRequest extends $tea.Model {
    * *   **Running**: The task is running.
    * *   **Finished**: The task is completed.
    * *   **Closed**: The task is closed.
-   * *   **Pause**: The task is suspended.
+   * *   **Pause**: The task is paused.
    * *   **Stop**: The task is interrupted.
    * 
    * > 
@@ -15016,6 +16224,8 @@ export class EnableDBClusterServerlessResponse extends $tea.Model {
 export class EnableFirewallRulesRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15023,6 +16233,14 @@ export class EnableFirewallRulesRequest extends $tea.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * Specifies whether to enable or disable the specified firewall rules. Valid values:
+   * 
+   * *   **true**: enables the specified firewall rules.
+   * *   **false**: disables the specified firewall rules.
+   * 
+   * > This parameter is valid only when you specify the **RuleNameList** parameter.
+   * 
    * @example
    * true
    */
@@ -15033,6 +16251,10 @@ export class EnableFirewallRulesRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The name of the firewall rule that you want to enable for the cluster. You can specify multiple firewall rules at a time. Separate multiple rules with commas (,).
+   * 
+   * > You can call the **DescribeFirewallRules** operation to query the details of all firewall rules that are applicable to a cluster, such as rule names.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15070,6 +16292,11 @@ export class EnableFirewallRulesRequest extends $tea.Model {
 
 export class EnableFirewallRulesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The message that is returned for the request.
+   * 
+   * > If the request was successful, Successful is returned. If the request failed, an error message that contains information such as an error code is returned.
+   * 
    * @example
    * Message
    */
@@ -15083,6 +16310,12 @@ export class EnableFirewallRulesResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -15434,7 +16667,7 @@ export class FailoverDBClusterRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to fail back to the original primary zone after a failover. Valid values:
+   * Specifies whether to switch back services to the original primary zone when the original primary zone recovers.
    * 
    * *   true
    * *   false
@@ -15454,6 +16687,16 @@ export class FailoverDBClusterRequest extends $tea.Model {
    * pi-***********
    */
   targetDBNodeId?: string;
+  /**
+   * @remarks
+   * Whether it is a primary-standby switch within the primary availability zone, with the following values:
+   * 
+   * Primary: Primary-standby switch within the primary availability zone.
+   * Standby: Switch to the storage hot backup cluster.
+   * 
+   * @example
+   * Primary
+   */
   targetZoneType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15697,7 +16940,7 @@ export class ListTagResourcesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The cluster ID. To query the tags of multiple clusters, click **Add** to add cluster IDs.
+   * The IDs of the clusters. To query the tags of multiple clusters, click **Add** to add cluster IDs.
    * 
    * > 
    * 
@@ -16361,13 +17604,13 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
   backupFrequency?: string;
   /**
    * @remarks
-   * Specifies whether to retain backups when you delete a cluster. Valid values:
+   * Specifies whether to retain backups when a cluster is deleted. Valid values:
    * 
    * *   **ALL**: permanently retains all backups.
-   * *   **LATEST**: permanently retains only the last backup.
+   * *   **LATEST**: permanently retains the most recent backup.
    * *   **NONE**: does not retain backups.
    * 
-   * > The default value is NONE.
+   * >  The default value of the parameter is NONE.
    * 
    * @example
    * NONE
@@ -16455,7 +17698,7 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * *   **30 to 7300**: Cross-region level-2 backups are retained for 30 to 7,300 days.
    * *   **1**: Cross-region level-2 backups are permanently retained.
    * 
-   * > The default value is **0**. By default, the cross-region level-2 backup feature is disabled when you create a cluster.
+   * >  The default value of the parameter is **0**.
    * 
    * @example
    * 30
@@ -16486,10 +17729,10 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * The retention period of level-2 backups. Valid values:
    * 
    * *   **0**: The level-2 backup feature is disabled.
-   * *   **30 to 7300**: Cross-region level-2 backups are retained for 30 to 7,300 days.
-   * *   **1**: Cross-region level-2 backups are permanently retained.
+   * *   **30 to 7300**: Level-2 backups are retained for 30 to 7,300 days.
+   * *   **1**: Level-2 backups are permanently retained.
    * 
-   * > The default value is **0**. By default, the level-2 backup feature is disabled when you create a cluster.
+   * >  The default value of this parameter is **0**.
    * 
    * @example
    * 0
@@ -16629,7 +17872,7 @@ export class ModifyBackupPolicyResponse extends $tea.Model {
 export class ModifyDBClusterRequest extends $tea.Model {
   /**
    * @remarks
-   * Enable storage compression function. The value of this parameter is ON.
+   * Specifies whether to enable storage compression. Set the value to **ON**.
    * 
    * @example
    * ON
@@ -16647,6 +17890,15 @@ export class ModifyDBClusterRequest extends $tea.Model {
    * pc-*************
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The list of nodes for the drill.
+   * 
+   * >  You can specify only one node for a node-level disaster recovery drill. For a primary zone-level disaster recovery drill, you can either choose not to specify this parameter or specify all nodes.
+   * 
+   * @example
+   * pi-rwxxx
+   */
   DBNodeCrashList?: string;
   /**
    * @remarks
@@ -16659,34 +17911,44 @@ export class ModifyDBClusterRequest extends $tea.Model {
    * AsynSync
    */
   dataSyncMode?: string;
+  /**
+   * @remarks
+   * The fault injection method. Valid values:
+   * 
+   * *   CrashSQLInjection: `Crash SQL`-based fault injection.
+   * 
+   * @example
+   * 0
+   */
   faultInjectionType?: string;
   /**
    * @remarks
-   * The fault scenario that you want to simulate for the cluster.
+   * The level of the disaster recovery drill. Valid values:
    * 
-   * *   Set the value to **0**. The value 0 indicates the scenario in which the primary zone of the cluster fails.
+   * *   `0` or `FaultInjection`: The primary zone level.
+   * *   `1`: The node level.
    * 
    * > 
    * 
-   * *   This parameter takes effect only when you set the `StandbyHAMode` parameter to 0.
+   * *   In **primary zone-level disaster recovery drill** scenarios, all compute nodes in the primary zone are unavailable. Data loss occurs during failovers in the scenarios.
    * 
-   * *   If you set this parameter to 0, all compute nodes deployed in the primary zone are unavailable. In this case, the switchover degrades the cluster performance.
+   * *   In **node-level disaster recovery drill** scenarios, you can specify only one compute node for the disaster recovery drill. You can use the `DBNodeCrashList` parameter to specify the name of the compute node that you want to use for the drill.
    * 
    * @example
    * 0
    */
   faultSimulateMode?: string;
+  imciAutoIndex?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to enable the cross-zone automatic switchover mode. Valid values:
+   * Specifies whether to enable cross-zone automatic switchover. Valid values:
    * 
-   * *   **ON**: Enable the cross-zone automatic switchover mode.
-   * *   **OFF**: Disable the cross-zone automatic switchover mode.
-   * *   **0**: Enable the customer drill mode.
+   * *   **ON**: enables cross-zone automatic switchover.
+   * *   **OFF**: disables cross-zone automatic switchover.
    * 
    * @example
    * ON
@@ -16694,7 +17956,7 @@ export class ModifyDBClusterRequest extends $tea.Model {
   standbyHAMode?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic storage scaling for the cluster of Standard Edition. Valid values:
+   * Specifies whether to enable automatic storage scaling. This parameter is available only for Standard Edition clusters. Valid values:
    * 
    * *   Enable
    * *   Disable
@@ -16721,6 +17983,7 @@ export class ModifyDBClusterRequest extends $tea.Model {
       dataSyncMode: 'DataSyncMode',
       faultInjectionType: 'FaultInjectionType',
       faultSimulateMode: 'FaultSimulateMode',
+      imciAutoIndex: 'ImciAutoIndex',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -16739,6 +18002,7 @@ export class ModifyDBClusterRequest extends $tea.Model {
       dataSyncMode: 'string',
       faultInjectionType: 'string',
       faultSimulateMode: 'string',
+      imciAutoIndex: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -16764,11 +18028,17 @@ export class ModifyDBClusterResponseBody extends $tea.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 2148126708*****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CD3FA5F3-FAF3-44CA-AFFF-BAF869******
    */
@@ -18448,6 +19718,8 @@ export class ModifyDBClusterPrimaryZoneResponse extends $tea.Model {
 export class ModifyDBClusterResourceGroupRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18456,6 +19728,8 @@ export class ModifyDBClusterResourceGroupRequest extends $tea.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The ID of the new resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18465,6 +19739,9 @@ export class ModifyDBClusterResourceGroupRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The ID of the original resource group.
+   * 
    * @example
    * rg-**********
    */
@@ -18502,6 +19779,9 @@ export class ModifyDBClusterResourceGroupRequest extends $tea.Model {
 
 export class ModifyDBClusterResourceGroupResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 70656639-1416-479F-AF13-D08197******
    */
@@ -18719,6 +19999,14 @@ export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
   allowShutDown?: string;
   /**
    * @remarks
+   * Cycle policy ID.
+   * 
+   * @example
+   * 143f8e9f-2566-4dff-be47-bed79f28fc78
+   */
+  crontabJobId?: string;
+  /**
+   * @remarks
    * The ID of the serverless cluster.
    * 
    * This parameter is required.
@@ -18819,12 +20107,43 @@ export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
    * 10
    */
   secondsUntilAutoPause?: string;
+  /**
+   * @remarks
+   * CPU burst threshold
+   * 
+   * @example
+   * 80
+   */
   serverlessRuleCpuEnlargeThreshold?: string;
+  /**
+   * @remarks
+   * CPU downscale threshold
+   * 
+   * @example
+   * 50
+   */
   serverlessRuleCpuShrinkThreshold?: string;
+  /**
+   * @remarks
+   * Elastic sensitivity. Values: - normal: standard - flexible: sensitive
+   * 
+   * @example
+   * normal
+   * flexible
+   */
   serverlessRuleMode?: string;
+  /**
+   * @remarks
+   * Asynchronous task ID.
+   * 
+   * @example
+   * 143f8e9f-2566-4dff-be47-bed79f28fc78
+   */
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       allowShutDown: 'AllowShutDown',
+      crontabJobId: 'CrontabJobId',
       DBClusterId: 'DBClusterId',
       fromTimeService: 'FromTimeService',
       ownerAccount: 'OwnerAccount',
@@ -18843,12 +20162,14 @@ export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
       serverlessRuleCpuEnlargeThreshold: 'ServerlessRuleCpuEnlargeThreshold',
       serverlessRuleCpuShrinkThreshold: 'ServerlessRuleCpuShrinkThreshold',
       serverlessRuleMode: 'ServerlessRuleMode',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       allowShutDown: 'string',
+      crontabJobId: 'string',
       DBClusterId: 'string',
       fromTimeService: 'boolean',
       ownerAccount: 'string',
@@ -18867,6 +20188,7 @@ export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
       serverlessRuleCpuEnlargeThreshold: 'string',
       serverlessRuleCpuShrinkThreshold: 'string',
       serverlessRuleMode: 'string',
+      taskId: 'string',
     };
   }
 
@@ -19122,10 +20444,25 @@ export class ModifyDBClusterTDERequest extends $tea.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * Specifies whether to allow the TDE key of the cluster to be automatically rotated within the next maintenance window after a lapse of the rotation period when a change in the KMS key version is detected. This parameter is supported only for custom keys. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  This parameter is supported only for a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+   * 
+   * @example
+   * false
+   */
+  enableAutomaticRotation?: string;
+  /**
+   * @remarks
    * Specifies whether to enable automatic encryption for new tables. Valid values:
    * 
    * *   **ON**
    * *   **OFF**
+   * 
+   * >  This parameter takes effect only for a PolarDB for MySQL cluster.
    * 
    * @example
    * ON
@@ -19164,6 +20501,7 @@ export class ModifyDBClusterTDERequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      enableAutomaticRotation: 'EnableAutomaticRotation',
       encryptNewTables: 'EncryptNewTables',
       encryptionKey: 'EncryptionKey',
       ownerAccount: 'OwnerAccount',
@@ -19178,6 +20516,7 @@ export class ModifyDBClusterTDERequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      enableAutomaticRotation: 'string',
       encryptNewTables: 'string',
       encryptionKey: 'string',
       ownerAccount: 'string',
@@ -20229,15 +21568,22 @@ export class ModifyDBNodesParametersResponse extends $tea.Model {
 }
 
 export class ModifyGlobalDatabaseNetworkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Create a global domain
+   * 
+   * @example
+   * false
+   */
   enableGlobalDomainName?: boolean;
   /**
    * @remarks
    * The description of the GDN. The description must meet the following requirements:
    * 
-   * *   It cannot start with `http://` or `https://`.
-   * *   It must start with a letter.
-   * *   It can contain letters, digits, underscores (_), and hyphens (-).
-   * *   It must be 2 to 126 characters in length.
+   * *   The description cannot start with http:// or https://.
+   * *   The description must start with a letter.
+   * *   The description can contain letters, digits, underscores (_), and hyphens (-).
+   * *   The description must be 2 to 126 characters in length.
    * 
    * @example
    * GDN-fortest
@@ -20245,7 +21591,7 @@ export class ModifyGlobalDatabaseNetworkRequest extends $tea.Model {
   GDNDescription?: string;
   /**
    * @remarks
-   * The ID of the GDN.
+   * The GDN ID.
    * 
    * This parameter is required.
    * 
@@ -20257,7 +21603,7 @@ export class ModifyGlobalDatabaseNetworkRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-************
@@ -20302,7 +21648,7 @@ export class ModifyGlobalDatabaseNetworkRequest extends $tea.Model {
 export class ModifyGlobalDatabaseNetworkResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C61892A4-0850-4516-9E26-44D96C1782DE
@@ -21252,6 +22598,12 @@ export class OpenAITaskRequest extends $tea.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   **DLNode**: This node is an AI node.
+   * *   **SearchNode**: This node is a node for which the PolarDB for AI feature is enabled.
+   * 
    * @example
    * DLNode
    */
@@ -22445,6 +23797,8 @@ export class TagResourcesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22465,6 +23819,8 @@ export class TagResourcesRequest extends $tea.Model {
   resourceType?: string;
   /**
    * @remarks
+   * The tags.
+   * 
    * This parameter is required.
    */
   tag?: TagResourcesRequestTag[];
@@ -22588,9 +23944,9 @@ export class TempModifyDBNodeRequest extends $tea.Model {
   modifyType?: string;
   /**
    * @remarks
-   * The type of operation performed on the cluster. Valid values:
+   * The operation type. Valid values:
    * 
-   * *   **Modify**: temporarily upgrade the configuration of the cluster.
+   * *   **Modify**: temporarily upgrades the configuration of the cluster.
    * 
    * This parameter is required.
    * 
@@ -22943,9 +24299,9 @@ export class TransformDBClusterPayTypeResponse extends $tea.Model {
 export class UntagResourcesRequest extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to unbinds all tags from the cluster. Valid values: **true** and **false**. Default value: **false**.
+   * Specifies whether to detach all tags from the cluster. Valid values: **true** and **false**. Default value: **false**.
    * 
-   * >  This parameter takes effect only when the value of the `TagKey.n` parameter is empty.
+   * >  This parameter takes effect only if `TagKey.n` is empty.
    * 
    * @example
    * true
@@ -23274,9 +24630,9 @@ export class UpgradeDBClusterVersionResponse extends $tea.Model {
 export class CreateDBClusterRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The key of the tag that you want to create for the cluster. To create multiple tags for a cluster at a time, click the **+** icon.
+   * Tag key. If you need to add multiple tags to the target cluster at once, click **Add** to add a tag key.
    * 
-   * > You can create up to 20 key-value pairs of tags at a time. Each value of the `Tag.N.Key` parameter is paired with a value of the `Tag.N.Value` parameter.
+   * > Up to 20 pairs of tags can be added each time, where `Tag.N.Key` corresponds to `Tag.N.Value`.
    * 
    * @example
    * type
@@ -23284,9 +24640,9 @@ export class CreateDBClusterRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag that you want to create for the cluster. To create multiple tags for a cluster at a time, click the **+** icon.
+   * Tag value. If you need to add multiple tags to the target cluster at once, click **Add** to add tag values.
    * 
-   * > You can create up to 20 key-value pairs of tags at a time. Each value of the `Tag.N.Value` parameter is paired with a value of the `Tag.N.Key` parameter.
+   * > Up to 20 pairs of tags can be added each time, where `Tag.N.Value` corresponds to `Tag.N.Key`.
    * 
    * @example
    * test
@@ -23666,6 +25022,85 @@ export class DescribeAccountsResponseBodyAccounts extends $tea.Model {
       accountStatus: 'string',
       accountType: 'string',
       databasePrivileges: { 'type': 'array', 'itemType': DescribeAccountsResponseBodyAccountsDatabasePrivileges },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActivationCodesResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * 2024-10-16 16:46:20
+   */
+  activateAt?: string;
+  /**
+   * @example
+   * testCode
+   */
+  description?: string;
+  /**
+   * @example
+   * 2054-10-16 16:46:20
+   */
+  expireAt?: string;
+  /**
+   * @example
+   * 2024-10-16 16:46:20
+   */
+  gmtCreated?: string;
+  /**
+   * @example
+   * 2024-10-16 16:46:20
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 123
+   */
+  id?: number;
+  /**
+   * @example
+   * 12:34:56:78:98:00
+   */
+  macAddress?: string;
+  /**
+   * @example
+   * testName
+   */
+  name?: string;
+  /**
+   * @example
+   * 1234567890123456
+   */
+  systemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activateAt: 'ActivateAt',
+      description: 'Description',
+      expireAt: 'ExpireAt',
+      gmtCreated: 'GmtCreated',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      macAddress: 'MacAddress',
+      name: 'Name',
+      systemIdentifier: 'SystemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activateAt: 'string',
+      description: 'string',
+      expireAt: 'string',
+      gmtCreated: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      macAddress: 'string',
+      name: 'string',
+      systemIdentifier: 'string',
     };
   }
 
@@ -24556,20 +25991,23 @@ export class DescribeDBClusterAccessWhitelistResponseBodyItems extends $tea.Mode
 export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   /**
    * @remarks
-   * The number of CPU cores for compute node scale-out within seconds.
+   * Number of CPU cores for second-level elastic scaling.
    * 
    * @example
    * 6
    */
   addedCpuCores?: string;
   /**
+   * @remarks
+   * Number of CPU cores for the node.
+   * 
    * @example
    * 2
    */
   cpuCores?: string;
   /**
    * @remarks
-   * The time when the node was created.
+   * Node creation time.
    * 
    * @example
    * 2020-03-23T21:35:43Z
@@ -24577,7 +26015,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The type of the node.
+   * Node specification.
    * 
    * @example
    * polar.mysql.x4.large
@@ -24585,7 +26023,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   DBNodeClass?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * Node ID.
    * 
    * @example
    * pi-****************
@@ -24593,10 +26031,10 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   DBNodeId?: string;
   /**
    * @remarks
-   * The role of the node. Valid values:
+   * Node role, with possible values as follows:
    * 
-   * *   **Writer**: The node is the primary node.
-   * *   **Reader**: The node is a read-only node.
+   * - **Writer**: Primary node.
+   * - **Reader**: Read-only node.
    * 
    * @example
    * Reader
@@ -24604,21 +26042,20 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   DBNodeRole?: string;
   /**
    * @remarks
-   * The status of the node. Valid values:
-   * 
-   * *   **Creating**: The cluster is being created.
-   * *   **Running**: The cluster is running.
-   * *   **Deleting**: The cluster is being deleted.
-   * *   **Rebooting**: The cluster is restarting.
-   * *   **DBNodeCreating**: PolarProxy is being added.
-   * *   **DBNodeDeleting**: PolarProxy is being deleted.
-   * *   **ClassChanging**: The specification type of PolarProxy are being modified.
-   * *   **NetAddressCreating**: The network connection is being created.
-   * *   **NetAddressDeleting**: The network connection is being deleted.
-   * *   **NetAddressModifying**: The network connection is being modified.
-   * *   **MinorVersionUpgrading**: The minor version is being updated.
-   * *   **Maintaining**: The cluster is being maintained.
-   * *   **Switching**: A failover is being performed.
+   * Node status, with possible values as follows:
+   * * **Creating**: Creating
+   * * **Running**: Running
+   * * **Deleting**: Deleting
+   * * **Rebooting**: Rebooting
+   * * **DBNodeCreating**: Adding node
+   * * **DBNodeDeleting**: Removing node
+   * * **ClassChanging**: Modifying node specification
+   * * **NetAddressCreating**: Creating network connection
+   * * **NetAddressDeleting**: Deleting network connection
+   * * **NetAddressModifying**: Modifying network connection
+   * * **MinorVersionUpgrading**: Upgrading minor version
+   * * **Maintaining**: Instance maintenance
+   * * **Switching**: Switching
    * 
    * @example
    * Running
@@ -24626,7 +26063,8 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   DBNodeStatus?: string;
   /**
    * @remarks
-   * The failover priority. Each node is assigned a failover priority. If a failover occurs, a node can be selected as a primary node. The priority determines the probability at which a node is selected as a primary node. A larger value indicates a higher priority. Valid values: 1 to 15.
+   * Failover priority. Each node has a failover priority, determining the likelihood of being elected as the primary node during a failover. A higher value indicates a higher priority.
+   * Range: 1 to 15.
    * 
    * @example
    * 1
@@ -24634,10 +26072,10 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   failoverPriority?: number;
   /**
    * @remarks
-   * Indicates whether the hot standby feature is enabled. Valid values:
+   * Whether hot standby is enabled. Possible values are:
    * 
-   * *   **ON**
-   * *   **OFF**
+   * - **ON**: Enabled
+   * - **OFF**: Disabled
    * 
    * @example
    * ON
@@ -24645,10 +26083,10 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   hotReplicaMode?: string;
   /**
    * @remarks
-   * Indicates whether the In-Memory Column Index (IMCI) feature is enabled. Valid values:
+   * Whether columnar index is enabled. Possible values are:
    * 
-   * *   **ON**
-   * *   **OFF**
+   * - **ON**: Enabled
+   * - **OFF**: Disabled
    * 
    * @example
    * ON
@@ -24656,7 +26094,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   imciSwitch?: string;
   /**
    * @remarks
-   * The ID of the primary node in the cluster that runs Multi-master Cluster Edition.
+   * Primary node ID of the multi-master architecture cluster edition.
    * 
    * @example
    * pi-bp18z52akld3*****
@@ -24664,7 +26102,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   masterId?: string;
   /**
    * @remarks
-   * The maximum number of concurrent connections in the cluster.
+   * Maximum concurrent connections of the cluster.
    * 
    * @example
    * 8000
@@ -24672,34 +26110,55 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   maxConnections?: number;
   /**
    * @remarks
-   * The maximum input/output operations per second (IOPS).
+   * Maximum number of I/O requests, that is, IOPS.
    * 
    * @example
    * 32000
    */
   maxIOPS?: number;
   /**
+   * @remarks
+   * Node memory size, in MB.
+   * 
    * @example
    * 8192
    */
   memorySize?: string;
-  mirrorInsName?: string;
   /**
+   * @remarks
+   * The name of the hot standby compute node corresponding to the node when the hot standby storage and compute clusters feature is enabled.
+   * 
+   * @example
+   * pi-bp18z52mirror*****
+   */
+  mirrorInsName?: string;
+  multiMasterLocalStandby?: string;
+  multiMasterPrimaryNode?: string;
+  /**
+   * @remarks
+   * Orca feature, valid values are:
+   * - on: enabled
+   * - off: disabled
+   * 
    * @example
    * off
    */
   orca?: string;
   /**
+   * @remarks
+   * Remote memory size, in MB.
+   * 
    * @example
    * 3072
    */
   remoteMemorySize?: string;
   /**
    * @remarks
-   * Indicates whether the global consistency (high-performance mode) feature is enabled for the node. Valid values:
+   * Whether the node has the global consistency (high-performance mode) feature enabled. Possible values are:
    * 
-   * *   **ON**
-   * *   **OFF**
+   * - **ON**: Enabled
+   * 
+   * - **OFF**: Disabled
    * 
    * This parameter is required.
    * 
@@ -24709,7 +26168,8 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   sccMode?: string;
   /**
    * @remarks
-   * The routing weight of the node. Valid values: 1 to 100 Default value: 1.
+   * Routing weight.
+   * Range: 1~100. Default is 1.
    * 
    * @example
    * 1
@@ -24717,22 +26177,31 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   serverWeight?: string;
   /**
    * @remarks
-   * The type of the serverless node. Only **AgileServerless** can be returned.
+   * Serverless type. Possible values include:
    * 
-   * > This parameter is supported only for serverless clusters.
+   * - **AgileServerless**: Agile
+   * - **SteadyServerless**: Steady
+   * 
+   * > This parameter is only supported by Serverless clusters.
    * 
    * @example
    * AgileServerless
    */
   serverlessType?: string;
   /**
+   * @remarks
+   * Identifies whether the node is in the primary or standby availability zone, primarily used in resource mirroring scenarios.
+   * Values include:
+   * - **Primary**: Primary Availability Zone
+   * - **Standby**: Standby Availability Zone
+   * 
    * @example
    * Primary
    */
   subCluster?: string;
   /**
    * @remarks
-   * The ID of the zone.
+   * Availability zone ID.
    * 
    * @example
    * cn-hangzhou-i
@@ -24755,6 +26224,8 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       maxIOPS: 'MaxIOPS',
       memorySize: 'MemorySize',
       mirrorInsName: 'MirrorInsName',
+      multiMasterLocalStandby: 'MultiMasterLocalStandby',
+      multiMasterPrimaryNode: 'MultiMasterPrimaryNode',
       orca: 'Orca',
       remoteMemorySize: 'RemoteMemorySize',
       sccMode: 'SccMode',
@@ -24782,6 +26253,8 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       maxIOPS: 'number',
       memorySize: 'string',
       mirrorInsName: 'string',
+      multiMasterLocalStandby: 'string',
+      multiMasterPrimaryNode: 'string',
       orca: 'string',
       remoteMemorySize: 'string',
       sccMode: 'string',
@@ -24800,7 +26273,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
 export class DescribeDBClusterAttributeResponseBodyTags extends $tea.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * Tag key.
    * 
    * @example
    * test
@@ -24808,7 +26281,7 @@ export class DescribeDBClusterAttributeResponseBodyTags extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * Tag value.
    * 
    * @example
    * MySQL
@@ -25461,7 +26934,12 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointList extends $tea.
   addressItems?: DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems[];
   /**
    * @remarks
-   * The type of the source database.
+   * The role of the source database instance.
+   * 
+   * @example
+   * ReadOnly
+   * Maxscale
+   * Primary
    */
   custinsType?: string;
   /**
@@ -26548,6 +28026,16 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
    * false
    */
   expired?: string;
+  /**
+   * @remarks
+   * Indicates whether the hot standby storage cluster feature is enabled. Valid values:
+   * 
+   * *   ON
+   * *   OFF
+   * 
+   * @example
+   * OFF
+   */
   hotStandbyCluster?: string;
   /**
    * @remarks
@@ -28197,6 +29685,13 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClustersDBNodes extends 
 }
 
 export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $tea.Model {
+  /**
+   * @remarks
+   * The edition of the cluster.
+   * 
+   * @example
+   * Normal
+   */
   category?: string;
   /**
    * @remarks
@@ -28647,6 +30142,113 @@ export class DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGr
       globalIgName: 'string',
       globalSecurityGroupId: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseOrdersResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  activatedCodeCount?: number;
+  /**
+   * @example
+   * 10
+   */
+  activationCodeQuota?: number;
+  /**
+   * @example
+   * 227638319690519
+   */
+  aliyunOrderId?: string;
+  /**
+   * @example
+   * false
+   */
+  allowEmptySystemIdentifier?: boolean;
+  /**
+   * @example
+   * PG
+   */
+  engine?: string;
+  /**
+   * @example
+   * 2022-02-11 03:14:15
+   */
+  gmtCreated?: string;
+  /**
+   * @example
+   * 2022-02-11 03:14:15
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * false
+   */
+  isVirtualOrder?: boolean;
+  /**
+   * @example
+   * false
+   */
+  isVirtualOrderFrozen?: boolean;
+  /**
+   * @example
+   * single_node_subscribe
+   */
+  packageType?: string;
+  /**
+   * @example
+   * 1 year
+   */
+  packageValidity?: string;
+  /**
+   * @example
+   * aliyun_public
+   */
+  purchaseChannel?: string;
+  /**
+   * @example
+   * 227638319690519
+   */
+  virtualAliyunOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activatedCodeCount: 'ActivatedCodeCount',
+      activationCodeQuota: 'ActivationCodeQuota',
+      aliyunOrderId: 'AliyunOrderId',
+      allowEmptySystemIdentifier: 'AllowEmptySystemIdentifier',
+      engine: 'Engine',
+      gmtCreated: 'GmtCreated',
+      gmtModified: 'GmtModified',
+      isVirtualOrder: 'IsVirtualOrder',
+      isVirtualOrderFrozen: 'IsVirtualOrderFrozen',
+      packageType: 'PackageType',
+      packageValidity: 'PackageValidity',
+      purchaseChannel: 'PurchaseChannel',
+      virtualAliyunOrderId: 'VirtualAliyunOrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activatedCodeCount: 'number',
+      activationCodeQuota: 'number',
+      aliyunOrderId: 'string',
+      allowEmptySystemIdentifier: 'boolean',
+      engine: 'string',
+      gmtCreated: 'string',
+      gmtModified: 'string',
+      isVirtualOrder: 'boolean',
+      isVirtualOrderFrozen: 'boolean',
+      packageType: 'string',
+      packageValidity: 'string',
+      purchaseChannel: 'string',
+      virtualAliyunOrderId: 'string',
     };
   }
 
@@ -29463,6 +31065,14 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $tea.Model 
   action?: string;
   /**
    * @remarks
+   * The ID of the scheduled task.
+   * 
+   * @example
+   * 86293c29-a03d-4872-b625-***********
+   */
+  crontabJobId?: string;
+  /**
+   * @remarks
    * The cluster ID.
    * 
    * @example
@@ -29558,6 +31168,7 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $tea.Model 
   static names(): { [key: string]: string } {
     return {
       action: 'Action',
+      crontabJobId: 'CrontabJobId',
       DBClusterId: 'DBClusterId',
       dbClusterDescription: 'DbClusterDescription',
       dbClusterStatus: 'DbClusterStatus',
@@ -29576,6 +31187,7 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       action: 'string',
+      crontabJobId: 'string',
       DBClusterId: 'string',
       dbClusterDescription: 'string',
       dbClusterStatus: 'string',
@@ -29615,7 +31227,7 @@ export class DescribeScheduleTasksResponseBodyData extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The details of the scheduled task.
+   * The details of the scheduled tasks.
    */
   timerInfos?: DescribeScheduleTasksResponseBodyDataTimerInfos[];
   /**
@@ -29652,7 +31264,7 @@ export class DescribeScheduleTasksResponseBodyData extends $tea.Model {
 export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.Model {
   /**
    * @remarks
-   * The name of the database.
+   * Database name.
    * 
    * @example
    * testdb
@@ -29660,7 +31272,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.M
   DBName?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * Node ID.
    * 
    * @example
    * pi-*****************
@@ -29668,7 +31280,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.M
   DBNodeId?: string;
   /**
    * @remarks
-   * The time when the SQL statement was executed. The time is in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
+   * Time when the SQL starts execution. The format is `YYYY-MM-DDThh:mmZ` (UTC time).
    * 
    * @example
    * 2021-04-07T03:47Z
@@ -29676,7 +31288,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.M
   executionStartTime?: string;
   /**
    * @remarks
-   * The IP address of the client that is used to connect to the database.
+   * Client address connecting to the database.
    * 
    * @example
    * testdb[testdb] @  [100.**.**.242]
@@ -29684,7 +31296,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.M
   hostAddress?: string;
   /**
    * @remarks
-   * The period of time during which the SQL statement was locked. Unit: seconds.
+   * SQL lock duration in seconds.
    * 
    * @example
    * 0
@@ -29692,7 +31304,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.M
   lockTimes?: number;
   /**
    * @remarks
-   * The number of rows parsed by the SQL statement.
+   * Number of rows parsed.
    * 
    * @example
    * 0
@@ -29700,7 +31312,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.M
   parseRowCounts?: number;
   /**
    * @remarks
-   * The time range for the query. Unit: milliseconds.
+   * Query time. Unit: milliseconds.
    * 
    * @example
    * 100
@@ -29708,7 +31320,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.M
   queryTimeMS?: number;
   /**
    * @remarks
-   * The amount of time that was consumed to execute the SQL statement. Unit: seconds.
+   * SQL execution duration, in seconds.
    * 
    * @example
    * 20
@@ -29716,16 +31328,23 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.M
   queryTimes?: number;
   /**
    * @remarks
-   * The number of rows returned by the SQL statement.
+   * Number of rows returned.
    * 
    * @example
    * 0
    */
   returnRowCounts?: number;
+  /**
+   * @remarks
+   * Unique identifier for the SQL statement in slow log statistics.
+   * 
+   * @example
+   * U2FsdGVk****
+   */
   SQLHash?: string;
   /**
    * @remarks
-   * The SQL statement that is executed in the query.
+   * Query statement.
    */
   SQLText?: string;
   static names(): { [key: string]: string } {
@@ -30245,7 +31864,7 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $tea.Model {
 export class ListTagResourcesRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The key of the tag. To query the details of clusters to which multiple tags are bound, click **Add** to add tags.
+   * The tag key. To query the details of clusters to which multiple tags are added, click **Add** to add tags.
    * 
    * > 
    * 
@@ -30595,9 +32214,9 @@ export class ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGrou
 export class TagResourcesRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The key of the tag. To create multiple tags for a cluster at a time, click **Add** to add tag keys.
+   * The key of the tag that you want to create for the cluster. To create multiple tags for a cluster at a time, click **Add** to add tag keys.
    * 
-   * >  You can create up to 20 tags at a time. A tag consists of a key and a value. Each value of `Tag.N.Key` is paired with a value of `Tag.N.Value`.
+   * >  You can create up to 20 tags for a cluster at a time. The value of `Tag.N.Key` is paired with the value of `Tag.N.Value`.
    * 
    * @example
    * type
@@ -30605,9 +32224,9 @@ export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. To create multiple tags for a cluster at a time, click **Add** to add tag values.
+   * The value of the tag that you want to create for the cluster. To create multiple tags for a cluster at a time, click **Add** to add tag values.
    * 
-   * >  You can create up to 20 tags at a time. A tag consists of a key and a value. Each value of `Tag.N.Value` is paired with a value of `Tag.N.Key`.
+   * >  You can create up to 20 tags for a cluster at a time. The value of `Tag.N.Key` is paired with the value of `Tag.N.Value`.
    * 
    * @example
    * test
@@ -31274,6 +32893,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 生成轻量化版本激活码
+   * 
+   * @param request - CreateActivationCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateActivationCodeResponse
+   */
+  async createActivationCodeWithOptions(request: CreateActivationCodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateActivationCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunOrderId)) {
+      query["AliyunOrderId"] = request.aliyunOrderId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.macAddress)) {
+      query["MacAddress"] = request.macAddress;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.systemIdentifier)) {
+      query["SystemIdentifier"] = request.systemIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateActivationCode",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateActivationCodeResponse>(await this.callApi(params, req, runtime), new CreateActivationCodeResponse({}));
+  }
+
+  /**
+   * 生成轻量化版本激活码
+   * 
+   * @param request - CreateActivationCodeRequest
+   * @returns CreateActivationCodeResponse
+   */
+  async createActivationCode(request: CreateActivationCodeRequest): Promise<CreateActivationCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createActivationCodeWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a full snapshot backup for a PolarDB cluster.
    * 
    * @remarks
@@ -31348,7 +33041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建冷存储实例
+   * Creates a cluster that is used to store cold data.
    * 
    * @param request - CreateColdStorageInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31407,7 +33100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建冷存储实例
+   * Creates a cluster that is used to store cold data.
    * 
    * @param request - CreateColdStorageInstanceRequest
    * @returns CreateColdStorageInstanceResponse
@@ -31418,7 +33111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a PolarDB cluster.
+   * Create Database Cluster
    * 
    * @param request - CreateDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31661,7 +33354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a PolarDB cluster.
+   * Create Database Cluster
    * 
    * @param request - CreateDBClusterRequest
    * @returns CreateDBClusterResponse
@@ -32313,6 +34006,64 @@ export default class Client extends OpenApi {
   async createGlobalSecurityIPGroup(request: CreateGlobalSecurityIPGroupRequest): Promise<CreateGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGlobalSecurityIPGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建或获取虚拟证书订单
+   * 
+   * @param request - CreateOrGetVirtualLicenseOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOrGetVirtualLicenseOrderResponse
+   */
+  async createOrGetVirtualLicenseOrderWithOptions(request: CreateOrGetVirtualLicenseOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrGetVirtualLicenseOrderResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOrGetVirtualLicenseOrder",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOrGetVirtualLicenseOrderResponse>(await this.callApi(params, req, runtime), new CreateOrGetVirtualLicenseOrderResponse({}));
+  }
+
+  /**
+   * 创建或获取虚拟证书订单
+   * 
+   * @param request - CreateOrGetVirtualLicenseOrderRequest
+   * @returns CreateOrGetVirtualLicenseOrderResponse
+   */
+  async createOrGetVirtualLicenseOrder(request: CreateOrGetVirtualLicenseOrderRequest): Promise<CreateOrGetVirtualLicenseOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOrGetVirtualLicenseOrderWithOptions(request, runtime);
   }
 
   /**
@@ -33344,7 +35095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the state of the PolarDB for AI feature for a cluster.
+   * Queries the status of the PolarDB for AI feature.
    * 
    * @param request - DescribeAITaskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33371,7 +35122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the state of the PolarDB for AI feature for a cluster.
+   * Queries the status of the PolarDB for AI feature.
    * 
    * @param request - DescribeAITaskStatusRequest
    * @returns DescribeAITaskStatusResponse
@@ -33449,6 +35200,134 @@ export default class Client extends OpenApi {
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询激活码详情
+   * 
+   * @param request - DescribeActivationCodeDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActivationCodeDetailsResponse
+   */
+  async describeActivationCodeDetailsWithOptions(request: DescribeActivationCodeDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActivationCodeDetailsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.activationCodeId)) {
+      query["ActivationCodeId"] = request.activationCodeId;
+    }
+
+    if (!Util.isUnset(request.aliyunOrderId)) {
+      query["AliyunOrderId"] = request.aliyunOrderId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeActivationCodeDetails",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeActivationCodeDetailsResponse>(await this.callApi(params, req, runtime), new DescribeActivationCodeDetailsResponse({}));
+  }
+
+  /**
+   * 查询激活码详情
+   * 
+   * @param request - DescribeActivationCodeDetailsRequest
+   * @returns DescribeActivationCodeDetailsResponse
+   */
+  async describeActivationCodeDetails(request: DescribeActivationCodeDetailsRequest): Promise<DescribeActivationCodeDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeActivationCodeDetailsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询激活码列表
+   * 
+   * @param request - DescribeActivationCodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActivationCodesResponse
+   */
+  async describeActivationCodesWithOptions(request: DescribeActivationCodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActivationCodesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunOrderId)) {
+      query["AliyunOrderId"] = request.aliyunOrderId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeActivationCodes",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeActivationCodesResponse>(await this.callApi(params, req, runtime), new DescribeActivationCodesResponse({}));
+  }
+
+  /**
+   * 查询激活码列表
+   * 
+   * @param request - DescribeActivationCodesRequest
+   * @returns DescribeActivationCodesResponse
+   */
+  async describeActivationCodes(request: DescribeActivationCodesRequest): Promise<DescribeActivationCodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeActivationCodesWithOptions(request, runtime);
   }
 
   /**
@@ -34738,7 +36617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Transparent Data Encryption (TDE) settings of a PolarDB for MySQL cluster.
+   * Queries the transparent data encryption (TDE) settings of a PolarDB cluster.
    * 
    * @param request - DescribeDBClusterTDERequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34785,7 +36664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Transparent Data Encryption (TDE) settings of a PolarDB for MySQL cluster.
+   * Queries the transparent data encryption (TDE) settings of a PolarDB cluster.
    * 
    * @param request - DescribeDBClusterTDERequest
    * @returns DescribeDBClusterTDEResponse
@@ -35946,6 +37825,142 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看License订单详情
+   * 
+   * @param request - DescribeLicenseOrderDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLicenseOrderDetailsResponse
+   */
+  async describeLicenseOrderDetailsWithOptions(request: DescribeLicenseOrderDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLicenseOrderDetailsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunOrderId)) {
+      query["AliyunOrderId"] = request.aliyunOrderId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLicenseOrderDetails",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLicenseOrderDetailsResponse>(await this.callApi(params, req, runtime), new DescribeLicenseOrderDetailsResponse({}));
+  }
+
+  /**
+   * 查看License订单详情
+   * 
+   * @param request - DescribeLicenseOrderDetailsRequest
+   * @returns DescribeLicenseOrderDetailsResponse
+   */
+  async describeLicenseOrderDetails(request: DescribeLicenseOrderDetailsRequest): Promise<DescribeLicenseOrderDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLicenseOrderDetailsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询License订单列表
+   * 
+   * @param request - DescribeLicenseOrdersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLicenseOrdersResponse
+   */
+  async describeLicenseOrdersWithOptions(request: DescribeLicenseOrdersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLicenseOrdersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunOrderId)) {
+      query["AliyunOrderId"] = request.aliyunOrderId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.packageType)) {
+      query["PackageType"] = request.packageType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.purchaseChannel)) {
+      query["PurchaseChannel"] = request.purchaseChannel;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.virtualOrder)) {
+      query["VirtualOrder"] = request.virtualOrder;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLicenseOrders",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLicenseOrdersResponse>(await this.callApi(params, req, runtime), new DescribeLicenseOrdersResponse({}));
+  }
+
+  /**
+   * 查询License订单列表
+   * 
+   * @param request - DescribeLicenseOrdersRequest
+   * @returns DescribeLicenseOrdersResponse
+   */
+  async describeLicenseOrders(request: DescribeLicenseOrdersRequest): Promise<DescribeLicenseOrdersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLicenseOrdersWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the retention policy of log backups in a PolarDB cluster.
    * 
    * @param request - DescribeLogBackupPolicyRequest
@@ -36700,10 +38715,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the slow query logs of a PolarDB cluster.
+   * Slow Log Details
    * 
    * @remarks
-   * > This operation is applicable only to PolarDB for MySQL clusters.
+   * >- Only PolarDB MySQL Edition clusters support calling this interface.
+   * >- Starting from September 1, 2024, due to the optimization of the SQL template algorithm, when calling this interface, the value of the SQLHash field will change. For more details, please refer to [Notice] Optimization of Slow SQL Template Algorithm (~~2845725~~).
    * 
    * @param request - DescribeSlowLogRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36782,10 +38798,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the slow query logs of a PolarDB cluster.
+   * Slow Log Details
    * 
    * @remarks
-   * > This operation is applicable only to PolarDB for MySQL clusters.
+   * >- Only PolarDB MySQL Edition clusters support calling this interface.
+   * >- Starting from September 1, 2024, due to the optimization of the SQL template algorithm, when calling this interface, the value of the SQLHash field will change. For more details, please refer to [Notice] Optimization of Slow SQL Template Algorithm (~~2845725~~).
    * 
    * @param request - DescribeSlowLogRecordsRequest
    * @returns DescribeSlowLogRecordsResponse
@@ -36884,10 +38901,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the tasks that are generated by calling API operations. For example, you can call this operation to view the details of the task when you create a cluster.
+   * Queries the status of the tasks that are generated based on API operations, such as the status of instance creation tasks.
    * 
    * @remarks
-   *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the console.
+   *   You can call this operation to view the details of a task that is generated by a specific API operation or in the PolarDB console. The system calls the specific API operation when you perform an operation in the PolarDB console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the PolarDB console.
    * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
    * 
    * @param request - DescribeTasksRequest
@@ -36959,10 +38976,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the tasks that are generated by calling API operations. For example, you can call this operation to view the details of the task when you create a cluster.
+   * Queries the status of the tasks that are generated based on API operations, such as the status of instance creation tasks.
    * 
    * @remarks
-   *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the console.
+   *   You can call this operation to view the details of a task that is generated by a specific API operation or in the PolarDB console. The system calls the specific API operation when you perform an operation in the PolarDB console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the PolarDB console.
    * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
    * 
    * @param request - DescribeTasksRequest
@@ -37266,7 +39283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改sql防火墙状态
+   * Modifies the status of SQL firewall rules for a cluster.
    * 
    * @param request - EnableFirewallRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37321,7 +39338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改sql防火墙状态
+   * Modifies the status of SQL firewall rules for a cluster.
    * 
    * @param request - EnableFirewallRulesRequest
    * @returns EnableFirewallRulesResponse
@@ -37584,7 +39601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are bound to one or more PolarDB clusters, or queries the PolarDB clusters to which one or more tags are bound.
+   * Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37647,7 +39664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are bound to one or more PolarDB clusters, or queries the PolarDB clusters to which one or more tags are bound.
+   * Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -38077,6 +40094,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.faultSimulateMode)) {
       query["FaultSimulateMode"] = request.faultSimulateMode;
+    }
+
+    if (!Util.isUnset(request.imciAutoIndex)) {
+      query["ImciAutoIndex"] = request.imciAutoIndex;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -39002,6 +41023,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the configurations of a resource group for a database cluster.
+   * 
    * @param request - ModifyDBClusterResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDBClusterResourceGroupResponse
@@ -39055,6 +41078,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the configurations of a resource group for a database cluster.
+   * 
    * @param request - ModifyDBClusterResourceGroupRequest
    * @returns ModifyDBClusterResourceGroupResponse
    */
@@ -39151,6 +41176,10 @@ export default class Client extends OpenApi {
       query["AllowShutDown"] = request.allowShutDown;
     }
 
+    if (!Util.isUnset(request.crontabJobId)) {
+      query["CrontabJobId"] = request.crontabJobId;
+    }
+
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
@@ -39221,6 +41250,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serverlessRuleMode)) {
       query["ServerlessRuleMode"] = request.serverlessRuleMode;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -39330,7 +41363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the TDE feature or changes the encryption method for a specified PolarDB for MySQL cluster.
+   * Enables the transparent data encryption (TDE) feature for a PolarDB cluster.
    * 
    * @remarks
    * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
@@ -39345,6 +41378,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.enableAutomaticRotation)) {
+      query["EnableAutomaticRotation"] = request.enableAutomaticRotation;
     }
 
     if (!Util.isUnset(request.encryptNewTables)) {
@@ -39397,7 +41434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the TDE feature or changes the encryption method for a specified PolarDB for MySQL cluster.
+   * Enables the transparent data encryption (TDE) feature for a PolarDB cluster.
    * 
    * @remarks
    * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
@@ -39650,7 +41687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables a cluster node.
+   * Enables or disables the hot standby node in a cluster.
    * 
    * @param request - ModifyDBNodeHotReplicaModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -39705,7 +41742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables a cluster node.
+   * Enables or disables the hot standby node in a cluster.
    * 
    * @param request - ModifyDBNodeHotReplicaModeRequest
    * @returns ModifyDBNodeHotReplicaModeResponse
@@ -39884,7 +41921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a Global Database Network (GDN).
+   * Modifies a global database network (GDN).
    * 
    * @param request - ModifyGlobalDatabaseNetworkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -39947,7 +41984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a Global Database Network (GDN).
+   * Modifies a global database network (GDN).
    * 
    * @param request - ModifyGlobalDatabaseNetworkRequest
    * @returns ModifyGlobalDatabaseNetworkResponse
@@ -41076,6 +43113,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates tags for a PolarDB cluster.
+   * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
@@ -41133,6 +43172,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates tags for a PolarDB cluster.
+   * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
    */
@@ -41142,7 +43183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Temporarily upgrades the configuration of a PolarDB cluster or adds one or more nodes to a cluster.
+   * Temporarily changes the node configurations of a cluster.
    * 
    * @param request - TempModifyDBNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41209,7 +43250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Temporarily upgrades the configuration of a PolarDB cluster or adds one or more nodes to a cluster.
+   * Temporarily changes the node configurations of a cluster.
    * 
    * @param request - TempModifyDBNodeRequest
    * @returns TempModifyDBNodeResponse
@@ -41223,9 +43264,10 @@ export default class Client extends OpenApi {
    * Changes the billing method of a PolarDB cluster.
    * 
    * @remarks
-   * > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
-   * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
-   * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+   * > 
+   * *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
+   * *   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
+   * *   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
    * 
    * @param request - TransformDBClusterPayTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41299,9 +43341,10 @@ export default class Client extends OpenApi {
    * Changes the billing method of a PolarDB cluster.
    * 
    * @remarks
-   * > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
-   * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
-   * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+   * > 
+   * *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
+   * *   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
+   * *   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
    * 
    * @param request - TransformDBClusterPayTypeRequest
    * @returns TransformDBClusterPayTypeResponse
