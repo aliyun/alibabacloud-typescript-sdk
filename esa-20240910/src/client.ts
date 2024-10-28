@@ -2293,6 +2293,470 @@ export class CreateCustomScenePolicyResponse extends $tea.Model {
   }
 }
 
+export class CreateEdgeContainerAppRequest extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
+  healthCheckFailTimes?: number;
+  /**
+   * @example
+   * www.aliyun.com
+   */
+  healthCheckHost?: string;
+  /**
+   * @example
+   * http_2xx
+   */
+  healthCheckHttpCode?: string;
+  /**
+   * @example
+   * 5
+   */
+  healthCheckInterval?: number;
+  /**
+   * @example
+   * HEAD
+   */
+  healthCheckMethod?: string;
+  /**
+   * @example
+   * 80
+   */
+  healthCheckPort?: number;
+  /**
+   * @example
+   * 2
+   */
+  healthCheckSuccTimes?: number;
+  /**
+   * @example
+   * 5
+   */
+  healthCheckTimeout?: number;
+  /**
+   * @example
+   * l7
+   */
+  healthCheckType?: string;
+  /**
+   * @example
+   * /health_check
+   */
+  healthCheckURI?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-test
+   */
+  name?: string;
+  /**
+   * @example
+   * test app
+   */
+  remarks?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 80
+   */
+  servicePort?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 80
+   */
+  targetPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      healthCheckFailTimes: 'HealthCheckFailTimes',
+      healthCheckHost: 'HealthCheckHost',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheckPort: 'HealthCheckPort',
+      healthCheckSuccTimes: 'HealthCheckSuccTimes',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      healthCheckType: 'HealthCheckType',
+      healthCheckURI: 'HealthCheckURI',
+      name: 'Name',
+      remarks: 'Remarks',
+      servicePort: 'ServicePort',
+      targetPort: 'TargetPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      healthCheckFailTimes: 'number',
+      healthCheckHost: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckInterval: 'number',
+      healthCheckMethod: 'string',
+      healthCheckPort: 'number',
+      healthCheckSuccTimes: 'number',
+      healthCheckTimeout: 'number',
+      healthCheckType: 'string',
+      healthCheckURI: 'string',
+      name: 'string',
+      remarks: 'string',
+      servicePort: 'number',
+      targetPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEdgeContainerAppResponseBody extends $tea.Model {
+  /**
+   * @example
+   * app-880688675783794688
+   */
+  appId?: string;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEdgeContainerAppResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEdgeContainerAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEdgeContainerAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEdgeContainerAppRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a.example.com
+   */
+  recordName?: string;
+  /**
+   * @example
+   * 5407498413****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      recordName: 'RecordName',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      recordName: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEdgeContainerAppRecordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEdgeContainerAppRecordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEdgeContainerAppRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEdgeContainerAppRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEdgeContainerAppVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [
+   *       {
+   *             "Name": "container1",
+   *             "Image": "image1",
+   *             "Spec": "1C2G",
+   *             "Command": "/bin/sh",
+   *             "Args": "-c hello",
+   *             "ProbeType": "tcpSocket",
+   *             "ProbeContent": "{\\"Port\\":8080}"
+   *       },
+   *       {
+   *             "Name": "container2",
+   *             "Image": "image2",
+   *             "Spec": "2C4G",
+   *             "ProbeType": "httpGet",
+   *             "ProbeContent": "{\\"Path\\":\\"/\\",\\"Port\\":80,\\"InitialDelaySeconds\\":10}"
+   *       }
+   * ]
+   */
+  containers?: CreateEdgeContainerAppVersionRequestContainers[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * verson1
+   */
+  name?: string;
+  /**
+   * @example
+   * test app
+   */
+  remarks?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      containers: 'Containers',
+      name: 'Name',
+      remarks: 'Remarks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      containers: { 'type': 'array', 'itemType': CreateEdgeContainerAppVersionRequestContainers },
+      name: 'string',
+      remarks: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEdgeContainerAppVersionShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [
+   *       {
+   *             "Name": "container1",
+   *             "Image": "image1",
+   *             "Spec": "1C2G",
+   *             "Command": "/bin/sh",
+   *             "Args": "-c hello",
+   *             "ProbeType": "tcpSocket",
+   *             "ProbeContent": "{\\"Port\\":8080}"
+   *       },
+   *       {
+   *             "Name": "container2",
+   *             "Image": "image2",
+   *             "Spec": "2C4G",
+   *             "ProbeType": "httpGet",
+   *             "ProbeContent": "{\\"Path\\":\\"/\\",\\"Port\\":80,\\"InitialDelaySeconds\\":10}"
+   *       }
+   * ]
+   */
+  containersShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * verson1
+   */
+  name?: string;
+  /**
+   * @example
+   * test app
+   */
+  remarks?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      containersShrink: 'Containers',
+      name: 'Name',
+      remarks: 'Remarks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      containersShrink: 'string',
+      name: 'string',
+      remarks: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEdgeContainerAppVersionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  /**
+   * @example
+   * ver-87962637161651****
+   */
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEdgeContainerAppVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEdgeContainerAppVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEdgeContainerAppVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateKvNamespaceRequest extends $tea.Model {
   /**
    * @example
@@ -5156,6 +5620,265 @@ export class DeleteCustomScenePolicyResponse extends $tea.Model {
   }
 }
 
+export class DeleteEdgeContainerAppRequest extends $tea.Model {
+  /**
+   * @example
+   * app-1232321454***
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEdgeContainerAppResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  /**
+   * @example
+   * ok
+   */
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEdgeContainerAppResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEdgeContainerAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEdgeContainerAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEdgeContainerAppRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a.example.com
+   */
+  recordName?: string;
+  /**
+   * @example
+   * 5407498413****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      recordName: 'RecordName',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      recordName: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEdgeContainerAppRecordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEdgeContainerAppRecordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEdgeContainerAppRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEdgeContainerAppRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEdgeContainerAppVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-96253477062511****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ver-89884764010378****
+   */
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEdgeContainerAppVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * b021e538-9dde-46ed-a1f2-9469da8f3e77
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEdgeContainerAppVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEdgeContainerAppVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEdgeContainerAppVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteKvRequest extends $tea.Model {
   /**
    * @remarks
@@ -7963,6 +8686,625 @@ export class GetCacheReserveSpecificationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCacheReserveSpecificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppResponseBody extends $tea.Model {
+  app?: GetEdgeContainerAppResponseBodyApp;
+  /**
+   * @example
+   * 156A6B-677B1A-4297B7-9187B7-2B44792
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      app: 'App',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      app: GetEdgeContainerAppResponseBodyApp,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEdgeContainerAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEdgeContainerAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @example
+   * staging
+   */
+  publishEnv?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      publishEnv: 'PublishEnv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      publishEnv: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppStatusResponseBody extends $tea.Model {
+  appStatus?: GetEdgeContainerAppStatusResponseBodyAppStatus;
+  /**
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247B78
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appStatus: 'AppStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appStatus: GetEdgeContainerAppStatusResponseBodyAppStatus,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEdgeContainerAppStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEdgeContainerAppStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ver-87962637161651****
+   */
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppVersionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  version?: GetEdgeContainerAppVersionResponseBodyVersion;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      version: GetEdgeContainerAppVersionResponseBodyVersion,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEdgeContainerAppVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEdgeContainerAppVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerDeployRegionsRequest extends $tea.Model {
+  /**
+   * @example
+   * GetEdgeContainerDeployRegions
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerDeployRegionsResponseBody extends $tea.Model {
+  regions?: string[];
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerDeployRegionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEdgeContainerDeployRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEdgeContainerDeployRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 500
+   */
+  lines?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      lines: 'Lines',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      lines: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerLogsResponseBody extends $tea.Model {
+  items?: string[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247B78
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerLogsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEdgeContainerLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEdgeContainerLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerStagingDeployStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * GetEdgeContainerStagingDeployStatus
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerStagingDeployStatusResponseBody extends $tea.Model {
+  containersReady?: string;
+  creationTimestamp?: string;
+  initialized?: string;
+  phase?: string;
+  podRestartState?: GetEdgeContainerStagingDeployStatusResponseBodyPodRestartState;
+  ready?: string;
+  requestId?: string;
+  scheduled?: string;
+  VIPs?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      containersReady: 'ContainersReady',
+      creationTimestamp: 'CreationTimestamp',
+      initialized: 'Initialized',
+      phase: 'Phase',
+      podRestartState: 'PodRestartState',
+      ready: 'Ready',
+      requestId: 'RequestId',
+      scheduled: 'Scheduled',
+      VIPs: 'VIPs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containersReady: 'string',
+      creationTimestamp: 'string',
+      initialized: 'string',
+      phase: 'string',
+      podRestartState: GetEdgeContainerStagingDeployStatusResponseBodyPodRestartState,
+      ready: 'string',
+      requestId: 'string',
+      scheduled: 'string',
+      VIPs: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerStagingDeployStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEdgeContainerStagingDeployStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEdgeContainerStagingDeployStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerTerminalRequest extends $tea.Model {
+  /**
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerTerminalResponseBody extends $tea.Model {
+  /**
+   * @example
+   * c497b44c2a59f4ae0bd2826edc40a2c6e
+   */
+  cluster?: string;
+  /**
+   * @example
+   * worker0
+   */
+  container?: string;
+  /**
+   * @example
+   * ns1
+   */
+  namespace?: string;
+  /**
+   * @example
+   * 1775b9e0-8463-457e-89e8-fb7b6d125b2e
+   */
+  pod?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9732E117-8A37-49FD-A36F-ABBB87556CA7
+   */
+  requestId?: string;
+  /**
+   * @example
+   * af22f4xxxxxxxxxxxxxxxxxx
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * af22f4-xxxxx-xxxx-xxxx-xxxx
+   */
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cluster: 'Cluster',
+      container: 'Container',
+      namespace: 'Namespace',
+      pod: 'Pod',
+      requestId: 'RequestId',
+      sessionId: 'SessionId',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cluster: 'string',
+      container: 'string',
+      namespace: 'string',
+      pod: 'string',
+      requestId: 'string',
+      sessionId: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerTerminalResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEdgeContainerTerminalResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEdgeContainerTerminalResponseBody,
     };
   }
 
@@ -11106,6 +12448,146 @@ export class ListEdgeContainerAppRecordsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListEdgeContainerAppRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEdgeContainerAppVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @example
+   * Name
+   */
+  orderKey?: string;
+  /**
+   * @example
+   * DESC
+   */
+  orderType?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * ver-100568263967926****
+   */
+  searchKey?: string;
+  /**
+   * @example
+   * VersionId
+   */
+  searchType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      orderKey: 'OrderKey',
+      orderType: 'OrderType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchKey: 'SearchKey',
+      searchType: 'SearchType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      orderKey: 'string',
+      orderType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      searchKey: 'string',
+      searchType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEdgeContainerAppVersionsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  versions?: ListEdgeContainerAppVersionsResponseBodyVersions[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      versions: 'Versions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      versions: { 'type': 'array', 'itemType': ListEdgeContainerAppVersionsResponseBodyVersions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEdgeContainerAppVersionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEdgeContainerAppVersionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEdgeContainerAppVersionsResponseBody,
     };
   }
 
@@ -14990,6 +16472,206 @@ export class PreloadCachesResponse extends $tea.Model {
   }
 }
 
+export class PublishEdgeContainerAppVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  fullRelease?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  percentage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * prod
+   */
+  publishEnv?: string;
+  publishType?: string;
+  regions?: string[];
+  /**
+   * @example
+   * test publish app
+   */
+  remarks?: string;
+  /**
+   * @example
+   * 2023-06-05T16:00:00Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ver-87962637161651****
+   */
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      fullRelease: 'FullRelease',
+      percentage: 'Percentage',
+      publishEnv: 'PublishEnv',
+      publishType: 'PublishType',
+      regions: 'Regions',
+      remarks: 'Remarks',
+      startTime: 'StartTime',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      fullRelease: 'boolean',
+      percentage: 'number',
+      publishEnv: 'string',
+      publishType: 'string',
+      regions: { 'type': 'array', 'itemType': 'string' },
+      remarks: 'string',
+      startTime: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishEdgeContainerAppVersionShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  fullRelease?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  percentage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * prod
+   */
+  publishEnv?: string;
+  publishType?: string;
+  regionsShrink?: string;
+  /**
+   * @example
+   * test publish app
+   */
+  remarks?: string;
+  /**
+   * @example
+   * 2023-06-05T16:00:00Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ver-87962637161651****
+   */
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      fullRelease: 'FullRelease',
+      percentage: 'Percentage',
+      publishEnv: 'PublishEnv',
+      publishType: 'PublishType',
+      regionsShrink: 'Regions',
+      remarks: 'Remarks',
+      startTime: 'StartTime',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      fullRelease: 'boolean',
+      percentage: 'number',
+      publishEnv: 'string',
+      publishType: 'string',
+      regionsShrink: 'string',
+      remarks: 'string',
+      startTime: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishEdgeContainerAppVersionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishEdgeContainerAppVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PublishEdgeContainerAppVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PublishEdgeContainerAppVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PublishRoutineCodeVersionRequest extends $tea.Model {
   canaryAreaList?: string[];
   canaryCodeVersion?: string;
@@ -15558,6 +17240,80 @@ export class PutKvWithHighCapacityResponse extends $tea.Model {
   }
 }
 
+export class RebuildEdgeContainerAppStagingEnvRequest extends $tea.Model {
+  /**
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebuildEdgeContainerAppStagingEnvResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * CB1A380B-09F0-41BB-3C82-72F8FD6DA2FE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebuildEdgeContainerAppStagingEnvResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RebuildEdgeContainerAppStagingEnvResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RebuildEdgeContainerAppStagingEnvResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResetScheduledPreloadJobRequest extends $tea.Model {
   /**
    * @example
@@ -15663,6 +17419,97 @@ export class ResetScheduledPreloadJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ResetScheduledPreloadJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackEdgeContainerAppVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @example
+   * test rollback app
+   */
+  remarks?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ver-87962637161651****
+   */
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      remarks: 'Remarks',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      remarks: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackEdgeContainerAppVersionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C370DAF1-C838-4288-A1A0-9A87633D248E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackEdgeContainerAppVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RollbackEdgeContainerAppVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RollbackEdgeContainerAppVersionResponseBody,
     };
   }
 
@@ -20667,6 +22514,266 @@ export class BatchPutKvRequestKvList extends $tea.Model {
   }
 }
 
+export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends $tea.Model {
+  /**
+   * @example
+   * 1500.***.net
+   */
+  domain?: string;
+  /**
+   * @example
+   * xcdn-9axbo****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * false
+   */
+  isEnterpriseRegistry?: boolean;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @example
+   * crr-h1ghghu60ct****
+   */
+  repoId?: string;
+  /**
+   * @example
+   * test_71
+   */
+  repoName?: string;
+  /**
+   * @example
+   * safeline
+   */
+  repoNamespace?: string;
+  /**
+   * @example
+   * 3.40.2
+   */
+  tag?: string;
+  tagUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+      isEnterpriseRegistry: 'IsEnterpriseRegistry',
+      regionId: 'RegionId',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+      repoNamespace: 'RepoNamespace',
+      tag: 'Tag',
+      tagUrl: 'TagUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      instanceId: 'string',
+      isEnterpriseRegistry: 'boolean',
+      regionId: 'string',
+      repoId: 'string',
+      repoName: 'string',
+      repoNamespace: 'string',
+      tag: 'string',
+      tagUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends $tea.Model {
+  /**
+   * @example
+   * echo ok
+   */
+  command?: string;
+  /**
+   * @example
+   * 3
+   */
+  failureThreshold?: number;
+  /**
+   * @example
+   * www.rewrite.com
+   */
+  host?: string;
+  /**
+   * @example
+   * [{\\"Content-Type\\":\\"application/json\\"}]
+   */
+  httpHeaders?: string;
+  /**
+   * @example
+   * 1
+   */
+  initialDelaySeconds?: number;
+  /**
+   * @example
+   * /
+   */
+  path?: string;
+  /**
+   * @example
+   * 1
+   */
+  periodSeconds?: number;
+  /**
+   * @example
+   * 9991
+   */
+  port?: number;
+  /**
+   * @example
+   * http
+   */
+  scheme?: string;
+  /**
+   * @example
+   * 1
+   */
+  successThreshold?: number;
+  /**
+   * @example
+   * 1
+   */
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      failureThreshold: 'FailureThreshold',
+      host: 'Host',
+      httpHeaders: 'HttpHeaders',
+      initialDelaySeconds: 'InitialDelaySeconds',
+      path: 'Path',
+      periodSeconds: 'PeriodSeconds',
+      port: 'Port',
+      scheme: 'Scheme',
+      successThreshold: 'SuccessThreshold',
+      timeoutSeconds: 'TimeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      failureThreshold: 'number',
+      host: 'string',
+      httpHeaders: 'string',
+      initialDelaySeconds: 'number',
+      path: 'string',
+      periodSeconds: 'number',
+      port: 'number',
+      scheme: 'string',
+      successThreshold: 'number',
+      timeoutSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEdgeContainerAppVersionRequestContainers extends $tea.Model {
+  ACRImageInfo?: CreateEdgeContainerAppVersionRequestContainersACRImageInfo;
+  args?: string;
+  command?: string;
+  envVariables?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * registry-vpc.cn-shenzhen.aliyuncs.com/lihe****h/ea****ts_serv****am:3.**
+   */
+  image?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
+  isACRImage?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * lxg-demo-er
+   */
+  name?: string;
+  postStart?: string;
+  preStop?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  probeContent?: CreateEdgeContainerAppVersionRequestContainersProbeContent;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  probeType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  spec?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  storage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ACRImageInfo: 'ACRImageInfo',
+      args: 'Args',
+      command: 'Command',
+      envVariables: 'EnvVariables',
+      image: 'Image',
+      isACRImage: 'IsACRImage',
+      name: 'Name',
+      postStart: 'PostStart',
+      preStop: 'PreStop',
+      probeContent: 'ProbeContent',
+      probeType: 'ProbeType',
+      spec: 'Spec',
+      storage: 'Storage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ACRImageInfo: CreateEdgeContainerAppVersionRequestContainersACRImageInfo,
+      args: 'string',
+      command: 'string',
+      envVariables: 'string',
+      image: 'string',
+      isACRImage: 'boolean',
+      name: 'string',
+      postStart: 'string',
+      preStop: 'string',
+      probeContent: CreateEdgeContainerAppVersionRequestContainersProbeContent,
+      probeType: 'string',
+      spec: 'string',
+      storage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRecordRequestAuthConf extends $tea.Model {
   /**
    * @example
@@ -21757,6 +23864,701 @@ export class DescribePurgeTasksResponseBodyTasks extends $tea.Model {
       status: 'string',
       taskId: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppResponseBodyAppHealthCheck extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
+  failTimes?: number;
+  /**
+   * @example
+   * test.com
+   */
+  host?: string;
+  /**
+   * @example
+   * http_2xx
+   */
+  httpCode?: string;
+  /**
+   * @example
+   * 5
+   */
+  interval?: number;
+  /**
+   * @example
+   * HEAD
+   */
+  method?: string;
+  /**
+   * @example
+   * 80
+   */
+  port?: number;
+  /**
+   * @example
+   * 3
+   */
+  succTimes?: number;
+  /**
+   * @example
+   * 60
+   */
+  timeout?: number;
+  /**
+   * @example
+   * l7
+   */
+  type?: string;
+  /**
+   * @example
+   * /health_check
+   */
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failTimes: 'FailTimes',
+      host: 'Host',
+      httpCode: 'HttpCode',
+      interval: 'Interval',
+      method: 'Method',
+      port: 'Port',
+      succTimes: 'SuccTimes',
+      timeout: 'Timeout',
+      type: 'Type',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failTimes: 'number',
+      host: 'string',
+      httpCode: 'string',
+      interval: 'number',
+      method: 'string',
+      port: 'number',
+      succTimes: 'number',
+      timeout: 'number',
+      type: 'string',
+      uri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppResponseBodyApp extends $tea.Model {
+  /**
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 2023-07-25T05:58:05Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * www.1feel.cn
+   */
+  domainName?: string;
+  /**
+   * @example
+   * l7
+   */
+  gatewayType?: string;
+  healthCheck?: GetEdgeContainerAppResponseBodyAppHealthCheck;
+  /**
+   * @example
+   * test-app1
+   */
+  name?: string;
+  /**
+   * @example
+   * false
+   */
+  quicCid?: string;
+  /**
+   * @example
+   * test app
+   */
+  remarks?: string;
+  /**
+   * @example
+   * 80
+   */
+  servicePort?: number;
+  /**
+   * @example
+   * created
+   */
+  status?: string;
+  /**
+   * @example
+   * 80
+   */
+  targetPort?: number;
+  /**
+   * @example
+   * 2023-03-26T02:35:58Z
+   */
+  updateTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  versionCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      createTime: 'CreateTime',
+      domainName: 'DomainName',
+      gatewayType: 'GatewayType',
+      healthCheck: 'HealthCheck',
+      name: 'Name',
+      quicCid: 'QuicCid',
+      remarks: 'Remarks',
+      servicePort: 'ServicePort',
+      status: 'Status',
+      targetPort: 'TargetPort',
+      updateTime: 'UpdateTime',
+      versionCount: 'VersionCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      createTime: 'string',
+      domainName: 'string',
+      gatewayType: 'string',
+      healthCheck: GetEdgeContainerAppResponseBodyAppHealthCheck,
+      name: 'string',
+      quicCid: 'string',
+      remarks: 'string',
+      servicePort: 'number',
+      status: 'string',
+      targetPort: 'number',
+      updateTime: 'string',
+      versionCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppStatusResponseBodyAppStatusRegions extends $tea.Model {
+  region?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $tea.Model {
+  /**
+   * @example
+   * ver-123123123123****
+   */
+  baseLineVersion?: string;
+  /**
+   * @example
+   * undeploy
+   */
+  deployStatus?: string;
+  /**
+   * @example
+   * 2024-07-25T05:58:05Z
+   */
+  deployTime?: string;
+  /**
+   * @example
+   * ver-123123123123****
+   */
+  deployedVersion?: string;
+  /**
+   * @example
+   * 50%
+   */
+  expectPercentage?: number;
+  fullRelease?: boolean;
+  /**
+   * @example
+   * prod
+   */
+  publishEnv?: string;
+  /**
+   * @example
+   * 50%
+   */
+  publishPercentage?: number;
+  /**
+   * @example
+   * pubishing
+   */
+  publishStatus?: string;
+  /**
+   * @example
+   * 2024-07-25T05:58:05Z
+   */
+  publishTime?: string;
+  publishType?: string;
+  /**
+   * @example
+   * ver-123123123123****
+   */
+  publishingVersion?: string;
+  regions?: GetEdgeContainerAppStatusResponseBodyAppStatusRegions;
+  /**
+   * @example
+   * 2024-07-25T05:58:05Z
+   */
+  rollbackTime?: string;
+  /**
+   * @example
+   * 2024-07-25T05:58:05Z
+   */
+  unDeployTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseLineVersion: 'BaseLineVersion',
+      deployStatus: 'DeployStatus',
+      deployTime: 'DeployTime',
+      deployedVersion: 'DeployedVersion',
+      expectPercentage: 'ExpectPercentage',
+      fullRelease: 'FullRelease',
+      publishEnv: 'PublishEnv',
+      publishPercentage: 'PublishPercentage',
+      publishStatus: 'PublishStatus',
+      publishTime: 'PublishTime',
+      publishType: 'PublishType',
+      publishingVersion: 'PublishingVersion',
+      regions: 'Regions',
+      rollbackTime: 'RollbackTime',
+      unDeployTime: 'UnDeployTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseLineVersion: 'string',
+      deployStatus: 'string',
+      deployTime: 'string',
+      deployedVersion: 'string',
+      expectPercentage: 'number',
+      fullRelease: 'boolean',
+      publishEnv: 'string',
+      publishPercentage: 'number',
+      publishStatus: 'string',
+      publishTime: 'string',
+      publishType: 'string',
+      publishingVersion: 'string',
+      regions: GetEdgeContainerAppStatusResponseBodyAppStatusRegions,
+      rollbackTime: 'string',
+      unDeployTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppVersionResponseBodyVersionContainersACRImageInfo extends $tea.Model {
+  /**
+   * @example
+   * *.mooc.seewo.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * xcdn-9ak2thl14z5s
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * false
+   */
+  isEnterpriseRegistry?: boolean;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * crr-zeu0xyk28alyxozh
+   */
+  repoId?: string;
+  /**
+   * @example
+   * test_1
+   */
+  repoName?: string;
+  /**
+   * @example
+   * wpy1
+   */
+  repoNamespace?: string;
+  /**
+   * @example
+   * test-healthy-100-soa-1710987653
+   */
+  tag?: string;
+  /**
+   * @example
+   * registry-vpc.cn-shenzhen.aliyuncs.com/lihetech/easywits_server_exam:3.40.2
+   */
+  tagUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+      isEnterpriseRegistry: 'IsEnterpriseRegistry',
+      regionId: 'RegionId',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+      repoNamespace: 'RepoNamespace',
+      tag: 'Tag',
+      tagUrl: 'TagUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      instanceId: 'string',
+      isEnterpriseRegistry: 'boolean',
+      regionId: 'string',
+      repoId: 'string',
+      repoName: 'string',
+      repoNamespace: 'string',
+      tag: 'string',
+      tagUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent extends $tea.Model {
+  /**
+   * @example
+   * sh test.sh
+   */
+  command?: string;
+  /**
+   * @example
+   * 3
+   */
+  failureThreshold?: number;
+  /**
+   * @example
+   * test.com
+   */
+  host?: string;
+  /**
+   * @example
+   * [{\\"Content-Type\\":\\"application/json
+   */
+  httpHeaders?: string;
+  /**
+   * @example
+   * 20
+   */
+  initialDelaySeconds?: number;
+  /**
+   * @example
+   * /health_check
+   */
+  path?: string;
+  /**
+   * @example
+   * 5
+   */
+  periodSeconds?: number;
+  /**
+   * @example
+   * 80
+   */
+  port?: number;
+  /**
+   * @example
+   * http
+   */
+  scheme?: string;
+  /**
+   * @example
+   * 1
+   */
+  successThreshold?: number;
+  /**
+   * @example
+   * 5
+   */
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      failureThreshold: 'FailureThreshold',
+      host: 'Host',
+      httpHeaders: 'HttpHeaders',
+      initialDelaySeconds: 'InitialDelaySeconds',
+      path: 'Path',
+      periodSeconds: 'PeriodSeconds',
+      port: 'Port',
+      scheme: 'Scheme',
+      successThreshold: 'SuccessThreshold',
+      timeoutSeconds: 'TimeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      failureThreshold: 'number',
+      host: 'string',
+      httpHeaders: 'string',
+      initialDelaySeconds: 'number',
+      path: 'string',
+      periodSeconds: 'number',
+      port: 'number',
+      scheme: 'string',
+      successThreshold: 'number',
+      timeoutSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $tea.Model {
+  ACRImageInfo?: GetEdgeContainerAppVersionResponseBodyVersionContainersACRImageInfo;
+  /**
+   * @example
+   * -c /path/config.toml
+   */
+  args?: string;
+  /**
+   * @example
+   * sh abc.sh 1 2 3
+   */
+  command?: string;
+  /**
+   * @example
+   * ENV=prod
+   */
+  envVariables?: string;
+  /**
+   * @example
+   * nginx:1.14.0
+   */
+  image?: string;
+  /**
+   * @example
+   * false
+   */
+  isACRImage?: boolean;
+  /**
+   * @example
+   * version01
+   */
+  name?: string;
+  /**
+   * @example
+   * {\\"exec\\":{\\"command\\":[\\"touch\\",\\"/home/admin/checkpoststartV1\\"]}}
+   */
+  postStart?: string;
+  /**
+   * @example
+   * sh prestart.sh "echo hello world"
+   */
+  preStart?: string;
+  /**
+   * @example
+   * sh prestop.sh "echo hello world"
+   */
+  preStop?: string;
+  probeContent?: GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent;
+  /**
+   * @example
+   * httpGet
+   */
+  probeType?: string;
+  /**
+   * @example
+   * 1C2G
+   */
+  spec?: string;
+  storage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ACRImageInfo: 'ACRImageInfo',
+      args: 'Args',
+      command: 'Command',
+      envVariables: 'EnvVariables',
+      image: 'Image',
+      isACRImage: 'IsACRImage',
+      name: 'Name',
+      postStart: 'PostStart',
+      preStart: 'PreStart',
+      preStop: 'PreStop',
+      probeContent: 'ProbeContent',
+      probeType: 'ProbeType',
+      spec: 'Spec',
+      storage: 'Storage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ACRImageInfo: GetEdgeContainerAppVersionResponseBodyVersionContainersACRImageInfo,
+      args: 'string',
+      command: 'string',
+      envVariables: 'string',
+      image: 'string',
+      isACRImage: 'boolean',
+      name: 'string',
+      postStart: 'string',
+      preStart: 'string',
+      preStop: 'string',
+      probeContent: GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent,
+      probeType: 'string',
+      spec: 'string',
+      storage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppVersionResponseBodyVersion extends $tea.Model {
+  /**
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  containers?: GetEdgeContainerAppVersionResponseBodyVersionContainers[];
+  /**
+   * @example
+   * 2022-07-01T09:32:33Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 2023-07-25T04:58:05Z
+   */
+  lastPublishTime?: string;
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * 2022-11-14T02:04:03Z
+   */
+  publishTime?: string;
+  /**
+   * @example
+   * aaa
+   */
+  remarks?: string;
+  /**
+   * @example
+   * created
+   */
+  status?: string;
+  /**
+   * @example
+   * 2021-12-03T10:52:52Z
+   */
+  updateTime?: string;
+  /**
+   * @example
+   * ver-87962637161651****
+   */
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      containers: 'Containers',
+      createTime: 'CreateTime',
+      lastPublishTime: 'LastPublishTime',
+      name: 'Name',
+      publishTime: 'PublishTime',
+      remarks: 'Remarks',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      containers: { 'type': 'array', 'itemType': GetEdgeContainerAppVersionResponseBodyVersionContainers },
+      createTime: 'string',
+      lastPublishTime: 'string',
+      name: 'string',
+      publishTime: 'string',
+      remarks: 'string',
+      status: 'string',
+      updateTime: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerStagingDeployStatusResponseBodyPodRestartState extends $tea.Model {
+  lastTerminatedReason?: string;
+  restartCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lastTerminatedReason: 'LastTerminatedReason',
+      restartCount: 'RestartCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lastTerminatedReason: 'string',
+      restartCount: 'number',
     };
   }
 
@@ -23003,6 +25805,270 @@ export class ListEdgeContainerAppRecordsResponseBodyRecords extends $tea.Model {
       schemdId: 'number',
       siteId: 'number',
       updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeContent extends $tea.Model {
+  /**
+   * @example
+   * openresty -g  "daemon off;
+   */
+  command?: string;
+  /**
+   * @example
+   * 3
+   */
+  failureThreshold?: number;
+  /**
+   * @example
+   * test.com
+   */
+  host?: string;
+  /**
+   * @example
+   * {\\"Content-Type\\":\\"application/json\\"}
+   */
+  httpHeaders?: string;
+  /**
+   * @example
+   * 10
+   */
+  initialDelaySeconds?: number;
+  /**
+   * @example
+   * /health_check
+   */
+  path?: string;
+  /**
+   * @example
+   * 5
+   */
+  periodSeconds?: number;
+  /**
+   * @example
+   * 80
+   */
+  port?: number;
+  /**
+   * @example
+   * http
+   */
+  scheme?: string;
+  /**
+   * @example
+   * 1
+   */
+  successThreshold?: number;
+  /**
+   * @example
+   * 30
+   */
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      failureThreshold: 'FailureThreshold',
+      host: 'Host',
+      httpHeaders: 'HttpHeaders',
+      initialDelaySeconds: 'InitialDelaySeconds',
+      path: 'Path',
+      periodSeconds: 'PeriodSeconds',
+      port: 'Port',
+      scheme: 'Scheme',
+      successThreshold: 'SuccessThreshold',
+      timeoutSeconds: 'TimeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      failureThreshold: 'number',
+      host: 'string',
+      httpHeaders: 'string',
+      initialDelaySeconds: 'number',
+      path: 'string',
+      periodSeconds: 'number',
+      port: 'number',
+      scheme: 'string',
+      successThreshold: 'number',
+      timeoutSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends $tea.Model {
+  /**
+   * @example
+   * -c a=1
+   */
+  args?: string;
+  /**
+   * @example
+   * openresty -g \\"daemon off;\\"
+   */
+  command?: string;
+  /**
+   * @example
+   * ENV=prod
+   */
+  envVariables?: string;
+  /**
+   * @example
+   * nginx
+   */
+  image?: string;
+  /**
+   * @example
+   * container1
+   */
+  name?: string;
+  /**
+   * @example
+   * {\\"exec\\":{\\"command\\":[\\"bash\\",\\"-c\\",\\"cd /home/admin/
+   */
+  postStart?: string;
+  /**
+   * @example
+   * sh start.sh
+   */
+  preStart?: string;
+  /**
+   * @example
+   * sh stop.sh
+   */
+  preStop?: string;
+  probeContent?: ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeContent;
+  /**
+   * @example
+   * httpGet
+   */
+  probeType?: string;
+  /**
+   * @example
+   * 1C2G
+   */
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      command: 'Command',
+      envVariables: 'EnvVariables',
+      image: 'Image',
+      name: 'Name',
+      postStart: 'PostStart',
+      preStart: 'PreStart',
+      preStop: 'PreStop',
+      probeContent: 'ProbeContent',
+      probeType: 'ProbeType',
+      spec: 'Spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      command: 'string',
+      envVariables: 'string',
+      image: 'string',
+      name: 'string',
+      postStart: 'string',
+      preStart: 'string',
+      preStop: 'string',
+      probeContent: ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeContent,
+      probeType: 'string',
+      spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEdgeContainerAppVersionsResponseBodyVersions extends $tea.Model {
+  /**
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  containers?: ListEdgeContainerAppVersionsResponseBodyVersionsContainers[];
+  /**
+   * @example
+   * 2022-11-10T02:53:16Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 2023-02-10T02:48:36Z
+   */
+  lastPublishTime?: string;
+  /**
+   * @example
+   * version01
+   */
+  name?: string;
+  /**
+   * @example
+   * 2023-02-10T02:48:36Z
+   */
+  publishTime?: string;
+  /**
+   * @example
+   * test version
+   */
+  remarks?: string;
+  /**
+   * @example
+   * created
+   */
+  status?: string;
+  /**
+   * @example
+   * 2023-04-16 10:51:00
+   */
+  updateTime?: string;
+  /**
+   * @example
+   * ver-87962637161651****
+   */
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      containers: 'Containers',
+      createTime: 'CreateTime',
+      lastPublishTime: 'LastPublishTime',
+      name: 'Name',
+      publishTime: 'PublishTime',
+      remarks: 'Remarks',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      containers: { 'type': 'array', 'itemType': ListEdgeContainerAppVersionsResponseBodyVersionsContainers },
+      createTime: 'string',
+      lastPublishTime: 'string',
+      name: 'string',
+      publishTime: 'string',
+      remarks: 'string',
+      status: 'string',
+      updateTime: 'string',
+      versionId: 'string',
     };
   }
 
@@ -26795,6 +29861,210 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建边缘容器的应用
+   * 
+   * @param request - CreateEdgeContainerAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEdgeContainerAppResponse
+   */
+  async createEdgeContainerAppWithOptions(request: CreateEdgeContainerAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateEdgeContainerAppResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.healthCheckFailTimes)) {
+      body["HealthCheckFailTimes"] = request.healthCheckFailTimes;
+    }
+
+    if (!Util.isUnset(request.healthCheckHost)) {
+      body["HealthCheckHost"] = request.healthCheckHost;
+    }
+
+    if (!Util.isUnset(request.healthCheckHttpCode)) {
+      body["HealthCheckHttpCode"] = request.healthCheckHttpCode;
+    }
+
+    if (!Util.isUnset(request.healthCheckInterval)) {
+      body["HealthCheckInterval"] = request.healthCheckInterval;
+    }
+
+    if (!Util.isUnset(request.healthCheckMethod)) {
+      body["HealthCheckMethod"] = request.healthCheckMethod;
+    }
+
+    if (!Util.isUnset(request.healthCheckPort)) {
+      body["HealthCheckPort"] = request.healthCheckPort;
+    }
+
+    if (!Util.isUnset(request.healthCheckSuccTimes)) {
+      body["HealthCheckSuccTimes"] = request.healthCheckSuccTimes;
+    }
+
+    if (!Util.isUnset(request.healthCheckTimeout)) {
+      body["HealthCheckTimeout"] = request.healthCheckTimeout;
+    }
+
+    if (!Util.isUnset(request.healthCheckType)) {
+      body["HealthCheckType"] = request.healthCheckType;
+    }
+
+    if (!Util.isUnset(request.healthCheckURI)) {
+      body["HealthCheckURI"] = request.healthCheckURI;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.remarks)) {
+      body["Remarks"] = request.remarks;
+    }
+
+    if (!Util.isUnset(request.servicePort)) {
+      body["ServicePort"] = request.servicePort;
+    }
+
+    if (!Util.isUnset(request.targetPort)) {
+      body["TargetPort"] = request.targetPort;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEdgeContainerApp",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEdgeContainerAppResponse>(await this.callApi(params, req, runtime), new CreateEdgeContainerAppResponse({}));
+  }
+
+  /**
+   * 创建边缘容器的应用
+   * 
+   * @param request - CreateEdgeContainerAppRequest
+   * @returns CreateEdgeContainerAppResponse
+   */
+  async createEdgeContainerApp(request: CreateEdgeContainerAppRequest): Promise<CreateEdgeContainerAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createEdgeContainerAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一个边缘容器应用的域名记录
+   * 
+   * @param request - CreateEdgeContainerAppRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEdgeContainerAppRecordResponse
+   */
+  async createEdgeContainerAppRecordWithOptions(request: CreateEdgeContainerAppRecordRequest, runtime: $Util.RuntimeOptions): Promise<CreateEdgeContainerAppRecordResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.recordName)) {
+      body["RecordName"] = request.recordName;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      body["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEdgeContainerAppRecord",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEdgeContainerAppRecordResponse>(await this.callApi(params, req, runtime), new CreateEdgeContainerAppRecordResponse({}));
+  }
+
+  /**
+   * 创建一个边缘容器应用的域名记录
+   * 
+   * @param request - CreateEdgeContainerAppRecordRequest
+   * @returns CreateEdgeContainerAppRecordResponse
+   */
+  async createEdgeContainerAppRecord(request: CreateEdgeContainerAppRecordRequest): Promise<CreateEdgeContainerAppRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createEdgeContainerAppRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建边缘容器应用的版本
+   * 
+   * @param tmpReq - CreateEdgeContainerAppVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEdgeContainerAppVersionResponse
+   */
+  async createEdgeContainerAppVersionWithOptions(tmpReq: CreateEdgeContainerAppVersionRequest, runtime: $Util.RuntimeOptions): Promise<CreateEdgeContainerAppVersionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateEdgeContainerAppVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.containers)) {
+      request.containersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.containers, "Containers", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.containersShrink)) {
+      body["Containers"] = request.containersShrink;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.remarks)) {
+      body["Remarks"] = request.remarks;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEdgeContainerAppVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEdgeContainerAppVersionResponse>(await this.callApi(params, req, runtime), new CreateEdgeContainerAppVersionResponse({}));
+  }
+
+  /**
+   * 创建边缘容器应用的版本
+   * 
+   * @param request - CreateEdgeContainerAppVersionRequest
+   * @returns CreateEdgeContainerAppVersionResponse
+   */
+  async createEdgeContainerAppVersion(request: CreateEdgeContainerAppVersionRequest): Promise<CreateEdgeContainerAppVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createEdgeContainerAppVersionWithOptions(request, runtime);
+  }
+
+  /**
    * 添加Namespace
    * 
    * @param request - CreateKvNamespaceRequest
@@ -28036,6 +31306,144 @@ export default class Client extends OpenApi {
   async deleteCustomScenePolicy(request: DeleteCustomScenePolicyRequest): Promise<DeleteCustomScenePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomScenePolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除边缘容器的应用
+   * 
+   * @param request - DeleteEdgeContainerAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEdgeContainerAppResponse
+   */
+  async deleteEdgeContainerAppWithOptions(request: DeleteEdgeContainerAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEdgeContainerAppResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEdgeContainerApp",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEdgeContainerAppResponse>(await this.callApi(params, req, runtime), new DeleteEdgeContainerAppResponse({}));
+  }
+
+  /**
+   * 删除边缘容器的应用
+   * 
+   * @param request - DeleteEdgeContainerAppRequest
+   * @returns DeleteEdgeContainerAppResponse
+   */
+  async deleteEdgeContainerApp(request: DeleteEdgeContainerAppRequest): Promise<DeleteEdgeContainerAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEdgeContainerAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除一个边缘容器应用的域名记录
+   * 
+   * @param request - DeleteEdgeContainerAppRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEdgeContainerAppRecordResponse
+   */
+  async deleteEdgeContainerAppRecordWithOptions(request: DeleteEdgeContainerAppRecordRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEdgeContainerAppRecordResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.recordName)) {
+      body["RecordName"] = request.recordName;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      body["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEdgeContainerAppRecord",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEdgeContainerAppRecordResponse>(await this.callApi(params, req, runtime), new DeleteEdgeContainerAppRecordResponse({}));
+  }
+
+  /**
+   * 删除一个边缘容器应用的域名记录
+   * 
+   * @param request - DeleteEdgeContainerAppRecordRequest
+   * @returns DeleteEdgeContainerAppRecordResponse
+   */
+  async deleteEdgeContainerAppRecord(request: DeleteEdgeContainerAppRecordRequest): Promise<DeleteEdgeContainerAppRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEdgeContainerAppRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除边缘容器应用的版本
+   * 
+   * @param request - DeleteEdgeContainerAppVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEdgeContainerAppVersionResponse
+   */
+  async deleteEdgeContainerAppVersionWithOptions(request: DeleteEdgeContainerAppVersionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEdgeContainerAppVersionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEdgeContainerAppVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEdgeContainerAppVersionResponse>(await this.callApi(params, req, runtime), new DeleteEdgeContainerAppVersionResponse({}));
+  }
+
+  /**
+   * 删除边缘容器应用的版本
+   * 
+   * @param request - DeleteEdgeContainerAppVersionRequest
+   * @returns DeleteEdgeContainerAppVersionResponse
+   */
+  async deleteEdgeContainerAppVersion(request: DeleteEdgeContainerAppVersionRequest): Promise<DeleteEdgeContainerAppVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEdgeContainerAppVersionWithOptions(request, runtime);
   }
 
   /**
@@ -29455,6 +32863,288 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取边缘容器应用信息
+   * 
+   * @param request - GetEdgeContainerAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEdgeContainerAppResponse
+   */
+  async getEdgeContainerAppWithOptions(request: GetEdgeContainerAppRequest, runtime: $Util.RuntimeOptions): Promise<GetEdgeContainerAppResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEdgeContainerApp",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEdgeContainerAppResponse>(await this.callApi(params, req, runtime), new GetEdgeContainerAppResponse({}));
+  }
+
+  /**
+   * 获取边缘容器应用信息
+   * 
+   * @param request - GetEdgeContainerAppRequest
+   * @returns GetEdgeContainerAppResponse
+   */
+  async getEdgeContainerApp(request: GetEdgeContainerAppRequest): Promise<GetEdgeContainerAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEdgeContainerAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取边缘容器应用的状态信息
+   * 
+   * @param request - GetEdgeContainerAppStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEdgeContainerAppStatusResponse
+   */
+  async getEdgeContainerAppStatusWithOptions(request: GetEdgeContainerAppStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetEdgeContainerAppStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.publishEnv)) {
+      query["PublishEnv"] = request.publishEnv;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEdgeContainerAppStatus",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEdgeContainerAppStatusResponse>(await this.callApi(params, req, runtime), new GetEdgeContainerAppStatusResponse({}));
+  }
+
+  /**
+   * 获取边缘容器应用的状态信息
+   * 
+   * @param request - GetEdgeContainerAppStatusRequest
+   * @returns GetEdgeContainerAppStatusResponse
+   */
+  async getEdgeContainerAppStatus(request: GetEdgeContainerAppStatusRequest): Promise<GetEdgeContainerAppStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEdgeContainerAppStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取边缘容器应用的某个版本信息
+   * 
+   * @param request - GetEdgeContainerAppVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEdgeContainerAppVersionResponse
+   */
+  async getEdgeContainerAppVersionWithOptions(request: GetEdgeContainerAppVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetEdgeContainerAppVersionResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEdgeContainerAppVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEdgeContainerAppVersionResponse>(await this.callApi(params, req, runtime), new GetEdgeContainerAppVersionResponse({}));
+  }
+
+  /**
+   * 获取边缘容器应用的某个版本信息
+   * 
+   * @param request - GetEdgeContainerAppVersionRequest
+   * @returns GetEdgeContainerAppVersionResponse
+   */
+  async getEdgeContainerAppVersion(request: GetEdgeContainerAppVersionRequest): Promise<GetEdgeContainerAppVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEdgeContainerAppVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取边缘容器应用部署区域
+   * 
+   * @param request - GetEdgeContainerDeployRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEdgeContainerDeployRegionsResponse
+   */
+  async getEdgeContainerDeployRegionsWithOptions(request: GetEdgeContainerDeployRegionsRequest, runtime: $Util.RuntimeOptions): Promise<GetEdgeContainerDeployRegionsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEdgeContainerDeployRegions",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEdgeContainerDeployRegionsResponse>(await this.callApi(params, req, runtime), new GetEdgeContainerDeployRegionsResponse({}));
+  }
+
+  /**
+   * 获取边缘容器应用部署区域
+   * 
+   * @param request - GetEdgeContainerDeployRegionsRequest
+   * @returns GetEdgeContainerDeployRegionsResponse
+   */
+  async getEdgeContainerDeployRegions(request: GetEdgeContainerDeployRegionsRequest): Promise<GetEdgeContainerDeployRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEdgeContainerDeployRegionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取边缘容器日志信息
+   * 
+   * @param request - GetEdgeContainerLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEdgeContainerLogsResponse
+   */
+  async getEdgeContainerLogsWithOptions(request: GetEdgeContainerLogsRequest, runtime: $Util.RuntimeOptions): Promise<GetEdgeContainerLogsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEdgeContainerLogs",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEdgeContainerLogsResponse>(await this.callApi(params, req, runtime), new GetEdgeContainerLogsResponse({}));
+  }
+
+  /**
+   * 获取边缘容器日志信息
+   * 
+   * @param request - GetEdgeContainerLogsRequest
+   * @returns GetEdgeContainerLogsResponse
+   */
+  async getEdgeContainerLogs(request: GetEdgeContainerLogsRequest): Promise<GetEdgeContainerLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEdgeContainerLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取应用测试环境部署状态
+   * 
+   * @param request - GetEdgeContainerStagingDeployStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEdgeContainerStagingDeployStatusResponse
+   */
+  async getEdgeContainerStagingDeployStatusWithOptions(request: GetEdgeContainerStagingDeployStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetEdgeContainerStagingDeployStatusResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEdgeContainerStagingDeployStatus",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEdgeContainerStagingDeployStatusResponse>(await this.callApi(params, req, runtime), new GetEdgeContainerStagingDeployStatusResponse({}));
+  }
+
+  /**
+   * 获取应用测试环境部署状态
+   * 
+   * @param request - GetEdgeContainerStagingDeployStatusRequest
+   * @returns GetEdgeContainerStagingDeployStatusResponse
+   */
+  async getEdgeContainerStagingDeployStatus(request: GetEdgeContainerStagingDeployStatusRequest): Promise<GetEdgeContainerStagingDeployStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEdgeContainerStagingDeployStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取边缘容器应用终端信息
+   * 
+   * @param request - GetEdgeContainerTerminalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEdgeContainerTerminalResponse
+   */
+  async getEdgeContainerTerminalWithOptions(request: GetEdgeContainerTerminalRequest, runtime: $Util.RuntimeOptions): Promise<GetEdgeContainerTerminalResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEdgeContainerTerminal",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEdgeContainerTerminalResponse>(await this.callApi(params, req, runtime), new GetEdgeContainerTerminalResponse({}));
+  }
+
+  /**
+   * 获取边缘容器应用终端信息
+   * 
+   * @param request - GetEdgeContainerTerminalRequest
+   * @returns GetEdgeContainerTerminalResponse
+   */
+  async getEdgeContainerTerminal(request: GetEdgeContainerTerminalRequest): Promise<GetEdgeContainerTerminalResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEdgeContainerTerminalWithOptions(request, runtime);
+  }
+
+  /**
    * GetErService
    * 
    * @param request - GetErServiceRequest
@@ -30671,6 +34361,44 @@ export default class Client extends OpenApi {
   async listEdgeContainerAppRecords(request: ListEdgeContainerAppRecordsRequest): Promise<ListEdgeContainerAppRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEdgeContainerAppRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取边缘容器应用的全部版本信息
+   * 
+   * @param request - ListEdgeContainerAppVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEdgeContainerAppVersionsResponse
+   */
+  async listEdgeContainerAppVersionsWithOptions(request: ListEdgeContainerAppVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListEdgeContainerAppVersionsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEdgeContainerAppVersions",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEdgeContainerAppVersionsResponse>(await this.callApi(params, req, runtime), new ListEdgeContainerAppVersionsResponse({}));
+  }
+
+  /**
+   * 获取边缘容器应用的全部版本信息
+   * 
+   * @param request - ListEdgeContainerAppVersionsRequest
+   * @returns ListEdgeContainerAppVersionsResponse
+   */
+  async listEdgeContainerAppVersions(request: ListEdgeContainerAppVersionsRequest): Promise<ListEdgeContainerAppVersionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEdgeContainerAppVersionsWithOptions(request, runtime);
   }
 
   /**
@@ -32114,6 +35842,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发布边缘容器应用的某个版本
+   * 
+   * @param tmpReq - PublishEdgeContainerAppVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishEdgeContainerAppVersionResponse
+   */
+  async publishEdgeContainerAppVersionWithOptions(tmpReq: PublishEdgeContainerAppVersionRequest, runtime: $Util.RuntimeOptions): Promise<PublishEdgeContainerAppVersionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PublishEdgeContainerAppVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.regions)) {
+      request.regionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regions, "Regions", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.fullRelease)) {
+      query["FullRelease"] = request.fullRelease;
+    }
+
+    if (!Util.isUnset(request.publishType)) {
+      query["PublishType"] = request.publishType;
+    }
+
+    if (!Util.isUnset(request.regionsShrink)) {
+      query["Regions"] = request.regionsShrink;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.percentage)) {
+      body["Percentage"] = request.percentage;
+    }
+
+    if (!Util.isUnset(request.publishEnv)) {
+      body["PublishEnv"] = request.publishEnv;
+    }
+
+    if (!Util.isUnset(request.remarks)) {
+      body["Remarks"] = request.remarks;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PublishEdgeContainerAppVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishEdgeContainerAppVersionResponse>(await this.callApi(params, req, runtime), new PublishEdgeContainerAppVersionResponse({}));
+  }
+
+  /**
+   * 发布边缘容器应用的某个版本
+   * 
+   * @param request - PublishEdgeContainerAppVersionRequest
+   * @returns PublishEdgeContainerAppVersionResponse
+   */
+  async publishEdgeContainerAppVersion(request: PublishEdgeContainerAppVersionRequest): Promise<PublishEdgeContainerAppVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.publishEdgeContainerAppVersionWithOptions(request, runtime);
+  }
+
+  /**
    * 发布Routine某版本代码
    * 
    * @param tmpReq - PublishRoutineCodeVersionRequest
@@ -32431,6 +36241,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重建边缘容器应用的测试环境
+   * 
+   * @param request - RebuildEdgeContainerAppStagingEnvRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RebuildEdgeContainerAppStagingEnvResponse
+   */
+  async rebuildEdgeContainerAppStagingEnvWithOptions(request: RebuildEdgeContainerAppStagingEnvRequest, runtime: $Util.RuntimeOptions): Promise<RebuildEdgeContainerAppStagingEnvResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RebuildEdgeContainerAppStagingEnv",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RebuildEdgeContainerAppStagingEnvResponse>(await this.callApi(params, req, runtime), new RebuildEdgeContainerAppStagingEnvResponse({}));
+  }
+
+  /**
+   * 重建边缘容器应用的测试环境
+   * 
+   * @param request - RebuildEdgeContainerAppStagingEnvRequest
+   * @returns RebuildEdgeContainerAppStagingEnvResponse
+   */
+  async rebuildEdgeContainerAppStagingEnv(request: RebuildEdgeContainerAppStagingEnvRequest): Promise<RebuildEdgeContainerAppStagingEnvResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rebuildEdgeContainerAppStagingEnvWithOptions(request, runtime);
+  }
+
+  /**
    * 重置定时预热任务的进度，从头开始预热
    * 
    * @param request - ResetScheduledPreloadJobRequest
@@ -32470,6 +36322,58 @@ export default class Client extends OpenApi {
   async resetScheduledPreloadJob(request: ResetScheduledPreloadJobRequest): Promise<ResetScheduledPreloadJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetScheduledPreloadJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 回滚边缘容器应用的某个版本
+   * 
+   * @param request - RollbackEdgeContainerAppVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RollbackEdgeContainerAppVersionResponse
+   */
+  async rollbackEdgeContainerAppVersionWithOptions(request: RollbackEdgeContainerAppVersionRequest, runtime: $Util.RuntimeOptions): Promise<RollbackEdgeContainerAppVersionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.remarks)) {
+      body["Remarks"] = request.remarks;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RollbackEdgeContainerAppVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RollbackEdgeContainerAppVersionResponse>(await this.callApi(params, req, runtime), new RollbackEdgeContainerAppVersionResponse({}));
+  }
+
+  /**
+   * 回滚边缘容器应用的某个版本
+   * 
+   * @param request - RollbackEdgeContainerAppVersionRequest
+   * @returns RollbackEdgeContainerAppVersionResponse
+   */
+  async rollbackEdgeContainerAppVersion(request: RollbackEdgeContainerAppVersionRequest): Promise<RollbackEdgeContainerAppVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rollbackEdgeContainerAppVersionWithOptions(request, runtime);
   }
 
   /**
