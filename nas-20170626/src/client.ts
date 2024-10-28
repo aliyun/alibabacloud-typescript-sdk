@@ -1112,6 +1112,106 @@ export class CancelDirQuotaResponse extends $tea.Model {
   }
 }
 
+export class CancelFilesetQuotaRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bmcpfs-290w65p03ok64ya****
+   */
+  fileSystemId?: string;
+  /**
+   * @remarks
+   * Fileset ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fset-1902718ea0ae****
+   */
+  fsetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+      fsetId: 'FsetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+      fsetId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelFilesetQuotaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 98696EF0-1607-4E9D-B01D-F20930B6****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelFilesetQuotaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelFilesetQuotaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelFilesetQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelLifecycleRetrieveJobRequest extends $tea.Model {
   /**
    * @remarks
@@ -14519,6 +14619,120 @@ export class SetDirQuotaResponse extends $tea.Model {
   }
 }
 
+export class SetFilesetQuotaRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @example
+   * 10000
+   */
+  fileCountLimit?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bmcpfs-290w65p03ok64ya****
+   */
+  fileSystemId?: string;
+  /**
+   * @remarks
+   * Fileset ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fset-1902718ea0ae****
+   */
+  fsetId?: string;
+  /**
+   * @example
+   * 10737418240
+   */
+  sizeLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      fileCountLimit: 'FileCountLimit',
+      fileSystemId: 'FileSystemId',
+      fsetId: 'FsetId',
+      sizeLimit: 'SizeLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      fileCountLimit: 'number',
+      fileSystemId: 'string',
+      fsetId: 'string',
+      sizeLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetFilesetQuotaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2D69A58F-345C-4FDE-88E4-BF518948****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetFilesetQuotaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetFilesetQuotaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetFilesetQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartDataFlowRequest extends $tea.Model {
   /**
    * @remarks
@@ -22424,6 +22638,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消设置智能目录配额
+   * 
+   * @param request - CancelFilesetQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelFilesetQuotaResponse
+   */
+  async cancelFilesetQuotaWithOptions(request: CancelFilesetQuotaRequest, runtime: $Util.RuntimeOptions): Promise<CancelFilesetQuotaResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.fsetId)) {
+      query["FsetId"] = request.fsetId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelFilesetQuota",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelFilesetQuotaResponse>(await this.callApi(params, req, runtime), new CancelFilesetQuotaResponse({}));
+  }
+
+  /**
+   * 取消设置智能目录配额
+   * 
+   * @param request - CancelFilesetQuotaRequest
+   * @returns CancelFilesetQuotaResponse
+   */
+  async cancelFilesetQuota(request: CancelFilesetQuotaRequest): Promise<CancelFilesetQuotaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelFilesetQuotaWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels a running data retrieval task.
    * 
    * @remarks
@@ -28443,6 +28711,68 @@ export default class Client extends OpenApi {
   async setDirQuota(request: SetDirQuotaRequest): Promise<SetDirQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDirQuotaWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置智能目录配额
+   * 
+   * @param request - SetFilesetQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetFilesetQuotaResponse
+   */
+  async setFilesetQuotaWithOptions(request: SetFilesetQuotaRequest, runtime: $Util.RuntimeOptions): Promise<SetFilesetQuotaResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileCountLimit)) {
+      query["FileCountLimit"] = request.fileCountLimit;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.fsetId)) {
+      query["FsetId"] = request.fsetId;
+    }
+
+    if (!Util.isUnset(request.sizeLimit)) {
+      query["SizeLimit"] = request.sizeLimit;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetFilesetQuota",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetFilesetQuotaResponse>(await this.callApi(params, req, runtime), new SetFilesetQuotaResponse({}));
+  }
+
+  /**
+   * 设置智能目录配额
+   * 
+   * @param request - SetFilesetQuotaRequest
+   * @returns SetFilesetQuotaResponse
+   */
+  async setFilesetQuota(request: SetFilesetQuotaRequest): Promise<SetFilesetQuotaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setFilesetQuotaWithOptions(request, runtime);
   }
 
   /**
