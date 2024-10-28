@@ -14594,6 +14594,7 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPo
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesNews extends $tea.Model {
   content?: string;
+  createTime?: string;
   /**
    * @example
    * 9957175DEDCF49C5ACF7A956B4FD67B2
@@ -14609,6 +14610,7 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPoin
    * https://www.example.com/aaa.png
    */
   imageUrls?: string[];
+  pubTime?: string;
   source?: string;
   summary?: string;
   /**
@@ -14626,9 +14628,11 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPoin
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
+      createTime: 'CreateTime',
       docId: 'DocId',
       docUuid: 'DocUuid',
       imageUrls: 'ImageUrls',
+      pubTime: 'PubTime',
       source: 'Source',
       summary: 'Summary',
       tags: 'Tags',
@@ -14641,9 +14645,11 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPoin
   static types(): { [key: string]: any } {
     return {
       content: 'string',
+      createTime: 'string',
       docId: 'string',
       docUuid: 'string',
       imageUrls: { 'type': 'array', 'itemType': 'string' },
+      pubTime: 'string',
       source: 'string',
       summary: 'string',
       tags: { 'type': 'array', 'itemType': 'string' },
