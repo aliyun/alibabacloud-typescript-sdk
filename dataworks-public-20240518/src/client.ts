@@ -265,6 +265,32 @@ export class DataQualityRule extends $tea.Model {
   }
 }
 
+export class SuccessInfoValue extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AbolishDeploymentRequest extends $tea.Model {
   /**
    * @remarks
@@ -3671,6 +3697,94 @@ export class DeleteRouteResponse extends $tea.Model {
   }
 }
 
+export class DeleteTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      projectEnv: 'ProjectEnv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      projectEnv: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteWorkflowDefinitionRequest extends $tea.Model {
   /**
    * @remarks
@@ -5243,6 +5357,255 @@ export class GetRouteResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      projectEnv: 'ProjectEnv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      projectEnv: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  task?: GetTaskResponseBodyTask;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      task: 'Task',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      task: GetTaskResponseBodyTask,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  taskInstance?: GetTaskInstanceResponseBodyTaskInstance;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskInstance: 'TaskInstance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskInstance: GetTaskInstanceResponseBodyTaskInstance,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTaskInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1
+   */
+  runNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      runNumber: 'RunNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      runNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceLogResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * This is running log
+   */
+  taskInstanceLog?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskInstanceLog: 'TaskInstanceLog',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskInstanceLog: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceLogResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskInstanceLogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTaskInstanceLogResponseBody,
     };
   }
 
@@ -7170,6 +7533,195 @@ export class ListDeploymentsResponse extends $tea.Model {
   }
 }
 
+export class ListDownstreamTaskInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTaskInstancesResponseBody extends $tea.Model {
+  pagingInfo?: ListDownstreamTaskInstancesResponseBodyPagingInfo;
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListDownstreamTaskInstancesResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTaskInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDownstreamTaskInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDownstreamTaskInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectEnv: 'ProjectEnv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectEnv: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTasksResponseBody extends $tea.Model {
+  pagingInfo?: ListDownstreamTasksResponseBodyPagingInfo;
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListDownstreamTasksResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDownstreamTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDownstreamTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFunctionsRequest extends $tea.Model {
   /**
    * @remarks
@@ -8522,6 +9074,857 @@ export class ListRoutesResponse extends $tea.Model {
   }
 }
 
+export class ListTaskInstanceOperationLogsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1710239005403
+   */
+  date?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      id: 'Id',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'number',
+      id: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskInstanceOperationLogsResponseBody extends $tea.Model {
+  pagingInfo?: ListTaskInstanceOperationLogsResponseBodyPagingInfo;
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListTaskInstanceOperationLogsResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskInstanceOperationLogsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTaskInstanceOperationLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTaskInstanceOperationLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1710239005403
+   */
+  bizdate?: number;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  ids?: number[];
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  runtimeResource?: string;
+  /**
+   * @example
+   * Id Desc
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * 1234
+   */
+  taskId?: number;
+  taskIds?: number[];
+  taskName?: string;
+  /**
+   * @example
+   * ODPS_SQL
+   */
+  taskType?: number;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  /**
+   * @example
+   * 1234
+   */
+  workflowInstanceId?: number;
+  /**
+   * @example
+   * Normal
+   */
+  workflowInstanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizdate: 'Bizdate',
+      id: 'Id',
+      ids: 'Ids',
+      owner: 'Owner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+      runtimeResource: 'RuntimeResource',
+      sortBy: 'SortBy',
+      taskId: 'TaskId',
+      taskIds: 'TaskIds',
+      taskName: 'TaskName',
+      taskType: 'TaskType',
+      workflowId: 'WorkflowId',
+      workflowInstanceId: 'WorkflowInstanceId',
+      workflowInstanceType: 'WorkflowInstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizdate: 'number',
+      id: 'number',
+      ids: { 'type': 'array', 'itemType': 'number' },
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectEnv: 'string',
+      projectId: 'number',
+      runtimeResource: 'string',
+      sortBy: 'string',
+      taskId: 'number',
+      taskIds: { 'type': 'array', 'itemType': 'number' },
+      taskName: 'string',
+      taskType: 'number',
+      workflowId: 'number',
+      workflowInstanceId: 'number',
+      workflowInstanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskInstancesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1710239005403
+   */
+  bizdate?: number;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  idsShrink?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  runtimeResource?: string;
+  /**
+   * @example
+   * Id Desc
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * 1234
+   */
+  taskId?: number;
+  taskIdsShrink?: string;
+  taskName?: string;
+  /**
+   * @example
+   * ODPS_SQL
+   */
+  taskType?: number;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  /**
+   * @example
+   * 1234
+   */
+  workflowInstanceId?: number;
+  /**
+   * @example
+   * Normal
+   */
+  workflowInstanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizdate: 'Bizdate',
+      id: 'Id',
+      idsShrink: 'Ids',
+      owner: 'Owner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+      runtimeResource: 'RuntimeResource',
+      sortBy: 'SortBy',
+      taskId: 'TaskId',
+      taskIdsShrink: 'TaskIds',
+      taskName: 'TaskName',
+      taskType: 'TaskType',
+      workflowId: 'WorkflowId',
+      workflowInstanceId: 'WorkflowInstanceId',
+      workflowInstanceType: 'WorkflowInstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizdate: 'number',
+      id: 'number',
+      idsShrink: 'string',
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectEnv: 'string',
+      projectId: 'number',
+      runtimeResource: 'string',
+      sortBy: 'string',
+      taskId: 'number',
+      taskIdsShrink: 'string',
+      taskName: 'string',
+      taskType: 'number',
+      workflowId: 'number',
+      workflowInstanceId: 'number',
+      workflowInstanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskInstancesResponseBody extends $tea.Model {
+  pagingInfo?: ListTaskInstancesResponseBodyPagingInfo;
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListTaskInstancesResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTaskInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTaskInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskOperationLogsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1710239005403
+   */
+  date?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      id: 'Id',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectEnv: 'ProjectEnv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'number',
+      id: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectEnv: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskOperationLogsResponseBody extends $tea.Model {
+  pagingInfo?: ListTaskOperationLogsResponseBodyPagingInfo;
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListTaskOperationLogsResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskOperationLogsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTaskOperationLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTaskOperationLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksRequest extends $tea.Model {
+  name?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  runtimeResource?: string;
+  /**
+   * @example
+   * Id Desc
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * ODPS_SQL
+   */
+  taskType?: string;
+  /**
+   * @example
+   * Normal
+   */
+  triggerRecurrence?: string;
+  /**
+   * @example
+   * Scheduler
+   */
+  triggerType?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      owner: 'Owner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+      runtimeResource: 'RuntimeResource',
+      sortBy: 'SortBy',
+      taskType: 'TaskType',
+      triggerRecurrence: 'TriggerRecurrence',
+      triggerType: 'TriggerType',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectEnv: 'string',
+      projectId: 'number',
+      runtimeResource: 'string',
+      sortBy: 'string',
+      taskType: 'string',
+      triggerRecurrence: 'string',
+      triggerType: 'string',
+      workflowId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksResponseBody extends $tea.Model {
+  pagingInfo?: ListTasksResponseBodyPagingInfo;
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListTasksResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTaskInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTaskInstancesResponseBody extends $tea.Model {
+  pagingInfo?: ListUpstreamTaskInstancesResponseBodyPagingInfo;
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListUpstreamTaskInstancesResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTaskInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUpstreamTaskInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUpstreamTaskInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectEnv: 'ProjectEnv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectEnv: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTasksResponseBody extends $tea.Model {
+  pagingInfo?: ListUpstreamTasksResponseBodyPagingInfo;
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListUpstreamTasksResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUpstreamTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUpstreamTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkflowDefinitionsRequest extends $tea.Model {
   /**
    * @remarks
@@ -9133,6 +10536,133 @@ export class MoveWorkflowDefinitionResponse extends $tea.Model {
   }
 }
 
+export class RemoveTaskInstanceDependenciesRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  upstreamTaskInstanceIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      id: 'Id',
+      upstreamTaskInstanceIds: 'UpstreamTaskInstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      id: 'number',
+      upstreamTaskInstanceIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveTaskInstanceDependenciesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  upstreamTaskInstanceIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      id: 'Id',
+      upstreamTaskInstanceIdsShrink: 'UpstreamTaskInstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      id: 'number',
+      upstreamTaskInstanceIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveTaskInstanceDependenciesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveTaskInstanceDependenciesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveTaskInstanceDependenciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveTaskInstanceDependenciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RenameFunctionRequest extends $tea.Model {
   /**
    * @remarks
@@ -9587,6 +11117,212 @@ export class RenameWorkflowDefinitionResponse extends $tea.Model {
   }
 }
 
+export class RerunTaskInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  ids?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      ids: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      ids: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RerunTaskInstancesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  idsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      idsShrink: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      idsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RerunTaskInstancesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  successInfo?: { [key: string]: SuccessInfoValue };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      successInfo: 'SuccessInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      successInfo: { 'type': 'map', 'keyType': 'string', 'valueType': SuccessInfoValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RerunTaskInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RerunTaskInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RerunTaskInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeTaskInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  ids?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      ids: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      ids: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeTaskInstancesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  idsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      idsShrink: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      idsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeTaskInstancesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  successInfo?: { [key: string]: SuccessInfoValue };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      successInfo: 'SuccessInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      successInfo: { 'type': 'map', 'keyType': 'string', 'valueType': SuccessInfoValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeTaskInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResumeTaskInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResumeTaskInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RevokeMemberProjectRolesRequest extends $tea.Model {
   /**
    * @remarks
@@ -9713,6 +11449,109 @@ export class RevokeMemberProjectRolesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RevokeMemberProjectRolesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSuccessTaskInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  ids?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      ids: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      ids: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSuccessTaskInstancesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  idsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      idsShrink: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      idsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSuccessTaskInstancesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  successInfo?: { [key: string]: SuccessInfoValue };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      successInfo: 'SuccessInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      successInfo: { 'type': 'map', 'keyType': 'string', 'valueType': SuccessInfoValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSuccessTaskInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetSuccessTaskInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetSuccessTaskInstancesResponseBody,
     };
   }
 
@@ -9940,6 +11779,303 @@ export class StopDIJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopDIJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTaskInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  ids?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      ids: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      ids: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTaskInstancesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  idsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      idsShrink: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      idsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTaskInstancesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  successInfo?: { [key: string]: SuccessInfoValue };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      successInfo: 'SuccessInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      successInfo: { 'type': 'map', 'keyType': 'string', 'valueType': SuccessInfoValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTaskInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopTaskInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopTaskInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendTaskInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  ids?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      ids: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      ids: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendTaskInstancesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  idsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      idsShrink: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      idsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendTaskInstancesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  successInfo?: { [key: string]: SuccessInfoValue };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      successInfo: 'SuccessInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      successInfo: { 'type': 'map', 'keyType': 'string', 'valueType': SuccessInfoValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendTaskInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SuspendTaskInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SuspendTaskInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TriggerSchedulerTaskInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  taskId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1710239005403
+   */
+  triggerTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      triggerTime: 'TriggerTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'number',
+      triggerTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TriggerSchedulerTaskInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TriggerSchedulerTaskInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TriggerSchedulerTaskInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TriggerSchedulerTaskInstanceResponseBody,
     };
   }
 
@@ -11035,6 +13171,109 @@ export class UpdateRouteResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  taskInstances?: UpdateTaskInstancesRequestTaskInstances[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      taskInstances: 'TaskInstances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      taskInstances: { 'type': 'array', 'itemType': UpdateTaskInstancesRequestTaskInstances },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskInstancesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  taskInstancesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      taskInstancesShrink: 'TaskInstances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      taskInstancesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskInstancesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  successInfo?: { [key: string]: SuccessInfoValue };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      successInfo: 'SuccessInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      successInfo: { 'type': 'map', 'keyType': 'string', 'valueType': SuccessInfoValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTaskInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTaskInstancesResponseBody,
     };
   }
 
@@ -14663,6 +16902,1352 @@ export class GetRouteResponseBodyRoute extends $tea.Model {
   }
 }
 
+export class GetTaskResponseBodyTaskDataSource extends $tea.Model {
+  /**
+   * @example
+   * mysql_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskDependencies extends $tea.Model {
+  /**
+   * @example
+   * Normal
+   */
+  type?: string;
+  /**
+   * @example
+   * pre.odps_sql_demo_0
+   */
+  upstream?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      upstream: 'Upstream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      upstream: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskInputsVariables extends $tea.Model {
+  /**
+   * @example
+   * key1
+   */
+  name?: string;
+  /**
+   * @example
+   * TaskContext
+   */
+  scope?: string;
+  /**
+   * @example
+   * Constant
+   */
+  type?: string;
+  /**
+   * @example
+   * Value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      scope: 'Scope',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      scope: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskInputs extends $tea.Model {
+  variables?: GetTaskResponseBodyTaskInputsVariables[];
+  static names(): { [key: string]: string } {
+    return {
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      variables: { 'type': 'array', 'itemType': GetTaskResponseBodyTaskInputsVariables },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskOutputsTaskOutputs extends $tea.Model {
+  /**
+   * @example
+   * pre.odps_sql_demo_0
+   */
+  output?: string;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskOutputsVariables extends $tea.Model {
+  /**
+   * @example
+   * key1
+   */
+  name?: string;
+  /**
+   * @example
+   * TaskContext
+   */
+  scope?: string;
+  /**
+   * @example
+   * Constant
+   */
+  type?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      scope: 'Scope',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      scope: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskOutputs extends $tea.Model {
+  taskOutputs?: GetTaskResponseBodyTaskOutputsTaskOutputs[];
+  variables?: GetTaskResponseBodyTaskOutputsVariables[];
+  static names(): { [key: string]: string } {
+    return {
+      taskOutputs: 'TaskOutputs',
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskOutputs: { 'type': 'array', 'itemType': GetTaskResponseBodyTaskOutputsTaskOutputs },
+      variables: { 'type': 'array', 'itemType': GetTaskResponseBodyTaskOutputsVariables },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskRuntimeResource extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskScript extends $tea.Model {
+  /**
+   * @example
+   * echo "helloWorld"
+   */
+  content?: string;
+  /**
+   * @example
+   * para1=$bizdate
+   */
+  parameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      parameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskSubTasksSubTasksDataSource extends $tea.Model {
+  /**
+   * @example
+   * mysql_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskSubTasksSubTasksRuntimeResource extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskSubTasksSubTasksTrigger extends $tea.Model {
+  /**
+   * @example
+   * 00 00 00 * * ?
+   */
+  cron?: string;
+  /**
+   * @example
+   * 9999-01-01 00:00:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * Normal
+   */
+  recurrence?: string;
+  /**
+   * @example
+   * 1970-01-01 00:00:00
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Scheduler
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cron: 'Cron',
+      endTime: 'EndTime',
+      recurrence: 'Recurrence',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cron: 'string',
+      endTime: 'string',
+      recurrence: 'string',
+      startTime: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskSubTasksSubTasks extends $tea.Model {
+  baselineId?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  createUser?: string;
+  dataSource?: GetTaskResponseBodyTaskSubTasksSubTasksDataSource;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  modifyUser?: string;
+  name?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * 180
+   */
+  rerunInterval?: number;
+  /**
+   * @example
+   * AllAllowed
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 3
+   */
+  rerunTimes?: number;
+  runtimeResource?: GetTaskResponseBodyTaskSubTasksSubTasksRuntimeResource;
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: number;
+  /**
+   * @example
+   * 3600
+   */
+  timeout?: number;
+  trigger?: GetTaskResponseBodyTaskSubTasksSubTasksTrigger;
+  /**
+   * @example
+   * ODPS_SQL
+   */
+  type?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      dataSource: 'DataSource',
+      description: 'Description',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      name: 'Name',
+      owner: 'Owner',
+      priority: 'Priority',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+      rerunInterval: 'RerunInterval',
+      rerunMode: 'RerunMode',
+      rerunTimes: 'RerunTimes',
+      runtimeResource: 'RuntimeResource',
+      tenantId: 'TenantId',
+      timeout: 'Timeout',
+      trigger: 'Trigger',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'number',
+      createTime: 'number',
+      createUser: 'string',
+      dataSource: GetTaskResponseBodyTaskSubTasksSubTasksDataSource,
+      description: 'string',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      name: 'string',
+      owner: 'string',
+      priority: 'number',
+      projectEnv: 'string',
+      projectId: 'number',
+      rerunInterval: 'number',
+      rerunMode: 'string',
+      rerunTimes: 'number',
+      runtimeResource: GetTaskResponseBodyTaskSubTasksSubTasksRuntimeResource,
+      tenantId: 'number',
+      timeout: 'number',
+      trigger: GetTaskResponseBodyTaskSubTasksSubTasksTrigger,
+      type: 'string',
+      workflowId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskSubTasks extends $tea.Model {
+  subTasks?: GetTaskResponseBodyTaskSubTasksSubTasks[];
+  /**
+   * @example
+   * Combined
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subTasks: 'SubTasks',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subTasks: { 'type': 'array', 'itemType': GetTaskResponseBodyTaskSubTasksSubTasks },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskTags extends $tea.Model {
+  /**
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTaskTrigger extends $tea.Model {
+  /**
+   * @example
+   * 00 00 00 * * ?
+   */
+  cron?: string;
+  /**
+   * @example
+   * 9999-01-01 00:00:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * Normal
+   */
+  recurrence?: string;
+  /**
+   * @example
+   * 1970-01-01 00:00:00
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Scheduler
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cron: 'Cron',
+      endTime: 'EndTime',
+      recurrence: 'Recurrence',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cron: 'string',
+      endTime: 'string',
+      recurrence: 'string',
+      startTime: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBodyTask extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
+  baselineId?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  createUser?: string;
+  dataSource?: GetTaskResponseBodyTaskDataSource;
+  dependencies?: GetTaskResponseBodyTaskDependencies[];
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  inputs?: GetTaskResponseBodyTaskInputs;
+  /**
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  modifyUser?: string;
+  name?: string;
+  outputs?: GetTaskResponseBodyTaskOutputs;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * 60
+   */
+  rerunInterval?: number;
+  /**
+   * @example
+   * AllAllowed
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 3
+   */
+  rerunTimes?: number;
+  runtimeResource?: GetTaskResponseBodyTaskRuntimeResource;
+  script?: GetTaskResponseBodyTaskScript;
+  subTasks?: GetTaskResponseBodyTaskSubTasks;
+  tags?: GetTaskResponseBodyTaskTags[];
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: number;
+  /**
+   * @example
+   * 3600
+   */
+  timeout?: number;
+  trigger?: GetTaskResponseBodyTaskTrigger;
+  /**
+   * @example
+   * ODPS_SQL
+   */
+  type?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      dataSource: 'DataSource',
+      dependencies: 'Dependencies',
+      description: 'Description',
+      id: 'Id',
+      inputs: 'Inputs',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      name: 'Name',
+      outputs: 'Outputs',
+      owner: 'Owner',
+      priority: 'Priority',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+      rerunInterval: 'RerunInterval',
+      rerunMode: 'RerunMode',
+      rerunTimes: 'RerunTimes',
+      runtimeResource: 'RuntimeResource',
+      script: 'Script',
+      subTasks: 'SubTasks',
+      tags: 'Tags',
+      tenantId: 'TenantId',
+      timeout: 'Timeout',
+      trigger: 'Trigger',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'number',
+      createTime: 'number',
+      createUser: 'string',
+      dataSource: GetTaskResponseBodyTaskDataSource,
+      dependencies: { 'type': 'array', 'itemType': GetTaskResponseBodyTaskDependencies },
+      description: 'string',
+      id: 'number',
+      inputs: GetTaskResponseBodyTaskInputs,
+      modifyTime: 'number',
+      modifyUser: 'string',
+      name: 'string',
+      outputs: GetTaskResponseBodyTaskOutputs,
+      owner: 'string',
+      priority: 'number',
+      projectEnv: 'string',
+      projectId: 'number',
+      rerunInterval: 'number',
+      rerunMode: 'string',
+      rerunTimes: 'number',
+      runtimeResource: GetTaskResponseBodyTaskRuntimeResource,
+      script: GetTaskResponseBodyTaskScript,
+      subTasks: GetTaskResponseBodyTaskSubTasks,
+      tags: { 'type': 'array', 'itemType': GetTaskResponseBodyTaskTags },
+      tenantId: 'number',
+      timeout: 'number',
+      trigger: GetTaskResponseBodyTaskTrigger,
+      type: 'string',
+      workflowId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceResponseBodyTaskInstanceDataSource extends $tea.Model {
+  /**
+   * @example
+   * mysql_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceResponseBodyTaskInstanceInputsVariables extends $tea.Model {
+  /**
+   * @example
+   * Key1
+   */
+  name?: string;
+  /**
+   * @example
+   * TaskContext
+   */
+  scope?: string;
+  /**
+   * @example
+   * Constant
+   */
+  type?: string;
+  /**
+   * @example
+   * Value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      scope: 'Scope',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      scope: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceResponseBodyTaskInstanceInputs extends $tea.Model {
+  variables?: GetTaskInstanceResponseBodyTaskInstanceInputsVariables[];
+  static names(): { [key: string]: string } {
+    return {
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      variables: { 'type': 'array', 'itemType': GetTaskInstanceResponseBodyTaskInstanceInputsVariables },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceResponseBodyTaskInstanceOutputsTaskOutputs extends $tea.Model {
+  /**
+   * @example
+   * pre.odps_sql_demo_0
+   */
+  output?: string;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceResponseBodyTaskInstanceOutputsVariables extends $tea.Model {
+  /**
+   * @example
+   * key1
+   */
+  name?: string;
+  /**
+   * @example
+   * TaskContext
+   */
+  scope?: string;
+  /**
+   * @example
+   * Constant
+   */
+  type?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      scope: 'Scope',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      scope: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceResponseBodyTaskInstanceOutputs extends $tea.Model {
+  taskOutputs?: GetTaskInstanceResponseBodyTaskInstanceOutputsTaskOutputs[];
+  variables?: GetTaskInstanceResponseBodyTaskInstanceOutputsVariables[];
+  static names(): { [key: string]: string } {
+    return {
+      taskOutputs: 'TaskOutputs',
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskOutputs: { 'type': 'array', 'itemType': GetTaskInstanceResponseBodyTaskInstanceOutputsTaskOutputs },
+      variables: { 'type': 'array', 'itemType': GetTaskInstanceResponseBodyTaskInstanceOutputsVariables },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceResponseBodyTaskInstanceRuntime extends $tea.Model {
+  /**
+   * @example
+   * cn-shanghai.1.2
+   */
+  gateway?: string;
+  /**
+   * @example
+   * T3_123
+   */
+  processId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gateway: 'Gateway',
+      processId: 'ProcessId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gateway: 'string',
+      processId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceResponseBodyTaskInstanceRuntimeResource extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceResponseBodyTaskInstanceScript extends $tea.Model {
+  /**
+   * @example
+   * echo "helloWorld"
+   */
+  content?: string;
+  /**
+   * @example
+   * para1=$bizdate
+   */
+  parameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      parameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceResponseBodyTaskInstanceTags extends $tea.Model {
+  /**
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskInstanceResponseBodyTaskInstance extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
+  baselineId?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  bizdate?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  createUser?: string;
+  dataSource?: GetTaskInstanceResponseBodyTaskInstanceDataSource;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  finishedTime?: number;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  inputs?: GetTaskInstanceResponseBodyTaskInstanceInputs;
+  /**
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  modifyUser?: string;
+  outputs?: GetTaskInstanceResponseBodyTaskInstanceOutputs;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * AllAllowed 
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 1
+   */
+  runNumber?: number;
+  runtime?: GetTaskInstanceResponseBodyTaskInstanceRuntime;
+  runtimeResource?: GetTaskInstanceResponseBodyTaskInstanceRuntimeResource;
+  script?: GetTaskInstanceResponseBodyTaskInstanceScript;
+  /**
+   * @example
+   * 1710239005403
+   */
+  startedTime?: number;
+  /**
+   * @example
+   * Success
+   */
+  status?: string;
+  tags?: GetTaskInstanceResponseBodyTaskInstanceTags[];
+  /**
+   * @example
+   * 1234
+   */
+  taskId?: number;
+  taskName?: string;
+  /**
+   * @example
+   * ODPS_SQL
+   */
+  taskType?: string;
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: number;
+  /**
+   * @example
+   * 1
+   */
+  timeout?: number;
+  /**
+   * @example
+   * Normal
+   */
+  triggerRecurrence?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  triggerTime?: number;
+  /**
+   * @example
+   * Scheduler
+   */
+  triggerType?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  /**
+   * @example
+   * 1234
+   */
+  workflowInstanceId?: number;
+  /**
+   * @example
+   * Normal
+   */
+  workflowInstanceType?: string;
+  workflowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      bizdate: 'Bizdate',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      dataSource: 'DataSource',
+      description: 'Description',
+      finishedTime: 'FinishedTime',
+      id: 'Id',
+      inputs: 'Inputs',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      outputs: 'Outputs',
+      owner: 'Owner',
+      priority: 'Priority',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+      rerunMode: 'RerunMode',
+      runNumber: 'RunNumber',
+      runtime: 'Runtime',
+      runtimeResource: 'RuntimeResource',
+      script: 'Script',
+      startedTime: 'StartedTime',
+      status: 'Status',
+      tags: 'Tags',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      taskType: 'TaskType',
+      tenantId: 'TenantId',
+      timeout: 'Timeout',
+      triggerRecurrence: 'TriggerRecurrence',
+      triggerTime: 'TriggerTime',
+      triggerType: 'TriggerType',
+      workflowId: 'WorkflowId',
+      workflowInstanceId: 'WorkflowInstanceId',
+      workflowInstanceType: 'WorkflowInstanceType',
+      workflowName: 'WorkflowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'number',
+      bizdate: 'number',
+      createTime: 'number',
+      createUser: 'string',
+      dataSource: GetTaskInstanceResponseBodyTaskInstanceDataSource,
+      description: 'string',
+      finishedTime: 'number',
+      id: 'number',
+      inputs: GetTaskInstanceResponseBodyTaskInstanceInputs,
+      modifyTime: 'number',
+      modifyUser: 'string',
+      outputs: GetTaskInstanceResponseBodyTaskInstanceOutputs,
+      owner: 'string',
+      priority: 'number',
+      projectEnv: 'string',
+      projectId: 'number',
+      rerunMode: 'string',
+      runNumber: 'number',
+      runtime: GetTaskInstanceResponseBodyTaskInstanceRuntime,
+      runtimeResource: GetTaskInstanceResponseBodyTaskInstanceRuntimeResource,
+      script: GetTaskInstanceResponseBodyTaskInstanceScript,
+      startedTime: 'number',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': GetTaskInstanceResponseBodyTaskInstanceTags },
+      taskId: 'number',
+      taskName: 'string',
+      taskType: 'string',
+      tenantId: 'number',
+      timeout: 'number',
+      triggerRecurrence: 'string',
+      triggerTime: 'number',
+      triggerType: 'string',
+      workflowId: 'number',
+      workflowInstanceId: 'number',
+      workflowInstanceType: 'string',
+      workflowName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $tea.Model {
   /**
    * @remarks
@@ -17813,6 +21398,668 @@ export class ListDeploymentsResponseBodyPagingInfo extends $tea.Model {
       pageNumber: 'string',
       pageSize: 'string',
       totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource extends $tea.Model {
+  /**
+   * @example
+   * mysql_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime extends $tea.Model {
+  /**
+   * @example
+   * cn-shanghai.1.2
+   */
+  gateway?: string;
+  /**
+   * @example
+   * T3_123
+   */
+  processId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gateway: 'Gateway',
+      processId: 'ProcessId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gateway: 'string',
+      processId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
+  baselineId?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  bizdate?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  createUser?: string;
+  dataSource?: ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  finishedTime?: number;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  modifyUser?: string;
+  /**
+   * @example
+   * 100
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * AllAllowed
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 1
+   */
+  runNumber?: number;
+  runtime?: ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime;
+  runtimeResource?: ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource;
+  /**
+   * @example
+   * 1710239005403
+   */
+  startedTime?: number;
+  /**
+   * @example
+   * Success
+   */
+  status?: string;
+  /**
+   * @example
+   * 1234
+   */
+  taskId?: number;
+  taskName?: string;
+  /**
+   * @example
+   * ODPS_SQL
+   */
+  taskType?: string;
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: number;
+  /**
+   * @example
+   * 1
+   */
+  timeout?: number;
+  /**
+   * @example
+   * Normal
+   */
+  triggerRecurrence?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  triggerTime?: number;
+  /**
+   * @example
+   * Scheduler
+   */
+  triggerType?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  /**
+   * @example
+   * 1234
+   */
+  workflowInstanceId?: number;
+  /**
+   * @example
+   * Normal
+   */
+  workflowInstanceType?: string;
+  workflowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      bizdate: 'Bizdate',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      dataSource: 'DataSource',
+      description: 'Description',
+      finishedTime: 'FinishedTime',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      owner: 'Owner',
+      priority: 'Priority',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+      rerunMode: 'RerunMode',
+      runNumber: 'RunNumber',
+      runtime: 'Runtime',
+      runtimeResource: 'RuntimeResource',
+      startedTime: 'StartedTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      taskType: 'TaskType',
+      tenantId: 'TenantId',
+      timeout: 'Timeout',
+      triggerRecurrence: 'TriggerRecurrence',
+      triggerTime: 'TriggerTime',
+      triggerType: 'TriggerType',
+      workflowId: 'WorkflowId',
+      workflowInstanceId: 'WorkflowInstanceId',
+      workflowInstanceType: 'WorkflowInstanceType',
+      workflowName: 'WorkflowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'number',
+      bizdate: 'number',
+      createTime: 'number',
+      createUser: 'string',
+      dataSource: ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource,
+      description: 'string',
+      finishedTime: 'number',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      owner: 'string',
+      priority: 'number',
+      projectEnv: 'string',
+      projectId: 'number',
+      rerunMode: 'string',
+      runNumber: 'number',
+      runtime: ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime,
+      runtimeResource: ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource,
+      startedTime: 'number',
+      status: 'string',
+      taskId: 'number',
+      taskName: 'string',
+      taskType: 'string',
+      tenantId: 'number',
+      timeout: 'number',
+      triggerRecurrence: 'string',
+      triggerTime: 'number',
+      triggerType: 'string',
+      workflowId: 'number',
+      workflowInstanceId: 'number',
+      workflowInstanceType: 'string',
+      workflowName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTaskInstancesResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  taskInstances?: ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      taskInstances: 'TaskInstances',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      taskInstances: { 'type': 'array', 'itemType': ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTasksResponseBodyPagingInfoTasksDataSource extends $tea.Model {
+  /**
+   * @example
+   * mysql_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTasksResponseBodyPagingInfoTasksTrigger extends $tea.Model {
+  /**
+   * @example
+   * 00 00 00 * * ?
+   */
+  cron?: string;
+  /**
+   * @example
+   * 9999-01-01 00:00:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * Normal
+   */
+  recurrence?: string;
+  /**
+   * @example
+   * 1970-01-01 00:00:00
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timezone?: string;
+  /**
+   * @example
+   * Scheduler
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cron: 'Cron',
+      endTime: 'EndTime',
+      recurrence: 'Recurrence',
+      startTime: 'StartTime',
+      timezone: 'Timezone',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cron: 'string',
+      endTime: 'string',
+      recurrence: 'string',
+      startTime: 'string',
+      timezone: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
+  baselineId?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  createUser?: string;
+  dataSource?: ListDownstreamTasksResponseBodyPagingInfoTasksDataSource;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  modifyUser?: string;
+  name?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * 60
+   */
+  rerunInterval?: number;
+  /**
+   * @example
+   * AllAllowed
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 3
+   */
+  rerunTimes?: number;
+  runtimeResource?: ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource;
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: number;
+  /**
+   * @example
+   * 3600
+   */
+  timeout?: number;
+  trigger?: ListDownstreamTasksResponseBodyPagingInfoTasksTrigger;
+  /**
+   * @example
+   * ODPS_SQL
+   */
+  type?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      dataSource: 'DataSource',
+      description: 'Description',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      name: 'Name',
+      owner: 'Owner',
+      priority: 'Priority',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+      rerunInterval: 'RerunInterval',
+      rerunMode: 'RerunMode',
+      rerunTimes: 'RerunTimes',
+      runtimeResource: 'RuntimeResource',
+      tenantId: 'TenantId',
+      timeout: 'Timeout',
+      trigger: 'Trigger',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'number',
+      createTime: 'number',
+      createUser: 'string',
+      dataSource: ListDownstreamTasksResponseBodyPagingInfoTasksDataSource,
+      description: 'string',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      name: 'string',
+      owner: 'string',
+      priority: 'number',
+      projectEnv: 'string',
+      projectId: 'number',
+      rerunInterval: 'number',
+      rerunMode: 'string',
+      rerunTimes: 'number',
+      runtimeResource: ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource,
+      tenantId: 'number',
+      timeout: 'number',
+      trigger: ListDownstreamTasksResponseBodyPagingInfoTasksTrigger,
+      type: 'string',
+      workflowId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownstreamTasksResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  tasks?: ListDownstreamTasksResponseBodyPagingInfoTasks[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      tasks: 'Tasks',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      tasks: { 'type': 'array', 'itemType': ListDownstreamTasksResponseBodyPagingInfoTasks },
+      totalCount: 'number',
     };
   }
 
@@ -21103,6 +25350,1497 @@ export class ListRoutesResponseBodyRouteList extends $tea.Model {
   }
 }
 
+export class ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs extends $tea.Model {
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  operationContent?: string;
+  /**
+   * @example
+   * 1111
+   */
+  operationSeq?: number;
+  /**
+   * @example
+   * 1234
+   */
+  taskInstanceId?: number;
+  /**
+   * @example
+   * 1000
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      operationContent: 'OperationContent',
+      operationSeq: 'OperationSeq',
+      taskInstanceId: 'TaskInstanceId',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      operationContent: 'string',
+      operationSeq: 'number',
+      taskInstanceId: 'number',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskInstanceOperationLogsResponseBodyPagingInfo extends $tea.Model {
+  operationLogs?: ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      operationLogs: 'OperationLogs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationLogs: { 'type': 'array', 'itemType': ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource extends $tea.Model {
+  /**
+   * @example
+   * mysql_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime extends $tea.Model {
+  /**
+   * @example
+   * cn-shanghai.1.2
+   */
+  gateway?: string;
+  /**
+   * @example
+   * T3_123
+   */
+  processId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gateway: 'Gateway',
+      processId: 'ProcessId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gateway: 'string',
+      processId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
+  baselineId?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  bizdate?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  createUser?: string;
+  dataSource?: ListTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  finishedTime?: number;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  modifyUser?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * AllAllowed
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 1
+   */
+  runNumber?: number;
+  runtime?: ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime;
+  runtimeResource?: ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource;
+  /**
+   * @example
+   * 1710239005403
+   */
+  startedTime?: number;
+  /**
+   * @example
+   * Success
+   */
+  status?: string;
+  /**
+   * @example
+   * 1234
+   */
+  taskId?: number;
+  taskName?: string;
+  /**
+   * @example
+   * ODPS_SQL
+   */
+  taskType?: string;
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: number;
+  /**
+   * @example
+   * 1
+   */
+  timeout?: number;
+  /**
+   * @example
+   * Normal
+   */
+  triggerRecurrence?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  triggerTime?: number;
+  /**
+   * @example
+   * Scheduler
+   */
+  triggerType?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  /**
+   * @example
+   * 1234
+   */
+  workflowInstanceId?: number;
+  /**
+   * @example
+   * Normal
+   */
+  workflowInstanceType?: string;
+  workflowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      bizdate: 'Bizdate',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      dataSource: 'DataSource',
+      description: 'Description',
+      finishedTime: 'FinishedTime',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      owner: 'Owner',
+      priority: 'Priority',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+      rerunMode: 'RerunMode',
+      runNumber: 'RunNumber',
+      runtime: 'Runtime',
+      runtimeResource: 'RuntimeResource',
+      startedTime: 'StartedTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      taskType: 'TaskType',
+      tenantId: 'TenantId',
+      timeout: 'Timeout',
+      triggerRecurrence: 'TriggerRecurrence',
+      triggerTime: 'TriggerTime',
+      triggerType: 'TriggerType',
+      workflowId: 'WorkflowId',
+      workflowInstanceId: 'WorkflowInstanceId',
+      workflowInstanceType: 'WorkflowInstanceType',
+      workflowName: 'WorkflowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'number',
+      bizdate: 'number',
+      createTime: 'number',
+      createUser: 'string',
+      dataSource: ListTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource,
+      description: 'string',
+      finishedTime: 'number',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      owner: 'string',
+      priority: 'number',
+      projectEnv: 'string',
+      projectId: 'number',
+      rerunMode: 'string',
+      runNumber: 'number',
+      runtime: ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime,
+      runtimeResource: ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource,
+      startedTime: 'number',
+      status: 'string',
+      taskId: 'number',
+      taskName: 'string',
+      taskType: 'string',
+      tenantId: 'number',
+      timeout: 'number',
+      triggerRecurrence: 'string',
+      triggerTime: 'number',
+      triggerType: 'string',
+      workflowId: 'number',
+      workflowInstanceId: 'number',
+      workflowInstanceType: 'string',
+      workflowName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskInstancesResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  taskInstances?: ListTaskInstancesResponseBodyPagingInfoTaskInstances[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      taskInstances: 'TaskInstances',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      taskInstances: { 'type': 'array', 'itemType': ListTaskInstancesResponseBodyPagingInfoTaskInstances },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $tea.Model {
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  operationContent?: string;
+  /**
+   * @example
+   * 1111
+   */
+  operationSeq?: number;
+  /**
+   * @example
+   * 1234
+   */
+  taskId?: number;
+  /**
+   * @example
+   * 1000
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      operationContent: 'OperationContent',
+      operationSeq: 'OperationSeq',
+      taskId: 'TaskId',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      operationContent: 'string',
+      operationSeq: 'number',
+      taskId: 'number',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskOperationLogsResponseBodyPagingInfo extends $tea.Model {
+  operationLogs?: ListTaskOperationLogsResponseBodyPagingInfoOperationLogs[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      operationLogs: 'OperationLogs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationLogs: { 'type': 'array', 'itemType': ListTaskOperationLogsResponseBodyPagingInfoOperationLogs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksResponseBodyPagingInfoTasksDataSource extends $tea.Model {
+  /**
+   * @example
+   * mysql_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksResponseBodyPagingInfoTasksRuntimeResource extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksResponseBodyPagingInfoTasksTrigger extends $tea.Model {
+  /**
+   * @example
+   * 00 00 00 * * ?
+   */
+  cron?: string;
+  /**
+   * @example
+   * 9999-01-01 00:00:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * Normal
+   */
+  recurrence?: string;
+  /**
+   * @example
+   * 1970-01-01 00:00:00
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Scheduler
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cron: 'Cron',
+      endTime: 'EndTime',
+      recurrence: 'Recurrence',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cron: 'string',
+      endTime: 'string',
+      recurrence: 'string',
+      startTime: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksResponseBodyPagingInfoTasks extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
+  baselineId?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  createUser?: string;
+  dataSource?: ListTasksResponseBodyPagingInfoTasksDataSource;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  modifyUser?: string;
+  name?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * 60
+   */
+  rerunInterval?: number;
+  /**
+   * @example
+   * AllAllowed
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 3
+   */
+  rerunTimes?: number;
+  runtimeResource?: ListTasksResponseBodyPagingInfoTasksRuntimeResource;
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: number;
+  /**
+   * @example
+   * 3600
+   */
+  timeout?: number;
+  trigger?: ListTasksResponseBodyPagingInfoTasksTrigger;
+  /**
+   * @example
+   * ODPS_SQL
+   */
+  type?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      dataSource: 'DataSource',
+      description: 'Description',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      name: 'Name',
+      owner: 'Owner',
+      priority: 'Priority',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+      rerunInterval: 'RerunInterval',
+      rerunMode: 'RerunMode',
+      rerunTimes: 'RerunTimes',
+      runtimeResource: 'RuntimeResource',
+      tenantId: 'TenantId',
+      timeout: 'Timeout',
+      trigger: 'Trigger',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'number',
+      createTime: 'number',
+      createUser: 'string',
+      dataSource: ListTasksResponseBodyPagingInfoTasksDataSource,
+      description: 'string',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      name: 'string',
+      owner: 'string',
+      priority: 'number',
+      projectEnv: 'string',
+      projectId: 'number',
+      rerunInterval: 'number',
+      rerunMode: 'string',
+      rerunTimes: 'number',
+      runtimeResource: ListTasksResponseBodyPagingInfoTasksRuntimeResource,
+      tenantId: 'number',
+      timeout: 'number',
+      trigger: ListTasksResponseBodyPagingInfoTasksTrigger,
+      type: 'string',
+      workflowId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  tasks?: ListTasksResponseBodyPagingInfoTasks[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      tasks: 'Tasks',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      tasks: { 'type': 'array', 'itemType': ListTasksResponseBodyPagingInfoTasks },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource extends $tea.Model {
+  /**
+   * @example
+   * mysql_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime extends $tea.Model {
+  /**
+   * @example
+   * cn-shanghai.1.2
+   */
+  gateway?: string;
+  /**
+   * @example
+   * T3_123
+   */
+  processId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gateway: 'Gateway',
+      processId: 'ProcessId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gateway: 'string',
+      processId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
+  baselineId?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  bizdate?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  createUser?: string;
+  dataSource?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  finishedTime?: number;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  modifyUser?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * AllAllowed
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 1
+   */
+  runNumber?: number;
+  runtime?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime;
+  runtimeResource?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource;
+  /**
+   * @example
+   * 1710239005403
+   */
+  startedTime?: number;
+  /**
+   * @example
+   * Success
+   */
+  status?: string;
+  /**
+   * @example
+   * 1234
+   */
+  taskId?: number;
+  taskName?: string;
+  /**
+   * @example
+   * ODPS_SQL
+   */
+  taskType?: string;
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: number;
+  /**
+   * @example
+   * 1
+   */
+  timeout?: number;
+  /**
+   * @example
+   * Normal
+   */
+  triggerRecurrence?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  triggerTime?: number;
+  /**
+   * @example
+   * Scheduler
+   */
+  triggerType?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  /**
+   * @example
+   * 1234
+   */
+  workflowInstanceId?: number;
+  /**
+   * @example
+   * Normal
+   */
+  workflowInstanceType?: string;
+  workflowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      bizdate: 'Bizdate',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      dataSource: 'DataSource',
+      description: 'Description',
+      finishedTime: 'FinishedTime',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      owner: 'Owner',
+      priority: 'Priority',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+      rerunMode: 'RerunMode',
+      runNumber: 'RunNumber',
+      runtime: 'Runtime',
+      runtimeResource: 'RuntimeResource',
+      startedTime: 'StartedTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      taskType: 'TaskType',
+      tenantId: 'TenantId',
+      timeout: 'Timeout',
+      triggerRecurrence: 'TriggerRecurrence',
+      triggerTime: 'TriggerTime',
+      triggerType: 'TriggerType',
+      workflowId: 'WorkflowId',
+      workflowInstanceId: 'WorkflowInstanceId',
+      workflowInstanceType: 'WorkflowInstanceType',
+      workflowName: 'WorkflowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'number',
+      bizdate: 'number',
+      createTime: 'number',
+      createUser: 'string',
+      dataSource: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource,
+      description: 'string',
+      finishedTime: 'number',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      owner: 'string',
+      priority: 'number',
+      projectEnv: 'string',
+      projectId: 'number',
+      rerunMode: 'string',
+      runNumber: 'number',
+      runtime: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime,
+      runtimeResource: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource,
+      startedTime: 'number',
+      status: 'string',
+      taskId: 'number',
+      taskName: 'string',
+      taskType: 'string',
+      tenantId: 'number',
+      timeout: 'number',
+      triggerRecurrence: 'string',
+      triggerTime: 'number',
+      triggerType: 'string',
+      workflowId: 'number',
+      workflowInstanceId: 'number',
+      workflowInstanceType: 'string',
+      workflowName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTaskInstancesResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  taskInstances?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      taskInstances: 'TaskInstances',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      taskInstances: { 'type': 'array', 'itemType': ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTasksResponseBodyPagingInfoTasksDataSource extends $tea.Model {
+  /**
+   * @example
+   * mysql_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTasksResponseBodyPagingInfoTasksRuntimeResource extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTasksResponseBodyPagingInfoTasksTrigger extends $tea.Model {
+  /**
+   * @example
+   * 00 00 00 * * ?
+   */
+  cron?: string;
+  /**
+   * @example
+   * 9999-01-01 00:00:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * Normal
+   */
+  recurrence?: string;
+  /**
+   * @example
+   * 1970-01-01 00:00:00
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timezone?: string;
+  /**
+   * @example
+   * Scheduler
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cron: 'Cron',
+      endTime: 'EndTime',
+      recurrence: 'Recurrence',
+      startTime: 'StartTime',
+      timezone: 'Timezone',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cron: 'string',
+      endTime: 'string',
+      recurrence: 'string',
+      startTime: 'string',
+      timezone: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
+  baselineId?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  createUser?: string;
+  dataSource?: ListUpstreamTasksResponseBodyPagingInfoTasksDataSource;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  modifyUser?: string;
+  name?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * 60
+   */
+  rerunInterval?: number;
+  /**
+   * @example
+   * AllAllowed
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 3
+   */
+  rerunTimes?: number;
+  runtimeResource?: ListUpstreamTasksResponseBodyPagingInfoTasksRuntimeResource;
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: number;
+  /**
+   * @example
+   * 3600
+   */
+  timeout?: number;
+  trigger?: ListUpstreamTasksResponseBodyPagingInfoTasksTrigger;
+  /**
+   * @example
+   * ODPS_SQL
+   */
+  type?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      dataSource: 'DataSource',
+      description: 'Description',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      name: 'Name',
+      owner: 'Owner',
+      priority: 'Priority',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+      rerunInterval: 'RerunInterval',
+      rerunMode: 'RerunMode',
+      rerunTimes: 'RerunTimes',
+      runtimeResource: 'RuntimeResource',
+      tenantId: 'TenantId',
+      timeout: 'Timeout',
+      trigger: 'Trigger',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'number',
+      createTime: 'number',
+      createUser: 'string',
+      dataSource: ListUpstreamTasksResponseBodyPagingInfoTasksDataSource,
+      description: 'string',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      name: 'string',
+      owner: 'string',
+      priority: 'number',
+      projectEnv: 'string',
+      projectId: 'number',
+      rerunInterval: 'number',
+      rerunMode: 'string',
+      rerunTimes: 'number',
+      runtimeResource: ListUpstreamTasksResponseBodyPagingInfoTasksRuntimeResource,
+      tenantId: 'number',
+      timeout: 'number',
+      trigger: ListUpstreamTasksResponseBodyPagingInfoTasksTrigger,
+      type: 'string',
+      workflowId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamTasksResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  tasks?: ListUpstreamTasksResponseBodyPagingInfoTasks[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      tasks: 'Tasks',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      tasks: { 'type': 'array', 'itemType': ListUpstreamTasksResponseBodyPagingInfoTasks },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScriptRuntime extends $tea.Model {
   /**
    * @remarks
@@ -21905,6 +27643,72 @@ export class UpdateDIJobRequestTransformationRules extends $tea.Model {
       ruleExpression: 'string',
       ruleName: 'string',
       ruleTargetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskInstancesRequestTaskInstancesDataSource extends $tea.Model {
+  /**
+   * @example
+   * mysql_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskInstancesRequestTaskInstances extends $tea.Model {
+  dataSource?: UpdateTaskInstancesRequestTaskInstancesDataSource;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  runtimeResource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSource: 'DataSource',
+      id: 'Id',
+      priority: 'Priority',
+      runtimeResource: 'RuntimeResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSource: UpdateTaskInstancesRequestTaskInstancesDataSource,
+      id: 'number',
+      priority: 'number',
+      runtimeResource: 'string',
     };
   }
 
@@ -23447,6 +29251,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DeleteTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTaskResponse
+   */
+  async deleteTaskWithOptions(request: DeleteTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      query["ProjectEnv"] = request.projectEnv;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTask",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTaskResponse>(await this.callApi(params, req, runtime), new DeleteTaskResponse({}));
+  }
+
+  /**
+   * @param request - DeleteTaskRequest
+   * @returns DeleteTaskResponse
+   */
+  async deleteTask(request: DeleteTaskRequest): Promise<DeleteTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a workflow from DataStudio.
    * 
    * @remarks
@@ -24161,6 +30007,108 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - GetTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskResponse
+   */
+  async getTaskWithOptions(request: GetTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTask",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskResponse>(await this.callApi(params, req, runtime), new GetTaskResponse({}));
+  }
+
+  /**
+   * @param request - GetTaskRequest
+   * @returns GetTaskResponse
+   */
+  async getTask(request: GetTaskRequest): Promise<GetTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetTaskInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskInstanceResponse
+   */
+  async getTaskInstanceWithOptions(request: GetTaskInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskInstanceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTaskInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskInstanceResponse>(await this.callApi(params, req, runtime), new GetTaskInstanceResponse({}));
+  }
+
+  /**
+   * @param request - GetTaskInstanceRequest
+   * @returns GetTaskInstanceResponse
+   */
+  async getTaskInstance(request: GetTaskInstanceRequest): Promise<GetTaskInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTaskInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetTaskInstanceLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskInstanceLogResponse
+   */
+  async getTaskInstanceLogWithOptions(request: GetTaskInstanceLogRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskInstanceLogResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTaskInstanceLog",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskInstanceLogResponse>(await this.callApi(params, req, runtime), new GetTaskInstanceLogResponse({}));
+  }
+
+  /**
+   * @param request - GetTaskInstanceLogRequest
+   * @returns GetTaskInstanceLogResponse
+   */
+  async getTaskInstanceLog(request: GetTaskInstanceLogRequest): Promise<GetTaskInstanceLogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTaskInstanceLogWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the infomation about a workflow.
    * 
    * @param request - GetWorkflowDefinitionRequest
@@ -24761,6 +30709,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ListDownstreamTaskInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDownstreamTaskInstancesResponse
+   */
+  async listDownstreamTaskInstancesWithOptions(request: ListDownstreamTaskInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListDownstreamTaskInstancesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDownstreamTaskInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDownstreamTaskInstancesResponse>(await this.callApi(params, req, runtime), new ListDownstreamTaskInstancesResponse({}));
+  }
+
+  /**
+   * @param request - ListDownstreamTaskInstancesRequest
+   * @returns ListDownstreamTaskInstancesResponse
+   */
+  async listDownstreamTaskInstances(request: ListDownstreamTaskInstancesRequest): Promise<ListDownstreamTaskInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDownstreamTaskInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListDownstreamTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDownstreamTasksResponse
+   */
+  async listDownstreamTasksWithOptions(request: ListDownstreamTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListDownstreamTasksResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDownstreamTasks",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDownstreamTasksResponse>(await this.callApi(params, req, runtime), new ListDownstreamTasksResponse({}));
+  }
+
+  /**
+   * @param request - ListDownstreamTasksRequest
+   * @returns ListDownstreamTasksResponse
+   */
+  async listDownstreamTasks(request: ListDownstreamTasksRequest): Promise<ListDownstreamTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDownstreamTasksWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of user-defined functions (UDFs) in DataStudio. You can also specify filter conditions to query specific UDFs.
    * 
    * @param request - ListFunctionsRequest
@@ -25269,6 +31285,336 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ListTaskInstanceOperationLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTaskInstanceOperationLogsResponse
+   */
+  async listTaskInstanceOperationLogsWithOptions(request: ListTaskInstanceOperationLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskInstanceOperationLogsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTaskInstanceOperationLogs",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTaskInstanceOperationLogsResponse>(await this.callApi(params, req, runtime), new ListTaskInstanceOperationLogsResponse({}));
+  }
+
+  /**
+   * @param request - ListTaskInstanceOperationLogsRequest
+   * @returns ListTaskInstanceOperationLogsResponse
+   */
+  async listTaskInstanceOperationLogs(request: ListTaskInstanceOperationLogsRequest): Promise<ListTaskInstanceOperationLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTaskInstanceOperationLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - ListTaskInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTaskInstancesResponse
+   */
+  async listTaskInstancesWithOptions(tmpReq: ListTaskInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListTaskInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.taskIds)) {
+      request.taskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIds, "TaskIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizdate)) {
+      body["Bizdate"] = request.bizdate;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.runtimeResource)) {
+      body["RuntimeResource"] = request.runtimeResource;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      body["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskIdsShrink)) {
+      body["TaskIds"] = request.taskIdsShrink;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      body["TaskName"] = request.taskName;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    if (!Util.isUnset(request.workflowId)) {
+      body["WorkflowId"] = request.workflowId;
+    }
+
+    if (!Util.isUnset(request.workflowInstanceId)) {
+      body["WorkflowInstanceId"] = request.workflowInstanceId;
+    }
+
+    if (!Util.isUnset(request.workflowInstanceType)) {
+      body["WorkflowInstanceType"] = request.workflowInstanceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTaskInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTaskInstancesResponse>(await this.callApi(params, req, runtime), new ListTaskInstancesResponse({}));
+  }
+
+  /**
+   * @param request - ListTaskInstancesRequest
+   * @returns ListTaskInstancesResponse
+   */
+  async listTaskInstances(request: ListTaskInstancesRequest): Promise<ListTaskInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTaskInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListTaskOperationLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTaskOperationLogsResponse
+   */
+  async listTaskOperationLogsWithOptions(request: ListTaskOperationLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskOperationLogsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTaskOperationLogs",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTaskOperationLogsResponse>(await this.callApi(params, req, runtime), new ListTaskOperationLogsResponse({}));
+  }
+
+  /**
+   * @param request - ListTaskOperationLogsRequest
+   * @returns ListTaskOperationLogsResponse
+   */
+  async listTaskOperationLogs(request: ListTaskOperationLogsRequest): Promise<ListTaskOperationLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTaskOperationLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTasksResponse
+   */
+  async listTasksWithOptions(request: ListTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.runtimeResource)) {
+      body["RuntimeResource"] = request.runtimeResource;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      body["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    if (!Util.isUnset(request.triggerRecurrence)) {
+      body["TriggerRecurrence"] = request.triggerRecurrence;
+    }
+
+    if (!Util.isUnset(request.triggerType)) {
+      body["TriggerType"] = request.triggerType;
+    }
+
+    if (!Util.isUnset(request.workflowId)) {
+      body["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTasks",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTasksResponse>(await this.callApi(params, req, runtime), new ListTasksResponse({}));
+  }
+
+  /**
+   * @param request - ListTasksRequest
+   * @returns ListTasksResponse
+   */
+  async listTasks(request: ListTasksRequest): Promise<ListTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListUpstreamTaskInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUpstreamTaskInstancesResponse
+   */
+  async listUpstreamTaskInstancesWithOptions(request: ListUpstreamTaskInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListUpstreamTaskInstancesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUpstreamTaskInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUpstreamTaskInstancesResponse>(await this.callApi(params, req, runtime), new ListUpstreamTaskInstancesResponse({}));
+  }
+
+  /**
+   * @param request - ListUpstreamTaskInstancesRequest
+   * @returns ListUpstreamTaskInstancesResponse
+   */
+  async listUpstreamTaskInstances(request: ListUpstreamTaskInstancesRequest): Promise<ListUpstreamTaskInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUpstreamTaskInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListUpstreamTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUpstreamTasksResponse
+   */
+  async listUpstreamTasksWithOptions(request: ListUpstreamTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListUpstreamTasksResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUpstreamTasks",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUpstreamTasksResponse>(await this.callApi(params, req, runtime), new ListUpstreamTasksResponse({}));
+  }
+
+  /**
+   * @param request - ListUpstreamTasksRequest
+   * @returns ListUpstreamTasksResponse
+   */
+  async listUpstreamTasks(request: ListUpstreamTasksRequest): Promise<ListUpstreamTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUpstreamTasksWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
    * 
    * @param request - ListWorkflowDefinitionsRequest
@@ -25507,6 +31853,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param tmpReq - RemoveTaskInstanceDependenciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveTaskInstanceDependenciesResponse
+   */
+  async removeTaskInstanceDependenciesWithOptions(tmpReq: RemoveTaskInstanceDependenciesRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTaskInstanceDependenciesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RemoveTaskInstanceDependenciesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.upstreamTaskInstanceIds)) {
+      request.upstreamTaskInstanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.upstreamTaskInstanceIds, "UpstreamTaskInstanceIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.upstreamTaskInstanceIdsShrink)) {
+      body["UpstreamTaskInstanceIds"] = request.upstreamTaskInstanceIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveTaskInstanceDependencies",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveTaskInstanceDependenciesResponse>(await this.callApi(params, req, runtime), new RemoveTaskInstanceDependenciesResponse({}));
+  }
+
+  /**
+   * @param request - RemoveTaskInstanceDependenciesRequest
+   * @returns RemoveTaskInstanceDependenciesResponse
+   */
+  async removeTaskInstanceDependencies(request: RemoveTaskInstanceDependenciesRequest): Promise<RemoveTaskInstanceDependenciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeTaskInstanceDependenciesWithOptions(request, runtime);
+  }
+
+  /**
    * Renames a user-defined function (UDF) in DataStudio.
    * 
    * @param request - RenameFunctionRequest
@@ -25707,6 +32107,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param tmpReq - RerunTaskInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RerunTaskInstancesResponse
+   */
+  async rerunTaskInstancesWithOptions(tmpReq: RerunTaskInstancesRequest, runtime: $Util.RuntimeOptions): Promise<RerunTaskInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RerunTaskInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RerunTaskInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RerunTaskInstancesResponse>(await this.callApi(params, req, runtime), new RerunTaskInstancesResponse({}));
+  }
+
+  /**
+   * @param request - RerunTaskInstancesRequest
+   * @returns RerunTaskInstancesResponse
+   */
+  async rerunTaskInstances(request: RerunTaskInstancesRequest): Promise<RerunTaskInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rerunTaskInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - ResumeTaskInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeTaskInstancesResponse
+   */
+  async resumeTaskInstancesWithOptions(tmpReq: ResumeTaskInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ResumeTaskInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ResumeTaskInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResumeTaskInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResumeTaskInstancesResponse>(await this.callApi(params, req, runtime), new ResumeTaskInstancesResponse({}));
+  }
+
+  /**
+   * @param request - ResumeTaskInstancesRequest
+   * @returns ResumeTaskInstancesResponse
+   */
+  async resumeTaskInstances(request: ResumeTaskInstancesRequest): Promise<ResumeTaskInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resumeTaskInstancesWithOptions(request, runtime);
+  }
+
+  /**
    * 撤销工作空间成员的角色
    * 
    * @param tmpReq - RevokeMemberProjectRolesRequest
@@ -25760,6 +32256,54 @@ export default class Client extends OpenApi {
   async revokeMemberProjectRoles(request: RevokeMemberProjectRolesRequest): Promise<RevokeMemberProjectRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeMemberProjectRolesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - SetSuccessTaskInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetSuccessTaskInstancesResponse
+   */
+  async setSuccessTaskInstancesWithOptions(tmpReq: SetSuccessTaskInstancesRequest, runtime: $Util.RuntimeOptions): Promise<SetSuccessTaskInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SetSuccessTaskInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetSuccessTaskInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetSuccessTaskInstancesResponse>(await this.callApi(params, req, runtime), new SetSuccessTaskInstancesResponse({}));
+  }
+
+  /**
+   * @param request - SetSuccessTaskInstancesRequest
+   * @returns SetSuccessTaskInstancesResponse
+   */
+  async setSuccessTaskInstances(request: SetSuccessTaskInstancesRequest): Promise<SetSuccessTaskInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setSuccessTaskInstancesWithOptions(request, runtime);
   }
 
   /**
@@ -25842,6 +32386,144 @@ export default class Client extends OpenApi {
   async stopDIJob(request: StopDIJobRequest): Promise<StopDIJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopDIJobWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - StopTaskInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopTaskInstancesResponse
+   */
+  async stopTaskInstancesWithOptions(tmpReq: StopTaskInstancesRequest, runtime: $Util.RuntimeOptions): Promise<StopTaskInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StopTaskInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopTaskInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopTaskInstancesResponse>(await this.callApi(params, req, runtime), new StopTaskInstancesResponse({}));
+  }
+
+  /**
+   * @param request - StopTaskInstancesRequest
+   * @returns StopTaskInstancesResponse
+   */
+  async stopTaskInstances(request: StopTaskInstancesRequest): Promise<StopTaskInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopTaskInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - SuspendTaskInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SuspendTaskInstancesResponse
+   */
+  async suspendTaskInstancesWithOptions(tmpReq: SuspendTaskInstancesRequest, runtime: $Util.RuntimeOptions): Promise<SuspendTaskInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SuspendTaskInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SuspendTaskInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SuspendTaskInstancesResponse>(await this.callApi(params, req, runtime), new SuspendTaskInstancesResponse({}));
+  }
+
+  /**
+   * @param request - SuspendTaskInstancesRequest
+   * @returns SuspendTaskInstancesResponse
+   */
+  async suspendTaskInstances(request: SuspendTaskInstancesRequest): Promise<SuspendTaskInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.suspendTaskInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - TriggerSchedulerTaskInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TriggerSchedulerTaskInstanceResponse
+   */
+  async triggerSchedulerTaskInstanceWithOptions(request: TriggerSchedulerTaskInstanceRequest, runtime: $Util.RuntimeOptions): Promise<TriggerSchedulerTaskInstanceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.triggerTime)) {
+      body["TriggerTime"] = request.triggerTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TriggerSchedulerTaskInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TriggerSchedulerTaskInstanceResponse>(await this.callApi(params, req, runtime), new TriggerSchedulerTaskInstanceResponse({}));
+  }
+
+  /**
+   * @param request - TriggerSchedulerTaskInstanceRequest
+   * @returns TriggerSchedulerTaskInstanceResponse
+   */
+  async triggerSchedulerTaskInstance(request: TriggerSchedulerTaskInstanceRequest): Promise<TriggerSchedulerTaskInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.triggerSchedulerTaskInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -26316,6 +32998,54 @@ export default class Client extends OpenApi {
   async updateRoute(request: UpdateRouteRequest): Promise<UpdateRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - UpdateTaskInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTaskInstancesResponse
+   */
+  async updateTaskInstancesWithOptions(tmpReq: UpdateTaskInstancesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateTaskInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.taskInstances)) {
+      request.taskInstancesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskInstances, "TaskInstances", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.taskInstancesShrink)) {
+      body["TaskInstances"] = request.taskInstancesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateTaskInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTaskInstancesResponse>(await this.callApi(params, req, runtime), new UpdateTaskInstancesResponse({}));
+  }
+
+  /**
+   * @param request - UpdateTaskInstancesRequest
+   * @returns UpdateTaskInstancesResponse
+   */
+  async updateTaskInstances(request: UpdateTaskInstancesRequest): Promise<UpdateTaskInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateTaskInstancesWithOptions(request, runtime);
   }
 
   /**
