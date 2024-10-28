@@ -38419,6 +38419,7 @@ export class QueryResourceStaticsResponseBodyDataRealTimeRes extends $tea.Model 
 }
 
 export class QueryResourceStaticsResponseBodyDataSummary extends $tea.Model {
+  activeCpu?: number;
   /**
    * @remarks
    * The CPU usage. Unit: core per minute.
@@ -38427,6 +38428,7 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $tea.Model {
    * 3354
    */
   cpu?: number;
+  idleCpu?: number;
   /**
    * @remarks
    * The memory usage. Unit: GiB per minute.
@@ -38437,14 +38439,18 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $tea.Model {
   memory?: number;
   static names(): { [key: string]: string } {
     return {
+      activeCpu: 'ActiveCpu',
       cpu: 'Cpu',
+      idleCpu: 'IdleCpu',
       memory: 'Memory',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      activeCpu: 'number',
       cpu: 'number',
+      idleCpu: 'number',
       memory: 'number',
     };
   }
