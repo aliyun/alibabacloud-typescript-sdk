@@ -2447,6 +2447,7 @@ export class BlindTransferRequest extends $tea.Model {
   queuingOverflowThreshold?: number;
   queuingTimeoutSeconds?: number;
   routingType?: string;
+  skillGroupId?: string;
   strategyName?: string;
   strategyParams?: string;
   tags?: string;
@@ -2484,6 +2485,7 @@ export class BlindTransferRequest extends $tea.Model {
       queuingOverflowThreshold: 'QueuingOverflowThreshold',
       queuingTimeoutSeconds: 'QueuingTimeoutSeconds',
       routingType: 'RoutingType',
+      skillGroupId: 'SkillGroupId',
       strategyName: 'StrategyName',
       strategyParams: 'StrategyParams',
       tags: 'Tags',
@@ -2505,6 +2507,7 @@ export class BlindTransferRequest extends $tea.Model {
       queuingOverflowThreshold: 'number',
       queuingTimeoutSeconds: 'number',
       routingType: 'string',
+      skillGroupId: 'string',
       strategyName: 'string',
       strategyParams: 'string',
       tags: 'string',
@@ -9465,6 +9468,114 @@ export class GetInstanceTrendingReportResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetInstanceTrendingReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIvrTrackingSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-489361145506897920
+   */
+  contactId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0f7ad007-ab50-4b3d-a87a-56864eb40dab
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIvrTrackingSummaryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * Unknown error code \\"NoPermission.Recording\\". Reason: null
+   */
+  message?: string;
+  /**
+   * @example
+   * DE803553-8AA9-4B9D-9E4E-A82BC69EDCEE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIvrTrackingSummaryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIvrTrackingSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIvrTrackingSummaryResponseBody,
     };
   }
 
@@ -56794,6 +56905,10 @@ export default class Client extends OpenApi {
       query["RoutingType"] = request.routingType;
     }
 
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
     if (!Util.isUnset(request.strategyName)) {
       query["StrategyName"] = request.strategyName;
     }
@@ -59720,6 +59835,48 @@ export default class Client extends OpenApi {
   async getInstanceTrendingReport(request: GetInstanceTrendingReportRequest): Promise<GetInstanceTrendingReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceTrendingReportWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetIvrTrackingSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIvrTrackingSummaryResponse
+   */
+  async getIvrTrackingSummaryWithOptions(request: GetIvrTrackingSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetIvrTrackingSummaryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetIvrTrackingSummary",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetIvrTrackingSummaryResponse>(await this.callApi(params, req, runtime), new GetIvrTrackingSummaryResponse({}));
+  }
+
+  /**
+   * @param request - GetIvrTrackingSummaryRequest
+   * @returns GetIvrTrackingSummaryResponse
+   */
+  async getIvrTrackingSummary(request: GetIvrTrackingSummaryRequest): Promise<GetIvrTrackingSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getIvrTrackingSummaryWithOptions(request, runtime);
   }
 
   /**
