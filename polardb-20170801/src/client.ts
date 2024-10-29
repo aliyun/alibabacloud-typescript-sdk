@@ -5631,6 +5631,7 @@ export class DescribeAITaskStatusRequest extends $tea.Model {
 }
 
 export class DescribeAITaskStatusResponseBody extends $tea.Model {
+  accountName?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -5668,6 +5669,7 @@ export class DescribeAITaskStatusResponseBody extends $tea.Model {
   statusName?: string;
   static names(): { [key: string]: string } {
     return {
+      accountName: 'AccountName',
       DBClusterId: 'DBClusterId',
       requestId: 'RequestId',
       status: 'Status',
@@ -5677,6 +5679,7 @@ export class DescribeAITaskStatusResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountName: 'string',
       DBClusterId: 'string',
       requestId: 'string',
       status: 'string',
