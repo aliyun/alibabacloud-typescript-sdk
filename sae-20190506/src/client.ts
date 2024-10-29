@@ -704,6 +704,7 @@ export class Container extends $tea.Model {
    * registry.cn-shanghai.aliyuncs.com/serverless_devsxxxxx
    */
   image?: string;
+  imageRegistryConfig?: ImageRegistryConfig;
   metricsCollectConfig?: MetricsCollectConfig;
   /**
    * @example
@@ -735,6 +736,7 @@ export class Container extends $tea.Model {
       command: 'Command',
       environmentVariables: 'EnvironmentVariables',
       image: 'Image',
+      imageRegistryConfig: 'ImageRegistryConfig',
       metricsCollectConfig: 'MetricsCollectConfig',
       port: 'Port',
       requestConcurrency: 'RequestConcurrency',
@@ -753,6 +755,7 @@ export class Container extends $tea.Model {
       command: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       image: 'string',
+      imageRegistryConfig: ImageRegistryConfig,
       metricsCollectConfig: MetricsCollectConfig,
       port: 'number',
       requestConcurrency: 'number',
@@ -1861,6 +1864,28 @@ export class ImageConfig extends $tea.Model {
       image: 'string',
       instanceID: 'string',
       registryConfig: RegistryConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageRegistryConfig extends $tea.Model {
+  authConfig?: RegistryAuthenticationConfig;
+  certConfig?: RegistryCertificateConfig;
+  static names(): { [key: string]: string } {
+    return {
+      authConfig: 'AuthConfig',
+      certConfig: 'CertConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authConfig: RegistryAuthenticationConfig,
+      certConfig: RegistryCertificateConfig,
     };
   }
 
@@ -3248,6 +3273,36 @@ export class RegistryAuthConfig extends $tea.Model {
   }
 }
 
+export class RegistryAuthenticationConfig extends $tea.Model {
+  /**
+   * @example
+   * abc***
+   */
+  password?: string;
+  /**
+   * @example
+   * admin
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      password: 'Password',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      password: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RegistryCertConfig extends $tea.Model {
   insecure?: boolean;
   rootCaCertBase64?: string;
@@ -3262,6 +3317,36 @@ export class RegistryCertConfig extends $tea.Model {
     return {
       insecure: 'boolean',
       rootCaCertBase64: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegistryCertificateConfig extends $tea.Model {
+  /**
+   * @example
+   * LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCmZha2VDZXJ0aWZpY2F0ZQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t
+   */
+  certBase64?: string;
+  /**
+   * @example
+   * true
+   */
+  insecure?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      certBase64: 'CertBase64',
+      insecure: 'Insecure',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certBase64: 'string',
+      insecure: 'boolean',
     };
   }
 
@@ -7376,6 +7461,11 @@ export class CreateIngressRequest extends $tea.Model {
    * ingress-for-sae-test
    */
   description?: string;
+  enableXForwardedFor?: boolean;
+  enableXForwardedForClientSrcPort?: boolean;
+  enableXForwardedForProto?: boolean;
+  enableXForwardedForSlbId?: boolean;
+  enableXForwardedForSlbPort?: boolean;
   /**
    * @remarks
    * The timeout period of an idle connection. Unit: seconds. Valid values: 1 to 60.
@@ -7481,6 +7571,11 @@ export class CreateIngressRequest extends $tea.Model {
       certIds: 'CertIds',
       defaultRule: 'DefaultRule',
       description: 'Description',
+      enableXForwardedFor: 'EnableXForwardedFor',
+      enableXForwardedForClientSrcPort: 'EnableXForwardedForClientSrcPort',
+      enableXForwardedForProto: 'EnableXForwardedForProto',
+      enableXForwardedForSlbId: 'EnableXForwardedForSlbId',
+      enableXForwardedForSlbPort: 'EnableXForwardedForSlbPort',
       idleTimeout: 'IdleTimeout',
       listenerPort: 'ListenerPort',
       listenerProtocol: 'ListenerProtocol',
@@ -7499,6 +7594,11 @@ export class CreateIngressRequest extends $tea.Model {
       certIds: 'string',
       defaultRule: 'string',
       description: 'string',
+      enableXForwardedFor: 'boolean',
+      enableXForwardedForClientSrcPort: 'boolean',
+      enableXForwardedForProto: 'boolean',
+      enableXForwardedForSlbId: 'boolean',
+      enableXForwardedForSlbPort: 'boolean',
       idleTimeout: 'number',
       listenerPort: 'number',
       listenerProtocol: 'string',
@@ -23722,6 +23822,15 @@ export class UpdateIngressRequest extends $tea.Model {
    * ingress-sae-test
    */
   description?: string;
+  enableXForwardedFor?: boolean;
+  enableXForwardedForClientSrcPort?: boolean;
+  enableXForwardedForProto?: boolean;
+  enableXForwardedForSlbId?: boolean;
+  enableXForwardedForSlbPort?: boolean;
+  /**
+   * @example
+   * 3
+   */
   idleTimeout?: number;
   /**
    * @remarks
@@ -23760,6 +23869,10 @@ export class UpdateIngressRequest extends $tea.Model {
    * clb
    */
   loadBalanceType?: string;
+  /**
+   * @example
+   * 60
+   */
   requestTimeout?: number;
   /**
    * @remarks
@@ -23774,6 +23887,10 @@ export class UpdateIngressRequest extends $tea.Model {
    * [{"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080,"domain":"www.sae.site","path":"/path1"},{"appId":"666403ce-d25b-47cf-87fe-497565d2****","containerPort":8080,"domain":"sae.site","path":"/path2"}]
    */
   rules?: string;
+  /**
+   * @example
+   * tls_cipher_policy_1_0
+   */
   securityPolicyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23781,6 +23898,11 @@ export class UpdateIngressRequest extends $tea.Model {
       certIds: 'CertIds',
       defaultRule: 'DefaultRule',
       description: 'Description',
+      enableXForwardedFor: 'EnableXForwardedFor',
+      enableXForwardedForClientSrcPort: 'EnableXForwardedForClientSrcPort',
+      enableXForwardedForProto: 'EnableXForwardedForProto',
+      enableXForwardedForSlbId: 'EnableXForwardedForSlbId',
+      enableXForwardedForSlbPort: 'EnableXForwardedForSlbPort',
       idleTimeout: 'IdleTimeout',
       ingressId: 'IngressId',
       listenerPort: 'ListenerPort',
@@ -23798,6 +23920,11 @@ export class UpdateIngressRequest extends $tea.Model {
       certIds: 'string',
       defaultRule: 'string',
       description: 'string',
+      enableXForwardedFor: 'boolean',
+      enableXForwardedForClientSrcPort: 'boolean',
+      enableXForwardedForProto: 'boolean',
+      enableXForwardedForSlbId: 'boolean',
+      enableXForwardedForSlbPort: 'boolean',
       idleTimeout: 'number',
       ingressId: 'number',
       listenerPort: 'string',
@@ -32539,6 +32666,11 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
    * ingress-sae-test
    */
   description?: string;
+  enableXForwardedFor?: boolean;
+  enableXForwardedForClientSrcPort?: boolean;
+  enableXForwardedForProto?: boolean;
+  enableXForwardedForSlbId?: boolean;
+  enableXForwardedForSlbPort?: boolean;
   /**
    * @remarks
    * The HTTP status code. Valid values:
@@ -32552,6 +32684,10 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
    * 87
    */
   id?: number;
+  /**
+   * @example
+   * 3
+   */
   idleTimeout?: number;
   /**
    * @remarks
@@ -32593,12 +32729,20 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
    * cn-beijing:sae-test
    */
   namespaceId?: string;
+  /**
+   * @example
+   * 60
+   */
   requestTimeout?: number;
   /**
    * @remarks
    * The ID of the application specified in the forwarding rule.
    */
   rules?: DescribeIngressResponseBodyDataRules[];
+  /**
+   * @example
+   * sp-n0kn923****
+   */
   securityPolicyId?: string;
   /**
    * @remarks
@@ -32625,6 +32769,11 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
       certIds: 'CertIds',
       defaultRule: 'DefaultRule',
       description: 'Description',
+      enableXForwardedFor: 'EnableXForwardedFor',
+      enableXForwardedForClientSrcPort: 'EnableXForwardedForClientSrcPort',
+      enableXForwardedForProto: 'EnableXForwardedForProto',
+      enableXForwardedForSlbId: 'EnableXForwardedForSlbId',
+      enableXForwardedForSlbPort: 'EnableXForwardedForSlbPort',
       id: 'Id',
       idleTimeout: 'IdleTimeout',
       listenerPort: 'ListenerPort',
@@ -32646,6 +32795,11 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
       certIds: 'string',
       defaultRule: DescribeIngressResponseBodyDataDefaultRule,
       description: 'string',
+      enableXForwardedFor: 'boolean',
+      enableXForwardedForClientSrcPort: 'boolean',
+      enableXForwardedForProto: 'boolean',
+      enableXForwardedForSlbId: 'boolean',
+      enableXForwardedForSlbPort: 'boolean',
       id: 'number',
       idleTimeout: 'number',
       listenerPort: 'number',
@@ -40196,6 +40350,26 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.enableXForwardedFor)) {
+      query["EnableXForwardedFor"] = request.enableXForwardedFor;
+    }
+
+    if (!Util.isUnset(request.enableXForwardedForClientSrcPort)) {
+      query["EnableXForwardedForClientSrcPort"] = request.enableXForwardedForClientSrcPort;
+    }
+
+    if (!Util.isUnset(request.enableXForwardedForProto)) {
+      query["EnableXForwardedForProto"] = request.enableXForwardedForProto;
+    }
+
+    if (!Util.isUnset(request.enableXForwardedForSlbId)) {
+      query["EnableXForwardedForSlbId"] = request.enableXForwardedForSlbId;
+    }
+
+    if (!Util.isUnset(request.enableXForwardedForSlbPort)) {
+      query["EnableXForwardedForSlbPort"] = request.enableXForwardedForSlbPort;
+    }
+
     if (!Util.isUnset(request.idleTimeout)) {
       query["IdleTimeout"] = request.idleTimeout;
     }
@@ -46129,6 +46303,26 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enableXForwardedFor)) {
+      query["EnableXForwardedFor"] = request.enableXForwardedFor;
+    }
+
+    if (!Util.isUnset(request.enableXForwardedForClientSrcPort)) {
+      query["EnableXForwardedForClientSrcPort"] = request.enableXForwardedForClientSrcPort;
+    }
+
+    if (!Util.isUnset(request.enableXForwardedForProto)) {
+      query["EnableXForwardedForProto"] = request.enableXForwardedForProto;
+    }
+
+    if (!Util.isUnset(request.enableXForwardedForSlbId)) {
+      query["EnableXForwardedForSlbId"] = request.enableXForwardedForSlbId;
+    }
+
+    if (!Util.isUnset(request.enableXForwardedForSlbPort)) {
+      query["EnableXForwardedForSlbPort"] = request.enableXForwardedForSlbPort;
     }
 
     if (!Util.isUnset(request.idleTimeout)) {
