@@ -9,41 +9,65 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue extends $tea.Model {
   /**
+   * @remarks
+   * checked baggage quantity
+   * 
    * @example
    * 22
    */
   baggageAmount?: number;
   /**
+   * @remarks
+   * checked baggage weight
+   * 
    * @example
    * 2
    */
   baggageWeight?: number;
   /**
+   * @remarks
+   * checked baggage weight unit
+   * 
    * @example
    * kg
    */
   baggageWeightUnit?: string;
   /**
+   * @remarks
+   * Whether the weight is for all baggages
+   * 
    * @example
    * true
    */
   isAllWeight?: boolean;
   /**
+   * @remarks
+   * carry-on baggage quantity
+   * 
    * @example
    * 1
    */
   carryOnAmount?: number;
   /**
+   * @remarks
+   * carry-on baggage weight
+   * 
    * @example
    * 2
    */
   carryOnWeight?: number;
   /**
+   * @remarks
+   * carry-on baggage weight unit
+   * 
    * @example
    * kg
    */
   carryOnWeightUnit?: string;
   /**
+   * @remarks
+   * Whether the weight is for all baggages
+   * 
    * @example
    * true
    */
@@ -80,9 +104,25 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
 }
 
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue extends $tea.Model {
+  /**
+   * @remarks
+   * refund rule for fully-unused tickets
+   */
   refundRuleAllUnusedList?: DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRuleAllUnusedList[];
+  /**
+   * @remarks
+   * refund rule for partially-used tickets
+   */
   refundRulePartUnusedList?: DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRulePartUnusedList[];
+  /**
+   * @remarks
+   * change rule for inbound segment unused tickets
+   */
   changeRuleInUnusedList?: DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleInUnusedList[];
+  /**
+   * @remarks
+   * change rule for outbound segment unused tickets
+   */
   changeRuleOutUnusedList?: DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleOutUnusedList[];
   static names(): { [key: string]: string } {
     return {
@@ -109,41 +149,65 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 
 export class DataBaggageAllowanceMapValue extends $tea.Model {
   /**
+   * @remarks
+   * checked baggage quantity
+   * 
    * @example
    * 1
    */
   baggageAmount?: number;
   /**
+   * @remarks
+   * checked baggage weight
+   * 
    * @example
    * 10
    */
   baggageWeight?: number;
   /**
+   * @remarks
+   * checked baggage weight unit
+   * 
    * @example
    * KG
    */
   baggageWeightUnit?: string;
   /**
+   * @remarks
+   * Whether the weight is for all baggages
+   * 
    * @example
    * true
    */
   isAllWeight?: boolean;
   /**
+   * @remarks
+   * carry-on baggage quantity
+   * 
    * @example
    * 1
    */
   carryOnAmount?: number;
   /**
+   * @remarks
+   * carry-on baggage weight
+   * 
    * @example
    * 5
    */
   carryOnWeight?: number;
   /**
+   * @remarks
+   * carry-on baggage weight unit
+   * 
    * @example
    * KG
    */
   carryOnWeightUnit?: string;
   /**
+   * @remarks
+   * Whether the weight is for all baggages
+   * 
    * @example
    * true
    */
@@ -180,9 +244,25 @@ export class DataBaggageAllowanceMapValue extends $tea.Model {
 }
 
 export class DataRefundChangeRuleMapValue extends $tea.Model {
+  /**
+   * @remarks
+   * refund rule for fully-unused tickets
+   */
   refundRuleAllUnusedList?: DataRefundChangeRuleMapValueRefundRuleAllUnusedList[];
+  /**
+   * @remarks
+   * refund rule for partially-used tickets
+   */
   refundRulePartUnusedList?: DataRefundChangeRuleMapValueRefundRulePartUnusedList[];
+  /**
+   * @remarks
+   * change rule for inbound segment unused tickets
+   */
   changeRuleInUnusedList?: DataRefundChangeRuleMapValueChangeRuleInUnusedList[];
+  /**
+   * @remarks
+   * change rule for outbound-flight-unused tickets
+   */
   changeRuleOutUnusedList?: DataRefundChangeRuleMapValueChangeRuleOutUnusedList[];
   static names(): { [key: string]: string } {
     return {
@@ -209,41 +289,65 @@ export class DataRefundChangeRuleMapValue extends $tea.Model {
 
 export class DataSolutionSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue extends $tea.Model {
   /**
+   * @remarks
+   * checked baggage quantity
+   * 
    * @example
    * 1
    */
   baggageAmount?: number;
   /**
+   * @remarks
+   * checked baggage weight
+   * 
    * @example
    * 10
    */
   baggageWeight?: number;
   /**
+   * @remarks
+   * checked baggage weight unit
+   * 
    * @example
    * KG
    */
   baggageWeightUnit?: string;
   /**
+   * @remarks
+   * Whether the weight is for all baggages
+   * 
    * @example
    * true
    */
   isAllWeight?: boolean;
   /**
+   * @remarks
+   * carry-on baggage quantity
+   * 
    * @example
    * 1
    */
   carryOnAmount?: number;
   /**
+   * @remarks
+   * carry-on baggage weight
+   * 
    * @example
    * 5
    */
   carryOnWeight?: number;
   /**
+   * @remarks
+   * carry-on baggage weight unit
+   * 
    * @example
    * KG
    */
   carryOnWeightUnit?: string;
   /**
+   * @remarks
+   * Whether the weight is for all baggages
+   * 
    * @example
    * true
    */
@@ -280,9 +384,25 @@ export class DataSolutionSegmentBaggageMappingListPassengerBaggageAllowanceMappi
 }
 
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue extends $tea.Model {
+  /**
+   * @remarks
+   * refund rule for fully-unused tickets
+   */
   refundRuleAllUnusedList?: DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRuleAllUnusedList[];
+  /**
+   * @remarks
+   * refund rule for partially-used tickets
+   */
   refundRulePartUnusedList?: DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRulePartUnusedList[];
+  /**
+   * @remarks
+   * change rule for inbound segment unused tickets
+   */
   changeRuleInUnusedList?: DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleInUnusedList[];
+  /**
+   * @remarks
+   * change rule for outbound-flight-unused tickets
+   */
   changeRuleOutUnusedList?: DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleOutUnusedList[];
   static names(): { [key: string]: string } {
     return {
@@ -494,6 +614,9 @@ export class AncillarySuggestHeaders extends $tea.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * Language Code(refer to ISO_639)
+   * 
    * @example
    * en_US
    */
@@ -522,6 +645,8 @@ export class AncillarySuggestHeaders extends $tea.Model {
 export class AncillarySuggestRequest extends $tea.Model {
   /**
    * @remarks
+   * solution_id returned by enrich
+   * 
    * This parameter is required.
    * 
    * @example
@@ -547,32 +672,54 @@ export class AncillarySuggestRequest extends $tea.Model {
 
 export class AncillarySuggestResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Properly processed return data
+   */
   data?: AncillarySuggestResponseBodyData;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Data carried in error handling
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * http request successful, status value is always 200
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * true represents success, false represents failure
+   * 
    * @example
    * true
    */
@@ -635,7 +782,7 @@ export class BookHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * access token
    * 
    * This parameter is required.
    * 
@@ -644,6 +791,9 @@ export class BookHeaders extends $tea.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+   * 
    * @example
    * en_US
    */
@@ -672,26 +822,36 @@ export class BookHeaders extends $tea.Model {
 export class BookRequest extends $tea.Model {
   /**
    * @remarks
+   * contact information
+   * 
    * This parameter is required.
    */
   contact?: BookRequestContact;
   /**
    * @remarks
+   * external order number(buyer customization)
+   * 
    * This parameter is required.
    * 
    * @example
    * x091-2023-0220-j-0001
    */
   outOrderNum?: string;
+  /**
+   * @remarks
+   * passenger-ancillary purchase relationship
+   */
   passengerAncillaryPurchaseMapList?: BookRequestPassengerAncillaryPurchaseMapList[];
   /**
    * @remarks
+   * passenger list
+   * 
    * This parameter is required.
    */
   passengerList?: BookRequestPassengerList[];
   /**
    * @remarks
-   * solution_id
+   * solution_id returned by Enrich
    * 
    * This parameter is required.
    * 
@@ -727,26 +887,36 @@ export class BookRequest extends $tea.Model {
 export class BookShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * contact information
+   * 
    * This parameter is required.
    */
   contactShrink?: string;
   /**
    * @remarks
+   * external order number(buyer customization)
+   * 
    * This parameter is required.
    * 
    * @example
    * x091-2023-0220-j-0001
    */
   outOrderNum?: string;
+  /**
+   * @remarks
+   * passenger-ancillary purchase relationship
+   */
   passengerAncillaryPurchaseMapListShrink?: string;
   /**
    * @remarks
+   * passenger list
+   * 
    * This parameter is required.
    */
   passengerListShrink?: string;
   /**
    * @remarks
-   * solution_id
+   * solution_id returned by Enrich
    * 
    * This parameter is required.
    * 
@@ -781,32 +951,54 @@ export class BookShrinkRequest extends $tea.Model {
 
 export class BookResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: BookResponseBodyData;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error data
+   * 
    * @example
    * null
    */
   errorData?: BookResponseBodyErrorData;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * http reqeust has been processed successfully，status code is 200
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * true represents success, false represents failure
+   * 
    * @example
    * true
    */
@@ -869,7 +1061,7 @@ export class CancelHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * access token
    * 
    * This parameter is required.
    * 
@@ -878,6 +1070,9 @@ export class CancelHeaders extends $tea.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * language code(refer to ISO_639), defaults to buyer account configuration
+   * 
    * @example
    * en_US
    */
@@ -906,6 +1101,8 @@ export class CancelHeaders extends $tea.Model {
 export class CancelRequest extends $tea.Model {
   /**
    * @remarks
+   * order number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -931,32 +1128,54 @@ export class CancelRequest extends $tea.Model {
 
 export class CancelResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: CancelResponseBodyData;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error data
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * http reqeust has been processed successfully，status code is 200
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * true represents success, false represents failure
+   * 
    * @example
    * true
    */
@@ -2057,7 +2276,7 @@ export class EnrichHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * access token
    * 
    * This parameter is required.
    * 
@@ -2066,6 +2285,9 @@ export class EnrichHeaders extends $tea.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+   * 
    * @example
    * en_US
    */
@@ -2093,27 +2315,52 @@ export class EnrichHeaders extends $tea.Model {
 
 export class EnrichRequest extends $tea.Model {
   /**
+   * @remarks
+   * adult passenger amount 1-9
+   * 
    * @example
    * 1
    */
   adults?: number;
   /**
+   * @remarks
+   * cabin class
+   * 1. **ALL_CABIN** : all cabin class
+   * 2. **Y** : economy class
+   * 3. **FC** : first class and business class
+   * 4. **S** : premium economy class
+   * 5. **YS** : economy class and premium economy class
+   * 6. **YSC** : economy class, premium economy class and business class
+   * 
    * @example
    * ALL_CABIN
    */
   cabinClass?: string;
   /**
+   * @remarks
+   * child passenger amount 0-9
+   * 
    * @example
    * 1
    */
   children?: number;
   /**
+   * @remarks
+   * infant passenger amount 0-9
+   * 
    * @example
    * 1
    */
   infants?: number;
+  /**
+   * @remarks
+   * journey list
+   */
   journeyParamList?: EnrichRequestJourneyParamList[];
   /**
+   * @remarks
+   * solution_id returned by Search
+   * 
    * @example
    * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
    */
@@ -2147,27 +2394,52 @@ export class EnrichRequest extends $tea.Model {
 
 export class EnrichShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * adult passenger amount 1-9
+   * 
    * @example
    * 1
    */
   adults?: number;
   /**
+   * @remarks
+   * cabin class
+   * 1. **ALL_CABIN** : all cabin class
+   * 2. **Y** : economy class
+   * 3. **FC** : first class and business class
+   * 4. **S** : premium economy class
+   * 5. **YS** : economy class and premium economy class
+   * 6. **YSC** : economy class, premium economy class and business class
+   * 
    * @example
    * ALL_CABIN
    */
   cabinClass?: string;
   /**
+   * @remarks
+   * child passenger amount 0-9
+   * 
    * @example
    * 1
    */
   children?: number;
   /**
+   * @remarks
+   * infant passenger amount 0-9
+   * 
    * @example
    * 1
    */
   infants?: number;
+  /**
+   * @remarks
+   * journey list
+   */
   journeyParamListShrink?: string;
   /**
+   * @remarks
+   * solution_id returned by Search
+   * 
    * @example
    * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
    */
@@ -2201,32 +2473,54 @@ export class EnrichShrinkRequest extends $tea.Model {
 
 export class EnrichResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: EnrichResponseBodyData;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error data
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * http reqeust has been processed successfully，status code is 200
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * true represents success, false represents failure
+   * 
    * @example
    * true
    */
@@ -2639,32 +2933,54 @@ export class GetTokenRequest extends $tea.Model {
 
 export class GetTokenResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request RequestId
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Correctly processed return data
+   */
   data?: GetTokenResponseBodyData;
   /**
+   * @remarks
+   * Business error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Data carried during error handling
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * When the HTTP request is successful, the status value is 200.
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * Whether it is correct
+   * 
    * @example
    * true
    */
@@ -2889,7 +3205,7 @@ export class OrderDetailHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * access token
    * 
    * This parameter is required.
    * 
@@ -2898,6 +3214,9 @@ export class OrderDetailHeaders extends $tea.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+   * 
    * @example
    * en_US
    */
@@ -2925,11 +3244,17 @@ export class OrderDetailHeaders extends $tea.Model {
 
 export class OrderDetailRequest extends $tea.Model {
   /**
+   * @remarks
+   * order number created by book
+   * 
    * @example
    * 4966***617111
    */
   orderNum?: number;
   /**
+   * @remarks
+   * external order number(customized by buyer when book)
+   * 
    * @example
    * x091-2023-0220-j-0001
    */
@@ -2955,32 +3280,54 @@ export class OrderDetailRequest extends $tea.Model {
 
 export class OrderDetailResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: OrderDetailResponseBodyData;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error data
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * http reqeust has been processed successfully，status code is 200
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * true represents success, false represents failure
+   * 
    * @example
    * true
    */
@@ -3043,7 +3390,7 @@ export class OrderListHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * access token
    * 
    * This parameter is required.
    * 
@@ -3052,6 +3399,9 @@ export class OrderListHeaders extends $tea.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+   * 
    * @example
    * en_US
    */
@@ -3080,31 +3430,54 @@ export class OrderListHeaders extends $tea.Model {
 export class OrderListRequest extends $tea.Model {
   /**
    * @remarks
+   * latest booking time (timestamp)
+   * 
    * This parameter is required.
    * 
    * @example
-   * 1677229006000
+   * 2023-02-02 11:20:00
    */
   bookTimeEnd?: number;
   /**
    * @remarks
+   * earliest book time(timestamp)
+   * 
    * This parameter is required.
    * 
    * @example
-   * 1677229005000
+   * 2023-02-01 11:20:00
    */
   bookTimeStart?: number;
   /**
+   * @remarks
+   * pagination query parameters, from which page to start querying
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * pagination query parameters, how many orders to return
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * which order status will be query
+   * 
+   * 1: order reservation in process
+   * 
+   * 2: order reservation successful
+   * 
+   * 3: order paid
+   * 
+   * 4: order successful
+   * 
+   * 5: order closed
+   * 
    * @example
    * 4
    */
@@ -3136,32 +3509,54 @@ export class OrderListRequest extends $tea.Model {
 
 export class OrderListResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: OrderListResponseBodyData;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error data
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * http reqeust has been processed successfully，status code is 200
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * true represents success, false represents failure
+   * 
    * @example
    * true
    */
@@ -3224,7 +3619,7 @@ export class PricingHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * access token
    * 
    * This parameter is required.
    * 
@@ -3233,6 +3628,9 @@ export class PricingHeaders extends $tea.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+   * 
    * @example
    * en_US
    */
@@ -3261,7 +3659,7 @@ export class PricingHeaders extends $tea.Model {
 export class PricingRequest extends $tea.Model {
   /**
    * @remarks
-   * solution_id
+   * solution_id returned by Enrich
    * 
    * This parameter is required.
    * 
@@ -3288,32 +3686,54 @@ export class PricingRequest extends $tea.Model {
 
 export class PricingResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: PricingResponseBodyData;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error data
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * http reqeust has been processed successfully，status code is 200
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * true represents success, false represents failure
+   * 
    * @example
    * true
    */
@@ -3376,7 +3796,7 @@ export class RefundApplyHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * access token
    * 
    * This parameter is required.
    * 
@@ -3385,6 +3805,9 @@ export class RefundApplyHeaders extends $tea.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+   * 
    * @example
    * en_US
    */
@@ -3413,6 +3836,8 @@ export class RefundApplyHeaders extends $tea.Model {
 export class RefundApplyRequest extends $tea.Model {
   /**
    * @remarks
+   * order number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3421,16 +3846,22 @@ export class RefundApplyRequest extends $tea.Model {
   orderNum?: number;
   /**
    * @remarks
+   * journeys for which a refund is being requested
+   * 
    * This parameter is required.
    */
   refundJourneys?: RefundApplyRequestRefundJourneys[];
   /**
    * @remarks
+   * passengers that applying for a refund
+   * 
    * This parameter is required.
    */
   refundPassengerList?: RefundApplyRequestRefundPassengerList[];
   /**
    * @remarks
+   * refund type and attachments
+   * 
    * This parameter is required.
    */
   refundType?: RefundApplyRequestRefundType;
@@ -3460,6 +3891,8 @@ export class RefundApplyRequest extends $tea.Model {
 export class RefundApplyShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * order number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3468,16 +3901,22 @@ export class RefundApplyShrinkRequest extends $tea.Model {
   orderNum?: number;
   /**
    * @remarks
+   * journeys for which a refund is being requested
+   * 
    * This parameter is required.
    */
   refundJourneysShrink?: string;
   /**
    * @remarks
+   * passengers that applying for a refund
+   * 
    * This parameter is required.
    */
   refundPassengerListShrink?: string;
   /**
    * @remarks
+   * refund type and attachments
+   * 
    * This parameter is required.
    */
   refundTypeShrink?: string;
@@ -3507,34 +3946,53 @@ export class RefundApplyShrinkRequest extends $tea.Model {
 export class RefundApplyResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 请求 RequestId
+   * request ID
    * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: RefundApplyResponseBodyData;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error data
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * http reqeust has been processed successfully，status code is 200
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * true represents success, false represents failure
+   * 
    * @example
    * true
    */
@@ -3597,7 +4055,7 @@ export class RefundDetailHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * access token
    * 
    * This parameter is required.
    * 
@@ -3606,6 +4064,9 @@ export class RefundDetailHeaders extends $tea.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+   * 
    * @example
    * en_US
    */
@@ -3634,6 +4095,8 @@ export class RefundDetailHeaders extends $tea.Model {
 export class RefundDetailRequest extends $tea.Model {
   /**
    * @remarks
+   * refund order number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3663,28 +4126,47 @@ export class RefundDetailResponseBody extends $tea.Model {
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: RefundDetailResponseBodyData;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error data
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * http reqeust has been processed successfully，status code is 200
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * true represents success, false represents failure
+   * 
    * @example
    * true
    */
@@ -3747,7 +4229,7 @@ export class RefundDetailListHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * access token
    * 
    * This parameter is required.
    * 
@@ -3756,6 +4238,9 @@ export class RefundDetailListHeaders extends $tea.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+   * 
    * @example
    * en_US
    */
@@ -3783,22 +4268,33 @@ export class RefundDetailListHeaders extends $tea.Model {
 
 export class RefundDetailListRequest extends $tea.Model {
   /**
+   * @remarks
+   * order number returned by Book
+   * 
    * @example
    * 49884*****950
    */
   orderNum?: number;
   /**
+   * @remarks
+   * pagination query parameters, from which page to start querying
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * pagination query parameters, how many orders to return
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * the earliest time(timestamp) of refund order creation
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3807,6 +4303,8 @@ export class RefundDetailListRequest extends $tea.Model {
   refundCreateBeginTime?: number;
   /**
    * @remarks
+   * the latest time(timestamp) of refund order creation
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3840,32 +4338,54 @@ export class RefundDetailListRequest extends $tea.Model {
 
 export class RefundDetailListResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: RefundDetailListResponseBodyData;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error data
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * http reqeust has been processed successfully，status code is 200
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * true represents success, false represents failure
+   * 
    * @example
    * true
    */
@@ -3928,7 +4448,7 @@ export class SearchHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * access token
    * 
    * This parameter is required.
    * 
@@ -3937,6 +4457,9 @@ export class SearchHeaders extends $tea.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+   * 
    * @example
    * en_US
    */
@@ -3964,30 +4487,54 @@ export class SearchHeaders extends $tea.Model {
 
 export class SearchRequest extends $tea.Model {
   /**
+   * @remarks
+   * adult passenger amount 1-9
+   * 
    * @example
    * 2
    */
   adults?: number;
   /**
    * @remarks
+   * itinerary list
+   * 
    * This parameter is required.
    */
   airLegs?: SearchRequestAirLegs[];
   /**
+   * @remarks
+   * cabin class
+   * 1. **ALL_CABIN** : all cabin class
+   * 2. **Y** : economy class
+   * 3. **FC** : first class and business class
+   * 4. **S** : premium economy class
+   * 5. **YS** : economy class and premium economy class
+   * 6. **YSC** : economy class, premium economy class and business class
+   * 
    * @example
    * ALL_CABIN
    */
   cabinClass?: string;
   /**
+   * @remarks
+   * child passenger amount 0-9
+   * 
    * @example
    * 1
    */
   children?: number;
   /**
+   * @remarks
+   * infant passenger amount 0-9
+   * 
    * @example
    * 1
    */
   infants?: number;
+  /**
+   * @remarks
+   * search controls
+   */
   searchControlOptions?: SearchRequestSearchControlOptions;
   static names(): { [key: string]: string } {
     return {
@@ -4018,30 +4565,54 @@ export class SearchRequest extends $tea.Model {
 
 export class SearchShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * adult passenger amount 1-9
+   * 
    * @example
    * 2
    */
   adults?: number;
   /**
    * @remarks
+   * itinerary list
+   * 
    * This parameter is required.
    */
   airLegsShrink?: string;
   /**
+   * @remarks
+   * cabin class
+   * 1. **ALL_CABIN** : all cabin class
+   * 2. **Y** : economy class
+   * 3. **FC** : first class and business class
+   * 4. **S** : premium economy class
+   * 5. **YS** : economy class and premium economy class
+   * 6. **YSC** : economy class, premium economy class and business class
+   * 
    * @example
    * ALL_CABIN
    */
   cabinClass?: string;
   /**
+   * @remarks
+   * child passenger amount 0-9
+   * 
    * @example
    * 1
    */
   children?: number;
   /**
+   * @remarks
+   * infant passenger amount 0-9
+   * 
    * @example
    * 1
    */
   infants?: number;
+  /**
+   * @remarks
+   * search controls
+   */
   searchControlOptionsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4072,32 +4643,54 @@ export class SearchShrinkRequest extends $tea.Model {
 
 export class SearchResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 2236993B-7BE7-5F92-B179-21FF08570165
    */
   requestId?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: SearchResponseBodyData;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
-   * null
+   * ""
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error data
+   * 
    * @example
-   * null
+   * {}
    */
   errorData?: any;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
-   * null
+   * ""
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * http reqeust has been processed successfully，status code is 200
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * true represents success, false represents failure
+   * 
    * @example
    * true
    */
@@ -4160,7 +4753,7 @@ export class TicketingHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * access token
    * 
    * This parameter is required.
    * 
@@ -4169,6 +4762,9 @@ export class TicketingHeaders extends $tea.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+   * 
    * @example
    * en_US
    */
@@ -4197,6 +4793,8 @@ export class TicketingHeaders extends $tea.Model {
 export class TicketingRequest extends $tea.Model {
   /**
    * @remarks
+   * order number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4222,32 +4820,54 @@ export class TicketingRequest extends $tea.Model {
 
 export class TicketingResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: TicketingResponseBodyData;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error data
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * http reqeust has been processed successfully，status code is 200
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * true represents success, false represents failure
+   * 
    * @example
    * true
    */
@@ -4310,7 +4930,7 @@ export class TicketingCheckHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * access token
    * 
    * This parameter is required.
    * 
@@ -4319,6 +4939,9 @@ export class TicketingCheckHeaders extends $tea.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * language Code(refer to ISO_639), defaults to the buyer\\"s account configuration
+   * 
    * @example
    * en_US
    */
@@ -4347,6 +4970,8 @@ export class TicketingCheckHeaders extends $tea.Model {
 export class TicketingCheckRequest extends $tea.Model {
   /**
    * @remarks
+   * order number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4372,32 +4997,54 @@ export class TicketingCheckRequest extends $tea.Model {
 
 export class TicketingCheckResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: TicketingCheckResponseBodyData;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error data
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * http reqeust has been processed successfully，status code is 200
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * true represents success, false represents failure
+   * 
    * @example
    * true
    */
@@ -4620,41 +5267,65 @@ export class TransitVisaResponse extends $tea.Model {
 
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRuleAllUnusedList extends $tea.Model {
   /**
+   * @remarks
+   * type: 0 - fully-unused ticket; 1 - partially used ticket
+   * 
    * @example
    * 0
    */
   type?: number;
   /**
+   * @remarks
+   * time unit: day/hour
+   * 
    * @example
    * hour
    */
   timeUnit?: string;
   /**
+   * @remarks
+   * applicable refund rule start time, time unit (day/hour)
+   * 
    * @example
    * 36
    */
   ruleStartTime?: number;
   /**
+   * @remarks
+   * applicable refund rule end time, time unit (day/hour)
+   * 
    * @example
    * 12
    */
   ruleEndTime?: number;
   /**
+   * @remarks
+   * whether refundable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canRefund?: boolean;
   /**
+   * @remarks
+   * refund fee X-Y hour(day) before departure
+   * 
    * @example
    * 20
    */
   refundFee?: number;
   /**
+   * @remarks
+   * whether tax is fully refundable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canReturnAllTax?: boolean;
   /**
+   * @remarks
+   * tax amount refundable X-Y hour(day) before departure
+   * 
    * @example
    * 20
    */
@@ -4692,41 +5363,65 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRulePartUnusedList extends $tea.Model {
   /**
+   * @remarks
+   * type: 0 - fully-unused ticket; 1 - partially used ticket
+   * 
    * @example
    * 1
    */
   type?: number;
   /**
+   * @remarks
+   * time unit: day/hour
+   * 
    * @example
    * hour
    */
   timeUnit?: string;
   /**
+   * @remarks
+   * applicable refund rule start time, time unit (day/hour)
+   * 
    * @example
    * 36
    */
   ruleStartTime?: number;
   /**
+   * @remarks
+   * applicable refund rule end time, time unit (day/hour)
+   * 
    * @example
    * 12
    */
   ruleEndTime?: number;
   /**
+   * @remarks
+   * whether refundable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canRefund?: boolean;
   /**
+   * @remarks
+   * refund fee X-Y hour(day) before departure
+   * 
    * @example
    * 20
    */
   refundFee?: number;
   /**
+   * @remarks
+   * whether tax is fully refundable X-Y hour(day) before departure
+   * 
    * @example
    * 30
    */
   canReturnAllTax?: boolean;
   /**
+   * @remarks
+   * tax amount refundable X-Y hour(day) before departure
+   * 
    * @example
    * 20
    */
@@ -4764,31 +5459,49 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleInUnusedList extends $tea.Model {
   /**
+   * @remarks
+   * type: 2 - outbound segment unused; 3 - inbound segment unused
+   * 
    * @example
    * 2
    */
   type?: number;
   /**
+   * @remarks
+   * time unit: day/hour
+   * 
    * @example
    * hour
    */
   timeUnit?: string;
   /**
+   * @remarks
+   * applicable change rule start time, time unit (day/hour)
+   * 
    * @example
    * 36
    */
   ruleStartTime?: number;
   /**
+   * @remarks
+   * applicable change rule end time, time unit (day/hour)
+   * 
    * @example
    * 12
    */
   ruleEndTime?: number;
   /**
+   * @remarks
+   * whether changeable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canChange?: boolean;
   /**
+   * @remarks
+   * change fee X-Y hour(day) before departure
+   * 
    * @example
    * 20
    */
@@ -4822,31 +5535,49 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleOutUnusedList extends $tea.Model {
   /**
+   * @remarks
+   * type: 2 - outbound segment unused; 3 - inbound segment unused
+   * 
    * @example
    * 2
    */
   type?: number;
   /**
+   * @remarks
+   * time unit: day/hour
+   * 
    * @example
    * hour
    */
   timeUnit?: string;
   /**
+   * @remarks
+   * applicable change rule start time, time unit (day/hour)
+   * 
    * @example
    * 36
    */
   ruleStartTime?: number;
   /**
+   * @remarks
+   * applicable change rule end time, time unit (day/hour)
+   * 
    * @example
    * 12
    */
   ruleEndTime?: number;
   /**
+   * @remarks
+   * whether changeable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canChange?: boolean;
   /**
+   * @remarks
+   * change fee X-Y hour(day) before departure
+   * 
    * @example
    * 10
    */
@@ -4880,41 +5611,65 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 
 export class DataRefundChangeRuleMapValueRefundRuleAllUnusedList extends $tea.Model {
   /**
+   * @remarks
+   * type: 0 - fully-unused ticket; 1 - partially used ticket
+   * 
    * @example
    * 0
    */
   type?: number;
   /**
+   * @remarks
+   * time unit: day/hour
+   * 
    * @example
    * hour
    */
   timeUnit?: string;
   /**
+   * @remarks
+   * applicable refund rule start time, time unit (day/hour)
+   * 
    * @example
    * 36
    */
   ruleStartTime?: number;
   /**
+   * @remarks
+   * applicable refund rule end time, time unit (day/hour)
+   * 
    * @example
    * 12
    */
   ruleEndTime?: number;
   /**
+   * @remarks
+   * whether refundable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canRefund?: boolean;
   /**
+   * @remarks
+   * refund fee X-Y hour(day) before departure
+   * 
    * @example
    * 200
    */
   refundFee?: number;
   /**
+   * @remarks
+   * whether tax is fully refundable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canReturnAllTax?: boolean;
   /**
+   * @remarks
+   * tax amount refundable X-Y hour(day) before departure
+   * 
    * @example
    * 100
    */
@@ -4952,41 +5707,65 @@ export class DataRefundChangeRuleMapValueRefundRuleAllUnusedList extends $tea.Mo
 
 export class DataRefundChangeRuleMapValueRefundRulePartUnusedList extends $tea.Model {
   /**
+   * @remarks
+   * type: 0 - fully-unused ticket; 1 - partially used ticket
+   * 
    * @example
    * 0
    */
   type?: number;
   /**
+   * @remarks
+   * time unit: day/hour
+   * 
    * @example
    * hour
    */
   timeUnit?: string;
   /**
+   * @remarks
+   * applicable refund rule start time, time unit (day/hour)
+   * 
    * @example
    * 36
    */
   ruleStartTime?: number;
   /**
+   * @remarks
+   * applicable refund rule end time, time unit (day/hour)
+   * 
    * @example
    * 12
    */
   ruleEndTime?: number;
   /**
+   * @remarks
+   * whether refundable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canRefund?: boolean;
   /**
+   * @remarks
+   * refund fee X-Y hour(day) before departure
+   * 
    * @example
    * 200
    */
   refundFee?: number;
   /**
+   * @remarks
+   * whether tax is fully refundable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canReturnAllTax?: boolean;
   /**
+   * @remarks
+   * tax amount refundable X-Y hour(day) before departure
+   * 
    * @example
    * 100
    */
@@ -5024,31 +5803,49 @@ export class DataRefundChangeRuleMapValueRefundRulePartUnusedList extends $tea.M
 
 export class DataRefundChangeRuleMapValueChangeRuleInUnusedList extends $tea.Model {
   /**
+   * @remarks
+   * type: 2 - outbound segment unused; 3 - inbound segment unused
+   * 
    * @example
    * 2
    */
   type?: number;
   /**
+   * @remarks
+   * time unit: day/hour
+   * 
    * @example
    * hour
    */
   timeUnit?: string;
   /**
+   * @remarks
+   * applicable change rule start time, time unit (day/hour)
+   * 
    * @example
    * 36
    */
   ruleStartTime?: number;
   /**
+   * @remarks
+   * applicable change rule end time, time unit (day/hour)
+   * 
    * @example
    * 12
    */
   ruleEndTime?: number;
   /**
+   * @remarks
+   * whether changeable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canChange?: boolean;
   /**
+   * @remarks
+   * change fee X-Y hour(day) before departure
+   * 
    * @example
    * 100
    */
@@ -5082,31 +5879,49 @@ export class DataRefundChangeRuleMapValueChangeRuleInUnusedList extends $tea.Mod
 
 export class DataRefundChangeRuleMapValueChangeRuleOutUnusedList extends $tea.Model {
   /**
+   * @remarks
+   * type: 2 - outbound segment unused; 3 - inbound segment unused
+   * 
    * @example
    * 2
    */
   type?: number;
   /**
+   * @remarks
+   * time unit: day/hour
+   * 
    * @example
    * hour
    */
   timeUnit?: string;
   /**
+   * @remarks
+   * applicable change rule start time, time unit (day/hour)
+   * 
    * @example
    * 36
    */
   ruleStartTime?: number;
   /**
+   * @remarks
+   * applicable change rule end time, time unit (day/hour)
+   * 
    * @example
    * 12
    */
   ruleEndTime?: number;
   /**
+   * @remarks
+   * whether changeable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canChange?: boolean;
   /**
+   * @remarks
+   * change fee X-Y hour(day) before departure
+   * 
    * @example
    * 100
    */
@@ -5140,41 +5955,65 @@ export class DataRefundChangeRuleMapValueChangeRuleOutUnusedList extends $tea.Mo
 
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRuleAllUnusedList extends $tea.Model {
   /**
+   * @remarks
+   * type: 0 - fully-unused ticket; 1 - partially used ticket
+   * 
    * @example
    * 0
    */
   type?: number;
   /**
+   * @remarks
+   * time unit: day/hour
+   * 
    * @example
    * hour
    */
   timeUnit?: string;
   /**
+   * @remarks
+   * applicable refund rule start time, time unit (day/hour)
+   * 
    * @example
    * 36
    */
   ruleStartTime?: number;
   /**
+   * @remarks
+   * applicable refund rule end time, time unit (day/hour)
+   * 
    * @example
    * 12
    */
   ruleEndTime?: number;
   /**
+   * @remarks
+   * whether refundable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canRefund?: boolean;
   /**
+   * @remarks
+   * refund fee X-Y hour(day) before departure
+   * 
    * @example
    * 200
    */
   refundFee?: number;
   /**
+   * @remarks
+   * whether tax is fully refundable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canReturnAllTax?: boolean;
   /**
+   * @remarks
+   * tax amount refundable X-Y hour(day) before departure
+   * 
    * @example
    * 100
    */
@@ -5212,41 +6051,65 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
 
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRulePartUnusedList extends $tea.Model {
   /**
+   * @remarks
+   * type: 0 - fully-unused ticket; 1 - partially used ticket
+   * 
    * @example
    * 0
    */
   type?: number;
   /**
+   * @remarks
+   * time unit: day/hour
+   * 
    * @example
    * hour
    */
   timeUnit?: string;
   /**
+   * @remarks
+   * applicable refund rule start time, time unit (day/hour)
+   * 
    * @example
    * 36
    */
   ruleStartTime?: number;
   /**
+   * @remarks
+   * applicable refund rule end time, time unit (day/hour)
+   * 
    * @example
    * 12
    */
   ruleEndTime?: number;
   /**
+   * @remarks
+   * whether refundable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canRefund?: boolean;
   /**
+   * @remarks
+   * refund fee X-Y hour(day) before departure
+   * 
    * @example
    * 200
    */
   refundFee?: number;
   /**
+   * @remarks
+   * whether tax is fully refundable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canReturnAllTax?: boolean;
   /**
+   * @remarks
+   * tax amount refundable X-Y hour(day) before departure
+   * 
    * @example
    * 100
    */
@@ -5284,31 +6147,49 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
 
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleInUnusedList extends $tea.Model {
   /**
+   * @remarks
+   * type: 2 - outbound segment unused; 3 - inbound segment unused
+   * 
    * @example
    * 2
    */
   type?: number;
   /**
+   * @remarks
+   * time unit: day/hour
+   * 
    * @example
    * hour
    */
   timeUnit?: string;
   /**
+   * @remarks
+   * applicable change rule start time, time unit (day/hour)
+   * 
    * @example
    * 36
    */
   ruleStartTime?: number;
   /**
+   * @remarks
+   * applicable change rule end time, time unit (day/hour)
+   * 
    * @example
    * 12
    */
   ruleEndTime?: number;
   /**
+   * @remarks
+   * whether changeable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canChange?: boolean;
   /**
+   * @remarks
+   * change fee X-Y hour(day) before departure
+   * 
    * @example
    * 100
    */
@@ -5342,31 +6223,49 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
 
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleOutUnusedList extends $tea.Model {
   /**
+   * @remarks
+   * type: 2 - outbound segment unused; 3 - inbound segment unused
+   * 
    * @example
    * 2
    */
   type?: number;
   /**
+   * @remarks
+   * time unit: day/hour
+   * 
    * @example
    * hour
    */
   timeUnit?: string;
   /**
+   * @remarks
+   * applicable change rule start time, time unit (day/hour)
+   * 
    * @example
    * 36
    */
   ruleStartTime?: number;
   /**
+   * @remarks
+   * applicable change rule end time, time unit (day/hour)
+   * 
    * @example
    * 12
    */
   ruleEndTime?: number;
   /**
+   * @remarks
+   * whether changeable X-Y hour(day) before departure
+   * 
    * @example
    * true
    */
   canChange?: boolean;
   /**
+   * @remarks
+   * change fee X-Y hour(day) before departure
+   * 
    * @example
    * 100
    */
@@ -5567,7 +6466,7 @@ export class AccountFlowListResponseBodyData extends $tea.Model {
 export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggageAncillary extends $tea.Model {
   /**
    * @remarks
-   * 行李件数 取值如：3、2、1、0、-2。 -2 表示计重
+   * baggage quantity, values such as: 3, 2, 1, 0, -2.     -2 indicates weight-based
    * 
    * @example
    * 0
@@ -5575,7 +6474,7 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggage
   baggageAmount?: number;
   /**
    * @remarks
-   * 行李重量，0-50。isAllWeght=true 时，表示所有件数总重量。
+   * Baggage weight, 0-50. When isAllWeight=true, it represents the total weight of all baggages.
    * 
    * @example
    * 0
@@ -5583,7 +6482,7 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggage
   baggageWeight?: number;
   /**
    * @remarks
-   * 行李重量单位
+   * Unit of baggage weight
    * 
    * @example
    * KG
@@ -5591,7 +6490,7 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggage
   baggageWeightUnit?: string;
   /**
    * @remarks
-   * 是否所有行李重量
+   * Whether the weight is for all baggages
    * 
    * @example
    * true
@@ -5599,7 +6498,7 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggage
   isAllWeight?: boolean;
   /**
    * @remarks
-   * 总价
+   * Total price
    * 
    * @example
    * 10.0
@@ -5632,18 +6531,24 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggage
 
 export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillary extends $tea.Model {
   /**
+   * @remarks
+   * Ancillary product ID
+   * 
    * @example
    * eJwz8DeySEo0NjQ01TU3TU
    */
   ancillaryId?: string;
   /**
+   * @remarks
+   * Ancillary product type. currently supports 4: paid luggage
+   * 
    * @example
    * 4
    */
   ancillaryType?: number;
   /**
    * @remarks
-   * 行李辅营详情
+   * Baggage details
    */
   baggageAncillary?: AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggageAncillary;
   static names(): { [key: string]: string } {
@@ -5668,7 +6573,15 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillary extend
 }
 
 export class AncillarySuggestResponseBodyDataSegAncillaryMapList extends $tea.Model {
+  /**
+   * @remarks
+   * Ancillary product
+   */
   ancillary?: AncillarySuggestResponseBodyDataSegAncillaryMapListAncillary;
+  /**
+   * @remarks
+   * Segment ID list, these segments share the same ancillary
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -5690,8 +6603,15 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapList extends $tea.Mo
 }
 
 export class AncillarySuggestResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * ancillary detail list
+   */
   segAncillaryMapList?: AncillarySuggestResponseBodyDataSegAncillaryMapList[];
   /**
+   * @remarks
+   * solution_id, equals to solution_id in request
+   * 
    * @example
    * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
    */
@@ -5717,26 +6637,41 @@ export class AncillarySuggestResponseBodyData extends $tea.Model {
 
 export class BookRequestContact extends $tea.Model {
   /**
+   * @remarks
+   * email address
+   * 
    * @example
    * gao******@gmail.com
    */
   email?: string;
   /**
+   * @remarks
+   * first name
+   * 
    * @example
    * SAN
    */
   firstName?: string;
   /**
+   * @remarks
+   * last name
+   * 
    * @example
    * ZHANG
    */
   lastName?: string;
   /**
+   * @remarks
+   * country code
+   * 
    * @example
    * 86
    */
   mobileCountryCode?: string;
   /**
+   * @remarks
+   * mobile phone number
+   * 
    * @example
    * 183******96
    */
@@ -5768,11 +6703,17 @@ export class BookRequestContact extends $tea.Model {
 
 export class BookRequestPassengerAncillaryPurchaseMapListBookAncillaryReqItem extends $tea.Model {
   /**
+   * @remarks
+   * ancillary product ID, returned by AncillarySuggest.
+   * 
    * @example
    * MDY2NTAxLCJleHAiOjE2NxNzM3MDEsIm5ix
    */
   ancillaryId?: string;
   /**
+   * @remarks
+   * type of ancillary product, only support "4"(4 means paid baggage) currently.
+   * 
    * @example
    * 4
    */
@@ -5798,17 +6739,25 @@ export class BookRequestPassengerAncillaryPurchaseMapListBookAncillaryReqItem ex
 
 export class BookRequestPassengerAncillaryPurchaseMapListPassengerListCredential extends $tea.Model {
   /**
+   * @remarks
+   * place of issue, two-letter code
+   * 
    * @example
    * CN
    */
   certIssuePlace?: string;
   /**
+   * @remarks
+   * travel document number
+   * 
    * @example
    * E1***5673
    */
   credentialNum?: string;
   /**
    * @remarks
+   * travel document type , only support "1"(1 means passport) currently
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5816,6 +6765,9 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerListCredential
    */
   credentialType?: number;
   /**
+   * @remarks
+   * expiration date
+   * 
    * @example
    * 20290102
    */
@@ -5845,13 +6797,22 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerListCredential
 
 export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $tea.Model {
   /**
+   * @remarks
+   * date of birth (yyyyMMdd)
+   * 
    * @example
    * 20020320
    */
   birthday?: string;
+  /**
+   * @remarks
+   * travel document
+   */
   credential?: BookRequestPassengerAncillaryPurchaseMapListPassengerListCredential;
   /**
    * @remarks
+   * first name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5859,12 +6820,17 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $
    */
   firstName?: string;
   /**
+   * @remarks
+   * gender 0: male; 1: female
+   * 
    * @example
    * 1
    */
   gender?: number;
   /**
    * @remarks
+   * last name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5873,6 +6839,8 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $
   lastName?: string;
   /**
    * @remarks
+   * country code for mobile phone number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5881,6 +6849,8 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $
   mobileCountryCode?: string;
   /**
    * @remarks
+   * mobile phone number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5888,12 +6858,17 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $
    */
   mobilePhoneNumber?: string;
   /**
+   * @remarks
+   * nationality
+   * 
    * @example
    * CN
    */
   nationality?: string;
   /**
    * @remarks
+   * passenger type 0: adult; 1: child; 8: Infant
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5934,7 +6909,15 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $
 }
 
 export class BookRequestPassengerAncillaryPurchaseMapList extends $tea.Model {
+  /**
+   * @remarks
+   * ancillary information
+   */
   bookAncillaryReqItem?: BookRequestPassengerAncillaryPurchaseMapListBookAncillaryReqItem;
+  /**
+   * @remarks
+   * passenger list for unified ancillary purchases
+   */
   passengerList?: BookRequestPassengerAncillaryPurchaseMapListPassengerList[];
   static names(): { [key: string]: string } {
     return {
@@ -5957,17 +6940,25 @@ export class BookRequestPassengerAncillaryPurchaseMapList extends $tea.Model {
 
 export class BookRequestPassengerListCredential extends $tea.Model {
   /**
+   * @remarks
+   * place of issue, two-letter code
+   * 
    * @example
    * CN
    */
   certIssuePlace?: string;
   /**
+   * @remarks
+   * travel document number
+   * 
    * @example
    * E1***5674
    */
   credentialNum?: string;
   /**
    * @remarks
+   * travel document type , only support "1"(1 means passport) currently.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5975,6 +6966,9 @@ export class BookRequestPassengerListCredential extends $tea.Model {
    */
   credentialType?: number;
   /**
+   * @remarks
+   * expiration date
+   * 
    * @example
    * 20290101
    */
@@ -6004,13 +6998,22 @@ export class BookRequestPassengerListCredential extends $tea.Model {
 
 export class BookRequestPassengerList extends $tea.Model {
   /**
+   * @remarks
+   * date of birth (yyyyMMdd)
+   * 
    * @example
    * 20200320
    */
   birthday?: string;
+  /**
+   * @remarks
+   * travel document
+   */
   credential?: BookRequestPassengerListCredential;
   /**
    * @remarks
+   * first name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6018,12 +7021,17 @@ export class BookRequestPassengerList extends $tea.Model {
    */
   firstName?: string;
   /**
+   * @remarks
+   * gender 0: MALE; 1: FEMALE
+   * 
    * @example
    * 0
    */
   gender?: number;
   /**
    * @remarks
+   * last name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6032,6 +7040,8 @@ export class BookRequestPassengerList extends $tea.Model {
   lastName?: string;
   /**
    * @remarks
+   * mobile country code
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6040,6 +7050,8 @@ export class BookRequestPassengerList extends $tea.Model {
   mobileCountryCode?: string;
   /**
    * @remarks
+   * mobile phone number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6047,12 +7059,17 @@ export class BookRequestPassengerList extends $tea.Model {
    */
   mobilePhoneNumber?: string;
   /**
+   * @remarks
+   * nationality (two-letter code)
+   * 
    * @example
    * CN
    */
   nationality?: string;
   /**
    * @remarks
+   * passenger type 0: adult; 1: child; 8: infant
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6094,6 +7111,9 @@ export class BookRequestPassengerList extends $tea.Model {
 
 export class BookResponseBodyDataOrderList extends $tea.Model {
   /**
+   * @remarks
+   * order number
+   * 
    * @example
    * 4966***617111
    */
@@ -6116,6 +7136,10 @@ export class BookResponseBodyDataOrderList extends $tea.Model {
 }
 
 export class BookResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * order information list
+   */
   orderList?: BookResponseBodyDataOrderList[];
   static names(): { [key: string]: string } {
     return {
@@ -6135,6 +7159,13 @@ export class BookResponseBodyData extends $tea.Model {
 }
 
 export class BookResponseBodyErrorDataOrderList extends $tea.Model {
+  /**
+   * @remarks
+   * order number
+   * 
+   * @example
+   * 4966***617111
+   */
   orderNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6154,6 +7185,10 @@ export class BookResponseBodyErrorDataOrderList extends $tea.Model {
 }
 
 export class BookResponseBodyErrorData extends $tea.Model {
+  /**
+   * @remarks
+   * order information list. When the same input parameters are used to repeat a Book, if the booking has already been successful, the order number will be returned.
+   */
   orderList?: BookResponseBodyErrorDataOrderList[];
   static names(): { [key: string]: string } {
     return {
@@ -6174,6 +7209,9 @@ export class BookResponseBodyErrorData extends $tea.Model {
 
 export class CancelResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * order number
+   * 
    * @example
    * 496***2617111
    */
@@ -6262,6 +7300,7 @@ export class ChangeApplyRequestChangedJourneysSegmentList extends $tea.Model {
    * 1677232999000
    */
   arriveTime?: number;
+  arriveTimeStr?: string;
   /**
    * @example
    * false
@@ -6298,6 +7337,7 @@ export class ChangeApplyRequestChangedJourneysSegmentList extends $tea.Model {
    * 1677232998000
    */
   departureTime?: number;
+  departureTimeStr?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -6317,12 +7357,14 @@ export class ChangeApplyRequestChangedJourneysSegmentList extends $tea.Model {
       arrivalCity: 'arrival_city',
       arriveTerminal: 'arrive_terminal',
       arriveTime: 'arrive_time',
+      arriveTimeStr: 'arrive_time_str',
       codeShare: 'code_share',
       departureAirport: 'departure_airport',
       departureCity: 'departure_city',
       departureDate: 'departure_date',
       departureTerminal: 'departure_terminal',
       departureTime: 'departure_time',
+      departureTimeStr: 'departure_time_str',
       marketingFlightNo: 'marketing_flight_no',
       operatingFlightNo: 'operating_flight_no',
     };
@@ -6334,12 +7376,14 @@ export class ChangeApplyRequestChangedJourneysSegmentList extends $tea.Model {
       arrivalCity: 'string',
       arriveTerminal: 'string',
       arriveTime: 'number',
+      arriveTimeStr: 'string',
       codeShare: 'boolean',
       departureAirport: 'string',
       departureCity: 'string',
       departureDate: 'string',
       departureTerminal: 'string',
       departureTime: 'number',
+      departureTimeStr: 'string',
       marketingFlightNo: 'string',
       operatingFlightNo: 'string',
     };
@@ -8484,6 +9528,8 @@ export class ChangeDetailListOfOrderNumResponseBodyData extends $tea.Model {
 export class EnrichRequestJourneyParamListSegmentParamList extends $tea.Model {
   /**
    * @remarks
+   * arrival airport code (capitalized)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8491,22 +9537,33 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $tea.Model {
    */
   arrivalAirport?: string;
   /**
+   * @remarks
+   * arrival city code (capitalized)
+   * 
    * @example
    * MFM
    */
   arrivalCity?: string;
   /**
+   * @remarks
+   * RBD
+   * 
    * @example
    * V
    */
   cabin?: string;
   /**
+   * @remarks
+   * child RBD
+   * 
    * @example
    * E
    */
   childCabin?: string;
   /**
    * @remarks
+   * departure airport code (capitalized)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8514,12 +9571,17 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $tea.Model {
    */
   departureAirport?: string;
   /**
+   * @remarks
+   * departure city code (capitalized)
+   * 
    * @example
    * SHA
    */
   departureCity?: string;
   /**
    * @remarks
+   * departure time in string format (yyyy-MM-dd HH:mm:ss)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8528,6 +9590,8 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $tea.Model {
   departureTime?: string;
   /**
    * @remarks
+   * marketing flight no. (eg: KA5809)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8568,6 +9632,8 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $tea.Model {
 export class EnrichRequestJourneyParamList extends $tea.Model {
   /**
    * @remarks
+   * arrival city code (capitalized)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8576,6 +9642,8 @@ export class EnrichRequestJourneyParamList extends $tea.Model {
   arrivalCity?: string;
   /**
    * @remarks
+   * departure city code (capitalized)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8584,6 +9652,8 @@ export class EnrichRequestJourneyParamList extends $tea.Model {
   departureCity?: string;
   /**
    * @remarks
+   * departure date (eg: yyyyMMdd)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8592,6 +9662,8 @@ export class EnrichRequestJourneyParamList extends $tea.Model {
   departureDate?: string;
   /**
    * @remarks
+   * segement param list
+   * 
    * This parameter is required.
    */
   segmentParamList?: EnrichRequestJourneyParamListSegmentParamList[];
@@ -8620,111 +9692,178 @@ export class EnrichRequestJourneyParamList extends $tea.Model {
 
 export class EnrichResponseBodyDataSolutionListJourneyListSegmentList extends $tea.Model {
   /**
+   * @remarks
+   * arrival airport code (capitalized)
+   * 
    * @example
    * MFM
    */
   arrivalAirport?: string;
   /**
+   * @remarks
+   * arrival city code (capitalized)
+   * 
    * @example
    * MFM
    */
   arrivalCity?: string;
   /**
+   * @remarks
+   * arrival terminal
+   * 
    * @example
-   * null
+   * T1
    */
   arrivalTerminal?: string;
   /**
+   * @remarks
+   * arrival time in string format (yyyy-MM-dd HH:mm:ss)
+   * 
    * @example
    * 2023-03-10 10:40:00
    */
   arrivalTime?: string;
   /**
+   * @remarks
+   * available seats (for reference only)
+   * 
    * @example
    * 7
    */
   availability?: string;
   /**
+   * @remarks
+   * RBD
+   * 
    * @example
    * V
    */
   cabin?: string;
   /**
+   * @remarks
+   * cabin class
+   * 
    * @example
    * Y
    */
   cabinClass?: string;
   /**
+   * @remarks
+   * code share or not
+   * 
    * @example
    * false
    */
   codeShare?: boolean;
   /**
+   * @remarks
+   * departure airport code (capitalized)
+   * 
    * @example
    * PVG
    */
   departureAirport?: string;
   /**
+   * @remarks
+   * departure city code (capitalized)
+   * 
    * @example
    * SHA
    */
   departureCity?: string;
   /**
+   * @remarks
+   * departure terminal
+   * 
    * @example
    * T2
    */
   departureTerminal?: string;
   /**
+   * @remarks
+   * departure time in string format (yyyy-MM-dd HH:mm:ss)
+   * 
    * @example
    * 2023-03-10 07:55:00
    */
   departureTime?: string;
   /**
+   * @remarks
+   * equipment type
+   * 
    * @example
    * 32Q
    */
   equipType?: string;
   /**
+   * @remarks
+   * flight time, unit: minute
+   * 
    * @example
    * 165
    */
   flightDuration?: number;
   /**
+   * @remarks
+   * marketing airline code (eg: KA)
+   * 
    * @example
    * HO
    */
   marketingAirline?: string;
   /**
+   * @remarks
+   * marketing airline flight no. (eg: KA5809)
+   * 
    * @example
    * HO1295
    */
   marketingFlightNo?: string;
   /**
+   * @remarks
+   * marketing airline integer flight no. (eg: 5809)
+   * 
    * @example
    * 1295
    */
   marketingFlightNoInt?: number;
   /**
+   * @remarks
+   * operating airline code (eg: CX)
+   * 
    * @example
    * HO
    */
   operatingAirline?: string;
   /**
+   * @remarks
+   * operating airline flight no. (eg: CX601)
+   * 
    * @example
    * HO1295
    */
   operatingFlightNo?: string;
   /**
+   * @remarks
+   * segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(MMdd)
+   * 
    * @example
    * HO1295-PVG-MFM-20230310
    */
   segmentId?: string;
   /**
+   * @remarks
+   * stop city list. 
+   * when stop_quantity > 1 , use “,” for seperation
+   * 
    * @example
-   * ""
+   * MFM,PVG
    */
   stopCityList?: string;
   /**
+   * @remarks
+   * number of stops
+   * 
    * @example
    * 0
    */
@@ -8789,8 +9928,15 @@ export class EnrichResponseBodyDataSolutionListJourneyListSegmentList extends $t
 }
 
 export class EnrichResponseBodyDataSolutionListJourneyList extends $tea.Model {
+  /**
+   * @remarks
+   * segment Info
+   */
   segmentList?: EnrichResponseBodyDataSolutionListJourneyListSegmentList[];
   /**
+   * @remarks
+   * number of transfers
+   * 
    * @example
    * 0
    */
@@ -8816,10 +9962,21 @@ export class EnrichResponseBodyDataSolutionListJourneyList extends $tea.Model {
 
 export class EnrichResponseBodyDataSolutionListSegmentBaggageCheckInInfoList extends $tea.Model {
   /**
+   * @remarks
+   * through check-in baggage policy type
+   * 1. baggage through check-in between segments
+   * 2. baggage re-check-in needed between segments
+   * 4. baggage through check-in at stop city ( applies for stop flight )
+   * 3. baggage re-checkin needed at stop city ( applies for stop flight )
+   * 
    * @example
    * 1
    */
   luggageDirectInfoType?: number;
+  /**
+   * @remarks
+   * segment id list. all the listed segment ids share the same baggage through check-in policy
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8841,7 +9998,16 @@ export class EnrichResponseBodyDataSolutionListSegmentBaggageCheckInInfoList ext
 }
 
 export class EnrichResponseBodyDataSolutionListSegmentBaggageMappingList extends $tea.Model {
+  /**
+   * @remarks
+   * baggage rule mapping, key is passenger type, value is baggage allowance details
+   */
   passengerBaggageAllowanceMapping?: { [key: string]: DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue };
+  /**
+   * @remarks
+   * segment id list. 
+   * all the listed segment ids share the same baggage rule
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8863,7 +10029,15 @@ export class EnrichResponseBodyDataSolutionListSegmentBaggageMappingList extends
 }
 
 export class EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList extends $tea.Model {
+  /**
+   * @remarks
+   * change and refund policy mapping, key is passenger type, value is change and refund policy detail
+   */
   refundChangeRuleMap?: { [key: string]: DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue };
+  /**
+   * @remarks
+   * segment id list. all the listed segment ids share the same change and refund policy
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8886,52 +10060,92 @@ export class EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingLis
 
 export class EnrichResponseBodyDataSolutionList extends $tea.Model {
   /**
+   * @remarks
+   * adult fare
+   * 
    * @example
    * 500
    */
   adultPrice?: number;
   /**
+   * @remarks
+   * adult tax
+   * 
    * @example
    * 100
    */
   adultTax?: number;
   /**
+   * @remarks
+   * child fare
+   * 
    * @example
    * 100
    */
   childPrice?: number;
   /**
+   * @remarks
+   * child tax
+   * 
    * @example
    * 100
    */
   childTax?: number;
   /**
+   * @remarks
+   * infant fare
+   * 
    * @example
    * 500
    */
   infantPrice?: number;
   /**
+   * @remarks
+   * infant tax
+   * 
    * @example
    * 100
    */
   infantTax?: number;
+  /**
+   * @remarks
+   * journey list
+   */
   journeyList?: EnrichResponseBodyDataSolutionListJourneyList[];
   /**
+   * @remarks
+   * product type description
+   * 
    * @example
    * ""
    */
   productTypeDescription?: string;
   /**
+   * @remarks
+   * refund airline coupon description
+   * 
    * @example
    * ""
    */
   refundTicketCouponDescription?: string;
+  /**
+   * @remarks
+   * through check-in baggage  policy
+   */
   segmentBaggageCheckInInfoList?: EnrichResponseBodyDataSolutionListSegmentBaggageCheckInInfoList[];
+  /**
+   * @remarks
+   * baggage rule
+   */
   segmentBaggageMappingList?: EnrichResponseBodyDataSolutionListSegmentBaggageMappingList[];
+  /**
+   * @remarks
+   * change and refund policy
+   */
   segmentRefundChangeRuleMappingList?: EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList[];
   /**
    * @remarks
-   * solution_id
+   * solution ID
    * 
    * @example
    * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
@@ -8979,6 +10193,10 @@ export class EnrichResponseBodyDataSolutionList extends $tea.Model {
 }
 
 export class EnrichResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * solution list
+   */
   solutionList?: EnrichResponseBodyDataSolutionList[];
   static names(): { [key: string]: string } {
     return {
@@ -9155,11 +10373,17 @@ export class FlightChangeOfOrderResponseBodyData extends $tea.Model {
 
 export class GetTokenResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Remaining valid time of the token in seconds
+   * 
    * @example
    * 7200
    */
   expireTime?: number;
   /**
+   * @remarks
+   * Timestamp of token generation in seconds
+   * 
    * @example
    * 1677055176
    */
@@ -9393,11 +10617,17 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillaryBaggageA
 
 export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillary extends $tea.Model {
   /**
+   * @remarks
+   * ancillay_id
+   * 
    * @example
    * MDY2NTAxLCJleHAiOjE2NxNzM3MDEsIm5ix
    */
   ancillaryId?: string;
   /**
+   * @remarks
+   * ancillary product type currently supports 4: paid luggage
+   * 
    * @example
    * 4
    */
@@ -9426,21 +10656,33 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillary extends
 
 export class OrderDetailResponseBodyDataAncillaryItemDetailListPassengerCredential extends $tea.Model {
   /**
+   * @remarks
+   * place of issue, two-letter code
+   * 
    * @example
    * CN
    */
   certIssuePlace?: string;
   /**
+   * @remarks
+   * travel document number
+   * 
    * @example
    * E1***5674
    */
   credentialNum?: string;
   /**
+   * @remarks
+   * travel document type , only support "1"(1 means passport) currently.
+   * 
    * @example
    * 1
    */
   credentialType?: number;
   /**
+   * @remarks
+   * expiration date
+   * 
    * @example
    * 20290101
    */
@@ -9470,42 +10712,70 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassengerCredenti
 
 export class OrderDetailResponseBodyDataAncillaryItemDetailListPassenger extends $tea.Model {
   /**
+   * @remarks
+   * date of birth (yyyyMMdd)
+   * 
    * @example
    * 20020301
    */
   birthday?: string;
+  /**
+   * @remarks
+   * travel document
+   */
   credential?: OrderDetailResponseBodyDataAncillaryItemDetailListPassengerCredential;
   /**
+   * @remarks
+   * first name
+   * 
    * @example
    * SAN
    */
   firstName?: string;
   /**
+   * @remarks
+   * gender 0: male; 1: female
+   * 
    * @example
    * 0
    */
   gender?: number;
   /**
+   * @remarks
+   * last name
+   * 
    * @example
    * ZHANG
    */
   lastName?: string;
   /**
+   * @remarks
+   * country code for mobile phone number
+   * 
    * @example
    * 86
    */
   mobileCountryCode?: string;
   /**
+   * @remarks
+   * mobile phone number
+   * 
    * @example
    * 183******96
    */
   mobilePhoneNumber?: string;
   /**
+   * @remarks
+   * nationality
+   * 
    * @example
    * CN
    */
   nationality?: string;
   /**
+   * @remarks
+   * passenger type 0: adult; 1: child; 8: infant
+   * 
    * @example
    * 0
    */
@@ -9544,8 +10814,20 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassenger extends
 }
 
 export class OrderDetailResponseBodyDataAncillaryItemDetailList extends $tea.Model {
+  /**
+   * @remarks
+   * the ancillary buyer booked
+   */
   ancillary?: OrderDetailResponseBodyDataAncillaryItemDetailListAncillary;
+  /**
+   * @remarks
+   * passenger
+   */
   passenger?: OrderDetailResponseBodyDataAncillaryItemDetailListPassenger;
+  /**
+   * @remarks
+   * segment ID list, these segments share the same ancillary
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -9570,11 +10852,17 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailList extends $tea.Mod
 
 export class OrderDetailResponseBodyDataFlightItemDetailListFlightPrice extends $tea.Model {
   /**
+   * @remarks
+   * selling price
+   * 
    * @example
    * 300
    */
   sellPrice?: number;
   /**
+   * @remarks
+   * tax
+   * 
    * @example
    * 10
    */
@@ -9600,26 +10888,41 @@ export class OrderDetailResponseBodyDataFlightItemDetailListFlightPrice extends 
 
 export class OrderDetailResponseBodyDataFlightItemDetailListFlightSegmentCabinRelation extends $tea.Model {
   /**
+   * @remarks
+   * RBD
+   * 
    * @example
    * V
    */
   cabin?: string;
   /**
+   * @remarks
+   * cabin class
+   * 
    * @example
    * Y
    */
   cabinClass?: string;
   /**
+   * @remarks
+   * cabin class description
+   * 
    * @example
    * economy class
    */
   cabinClassName?: string;
   /**
+   * @remarks
+   * availability
+   * 
    * @example
    * A
    */
   cabinQuantity?: string;
   /**
+   * @remarks
+   * segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(yyMMddHHmm)
+   * 
    * @example
    * HO1295-PVG-MFM-20230310
    */
@@ -9651,21 +10954,33 @@ export class OrderDetailResponseBodyDataFlightItemDetailListFlightSegmentCabinRe
 
 export class OrderDetailResponseBodyDataFlightItemDetailListPassengerCredential extends $tea.Model {
   /**
+   * @remarks
+   * place of issue, two-letter code
+   * 
    * @example
    * CN
    */
   certIssuePlace?: string;
   /**
+   * @remarks
+   * travel document number
+   * 
    * @example
    * E1***5674
    */
   credentialNum?: string;
   /**
+   * @remarks
+   * travel document type , only support "1"(1 means passport) currently.
+   * 
    * @example
    * 1
    */
   credentialType?: number;
   /**
+   * @remarks
+   * expiration date
+   * 
    * @example
    * 20290101
    */
@@ -9695,42 +11010,70 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassengerCredential 
 
 export class OrderDetailResponseBodyDataFlightItemDetailListPassenger extends $tea.Model {
   /**
+   * @remarks
+   * date of birth (yyyyMMdd)
+   * 
    * @example
    * 20020301
    */
   birthday?: string;
+  /**
+   * @remarks
+   * travel document
+   */
   credential?: OrderDetailResponseBodyDataFlightItemDetailListPassengerCredential;
   /**
+   * @remarks
+   * first name
+   * 
    * @example
    * SAN
    */
   firstName?: string;
   /**
+   * @remarks
+   * gender 0: MALE; 1: FEMALE
+   * 
    * @example
    * 0
    */
   gender?: number;
   /**
+   * @remarks
+   * last name
+   * 
    * @example
    * ZHANG
    */
   lastName?: string;
   /**
+   * @remarks
+   * mobile country code
+   * 
    * @example
    * 86
    */
   mobileCountryCode?: string;
   /**
+   * @remarks
+   * mobile phone number
+   * 
    * @example
    * 183******96
    */
   mobilePhoneNumber?: string;
   /**
+   * @remarks
+   * nationality (two-letter code)
+   * 
    * @example
    * CN
    */
   nationality?: string;
   /**
+   * @remarks
+   * passenger type 0: adult; 1: child; 8: infant
+   * 
    * @example
    * 0
    */
@@ -9769,16 +11112,43 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassenger extends $t
 }
 
 export class OrderDetailResponseBodyDataFlightItemDetailList extends $tea.Model {
+  /**
+   * @remarks
+   * b PNR(airline booking code) list
+   */
   bPnrList?: string[];
+  /**
+   * @remarks
+   * c PNR(airline booking code) list
+   */
   cPnrList?: string[];
+  /**
+   * @remarks
+   * flight price information for current passenger
+   */
   flightPrice?: OrderDetailResponseBodyDataFlightItemDetailListFlightPrice;
+  /**
+   * @remarks
+   * RBD information in flight segment dimension
+   */
   flightSegmentCabinRelation?: OrderDetailResponseBodyDataFlightItemDetailListFlightSegmentCabinRelation[];
+  /**
+   * @remarks
+   * passenger
+   */
   passenger?: OrderDetailResponseBodyDataFlightItemDetailListPassenger;
   /**
+   * @remarks
+   * ticketing airline
+   * 
    * @example
    * HO
    */
   ticketAirLine?: string;
+  /**
+   * @remarks
+   * ticket number list
+   */
   ticketNos?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -9811,21 +11181,33 @@ export class OrderDetailResponseBodyDataFlightItemDetailList extends $tea.Model 
 
 export class OrderDetailResponseBodyDataPassengerListCredential extends $tea.Model {
   /**
+   * @remarks
+   * place of issue, two-letter code
+   * 
    * @example
    * CN
    */
   certIssuePlace?: string;
   /**
+   * @remarks
+   * travel document number
+   * 
    * @example
    * E1***5674
    */
   credentialNum?: string;
   /**
+   * @remarks
+   * travel document type , only support "1"(1 means passport) currently.
+   * 
    * @example
    * 1
    */
   credentialType?: number;
   /**
+   * @remarks
+   * expiration date
+   * 
    * @example
    * 20290101
    */
@@ -9855,42 +11237,70 @@ export class OrderDetailResponseBodyDataPassengerListCredential extends $tea.Mod
 
 export class OrderDetailResponseBodyDataPassengerList extends $tea.Model {
   /**
+   * @remarks
+   * date of birth (yyyyMMdd)
+   * 
    * @example
    * 20020301
    */
   birthday?: string;
+  /**
+   * @remarks
+   * travel document
+   */
   credential?: OrderDetailResponseBodyDataPassengerListCredential;
   /**
+   * @remarks
+   * first name
+   * 
    * @example
    * SAN
    */
   firstName?: string;
   /**
+   * @remarks
+   * gender 0: MALE; 1: FEMALE
+   * 
    * @example
    * 0
    */
   gender?: number;
   /**
+   * @remarks
+   * last name
+   * 
    * @example
    * ZHANG
    */
   lastName?: string;
   /**
+   * @remarks
+   * mobile country code
+   * 
    * @example
    * 86
    */
   mobileCountryCode?: string;
   /**
+   * @remarks
+   * mobile phone number
+   * 
    * @example
    * 183******96
    */
   mobilePhoneNumber?: string;
   /**
+   * @remarks
+   * nationality (two-letter code)
+   * 
    * @example
    * CN
    */
   nationality?: string;
   /**
+   * @remarks
+   * passenger type 0: adult; 1: child; 8: infant
+   * 
    * @example
    * 0
    */
@@ -9930,111 +11340,177 @@ export class OrderDetailResponseBodyDataPassengerList extends $tea.Model {
 
 export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $tea.Model {
   /**
+   * @remarks
+   * arrival airport code (capitalized)
+   * 
    * @example
    * MFM
    */
   arrivalAirport?: string;
   /**
+   * @remarks
+   * arrival city code (capitalized)
+   * 
    * @example
    * MFM
    */
   arrivalCity?: string;
   /**
+   * @remarks
+   * arrival terminal
+   * 
    * @example
    * T1
    */
   arrivalTerminal?: string;
   /**
+   * @remarks
+   * arrival time in string format (yyyy-MM-dd HH:mm:ss)
+   * 
    * @example
    * 2023-03-10 10:40:00
    */
   arrivalTime?: string;
   /**
+   * @remarks
+   * availability
+   * 
    * @example
    * 7
    */
   availability?: string;
   /**
+   * @remarks
+   * RBD
+   * 
    * @example
    * V
    */
   cabin?: string;
   /**
+   * @remarks
+   * cabin class
+   * 
    * @example
    * Y
    */
   cabinClass?: string;
   /**
+   * @remarks
+   * code share or not
+   * 
    * @example
    * false
    */
   codeShare?: boolean;
   /**
+   * @remarks
+   * departure airport code (capitalized)
+   * 
    * @example
    * PVG
    */
   departureAirport?: string;
   /**
+   * @remarks
+   * departure city code (capitalized)
+   * 
    * @example
    * SHA
    */
   departureCity?: string;
   /**
+   * @remarks
+   * departure terminal
+   * 
    * @example
    * T2
    */
   departureTerminal?: string;
   /**
+   * @remarks
+   * departure time in string format (yyyy-MM-dd HH:mm:ss)
+   * 
    * @example
    * 2023-03-10 07:55:00
    */
   departureTime?: string;
   /**
+   * @remarks
+   * equipment type
+   * 
    * @example
    * 32Q
    */
   equipType?: string;
   /**
+   * @remarks
+   * flight time, unit: minute
+   * 
    * @example
    * 165
    */
   flightDuration?: number;
   /**
+   * @remarks
+   * marketing airline code (eg: KA)
+   * 
    * @example
    * HO
    */
   marketingAirline?: string;
   /**
+   * @remarks
+   * marketing airline flight no. (eg: KA5809)
+   * 
    * @example
    * HO1295
    */
   marketingFlightNo?: string;
   /**
+   * @remarks
+   * marketing airline flight no. (eg: 5809)
+   * 
    * @example
    * 1295
    */
   marketingFlightNoInt?: number;
   /**
+   * @remarks
+   * operating airline code (eg: CX)
+   * 
    * @example
    * HO
    */
   operatingAirline?: string;
   /**
+   * @remarks
+   * operating airline flight no. (eg: CX601)
+   * 
    * @example
    * HO1295
    */
   operatingFlightNo?: string;
   /**
+   * @remarks
+   * segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(MMdd)
+   * 
    * @example
    * HO1295-PVG-MFM-20230310
    */
   segmentId?: string;
   /**
+   * @remarks
+   * stop city list when stop_quantity > 1 , use “,” for seperation
+   * 
    * @example
    * SEL,HKG
    */
   stopCityList?: string;
   /**
+   * @remarks
+   * number of stops
+   * 
    * @example
    * 0
    */
@@ -10099,8 +11575,15 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
 }
 
 export class OrderDetailResponseBodyDataSolutionJourneyList extends $tea.Model {
+  /**
+   * @remarks
+   * segment list
+   */
   segmentList?: OrderDetailResponseBodyDataSolutionJourneyListSegmentList[];
   /**
+   * @remarks
+   * number of transfers
+   * 
    * @example
    * 0
    */
@@ -10126,10 +11609,22 @@ export class OrderDetailResponseBodyDataSolutionJourneyList extends $tea.Model {
 
 export class OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList extends $tea.Model {
   /**
+   * @remarks
+   * through check-in baggage policy type
+   * 
+   * 1. baggage through check-in between segments
+   * 2. baggage re-check-in needed between segments
+   * 3. baggage through check-in at stop city ( applies for stop flight )
+   * 4. baggage re-checkin needed at stop city ( applies for stop flight )
+   * 
    * @example
    * 1
    */
   luggageDirectInfoType?: number;
+  /**
+   * @remarks
+   * segment id list. all the listed segment ids share the same baggage through check-in policy
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -10151,7 +11646,15 @@ export class OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList ex
 }
 
 export class OrderDetailResponseBodyDataSolutionSegmentBaggageMappingList extends $tea.Model {
+  /**
+   * @remarks
+   * baggage rule mapping, key is passenger type, value is baggage allowance details
+   */
   passengerBaggageAllowanceMapping?: { [key: string]: DataSolutionSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue };
+  /**
+   * @remarks
+   * segment id list. all the listed segment ids share the same baggage rule
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -10173,7 +11676,15 @@ export class OrderDetailResponseBodyDataSolutionSegmentBaggageMappingList extend
 }
 
 export class OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingList extends $tea.Model {
+  /**
+   * @remarks
+   * change and refund policy mapping, key is passenger type, value is change and refund policy details
+   */
   refundChangeRuleMap?: { [key: string]: DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue };
+  /**
+   * @remarks
+   * segment id list. all the listed segment ids share the same change and refund policy
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -10196,48 +11707,88 @@ export class OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingLi
 
 export class OrderDetailResponseBodyDataSolution extends $tea.Model {
   /**
+   * @remarks
+   * adult fare
+   * 
    * @example
    * 300
    */
   adultPrice?: number;
   /**
+   * @remarks
+   * adult tax
+   * 
    * @example
    * 30
    */
   adultTax?: number;
   /**
+   * @remarks
+   * child fare
+   * 
    * @example
    * 200
    */
   childPrice?: number;
   /**
+   * @remarks
+   * child tax
+   * 
    * @example
    * 20
    */
   childTax?: number;
   /**
+   * @remarks
+   * infant fare
+   * 
    * @example
    * 100
    */
   infantPrice?: number;
   /**
+   * @remarks
+   * infant tax
+   * 
    * @example
    * 10
    */
   infantTax?: number;
+  /**
+   * @remarks
+   * journey list
+   */
   journeyList?: OrderDetailResponseBodyDataSolutionJourneyList[];
   /**
+   * @remarks
+   * product type description
+   * 
    * @example
    * description
    */
   productTypeDescription?: string;
   /**
+   * @remarks
+   * refund coupon description
+   * 
    * @example
    * description
    */
   refundTicketCouponDescription?: string;
+  /**
+   * @remarks
+   * through check-in baggage policy
+   */
   segmentBaggageCheckInInfoList?: OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList[];
+  /**
+   * @remarks
+   * baggage rule list
+   */
   segmentBaggageMappingList?: OrderDetailResponseBodyDataSolutionSegmentBaggageMappingList[];
+  /**
+   * @remarks
+   * change and refund policy
+   */
   segmentRefundChangeRuleMappingList?: OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingList[];
   /**
    * @remarks
@@ -10289,68 +11840,146 @@ export class OrderDetailResponseBodyDataSolution extends $tea.Model {
 }
 
 export class OrderDetailResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * ancillary product fulfillment details
+   */
   ancillaryItemDetailList?: OrderDetailResponseBodyDataAncillaryItemDetailList[];
+  /**
+   * @remarks
+   * baggage rule mapping, key is passenger type, value is baggage allowance details
+   */
   baggageAllowanceMap?: { [key: string]: DataBaggageAllowanceMapValue };
   /**
+   * @remarks
+   * book time(timestamp)
+   * 
    * @example
    * 1677210784000
    */
   bookTime?: number;
+  /**
+   * @remarks
+   * flight product fulfillment details
+   */
   flightItemDetailList?: OrderDetailResponseBodyDataFlightItemDetailList[];
   /**
+   * @remarks
+   * order number created by book
+   * 
    * @example
    * 4966***617111
    */
   orderNum?: number;
   /**
+   * @remarks
+   * order status 
+   * 
+   * 1: order creation in process; 
+   * 
+   * 2: order creation successful; 
+   * 
+   * 3: order paid; 
+   * 
+   * 4: order successful; 
+   * 
+   * 5: order closed
+   * 
    * @example
    * 4
    */
   orderStatus?: number;
   /**
+   * @remarks
+   * external order number(customized by buyer when book)
+   * 
    * @example
    * x091-2023-0220-j-0001
    */
   outOrderNum?: string;
+  /**
+   * @remarks
+   * the information about all passenger of current order
+   */
   passengerList?: OrderDetailResponseBodyDataPassengerList[];
   /**
+   * @remarks
+   * payment status 
+   * 
+   * 1: payment in process; 
+   * 
+   * 2: deduction successful; 
+   * 
+   * 3: paid to the seller; 
+   * 
+   * 4: transaction closed
+   * 
    * @example
    * 2
    */
   payStatus?: number;
   /**
+   * @remarks
+   * pay time(timestamp)
+   * 
    * @example
    * 1677210788000
    */
   payTime?: number;
   /**
+   * @remarks
+   * discount amount
+   * 
    * @example
    * 10
    */
   promotionPrice?: number;
   /**
+   * @remarks
+   * actual payment amount
+   * 
    * @example
    * 3000
    */
   realPayPrice?: number;
+  /**
+   * @remarks
+   * change and refund policy mapping, key is passenger type, value is change and refund policy details
+   */
   refundChangeRuleMap?: { [key: string]: DataRefundChangeRuleMapValue };
   /**
+   * @remarks
+   * buyer nickname
+   * 
    * @example
    * nick
    */
   sessionNick?: string;
+  /**
+   * @remarks
+   * the solution buyer booked
+   */
   solution?: OrderDetailResponseBodyDataSolution;
   /**
+   * @remarks
+   * order success time(timestamp)
+   * 
    * @example
    * 1677210786000
    */
   succeedTime?: number;
   /**
+   * @remarks
+   * total price of current order
+   * 
    * @example
    * 3000
    */
   totalPrice?: number;
   /**
+   * @remarks
+   * transaction number
+   * 
    * @example
    * hkduendkd-2023-dj0
    */
@@ -10408,21 +12037,33 @@ export class OrderDetailResponseBodyData extends $tea.Model {
 
 export class OrderListResponseBodyDataListPassengerListCredential extends $tea.Model {
   /**
+   * @remarks
+   * issuing place (two-letter code)
+   * 
    * @example
    * CN
    */
   certIssuePlace?: string;
   /**
+   * @remarks
+   * credential number
+   * 
    * @example
    * E1***5674
    */
   credentialNum?: string;
   /**
+   * @remarks
+   * credential type , only support "1"(1 means passport) currently.
+   * 
    * @example
    * 1
    */
   credentialType?: number;
   /**
+   * @remarks
+   * credential expiration date
+   * 
    * @example
    * 20290101
    */
@@ -10452,42 +12093,70 @@ export class OrderListResponseBodyDataListPassengerListCredential extends $tea.M
 
 export class OrderListResponseBodyDataListPassengerList extends $tea.Model {
   /**
+   * @remarks
+   * date of birth (yyyyMMdd)
+   * 
    * @example
    * 20020301
    */
   birthday?: string;
+  /**
+   * @remarks
+   * credential
+   */
   credential?: OrderListResponseBodyDataListPassengerListCredential;
   /**
+   * @remarks
+   * first name
+   * 
    * @example
    * SAN
    */
   firstName?: string;
   /**
+   * @remarks
+   * gender 0: MALE; 1: FEMALE
+   * 
    * @example
    * 0
    */
   gender?: number;
   /**
+   * @remarks
+   * last name
+   * 
    * @example
    * ZHANG
    */
   lastName?: string;
   /**
+   * @remarks
+   * mobile country code
+   * 
    * @example
    * 86
    */
   mobileCountryCode?: string;
   /**
+   * @remarks
+   * mobile phone number
+   * 
    * @example
    * 183******96
    */
   mobilePhoneNumber?: string;
   /**
+   * @remarks
+   * nationality (two-letter code)
+   * 
    * @example
    * CN
    */
   nationality?: string;
   /**
+   * @remarks
+   * passenger type 0: adult; 1: child; 8: infant
+   * 
    * @example
    * 0
    */
@@ -10527,62 +12196,120 @@ export class OrderListResponseBodyDataListPassengerList extends $tea.Model {
 
 export class OrderListResponseBodyDataList extends $tea.Model {
   /**
+   * @remarks
+   * book time(timestamp)
+   * 
    * @example
    * 1677210784000
    */
   bookTime?: number;
   /**
+   * @remarks
+   * order number created by book
+   * 
    * @example
    * 4966***617111
    */
   orderNum?: number;
   /**
+   * @remarks
+   * order status
+   * 
+   * 1: order reservation in process
+   * 
+   * 2: order reservation successful
+   * 
+   * 3: order paid
+   * 
+   * 4: order successful
+   * 
+   * 5: order closed
+   * 
    * @example
    * 4
    */
   orderStatus?: string;
   /**
+   * @remarks
+   * external order number(customized by buyer when book)
+   * 
    * @example
    * x091-2023-0220-j-0001
    */
   outOrderNum?: string;
+  /**
+   * @remarks
+   * the information about all passenger of current order
+   */
   passengerList?: OrderListResponseBodyDataListPassengerList[];
   /**
+   * @remarks
+   * payment status
+   * 
+   * 1: payment in process
+   * 
+   * 2: deduction successful
+   * 
+   * 3: paid to the seller
+   * 
+   * 4: transaction closed
+   * 
    * @example
    * 2
    */
   payStatus?: string;
   /**
+   * @remarks
+   * pay time(timestamp)
+   * 
    * @example
    * 1677210788000
    */
   payTime?: number;
   /**
+   * @remarks
+   * discount amount
+   * 
    * @example
    * 10
    */
   promotionPrice?: number;
   /**
+   * @remarks
+   * actual payment amount
+   * 
    * @example
    * 3000
    */
   realPayPrice?: number;
   /**
+   * @remarks
+   * buyer nickname
+   * 
    * @example
    * nick
    */
   sessionNick?: string;
   /**
+   * @remarks
+   * order success time(timestamp)
+   * 
    * @example
    * 1677210786000
    */
   succeedTime?: number;
   /**
+   * @remarks
+   * total price of current order
+   * 
    * @example
    * 3000
    */
   totalPrice?: number;
   /**
+   * @remarks
+   * transaction number
+   * 
    * @example
    * hkduendkd-2023-dj0
    */
@@ -10630,21 +12357,33 @@ export class OrderListResponseBodyDataList extends $tea.Model {
 
 export class OrderListResponseBodyDataPagination extends $tea.Model {
   /**
+   * @remarks
+   * current page index
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * page size
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * the number of total orders
+   * 
    * @example
    * 5
    */
   totalCount?: number;
   /**
+   * @remarks
+   * the number of total pages
+   * 
    * @example
    * 1
    */
@@ -10673,7 +12412,15 @@ export class OrderListResponseBodyDataPagination extends $tea.Model {
 }
 
 export class OrderListResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * order list
+   */
   list?: OrderListResponseBodyDataList[];
+  /**
+   * @remarks
+   * information of pagination
+   */
   pagination?: OrderListResponseBodyDataPagination;
   static names(): { [key: string]: string } {
     return {
@@ -10696,31 +12443,49 @@ export class OrderListResponseBodyData extends $tea.Model {
 
 export class PricingResponseBodyDataChangedPriceInfo extends $tea.Model {
   /**
+   * @remarks
+   * adult fare
+   * 
    * @example
    * 100
    */
   adultPrice?: number;
   /**
+   * @remarks
+   * adult tax
+   * 
    * @example
    * 10
    */
   adultTax?: number;
   /**
+   * @remarks
+   * child fare
+   * 
    * @example
    * 100
    */
   childPrice?: number;
   /**
+   * @remarks
+   * child tax
+   * 
    * @example
    * 10
    */
   childTax?: number;
   /**
+   * @remarks
+   * infant fare
+   * 
    * @example
    * 100
    */
   infantPrice?: number;
   /**
+   * @remarks
+   * infant tax
+   * 
    * @example
    * 10
    */
@@ -10755,7 +12520,7 @@ export class PricingResponseBodyDataChangedPriceInfo extends $tea.Model {
 export class PricingResponseBodyDataOriginalPriceInfo extends $tea.Model {
   /**
    * @remarks
-   * 成人单价
+   * adult fare
    * 
    * @example
    * 200
@@ -10763,7 +12528,7 @@ export class PricingResponseBodyDataOriginalPriceInfo extends $tea.Model {
   adultPrice?: number;
   /**
    * @remarks
-   * 成人税
+   * adult tax
    * 
    * @example
    * 20
@@ -10771,7 +12536,7 @@ export class PricingResponseBodyDataOriginalPriceInfo extends $tea.Model {
   adultTax?: number;
   /**
    * @remarks
-   * 儿童单价
+   * child fare
    * 
    * @example
    * 200
@@ -10779,7 +12544,7 @@ export class PricingResponseBodyDataOriginalPriceInfo extends $tea.Model {
   childPrice?: number;
   /**
    * @remarks
-   * 儿童税
+   * child tax
    * 
    * @example
    * 20
@@ -10787,7 +12552,7 @@ export class PricingResponseBodyDataOriginalPriceInfo extends $tea.Model {
   childTax?: number;
   /**
    * @remarks
-   * 婴儿单价
+   * infant fare
    * 
    * @example
    * 200
@@ -10795,7 +12560,7 @@ export class PricingResponseBodyDataOriginalPriceInfo extends $tea.Model {
   infantPrice?: number;
   /**
    * @remarks
-   * 婴儿税
+   * infant tax
    * 
    * @example
    * 20
@@ -10830,111 +12595,177 @@ export class PricingResponseBodyDataOriginalPriceInfo extends $tea.Model {
 
 export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $tea.Model {
   /**
+   * @remarks
+   * arrival airport code (capitalized)
+   * 
    * @example
    * MFM
    */
   arrivalAirport?: string;
   /**
+   * @remarks
+   * arrival city code (capitalized)
+   * 
    * @example
    * MFM
    */
   arrivalCity?: string;
   /**
+   * @remarks
+   * arrival terminal
+   * 
    * @example
    * T1
    */
   arrivalTerminal?: string;
   /**
+   * @remarks
+   * arrival time in string format (yyyy-MM-dd HH:mm:ss)
+   * 
    * @example
    * 2023-03-10 10:40:00
    */
   arrivalTime?: string;
   /**
+   * @remarks
+   * available seats (for reference only)
+   * 
    * @example
    * 7
    */
   availability?: string;
   /**
+   * @remarks
+   * RBD
+   * 
    * @example
    * V
    */
   cabin?: string;
   /**
+   * @remarks
+   * cabin class
+   * 
    * @example
    * ALL_CABIN
    */
   cabinClass?: string;
   /**
+   * @remarks
+   * code share or not
+   * 
    * @example
    * false
    */
   codeShare?: boolean;
   /**
+   * @remarks
+   * departure airport code (capitalized)
+   * 
    * @example
    * PVG
    */
   departureAirport?: string;
   /**
+   * @remarks
+   * departure city code (capitalized)
+   * 
    * @example
    * SHA
    */
   departureCity?: string;
   /**
+   * @remarks
+   * departure terminal
+   * 
    * @example
    * T2
    */
   departureTerminal?: string;
   /**
+   * @remarks
+   * departure time in string format (yyyy-MM-dd HH:mm:ss)
+   * 
    * @example
    * 2023-03-10 07:55:00
    */
   departureTime?: string;
   /**
+   * @remarks
+   * equipment type
+   * 
    * @example
    * 32Q
    */
   equipType?: string;
   /**
+   * @remarks
+   * flight time, unit: minute
+   * 
    * @example
    * 165
    */
   flightDuration?: number;
   /**
+   * @remarks
+   * marketing airline code (eg: KA)
+   * 
    * @example
    * HO
    */
   marketingAirline?: string;
   /**
+   * @remarks
+   * marketing airline flight no. (eg: KA5809)
+   * 
    * @example
    * HO1295
    */
   marketingFlightNo?: string;
   /**
+   * @remarks
+   * marketing airline flight no. (eg: 5809)
+   * 
    * @example
    * 1295
    */
   marketingFlightNoInt?: number;
   /**
+   * @remarks
+   * operating airline code (eg: CX)
+   * 
    * @example
    * HO
    */
   operatingAirline?: string;
   /**
+   * @remarks
+   * operating airline flight no. (eg: CX601)
+   * 
    * @example
    * HO1295
    */
   operatingFlightNo?: string;
   /**
+   * @remarks
+   * segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(MMdd)
+   * 
    * @example
    * HO1295-PVG-MFM-20230310
    */
   segmentId?: string;
   /**
+   * @remarks
+   * stop city list. when stop_quantity > 1 , use “,” for seperation
+   * 
    * @example
-   * ""
+   * MFM,PVG
    */
   stopCityList?: string;
   /**
+   * @remarks
+   * number of stops
+   * 
    * @example
    * 0
    */
@@ -10999,8 +12830,15 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $tea.
 }
 
 export class PricingResponseBodyDataSolutionJourneyList extends $tea.Model {
+  /**
+   * @remarks
+   * segment list
+   */
   segmentList?: PricingResponseBodyDataSolutionJourneyListSegmentList[];
   /**
+   * @remarks
+   * number of transfers
+   * 
    * @example
    * 0
    */
@@ -11026,10 +12864,22 @@ export class PricingResponseBodyDataSolutionJourneyList extends $tea.Model {
 
 export class PricingResponseBodyDataSolutionSegmentBaggageCheckInInfoList extends $tea.Model {
   /**
+   * @remarks
+   * through check-in baggage policy type
+   * 
+   * 1. baggage through check-in between segments
+   * 2. baggage re-check-in needed between segments
+   * 3. baggage through check-in at stop city ( applies for stop flight )
+   * 4. baggage re-checkin needed at stop city ( applies for stop flight )
+   * 
    * @example
    * 1
    */
   luggageDirectInfoType?: number;
+  /**
+   * @remarks
+   * segment id list. all the listed segment ids share the same baggage through check-in policy
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -11051,7 +12901,15 @@ export class PricingResponseBodyDataSolutionSegmentBaggageCheckInInfoList extend
 }
 
 export class PricingResponseBodyDataSolutionSegmentBaggageMappingList extends $tea.Model {
+  /**
+   * @remarks
+   * baggage rule mapping, key is passenger type, value is baggage allowance details
+   */
   passengerBaggageAllowanceMapping?: { [key: string]: DataSolutionSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue };
+  /**
+   * @remarks
+   * segment id list all the listed segment id share the same baggage rule
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -11073,7 +12931,15 @@ export class PricingResponseBodyDataSolutionSegmentBaggageMappingList extends $t
 }
 
 export class PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList extends $tea.Model {
+  /**
+   * @remarks
+   * change and refund policy mapping, key is passenger type, value is change and refund policy detail
+   */
   refundChangeRuleMap?: { [key: string]: DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue };
+  /**
+   * @remarks
+   * segment id list. all the listed segment ids share the same change and refund policy
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -11096,52 +12962,92 @@ export class PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList e
 
 export class PricingResponseBodyDataSolution extends $tea.Model {
   /**
+   * @remarks
+   * adult fare
+   * 
    * @example
    * 300
    */
   adultPrice?: number;
   /**
+   * @remarks
+   * adult tax
+   * 
    * @example
    * 30
    */
   adultTax?: number;
   /**
+   * @remarks
+   * child fare
+   * 
    * @example
    * 200
    */
   childPrice?: number;
   /**
+   * @remarks
+   * child tax
+   * 
    * @example
    * 20
    */
   childTax?: number;
   /**
+   * @remarks
+   * infant fare
+   * 
    * @example
    * 200
    */
   infantPrice?: number;
   /**
+   * @remarks
+   * infant tax
+   * 
    * @example
    * 10
    */
   infantTax?: number;
+  /**
+   * @remarks
+   * journey list
+   */
   journeyList?: PricingResponseBodyDataSolutionJourneyList[];
   /**
+   * @remarks
+   * product type description
+   * 
    * @example
    * description
    */
   productTypeDescription?: string;
   /**
+   * @remarks
+   * refund coupon description
+   * 
    * @example
    * description
    */
   refundTicketCouponDescription?: string;
+  /**
+   * @remarks
+   * through check-in baggage policy
+   */
   segmentBaggageCheckInInfoList?: PricingResponseBodyDataSolutionSegmentBaggageCheckInInfoList[];
+  /**
+   * @remarks
+   * baggage rule list
+   */
   segmentBaggageMappingList?: PricingResponseBodyDataSolutionSegmentBaggageMappingList[];
+  /**
+   * @remarks
+   * change and refund policy
+   */
   segmentRefundChangeRuleMappingList?: PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList[];
   /**
    * @remarks
-   * solution_id
+   * solution_id, equals to solution_id in request
    * 
    * @example
    * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
@@ -11189,21 +13095,35 @@ export class PricingResponseBodyDataSolution extends $tea.Model {
 }
 
 export class PricingResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * price information after the price change
+   */
   changedPriceInfo?: PricingResponseBodyDataChangedPriceInfo;
   /**
+   * @remarks
+   * whether the price has changed
+   * 
    * @example
    * true
    */
   isChanged?: boolean;
   /**
    * @remarks
-   * 变价之前价格信息 isChanged = true 时，才有值
+   * the price information before the change, only available when is_changed = true
    */
   originalPriceInfo?: PricingResponseBodyDataOriginalPriceInfo;
+  /**
+   * @remarks
+   * remaining seats: A indicates more than 9, 0-9 represents the specific number
+   * 
+   * @example
+   * A
+   */
   remainSeats?: string;
   /**
    * @remarks
-   * solution
+   * the solution represented by the solution_id in request
    */
   solution?: PricingResponseBodyDataSolution;
   static names(): { [key: string]: string } {
@@ -11234,6 +13154,8 @@ export class PricingResponseBodyData extends $tea.Model {
 export class RefundApplyRequestRefundJourneysSegmentList extends $tea.Model {
   /**
    * @remarks
+   * arrival airport code (capitalized)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11242,6 +13164,8 @@ export class RefundApplyRequestRefundJourneysSegmentList extends $tea.Model {
   arrivalAirport?: string;
   /**
    * @remarks
+   * arrival city code (capitalized)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11250,6 +13174,8 @@ export class RefundApplyRequestRefundJourneysSegmentList extends $tea.Model {
   arrivalCity?: string;
   /**
    * @remarks
+   * departure airport code (capitalized)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11258,6 +13184,8 @@ export class RefundApplyRequestRefundJourneysSegmentList extends $tea.Model {
   departureAirport?: string;
   /**
    * @remarks
+   * departure city code (capitalized)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11290,6 +13218,8 @@ export class RefundApplyRequestRefundJourneysSegmentList extends $tea.Model {
 export class RefundApplyRequestRefundJourneys extends $tea.Model {
   /**
    * @remarks
+   * segment list
+   * 
    * This parameter is required.
    */
   segmentList?: RefundApplyRequestRefundJourneysSegmentList[];
@@ -11312,12 +13242,17 @@ export class RefundApplyRequestRefundJourneys extends $tea.Model {
 
 export class RefundApplyRequestRefundPassengerList extends $tea.Model {
   /**
+   * @remarks
+   * credential number
+   * 
    * @example
    * 411***********4411
    */
   document?: string;
   /**
    * @remarks
+   * first name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11326,6 +13261,8 @@ export class RefundApplyRequestRefundPassengerList extends $tea.Model {
   firstName?: string;
   /**
    * @remarks
+   * last name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11355,19 +13292,37 @@ export class RefundApplyRequestRefundPassengerList extends $tea.Model {
 
 export class RefundApplyRequestRefundType extends $tea.Model {
   /**
+   * @remarks
+   * attachment file URLs
+   * 
+   * (note: upload the files using a separate file upload interface to get the file URLs)
+   * 
    * @example
    * [xxx,yyy]
    */
   file?: string[];
   /**
    * @remarks
+   * refund type 
+   * 
+   * 2: voluntary (I want to change my travel plan/I don\\"t want to fly) 
+   * 
+   * 5: involuntary, due to flight delay or cancellation, schedule changes, etc., by the airline 
+   * 
+   * 6: involuntary, due to health reasons with a certificate from a hospital of at least secondary level A or above 
+   * 
+   *  (note: attachments are not mandatory, but it is recommended to provide them for involuntary refunds as they can increase the success rate)
+   * 
    * This parameter is required.
    * 
    * @example
-   * 0
+   * 2
    */
   refundTypeId?: number;
   /**
+   * @remarks
+   * remark
+   * 
    * @example
    * remark desc
    */
@@ -11395,16 +13350,25 @@ export class RefundApplyRequestRefundType extends $tea.Model {
 
 export class RefundApplyResponseBodyDataRefundResultsRefundPassengers extends $tea.Model {
   /**
+   * @remarks
+   * credential number
+   * 
    * @example
    * 411***********4411
    */
   document?: string;
   /**
+   * @remarks
+   * first name
+   * 
    * @example
    * SAN
    */
   firstName?: string;
   /**
+   * @remarks
+   * last name
+   * 
    * @example
    * ZHANG
    */
@@ -11432,17 +13396,34 @@ export class RefundApplyResponseBodyDataRefundResultsRefundPassengers extends $t
 
 export class RefundApplyResponseBodyDataRefundResults extends $tea.Model {
   /**
+   * @remarks
+   * reason for refund application failure
+   * 
    * @example
    * desc reason
    */
   failReason?: string;
   /**
+   * @remarks
+   * refund order number
+   * 
    * @example
    * 4966***617202
    */
   refundOrderNum?: number;
+  /**
+   * @remarks
+   * passengers of current refund order
+   */
   refundPassengers?: RefundApplyResponseBodyDataRefundResultsRefundPassengers[];
   /**
+   * @remarks
+   * refund order status 
+   * 
+   * 0: refund order created successfully
+   * 
+   * 1: refund order creation failed
+   * 
    * @example
    * 0
    */
@@ -11472,10 +13453,17 @@ export class RefundApplyResponseBodyDataRefundResults extends $tea.Model {
 
 export class RefundApplyResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * order number
+   * 
    * @example
    * 4966***617111
    */
   orderNum?: number;
+  /**
+   * @remarks
+   * refund results
+   */
   refundResults?: RefundApplyResponseBodyDataRefundResults[];
   static names(): { [key: string]: string } {
     return {
@@ -11498,16 +13486,25 @@ export class RefundApplyResponseBodyData extends $tea.Model {
 
 export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetailsPassenger extends $tea.Model {
   /**
+   * @remarks
+   * credential number
+   * 
    * @example
    * 411***********4411
    */
   document?: string;
   /**
+   * @remarks
+   * first name
+   * 
    * @example
    * SAN
    */
   firstName?: string;
   /**
+   * @remarks
+   * last name
+   * 
    * @example
    * ZHANG
    */
@@ -11535,15 +13532,25 @@ export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundD
 
 export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetails extends $tea.Model {
   /**
+   * @remarks
+   * amount of the supplementary refund for the change order
+   * 
    * @example
    * 30
    */
   changeOrderRefundFee?: number;
   /**
+   * @remarks
+   * amount of the supplementary refund for the original order
+   * 
    * @example
    * 30
    */
   originalOrderRefundFee?: number;
+  /**
+   * @remarks
+   * passenger for the refund
+   */
   passenger?: RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetailsPassenger;
   static names(): { [key: string]: string } {
     return {
@@ -11568,15 +13575,25 @@ export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundD
 
 export class RefundDetailResponseBodyDataMultiRefundDetails extends $tea.Model {
   /**
+   * @remarks
+   * supplementary refund order number
+   * 
    * @example
    * 498843***6950
    */
   multiRefundOrderNum?: number;
   /**
+   * @remarks
+   * transaction number of the supplementary refund order
+   * 
    * @example
    * 498843***6950
    */
   multiRefundTransactionNo?: string;
+  /**
+   * @remarks
+   * supplementary refund details in passenger dimension
+   */
   passengerMultiRefundDetails?: RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetails[];
   static names(): { [key: string]: string } {
     return {
@@ -11601,16 +13618,25 @@ export class RefundDetailResponseBodyDataMultiRefundDetails extends $tea.Model {
 
 export class RefundDetailResponseBodyDataPassengerRefundDetailsPassenger extends $tea.Model {
   /**
+   * @remarks
+   * credential number
+   * 
    * @example
    * 411***********4411
    */
   document?: string;
   /**
+   * @remarks
+   * first name
+   * 
    * @example
    * SAN
    */
   firstName?: string;
   /**
+   * @remarks
+   * first name
+   * 
    * @example
    * ZHANG
    */
@@ -11638,36 +13664,57 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsPassenger extends
 
 export class RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee extends $tea.Model {
   /**
+   * @remarks
+   * total price of the used flight tickets
+   * 
    * @example
    * 30
    */
   alreadyUsedTotalFee?: number;
   /**
+   * @remarks
+   * amount refunded to the user after change (only available when has change order)
+   * 
    * @example
    * 30
    */
   modifyRefundToBuyerMoney?: number;
   /**
+   * @remarks
+   * non-refundable change service fee
+   * 
    * @example
    * 30
    */
   nonRefundableChangeServiceFee?: number;
   /**
+   * @remarks
+   * non-refundable upgrade fee
+   * 
    * @example
    * 30
    */
   nonRefundableChangeUpgradeFee?: number;
   /**
+   * @remarks
+   * non-refundable tax amount, i.e., tax refund fee
+   * 
    * @example
    * 30
    */
   nonRefundableTaxFee?: number;
   /**
+   * @remarks
+   * non-refundable ticket amount, i.e., ticket refund fee
+   * 
    * @example
    * 30
    */
   nonRefundableTicketFee?: number;
   /**
+   * @remarks
+   * amount refundable to the user from the original ticket (fare + tax - non_refundable_ticket_fee - non_refundable_tax_fee - already_used_total_fee - discount)
+   * 
    * @example
    * 30
    */
@@ -11702,7 +13749,15 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee extends
 }
 
 export class RefundDetailResponseBodyDataPassengerRefundDetails extends $tea.Model {
+  /**
+   * @remarks
+   * information of the passenger applying for a refund
+   */
   passenger?: RefundDetailResponseBodyDataPassengerRefundDetailsPassenger;
+  /**
+   * @remarks
+   * details of the refund fee
+   */
   refundFee?: RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee;
   static names(): { [key: string]: string } {
     return {
@@ -11725,111 +13780,177 @@ export class RefundDetailResponseBodyDataPassengerRefundDetails extends $tea.Mod
 
 export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $tea.Model {
   /**
+   * @remarks
+   * arrival airport code (capitalized)
+   * 
    * @example
    * MFM
    */
   arrivalAirport?: string;
   /**
+   * @remarks
+   * arrival city code (capitalized)
+   * 
    * @example
    * MFM
    */
   arrivalCity?: string;
   /**
+   * @remarks
+   * arrival terminal
+   * 
    * @example
    * T1
    */
   arrivalTerminal?: string;
   /**
+   * @remarks
+   * arrival time in string format (yyyy-MM-dd HH:mm:ss)
+   * 
    * @example
    * 2023-03-10 10:40:00
    */
   arrivalTime?: string;
   /**
+   * @remarks
+   * field deprecated
+   * 
    * @example
    * 7
    */
   availability?: string;
   /**
+   * @remarks
+   * RBD
+   * 
    * @example
    * V
    */
   cabin?: string;
   /**
+   * @remarks
+   * cabin class
+   * 
    * @example
    * Y
    */
   cabinClass?: string;
   /**
+   * @remarks
+   * code share or not
+   * 
    * @example
    * false
    */
   codeShare?: boolean;
   /**
+   * @remarks
+   * departure airport code (capitalized)
+   * 
    * @example
    * PVG
    */
   departureAirport?: string;
   /**
+   * @remarks
+   * departure city code (capitalized)
+   * 
    * @example
    * SHA
    */
   departureCity?: string;
   /**
+   * @remarks
+   * departure terminal
+   * 
    * @example
    * T2
    */
   departureTerminal?: string;
   /**
+   * @remarks
+   * departure time in string format (yyyy-MM-dd HH:mm:ss)
+   * 
    * @example
    * 2023-03-10 07:55:00
    */
   departureTime?: string;
   /**
+   * @remarks
+   * equipment type
+   * 
    * @example
    * 32Q
    */
   equipType?: string;
   /**
+   * @remarks
+   * flight time, unit: minute
+   * 
    * @example
    * 165
    */
   flightDuration?: number;
   /**
+   * @remarks
+   * marketing airline code (eg: KA)
+   * 
    * @example
    * HO
    */
   marketingAirline?: string;
   /**
+   * @remarks
+   * marketing flight no. (eg: KA5809)
+   * 
    * @example
    * HO1295
    */
   marketingFlightNo?: string;
   /**
+   * @remarks
+   * marketing flight no. (eg: 5809)
+   * 
    * @example
    * 1295
    */
   marketingFlightNoInt?: number;
   /**
+   * @remarks
+   * operating airline code (eg: CX)
+   * 
    * @example
    * HO
    */
   operatingAirline?: string;
   /**
+   * @remarks
+   * operating flight no. (eg: CX601)
+   * 
    * @example
    * HO1295
    */
   operatingFlightNo?: string;
   /**
+   * @remarks
+   * segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(MMdd)
+   * 
    * @example
    * HO1295-PVG-MFM-20230310
    */
   segmentId?: string;
   /**
+   * @remarks
+   * stopover city list when stop_quantity > 0 , use “,” for seperation use
+   * 
    * @example
    * SEL,HKG
    */
   stopCityList?: string;
   /**
+   * @remarks
+   * number of stopover
+   * 
    * @example
    * 0
    */
@@ -11894,8 +14015,15 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $tea.
 }
 
 export class RefundDetailResponseBodyDataRefundJourneys extends $tea.Model {
+  /**
+   * @remarks
+   * segment list
+   */
   segmentList?: RefundDetailResponseBodyDataRefundJourneysSegmentList[];
   /**
+   * @remarks
+   * number of transfer
+   * 
    * @example
    * 0
    */
@@ -11921,59 +14049,122 @@ export class RefundDetailResponseBodyDataRefundJourneys extends $tea.Model {
 
 export class RefundDetailResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * whether it is a supplementary refund order (if the refund amount is not enough, you can use RefundApply to create a supplementary refund order)
+   * 
    * @example
    * false
    */
   containMultiRefund?: boolean;
+  /**
+   * @remarks
+   * supplementary refund orders
+   */
   multiRefundDetails?: RefundDetailResponseBodyDataMultiRefundDetails[];
   /**
+   * @remarks
+   * order number that returned by Book
+   * 
    * @example
    * 4966***617111
    */
   orderNum?: number;
+  /**
+   * @remarks
+   * refund details by passenger dimension
+   */
   passengerRefundDetails?: RefundDetailResponseBodyDataPassengerRefundDetails[];
   /**
+   * @remarks
+   * refund completed time(timestamp)
+   * 
    * @example
    * 1677229005000
    */
   paySuccessUtcTime?: number;
   /**
+   * @remarks
+   * URLs for refund attachments
+   * 
    * @example
    * [zzz,yyy]
    */
   refundAttachmentUrls?: string[];
+  /**
+   * @remarks
+   * refunded journey
+   */
   refundJourneys?: RefundDetailResponseBodyDataRefundJourneys[];
   /**
+   * @remarks
+   * refund order number that returned by RefundApply
+   * 
    * @example
    * 4966***617654
    */
   refundOrderNum?: number;
   /**
+   * @remarks
+   * reason for refund
+   * 
    * @example
    * desc reason
    */
   refundReason?: string;
   /**
+   * @remarks
+   * refund type 
+   * 
+   * 2: voluntary application
+   * 
+   * 5: flight delay or cancellation, flight schedule change, etc., due to airline reasons
+   * 
+   * 6: health reasons with a certificate from a secondary class A hospital or above
+   * 
+   * 7: non-voluntary confirmed guidance
+   * 
+   * 100: non-voluntary non-confirmed guidance
+   * 
    * @example
    * 5
    */
   refundType?: number;
   /**
+   * @remarks
+   * reason for refund rejection
+   * 
    * @example
    * refuse reason
    */
   refuseReason?: string;
   /**
+   * @remarks
+   * refund order status
+   * 
+   * 0: refund application
+   * 
+   * 1: refund in progress
+   * 
+   * 2: refund failed
+   * 
+   * 3: refund succeeded
+   * 
    * @example
    * 1
    */
   status?: number;
   /**
+   * @remarks
+   * transaction number
+   * 
    * @example
    * 1677229005000
    */
   transactionNo?: string;
   /**
+   * @remarks
+   * refund order created time(timestamp)
+   * 
    * @example
    * 1677229002000
    */
@@ -12023,36 +14214,65 @@ export class RefundDetailResponseBodyData extends $tea.Model {
 
 export class RefundDetailListResponseBodyDataList extends $tea.Model {
   /**
+   * @remarks
+   * whether it is a supplementary refund order (if the refund amount is not enough, you can use RefundApply to create a supplementary refund order)
+   * 
    * @example
    * true
    */
   isMultiRefund?: boolean;
   /**
+   * @remarks
+   * order number that returned by Book
+   * 
    * @example
    * 49884*****2345
    */
   orderNum?: number;
   /**
+   * @remarks
+   * refund order number that returned by RefundApply
+   * 
    * @example
    * 49884*****950
    */
   refundOrderNum?: number;
   /**
+   * @remarks
+   * refund order status 
+   * 
+   * 0: refund application
+   * 
+   * 1: refund in progress
+   * 
+   * 2: refund failed
+   * 
+   * 3: refund succeeded
+   * 
    * @example
    * 1
    */
   refundOrderStatus?: number;
   /**
+   * @remarks
+   * the original refund order number associated with this supplementary refund order, only avaliable when is_multi_refund=true
+   * 
    * @example
    * 49884*****2387
    */
   relatedRefundOrderNum?: string;
   /**
+   * @remarks
+   * transaction number
+   * 
    * @example
    * 49884**tde-95za
    */
   transactionNo?: string;
   /**
+   * @remarks
+   * refund time(timestamp)
+   * 
    * @example
    * 1677229002000
    */
@@ -12088,21 +14308,33 @@ export class RefundDetailListResponseBodyDataList extends $tea.Model {
 
 export class RefundDetailListResponseBodyDataPagination extends $tea.Model {
   /**
+   * @remarks
+   * current page index
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * page size
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * the number of total refund orders
+   * 
    * @example
    * 5
    */
   totalCount?: number;
   /**
+   * @remarks
+   * the number of total pages
+   * 
    * @example
    * 1
    */
@@ -12131,7 +14363,15 @@ export class RefundDetailListResponseBodyDataPagination extends $tea.Model {
 }
 
 export class RefundDetailListResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * refund order list
+   */
   list?: RefundDetailListResponseBodyDataList[];
+  /**
+   * @remarks
+   * information of pagination
+   */
   pagination?: RefundDetailListResponseBodyDataPagination;
   static names(): { [key: string]: string } {
     return {
@@ -12154,12 +14394,17 @@ export class RefundDetailListResponseBodyData extends $tea.Model {
 
 export class SearchRequestAirLegs extends $tea.Model {
   /**
+   * @remarks
+   * arrival airport [IATA airport code] list
+   * 
    * @example
    * MFM
    */
   arrivalAirportList?: string[];
   /**
    * @remarks
+   * arrival city code
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12167,12 +14412,17 @@ export class SearchRequestAirLegs extends $tea.Model {
    */
   arrivalCity?: string;
   /**
+   * @remarks
+   * departure airport [IATA airport code] list
+   * 
    * @example
    * PVG
    */
   departureAirportList?: string[];
   /**
    * @remarks
+   * departure city code
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12181,6 +14431,8 @@ export class SearchRequestAirLegs extends $tea.Model {
   departureCity?: string;
   /**
    * @remarks
+   * departure date (eg: yyyyMMdd)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12213,7 +14465,15 @@ export class SearchRequestAirLegs extends $tea.Model {
 }
 
 export class SearchRequestSearchControlOptions extends $tea.Model {
+  /**
+   * @remarks
+   * excluded airlines list
+   */
   airlineExcludedList?: string[];
+  /**
+   * @remarks
+   * preferred airlines list
+   */
   airlinePreferList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12236,111 +14496,178 @@ export class SearchRequestSearchControlOptions extends $tea.Model {
 
 export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $tea.Model {
   /**
+   * @remarks
+   * arrival airport code (capitalized)
+   * 
    * @example
    * MFM
    */
   arrivalAirport?: string;
   /**
+   * @remarks
+   * arrival city code (capitalized)
+   * 
    * @example
    * MFM
    */
   arrivalCity?: string;
   /**
+   * @remarks
+   * arrival terminal
+   * 
    * @example
    * T1
    */
   arrivalTerminal?: string;
   /**
+   * @remarks
+   * arrival time in string format (yyyy-MM-dd HH:mm:ss)
+   * 
    * @example
    * 2023-03-10 10:40:00
    */
   arrivalTime?: string;
   /**
+   * @remarks
+   * available seats (for reference only)
+   * 
    * @example
    * 7
    */
   availability?: string;
   /**
+   * @remarks
+   * RBD
+   * 
    * @example
    * V
    */
   cabin?: string;
   /**
+   * @remarks
+   * cabin class
+   * 
    * @example
    * Y
    */
   cabinClass?: string;
   /**
+   * @remarks
+   * code share or not
+   * 
    * @example
    * false
    */
   codeShare?: boolean;
   /**
+   * @remarks
+   * departure airport code (capitalized)
+   * 
    * @example
    * PVG
    */
   departureAirport?: string;
   /**
+   * @remarks
+   * departure city code (capitalized)
+   * 
    * @example
    * SHA
    */
   departureCity?: string;
   /**
+   * @remarks
+   * departure terminal
+   * 
    * @example
    * T2
    */
   departureTerminal?: string;
   /**
+   * @remarks
+   * departure time in string format (yyyy-MM-dd HH:mm:ss)
+   * 
    * @example
    * 2023-03-10 07:55:00
    */
   departureTime?: string;
   /**
+   * @remarks
+   * equipment type
+   * 
    * @example
    * 32Q
    */
   equipType?: string;
   /**
+   * @remarks
+   * flight time, unit: minute
+   * 
    * @example
    * 165
    */
   flightDuration?: number;
   /**
+   * @remarks
+   * marketing airline code (ex.: KA)
+   * 
    * @example
    * HO
    */
   marketingAirline?: string;
   /**
+   * @remarks
+   * marketing airline flight no. (ex.: KA5809)
+   * 
    * @example
    * HO1295
    */
   marketingFlightNo?: string;
   /**
+   * @remarks
+   * marketing airline integer flight no. (ex.: 5809)
+   * 
    * @example
    * 1259
    */
   marketingFlightNoInt?: number;
   /**
+   * @remarks
+   * operating airline code (ex.: CX)
+   * 
    * @example
    * HO
    */
   operatingAirline?: string;
   /**
+   * @remarks
+   * operating airline flight no. (ex.: CX601)
+   * 
    * @example
    * HO1295
    */
   operatingFlightNo?: string;
   /**
+   * @remarks
+   * segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(MMdd)
+   * 
    * @example
    * HO1295-PVG-MFM-20230310
    */
   segmentId?: string;
   /**
+   * @remarks
+   * stop city list
+   * when stop_quantity > 1, use “,” for seperation
+   * 
    * @example
-   * SEL,HKG
+   * MFM,PVG
    */
   stopCityList?: string;
   /**
+   * @remarks
+   * number of stops
+   * 
    * @example
    * 0
    */
@@ -12405,8 +14732,15 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $t
 }
 
 export class SearchResponseBodyDataSolutionListJourneyList extends $tea.Model {
+  /**
+   * @remarks
+   * segment Info
+   */
   segmentList?: SearchResponseBodyDataSolutionListJourneyListSegmentList[];
   /**
+   * @remarks
+   * number of transfers
+   * 
    * @example
    * 0
    */
@@ -12432,10 +14766,22 @@ export class SearchResponseBodyDataSolutionListJourneyList extends $tea.Model {
 
 export class SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList extends $tea.Model {
   /**
+   * @remarks
+   * through check-in baggage policy type
+   * 1. baggage through check-in between segments
+   * 2. baggage re-check-in needed between segments
+   * 3. baggage through check-in at stop city ( applies for stop flight )
+   * 4. baggage re-checkin needed at stop city ( applies for stop flight )
+   * 
    * @example
    * 1
    */
   luggageDirectInfoType?: number;
+  /**
+   * @remarks
+   * segment id list. 
+   * all the listed segment ids share the same baggage through check-in  policy
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12457,7 +14803,16 @@ export class SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList ext
 }
 
 export class SearchResponseBodyDataSolutionListSegmentBaggageMappingList extends $tea.Model {
+  /**
+   * @remarks
+   * baggage rule mapping, key is passenger type, value is baggage allowance details
+   */
   passengerBaggageAllowanceMapping?: { [key: string]: DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue };
+  /**
+   * @remarks
+   * segment id list. 
+   * all the listed segment id share the same baggage rule
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12479,7 +14834,16 @@ export class SearchResponseBodyDataSolutionListSegmentBaggageMappingList extends
 }
 
 export class SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList extends $tea.Model {
+  /**
+   * @remarks
+   * change and refund policy mapping, key is passenger type, value is change and refund policy details
+   */
   refundChangeRuleMap?: { [key: string]: DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue };
+  /**
+   * @remarks
+   * segment id list. 
+   * all the listed segment ids share the same change and refund policy
+   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12502,52 +14866,92 @@ export class SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingLis
 
 export class SearchResponseBodyDataSolutionList extends $tea.Model {
   /**
+   * @remarks
+   * adult fare
+   * 
    * @example
    * 600
    */
   adultPrice?: number;
   /**
+   * @remarks
+   * adult tax
+   * 
    * @example
    * 11
    */
   adultTax?: number;
   /**
+   * @remarks
+   * child fare
+   * 
    * @example
    * 500
    */
   childPrice?: number;
   /**
+   * @remarks
+   * child tax
+   * 
    * @example
    * 10
    */
   childTax?: number;
   /**
+   * @remarks
+   * infant fare
+   * 
    * @example
    * 400
    */
   infantPrice?: number;
   /**
+   * @remarks
+   * infant tax
+   * 
    * @example
    * 9
    */
   infantTax?: number;
+  /**
+   * @remarks
+   * segment list
+   */
   journeyList?: SearchResponseBodyDataSolutionListJourneyList[];
   /**
+   * @remarks
+   * product type description
+   * 
    * @example
-   * description
+   * ""
    */
   productTypeDescription?: string;
   /**
+   * @remarks
+   * refund airline coupon description
+   * 
    * @example
-   * description
+   * ""
    */
   refundTicketCouponDescription?: string;
+  /**
+   * @remarks
+   * through check-in baggage policy
+   */
   segmentBaggageCheckInInfoList?: SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList[];
+  /**
+   * @remarks
+   * baggage rule
+   */
   segmentBaggageMappingList?: SearchResponseBodyDataSolutionListSegmentBaggageMappingList[];
+  /**
+   * @remarks
+   * change and refund policy
+   */
   segmentRefundChangeRuleMappingList?: SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList[];
   /**
    * @remarks
-   * solution_id
+   * solution ID
    * 
    * @example
    * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
@@ -12595,6 +14999,10 @@ export class SearchResponseBodyDataSolutionList extends $tea.Model {
 }
 
 export class SearchResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * solution list
+   */
   solutionList?: SearchResponseBodyDataSolutionList[];
   static names(): { [key: string]: string } {
     return {
@@ -12615,11 +15023,17 @@ export class SearchResponseBodyData extends $tea.Model {
 
 export class TicketingResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * order number
+   * 
    * @example
    * 496***2617111
    */
   orderNum?: number;
   /**
+   * @remarks
+   * transaction serial number
+   * 
    * @example
    * hkduendkd-2023-dj0
    */
@@ -12645,6 +15059,9 @@ export class TicketingResponseBodyData extends $tea.Model {
 
 export class TicketingCheckResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * order number
+   * 
    * @example
    * 496***2617111
    */
@@ -12911,7 +15328,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 辅营-推荐
+   * Ancillary - Suggestion
+   * 
+   * @remarks
+   * search ancillary for selected solution, you should enter the solution_id returned by enrich.
    * 
    * @param request - AncillarySuggestRequest
    * @param headers - AncillarySuggestHeaders
@@ -12957,7 +15377,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 辅营-推荐
+   * Ancillary - Suggestion
+   * 
+   * @remarks
+   * search ancillary for selected solution, you should enter the solution_id returned by enrich.
    * 
    * @param request - AncillarySuggestRequest
    * @returns AncillarySuggestResponse
@@ -12969,7 +15392,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 交易-预定
+   * Transaction-Reservation
+   * 
+   * @remarks
+   * Enter solution_id returned by enrich, ancillary_id returned by ancillarySuggest(optional), passengers information and contact information, the book interface will create an order wait for pay.
+   * There are two issues should be noticed:
+   * 1. the solution_id must be processed by pricing.
+   * 2. the order created by book interface should be pay within 30 minutes, otherwise the order will be closed.
    * 
    * @param tmpReq - BookRequest
    * @param headers - BookHeaders
@@ -13045,7 +15474,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 交易-预定
+   * Transaction-Reservation
+   * 
+   * @remarks
+   * Enter solution_id returned by enrich, ancillary_id returned by ancillarySuggest(optional), passengers information and contact information, the book interface will create an order wait for pay.
+   * There are two issues should be noticed:
+   * 1. the solution_id must be processed by pricing.
+   * 2. the order created by book interface should be pay within 30 minutes, otherwise the order will be closed.
    * 
    * @param request - BookRequest
    * @returns BookResponse
@@ -13057,7 +15492,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 交易-未支付取消
+   * Transaction - Unpaid Cancellation
+   * 
+   * @remarks
+   * close an unpaid order
    * 
    * @param request - CancelRequest
    * @param headers - CancelHeaders
@@ -13103,7 +15541,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 交易-未支付取消
+   * Transaction - Unpaid Cancellation
+   * 
+   * @remarks
+   * close an unpaid order
    * 
    * @param request - CancelRequest
    * @returns CancelResponse
@@ -13517,7 +15958,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索-Enrich
+   * Search-Enrich
+   * 
+   * @remarks
+   * Enrich supports two modes:
+   * 1. mode1: enter solution_id returned by Search.
+   * 2. mode2: enter journeyParamList.
+   * If you already confirm which flight to fly with, then you can use mode2, otherwise, use mode1(search first, then chose one solution_ID and Enrich).
    * 
    * @param tmpReq - EnrichRequest
    * @param headers - EnrichHeaders
@@ -13589,7 +16036,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索-Enrich
+   * Search-Enrich
+   * 
+   * @remarks
+   * Enrich supports two modes:
+   * 1. mode1: enter solution_id returned by Search.
+   * 2. mode2: enter journeyParamList.
+   * If you already confirm which flight to fly with, then you can use mode2, otherwise, use mode1(search first, then chose one solution_ID and Enrich).
    * 
    * @param request - EnrichRequest
    * @returns EnrichResponse
@@ -13721,7 +16174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取token
+   * Get Token
    * 
    * @param request - GetTokenRequest
    * @param headers - map
@@ -13758,7 +16211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取token
+   * Get Token
    * 
    * @param request - GetTokenRequest
    * @returns GetTokenResponse
@@ -13834,7 +16287,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 交易-订单详情
+   * Trade-Order Details
+   * 
+   * @remarks
+   * query order detail
    * 
    * @param request - OrderDetailRequest
    * @param headers - OrderDetailHeaders
@@ -13884,7 +16340,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 交易-订单详情
+   * Trade-Order Details
+   * 
+   * @remarks
+   * query order detail
    * 
    * @param request - OrderDetailRequest
    * @returns OrderDetailResponse
@@ -13896,7 +16355,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 交易-订单列表
+   * Trade - Order List
+   * 
+   * @remarks
+   * query order list
    * 
    * @param request - OrderListRequest
    * @param headers - OrderListHeaders
@@ -13958,7 +16420,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 交易-订单列表
+   * Trade - Order List
+   * 
+   * @remarks
+   * query order list
    * 
    * @param request - OrderListRequest
    * @returns OrderListResponse
@@ -13970,7 +16435,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pricing
+   * Trade - Seat and Price Verification
+   * 
+   * @remarks
+   * Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
    * 
    * @param request - PricingRequest
    * @param headers - PricingHeaders
@@ -14016,7 +16484,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pricing
+   * Trade - Seat and Price Verification
+   * 
+   * @remarks
+   * Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
    * 
    * @param request - PricingRequest
    * @returns PricingResponse
@@ -14029,6 +16500,9 @@ export default class Client extends OpenApi {
 
   /**
    * 退票-申请
+   * 
+   * @remarks
+   * Apply for a refund and generate a refund order.
    * 
    * @param tmpReq - RefundApplyRequest
    * @param headers - RefundApplyHeaders
@@ -14102,6 +16576,9 @@ export default class Client extends OpenApi {
   /**
    * 退票-申请
    * 
+   * @remarks
+   * Apply for a refund and generate a refund order.
+   * 
    * @param request - RefundApplyRequest
    * @returns RefundApplyResponse
    */
@@ -14112,7 +16589,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 退票-Detail
+   * Refund - Detail
+   * 
+   * @remarks
+   * Query refund order detail.
    * 
    * @param request - RefundDetailRequest
    * @param headers - RefundDetailHeaders
@@ -14158,7 +16638,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 退票-Detail
+   * Refund - Detail
+   * 
+   * @remarks
+   * Query refund order detail.
    * 
    * @param request - RefundDetailRequest
    * @returns RefundDetailResponse
@@ -14170,7 +16653,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 退票-DetailList
+   * Refund - Detail List
+   * 
+   * @remarks
+   * Query refund order detail.
    * 
    * @param request - RefundDetailListRequest
    * @param headers - RefundDetailListHeaders
@@ -14232,7 +16718,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 退票-DetailList
+   * Refund - Detail List
+   * 
+   * @remarks
+   * Query refund order detail.
    * 
    * @param request - RefundDetailListRequest
    * @returns RefundDetailListResponse
@@ -14244,7 +16733,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索
+   * search
+   * 
+   * @remarks
+   * Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
    * 
    * @param tmpReq - SearchRequest
    * @param headers - SearchHeaders
@@ -14320,7 +16812,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索
+   * search
+   * 
+   * @remarks
+   * Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
    * 
    * @param request - SearchRequest
    * @returns SearchResponse
@@ -14332,7 +16827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 交易-支付出票
+   * Transaction - Payment and Ticket Issuance
    * 
    * @param request - TicketingRequest
    * @param headers - TicketingHeaders
@@ -14378,7 +16873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 交易-支付出票
+   * Transaction - Payment and Ticket Issuance
    * 
    * @param request - TicketingRequest
    * @returns TicketingResponse
@@ -14390,7 +16885,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 交易-支付前校验
+   * Transaction - Pre-payment verification
+   * 
+   * @remarks
+   * Pre-check for Ticketing, this interface is optional to use.
    * 
    * @param request - TicketingCheckRequest
    * @param headers - TicketingCheckHeaders
@@ -14436,7 +16934,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 交易-支付前校验
+   * Transaction - Pre-payment verification
+   * 
+   * @remarks
+   * Pre-check for Ticketing, this interface is optional to use.
    * 
    * @param request - TicketingCheckRequest
    * @returns TicketingCheckResponse
