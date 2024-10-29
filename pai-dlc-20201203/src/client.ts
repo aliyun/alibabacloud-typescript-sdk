@@ -1692,6 +1692,11 @@ export class JobSettings extends $tea.Model {
   caller?: string;
   /**
    * @example
+   * false
+   */
+  disableEcsStockCheck?: boolean;
+  /**
+   * @example
    * 535.54.03
    */
   driver?: string;
@@ -1756,6 +1761,7 @@ export class JobSettings extends $tea.Model {
       advancedSettings: 'AdvancedSettings',
       businessUserId: 'BusinessUserId',
       caller: 'Caller',
+      disableEcsStockCheck: 'DisableEcsStockCheck',
       driver: 'Driver',
       enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
       enableOssAppend: 'EnableOssAppend',
@@ -1777,6 +1783,7 @@ export class JobSettings extends $tea.Model {
       advancedSettings: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       businessUserId: 'string',
       caller: 'string',
+      disableEcsStockCheck: 'boolean',
       driver: 'string',
       enableErrorMonitoringInAIMaster: 'boolean',
       enableOssAppend: 'boolean',
