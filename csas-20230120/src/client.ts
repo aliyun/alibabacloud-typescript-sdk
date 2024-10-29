@@ -1313,6 +1313,7 @@ export class CreateWmBaseImageResponse extends $tea.Model {
 }
 
 export class CreateWmEmbedTaskRequest extends $tea.Model {
+  csvControl?: CreateWmEmbedTaskRequestCsvControl;
   documentControl?: CreateWmEmbedTaskRequestDocumentControl;
   /**
    * @remarks
@@ -1375,6 +1376,7 @@ export class CreateWmEmbedTaskRequest extends $tea.Model {
   wmType?: string;
   static names(): { [key: string]: string } {
     return {
+      csvControl: 'CsvControl',
       documentControl: 'DocumentControl',
       fileUrl: 'FileUrl',
       filename: 'Filename',
@@ -1391,6 +1393,7 @@ export class CreateWmEmbedTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      csvControl: CreateWmEmbedTaskRequestCsvControl,
       documentControl: CreateWmEmbedTaskRequestDocumentControl,
       fileUrl: 'string',
       filename: 'string',
@@ -1411,6 +1414,7 @@ export class CreateWmEmbedTaskRequest extends $tea.Model {
 }
 
 export class CreateWmEmbedTaskShrinkRequest extends $tea.Model {
+  csvControlShrink?: string;
   documentControlShrink?: string;
   /**
    * @remarks
@@ -1473,6 +1477,7 @@ export class CreateWmEmbedTaskShrinkRequest extends $tea.Model {
   wmType?: string;
   static names(): { [key: string]: string } {
     return {
+      csvControlShrink: 'CsvControl',
       documentControlShrink: 'DocumentControl',
       fileUrl: 'FileUrl',
       filename: 'Filename',
@@ -1489,6 +1494,7 @@ export class CreateWmEmbedTaskShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      csvControlShrink: 'string',
       documentControlShrink: 'string',
       fileUrl: 'string',
       filename: 'string',
@@ -1560,6 +1566,7 @@ export class CreateWmEmbedTaskResponse extends $tea.Model {
 }
 
 export class CreateWmExtractTaskRequest extends $tea.Model {
+  csvControl?: CreateWmExtractTaskRequestCsvControl;
   /**
    * @example
    * false
@@ -1606,6 +1613,7 @@ export class CreateWmExtractTaskRequest extends $tea.Model {
   wmType?: string;
   static names(): { [key: string]: string } {
     return {
+      csvControl: 'CsvControl',
       documentIsCapture: 'DocumentIsCapture',
       fileUrl: 'FileUrl',
       filename: 'Filename',
@@ -1618,6 +1626,84 @@ export class CreateWmExtractTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      csvControl: CreateWmExtractTaskRequestCsvControl,
+      documentIsCapture: 'boolean',
+      fileUrl: 'string',
+      filename: 'string',
+      videoIsLong: 'boolean',
+      videoSpeed: 'string',
+      wmInfoSize: 'number',
+      wmType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmExtractTaskShrinkRequest extends $tea.Model {
+  csvControlShrink?: string;
+  /**
+   * @example
+   * false
+   */
+  documentIsCapture?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://example.com/test-****.pdf
+   */
+  fileUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-****.pdf
+   */
+  filename?: string;
+  /**
+   * @example
+   * false
+   */
+  videoIsLong?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  videoSpeed?: string;
+  /**
+   * @example
+   * 32
+   */
+  wmInfoSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureDocument
+   */
+  wmType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      csvControlShrink: 'CsvControl',
+      documentIsCapture: 'DocumentIsCapture',
+      fileUrl: 'FileUrl',
+      filename: 'Filename',
+      videoIsLong: 'VideoIsLong',
+      videoSpeed: 'VideoSpeed',
+      wmInfoSize: 'WmInfoSize',
+      wmType: 'WmType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csvControlShrink: 'string',
       documentIsCapture: 'boolean',
       fileUrl: 'string',
       filename: 'string',
@@ -8569,6 +8655,31 @@ export class CreateWmBaseImageResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateWmEmbedTaskRequestCsvControl extends $tea.Model {
+  embedColumn?: number;
+  embedPrecision?: number;
+  method?: string;
+  static names(): { [key: string]: string } {
+    return {
+      embedColumn: 'EmbedColumn',
+      embedPrecision: 'EmbedPrecision',
+      method: 'Method',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      embedColumn: 'number',
+      embedPrecision: 'number',
+      method: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl extends $tea.Model {
   /**
    * @example
@@ -8762,6 +8873,31 @@ export class CreateWmEmbedTaskResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmExtractTaskRequestCsvControl extends $tea.Model {
+  embedColumn?: number;
+  embedPrecision?: number;
+  method?: string;
+  static names(): { [key: string]: string } {
+    return {
+      embedColumn: 'EmbedColumn',
+      embedPrecision: 'EmbedPrecision',
+      method: 'Method',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      embedColumn: 'number',
+      embedPrecision: 'number',
+      method: 'string',
     };
   }
 
@@ -14410,8 +14546,17 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateWmEmbedTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.csvControl)) {
+      request.csvControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.csvControl, "CsvControl", "json");
+    }
+
     if (!Util.isUnset(tmpReq.documentControl)) {
       request.documentControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentControl, "DocumentControl", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.csvControlShrink)) {
+      query["CsvControl"] = request.csvControlShrink;
     }
 
     let body : {[key: string ]: any} = { };
@@ -14460,6 +14605,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -14490,12 +14636,23 @@ export default class Client extends OpenApi {
   /**
    * 创建文件水印提取任务
    * 
-   * @param request - CreateWmExtractTaskRequest
+   * @param tmpReq - CreateWmExtractTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateWmExtractTaskResponse
    */
-  async createWmExtractTaskWithOptions(request: CreateWmExtractTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmExtractTaskResponse> {
-    Util.validateModel(request);
+  async createWmExtractTaskWithOptions(tmpReq: CreateWmExtractTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmExtractTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateWmExtractTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.csvControl)) {
+      request.csvControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.csvControl, "CsvControl", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.csvControlShrink)) {
+      query["CsvControl"] = request.csvControlShrink;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.documentIsCapture)) {
       body["DocumentIsCapture"] = request.documentIsCapture;
@@ -14526,6 +14683,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
