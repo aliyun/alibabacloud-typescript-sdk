@@ -173,8 +173,18 @@ export class ChannelProperties extends $tea.Model {
   channelFcm?: string;
   huaweiChannelCategory?: string;
   huaweiChannelImportance?: string;
+  /**
+   * @example
+   * 取值为"NORMAL"和"HIGH",默认为”NORMAL”
+   */
+  huaweiMessageUrgency?: string;
   mainActivity?: string;
   oppoChannelId?: string;
+  /**
+   * @example
+   * "true" ,默认为"false"，可不填
+   */
+  useHuaweiMessage?: string;
   /**
    * @example
    * "true",默认"false"
@@ -188,8 +198,10 @@ export class ChannelProperties extends $tea.Model {
       channelFcm: 'channelFcm',
       huaweiChannelCategory: 'huaweiChannelCategory',
       huaweiChannelImportance: 'huaweiChannelImportance',
+      huaweiMessageUrgency: 'huaweiMessageUrgency',
       mainActivity: 'mainActivity',
       oppoChannelId: 'oppoChannelId',
+      useHuaweiMessage: 'useHuaweiMessage',
       vivoAddBadge: 'vivoAddBadge',
       vivoCategory: 'vivoCategory',
       xiaomiChannelId: 'xiaomiChannelId',
@@ -202,8 +214,10 @@ export class ChannelProperties extends $tea.Model {
       channelFcm: 'string',
       huaweiChannelCategory: 'string',
       huaweiChannelImportance: 'string',
+      huaweiMessageUrgency: 'string',
       mainActivity: 'string',
       oppoChannelId: 'string',
+      useHuaweiMessage: 'string',
       vivoAddBadge: 'string',
       vivoCategory: 'string',
       xiaomiChannelId: 'string',
@@ -551,6 +565,7 @@ export class SendByAliasRequest extends $tea.Model {
    */
   receiptUrl?: string;
   thirdPartyId?: string;
+  callbackParams?: string;
   static names(): { [key: string]: string } {
     return {
       alias: 'Alias',
@@ -564,6 +579,7 @@ export class SendByAliasRequest extends $tea.Model {
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
       thirdPartyId: 'ThirdPartyId',
+      callbackParams: 'callbackParams',
     };
   }
 
@@ -580,6 +596,7 @@ export class SendByAliasRequest extends $tea.Model {
       receiptType: 'number',
       receiptUrl: 'string',
       thirdPartyId: 'string',
+      callbackParams: 'string',
     };
   }
 
@@ -615,6 +632,7 @@ export class SendByAliasShrinkRequest extends $tea.Model {
    */
   receiptUrl?: string;
   thirdPartyId?: string;
+  callbackParams?: string;
   static names(): { [key: string]: string } {
     return {
       alias: 'Alias',
@@ -628,6 +646,7 @@ export class SendByAliasShrinkRequest extends $tea.Model {
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
       thirdPartyId: 'ThirdPartyId',
+      callbackParams: 'callbackParams',
     };
   }
 
@@ -644,6 +663,7 @@ export class SendByAliasShrinkRequest extends $tea.Model {
       receiptType: 'number',
       receiptUrl: 'string',
       thirdPartyId: 'string',
+      callbackParams: 'string',
     };
   }
 
@@ -758,6 +778,7 @@ export class SendByAliasFileIdRequest extends $tea.Model {
    */
   receiptUrl?: string;
   thirdPartyId?: string;
+  callbackParams?: string;
   static names(): { [key: string]: string } {
     return {
       aliasType: 'AliasType',
@@ -771,6 +792,7 @@ export class SendByAliasFileIdRequest extends $tea.Model {
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
       thirdPartyId: 'ThirdPartyId',
+      callbackParams: 'callbackParams',
     };
   }
 
@@ -787,6 +809,7 @@ export class SendByAliasFileIdRequest extends $tea.Model {
       receiptType: 'number',
       receiptUrl: 'string',
       thirdPartyId: 'string',
+      callbackParams: 'string',
     };
   }
 
@@ -822,6 +845,7 @@ export class SendByAliasFileIdShrinkRequest extends $tea.Model {
    */
   receiptUrl?: string;
   thirdPartyId?: string;
+  callbackParams?: string;
   static names(): { [key: string]: string } {
     return {
       aliasType: 'AliasType',
@@ -835,6 +859,7 @@ export class SendByAliasFileIdShrinkRequest extends $tea.Model {
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
       thirdPartyId: 'ThirdPartyId',
+      callbackParams: 'callbackParams',
     };
   }
 
@@ -851,6 +876,7 @@ export class SendByAliasFileIdShrinkRequest extends $tea.Model {
       receiptType: 'number',
       receiptUrl: 'string',
       thirdPartyId: 'string',
+      callbackParams: 'string',
     };
   }
 
@@ -956,6 +982,7 @@ export class SendByAppRequest extends $tea.Model {
    */
   receiptUrl?: string;
   thirdPartyId?: string;
+  callbackParams?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayload: 'AndroidPayload',
@@ -967,6 +994,7 @@ export class SendByAppRequest extends $tea.Model {
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
       thirdPartyId: 'ThirdPartyId',
+      callbackParams: 'callbackParams',
     };
   }
 
@@ -981,6 +1009,7 @@ export class SendByAppRequest extends $tea.Model {
       receiptType: 'number',
       receiptUrl: 'string',
       thirdPartyId: 'string',
+      callbackParams: 'string',
     };
   }
 
@@ -1007,6 +1036,7 @@ export class SendByAppShrinkRequest extends $tea.Model {
    */
   receiptUrl?: string;
   thirdPartyId?: string;
+  callbackParams?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayloadShrink: 'AndroidPayload',
@@ -1018,6 +1048,7 @@ export class SendByAppShrinkRequest extends $tea.Model {
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
       thirdPartyId: 'ThirdPartyId',
+      callbackParams: 'callbackParams',
     };
   }
 
@@ -1032,6 +1063,7 @@ export class SendByAppShrinkRequest extends $tea.Model {
       receiptType: 'number',
       receiptUrl: 'string',
       thirdPartyId: 'string',
+      callbackParams: 'string',
     };
   }
 
@@ -1145,6 +1177,7 @@ export class SendByDeviceRequest extends $tea.Model {
    */
   receiptUrl?: string;
   thirdPartyId?: string;
+  callbackParams?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayload: 'AndroidPayload',
@@ -1157,6 +1190,7 @@ export class SendByDeviceRequest extends $tea.Model {
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
       thirdPartyId: 'ThirdPartyId',
+      callbackParams: 'callbackParams',
     };
   }
 
@@ -1172,6 +1206,7 @@ export class SendByDeviceRequest extends $tea.Model {
       receiptType: 'number',
       receiptUrl: 'string',
       thirdPartyId: 'string',
+      callbackParams: 'string',
     };
   }
 
@@ -1206,6 +1241,7 @@ export class SendByDeviceShrinkRequest extends $tea.Model {
    */
   receiptUrl?: string;
   thirdPartyId?: string;
+  callbackParams?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayloadShrink: 'AndroidPayload',
@@ -1218,6 +1254,7 @@ export class SendByDeviceShrinkRequest extends $tea.Model {
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
       thirdPartyId: 'ThirdPartyId',
+      callbackParams: 'callbackParams',
     };
   }
 
@@ -1233,6 +1270,7 @@ export class SendByDeviceShrinkRequest extends $tea.Model {
       receiptType: 'number',
       receiptUrl: 'string',
       thirdPartyId: 'string',
+      callbackParams: 'string',
     };
   }
 
@@ -1346,6 +1384,7 @@ export class SendByDeviceFileIdRequest extends $tea.Model {
    */
   receiptUrl?: string;
   thirdPartyId?: string;
+  callbackParams?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayload: 'AndroidPayload',
@@ -1358,6 +1397,7 @@ export class SendByDeviceFileIdRequest extends $tea.Model {
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
       thirdPartyId: 'ThirdPartyId',
+      callbackParams: 'callbackParams',
     };
   }
 
@@ -1373,6 +1413,7 @@ export class SendByDeviceFileIdRequest extends $tea.Model {
       receiptType: 'number',
       receiptUrl: 'string',
       thirdPartyId: 'string',
+      callbackParams: 'string',
     };
   }
 
@@ -1407,6 +1448,7 @@ export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
    */
   receiptUrl?: string;
   thirdPartyId?: string;
+  callbackParams?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayloadShrink: 'AndroidPayload',
@@ -1419,6 +1461,7 @@ export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
       thirdPartyId: 'ThirdPartyId',
+      callbackParams: 'callbackParams',
     };
   }
 
@@ -1434,6 +1477,7 @@ export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
       receiptType: 'number',
       receiptUrl: 'string',
       thirdPartyId: 'string',
+      callbackParams: 'string',
     };
   }
 
@@ -1544,6 +1588,7 @@ export class SendByFilterRequest extends $tea.Model {
    */
   receiptUrl?: string;
   thirdPartyId?: string;
+  callbackParams?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayload: 'AndroidPayload',
@@ -1556,6 +1601,7 @@ export class SendByFilterRequest extends $tea.Model {
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
       thirdPartyId: 'ThirdPartyId',
+      callbackParams: 'callbackParams',
     };
   }
 
@@ -1571,6 +1617,7 @@ export class SendByFilterRequest extends $tea.Model {
       receiptType: 'number',
       receiptUrl: 'string',
       thirdPartyId: 'string',
+      callbackParams: 'string',
     };
   }
 
@@ -1602,6 +1649,7 @@ export class SendByFilterShrinkRequest extends $tea.Model {
    */
   receiptUrl?: string;
   thirdPartyId?: string;
+  callbackParams?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayloadShrink: 'AndroidPayload',
@@ -1614,6 +1662,7 @@ export class SendByFilterShrinkRequest extends $tea.Model {
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
       thirdPartyId: 'ThirdPartyId',
+      callbackParams: 'callbackParams',
     };
   }
 
@@ -1629,6 +1678,7 @@ export class SendByFilterShrinkRequest extends $tea.Model {
       receiptType: 'number',
       receiptUrl: 'string',
       thirdPartyId: 'string',
+      callbackParams: 'string',
     };
   }
 
@@ -2261,6 +2311,10 @@ export default class Client extends OpenApi {
       body["ThirdPartyId"] = request.thirdPartyId;
     }
 
+    if (!Util.isUnset(request.callbackParams)) {
+      body["callbackParams"] = request.callbackParams;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -2364,6 +2418,10 @@ export default class Client extends OpenApi {
       body["ThirdPartyId"] = request.thirdPartyId;
     }
 
+    if (!Util.isUnset(request.callbackParams)) {
+      body["callbackParams"] = request.callbackParams;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -2457,6 +2515,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.thirdPartyId)) {
       body["ThirdPartyId"] = request.thirdPartyId;
+    }
+
+    if (!Util.isUnset(request.callbackParams)) {
+      body["callbackParams"] = request.callbackParams;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2558,6 +2620,10 @@ export default class Client extends OpenApi {
       body["ThirdPartyId"] = request.thirdPartyId;
     }
 
+    if (!Util.isUnset(request.callbackParams)) {
+      body["callbackParams"] = request.callbackParams;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -2657,6 +2723,10 @@ export default class Client extends OpenApi {
       body["ThirdPartyId"] = request.thirdPartyId;
     }
 
+    if (!Util.isUnset(request.callbackParams)) {
+      body["callbackParams"] = request.callbackParams;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -2754,6 +2824,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.thirdPartyId)) {
       body["ThirdPartyId"] = request.thirdPartyId;
+    }
+
+    if (!Util.isUnset(request.callbackParams)) {
+      body["callbackParams"] = request.callbackParams;
     }
 
     let req = new $OpenApi.OpenApiRequest({
