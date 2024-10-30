@@ -23195,6 +23195,7 @@ export class DescribeVaultsResponseBodyVaultsVaultBackupPlanStatistics extends $
    * 1
    */
   archive?: number;
+  commonFileSystem?: number;
   /**
    * @remarks
    * The number of backup plans for General-purpose NAS file systems.
@@ -23302,6 +23303,7 @@ export class DescribeVaultsResponseBodyVaultsVaultBackupPlanStatistics extends $
   static names(): { [key: string]: string } {
     return {
       archive: 'Archive',
+      commonFileSystem: 'CommonFileSystem',
       commonNas: 'CommonNas',
       csg: 'Csg',
       ecsFile: 'EcsFile',
@@ -23321,6 +23323,7 @@ export class DescribeVaultsResponseBodyVaultsVaultBackupPlanStatistics extends $
   static types(): { [key: string]: any } {
     return {
       archive: 'number',
+      commonFileSystem: 'number',
       commonNas: 'number',
       csg: 'number',
       ecsFile: 'number',
