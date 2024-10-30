@@ -4851,6 +4851,10 @@ export class GetNodeResponse extends $tea.Model {
 export class GetProjectRequest extends $tea.Model {
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4875,8 +4879,15 @@ export class GetProjectRequest extends $tea.Model {
 }
 
 export class GetProjectResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the workspace.
+   */
   project?: GetProjectResponseBodyProject;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -16416,11 +16427,17 @@ export class GetNodeResponseBodyNode extends $tea.Model {
 
 export class GetProjectResponseBodyProjectAliyunResourceTags extends $tea.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * batch
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * blue
    */
@@ -16446,44 +16463,111 @@ export class GetProjectResponseBodyProjectAliyunResourceTags extends $tea.Model 
 
 export class GetProjectResponseBodyProject extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group to which the workspace belongs.
+   * 
    * @example
    * rg-acfmzbn7pti3zfa
    */
   aliyunResourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   aliyunResourceTags?: GetProjectResponseBodyProjectAliyunResourceTags[];
+  /**
+   * @remarks
+   * The description of the workspace.
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the development environment is enabled. Valid values:
+   * 
+   * *   true: The development environment is enabled. In this case, the development environment is isolated from the production environment in the workspace.
+   * *   false: The development environment is disabled. In this case, only the production environment is used in the workspace.
+   * 
    * @example
    * true
    */
   devEnvironmentEnabled?: boolean;
   /**
+   * @remarks
+   * Indicates whether the Develop role is disabled. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
    * @example
    * false
    */
   devRoleDisabled?: boolean;
+  /**
+   * @remarks
+   * The display name of the workspace.
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 28477242
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the workspace.
+   * 
    * @example
    * sora_finance
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the workspace belongs.
+   * 
    * @example
    * 207947397706614299
    */
   owner?: string;
   /**
+   * @remarks
+   * Indicates whether scheduling of Platform for AI (PAI) tasks is enabled. Valid values:
+   * 
+   * *   true: Scheduling of PAI tasks is enabled. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+   * *   false: Scheduling of PAI tasks is disabled.
+   * 
    * @example
    * true
    */
   paiTaskEnabled?: boolean;
   /**
+   * @remarks
+   * The status of the workspace. Valid values:
+   * 
+   * *   Available
+   * *   Initializing
+   * *   InitFailed
+   * *   Forbidden
+   * *   Deleting
+   * *   DeleteFailed
+   * *   Frozen
+   * *   Updating
+   * *   UpdateFailed
+   * 
+   * <!---->
+   * 
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * 
    * @example
    * Available
    */
@@ -18087,7 +18171,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $tea.Model {
   projectId?: number;
   /**
    * @example
-   * AllAllowed 
+   * AllAllowed
    */
   rerunMode?: string;
   /**
@@ -29763,7 +29847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询工作空间详情
+   * Queries the information about a DataWorks workspace.
    * 
    * @param request - GetProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29790,7 +29874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询工作空间详情
+   * Queries the information about a DataWorks workspace.
    * 
    * @param request - GetProjectRequest
    * @returns GetProjectResponse
