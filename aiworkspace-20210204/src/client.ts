@@ -1734,6 +1734,9 @@ export class CreateDatasetVersionRequest extends $tea.Model {
    */
   dataSize?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * OSS
    */
@@ -1748,6 +1751,9 @@ export class CreateDatasetVersionRequest extends $tea.Model {
    */
   options?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * DIRECTORY
    */
@@ -1763,6 +1769,9 @@ export class CreateDatasetVersionRequest extends $tea.Model {
    */
   sourceType?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/
    */
@@ -1803,27 +1812,23 @@ export class CreateDatasetVersionRequest extends $tea.Model {
 }
 
 export class CreateDatasetVersionResponseBody extends $tea.Model {
+  requestId?: string;
   /**
    * @example
    * v1
    */
   versionName?: string;
-  /**
-   * @example
-   * ADF6D849-*****-7E7030F0CE53
-   */
-  requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      requestId: 'RequestId',
       versionName: 'VersionName',
-      requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      versionName: 'string',
       requestId: 'string',
+      versionName: 'string',
     };
   }
 
@@ -1881,14 +1886,10 @@ export class CreateDatasetVersionLabelsRequest extends $tea.Model {
 }
 
 export class CreateDatasetVersionLabelsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * ADF6D849-*****-7E7030F0CE53
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
+      requestId: 'RequestId',
     };
   }
 
@@ -3148,14 +3149,10 @@ export class DeleteDatasetLabelsResponse extends $tea.Model {
 }
 
 export class DeleteDatasetVersionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * ADF6D849-*****-7E7030F0CE53
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
+      requestId: 'RequestId',
     };
   }
 
@@ -3222,14 +3219,10 @@ export class DeleteDatasetVersionLabelsRequest extends $tea.Model {
 }
 
 export class DeleteDatasetVersionLabelsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * ADF6D849-*****-7E7030F0CE53
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
+      requestId: 'RequestId',
     };
   }
 
@@ -4256,23 +4249,130 @@ export class GetDatasetResponse extends $tea.Model {
 }
 
 export class GetDatasetVersionResponseBody extends $tea.Model {
-  datasetVersion?: DatasetVersion;
   /**
-   * @example
-   * ADF6D849-*****-7E7030F0CE53
+   * @remarks
+   * 数据集的数据量
    */
+  dataCount?: number;
+  /**
+   * @remarks
+   * 数据集版本的数据大小。
+   */
+  dataSize?: number;
+  /**
+   * @remarks
+   * 数据源类型。支持以下取值：
+   * - OSS：阿里云对象存储（OSS）。
+   * - NAS：阿里云文件存储（NAS）。
+   * 
+   * This parameter is required.
+   */
+  dataSourceType?: string;
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   */
+  datasetId?: string;
+  /**
+   * @remarks
+   * 数据集版本的描述信息。
+   */
+  description?: string;
+  gmtCreateTime?: string;
+  /**
+   * @remarks
+   * 创建时间。
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * 代表资源标签的资源属性字段
+   */
+  labels?: Label[];
+  /**
+   * @remarks
+   * 扩展字段，JsonString类型。
+   * 当DLC使用数据集时，可通过配置mountPath字段指定数据集默认挂载路径。
+   */
+  options?: string;
+  /**
+   * @remarks
+   * 数据集的属性。支持以下取值：
+   * - FILE：文件。
+   * - DIRECTORY：文件夹。
+   * 
+   * This parameter is required.
+   */
+  property?: string;
   requestId?: string;
+  /**
+   * @remarks
+   * 数据来源ID。
+   */
+  sourceId?: string;
+  /**
+   * @remarks
+   * 数据来源类型，默认为USER。支持以下取值：
+   * - PAI-PUBLIC-DATASET：PAI公共数据集。
+   * - ITAG：iTAG模块标注结果生成的数据集。
+   * - USER：用户注册的数据集。
+   */
+  sourceType?: string;
+  /**
+   * @remarks
+   * Uri配置样例如下：
+   * - 数据源类型为OSS：`oss://bucket.endpoint/object`
+   * - 数据源类型为NAS：
+   * 通用型NAS格式为：`nas://<nasfisid>.region/subpath/to/dir/`；
+   * CPFS1.0：`nas://<cpfs-fsid>.region/subpath/to/dir/`；
+   * CPFS2.0：`nas://<cpfs-fsid>.region/<protocolserviceid>/`。
+   * CPFS1.0和CPFS2.0根据fsid的格式来区分：CPFS1.0 格式为cpfs-<8位ascii字符>；CPFS2.0 格式为cpfs-<16为ascii字符>。
+   * 
+   * This parameter is required.
+   */
+  uri?: string;
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   */
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
-      datasetVersion: 'DatasetVersion',
-      requestId: 'requestId',
+      dataCount: 'DataCount',
+      dataSize: 'DataSize',
+      dataSourceType: 'DataSourceType',
+      datasetId: 'DatasetId',
+      description: 'Description',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      labels: 'Labels',
+      options: 'Options',
+      property: 'Property',
+      requestId: 'RequestId',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
+      uri: 'Uri',
+      versionName: 'VersionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      datasetVersion: DatasetVersion,
+      dataCount: 'number',
+      dataSize: 'number',
+      dataSourceType: 'string',
+      datasetId: 'string',
+      description: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      labels: { 'type': 'array', 'itemType': Label },
+      options: 'string',
+      property: 'string',
       requestId: 'string',
+      sourceId: 'string',
+      sourceType: 'string',
+      uri: 'string',
+      versionName: 'string',
     };
   }
 
@@ -5589,23 +5689,19 @@ export class ListDatasetVersionsResponseBody extends $tea.Model {
    * 10
    */
   pageSize?: number;
+  requestId?: string;
   /**
    * @example
    * 5
    */
   totalCount?: number;
-  /**
-   * @example
-   * ADF6D849-*****-7E7030F0CE53
-   */
-  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       datasetVersions: 'DatasetVersions',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      requestId: 'RequestId',
       totalCount: 'TotalCount',
-      requestId: 'requestId',
     };
   }
 
@@ -5614,8 +5710,8 @@ export class ListDatasetVersionsResponseBody extends $tea.Model {
       datasetVersions: { 'type': 'array', 'itemType': DatasetVersion },
       pageNumber: 'number',
       pageSize: 'number',
-      totalCount: 'number',
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -8208,14 +8304,10 @@ export class UpdateDatasetVersionRequest extends $tea.Model {
 }
 
 export class UpdateDatasetVersionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * ADF6D849-*****-7E7030F0CE53
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
+      requestId: 'RequestId',
     };
   }
 
