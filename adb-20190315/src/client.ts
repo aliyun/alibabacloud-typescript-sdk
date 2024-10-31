@@ -1979,6 +1979,112 @@ export class DeleteAccountResponse extends $tea.Model {
   }
 }
 
+export class DeleteBackupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 766,767
+   */
+  backupIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * am-bp1ub9grke1****
+   */
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backupIds: 'BackupIds',
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupIds: 'string',
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBackupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 771C5FAA-530F-52F7-B84D-EBAD4561D590
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBackupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBackupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBackupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDBClusterRequest extends $tea.Model {
   /**
    * @remarks
@@ -27313,6 +27419,44 @@ export default class Client extends OpenApi {
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 手动删除备份集
+   * 
+   * @param request - DeleteBackupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBackupsResponse
+   */
+  async deleteBackupsWithOptions(request: DeleteBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBackups",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBackupsResponse>(await this.callApi(params, req, runtime), new DeleteBackupsResponse({}));
+  }
+
+  /**
+   * 手动删除备份集
+   * 
+   * @param request - DeleteBackupsRequest
+   * @returns DeleteBackupsResponse
+   */
+  async deleteBackups(request: DeleteBackupsRequest): Promise<DeleteBackupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBackupsWithOptions(request, runtime);
   }
 
   /**
