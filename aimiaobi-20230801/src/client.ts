@@ -2841,6 +2841,121 @@ export class GenerateViewPointResponse extends $tea.Model {
   }
 }
 
+export class GetCustomHotTopicBroadcastJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2e27abb32cb64f80a0c6e829b6c87a09
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomHotTopicBroadcastJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: GetCustomHotTopicBroadcastJobResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetCustomHotTopicBroadcastJobResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomHotTopicBroadcastJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCustomHotTopicBroadcastJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCustomHotTopicBroadcastJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCustomTextRequest extends $tea.Model {
   /**
    * @remarks
@@ -3415,6 +3530,233 @@ export class GetGeneratedContentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetGeneratedContentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  calcTotalToken?: boolean;
+  /**
+   * @example
+   * 分类筛选
+   */
+  category?: string;
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  /**
+   * @example
+   * 2024-10-11_13
+   */
+  hotTopicVersion?: string;
+  /**
+   * @example
+   * 5
+   */
+  size?: number;
+  stepForCustomSummaryStyleConfig?: GetHotTopicBroadcastRequestStepForCustomSummaryStyleConfig;
+  stepForNewsBroadcastContentConfig?: GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfig;
+  /**
+   * @example
+   * ["主题1","主题2"]
+   */
+  topics?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      calcTotalToken: 'CalcTotalToken',
+      category: 'Category',
+      current: 'Current',
+      hotTopicVersion: 'HotTopicVersion',
+      size: 'Size',
+      stepForCustomSummaryStyleConfig: 'StepForCustomSummaryStyleConfig',
+      stepForNewsBroadcastContentConfig: 'StepForNewsBroadcastContentConfig',
+      topics: 'Topics',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      calcTotalToken: 'boolean',
+      category: 'string',
+      current: 'number',
+      hotTopicVersion: 'string',
+      size: 'number',
+      stepForCustomSummaryStyleConfig: GetHotTopicBroadcastRequestStepForCustomSummaryStyleConfig,
+      stepForNewsBroadcastContentConfig: GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfig,
+      topics: { 'type': 'array', 'itemType': 'string' },
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  calcTotalToken?: boolean;
+  /**
+   * @example
+   * 分类筛选
+   */
+  category?: string;
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  /**
+   * @example
+   * 2024-10-11_13
+   */
+  hotTopicVersion?: string;
+  /**
+   * @example
+   * 5
+   */
+  size?: number;
+  stepForCustomSummaryStyleConfigShrink?: string;
+  stepForNewsBroadcastContentConfigShrink?: string;
+  /**
+   * @example
+   * ["主题1","主题2"]
+   */
+  topicsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      calcTotalToken: 'CalcTotalToken',
+      category: 'Category',
+      current: 'Current',
+      hotTopicVersion: 'HotTopicVersion',
+      size: 'Size',
+      stepForCustomSummaryStyleConfigShrink: 'StepForCustomSummaryStyleConfig',
+      stepForNewsBroadcastContentConfigShrink: 'StepForNewsBroadcastContentConfig',
+      topicsShrink: 'Topics',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      calcTotalToken: 'boolean',
+      category: 'string',
+      current: 'number',
+      hotTopicVersion: 'string',
+      size: 'number',
+      stepForCustomSummaryStyleConfigShrink: 'string',
+      stepForNewsBroadcastContentConfigShrink: 'string',
+      topicsShrink: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: GetHotTopicBroadcastResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetHotTopicBroadcastResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHotTopicBroadcastResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetHotTopicBroadcastResponseBody,
     };
   }
 
@@ -11486,6 +11828,171 @@ export class SubmitAsyncTaskResponse extends $tea.Model {
   }
 }
 
+export class SubmitCustomHotTopicBroadcastJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  hotTopicBroadcastConfig?: SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfig;
+  /**
+   * @example
+   * 热点版本
+   */
+  hotTopicVersion?: string;
+  topics?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotTopicBroadcastConfig: 'HotTopicBroadcastConfig',
+      hotTopicVersion: 'HotTopicVersion',
+      topics: 'Topics',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotTopicBroadcastConfig: SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfig,
+      hotTopicVersion: 'string',
+      topics: { 'type': 'array', 'itemType': 'string' },
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomHotTopicBroadcastJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  hotTopicBroadcastConfigShrink?: string;
+  /**
+   * @example
+   * 热点版本
+   */
+  hotTopicVersion?: string;
+  topicsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotTopicBroadcastConfigShrink: 'HotTopicBroadcastConfig',
+      hotTopicVersion: 'HotTopicVersion',
+      topicsShrink: 'Topics',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotTopicBroadcastConfigShrink: 'string',
+      hotTopicVersion: 'string',
+      topicsShrink: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomHotTopicBroadcastJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: SubmitCustomHotTopicBroadcastJobResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitCustomHotTopicBroadcastJobResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomHotTopicBroadcastJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitCustomHotTopicBroadcastJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitCustomHotTopicBroadcastJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest extends $tea.Model {
   /**
    * @remarks
@@ -13120,6 +13627,43 @@ export class GenerateViewPointResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetCustomHotTopicBroadcastJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 热点话题版本号标识
+   */
+  hotTopicVersion?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      hotTopicVersion: 'HotTopicVersion',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      hotTopicVersion: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCustomTextResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -13561,6 +14105,513 @@ export class GetGeneratedContentResponseBodyData extends $tea.Model {
       updateTime: 'string',
       updateUser: 'string',
       uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastRequestStepForCustomSummaryStyleConfig extends $tea.Model {
+  /**
+   * @example
+   * 90
+   */
+  summaryImageCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 摘要模型
+   */
+  summaryModel?: string;
+  /**
+   * @example
+   * 摘要-自定义Prompt
+   */
+  summaryPrompt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      summaryImageCount: 'SummaryImageCount',
+      summaryModel: 'SummaryModel',
+      summaryPrompt: 'SummaryPrompt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      summaryImageCount: 'number',
+      summaryModel: 'string',
+      summaryPrompt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfigCustomHotValueWeights extends $tea.Model {
+  /**
+   * @example
+   * views
+   */
+  dimension?: string;
+  /**
+   * @example
+   * 1
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dimension: 'Dimension',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimension: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfig extends $tea.Model {
+  /**
+   * @example
+   * ["科技","经济","时政","娱乐"]
+   */
+  categories?: string[];
+  customHotValueWeights?: GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfigCustomHotValueWeights[];
+  /**
+   * @example
+   * 10
+   */
+  topicCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      customHotValueWeights: 'CustomHotValueWeights',
+      topicCount: 'TopicCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      customHotValueWeights: { 'type': 'array', 'itemType': GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfigCustomHotValueWeights },
+      topicCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastResponseBodyDataDataImages extends $tea.Model {
+  /**
+   * @example
+   * http://www.example.com/a.png
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastResponseBodyDataDataNewsComments extends $tea.Model {
+  /**
+   * @example
+   * 评论内容
+   */
+  text?: string;
+  /**
+   * @example
+   * 评论用户名
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastResponseBodyDataDataNews extends $tea.Model {
+  analysisCategory?: string;
+  /**
+   * @example
+   * 聚合后热点名称
+   */
+  analysisTopic?: string;
+  author?: string;
+  category?: string[];
+  comments?: GetHotTopicBroadcastResponseBodyDataDataNewsComments[];
+  content?: string;
+  /**
+   * @example
+   * 2024-06-13 08:45:05
+   */
+  createTime?: string;
+  domain?: string;
+  /**
+   * @example
+   * 2024111110
+   */
+  dt?: string;
+  /**
+   * @example
+   * 原始热点名称
+   */
+  hotTopic?: string;
+  imgList?: string[];
+  /**
+   * @remarks
+   * logo
+   * 
+   * @example
+   * https://www.example.com/a.png
+   */
+  logo?: string;
+  /**
+   * @example
+   * 2024-10-10 12:12:00
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  title?: string;
+  /**
+   * @example
+   * http://www.example.com/a.png
+   */
+  url?: string;
+  /**
+   * @example
+   * 主键ID
+   */
+  uuid?: string;
+  /**
+   * @example
+   * 网站
+   */
+  website?: string;
+  static names(): { [key: string]: string } {
+    return {
+      analysisCategory: 'AnalysisCategory',
+      analysisTopic: 'AnalysisTopic',
+      author: 'Author',
+      category: 'Category',
+      comments: 'Comments',
+      content: 'Content',
+      createTime: 'CreateTime',
+      domain: 'Domain',
+      dt: 'Dt',
+      hotTopic: 'HotTopic',
+      imgList: 'ImgList',
+      logo: 'Logo',
+      pubTime: 'PubTime',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+      uuid: 'Uuid',
+      website: 'Website',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysisCategory: 'string',
+      analysisTopic: 'string',
+      author: 'string',
+      category: { 'type': 'array', 'itemType': 'string' },
+      comments: { 'type': 'array', 'itemType': GetHotTopicBroadcastResponseBodyDataDataNewsComments },
+      content: 'string',
+      createTime: 'string',
+      domain: 'string',
+      dt: 'string',
+      hotTopic: 'string',
+      imgList: { 'type': 'array', 'itemType': 'string' },
+      logo: 'string',
+      pubTime: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+      uuid: 'string',
+      website: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastResponseBodyDataDataSummarySummaries extends $tea.Model {
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 标题
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      summary: 'Summary',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      summary: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastResponseBodyDataDataSummary extends $tea.Model {
+  /**
+   * @example
+   * 17
+   */
+  inputToken?: number;
+  /**
+   * @example
+   * 41
+   */
+  outputToken?: number;
+  summaries?: GetHotTopicBroadcastResponseBodyDataDataSummarySummaries[];
+  static names(): { [key: string]: string } {
+    return {
+      inputToken: 'InputToken',
+      outputToken: 'OutputToken',
+      summaries: 'Summaries',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputToken: 'number',
+      outputToken: 'number',
+      summaries: { 'type': 'array', 'itemType': GetHotTopicBroadcastResponseBodyDataDataSummarySummaries },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastResponseBodyDataData extends $tea.Model {
+  /**
+   * @example
+   * 热点话题分类
+   */
+  category?: string;
+  /**
+   * @example
+   * 创建时间
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 34.7905341705522
+   */
+  customHotValue?: number;
+  /**
+   * @example
+   * 自定义热点话题文本摘要
+   */
+  customTextSummary?: string;
+  /**
+   * @example
+   * 热点话题名称
+   */
+  hotTopic?: string;
+  /**
+   * @example
+   * 热点话题摘要版本
+   */
+  hotTopicVersion?: string;
+  /**
+   * @example
+   * 1.4120480606282884
+   */
+  hotValue?: number;
+  /**
+   * @example
+   * 热点话题ID
+   */
+  id?: string;
+  images?: GetHotTopicBroadcastResponseBodyDataDataImages[];
+  /**
+   * @example
+   * 29
+   */
+  inputToken?: number;
+  news?: GetHotTopicBroadcastResponseBodyDataDataNews[];
+  /**
+   * @example
+   * 22
+   */
+  outputToken?: number;
+  summary?: GetHotTopicBroadcastResponseBodyDataDataSummary;
+  /**
+   * @example
+   * 热点话题文本摘要
+   */
+  textSummary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      createTime: 'CreateTime',
+      customHotValue: 'CustomHotValue',
+      customTextSummary: 'CustomTextSummary',
+      hotTopic: 'HotTopic',
+      hotTopicVersion: 'HotTopicVersion',
+      hotValue: 'HotValue',
+      id: 'Id',
+      images: 'Images',
+      inputToken: 'InputToken',
+      news: 'News',
+      outputToken: 'OutputToken',
+      summary: 'Summary',
+      textSummary: 'TextSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      createTime: 'string',
+      customHotValue: 'number',
+      customTextSummary: 'string',
+      hotTopic: 'string',
+      hotTopicVersion: 'string',
+      hotValue: 'number',
+      id: 'string',
+      images: { 'type': 'array', 'itemType': GetHotTopicBroadcastResponseBodyDataDataImages },
+      inputToken: 'number',
+      news: { 'type': 'array', 'itemType': GetHotTopicBroadcastResponseBodyDataDataNews },
+      outputToken: 'number',
+      summary: GetHotTopicBroadcastResponseBodyDataDataSummary,
+      textSummary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastResponseBodyDataTotalTokenInfo extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  hotTopicCount?: number;
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  wordCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hotTopicCount: 'HotTopicCount',
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      wordCount: 'WordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotTopicCount: 'number',
+      inputTokens: 'number',
+      outputTokens: 'number',
+      wordCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotTopicBroadcastResponseBodyData extends $tea.Model {
+  data?: GetHotTopicBroadcastResponseBodyDataData[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  totalTokenInfo?: GetHotTopicBroadcastResponseBodyDataTotalTokenInfo;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      totalCount: 'TotalCount',
+      totalTokenInfo: 'TotalTokenInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GetHotTopicBroadcastResponseBodyDataData },
+      totalCount: 'number',
+      totalTokenInfo: GetHotTopicBroadcastResponseBodyDataTotalTokenInfo,
     };
   }
 
@@ -20955,6 +22006,169 @@ export class SubmitAsyncTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForCustomSummaryStyleConfig extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
+  summaryImageCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qwen-max
+   */
+  summaryModel?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  summaryPrompt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      summaryImageCount: 'SummaryImageCount',
+      summaryModel: 'SummaryModel',
+      summaryPrompt: 'SummaryPrompt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      summaryImageCount: 'number',
+      summaryModel: 'string',
+      summaryPrompt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForNewsBroadcastContentConfigCustomHotValueWeights extends $tea.Model {
+  /**
+   * @example
+   * views
+   */
+  dimension?: string;
+  /**
+   * @example
+   * 维度名称
+   */
+  dimensionName?: string;
+  /**
+   * @example
+   * 1
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dimension: 'Dimension',
+      dimensionName: 'DimensionName',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimension: 'string',
+      dimensionName: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForNewsBroadcastContentConfig extends $tea.Model {
+  /**
+   * @example
+   * ["科技","经济","时政","娱乐"]
+   */
+  categories?: string[];
+  customHotValueWeights?: SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForNewsBroadcastContentConfigCustomHotValueWeights[];
+  /**
+   * @example
+   * 10
+   */
+  topicCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      customHotValueWeights: 'CustomHotValueWeights',
+      topicCount: 'TopicCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      customHotValueWeights: { 'type': 'array', 'itemType': SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForNewsBroadcastContentConfigCustomHotValueWeights },
+      topicCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfig extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  stepForCustomSummaryStyleConfig?: SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForCustomSummaryStyleConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  stepForNewsBroadcastContentConfig?: SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForNewsBroadcastContentConfig;
+  static names(): { [key: string]: string } {
+    return {
+      stepForCustomSummaryStyleConfig: 'StepForCustomSummaryStyleConfig',
+      stepForNewsBroadcastContentConfig: 'StepForNewsBroadcastContentConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stepForCustomSummaryStyleConfig: SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForCustomSummaryStyleConfig,
+      stepForNewsBroadcastContentConfig: SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForNewsBroadcastContentConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomHotTopicBroadcastJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments extends $tea.Model {
   /**
    * @example
@@ -22348,6 +23562,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取自定义播报单任务结果
+   * 
+   * @param request - GetCustomHotTopicBroadcastJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomHotTopicBroadcastJobResponse
+   */
+  async getCustomHotTopicBroadcastJobWithOptions(request: GetCustomHotTopicBroadcastJobRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomHotTopicBroadcastJobResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCustomHotTopicBroadcastJob",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCustomHotTopicBroadcastJobResponse>(await this.callApi(params, req, runtime), new GetCustomHotTopicBroadcastJobResponse({}));
+  }
+
+  /**
+   * 获取自定义播报单任务结果
+   * 
+   * @param request - GetCustomHotTopicBroadcastJobRequest
+   * @returns GetCustomHotTopicBroadcastJobResponse
+   */
+  async getCustomHotTopicBroadcastJob(request: GetCustomHotTopicBroadcastJobRequest): Promise<GetCustomHotTopicBroadcastJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCustomHotTopicBroadcastJobWithOptions(request, runtime);
+  }
+
+  /**
    * 获取自定义文本
    * 
    * @param request - GetCustomTextRequest
@@ -22589,6 +23849,94 @@ export default class Client extends OpenApi {
   async getGeneratedContent(request: GetGeneratedContentRequest): Promise<GetGeneratedContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGeneratedContentWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询新闻播报单
+   * 
+   * @param tmpReq - GetHotTopicBroadcastRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHotTopicBroadcastResponse
+   */
+  async getHotTopicBroadcastWithOptions(tmpReq: GetHotTopicBroadcastRequest, runtime: $Util.RuntimeOptions): Promise<GetHotTopicBroadcastResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetHotTopicBroadcastShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.stepForCustomSummaryStyleConfig)) {
+      request.stepForCustomSummaryStyleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stepForCustomSummaryStyleConfig, "StepForCustomSummaryStyleConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.stepForNewsBroadcastContentConfig)) {
+      request.stepForNewsBroadcastContentConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stepForNewsBroadcastContentConfig, "StepForNewsBroadcastContentConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.topics)) {
+      request.topicsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topics, "Topics", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.calcTotalToken)) {
+      body["CalcTotalToken"] = request.calcTotalToken;
+    }
+
+    if (!Util.isUnset(request.category)) {
+      body["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.current)) {
+      body["Current"] = request.current;
+    }
+
+    if (!Util.isUnset(request.hotTopicVersion)) {
+      body["HotTopicVersion"] = request.hotTopicVersion;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      body["Size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.stepForCustomSummaryStyleConfigShrink)) {
+      body["StepForCustomSummaryStyleConfig"] = request.stepForCustomSummaryStyleConfigShrink;
+    }
+
+    if (!Util.isUnset(request.stepForNewsBroadcastContentConfigShrink)) {
+      body["StepForNewsBroadcastContentConfig"] = request.stepForNewsBroadcastContentConfigShrink;
+    }
+
+    if (!Util.isUnset(request.topicsShrink)) {
+      body["Topics"] = request.topicsShrink;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetHotTopicBroadcast",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHotTopicBroadcastResponse>(await this.callApi(params, req, runtime), new GetHotTopicBroadcastResponse({}));
+  }
+
+  /**
+   * 查询新闻播报单
+   * 
+   * @param request - GetHotTopicBroadcastRequest
+   * @returns GetHotTopicBroadcastResponse
+   */
+  async getHotTopicBroadcast(request: GetHotTopicBroadcastRequest): Promise<GetHotTopicBroadcastResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getHotTopicBroadcastWithOptions(request, runtime);
   }
 
   /**
@@ -25837,6 +27185,70 @@ export default class Client extends OpenApi {
   async submitAsyncTask(request: SubmitAsyncTaskRequest): Promise<SubmitAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAsyncTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交自定义播报单任务
+   * 
+   * @param tmpReq - SubmitCustomHotTopicBroadcastJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitCustomHotTopicBroadcastJobResponse
+   */
+  async submitCustomHotTopicBroadcastJobWithOptions(tmpReq: SubmitCustomHotTopicBroadcastJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCustomHotTopicBroadcastJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitCustomHotTopicBroadcastJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.hotTopicBroadcastConfig)) {
+      request.hotTopicBroadcastConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hotTopicBroadcastConfig, "HotTopicBroadcastConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.topics)) {
+      request.topicsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topics, "Topics", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotTopicBroadcastConfigShrink)) {
+      body["HotTopicBroadcastConfig"] = request.hotTopicBroadcastConfigShrink;
+    }
+
+    if (!Util.isUnset(request.hotTopicVersion)) {
+      body["HotTopicVersion"] = request.hotTopicVersion;
+    }
+
+    if (!Util.isUnset(request.topicsShrink)) {
+      body["Topics"] = request.topicsShrink;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitCustomHotTopicBroadcastJob",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitCustomHotTopicBroadcastJobResponse>(await this.callApi(params, req, runtime), new SubmitCustomHotTopicBroadcastJobResponse({}));
+  }
+
+  /**
+   * 提交自定义播报单任务
+   * 
+   * @param request - SubmitCustomHotTopicBroadcastJobRequest
+   * @returns SubmitCustomHotTopicBroadcastJobResponse
+   */
+  async submitCustomHotTopicBroadcastJob(request: SubmitCustomHotTopicBroadcastJobRequest): Promise<SubmitCustomHotTopicBroadcastJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitCustomHotTopicBroadcastJobWithOptions(request, runtime);
   }
 
   /**
