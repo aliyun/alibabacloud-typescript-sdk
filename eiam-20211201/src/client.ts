@@ -2413,6 +2413,97 @@ export class DeleteOrganizationalUnitResponse extends $tea.Model {
   }
 }
 
+export class DeleteOrganizationalUnitChildrenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Organizational Unit ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ou_wovwffm62xifdziem7an7xxxxx
+   */
+  organizationalUnitId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      organizationalUnitId: 'OrganizationalUnitId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      organizationalUnitId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOrganizationalUnitChildrenResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOrganizationalUnitChildrenResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteOrganizationalUnitChildrenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteOrganizationalUnitChildrenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteUserRequest extends $tea.Model {
   /**
    * @remarks
@@ -7604,7 +7695,7 @@ export class ListOrganizationalUnitsRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 组织ID列表。size限制最大100。
+   * The IDs of organizational units.
    * 
    * @example
    * [ou_wovwffm62xifdziem7an7xxxxx]
@@ -7620,7 +7711,7 @@ export class ListOrganizationalUnitsRequest extends $tea.Model {
   organizationalUnitName?: string;
   /**
    * @remarks
-   * 组织名称，左匹配
+   * Organization name, matching left
    * 
    * @example
    * name
@@ -8142,7 +8233,7 @@ export class ListSynchronizationJobsResponse extends $tea.Model {
 export class ListUsersRequest extends $tea.Model {
   /**
    * @remarks
-   * 账户展示名，模糊匹配
+   * Displayname
    * 
    * @example
    * name_001
@@ -8229,7 +8320,7 @@ export class ListUsersRequest extends $tea.Model {
   userExternalId?: string;
   /**
    * @remarks
-   * 账户的ID集合
+   * User ID set
    */
   userIds?: string[];
   /**
@@ -8257,7 +8348,7 @@ export class ListUsersRequest extends $tea.Model {
   userSourceType?: string;
   /**
    * @remarks
-   * 账户名，左模糊匹配
+   * Username
    * 
    * @example
    * name_001
@@ -9726,7 +9817,7 @@ export class SetApplicationProvisioningScopeRequest extends $tea.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 授权同步出的组列表
+   * List of groups that are authorized to be synchronized from
    */
   groupIds?: string[];
   /**
@@ -9850,7 +9941,7 @@ export class SetApplicationSsoConfigRequest extends $tea.Model {
   initLoginUrl?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -9865,7 +9956,7 @@ export class SetApplicationSsoConfigRequest extends $tea.Model {
   oidcSsoConfig?: SetApplicationSsoConfigRequestOidcSsoConfig;
   /**
    * @remarks
-   * The Security Assertion Markup Language (SAML)-based SSO configuration attributes of the application.
+   * The Security Assertion Markup Language (SAML)-based single sign-on (SSO) configuration attributes of the application.
    */
   samlSsoConfig?: SetApplicationSsoConfigRequestSamlSsoConfig;
   static names(): { [key: string]: string } {
@@ -9898,7 +9989,7 @@ export class SetApplicationSsoConfigRequest extends $tea.Model {
 export class SetApplicationSsoConfigResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -10037,7 +10128,7 @@ export class SetDefaultDomainResponse extends $tea.Model {
 export class SetForgetPasswordConfigurationRequest extends $tea.Model {
   /**
    * @remarks
-   * 身份认证渠道。枚举取值:email(邮件)、sms(短信)
+   * The authentication channels. Valid values: email and sms.
    * 
    * @example
    * email
@@ -10045,7 +10136,7 @@ export class SetForgetPasswordConfigurationRequest extends $tea.Model {
   authenticationChannels?: string[];
   /**
    * @remarks
-   * 忘记密码配置状态。枚举取值:enabled(开启)、disabled(禁用)
+   * The status of the forgot password feature. Valid values: enabled and disabled.
    * 
    * This parameter is required.
    * 
@@ -10733,7 +10824,7 @@ export class SetUserPrimaryOrganizationalUnitResponse extends $tea.Model {
 export class UnlockUserRequest extends $tea.Model {
   /**
    * @remarks
-   * The instance ID.
+   * IDaaS EIAM实例的ID。
    * 
    * This parameter is required.
    * 
@@ -10743,12 +10834,12 @@ export class UnlockUserRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The account ID.
+   * 账户ID
    * 
    * This parameter is required.
    * 
    * @example
-   * user_d6sbsuumeta4h66ec3il7yxxxx
+   * u_001
    */
   userId?: string;
   static names(): { [key: string]: string } {
@@ -10772,9 +10863,6 @@ export class UnlockUserRequest extends $tea.Model {
 
 export class UnlockUserResponseBody extends $tea.Model {
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
@@ -11142,7 +11230,7 @@ export class UpdateGroupResponse extends $tea.Model {
 export class UpdateGroupDescriptionRequest extends $tea.Model {
   /**
    * @remarks
-   * The description of the account group. The value can be up to 256 characters in length.
+   * The description of the account group.
    * 
    * @example
    * group_d6sbsuumeta4h66ec3il7yxxxx
@@ -11452,7 +11540,7 @@ export class UpdateOrganizationalUnitRequest extends $tea.Model {
   organizationalUnitId?: string;
   /**
    * @remarks
-   * The name of the organization. The name can be up to 64 characters in length and must be unique in the same parent organization.
+   * The name of the organization. The name can be up to 128 characters in length and must be unique in the same parent organization.
    * 
    * @example
    * ou_name
@@ -12348,6 +12436,7 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
    * apt_rpa_tdsxxx
    */
   applicationTemplateId?: string;
+  applicationVisibility?: string[];
   /**
    * @remarks
    * The authorization type of the EIAM application. Valid values:
@@ -12464,6 +12553,7 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
       applicationName: 'ApplicationName',
       applicationSourceType: 'ApplicationSourceType',
       applicationTemplateId: 'ApplicationTemplateId',
+      applicationVisibility: 'ApplicationVisibility',
       authorizationType: 'AuthorizationType',
       clientId: 'ClientId',
       createTime: 'CreateTime',
@@ -12486,6 +12576,7 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
       applicationName: 'string',
       applicationSourceType: 'string',
       applicationTemplateId: 'string',
+      applicationVisibility: { 'type': 'array', 'itemType': 'string' },
       authorizationType: 'string',
       clientId: 'string',
       createTime: 'number',
@@ -12873,12 +12964,15 @@ export class GetApplicationProvisioningConfigResponseBodyApplicationProvisioning
 export class GetApplicationProvisioningScopeResponseBodyApplicationProvisioningScope extends $tea.Model {
   /**
    * @remarks
-   * 同步授权的组列表
+   * Synchronize the list of authorized groups
    */
   groupIds?: string[];
   /**
    * @remarks
-   * 租户最大授权主体quota数量
+   * Instance Indicates the maximum quota number of authorized agents
+   * 
+   * @example
+   * 20
    */
   maxQuota?: number;
   /**
@@ -12888,7 +12982,10 @@ export class GetApplicationProvisioningScopeResponseBodyApplicationProvisioningS
   organizationalUnitIds?: string[];
   /**
    * @remarks
-   * 已使用授权主体quota数量
+   * Indicates the quota number of used authorized agents
+   * 
+   * @example
+   * 10
    */
   usedQuota?: number;
   static names(): { [key: string]: string } {
@@ -13281,6 +13378,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
    * https://home.console.aliyun.com
    */
   defaultRelayState?: string;
+  idPEntityId?: string;
   /**
    * @remarks
    * The Format attribute of the NameID element in the SAML assertion. Valid values:
@@ -13339,6 +13437,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
       assertionSigned: 'AssertionSigned',
       attributeStatements: 'AttributeStatements',
       defaultRelayState: 'DefaultRelayState',
+      idPEntityId: 'IdPEntityId',
       nameIdFormat: 'NameIdFormat',
       nameIdValueExpression: 'NameIdValueExpression',
       responseSigned: 'ResponseSigned',
@@ -13353,6 +13452,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
       assertionSigned: 'boolean',
       attributeStatements: { 'type': 'array', 'itemType': GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigAttributeStatements },
       defaultRelayState: 'string',
+      idPEntityId: 'string',
       nameIdFormat: 'string',
       nameIdValueExpression: 'string',
       responseSigned: 'boolean',
@@ -16565,6 +16665,9 @@ export class GetUserResponseBodyUser extends $tea.Model {
    */
   phoneRegion?: string;
   /**
+   * @remarks
+   * Preferred language
+   * 
    * @example
    * en-US
    */
@@ -17575,7 +17678,21 @@ export class ListGroupsForUserResponseBodyGroups extends $tea.Model {
    * group_d6sbsuumeta4h66ec3il7yxxxx
    */
   groupId?: string;
+  /**
+   * @remarks
+   * Account membership source ID
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
   groupMemberRelationSourceId?: string;
+  /**
+   * @remarks
+   * Account membership source type
+   * 
+   * @example
+   * build_in
+   */
   groupMemberRelationSourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20250,7 +20367,21 @@ export class ListUsersForApplicationResponseBodyUsers extends $tea.Model {
 }
 
 export class ListUsersForGroupResponseBodyUsers extends $tea.Model {
+  /**
+   * @remarks
+   * Account membership source id
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
   groupMemberRelationSourceId?: string;
+  /**
+   * @remarks
+   * Account membership source type
+   * 
+   * @example
+   * build_in
+   */
   groupMemberRelationSourceType?: string;
   /**
    * @remarks
@@ -20927,7 +21058,10 @@ export class SetApplicationSsoConfigRequestSamlSsoConfigAttributeStatements exte
 export class SetApplicationSsoConfigRequestSamlSsoConfig extends $tea.Model {
   /**
    * @remarks
-   * assertion是否签名
+   * Specifies whether to calculate the signature for the assertion. You cannot set ResponseSigned and AssertionSigned to false at the same time.
+   * 
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -20946,6 +21080,7 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $tea.Model {
    * https://home.console.aliyun.com
    */
   defaultRelayState?: string;
+  idPEntityId?: string;
   /**
    * @remarks
    * The Format attribute of the NameID element in the SAML assertion. Valid values:
@@ -20969,7 +21104,10 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $tea.Model {
   nameIdValueExpression?: string;
   /**
    * @remarks
-   * response是否签名
+   * Specifies whether to calculate the signature for the response. You cannot set ResponseSigned and AssertionSigned to false at the same time.
+   * 
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -20979,13 +21117,29 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $tea.Model {
    * @remarks
    * The algorithm that is used to calculate the signature for the SAML assertion.
    * 
+   * Enumeration value:
+   * 
+   * *   RSA-SHA256
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     the Rivest-Shamir-Adleman (RSA)-Secure Hash Algorithm 256 (SHA-256) algorithm
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
    * @example
    * RSA-SHA256
    */
   signatureAlgorithm?: string;
   /**
    * @remarks
-   * The entity ID of the application in SAML. The application assumes the role of service provider.
+   * The entity ID of the application in SAML.
    * 
    * @example
    * urn:alibaba:cloudcomputing
@@ -20993,7 +21147,7 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $tea.Model {
   spEntityId?: string;
   /**
    * @remarks
-   * The Assertion Consumer Service (ACS) URL of the application in SAML. The application assumes the role of service provider.
+   * The Assertion Consumer Service (ACS) URL of the application in SAML.
    * 
    * @example
    * https://signin.aliyun.com/saml-role/sso
@@ -21004,6 +21158,7 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $tea.Model {
       assertionSigned: 'AssertionSigned',
       attributeStatements: 'AttributeStatements',
       defaultRelayState: 'DefaultRelayState',
+      idPEntityId: 'IdPEntityId',
       nameIdFormat: 'NameIdFormat',
       nameIdValueExpression: 'NameIdValueExpression',
       responseSigned: 'ResponseSigned',
@@ -21018,6 +21173,7 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $tea.Model {
       assertionSigned: 'boolean',
       attributeStatements: { 'type': 'array', 'itemType': SetApplicationSsoConfigRequestSamlSsoConfigAttributeStatements },
       defaultRelayState: 'string',
+      idPEntityId: 'string',
       nameIdFormat: 'string',
       nameIdValueExpression: 'string',
       responseSigned: 'boolean',
@@ -22300,6 +22456,52 @@ export default class Client extends OpenApi {
   async deleteOrganizationalUnit(request: DeleteOrganizationalUnitRequest): Promise<DeleteOrganizationalUnitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteOrganizationalUnitWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it
+   * 
+   * @param request - DeleteOrganizationalUnitChildrenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOrganizationalUnitChildrenResponse
+   */
+  async deleteOrganizationalUnitChildrenWithOptions(request: DeleteOrganizationalUnitChildrenRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOrganizationalUnitChildrenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.organizationalUnitId)) {
+      query["OrganizationalUnitId"] = request.organizationalUnitId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteOrganizationalUnitChildren",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteOrganizationalUnitChildrenResponse>(await this.callApi(params, req, runtime), new DeleteOrganizationalUnitChildrenResponse({}));
+  }
+
+  /**
+   * Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it
+   * 
+   * @param request - DeleteOrganizationalUnitChildrenRequest
+   * @returns DeleteOrganizationalUnitChildrenResponse
+   */
+  async deleteOrganizationalUnitChildren(request: DeleteOrganizationalUnitChildrenRequest): Promise<DeleteOrganizationalUnitChildrenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteOrganizationalUnitChildrenWithOptions(request, runtime);
   }
 
   /**
@@ -26269,7 +26471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
+   * 解锁账户
    * 
    * @param request - UnlockUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26304,7 +26506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
+   * 解锁账户
    * 
    * @param request - UnlockUserRequest
    * @returns UnlockUserResponse
