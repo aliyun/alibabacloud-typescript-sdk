@@ -346,6 +346,349 @@ export class RunCommentGenerationResponse extends $tea.Model {
   }
 }
 
+export class RunHotTopicChatRequest extends $tea.Model {
+  category?: string;
+  generateOptions?: string[];
+  /**
+   * @example
+   * 2024-09-13_12
+   */
+  hotTopicVersion?: string;
+  hotTopics?: string[];
+  /**
+   * @example
+   * 1
+   */
+  imageCount?: number;
+  /**
+   * @example
+   * xx
+   */
+  modelCustomPromptTemplate?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  /**
+   * @example
+   * a3d1c2ac-f086-4a21-9069-f5631542f5ax
+   */
+  originalSessionId?: string;
+  prompt?: string;
+  stepForBroadcastContentConfig?: RunHotTopicChatRequestStepForBroadcastContentConfig;
+  /**
+   * @example
+   * a3d1c2ac-f086-4a21-9069-f5631542f5a2
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      generateOptions: 'generateOptions',
+      hotTopicVersion: 'hotTopicVersion',
+      hotTopics: 'hotTopics',
+      imageCount: 'imageCount',
+      modelCustomPromptTemplate: 'modelCustomPromptTemplate',
+      modelId: 'modelId',
+      originalSessionId: 'originalSessionId',
+      prompt: 'prompt',
+      stepForBroadcastContentConfig: 'stepForBroadcastContentConfig',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      generateOptions: { 'type': 'array', 'itemType': 'string' },
+      hotTopicVersion: 'string',
+      hotTopics: { 'type': 'array', 'itemType': 'string' },
+      imageCount: 'number',
+      modelCustomPromptTemplate: 'string',
+      modelId: 'string',
+      originalSessionId: 'string',
+      prompt: 'string',
+      stepForBroadcastContentConfig: RunHotTopicChatRequestStepForBroadcastContentConfig,
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatShrinkRequest extends $tea.Model {
+  category?: string;
+  generateOptionsShrink?: string;
+  /**
+   * @example
+   * 2024-09-13_12
+   */
+  hotTopicVersion?: string;
+  hotTopicsShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  imageCount?: number;
+  /**
+   * @example
+   * xx
+   */
+  modelCustomPromptTemplate?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  /**
+   * @example
+   * a3d1c2ac-f086-4a21-9069-f5631542f5ax
+   */
+  originalSessionId?: string;
+  prompt?: string;
+  stepForBroadcastContentConfigShrink?: string;
+  /**
+   * @example
+   * a3d1c2ac-f086-4a21-9069-f5631542f5a2
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      generateOptionsShrink: 'generateOptions',
+      hotTopicVersion: 'hotTopicVersion',
+      hotTopicsShrink: 'hotTopics',
+      imageCount: 'imageCount',
+      modelCustomPromptTemplate: 'modelCustomPromptTemplate',
+      modelId: 'modelId',
+      originalSessionId: 'originalSessionId',
+      prompt: 'prompt',
+      stepForBroadcastContentConfigShrink: 'stepForBroadcastContentConfig',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      generateOptionsShrink: 'string',
+      hotTopicVersion: 'string',
+      hotTopicsShrink: 'string',
+      imageCount: 'number',
+      modelCustomPromptTemplate: 'string',
+      modelId: 'string',
+      originalSessionId: 'string',
+      prompt: 'string',
+      stepForBroadcastContentConfigShrink: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBody extends $tea.Model {
+  header?: RunHotTopicChatResponseBodyHeader;
+  payload?: RunHotTopicChatResponseBodyPayload;
+  /**
+   * @example
+   * 04DA1A52-4E51-56CB-BA64-FDDA0B53BAE8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'header',
+      payload: 'payload',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunHotTopicChatResponseBodyHeader,
+      payload: RunHotTopicChatResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunHotTopicChatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunHotTopicChatResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-10-16_8
+   */
+  hotTopicVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  stepForCustomSummaryStyleConfig?: RunHotTopicSummaryRequestStepForCustomSummaryStyleConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx
+   */
+  topicIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      hotTopicVersion: 'hotTopicVersion',
+      stepForCustomSummaryStyleConfig: 'stepForCustomSummaryStyleConfig',
+      topicIds: 'topicIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotTopicVersion: 'string',
+      stepForCustomSummaryStyleConfig: RunHotTopicSummaryRequestStepForCustomSummaryStyleConfig,
+      topicIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-10-16_8
+   */
+  hotTopicVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  stepForCustomSummaryStyleConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx
+   */
+  topicIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotTopicVersion: 'hotTopicVersion',
+      stepForCustomSummaryStyleConfigShrink: 'stepForCustomSummaryStyleConfig',
+      topicIdsShrink: 'topicIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotTopicVersion: 'string',
+      stepForCustomSummaryStyleConfigShrink: 'string',
+      topicIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryResponseBody extends $tea.Model {
+  header?: RunHotTopicSummaryResponseBodyHeader;
+  payload?: RunHotTopicSummaryResponseBodyPayload;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 5D0E915E-655D-59A8-894F-93873F73AAE5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'header',
+      payload: 'payload',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunHotTopicSummaryResponseBodyHeader,
+      payload: RunHotTopicSummaryResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunHotTopicSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunHotTopicSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunMarketingInformationExtractRequest extends $tea.Model {
   customPrompt?: string;
   extractType?: string;
@@ -1549,6 +1892,543 @@ export class RunCommentGenerationResponseBodyPayload extends $tea.Model {
     return {
       output: RunCommentGenerationResponseBodyPayloadOutput,
       usage: RunCommentGenerationResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights extends $tea.Model {
+  /**
+   * @example
+   * comments
+   */
+  dimension?: string;
+  /**
+   * @example
+   * 1
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dimension: 'dimension',
+      weight: 'weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimension: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatRequestStepForBroadcastContentConfig extends $tea.Model {
+  categories?: string[];
+  customHotValueWeights?: RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights[];
+  /**
+   * @example
+   * 20
+   */
+  topicCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'categories',
+      customHotValueWeights: 'customHotValueWeights',
+      topicCount: 'topicCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      customHotValueWeights: { 'type': 'array', 'itemType': RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights },
+      topicCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * InvalidParam
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * xx
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-finished
+   */
+  event?: string;
+  /**
+   * @example
+   * xx
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * xxx
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      eventInfo: 'eventInfo',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayloadOutputArticles extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  content?: string;
+  /**
+   * @example
+   * 2024-09-22 16:45:06
+   */
+  pubTime?: string;
+  score?: number;
+  searchSourceName?: string;
+  select?: boolean;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * test
+   */
+  title?: string;
+  /**
+   * @example
+   * http://xxx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      pubTime: 'pubTime',
+      score: 'score',
+      searchSourceName: 'searchSourceName',
+      select: 'select',
+      summary: 'summary',
+      title: 'title',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      pubTime: 'string',
+      score: 'number',
+      searchSourceName: 'string',
+      select: 'boolean',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries extends $tea.Model {
+  /**
+   * @example
+   * 100000
+   */
+  customHotValue?: number;
+  /**
+   * @example
+   * xx
+   */
+  hotTopic?: string;
+  /**
+   * @example
+   * 2024-09-13_08
+   */
+  hotTopicVersion?: string;
+  /**
+   * @example
+   * 100000
+   */
+  hotValue?: number;
+  static names(): { [key: string]: string } {
+    return {
+      customHotValue: 'customHotValue',
+      hotTopic: 'hotTopic',
+      hotTopicVersion: 'hotTopicVersion',
+      hotValue: 'hotValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customHotValue: 'number',
+      hotTopic: 'string',
+      hotTopicVersion: 'string',
+      hotValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayloadOutputMultimodalMedias extends $tea.Model {
+  /**
+   * @example
+   * http://xxxx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * image
+   */
+  mediaType?: string;
+  sortScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'fileUrl',
+      mediaType: 'mediaType',
+      sortScore: 'sortScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      mediaType: 'string',
+      sortScore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayloadOutput extends $tea.Model {
+  articles?: RunHotTopicChatResponseBodyPayloadOutputArticles[];
+  hotTopicSummaries?: RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries[];
+  multimodalMedias?: RunHotTopicChatResponseBodyPayloadOutputMultimodalMedias[];
+  recommendQueries?: string[];
+  searchQuery?: string;
+  /**
+   * @example
+   * xx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      articles: 'articles',
+      hotTopicSummaries: 'hotTopicSummaries',
+      multimodalMedias: 'multimodalMedias',
+      recommendQueries: 'recommendQueries',
+      searchQuery: 'searchQuery',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      articles: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputArticles },
+      hotTopicSummaries: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries },
+      multimodalMedias: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputMultimodalMedias },
+      recommendQueries: { 'type': 'array', 'itemType': 'string' },
+      searchQuery: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayload extends $tea.Model {
+  output?: RunHotTopicChatResponseBodyPayloadOutput;
+  usage?: RunHotTopicChatResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunHotTopicChatResponseBodyPayloadOutput,
+      usage: RunHotTopicChatResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryRequestStepForCustomSummaryStyleConfig extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
+  summaryImageCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qwen-max
+   */
+  summaryModel?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  summaryPrompt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      summaryImageCount: 'summaryImageCount',
+      summaryModel: 'summaryModel',
+      summaryPrompt: 'summaryPrompt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      summaryImageCount: 'number',
+      summaryModel: 'string',
+      summaryPrompt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * AccessForbidden
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-finished
+   */
+  event?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  taskId?: string;
+  /**
+   * @example
+   * xxxxx
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryResponseBodyPayloadOutput extends $tea.Model {
+  text?: string;
+  topicId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+      topicId: 'topicId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      topicId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicSummaryResponseBodyPayload extends $tea.Model {
+  output?: RunHotTopicSummaryResponseBodyPayloadOutput;
+  usage?: RunHotTopicSummaryResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunHotTopicSummaryResponseBodyPayloadOutput,
+      usage: RunHotTopicSummaryResponseBodyPayloadUsage,
     };
   }
 
@@ -3049,6 +3929,168 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runCommentGenerationWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 轻应用-热点播报-问答
+   * 
+   * @param tmpReq - RunHotTopicChatRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunHotTopicChatResponse
+   */
+  async runHotTopicChatWithOptions(workspaceId: string, tmpReq: RunHotTopicChatRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunHotTopicChatResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunHotTopicChatShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.generateOptions)) {
+      request.generateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.generateOptions, "generateOptions", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.hotTopics)) {
+      request.hotTopicsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hotTopics, "hotTopics", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.stepForBroadcastContentConfig)) {
+      request.stepForBroadcastContentConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stepForBroadcastContentConfig, "stepForBroadcastContentConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.category)) {
+      body["category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.generateOptionsShrink)) {
+      body["generateOptions"] = request.generateOptionsShrink;
+    }
+
+    if (!Util.isUnset(request.hotTopicVersion)) {
+      body["hotTopicVersion"] = request.hotTopicVersion;
+    }
+
+    if (!Util.isUnset(request.hotTopicsShrink)) {
+      body["hotTopics"] = request.hotTopicsShrink;
+    }
+
+    if (!Util.isUnset(request.imageCount)) {
+      body["imageCount"] = request.imageCount;
+    }
+
+    if (!Util.isUnset(request.modelCustomPromptTemplate)) {
+      body["modelCustomPromptTemplate"] = request.modelCustomPromptTemplate;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!Util.isUnset(request.originalSessionId)) {
+      body["originalSessionId"] = request.originalSessionId;
+    }
+
+    if (!Util.isUnset(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.stepForBroadcastContentConfigShrink)) {
+      body["stepForBroadcastContentConfig"] = request.stepForBroadcastContentConfigShrink;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunHotTopicChat",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runHotTopicChat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunHotTopicChatResponse>(await this.callApi(params, req, runtime), new RunHotTopicChatResponse({}));
+  }
+
+  /**
+   * 轻应用-热点播报-问答
+   * 
+   * @param request - RunHotTopicChatRequest
+   * @returns RunHotTopicChatResponse
+   */
+  async runHotTopicChat(workspaceId: string, request: RunHotTopicChatRequest): Promise<RunHotTopicChatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runHotTopicChatWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 轻应用-热点播报-热点摘要生成
+   * 
+   * @param tmpReq - RunHotTopicSummaryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunHotTopicSummaryResponse
+   */
+  async runHotTopicSummaryWithOptions(workspaceId: string, tmpReq: RunHotTopicSummaryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunHotTopicSummaryResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunHotTopicSummaryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.stepForCustomSummaryStyleConfig)) {
+      request.stepForCustomSummaryStyleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stepForCustomSummaryStyleConfig, "stepForCustomSummaryStyleConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.topicIds)) {
+      request.topicIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topicIds, "topicIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotTopicVersion)) {
+      body["hotTopicVersion"] = request.hotTopicVersion;
+    }
+
+    if (!Util.isUnset(request.stepForCustomSummaryStyleConfigShrink)) {
+      body["stepForCustomSummaryStyleConfig"] = request.stepForCustomSummaryStyleConfigShrink;
+    }
+
+    if (!Util.isUnset(request.topicIdsShrink)) {
+      body["topicIds"] = request.topicIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunHotTopicSummary",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runHotTopicSummary`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunHotTopicSummaryResponse>(await this.callApi(params, req, runtime), new RunHotTopicSummaryResponse({}));
+  }
+
+  /**
+   * 轻应用-热点播报-热点摘要生成
+   * 
+   * @param request - RunHotTopicSummaryRequest
+   * @returns RunHotTopicSummaryResponse
+   */
+  async runHotTopicSummary(workspaceId: string, request: RunHotTopicSummaryRequest): Promise<RunHotTopicSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runHotTopicSummaryWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
