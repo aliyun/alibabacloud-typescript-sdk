@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,9 +8,45 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddEntriesToAclRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ACL entries that you want to add. You can add at most 20 entries in each call.
+   * 
+   * This parameter is required.
+   */
   aclEntries?: AddEntriesToAclRequestAclEntries[];
+  /**
+   * @remarks
+   * The ID of the ACL.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * nacl-hp34s2h0xx1ht4nwo****
+   */
   aclId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -37,7 +72,21 @@ export class AddEntriesToAclRequest extends $tea.Model {
 }
 
 export class AddEntriesToAclResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84,9 +133,45 @@ export class AddEntriesToAclResponse extends $tea.Model {
 }
 
 export class AddServersToServerGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: prechecks the request, but does not add a backend server to a server group. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The server group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sgp-atstuj3rtop****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The backend servers. You can specify at most 200 servers in each call.
+   * 
+   * This parameter is required.
+   */
   servers?: AddServersToServerGroupRequestServers[];
   static names(): { [key: string]: string } {
     return {
@@ -112,7 +197,21 @@ export class AddServersToServerGroupRequest extends $tea.Model {
 }
 
 export class AddServersToServerGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous job.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -159,9 +258,48 @@ export class AddServersToServerGroupResponse extends $tea.Model {
 }
 
 export class ApplyHealthCheckTemplateToServerGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The template ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * hct-bp1qjwo61pqz3ahltv****
+   */
   healthCheckTemplateId?: string;
+  /**
+   * @remarks
+   * The server group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sgp-n80wyad08u0tox****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -187,7 +325,21 @@ export class ApplyHealthCheckTemplateToServerGroupRequest extends $tea.Model {
 }
 
 export class ApplyHealthCheckTemplateToServerGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -234,10 +386,58 @@ export class ApplyHealthCheckTemplateToServerGroupResponse extends $tea.Model {
 }
 
 export class AssociateAclsWithListenerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the ACLs. You can specify up to three IDs in each call.
+   * 
+   * This parameter is required.
+   */
   aclIds?: string[];
+  /**
+   * @remarks
+   * The type of the ACL. Valid values:
+   * 
+   * *   **White**: a whitelist. Only requests from the IP addresses or CIDR blocks in the ACL are forwarded. The whitelist applies to scenarios in which you want to allow only specific IP addresses to access an application. Your service may be adversely affected if the whitelist is not properly configured. If a whitelist is configured for a listener, only requests from IP addresses that are added to the whitelist are forwarded by the listener. If you enable a whitelist but do not add an IP address to the whitelist, the listener forwards all requests.
+   * *   **Black**: a blacklist. All requests from the IP addresses or CIDR blocks in the ACL are blocked. The blacklist applies to scenarios in which you want to block access from specific IP addresses to an application. If a blacklist is configured for a listener but no IP address is added to the blacklist, the listener forwards all requests.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * White
+   */
   aclType?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the listener.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -265,7 +465,21 @@ export class AssociateAclsWithListenerRequest extends $tea.Model {
 }
 
 export class AssociateAclsWithListenerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The synchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -312,9 +526,45 @@ export class AssociateAclsWithListenerResponse extends $tea.Model {
 }
 
 export class AssociateAdditionalCertificatesWithListenerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The extended validation certificates that you want to add to the listener.
+   * 
+   * This parameter is required.
+   */
   certificates?: AssociateAdditionalCertificatesWithListenerRequestCertificates[];
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The listener ID. This parameter is supported only by HTTPS and QUIC listeners.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -340,7 +590,21 @@ export class AssociateAdditionalCertificatesWithListenerRequest extends $tea.Mod
 }
 
 export class AssociateAdditionalCertificatesWithListenerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -387,10 +651,60 @@ export class AssociateAdditionalCertificatesWithListenerResponse extends $tea.Mo
 }
 
 export class AttachCommonBandwidthPackageToLoadBalancerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The EIP bandwidth plan ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cbwp-bp1pzf0ym72pu3y76****
+   */
   bandwidthPackageId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alb-d676fho813rmu3****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The region ID of the ALB instance.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -418,7 +732,21 @@ export class AttachCommonBandwidthPackageToLoadBalancerRequest extends $tea.Mode
 }
 
 export class AttachCommonBandwidthPackageToLoadBalancerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2EF39708-974B-5E74-AFF5-3445263035A8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -465,9 +793,47 @@ export class AttachCommonBandwidthPackageToLoadBalancerResponse extends $tea.Mod
 }
 
 export class CancelShiftLoadBalancerZonesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the ALB instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alb-o9ulmq5hgn68jk****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The mappings between zones and vSwitches.
+   * 
+   * >  You can add only one zone in each call.
+   * 
+   * This parameter is required.
+   */
   zoneMappings?: CancelShiftLoadBalancerZonesRequestZoneMappings[];
   static names(): { [key: string]: string } {
     return {
@@ -493,6 +859,13 @@ export class CancelShiftLoadBalancerZonesRequest extends $tea.Model {
 }
 
 export class CancelShiftLoadBalancerZonesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -537,9 +910,41 @@ export class CancelShiftLoadBalancerZonesResponse extends $tea.Model {
 }
 
 export class CreateAScriptsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the AScript rules.
+   */
   AScripts?: CreateAScriptsRequestAScripts[];
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The listener ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsn-6hfq3zs0x04ibn****
+   */
   listenerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -565,8 +970,26 @@ export class CreateAScriptsRequest extends $tea.Model {
 }
 
 export class CreateAScriptsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The AScript rule IDs.
+   */
   AScriptIds?: CreateAScriptsResponseBodyAScriptIds[];
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 5c607642-535e-4e06-9d77-df53049b****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BF0FE763-9603-558F-A55B-0F4B9A3E3C02
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -615,10 +1038,49 @@ export class CreateAScriptsResponse extends $tea.Model {
 }
 
 export class CreateAclRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the ACL. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * @example
+   * test-acl
+   */
   aclName?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+   * 
+   * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** may be different for each API request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the request without performing the operation. Valid values:
+   * 
+   * *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+   * *   **false** (default): sends the request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-atstuj3rtop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateAclRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -646,8 +1108,29 @@ export class CreateAclRequest extends $tea.Model {
 }
 
 export class CreateAclResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ACL.
+   * 
+   * @example
+   * nacl-hp34s2h0xx1ht4nwo****
+   */
   aclId?: string;
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -696,20 +1179,179 @@ export class CreateAclResponse extends $tea.Model {
 }
 
 export class CreateHealthCheckTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a **2xx** HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The HTTP status codes that indicate a healthy backend server.
+   * 
+   * @example
+   * 5
+   */
   healthCheckCodes?: string[];
+  /**
+   * @remarks
+   * The port that is used for health checks.
+   * 
+   * Valid values: **0 to 65535**.
+   * 
+   * Default value: **0**. If you set the value to 0, the port of a backend server is used for health checks.
+   * 
+   * @example
+   * 80
+   */
   healthCheckConnectPort?: number;
+  /**
+   * @remarks
+   * The domain name that is used for health checks. Valid values:
+   * 
+   * *   **$SERVER_IP**: the private IP addresses of backend servers. If an IP address is specified, or this parameter is not specified, the ALB instance uses the private IP addresses of backend servers as domain names for health checks.
+   * *   **domain**: The domain name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+   * 
+   * >  This parameter takes effect only if `HealthCheckProtocol` is set to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * $_ip
+   */
   healthCheckHost?: string;
+  /**
+   * @remarks
+   * The HTTP version for health checks.
+   * 
+   * Valid values: **HTTP 1.0** and **HTTP 1.1**.
+   * 
+   * Default value: **HTTP 1.1**.
+   * 
+   * >  This parameter is available only if `HealthCheckProtocol` is set to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * HTTP 1.0
+   */
   healthCheckHttpVersion?: string;
+  /**
+   * @remarks
+   * The interval at which health checks are performed.
+   * 
+   * Valid values: **1 to 50**.
+   * 
+   * Default value: **2**.
+   * 
+   * @example
+   * 2
+   */
   healthCheckInterval?: number;
+  /**
+   * @remarks
+   * The HTTP method that is used for health checks. Valid values:
+   * 
+   * *   **HEAD** (default): By default, HTTP and HTTPS health checks use the HEAD method.
+   * *   **POST**: gRPC health checks use the POST method by default.
+   * *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
+   * 
+   * >  This parameter is available only if **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
+   * 
+   * @example
+   * HEAD
+   */
   healthCheckMethod?: string;
+  /**
+   * @remarks
+   * The URL that is used for health checks.
+   * 
+   * The URL must be 1 to 80 characters in length, and can contain letters, digits, the following special characters: - / . % ? # &, and the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
+   * 
+   * >  This parameter is available only if `HealthCheckProtocol` is set to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * /test/index.html
+   */
   healthCheckPath?: string;
+  /**
+   * @remarks
+   * The protocol that is used for health checks. Valid values:
+   * 
+   * *   **HTTP** (default): HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
+   * *   **HTTPS**: The ALB instance sends HEAD or GET requests, which simulate browser requests, to check whether the backend server is healthy. HTTPS supports encryption and provides higher security than HTTP.
+   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
+   * *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
+   * 
+   * @example
+   * HTTP
+   */
   healthCheckProtocol?: string;
+  /**
+   * @remarks
+   * The name of the health check template.
+   * 
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * HealthCheckTemplate1
+   */
   healthCheckTemplateName?: string;
+  /**
+   * @remarks
+   * The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the backend server is declared unhealthy.
+   * 
+   * Valid values: **1 to 300**. Unit: seconds.
+   * 
+   * Default value: **5**.
+   * 
+   * @example
+   * 5
+   */
   healthCheckTimeout?: number;
+  /**
+   * @remarks
+   * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+   * 
+   * Valid values: **2 to 10**.
+   * 
+   * Default value: **3**.
+   * 
+   * @example
+   * 4
+   */
   healthyThreshold?: number;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateHealthCheckTemplateRequestTag[];
+  /**
+   * @remarks
+   * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+   * 
+   * Valid values: **2 to 10**.
+   * 
+   * Default value: **3**.
+   * 
+   * @example
+   * 4
+   */
   unhealthyThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -757,7 +1399,21 @@ export class CreateHealthCheckTemplateRequest extends $tea.Model {
 }
 
 export class CreateHealthCheckTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the health check template.
+   * 
+   * @example
+   * hct-1224334
+   */
   healthCheckTemplateId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -804,23 +1460,179 @@ export class CreateHealthCheckTemplateResponse extends $tea.Model {
 }
 
 export class CreateListenerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The certificate authority (CA) certificates. You can specify only one CA certificate.
+   */
   caCertificates?: CreateListenerRequestCaCertificates[];
+  /**
+   * @remarks
+   * Specifies whether to enable mutual authentication. Valid values:
+   * 
+   * *   **true**: enables mutual authentication.
+   * *   **false** (default): disables mutual authentication.
+   * 
+   * @example
+   * false
+   */
   caEnabled?: boolean;
+  /**
+   * @remarks
+   * The details about each certificate.
+   */
   certificates?: CreateListenerRequestCertificates[];
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not set this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. **RequestId** may be different for each API request.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The actions of the forwarding rule.
+   * 
+   * This parameter is required.
+   */
   defaultActions?: CreateListenerRequestDefaultActions[];
+  /**
+   * @remarks
+   * Specifies whether to perform only a precheck. Valid values:
+   * 
+   * *   **true**: prechecks the request without creating a listener. The system checks the required parameters, request syntax, and limits. If the request fails the precheck, an error code is returned based on the cause of the failure. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * *   **false** (default): sends the API request. If the request passes the precheck, a 2xx HTTP status code is returned and the system proceeds to create a listener.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable `Gzip` compression to compress specific types of files. Valid values:
+   * 
+   * *   **true** (default): enables Gzip compression.
+   * *   **false**: disables Gzip compression.
+   * 
+   * @example
+   * true
+   */
   gzipEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable `HTTP/2`. Valid values:
+   * 
+   * *   **true** (default): enables HTTP/2.
+   * *   **false**: disables HTTP/2.
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   http2Enabled?: boolean;
+  /**
+   * @remarks
+   * The timeout period of an idle connection. Unit: seconds.
+   * 
+   * Valid values: **1 to 60**.
+   * 
+   * Default value: **15**.
+   * 
+   * If no requests are received within the specified timeout period, ALB closes the current connection. When a new request is received, ALB establishes a new connection.
+   * 
+   * @example
+   * 3
+   */
   idleTimeout?: number;
+  /**
+   * @remarks
+   * The name of the listener.
+   * 
+   * The description must be 2 to 256 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_). Regular expressions are supported.
+   * 
+   * @example
+   * HTTP_80
+   */
   listenerDescription?: string;
+  /**
+   * @remarks
+   * The frontend port that is used by the ALB instance.
+   * 
+   * Valid values: **1 to 65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 80
+   */
   listenerPort?: number;
+  /**
+   * @remarks
+   * The listener protocol.
+   * 
+   * Valid values: **HTTP**, **HTTPS**, and **QUIC**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * HTTP
+   */
   listenerProtocol?: string;
+  /**
+   * @remarks
+   * The ID of the ALB instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alb-n5qw04uq8vavfe****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * Select a QUIC listener and associate it with the ALB instance.
+   */
   quicConfig?: CreateListenerRequestQuicConfig;
+  /**
+   * @remarks
+   * The timeout period of a request. Unit: seconds.
+   * 
+   * Valid values: **1 to 180**.
+   * 
+   * Default value: **60**.
+   * 
+   * If no response is received from the backend server during the request timeout period, ALB sends an `HTTP 504` error code to the client.
+   * 
+   * @example
+   * 60
+   */
   requestTimeout?: number;
+  /**
+   * @remarks
+   * The ID of the security policy. System security policies and custom security policies are supported.
+   * 
+   * Default value: **tls_cipher_policy_1_0** (system security policy).
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * tls_cipher_policy_1_0
+   */
   securityPolicyId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateListenerRequestTag[];
+  /**
+   * @remarks
+   * The configuration of the XForward header.
+   */
   XForwardedForConfig?: CreateListenerRequestXForwardedForConfig;
   static names(): { [key: string]: string } {
     return {
@@ -874,8 +1686,29 @@ export class CreateListenerRequest extends $tea.Model {
 }
 
 export class CreateListenerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The listener ID.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -924,19 +1757,140 @@ export class CreateListenerResponse extends $tea.Model {
 }
 
 export class CreateLoadBalancerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The mode in which IP addresses are allocated. Default value: Dynamic. Valid values:
+   * 
+   * *   **Fixed**: The ALB instance uses a static IP address.
+   * *   **Dynamic** (default): The system dynamically allocates an IP address to each zone of the ALB instance.
+   * 
+   * @example
+   * Dynamic
+   */
   addressAllocatedMode?: string;
+  /**
+   * @remarks
+   * The protocol version. Valid values:
+   * 
+   * *   **IPv4:** IPv4.
+   * *   **DualStack:** dual stack.
+   * 
+   * @example
+   * IPv4
+   */
   addressIpVersion?: string;
+  /**
+   * @remarks
+   * The type of the address of the ALB instance. Valid values:
+   * 
+   * *   **Internet:** The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. In this case, the ALB instance can be accessed over the Internet.
+   * *   **Intranet:** The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the VPC in which the ALB instance is deployed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Internet
+   */
   addressType?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system uses the value of **RequestId** as the value of **ClientToken**. The value of the **RequestId** parameter may be different for each API request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable deletion protection. Default value: false. Valid values:
+   * 
+   * *   **true:** enables deletion protection.
+   * *   **false:** disables deletion protection.
+   * 
+   * @example
+   * false
+   */
   deletionProtectionEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run. Default value: false. Valid values:
+   * 
+   * *   **true:** performs a dry run. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false:** performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The billing method of the ALB instance.
+   * 
+   * This parameter is required.
+   */
   loadBalancerBillingConfig?: CreateLoadBalancerRequestLoadBalancerBillingConfig;
+  /**
+   * @remarks
+   * The edition of the ALB instance. The features and billing rules vary based on the edition of the ALB instance. Valid values:
+   * 
+   * *   **Basic:** basic.
+   * *   **Standard:** standard.
+   * *   **StandardWithWaf:** WAF-enabled.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Standard
+   */
   loadBalancerEdition?: string;
+  /**
+   * @remarks
+   * The name of the ALB instance.
+   * 
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * @example
+   * alb1
+   */
   loadBalancerName?: string;
+  /**
+   * @remarks
+   * The configuration of the configuration read-only mode.
+   */
   modificationProtectionConfig?: CreateLoadBalancerRequestModificationProtectionConfig;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-atstuj3rtop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateLoadBalancerRequestTag[];
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) in which you want to create the ALB instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp1b49rqrybk45nio****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The mappings between zones an vSwitches. You can specify at most 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service.
+   * 
+   * This parameter is required.
+   */
   zoneMappings?: CreateLoadBalancerRequestZoneMappings[];
   static names(): { [key: string]: string } {
     return {
@@ -982,7 +1936,21 @@ export class CreateLoadBalancerRequest extends $tea.Model {
 }
 
 export class CreateLoadBalancerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * @example
+   * alb-o9ulmq5hgn68jk****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1029,14 +1997,95 @@ export class CreateLoadBalancerResponse extends $tea.Model {
 }
 
 export class CreateRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The direction to which the forwarding rule is applied. Valid values:
+   * 
+   * *   **Request** (default): The forwarding rule is applied to the requests received by ALB.
+   * *   **Response**: The forwarding rule is applied to the responses returned by backend servers.
+   * 
+   * > Basic ALB instances do not support the **Response** value.
+   * 
+   * @example
+   * Request
+   */
   direction?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The listener ID of the ALB instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
+  /**
+   * @remarks
+   * The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value indicates a higher priority.
+   * 
+   * > The priorities of the forwarding rules created for the same listener must be unique.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The actions of the forwarding rule.
+   * 
+   * This parameter is required.
+   */
   ruleActions?: CreateRuleRequestRuleActions[];
+  /**
+   * @remarks
+   * The match conditions of the forwarding rule.
+   * 
+   * This parameter is required.
+   */
   ruleConditions?: CreateRuleRequestRuleConditions[];
+  /**
+   * @remarks
+   * The name of the forwarding rule.
+   * 
+   * *   The name must be 2 to 128 characters in length.
+   * *   It can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rule-doc
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateRuleRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -1072,8 +2121,29 @@ export class CreateRuleRequest extends $tea.Model {
 }
 
 export class CreateRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540750
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The forwarding rule ID.
+   * 
+   * @example
+   * rule-a3x3pg1yohq3lq****
+   */
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1122,9 +2192,45 @@ export class CreateRuleResponse extends $tea.Model {
 }
 
 export class CreateRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the Application Load Balancer (ALB) instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
+  /**
+   * @remarks
+   * The forwarding rules. You can specify at most 10 forwarding rules in each call.
+   * 
+   * This parameter is required.
+   */
   rules?: CreateRulesRequestRules[];
   static names(): { [key: string]: string } {
     return {
@@ -1150,8 +2256,28 @@ export class CreateRulesRequest extends $tea.Model {
 }
 
 export class CreateRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The priority of the forwarding rule. Valid values: **1 to 10000**. A lower value specifies a higher priority.
+   * 
+   * > The priorities of the forwarding rules created for the same listener is unique.
+   */
   ruleIds?: CreateRulesResponseBodyRuleIds[];
   static names(): { [key: string]: string } {
     return {
@@ -1200,12 +2326,65 @@ export class CreateRulesResponse extends $tea.Model {
 }
 
 export class CreateSecurityPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The supported cipher suites.
+   * 
+   * This parameter is required.
+   */
   ciphers?: string[];
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-atstuj3rtop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the security policy.
+   * 
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-secrity
+   */
   securityPolicyName?: string;
+  /**
+   * @remarks
+   * The supported Transport Layer Security (TLS) protocol versions.
+   * 
+   * This parameter is required.
+   */
   TLSVersions?: string[];
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateSecurityPolicyRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -1237,7 +2416,21 @@ export class CreateSecurityPolicyRequest extends $tea.Model {
 }
 
 export class CreateSecurityPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The security policy ID.
+   * 
+   * @example
+   * scp-bp1bpn0kn9****
+   */
   securityPolicyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1284,21 +2477,157 @@ export class CreateSecurityPolicyResponse extends $tea.Model {
 }
 
 export class CreateServerGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The configurations of connection draining.
+   * 
+   * After connection draining is enabled, ALB maintains data transmission for a period of time after the backend server is removed or declared unhealthy.
+   * 
+   * 
+   * >*   Basic ALB instances do not support connection draining. Standard and WAF-enabled ALB instances support connection draining.
+   * >*   Server groups of the instance and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
+   */
   connectionDrainConfig?: CreateServerGroupRequestConnectionDrainConfig;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The configuration of health checks.
+   * 
+   * This parameter is required.
+   */
   healthCheckConfig?: CreateServerGroupRequestHealthCheckConfig;
+  /**
+   * @remarks
+   * The backend protocol. Valid values:
+   * 
+   * *   **HTTP**: allows you to associate an HTTPS, HTTP, or QUIC listener with the server group. This is the default value.
+   * *   **HTTPS**: allows you to associate HTTPS listeners with backend servers.
+   * *   **gRPC**: allows you to associate an HTTPS or QUIC listener with the server group.
+   * 
+   * >  You do not need to specify a backend protocol if you set **ServerGroupType** to **Fc**.
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-atstuj3rtop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The scheduling algorithm. Valid values:
+   * 
+   * *   **Wrr** (default): The weighted round-robin algorithm is used. Backend servers that have higher weights receive more requests than those that have lower weights.
+   * *   **Wlc**: The weighted least connections algorithm is used. Requests are distributed based on the weights and the number of connections to backend servers. If two backend servers have the same weight, the backend server that has fewer connections is expected to receive more requests.
+   * *   **Sch**: The consistent hashing algorithm is used. Requests from the same source IP address are distributed to the same backend server.
+   * 
+   * > This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
+   * 
+   * @example
+   * Wrr
+   */
   scheduler?: string;
+  /**
+   * @remarks
+   * The name of the server group. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sg-atstuj3rtoptyui****
+   */
   serverGroupName?: string;
+  /**
+   * @remarks
+   * The type of server group. Valid values:
+   * 
+   * *   **Instance** (default): allows you to add servers by specifying **Ecs**, **Eni**, or **Eci**.
+   * *   **Ip**: allows you to add servers by specifying IP addresses.
+   * *   **Fc**: allows you to add servers by specifying functions of Function Compute.
+   * 
+   * @example
+   * Instance
+   */
   serverGroupType?: string;
+  /**
+   * @remarks
+   * This parameter is available only if the ALB Ingress controller is used. In this case, set this parameter to the name of the `Kubernetes Service` that is associated with the server group.
+   * 
+   * @example
+   * test
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The configurations of slow starts.
+   * After slow starts are enabled, SLB prefetches data to newly added backend servers. Requests distributed to the backend servers gradually increase.
+   * 
+   * > - Basic SLB instances do not support slow starts. Standard and WAF-enabled SLB instances support slow starts. 
+   * >* Server groups of the server and IP types support slow starts. Server groups of the Function Compute type do not support slow starts.
+   * >* Slow start is supported only by the weighted round-robin scheduling algorithm.
+   */
   slowStartConfig?: CreateServerGroupRequestSlowStartConfig;
+  /**
+   * @remarks
+   * The configuration of session persistence.
+   * 
+   * >  This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
+   */
   stickySessionConfig?: CreateServerGroupRequestStickySessionConfig;
+  /**
+   * @remarks
+   * The tag.
+   */
   tag?: CreateServerGroupRequestTag[];
+  /**
+   * @remarks
+   * The configuration of consistent hashing based on URLs.
+   */
   uchConfig?: CreateServerGroupRequestUchConfig;
+  /**
+   * @remarks
+   * Specifies whether to enable persistent TCP connections.
+   * 
+   * @example
+   * false
+   */
   upstreamKeepaliveEnabled?: boolean;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC). You can add only servers that are deployed in the specified VPC to the server group.
+   * 
+   * >  This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
+   * 
+   * @example
+   * vpc-bp15zckdt37pq72zv****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1348,8 +2677,29 @@ export class CreateServerGroupRequest extends $tea.Model {
 }
 
 export class CreateServerGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous job.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the server group.
+   * 
+   * @example
+   * sg-atstuj3rtoptyui****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1398,8 +2748,33 @@ export class CreateServerGroupResponse extends $tea.Model {
 }
 
 export class DeleteAScriptsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The AScript rule IDs.
+   * 
+   * This parameter is required.
+   */
   AScriptIds?: string[];
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * @example
+   * f516e84e-fc0c-4c2d-a461-6cd774a84dbd
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1423,7 +2798,21 @@ export class DeleteAScriptsRequest extends $tea.Model {
 }
 
 export class DeleteAScriptsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 03cf3fe1-ab37-479b-92a6-b481d762****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1B7B7695-3596-50C8-B739-030C6C685E61
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1470,8 +2859,38 @@ export class DeleteAScriptsResponse extends $tea.Model {
 }
 
 export class DeleteAclRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ACL.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * nacl-hp34s2h0xx1ht4nwo****
+   */
   aclId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1495,7 +2914,21 @@ export class DeleteAclRequest extends $tea.Model {
 }
 
 export class DeleteAclResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1542,8 +2975,34 @@ export class DeleteAclResponse extends $tea.Model {
 }
 
 export class DeleteHealthCheckTemplatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a **2xx HTTP** status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The IDs of health check templates. You can specify at most 10 IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acl-123
+   */
   healthCheckTemplateIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1567,6 +3026,13 @@ export class DeleteHealthCheckTemplatesRequest extends $tea.Model {
 }
 
 export class DeleteHealthCheckTemplatesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1611,8 +3077,38 @@ export class DeleteHealthCheckTemplatesResponse extends $tea.Model {
 }
 
 export class DeleteListenerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**: (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the Application Load Balancer (ALB) listener.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1636,7 +3132,21 @@ export class DeleteListenerRequest extends $tea.Model {
 }
 
 export class DeleteListenerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1683,8 +3193,36 @@ export class DeleteListenerResponse extends $tea.Model {
 }
 
 export class DeleteLoadBalancerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lb-bp1b6c719dfa08ex****
+   */
   loadBalancerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1708,7 +3246,21 @@ export class DeleteLoadBalancerRequest extends $tea.Model {
 }
 
 export class DeleteLoadBalancerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1755,8 +3307,38 @@ export class DeleteLoadBalancerResponse extends $tea.Model {
 }
 
 export class DeleteRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: sends the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**: performs a dry run and sends the request. If the request passes the dry run, the `HTTP_2xx` status code is returned and the operation is performed. This is the default value.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the forwarding rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rule-doc****
+   */
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1780,7 +3362,21 @@ export class DeleteRuleRequest extends $tea.Model {
 }
 
 export class DeleteRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1827,8 +3423,35 @@ export class DeleteRuleResponse extends $tea.Model {
 }
 
 export class DeleteRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: checks the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the forwarding rule. Valid values of N: **1** to **5**.
+   * 
+   * This parameter is required.
+   */
   ruleIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1852,7 +3475,21 @@ export class DeleteRulesRequest extends $tea.Model {
 }
 
 export class DeleteRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7BED4F62-3E6E-5E4F-8C53-2D8CCE77F2ED
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1899,8 +3536,36 @@ export class DeleteRulesResponse extends $tea.Model {
 }
 
 export class DeleteSecurityPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The security policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * spy-n0kn923****
+   */
   securityPolicyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1924,6 +3589,13 @@ export class DeleteSecurityPolicyRequest extends $tea.Model {
 }
 
 export class DeleteSecurityPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1968,8 +3640,38 @@ export class DeleteSecurityPolicyResponse extends $tea.Model {
 }
 
 export class DeleteServerGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the server group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sgp-cige6j****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1993,7 +3695,21 @@ export class DeleteServerGroupRequest extends $tea.Model {
 }
 
 export class DeleteServerGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous job.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2040,6 +3756,17 @@ export class DeleteServerGroupResponse extends $tea.Model {
 }
 
 export class DescribeRegionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   **zh-CN** (default): Chinese
+   * *   **en-US**: English
+   * *   **ja**: Japanese
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2059,7 +3786,18 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The regions.
+   */
   regions?: DescribeRegionsResponseBodyRegions[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2106,6 +3844,17 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DescribeZonesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   **zh-CN** (default): Chinese
+   * *   **en-US**: English
+   * *   **ja**: Japanese
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2125,7 +3874,21 @@ export class DescribeZonesRequest extends $tea.Model {
 }
 
 export class DescribeZonesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The zones.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPdzTKM4svjIT4VQig7tTMKqiHlxKt2p5Zuz45p+Lxdq
+   */
   zones?: DescribeZonesResponseBodyZones[];
   static names(): { [key: string]: string } {
     return {
@@ -2172,10 +3935,60 @@ export class DescribeZonesResponse extends $tea.Model {
 }
 
 export class DetachCommonBandwidthPackageFromLoadBalancerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The EIP bandwidth plan ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cbwp-bp1pzf0ym72pu3y76****
+   */
   bandwidthPackageId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alb-d676fho813rmu3****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The region ID of the ALB instance.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2203,7 +4016,21 @@ export class DetachCommonBandwidthPackageFromLoadBalancerRequest extends $tea.Mo
 }
 
 export class DetachCommonBandwidthPackageFromLoadBalancerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2EF39708-974B-5E74-AFF5-3445263035A8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2250,8 +4077,34 @@ export class DetachCommonBandwidthPackageFromLoadBalancerResponse extends $tea.M
 }
 
 export class DisableDeletionProtectionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**: (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * re-atstuj3rtop****
+   */
   resourceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2275,6 +4128,13 @@ export class DisableDeletionProtectionRequest extends $tea.Model {
 }
 
 export class DisableDeletionProtectionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2319,8 +4179,36 @@ export class DisableDeletionProtectionResponse extends $tea.Model {
 }
 
 export class DisableLoadBalancerAccessLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * *   If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The SLB instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lb-bp1b6c719dfa08ex*****
+   */
   loadBalancerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2344,6 +4232,13 @@ export class DisableLoadBalancerAccessLogRequest extends $tea.Model {
 }
 
 export class DisableLoadBalancerAccessLogResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2388,8 +4283,38 @@ export class DisableLoadBalancerAccessLogResponse extends $tea.Model {
 }
 
 export class DisableLoadBalancerIpv6InternetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alb-chugtlrj1iusjh****
+   */
   loadBalancerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2413,7 +4338,21 @@ export class DisableLoadBalancerIpv6InternetRequest extends $tea.Model {
 }
 
 export class DisableLoadBalancerIpv6InternetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * d12871a6-ebb2-41f3-8d74-d9f452bb****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7D866E37-1123-5160-AFF1-BDAF5EB86A8A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2460,9 +4399,45 @@ export class DisableLoadBalancerIpv6InternetResponse extends $tea.Model {
 }
 
 export class DissociateAclsFromListenerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The access control list (ACL) IDs. You can disassociate at most three ACLs from a listener in each call.
+   * 
+   * This parameter is required.
+   */
   aclIds?: string[];
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the listener.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2488,7 +4463,21 @@ export class DissociateAclsFromListenerRequest extends $tea.Model {
 }
 
 export class DissociateAclsFromListenerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2535,9 +4524,45 @@ export class DissociateAclsFromListenerResponse extends $tea.Model {
 }
 
 export class DissociateAdditionalCertificatesFromListenerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The additional certificates. Only server certificates are supported. You can specify at most 20 certificates.
+   * 
+   * This parameter is required.
+   */
   certificates?: DissociateAdditionalCertificatesFromListenerRequestCertificates[];
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a **2xx HTTP** status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The listener ID. You must specify the ID of an HTTPS listener or a QUIC listener.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2563,7 +4588,21 @@ export class DissociateAdditionalCertificatesFromListenerRequest extends $tea.Mo
 }
 
 export class DissociateAdditionalCertificatesFromListenerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2610,8 +4649,34 @@ export class DissociateAdditionalCertificatesFromListenerResponse extends $tea.M
 }
 
 export class EnableDeletionProtectionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**: (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The Application Load Balancer (ALB) instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * re-atstuj3rtop****
+   */
   resourceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2635,6 +4700,13 @@ export class EnableDeletionProtectionRequest extends $tea.Model {
 }
 
 export class EnableDeletionProtectionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2679,10 +4751,56 @@ export class EnableDeletionProtectionResponse extends $tea.Model {
 }
 
 export class EnableLoadBalancerAccessLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alb-bd6oylbckp6k9x****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The project to which the access log is shipped.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sls-setter
+   */
   logProject?: string;
+  /**
+   * @remarks
+   * The Logstore to which the access log is shipped.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   logStore?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2710,15 +4828,29 @@ export class EnableLoadBalancerAccessLogRequest extends $tea.Model {
 }
 
 export class EnableLoadBalancerAccessLogResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ff7713ca-5818-4120-85e3-0bf9e27e9103
+   */
+  jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      jobId: 'JobId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      jobId: 'string',
       requestId: 'string',
     };
   }
@@ -2754,8 +4886,38 @@ export class EnableLoadBalancerAccessLogResponse extends $tea.Model {
 }
 
 export class EnableLoadBalancerIpv6InternetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alb-o2cvudgo6rlqz7****
+   */
   loadBalancerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2779,7 +4941,21 @@ export class EnableLoadBalancerIpv6InternetRequest extends $tea.Model {
 }
 
 export class EnableLoadBalancerIpv6InternetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 4a6e3ad4-ef08-4ab1-b332-fa621cfe****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BB920797-D70E-567F-8098-55A861DD7912
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2826,6 +5002,15 @@ export class EnableLoadBalancerIpv6InternetResponse extends $tea.Model {
 }
 
 export class GetHealthCheckTemplateAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the health check template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * hct-x4jazoyi6tvsq9****
+   */
   healthCheckTemplateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2845,20 +5030,153 @@ export class GetHealthCheckTemplateAttributeRequest extends $tea.Model {
 }
 
 export class GetHealthCheckTemplateAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status codes that indicate a healthy backend server.
+   */
   healthCheckCodes?: string[];
+  /**
+   * @remarks
+   * The port that is used for health checks.
+   * 
+   * Valid values: **0** to **65535**.
+   * 
+   * @example
+   * 80
+   */
   healthCheckConnectPort?: number;
+  /**
+   * @remarks
+   * The domain name that is used for health checks. Valid values:
+   * 
+   * *   **$SERVER_IP**: the private IP addresses of backend servers. If an IP address is specified, or this parameter is not specified, the ALB instance uses the private IP addresses of backend servers as domain names for health checks.
+   * *   **domain**: The domain name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+   * 
+   * >  This parameter takes effect only if `HealthCheckProtocol` is set to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * $SERVER_IP
+   */
   healthCheckHost?: string;
+  /**
+   * @remarks
+   * The HTTP version for health checks.
+   * 
+   * Valid values: **HTTP1.0** and **HTTP1.1**.
+   * 
+   * >  This parameter takes effect only if you set `HealthCheckProtocol` to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * HTTP1.0
+   */
   healthCheckHttpVersion?: string;
+  /**
+   * @remarks
+   * The interval at which health checks are performed. Unit: seconds. Valid values: **1 to 50**.
+   * 
+   * @example
+   * 3
+   */
   healthCheckInterval?: number;
+  /**
+   * @remarks
+   * The HTTP method that is used for health checks. Valid values:
+   * 
+   * *   **HEAD** (default): By default, HTTP and HTTPS health checks use the HEAD method.
+   * *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
+   * *   **POST**: gRPC health checks use the POST method by default.
+   * 
+   * >  This parameter takes effect only if you set **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**.
+   * 
+   * @example
+   * GET
+   */
   healthCheckMethod?: string;
+  /**
+   * @remarks
+   * The URL that is used for health checks.
+   * 
+   * The URL must be 1 to 80 characters in length, and can contain letters, digits, the following special characters: - / . % ? # &, and the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
+   * 
+   * >  This parameter takes effect only if you set **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**.
+   * 
+   * @example
+   * /test/index.html
+   */
   healthCheckPath?: string;
+  /**
+   * @remarks
+   * The protocol that is used for health checks. Valid values:
+   * 
+   * *   **HTTP** (default): HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
+   * *   **HTTPS**: The ALB instance sends HEAD or GET requests, which simulate browser requests, to check whether the backend server is healthy. HTTPS supports encryption and provides higher security than HTTP.
+   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to probe the availability of backend servers.
+   * *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to probe the availability of backend servers.
+   * 
+   * @example
+   * HTTP
+   */
   healthCheckProtocol?: string;
+  /**
+   * @remarks
+   * The ID of the health check template.
+   * 
+   * @example
+   * hct-x4jazoyi6tvsq9****
+   */
   healthCheckTemplateId?: string;
+  /**
+   * @remarks
+   * The name of the health check template.
+   * 
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * @example
+   * HealthCheckTemplate1
+   */
   healthCheckTemplateName?: string;
+  /**
+   * @remarks
+   * The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the backend server is declared unhealthy. Unit: seconds.
+   * 
+   * Valid values: **1** to **300**.
+   * 
+   * @example
+   * 200
+   */
   healthCheckTimeout?: number;
+  /**
+   * @remarks
+   * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+   * 
+   * Valid values: **2** to **10**.
+   * 
+   * @example
+   * 5
+   */
   healthyThreshold?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DB1AFC33-DAE8-528E-AA4D-4A6AABE71945
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: GetHealthCheckTemplateAttributeResponseBodyTags[];
+  /**
+   * @remarks
+   * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+   * 
+   * Valid values: **2** to **10**.
+   * 
+   * @example
+   * 5
+   */
   unhealthyThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2931,6 +5249,15 @@ export class GetHealthCheckTemplateAttributeResponse extends $tea.Model {
 }
 
 export class GetListenerAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The listener ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2950,26 +5277,171 @@ export class GetListenerAttributeRequest extends $tea.Model {
 }
 
 export class GetListenerAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the access control lists (ACLs).
+   */
   aclConfig?: GetListenerAttributeResponseBodyAclConfig;
+  /**
+   * @remarks
+   * A list of default CA certificates.
+   */
   caCertificates?: GetListenerAttributeResponseBodyCaCertificates[];
+  /**
+   * @remarks
+   * Indicates whether mutual authentication is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   caEnabled?: boolean;
+  /**
+   * @remarks
+   * A list of certificates.
+   */
   certificates?: GetListenerAttributeResponseBodyCertificates[];
+  /**
+   * @remarks
+   * The actions of the default forwarding rule.
+   */
   defaultActions?: GetListenerAttributeResponseBodyDefaultActions[];
+  /**
+   * @remarks
+   * Indicates whether GZIP compression is enabled to compress specific types of files. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   gzipEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether HTTP/2 is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > This parameter is available only when you create an HTTPS listener.
+   * 
+   * @example
+   * true
+   */
   http2Enabled?: boolean;
+  /**
+   * @remarks
+   * The timeout period of an idle connection. Unit: seconds.
+   * 
+   * If no requests are received within the specified timeout period, Application Load Balancer (ALB) closes the current connection. When a request is received, ALB establishes a new connection.
+   * 
+   * @example
+   * 2
+   */
   idleTimeout?: number;
+  /**
+   * @remarks
+   * The name of the listener.
+   * 
+   * @example
+   * test
+   */
   listenerDescription?: string;
+  /**
+   * @remarks
+   * The ID of the listener.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
+  /**
+   * @remarks
+   * The frontend port that is used by the ALB instance.
+   * 
+   * @example
+   * 80
+   */
   listenerPort?: number;
+  /**
+   * @remarks
+   * The listener protocol. Valid values: **HTTP**, **HTTPS**, and **QUIC**.
+   * 
+   * @example
+   * HTTP
+   */
   listenerProtocol?: string;
+  /**
+   * @remarks
+   * The status of the listener. Valid values:
+   * 
+   * *   **Provisioning**
+   * *   **Running**
+   * *   **Configuring**
+   * *   **Stopped**
+   * 
+   * @example
+   * Running
+   */
   listenerStatus?: string;
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * @example
+   * lb-bp1o94dp5i6ea****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The logging configuration.
+   */
   logConfig?: GetListenerAttributeResponseBodyLogConfig;
+  /**
+   * @remarks
+   * The configuration information when the listener is associated with a QUIC listener.
+   */
   quicConfig?: GetListenerAttributeResponseBodyQuicConfig;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The timeout period of a request. Unit: seconds.
+   * 
+   * If no responses are received from the backend server within the specified timeout period, ALB returns an `HTTP 504` error code to the client.
+   * 
+   * @example
+   * 34
+   */
   requestTimeout?: number;
+  /**
+   * @remarks
+   * The security policy.
+   * 
+   * > This parameter is available only when you create an HTTPS listener.
+   * 
+   * @example
+   * tls_cipher_policy_1_1
+   */
   securityPolicyId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: GetListenerAttributeResponseBodyTags[];
+  /**
+   * @remarks
+   * The configuration of the XForward headers.
+   */
   XForwardedForConfig?: GetListenerAttributeResponseBodyXForwardedForConfig;
   static names(): { [key: string]: string } {
     return {
@@ -3054,9 +5526,45 @@ export class GetListenerAttributeResponse extends $tea.Model {
 }
 
 export class GetListenerHealthStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to return the health check results of forwarding rules. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * true
+   */
   includeRule?: boolean;
+  /**
+   * @remarks
+   * The listener ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: **1** to **30**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that determines the start point of the query. Valid values:
+   * 
+   * *   If this is your first query or no next queries are to be sent, ignore this parameter.
+   * *   If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3082,9 +5590,34 @@ export class GetListenerHealthStatusRequest extends $tea.Model {
 }
 
 export class GetListenerHealthStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The health check status of the server groups that are associated with the listener.
+   */
   listenerHealthStatus?: GetListenerHealthStatusResponseBodyListenerHealthStatus[];
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The health check status of the forwarding rules.
+   */
   ruleHealthStatus?: GetListenerHealthStatusResponseBodyRuleHealthStatus[];
   static names(): { [key: string]: string } {
     return {
@@ -3135,6 +5668,15 @@ export class GetListenerHealthStatusResponse extends $tea.Model {
 }
 
 export class GetLoadBalancerAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alb-o9ulmq5hgn68jk****
+   */
   loadBalancerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3154,29 +5696,207 @@ export class GetLoadBalancerAttributeRequest extends $tea.Model {
 }
 
 export class GetLoadBalancerAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the access log feature.
+   */
   accessLogConfig?: GetLoadBalancerAttributeResponseBodyAccessLogConfig;
+  /**
+   * @remarks
+   * The mode in which IP addresses are allocated. Valid values:
+   * 
+   * *   **Fixed**: allocates a static IP address to the ALB instance.
+   * *   **Dynamic**: dynamically allocates an IP address to each zone of the ALB instance.
+   * 
+   * @example
+   * Dynamic
+   */
   addressAllocatedMode?: string;
+  /**
+   * @remarks
+   * The IP version. Valid values:
+   * 
+   * *   **IPv4**
+   * *   **DualStack**
+   * 
+   * @example
+   * DualStack
+   */
   addressIpVersion?: string;
+  /**
+   * @remarks
+   * The network type of the ALB instance. Valid values:
+   * 
+   * *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
+   * *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the virtual private cloud (VPC) where the ALB instance is deployed.
+   * 
+   * @example
+   * Intranet
+   */
   addressType?: string;
+  /**
+   * @remarks
+   * The ID of the elastic IP address (EIP) bandwidth plan that is associated with the Internet-facing ALB instance.
+   * 
+   * @example
+   * cbwp-bp1vevu8h3ieh****
+   */
   bandwidthPackageId?: string;
+  /**
+   * @remarks
+   * The time when the resource was created. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-07-02T02:49:05Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The domain name of the ALB instance.
+   * 
+   * @example
+   * alb-95qnr2itwu9orb****.cn-hangzhou.alb.aliyuncs.com
+   */
   DNSName?: string;
+  /**
+   * @remarks
+   * The configuration of deletion protection.
+   */
   deletionProtectionConfig?: GetLoadBalancerAttributeResponseBodyDeletionProtectionConfig;
+  /**
+   * @remarks
+   * The type of IPv6 address that is used by the ALB instance. Valid values:
+   * 
+   * *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
+   * *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. Therefore, the ALB instance can be accessed over the VPC in which the ALB instance is deployed.
+   * 
+   * @example
+   * Intranet
+   */
   ipv6AddressType?: string;
+  /**
+   * @remarks
+   * The billing method of the ALB instance.
+   */
   loadBalancerBillingConfig?: GetLoadBalancerAttributeResponseBodyLoadBalancerBillingConfig;
+  /**
+   * @remarks
+   * The service status of the ALB instance. Valid values:
+   * 
+   * *   **Abnormal**
+   * *   **Normal**
+   * 
+   * @example
+   * Normal
+   */
   loadBalancerBussinessStatus?: string;
+  /**
+   * @remarks
+   * The edition of the ALB instance. The features and billing rules vary based on the edition of the ALB instance. Valid values:
+   * 
+   * *   **Basic**
+   * *   **Standard**
+   * *   **StandardWithWaf**
+   * 
+   * @example
+   * Standard
+   */
   loadBalancerEdition?: string;
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * @example
+   * alb-o9ulmq5hgn68jk****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The name of the ALB instance.
+   * 
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * @example
+   * alb1
+   */
   loadBalancerName?: string;
+  /**
+   * @remarks
+   * The type of the lock. Valid values:
+   * 
+   * *   **SecurityLocked**: The ALB instance is locked due to security reasons.
+   * *   **RelatedResourceLocked**: The ALB instance is locked due to association issues.
+   * *   **FinancialLocked**: The ALB instance is locked due to overdue payments.
+   * *   **ResidualLocked**: The ALB instance is locked because the associated resources have overdue payments and the resources are released.
+   */
   loadBalancerOperationLocks?: GetLoadBalancerAttributeResponseBodyLoadBalancerOperationLocks[];
+  /**
+   * @remarks
+   * The status of the ALB instance. Valid values:
+   * 
+   * *   **Inactive**: The ALB instance is disabled. ALB instances in the Inactive state do not forward traffic.
+   * *   **Active**: The ALB instance is running.
+   * *   **Provisioning**: The ALB instance is being created.
+   * *   **Configuring**: The ALB instance is being modified.
+   * *   **CreateFailed**: The system failed to create the ALB instance. In this case, you are not charged for the ALB instance. You can only delete the ALB instance.
+   * 
+   * @example
+   * Active
+   */
   loadBalancerStatus?: string;
+  /**
+   * @remarks
+   * The configuration of the configuration read-only mode.
+   */
   modificationProtectionConfig?: GetLoadBalancerAttributeResponseBodyModificationProtectionConfig;
+  /**
+   * @remarks
+   * The region ID of the ALB instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-atstuj3rtop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the security groups to which the ALB instance is added.
+   */
   securityGroupIds?: string[];
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag value cannot contain `http://` or `https://`.
+   */
   tags?: GetLoadBalancerAttributeResponseBodyTags[];
+  /**
+   * @remarks
+   * The ID of the VPC in which the ALB instance is deployed.
+   * 
+   * @example
+   * vpc-bp1b49rqrybk45nio****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The zone and the vSwitch in the zone. A maximum of 10 zones is returned. If the current region supports two or more zones, at least two zones are returned.
+   */
   zoneMappings?: GetLoadBalancerAttributeResponseBodyZoneMappings[];
   static names(): { [key: string]: string } {
     return {
@@ -3267,10 +5987,43 @@ export class GetLoadBalancerAttributeResponse extends $tea.Model {
 }
 
 export class ListAScriptsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The AScript rule IDs. You can specify at most 20 IDs in each call.
+   */
   AScriptIds?: string[];
+  /**
+   * @remarks
+   * The AScript rule names. You can specify at most 10 names in each call.
+   */
   AScriptNames?: string[];
+  /**
+   * @remarks
+   * The listener IDs. You can specify at most 20 listener IDs in each call.
+   */
   listenerIds?: string[];
+  /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
+   * Valid values: **1** to **100**.
+   * 
+   * Default value: **20**. If you do not specify this parameter, the default value is used.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.****
+   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3298,10 +6051,49 @@ export class ListAScriptsRequest extends $tea.Model {
 }
 
 export class ListAScriptsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The AScript rules.
+   */
   AScripts?: ListAScriptsResponseBodyAScripts[];
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2CA81429-F160-593A-8AB5-A2A9617845B9
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * > This parameter is optional. By default, this parameter is not returned.
+   * 
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3354,8 +6146,34 @@ export class ListAScriptsResponse extends $tea.Model {
 }
 
 export class ListAclEntriesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ACL.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * nacl-hp34s2h0xx1ht4nwo****
+   */
   aclId?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.
+   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3379,10 +6197,45 @@ export class ListAclEntriesRequest extends $tea.Model {
 }
 
 export class ListAclEntriesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ACL entries.
+   */
   aclEntries?: ListAclEntriesResponseBodyAclEntries[];
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3435,6 +6288,12 @@ export class ListAclEntriesResponse extends $tea.Model {
 }
 
 export class ListAclRelationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The access control list (ACL) IDs. You can query at most five ACLs in each call.
+   * 
+   * This parameter is required.
+   */
   aclIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3454,7 +6313,18 @@ export class ListAclRelationsRequest extends $tea.Model {
 }
 
 export class ListAclRelationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The relations between the specified ACL and the listeners.
+   */
   aclRelations?: ListAclRelationsResponseBodyAclRelations[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3501,11 +6371,47 @@ export class ListAclRelationsResponse extends $tea.Model {
 }
 
 export class ListAclsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Filter access control lists (ACLs) by ACL ID. You can specify at most 20 ACL IDs in each call.
+   */
   aclIds?: string[];
+  /**
+   * @remarks
+   * The ACL names. You can specify up to 10 ACL names in each call.
+   */
   aclNames?: string[];
+  /**
+   * @remarks
+   * The maximum number of entries to return. This parameter is optional. Valid values: **1** to **100**. Default value: **20**.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used for the next query. Valid values:
+   * 
+   * *   If this is your first query or no next query is to be sent, ignore this parameter.
+   * *   If a next query is to be sent, set the value to the value of NextToken that is returned from the last call.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the resource group. You can filter the query results based on the specified ID.
+   * 
+   * @example
+   * rg-atstuj3rtopty****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: ListAclsRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -3535,10 +6441,45 @@ export class ListAclsRequest extends $tea.Model {
 }
 
 export class ListAclsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * A list of ACLs.
+   */
   acls?: ListAclsResponseBodyAcls[];
+  /**
+   * @remarks
+   * The maximum number of network ACLs returned. This parameter is optional. Valid values: **1** to **100**. If this parameter is not set, the default value **20** is returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used for the next query. Valid values:
+   * 
+   * *   If **NextToken** is empty, it indicates that no next query is to be sent.
+   * *   If **NextToken** is returned, the value indicates the token that is used for the next query.
+   * 
+   * @example
+   * FFmyTO70t****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3591,13 +6532,77 @@ export class ListAclsResponse extends $tea.Model {
 }
 
 export class ListAsynJobsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the operation.
+   * 
+   * @example
+   * CreateLoadBalancer
+   */
   apiName?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates the start time of the task. Unit: milliseconds.
+   * 
+   * Specify the timestamp in the Unix format to indicate the total amount of time that is from 00:00:00 (UTC+0) on January 1, 1970 to when the status of the asynchronous task is queried.
+   * 
+   * @example
+   * 2021-06-03T17:22Z
+   */
   beginTime?: number;
+  /**
+   * @remarks
+   * The timestamp that indicates the end time of the task. Unit: milliseconds.
+   * 
+   * Specify the timestamp in the Unix format to indicate the total amount of time that is from 00:00:00 (UTC+0) on January 1, 1970 to when the status of the asynchronous task is returned.
+   * 
+   * @example
+   * 2021-06-04T17:22Z
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The asynchronous task IDs.
+   */
   jobIds?: string[];
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.
+   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The resource IDs.
+   */
   resourceIds?: string[];
+  /**
+   * @remarks
+   * The type of the associated resource. Valid values:
+   * 
+   * *   **loadbalancer**: an Application Load Balancer (ALB) instance
+   * *   **listener**: a listener
+   * *   **rule**: a forwarding rule
+   * *   **acl**: an access control list (ACL)
+   * *   **securitypolicy**: a security policy
+   * *   **servergroup**: a server group
+   * 
+   * @example
+   * acl
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3631,10 +6636,45 @@ export class ListAsynJobsRequest extends $tea.Model {
 }
 
 export class ListAsynJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The tasks.
+   */
   jobs?: ListAsynJobsResponseBodyJobs[];
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3687,10 +6727,39 @@ export class ListAsynJobsResponse extends $tea.Model {
 }
 
 export class ListHealthCheckTemplatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of health check templates.
+   */
   healthCheckTemplateIds?: string[];
+  /**
+   * @remarks
+   * The health check templates.
+   */
   healthCheckTemplateNames?: string[];
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.
+   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: ListHealthCheckTemplatesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -3718,10 +6787,45 @@ export class ListHealthCheckTemplatesRequest extends $tea.Model {
 }
 
 export class ListHealthCheckTemplatesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The health check templates.
+   */
   healthCheckTemplates?: ListHealthCheckTemplatesResponseBodyHealthCheckTemplates[];
+  /**
+   * @remarks
+   * The number of entries returned per page. Valid values: **1** to **100**. Default value: **20**.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If a value of **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3774,10 +6878,47 @@ export class ListHealthCheckTemplatesResponse extends $tea.Model {
 }
 
 export class ListListenerCertificatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The certificate IDs.
+   */
   certificateIds?: string[];
+  /**
+   * @remarks
+   * The type of the certificate. Valid values: **Ca** and **Server**.
+   * 
+   * @example
+   * Server
+   */
   certificateType?: string;
+  /**
+   * @remarks
+   * The listener ID. You must specify the ID of an HTTPS listener or a QUIC listener.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: **1 to 100**. Default value: **20**.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.
+   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3805,10 +6946,45 @@ export class ListListenerCertificatesRequest extends $tea.Model {
 }
 
 export class ListListenerCertificatesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The certificates.
+   */
   certificates?: ListListenerCertificatesResponseBodyCertificates[];
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3861,11 +7037,51 @@ export class ListListenerCertificatesResponse extends $tea.Model {
 }
 
 export class ListListenersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The listener IDs. You can specify at most 20 listener IDs.
+   */
   listenerIds?: string[];
+  /**
+   * @remarks
+   * The listener protocol. Valid values:
+   * 
+   * *   **HTTP**
+   * *   **HTTPS**
+   * *   **QUIC**
+   * 
+   * @example
+   * HTTP
+   */
   listenerProtocol?: string;
+  /**
+   * @remarks
+   * The ALB instance ID. You can specify at most 20 instance IDs.
+   */
   loadBalancerIds?: string[];
+  /**
+   * @remarks
+   * The maximum number of entries to return. This parameter is optional. Valid values: **1 to 100**. If you do not specify this parameter, the default value **20** is used.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.
+   * *   If a value is returned for NextToken, you must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: ListListenersRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -3895,10 +7111,42 @@ export class ListListenersRequest extends $tea.Model {
 }
 
 export class ListListenersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The listeners.
+   */
   listeners?: ListListenersResponseBodyListeners[];
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The position where the query stopped. If this parameter is not returned, all data is queried.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3951,20 +7199,138 @@ export class ListListenersResponse extends $tea.Model {
 }
 
 export class ListLoadBalancersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IP version. Valid values:
+   * 
+   * *   **IPv4**
+   * *   **DualStack**
+   * 
+   * @example
+   * IPv4
+   */
   addressIpVersion?: string;
+  /**
+   * @remarks
+   * The network type. Valid values:
+   * 
+   * *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
+   * *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the VPC where the ALB instance is deployed.
+   * 
+   * @example
+   * Intranet
+   */
   addressType?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * alb-95qnr2itwu9orb****.cn-hangzhou.alb.aliyuncs.com
+   */
   DNSName?: string;
+  /**
+   * @remarks
+   * The type of IPv6 address that is used by the ALB instance. Valid values:
+   * 
+   * *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
+   * *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. Therefore, the ALB instance can be accessed over the VPC in which the ALB instance is deployed.
+   * 
+   * @example
+   * Intranet
+   */
   ipv6AddressType?: string;
+  /**
+   * @remarks
+   * The service status of the ALB instance. Valid values:
+   * 
+   * *   **Abnormal**
+   * *   **Normal**
+   * 
+   * @example
+   * Normal
+   */
   loadBalancerBussinessStatus?: string;
+  /**
+   * @remarks
+   * The instance IDs. You can specify at most 20 ALB instance IDs.
+   */
   loadBalancerIds?: string[];
+  /**
+   * @remarks
+   * The instance names. You can specify at most 10 instance names.
+   */
   loadBalancerNames?: string[];
+  /**
+   * @remarks
+   * The status of the ALB instance. Valid values:
+   * 
+   * *   **Inactive**: The ALB instance is disabled. The listeners do not forward traffic.
+   * *   **Active**: The ALB instance is running.
+   * *   **Provisioning**: The ALB instance is being created.
+   * *   **Configuring**: The ALB instance is being modified.
+   * *   **CreateFailed**: The system failed to create the ALB instance. In this case, you are not charged for the ALB instance. You can only delete the ALB instance. By default, the system deletes the ALB instances that are in the CreateFailed state within the last day.
+   * 
+   * @example
+   * Active
+   */
   loadBalancerStatus?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.
+   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The billing method of the ALB instance. Set the value to
+   * 
+   * **PostPay**, which specifies the pay-as-you-go billing method. This is the default value.
+   * 
+   * @example
+   * PostPay
+   */
   payType?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxazb4ph****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags added to the ALB instance.
+   */
   tag?: ListLoadBalancersRequestTag[];
+  /**
+   * @remarks
+   * The ID of the VPC to which the ALB instance belongs. You can specify at most 10 VPC IDs.
+   */
   vpcIds?: string[];
+  /**
+   * @remarks
+   * The ID of the zone where the ALB instance is deployed.
+   * 
+   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query zones.
+   * 
+   * @example
+   * cn-hangzhou-a
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4012,10 +7378,45 @@ export class ListLoadBalancersRequest extends $tea.Model {
 }
 
 export class ListLoadBalancersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * A list of ALB instances.
+   */
   loadBalancers?: ListLoadBalancersResponseBodyLoadBalancers[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4068,12 +7469,60 @@ export class ListLoadBalancersResponse extends $tea.Model {
 }
 
 export class ListRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The direction to which the forwarding rule is applied. Valid values:
+   * 
+   * *   **Request** (default): The forwarding rule is applied to the client requests received by ALB.
+   * *   **Response**: The forwarding rule is applied to the responses returned by backend servers.
+   * 
+   * > You cannot set this parameter to Response if you use basic ALB instances.
+   * 
+   * @example
+   * Request
+   */
   direction?: string;
+  /**
+   * @remarks
+   * The listener IDs.
+   */
   listenerIds?: string[];
+  /**
+   * @remarks
+   * The Application Load Balancer (ALB) instance IDs.
+   */
   loadBalancerIds?: string[];
+  /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
+   * Valid values: **1 to 100**.
+   * 
+   * Default value: **20**. If you do not specify this parameter, the default value is used.
+   * 
+   * > This parameter is optional.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The starting point of the current query. If you do not specify this parameter, the query starts from the beginning.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The forwarding rules.
+   */
   ruleIds?: string[];
+  /**
+   * @remarks
+   * The tag.
+   */
   tag?: ListRulesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -4105,10 +7554,45 @@ export class ListRulesRequest extends $tea.Model {
 }
 
 export class ListRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The details about the forwarding rule.
+   */
   rules?: ListRulesResponseBodyRules[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4161,11 +7645,47 @@ export class ListRulesResponse extends $tea.Model {
 }
 
 export class ListSecurityPoliciesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.
+   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-atstuj3rtop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The security policy IDs. You can specify at most 20 security policies.
+   */
   securityPolicyIds?: string[];
+  /**
+   * @remarks
+   * The names of the security policies. You can specify up to 10 names.
+   */
   securityPolicyNames?: string[];
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: ListSecurityPoliciesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -4195,10 +7715,45 @@ export class ListSecurityPoliciesRequest extends $tea.Model {
 }
 
 export class ListSecurityPoliciesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The supported security policies.
+   */
   securityPolicies?: ListSecurityPoliciesResponseBodySecurityPolicies[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4251,6 +7806,12 @@ export class ListSecurityPoliciesResponse extends $tea.Model {
 }
 
 export class ListSecurityPolicyRelationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The security policy IDs. You can specify up to five IDs.
+   * 
+   * This parameter is required.
+   */
   securityPolicyIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4270,7 +7831,18 @@ export class ListSecurityPolicyRelationsRequest extends $tea.Model {
 }
 
 export class ListSecurityPolicyRelationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The security policies and the listeners that are associated with the security policies.
+   */
   secrityPolicyRelations?: ListSecurityPolicyRelationsResponseBodySecrityPolicyRelations[];
   static names(): { [key: string]: string } {
     return {
@@ -4317,10 +7889,42 @@ export class ListSecurityPolicyRelationsResponse extends $tea.Model {
 }
 
 export class ListServerGroupServersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: **1** to **100**. If you do not specify a value, the default value **20** is used.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.
+   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXG****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The server group ID.
+   * 
+   * @example
+   * rg-atstuj3rtop****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the servers.
+   */
   serverIds?: string[];
+  /**
+   * @remarks
+   * The tags that are added to the server group. You can specify up to 10 tags in each call.
+   */
   tag?: ListServerGroupServersRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -4348,10 +7952,45 @@ export class ListServerGroupServersRequest extends $tea.Model {
 }
 
 export class ListServerGroupServersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If **NextToken** is not empty, the value of NextToken can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * caeba0bbb2be03f8****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of backend servers.
+   */
   servers?: ListServerGroupServersResponseBodyServers[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 3
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4404,13 +8043,70 @@ export class ListServerGroupServersResponse extends $tea.Model {
 }
 
 export class ListServerGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.
+   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXG****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the server group belongs.
+   * 
+   * @example
+   * rg-atstuj3rtop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The server group IDs.
+   */
   serverGroupIds?: string[];
+  /**
+   * @remarks
+   * The names of the server groups to be queried. You can specify at most 10 server group names.
+   */
   serverGroupNames?: string[];
+  /**
+   * @remarks
+   * The server group type. Valid values:
+   * 
+   * *   **Instance**: instances, including ECS instances, ENIs, and elastic container instances.
+   * *   **Ip**: IP addresses.
+   * *   **Fc**: Function Compute
+   * 
+   * @example
+   * Instance
+   */
   serverGroupType?: string;
+  /**
+   * @remarks
+   * The tags that are added to the server group. You can specify up to 10 tags in each call.
+   * 
+   * @example
+   * Instance
+   */
   tag?: ListServerGroupsRequestTag[];
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-bp15zckdt37pq72zv****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4444,10 +8140,45 @@ export class ListServerGroupsRequest extends $tea.Model {
 }
 
 export class ListServerGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If **NextToken** is not empty, the value of NextToken can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * caeba0bbb2be03f8****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The server groups.
+   */
   serverGroups?: ListServerGroupsResponseBodyServerGroups[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4500,7 +8231,18 @@ export class ListServerGroupsResponse extends $tea.Model {
 }
 
 export class ListSystemSecurityPoliciesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The security policies.
+   */
   securityPolicies?: ListSystemSecurityPoliciesResponseBodySecurityPolicies[];
   static names(): { [key: string]: string } {
     return {
@@ -4547,10 +8289,59 @@ export class ListSystemSecurityPoliciesResponse extends $tea.Model {
 }
 
 export class ListTagKeysRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the tag.
+   * 
+   * Valid values: **Custom**, **System**, and **All**.
+   * 
+   * Default value: **All**.
+   * 
+   * @example
+   * System
+   */
   category?: string;
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * test
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.
+   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   **acl**: an access control list (ACL)
+   * *   **loadbalancer**: an Application Load Balancer (ALB) instance
+   * *   **securitypolicy**: a security policy
+   * *   **servergroup**: a server group
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * loadbalancer
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4578,10 +8369,45 @@ export class ListTagKeysRequest extends $tea.Model {
 }
 
 export class ListTagKeysResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The tag keys.
+   */
   tagKeys?: ListTagKeysResponseBodyTagKeys[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4634,10 +8460,55 @@ export class ListTagKeysResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.
+   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The resource IDs.
+   * 
+   * @example
+   * acl-123
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   **acl**: an access control list (ACL)
+   * *   **loadbalancer**: an Application Load Balancer (ALB) instance
+   * *   **securitypolicy**: a security policy
+   * *   **servergroup**: a server group
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * loadbalancer
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * test
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -4665,9 +8536,37 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The tags that match the specified keys and values.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {
     return {
@@ -4718,10 +8617,55 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ListTagValuesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.
+   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * eip-resource-test
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   **loadbalancer**: an Application Load Balancer (ALB) instance
+   * *   **acl**: an access control list (ACL)
+   * *   **securitypolicy**: a security policy
+   * *   **servergroup**: a server group
+   * 
+   * @example
+   * loadbalancer
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   tagKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4749,10 +8693,45 @@ export class ListTagValuesRequest extends $tea.Model {
 }
 
 export class ListTagValuesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The tag values.
+   */
   tagValues?: string[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4805,9 +8784,45 @@ export class ListTagValuesResponse extends $tea.Model {
 }
 
 export class LoadBalancerJoinSecurityGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alb-h7kcw4g4nnvtqp****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The security group IDs.
+   * 
+   * This parameter is required.
+   */
   securityGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4833,7 +8848,21 @@ export class LoadBalancerJoinSecurityGroupRequest extends $tea.Model {
 }
 
 export class LoadBalancerJoinSecurityGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * @example
+   * 8fe81f25-79a0-4fa0-9036-f2601fda****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D3B9AE45-F5DB-58E3-A4B5-EE58F1EC****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4880,9 +8909,41 @@ export class LoadBalancerJoinSecurityGroupResponse extends $tea.Model {
 }
 
 export class LoadBalancerLeaveSecurityGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The task result.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the ALB instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alb-iv9gj3lpak6fbj****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The security IDs.
+   * 
+   * This parameter is required.
+   */
   securityGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4908,7 +8969,21 @@ export class LoadBalancerLeaveSecurityGroupRequest extends $tea.Model {
 }
 
 export class LoadBalancerLeaveSecurityGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * @example
+   * 51c5b627-3500-487c-b17d-5cc583f0****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC0C96E4-7CCB-599C-9329-3A5DB6FF****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4955,8 +9030,42 @@ export class LoadBalancerLeaveSecurityGroupResponse extends $tea.Model {
 }
 
 export class MoveResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which you want to transfer the cloud resource.
+   * 
+   * >  You can use resource groups to manage resources within your Alibaba Cloud account by group. This helps you resolve issues such as resource grouping and permission management for your Alibaba Cloud account. For more information, see [What is resource management?](https://help.aliyun.com/document_detail/94475.html)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rg-9gLOoK****
+   */
   newResourceGroupId?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acl-hp34s2h0xx1ht4nwo****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   **loadbalancer**: Application Load Balancer (ALB) instance
+   * *   **acl**: access control list (ACL)
+   * *   **securitypolicy**: security policy
+   * *   **servergroup**: server group
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACL
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4980,6 +9089,13 @@ export class MoveResourceGroupRequest extends $tea.Model {
 }
 
 export class MoveResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5024,9 +9140,45 @@ export class MoveResourceGroupResponse extends $tea.Model {
 }
 
 export class RemoveEntriesFromAclRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ACL.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * nacl-hp34s2h0xx1ht4nwo****
+   */
   aclId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The entries that you want to remove. You can remove up to 20 entries in each call.
+   * 
+   * This parameter is required.
+   */
   entries?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -5052,7 +9204,21 @@ export class RemoveEntriesFromAclRequest extends $tea.Model {
 }
 
 export class RemoveEntriesFromAclResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5099,9 +9265,45 @@ export class RemoveEntriesFromAclResponse extends $tea.Model {
 }
 
 export class RemoveServersFromServerGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The server group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sgp-atstuj3rtop****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The server group. You can add at most 200 backend servers to the server group.
+   * 
+   * This parameter is required.
+   */
   servers?: RemoveServersFromServerGroupRequestServers[];
   static names(): { [key: string]: string } {
     return {
@@ -5127,7 +9329,21 @@ export class RemoveServersFromServerGroupRequest extends $tea.Model {
 }
 
 export class RemoveServersFromServerGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5174,10 +9390,54 @@ export class RemoveServersFromServerGroupResponse extends $tea.Model {
 }
 
 export class ReplaceServersInServerGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The backend servers. You can specify at most 200 servers in each call.
+   * 
+   * This parameter is required.
+   */
   addedServers?: ReplaceServersInServerGroupRequestAddedServers[];
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx` HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The backend servers that you want to remove.
+   * 
+   * This parameter is required.
+   */
   removedServers?: ReplaceServersInServerGroupRequestRemovedServers[];
+  /**
+   * @remarks
+   * The ID of the server group.
+   * 
+   * > You cannot perform this operation on a server group of the Function type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sgp-5114d593o96qxy****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5205,7 +9465,21 @@ export class ReplaceServersInServerGroupRequest extends $tea.Model {
 }
 
 export class ReplaceServersInServerGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5252,8 +9526,38 @@ export class ReplaceServersInServerGroupResponse extends $tea.Model {
 }
 
 export class StartListenerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the **DryRunOperation** error code is returned.
+   * *   **false**: (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the Application Load Balancer (ALB) listener.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5277,7 +9581,21 @@ export class StartListenerRequest extends $tea.Model {
 }
 
 export class StartListenerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5324,9 +9642,47 @@ export class StartListenerResponse extends $tea.Model {
 }
 
 export class StartShiftLoadBalancerZonesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alb-o9ulmq5hgn68jk****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The mappings between zones and vSwitches.
+   * 
+   * >  You can remove only one zone in each call.
+   * 
+   * This parameter is required.
+   */
   zoneMappings?: StartShiftLoadBalancerZonesRequestZoneMappings[];
   static names(): { [key: string]: string } {
     return {
@@ -5352,6 +9708,13 @@ export class StartShiftLoadBalancerZonesRequest extends $tea.Model {
 }
 
 export class StartShiftLoadBalancerZonesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5396,8 +9759,38 @@ export class StartShiftLoadBalancerZonesResponse extends $tea.Model {
 }
 
 export class StopListenerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the Application Load Balancer (ALB) listener.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5421,7 +9814,21 @@ export class StopListenerRequest extends $tea.Model {
 }
 
 export class StopListenerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5468,8 +9875,40 @@ export class StopListenerResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The resource IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acl-123
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   **acl**: an access control list (ACL)
+   * *   **loadbalancer**: an Application Load Balancer (ALB) instance
+   * *   **securitypolicy**: a security policy
+   * *   **servergroup**: a server group
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * loadbalancer
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -5493,6 +9932,13 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5537,10 +9983,54 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UnTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove all tags from the specified resource. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * The IDs of the resources from which you want to remove tags.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acl-123
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   **acl**: an access control list (ACL)
+   * *   **loadbalancer**: an Application Load Balancer (ALB) instance
+   * *   **securitypolicy**: a security policy
+   * *   **servergroup**: a server group
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * loadbalancer
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags that you want to remove.
+   * 
+   * @example
+   * test
+   */
   tag?: UnTagResourcesRequestTag[];
+  /**
+   * @remarks
+   * The keys of the tags that you want to remove.
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -5568,6 +10058,13 @@ export class UnTagResourcesRequest extends $tea.Model {
 }
 
 export class UnTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5612,8 +10109,33 @@ export class UnTagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateAScriptsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the AScript rule.
+   */
   AScripts?: UpdateAScriptsRequestAScripts[];
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * b1f642ac-5558-4a36-b7d9-cf53f40ea5c8
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5637,7 +10159,21 @@ export class UpdateAScriptsRequest extends $tea.Model {
 }
 
 export class UpdateAScriptsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 2e82b5f4-1ba9-4d20-89c8-1082ebaa****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * ACA19FE1-C09E-53C7-8FDA-560F49D71891
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5684,9 +10220,46 @@ export class UpdateAScriptsResponse extends $tea.Model {
 }
 
 export class UpdateAclAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ACL ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * nacl-hp34s2h0xx1ht4nwo****
+   */
   aclId?: string;
+  /**
+   * @remarks
+   * The ACL name. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-acl
+   */
   aclName?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx` HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5712,6 +10285,13 @@ export class UpdateAclAttributeRequest extends $tea.Model {
 }
 
 export class UpdateAclAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5756,20 +10336,174 @@ export class UpdateAclAttributeResponse extends $tea.Model {
 }
 
 export class UpdateHealthCheckTemplateAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a **2xx** HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The HTTP status codes that indicate a healthy backend server.
+   * 
+   * @example
+   * 5
+   */
   healthCheckCodes?: string[];
+  /**
+   * @remarks
+   * The port that is used for health checks. Valid values: **0 to 65535**. Default value: **0**. This value indicates that the port of a backend server is used for health checks.
+   * 
+   * @example
+   * 80
+   */
   healthCheckConnectPort?: number;
+  /**
+   * @remarks
+   * The domain name that is used for health checks. Valid values:
+   * 
+   * *   **$SERVER_IP** (default): the private IP address of a backend server. If an IP address is specified, or this parameter is not specified, the ALB instance uses the private IP addresses of backend servers as domain names for health checks.
+   * *   **domain**: The domain name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+   * 
+   * >  This parameter is available only if `HealthCheckProtocol` is set to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * $_ip
+   */
   healthCheckHost?: string;
+  /**
+   * @remarks
+   * The HTTP version that is used for health checks.
+   * 
+   * Valid values: **HTTP1.0** and **HTTP1.1**.
+   * 
+   * Default value: **HTTP1.1**.
+   * 
+   * >  This parameter is available only if you set `HealthCheckProtocol` to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * HTTP1.0
+   */
   healthCheckHttpVersion?: string;
+  /**
+   * @remarks
+   * The interval at which health checks are performed. Unit: seconds. Valid values: **1 to 50**. Default value: **2**.
+   * 
+   * @example
+   * 5
+   */
   healthCheckInterval?: number;
+  /**
+   * @remarks
+   * The HTTP method that is used for health checks. Valid values:
+   * 
+   * *   **HEAD** (default): By default, HTTP and HTTPS health checks use the HEAD method.
+   * *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
+   * *   **POST**: gRPC health checks use the POST method by default.
+   * 
+   * >  This parameter is available only if you set **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**.
+   * 
+   * @example
+   * HEAD
+   */
   healthCheckMethod?: string;
+  /**
+   * @remarks
+   * The URL that is used for health checks.
+   * 
+   * The URL must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), percent signs (%), question marks (?), number signs (#), ampersands (&), and the following extended character sets: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`.
+   * 
+   * The URL must start with a forward slash (/).
+   * 
+   * >  This parameter is available only if you set **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**.
+   * 
+   * @example
+   * /test/index.html
+   */
   healthCheckPath?: string;
+  /**
+   * @remarks
+   * The protocol that is used for health checks. Valid values:
+   * 
+   * *   **HTTP** (default): HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
+   * *   **HTTPS**: The ALB instance sends HEAD or GET requests, which simulate browser requests, to check whether the backend server is healthy. HTTPS supports encryption and provides higher security than HTTP.
+   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
+   * *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
+   * 
+   * @example
+   * HTTP
+   */
   healthCheckProtocol?: string;
+  /**
+   * @remarks
+   * The template ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * hct-bp1qjwo61pqz3ahltv0mw
+   */
   healthCheckTemplateId?: string;
+  /**
+   * @remarks
+   * The name of the health check template.
+   * 
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * @example
+   * HealthCheckTemplate1
+   */
   healthCheckTemplateName?: string;
+  /**
+   * @remarks
+   * The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the backend server is declared unhealthy.
+   * 
+   * Unit: seconds. Valid values: **1 to 300**. Default value: **5**.
+   * 
+   * @example
+   * 3
+   */
   healthCheckTimeout?: number;
+  /**
+   * @remarks
+   * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+   * 
+   * Valid values: **2 to 10**.
+   * 
+   * Default value: **3**.
+   * 
+   * @example
+   * 4
+   */
   healthyThreshold?: number;
+  /**
+   * @remarks
+   * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+   * 
+   * Valid values: **2 to 10**.
+   * 
+   * Default value: **3**.
+   * 
+   * @example
+   * 4
+   */
   unhealthyThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5817,6 +10551,13 @@ export class UpdateHealthCheckTemplateAttributeRequest extends $tea.Model {
 }
 
 export class UpdateHealthCheckTemplateAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5861,20 +10602,140 @@ export class UpdateHealthCheckTemplateAttributeResponse extends $tea.Model {
 }
 
 export class UpdateListenerAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The CA certificate. You can specify only one CA certificate.
+   */
   caCertificates?: UpdateListenerAttributeRequestCaCertificates[];
+  /**
+   * @remarks
+   * Specifies whether to enable mutual authentication. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   caEnabled?: boolean;
+  /**
+   * @remarks
+   * The certificates. You can add at most 20 certificates.
+   * 
+   * >  Only server certificates are supported.
+   */
   certificates?: UpdateListenerAttributeRequestCertificates[];
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The actions of the default forwarding rule.
+   */
   defaultActions?: UpdateListenerAttributeRequestDefaultActions[];
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable GZIP compression for specific types of files. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   gzipEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable HTTP/2. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > This parameter is available only when you create an HTTPS listener.
+   * 
+   * @example
+   * true
+   */
   http2Enabled?: boolean;
+  /**
+   * @remarks
+   * The timeout period of an idle connection. Unit: seconds. Valid values: **1 to 60**.
+   * 
+   * If no request is received within the specified timeout period, ALB closes the current connection. When another request is received, ALB establishes a new connection.
+   * 
+   * @example
+   * 15
+   */
   idleTimeout?: number;
+  /**
+   * @remarks
+   * The name of the listener.
+   * 
+   * The name must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * HTTP_80
+   */
   listenerDescription?: string;
+  /**
+   * @remarks
+   * The ID of the Application Load Balancer (ALB) instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
+  /**
+   * @remarks
+   * The configuration information when the listener is associated with a QUIC listener.
+   */
   quicConfig?: UpdateListenerAttributeRequestQuicConfig;
+  /**
+   * @remarks
+   * The timeout period of a request. Unit: seconds. Valid values: **1 to 180**.
+   * 
+   * If no response is received from the backend server within the specified timeout period, ALB returns an `HTTP 504` error code to the client.
+   * 
+   * @example
+   * 3
+   */
   requestTimeout?: number;
+  /**
+   * @remarks
+   * The security policy ID. System security policies and custom security policies are supported.
+   * 
+   * > This parameter is available only when you create an HTTPS listener.
+   * 
+   * @example
+   * tls_cipher_policy_1_0
+   */
   securityPolicyId?: string;
+  /**
+   * @remarks
+   * The configurations of the X-Forwarded-For header.
+   */
   XForwardedForConfig?: UpdateListenerAttributeRequestXForwardedForConfig;
   static names(): { [key: string]: string } {
     return {
@@ -5922,7 +10783,21 @@ export class UpdateListenerAttributeRequest extends $tea.Model {
 }
 
 export class UpdateListenerAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5969,10 +10844,56 @@ export class UpdateListenerAttributeResponse extends $tea.Model {
 }
 
 export class UpdateListenerLogConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to record custom headers in the access log. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * > You can set this parameter to **true** only if the access log feature is enabled by specifying **AccessLogEnabled**.
+   * 
+   * @example
+   * true
+   */
   accessLogRecordCustomizedHeadersEnabled?: boolean;
+  /**
+   * @remarks
+   * The configuration information about the Xtrace feature.
+   */
   accessLogTracingConfig?: UpdateListenerLogConfigRequestAccessLogTracingConfig;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**: (default): performs a dry run and performs the actual request. If the request passes the dry run, a **2xx HTTP** status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the Application Load Balancer (ALB) listener.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6000,7 +10921,21 @@ export class UpdateListenerLogConfigRequest extends $tea.Model {
 }
 
 export class UpdateListenerLogConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6047,10 +10982,56 @@ export class UpdateListenerLogConfigResponse extends $tea.Model {
 }
 
 export class UpdateLoadBalancerAddressTypeConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new network type. Valid values:
+   * 
+   * *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
+   * *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the virtual private cloud (VPC) where the ALB instance is deployed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Internet
+   */
   addressType?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: string;
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lb-bp1o94dp5i6ea****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The zones and the vSwitches in the zones. You can specify a maximum of 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service.
+   */
   zoneMappings?: UpdateLoadBalancerAddressTypeConfigRequestZoneMappings[];
   static names(): { [key: string]: string } {
     return {
@@ -6078,7 +11059,21 @@ export class UpdateLoadBalancerAddressTypeConfigRequest extends $tea.Model {
 }
 
 export class UpdateLoadBalancerAddressTypeConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous job.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6125,10 +11120,51 @@ export class UpdateLoadBalancerAddressTypeConfigResponse extends $tea.Model {
 }
 
 export class UpdateLoadBalancerAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**: performs a dry run and sends the request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed. This is the default value.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the ALB instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alb-o9ulmq5hgn68jk****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The name of the ALB instance. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * @example
+   * lb-instance-test
+   */
   loadBalancerName?: string;
+  /**
+   * @remarks
+   * The configuration read-only mode.
+   */
   modificationProtectionConfig?: UpdateLoadBalancerAttributeRequestModificationProtectionConfig;
   static names(): { [key: string]: string } {
     return {
@@ -6156,7 +11192,21 @@ export class UpdateLoadBalancerAttributeRequest extends $tea.Model {
 }
 
 export class UpdateLoadBalancerAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the synchronous task.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6203,9 +11253,52 @@ export class UpdateLoadBalancerAttributeResponse extends $tea.Model {
 }
 
 export class UpdateLoadBalancerEditionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The edition of the ALB instance. Different editions have different limits and support different billing methods.
+   * 
+   * *   **Basic**: basic
+   * *   **Standard**: standard
+   * *   **StandardWithWaf**: WAF-enabled
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Standard
+   */
   loadBalancerEdition?: string;
+  /**
+   * @remarks
+   * The ID of the ALB instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lb-bp1b6c719dfa08ex****
+   */
   loadBalancerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6231,6 +11324,13 @@ export class UpdateLoadBalancerEditionRequest extends $tea.Model {
 }
 
 export class UpdateLoadBalancerEditionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6275,9 +11375,45 @@ export class UpdateLoadBalancerEditionResponse extends $tea.Model {
 }
 
 export class UpdateLoadBalancerZonesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the ALB instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lb-bp1b6c719dfa08ex****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The zones and the vSwitches in the zones. You can specify a maximum of 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service. The specified zones and vSwitches overwrite the existing configurations.
+   * 
+   * This parameter is required.
+   */
   zoneMappings?: UpdateLoadBalancerZonesRequestZoneMappings[];
   static names(): { [key: string]: string } {
     return {
@@ -6303,7 +11439,21 @@ export class UpdateLoadBalancerZonesRequest extends $tea.Model {
 }
 
 export class UpdateLoadBalancerZonesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6350,12 +11500,66 @@ export class UpdateLoadBalancerZonesResponse extends $tea.Model {
 }
 
 export class UpdateRuleAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The priority of the forwarding rule. Valid values: **1 to 10000**. A lower value specifies a higher priority.
+   * 
+   * > The priorities of the forwarding rules created for the same listener must be unique.
+   * 
+   * @example
+   * 10
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The actions of the forwarding rule.
+   */
   ruleActions?: UpdateRuleAttributeRequestRuleActions[];
+  /**
+   * @remarks
+   * The match condition of the forwarding rule.
+   */
   ruleConditions?: UpdateRuleAttributeRequestRuleConditions[];
+  /**
+   * @remarks
+   * The ID of the forwarding rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rule-4dp5i6ea****
+   */
   ruleId?: string;
+  /**
+   * @remarks
+   * The name of the forwarding rule. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * @example
+   * rule-instance-test
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6387,7 +11591,21 @@ export class UpdateRuleAttributeRequest extends $tea.Model {
 }
 
 export class UpdateRuleAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F5378-41F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6434,8 +11652,35 @@ export class UpdateRuleAttributeResponse extends $tea.Model {
 }
 
 export class UpdateRulesAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The forwarding rules. You can specify at most 10 forwarding rules in each call.
+   * 
+   * This parameter is required.
+   */
   rules?: UpdateRulesAttributeRequestRules[];
   static names(): { [key: string]: string } {
     return {
@@ -6459,7 +11704,21 @@ export class UpdateRulesAttributeRequest extends $tea.Model {
 }
 
 export class UpdateRulesAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6506,11 +11765,58 @@ export class UpdateRulesAttributeResponse extends $tea.Model {
 }
 
 export class UpdateSecurityPolicyAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The supported cipher suites.
+   */
   ciphers?: string[];
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The security policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * spy-n0kn923****
+   */
   securityPolicyId?: string;
+  /**
+   * @remarks
+   * The name of the security policy.
+   * 
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * @example
+   * test-secrity
+   */
   securityPolicyName?: string;
+  /**
+   * @remarks
+   * The supported TLS protocol versions.
+   */
   TLSVersions?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6540,7 +11846,21 @@ export class UpdateSecurityPolicyAttributeRequest extends $tea.Model {
 }
 
 export class UpdateSecurityPolicyAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6587,17 +11907,112 @@ export class UpdateSecurityPolicyAttributeResponse extends $tea.Model {
 }
 
 export class UpdateServerGroupAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The configurations of connection draining.
+   * 
+   * After connection draining is enabled, SLB remains data transmission for a period of time after a backend server is removed or declared unhealthy.
+   * 
+   * > 
+   * 
+   * *   Basic SLB instances do not support connection draining. Standard and WAF-enabled SLB instances support connection draining.
+   * 
+   * *   Server groups of the server and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
+   */
   connectionDrainConfig?: UpdateServerGroupAttributeRequestConnectionDrainConfig;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: checks the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx` HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The configuration of health checks.
+   */
   healthCheckConfig?: UpdateServerGroupAttributeRequestHealthCheckConfig;
+  /**
+   * @remarks
+   * The scheduling algorithm. Valid values:
+   * 
+   * *   **Wrr**: the weighted round robin algorithm. Backend servers that have higher weights receive more requests than those that have lower weights.
+   * *   **Wlc**: the weighted least connections algorithm. Requests are distributed based on the weights and the number of connections to backend servers. If two backend servers have the same weight, the backend server that has fewer connections is expected to receive more requests.
+   * *   **Sch**: the consistent hashing algorithm. Requests from the same source IP address are distributed to the same backend server.
+   * 
+   * @example
+   * Wrr
+   */
   scheduler?: string;
+  /**
+   * @remarks
+   * The server group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sgp-atstuj3rtop****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The server group name.
+   * 
+   * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * @example
+   * test
+   */
   serverGroupName?: string;
+  /**
+   * @remarks
+   * This parameter is available only if the ALB Ingress controller is used. In this case, set this parameter to the name of the `Kubernetes Service` that is associated with the server group.
+   * 
+   * @example
+   * test2
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The configurations of slow starts.
+   * 
+   * After slow starts are enabled, ALB prefetches data to newly added backend servers. Requests distributed to the backend servers gradually increase.
+   * 
+   * > *   Basic ALB instances do not support slow starts. Standard and WAF-enabled ALB instances support slow starts.
+   * >*   Server groups of the instance and IP types support slow starts. Server groups of the Function Compute type do not support slow starts.
+   * >*   Slow start is supported only by the weighted round-robin scheduling algorithm.
+   */
   slowStartConfig?: UpdateServerGroupAttributeRequestSlowStartConfig;
+  /**
+   * @remarks
+   * The configuration of session persistence.
+   */
   stickySessionConfig?: UpdateServerGroupAttributeRequestStickySessionConfig;
+  /**
+   * @remarks
+   * The configurations of consistent hashing based on URLs.
+   */
   uchConfig?: UpdateServerGroupAttributeRequestUchConfig;
+  /**
+   * @remarks
+   * Specifies whether to enable persistent TCP connections.
+   */
   upstreamKeepaliveEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6639,7 +12054,21 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
 }
 
 export class UpdateServerGroupAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous job.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6686,9 +12115,45 @@ export class UpdateServerGroupAttributeResponse extends $tea.Model {
 }
 
 export class UpdateServerGroupServersAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The server group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sgp-atstuj3rtop****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The server groups. You can specify at most 40 server groups in each call.
+   * 
+   * This parameter is required.
+   */
   servers?: UpdateServerGroupServersAttributeRequestServers[];
   static names(): { [key: string]: string } {
     return {
@@ -6714,7 +12179,21 @@ export class UpdateServerGroupServersAttributeRequest extends $tea.Model {
 }
 
 export class UpdateServerGroupServersAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous job.
+   * 
+   * @example
+   * 72dcd26b-f12d-4c27-b3af-18f6aed5****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6761,7 +12240,25 @@ export class UpdateServerGroupServersAttributeResponse extends $tea.Model {
 }
 
 export class AddEntriesToAclRequestAclEntries extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the ACL entry. The description must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
+   * 
+   * You can add at most 20 entries in each call.
+   * 
+   * @example
+   * test-entry
+   */
   description?: string;
+  /**
+   * @remarks
+   * The CIDR block in the ACL entry.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10.0.1.0/24
+   */
   entry?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6783,12 +12280,86 @@ export class AddEntriesToAclRequestAclEntries extends $tea.Model {
 }
 
 export class AddServersToServerGroupRequestServers extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the backend server. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The port that is used by the backend server. Valid values: **1** to **65535**. You can specify at most 200 servers in each call.
+   * 
+   * >  This parameter is required if you set **ServerType** to **Ecs**, **Eni**, **Eci**, or **Ip**. You do not need to set this parameter if **ServerType** is set to **Fc**.
+   * 
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the remote IP feature. You can specify at most 200 servers in each call. Default values:
+   * 
+   * *   **true**: enables the feature.
+   * *   **false**: disables the feature.
+   * 
+   * >  This parameter takes effect only when **ServerType** is set to **Ip**.
+   * 
+   * @example
+   * false
+   */
   remoteIpEnabled?: boolean;
+  /**
+   * @remarks
+   * The ID of the server group. You can specify at most 200 servers in each call.
+   * 
+   * *   If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
+   * *   If the server group is of the **Ip** type, set this parameter to IP addresses.
+   * *   If the server group is of the **Fc** type, set ServerId to an Alibaba Cloud Resource Name (ARN).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ecs-bp67acfmxazb4p****
+   */
   serverId?: string;
+  /**
+   * @remarks
+   * The IP address of the backend server. You can specify at most 200 servers in each call.
+   * 
+   * >  You do not need to set this parameter if you set **ServerType** to **Fc**.
+   * 
+   * @example
+   * 192.168.1.1
+   */
   serverIp?: string;
+  /**
+   * @remarks
+   * The type of the backend server. You can specify at most 200 servers in each call. Default values:
+   * 
+   * *   **Ecs**: Elastic Compute Service (ECS) instance
+   * *   **Eni**: elastic network interface (ENI)
+   * *   **Eci**: elastic container instance
+   * *   **Ip**: IP address
+   * *   **Fc**: Function Compute
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Ecs
+   */
   serverType?: string;
+  /**
+   * @remarks
+   * The weight of the backend server. Valid values: **0** to **100**. Default value: **100**. If the value is set to **0**, no requests are forwarded to the server. You can specify at most 200 servers in each call.
+   * 
+   * >  You do not need to set this parameter if you set **ServerType** to **Fc**.
+   * 
+   * @example
+   * 100
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6820,6 +12391,15 @@ export class AddServersToServerGroupRequestServers extends $tea.Model {
 }
 
 export class AssociateAdditionalCertificatesWithListenerRequestCertificates extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the certificate. Only server certificates are supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cert-123
+   */
   certificateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6839,7 +12419,25 @@ export class AssociateAdditionalCertificatesWithListenerRequestCertificates exte
 }
 
 export class CancelShiftLoadBalancerZonesRequestZoneMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the vSwitch in the zone. By default, each zone uses one vSwitch and one subnet.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp1rmcrwg3erh1fh8****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The zone ID. You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the most recent zone list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-a
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6861,7 +12459,23 @@ export class CancelShiftLoadBalancerZonesRequestZoneMappings extends $tea.Model 
 }
 
 export class CreateAScriptsRequestAScriptsExtAttributes extends $tea.Model {
+  /**
+   * @remarks
+   * The attribute name.
+   * 
+   * Set the value to **EsDebug**, which specifies that if requests carry the _es_dbg parameter and the value is the specified key, the debugging header is enabled to output the execution result.
+   * 
+   * @example
+   * EsDebug
+   */
   attributeKey?: string;
+  /**
+   * @remarks
+   * The attribute value, which must be 1 to 128 characters in length, and can contain letters or digits.
+   * 
+   * @example
+   * test123
+   */
   attributeValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6883,10 +12497,54 @@ export class CreateAScriptsRequestAScriptsExtAttributes extends $tea.Model {
 }
 
 export class CreateAScriptsRequestAScripts extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the AScript rule.
+   * 
+   * The name must be 2 to 128 character in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   AScriptName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the AScript rule. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * false
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable the extended attributes of the AScript rule. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * @example
+   * true
+   */
   extAttributeEnabled?: boolean;
+  /**
+   * @remarks
+   * The extended attributes.
+   */
   extAttributes?: CreateAScriptsRequestAScriptsExtAttributes[];
+  /**
+   * @remarks
+   * The content of the AScript rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * if and(match_re($uri, \\"^/1.txt$\\"), $arg_type) {   rewrite(concat(\\"/1.\\", $arg_type), \\"break\\") }
+   */
   scriptContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6914,6 +12572,13 @@ export class CreateAScriptsRequestAScripts extends $tea.Model {
 }
 
 export class CreateAScriptsResponseBodyAScriptIds extends $tea.Model {
+  /**
+   * @remarks
+   * The AScript rule ID.
+   * 
+   * @example
+   * as-xvq5igaa7uv6vr****
+   */
   AScriptId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6933,7 +12598,21 @@ export class CreateAScriptsResponseBodyAScriptIds extends $tea.Model {
 }
 
 export class CreateAclRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6955,7 +12634,21 @@ export class CreateAclRequestTag extends $tea.Model {
 }
 
 export class CreateHealthCheckTemplateRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6977,6 +12670,15 @@ export class CreateHealthCheckTemplateRequestTag extends $tea.Model {
 }
 
 export class CreateListenerRequestCaCertificates extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the CA certificate.
+   * 
+   * >  This parameter is required if you set **CaEnabled** to **true**.
+   * 
+   * @example
+   * 12315790212_166f8204689_1714763408_70998****
+   */
   certificateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6996,6 +12698,15 @@ export class CreateListenerRequestCaCertificates extends $tea.Model {
 }
 
 export class CreateListenerRequestCertificates extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the certificate. Only server certificates are supported. You can specify at most 20 certificates IDs.
+   * 
+   * >  This parameter is required when you set **ListenerProtocol** to **HTTPS** or **QUIC**.
+   * 
+   * @example
+   * 12315790212_166f8204689_1714763408_70998****
+   */
   certificateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7015,6 +12726,15 @@ export class CreateListenerRequestCertificates extends $tea.Model {
 }
 
 export class CreateListenerRequestDefaultActionsForwardGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the server group to which requests are forwarded.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rsp-cige6j****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7034,6 +12754,12 @@ export class CreateListenerRequestDefaultActionsForwardGroupConfigServerGroupTup
 }
 
 export class CreateListenerRequestDefaultActionsForwardGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The destination server group to which requests are forwarded.
+   * 
+   * This parameter is required.
+   */
   serverGroupTuples?: CreateListenerRequestDefaultActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -7053,7 +12779,24 @@ export class CreateListenerRequestDefaultActionsForwardGroupConfig extends $tea.
 }
 
 export class CreateListenerRequestDefaultActions extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the forwarding action. You can specify at most 20 actions.
+   * 
+   * This parameter is required.
+   */
   forwardGroupConfig?: CreateListenerRequestDefaultActionsForwardGroupConfig;
+  /**
+   * @remarks
+   * The action. You can specify only one type. Valid value example:
+   * 
+   * **ForwardGroup**: forwards requests to multiple server groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ForwardGroup
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7075,7 +12818,28 @@ export class CreateListenerRequestDefaultActions extends $tea.Model {
 }
 
 export class CreateListenerRequestQuicConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the QUIC listener that you want to associate with the ALB instance. This parameter is required if you set **QuicUpgradeEnabled** to **true**.
+   * 
+   * >  The original listener and the QUIC listener must belong to the same ALB instance.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   quicListenerId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable QUIC upgrade. Valid values:
+   * 
+   * *   **true**:
+   * *   **false** (default)
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   quicUpgradeEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7097,7 +12861,21 @@ export class CreateListenerRequestQuicConfig extends $tea.Model {
 }
 
 export class CreateListenerRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7119,20 +12897,193 @@ export class CreateListenerRequestTag extends $tea.Model {
 }
 
 export class CreateListenerRequestXForwardedForConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the custom header. This parameter takes effect only when you set **XForwardedForClientCertClientVerifyEnabled** to **true**.
+   * 
+   * The name must be 1 to 40 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * > Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * test_client-verify-alias_123456
+   */
   XForwardedForClientCertClientVerifyAlias?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Clientcert-clientverify` header to retrieve the verification result of the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientCertClientVerifyEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertFingerprintEnabled** is set to **true**.
+   * 
+   * The name must be 1 to 40 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * test_finger-print-alias_123456
+   */
   XForwardedForClientCertFingerprintAlias?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Clientcert-fingerprint` header to retrieve the fingerprint of the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientCertFingerprintEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertIssuerDNEnabled** is set to **true**.
+   * 
+   * The name must be 1 to 40 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * test_issue-dn-alias_123456
+   */
   XForwardedForClientCertIssuerDNAlias?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Clientcert-issuerdn` header to retrieve information about the authority that issues the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientCertIssuerDNEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertSubjectDNEnabled** is set to **true**.
+   * 
+   * The name must be 1 to 40 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * test_subject-dn-alias_123456
+   */
   XForwardedForClientCertSubjectDNAlias?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Clientcert-subjectdn` header to retrieve information about the owner of the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientCertSubjectDNEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to allow the ALB instance to retrieve client IP addresses from the X-Forwarded-For header. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  HTTP and HTTPS listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForClientSourceIpsEnabled?: boolean;
+  /**
+   * @remarks
+   * The trusted proxy IP address.
+   * 
+   * ALB instances traverse the IP addresses in the `X-Forwarded-For` header from the rightmost IP address to the leftmost IP address. The first IP address that is not on the trusted IP address list is considered the client IP address. Requests from the client IP address are throttled.
+   * 
+   * @example
+   * 10.1.1.0/24
+   */
   XForwardedForClientSourceIpsTrusted?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Client-srcport` header to retrieve the client port. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  HTTP and HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientSrcPortEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-For` header to retrieve client IP addresses. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false**
+   * 
+   * >  HTTP and HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   XForwardedForEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Proto` header to retrieve the listener protocol. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  HTTP, HTTPS, and QUIC listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForProtoEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the `SLB-ID` header to retrieve the ID of the ALB instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  HTTP, HTTPS, and QUIC listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForSLBIdEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Port` header to retrieve the listener port of the ALB instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  HTTP, HTTPS, and QUIC listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForSLBPortEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7180,7 +13131,25 @@ export class CreateListenerRequestXForwardedForConfig extends $tea.Model {
 }
 
 export class CreateLoadBalancerRequestLoadBalancerBillingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Internet Shared Bandwidth instance that is associated with the Internet-facing ALB instance.
+   * 
+   * @example
+   * cbwp-bp1vevu8h3ieh****
+   */
   bandwidthPackageId?: string;
+  /**
+   * @remarks
+   * The billing method of the ALB instance.
+   * 
+   * Set the value to **PostPay**, which specifies the pay-as-you-go billing method.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PostPay
+   */
   payType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7202,7 +13171,28 @@ export class CreateLoadBalancerRequestLoadBalancerBillingConfig extends $tea.Mod
 }
 
 export class CreateLoadBalancerRequestModificationProtectionConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The reason for enabling the configuration read-only mode. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
+   * 
+   * > This parameter takes effect only if `Status` is set to **ConsoleProtection**.
+   * 
+   * @example
+   * test
+   */
   reason?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the configuration read-only mode. Valid values:
+   * 
+   * *   **NonProtection**: disables the configuration read-only mode. In this case, you cannot specify ModificationProtectionReason. If you specify ModificationProtectionReason, the value of the parameter is cleared.
+   * *   **ConsoleProtection**: enables the configuration read-only mode. In this case, you can specify ModificationProtectionReason.
+   * 
+   * > If you set this parameter to **ConsoleProtection**, you cannot use the ALB console to modify instance configurations. However, you can call API operations to modify instance configurations.
+   * 
+   * @example
+   * ConsoleProtection
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7224,7 +13214,21 @@ export class CreateLoadBalancerRequestModificationProtectionConfig extends $tea.
 }
 
 export class CreateLoadBalancerRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7246,13 +13250,59 @@ export class CreateLoadBalancerRequestTag extends $tea.Model {
 }
 
 export class CreateLoadBalancerRequestZoneMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the EIP to be associated with the Internet-facing ALB instance.
+   * 
+   * @example
+   * eip-bp1aedxso6u80u0qf****
+   */
   allocationId?: string;
+  /**
+   * @remarks
+   * The type of EIP. Valid values:
+   * 
+   * *   **Common**: an EIP.
+   * *   **Anycast**: an Anycast EIP.
+   * 
+   * >  For more information about the regions in which ALB supports Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/460727.html).
+   * 
+   * @example
+   * Common
+   */
+  eipType?: string;
+  /**
+   * @remarks
+   * The private IPv4 address.
+   * 
+   * @example
+   * 192.168.10.1
+   */
   intranetAddress?: string;
+  /**
+   * @remarks
+   * The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone. You can specify at most 10 zones. If the region supports two or more zones, specify at least two zones.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-sersdf****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The zone ID of the cluster. You can specify at most 10 zones. If the region supports two or more zones, specify at least two zones. You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the most recent zone list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-a
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       allocationId: 'AllocationId',
+      eipType: 'EipType',
       intranetAddress: 'IntranetAddress',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
@@ -7262,6 +13312,7 @@ export class CreateLoadBalancerRequestZoneMappings extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       allocationId: 'string',
+      eipType: 'string',
       intranetAddress: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
@@ -7274,11 +13325,49 @@ export class CreateLoadBalancerRequestZoneMappings extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleActionsCorsConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to allow credentials to be carried in CORS requests. Valid values:
+   * 
+   * *   **on**: allows credentials to be carried in CORS requests.
+   * *   **off**: does not allow credentials to be carried in CORS requests.
+   * 
+   * @example
+   * on
+   */
   allowCredentials?: string;
+  /**
+   * @remarks
+   * The trusted headers of CORS requests.
+   */
   allowHeaders?: string[];
+  /**
+   * @remarks
+   * The trusted HTTP methods of CORS requests.
+   */
   allowMethods?: string[];
+  /**
+   * @remarks
+   * The trusted origins of CORS requests. You can specify one or more values, or only the wildcard character (`*`).
+   * 
+   * *   Each value must start with `http://` or `https://`, which must be followed by a valid domain name, including top-level domain names. Example: `http://*.test.abc.example.com`.
+   * *   You can specify a port in each value or leave the port empty. Valid values: **1** to **65535**.
+   */
   allowOrigin?: string[];
+  /**
+   * @remarks
+   * The headers that can be exposed.
+   */
   exposeHeaders?: string[];
+  /**
+   * @remarks
+   * The maximum cache time of dry run requests in the browser. Unit: seconds.
+   * 
+   * Valid values: **-1** to **172800**.
+   * 
+   * @example
+   * 1000
+   */
   maxAge?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7308,8 +13397,31 @@ export class CreateRuleRequestRuleActionsCorsConfig extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleActionsFixedResponseConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the custom response. The content cannot exceed 1 KB in size, and can contain only ASCII characters.
+   * 
+   * @example
+   * dssacav
+   */
   content?: string;
+  /**
+   * @remarks
+   * The format of the response.
+   * 
+   * Valid values: **text/plain**, **text/css**, **text/html**, **application/javascript**, and **application/json**.
+   * 
+   * @example
+   * text/plain
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * The HTTP status code in responses. Valid values: **2xx**, **4xx**, **5xx**. The value must be a numeric string. **x** must be a digit.
+   * 
+   * @example
+   * HTTP_200
+   */
   httpCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7333,7 +13445,24 @@ export class CreateRuleRequestRuleActionsFixedResponseConfig extends $tea.Model 
 }
 
 export class CreateRuleRequestRuleActionsForwardGroupConfigServerGroupStickySession extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable session persistence. Valid values:
+   * 
+   * *   **true**: enables session persistence.
+   * *   **false** (default): disables session persistence.
+   * 
+   * @example
+   * false
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The timeout period of sessions. Unit: seconds Valid values: **1** to **86400**. Default value: **1000**.
+   * 
+   * @example
+   * 100
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7355,7 +13484,24 @@ export class CreateRuleRequestRuleActionsForwardGroupConfigServerGroupStickySess
 }
 
 export class CreateRuleRequestRuleActionsForwardGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The server group to which requests are forwarded.
+   * 
+   * @example
+   * sgp-k86c1ov501id6p****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The weight of the server group. A larger value specifies a higher weight. A server group with a higher weight receives more requests. Valid values: **0** to **100**.
+   * 
+   * *   If the number of destination server groups is 1, the default weight of the server group is **100**, unless you specify a weight.
+   * *   If the number of destination server groups is larger than 1, you must specify a weight.
+   * 
+   * @example
+   * 100
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7377,7 +13523,15 @@ export class CreateRuleRequestRuleActionsForwardGroupConfigServerGroupTuples ext
 }
 
 export class CreateRuleRequestRuleActionsForwardGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of session persistence for the server groups.
+   */
   serverGroupStickySession?: CreateRuleRequestRuleActionsForwardGroupConfigServerGroupStickySession;
+  /**
+   * @remarks
+   * The server groups to which requests are forwarded. You can specify at most five server groups for each forwarding rule.
+   */
   serverGroupTuples?: CreateRuleRequestRuleActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -7399,8 +13553,47 @@ export class CreateRuleRequestRuleActionsForwardGroupConfig extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleActionsInsertHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the header. The header key must be 1 to 40 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The header keys specified by **InsertHeaderConfig** must be unique.
+   * 
+   * >  You cannot specify the following header keys: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, and `authority`. The header keys are not case-sensitive.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the header to be inserted.
+   * 
+   * *   If **ValueType** is set to **SystemDefined**, you can set the Value parameter to one of the following values:
+   * 
+   *     *   **ClientSrcPort**: the client port.
+   *     *   **ClientSrcIp**: the IP address of the client.
+   *     *   **Protocol**: the request protocol (HTTP or HTTPS).
+   *     *   **SLBId**: the ID of the ALB instance.
+   *     *   **SLBPort**: the listener port.
+   * 
+   * *   If **ValueType** is set to **UserDefined**, you can specify a custom header value. The header value must be 1 to 128 characters in length, and can contain wildcard characters, such as asterisks (\\*) and question marks (?), and printable characters whose ASCII values are `larger than or equal to 32 and smaller than 127`. The header value cannot start or end with a space character.
+   * 
+   * *   If **ValueType** is set to **ReferenceHeader**, you can reference a value from request headers. The value must be 1 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * @example
+   * UserDefined
+   */
   value?: string;
+  /**
+   * @remarks
+   * The type of header. Valid values:
+   * 
+   * *   **UserDefined**: a custom header value.
+   * *   **ReferenceHeader**: a header value that is referenced from one of the request headers.
+   * *   **SystemDefined**: a header predefined by the system.
+   * 
+   * @example
+   * UserDefined
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7424,11 +13617,90 @@ export class CreateRuleRequestRuleActionsInsertHeaderConfig extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleActionsRedirectConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostname to which requests are forwarded. Valid values:
+   * 
+   * *   **${host}** (default): If you set the value to ${host}, you cannot append other characters.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, and the following characters: - . \\* = ~ _ + \\ ^ ! $ & | ( ) [ ] ?.
+   *     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
+   *     *   The rightmost domain label can contain only letters and wildcard characters, and cannot contain digits or hyphens (-). The leftmost `domain label` can be an asterisk (\\*).
+   *     *   The domain labels cannot start or end with hyphens (-).
+   *     *   You can use asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
+   * 
+   * @example
+   * ${host}
+   */
   host?: string;
+  /**
+   * @remarks
+   * The HTTP status code that indicates the redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
+   * 
+   * @example
+   * 301
+   */
   httpCode?: string;
+  /**
+   * @remarks
+   * The URL to which requests are redirected. Valid values:
+   * 
+   * *   Default value: **${path}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. You can specify one or more of the preceding variables in each request. You can also combine them with a custom value.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The UTRL must be 1 to 128 characters in length, and is case-sensitive. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   *     *   The URL must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ] ^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   * 
+   * @example
+   * /test
+   */
   path?: string;
+  /**
+   * @remarks
+   * The port to which requests are distributed.
+   * 
+   * *   **${port}** (default): If you set the value to ${port}, you cannot append other characters to the value.
+   * *   You can also enter a port number. Valid values: **1 to 63335**.
+   * 
+   * @example
+   * 10
+   */
   port?: string;
+  /**
+   * @remarks
+   * The redirect protocol. Valid values: Valid values:
+   * 
+   * *   **${protocol}** (default): If you set the value to ${protocol}, you cannot modify the value or append other characters.
+   * *   **HTTP**
+   * *   **HTTPS**
+   * 
+   * > 
+   * 
+   * *   HTTPS listeners support only HTTPS redirection.
+   * 
+   * *   HTTP listeners support HTTP and HTTPS redirection.
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The query string to which requests are redirected.
+   * 
+   * *   Default value: **${query}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The query string must be 1 to 128 characters in length.
+   *     *   It can contain printable characters, but cannot contain space characters, the special characters `# [ ] { } \\ | < > &`, or lowercase letters.
+   * 
+   * @example
+   * ${query}
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7458,6 +13730,16 @@ export class CreateRuleRequestRuleActionsRedirectConfig extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleActionsRemoveHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the header to be removed. The header key must be 1 to 40 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The header keys specified in RemoveHeader must be unique.
+   * 
+   * *   If Direction is set to Requests, the following header keys are not supported: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, and `authority`. The header keys are not case-sensitive.
+   * *   If Direction is set to Response, the following response header keys are not supported: `connection`, `upgrade`, `content-length`, and `transfer-encoding`. The header keys are not case-sensitive.
+   * 
+   * @example
+   * test
+   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7477,8 +13759,52 @@ export class CreateRuleRequestRuleActionsRemoveHeaderConfig extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleActionsRewriteConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostname to which requests are redirected. Valid values:
+   * 
+   * *   **${host}** (default): If you set the value to ${host}, you cannot append other characters.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, and the following characters: - . \\* = ~ _ + \\ ^ ! $ & | ( ) [ ] ?.
+   *     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
+   *     *   The rightmost domain label can contain only letters and wildcard characters, and cannot contain digits or hyphens (-). The leftmost `domain label` can be an asterisk (\\*).
+   *     *   The domain labels cannot start or end with hyphens (-). You can use asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
+   * 
+   * @example
+   * www.example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * The URL to which requests are redirected. Valid values:
+   * 
+   * *   Default value: **${path}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. You can specify one or more of the preceding variables in each request. You can also combine them with a custom value.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The UTRL must be 1 to 128 characters in length, and is case-sensitive. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   *     *   The URL must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ] ^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   * 
+   * @example
+   * /tsdf
+   */
   path?: string;
+  /**
+   * @remarks
+   * The query string of the URL to which requests are distributed.
+   * 
+   * *   Default value: **${query}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The query string must be 1 to 128 characters in length.
+   *     *   It can contain printable characters, but cannot contain space characters, the special characters `# [ ] { } \\ | < > &`, or lowercase letters.
+   * 
+   * @example
+   * ${query}
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7502,7 +13828,23 @@ export class CreateRuleRequestRuleActionsRewriteConfig extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleActionsTrafficLimitConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The number of requests per IP address. Value values: **1 to 1000000**.
+   * 
+   * >  If both the **QPS** and **PerIpQps** parameters are specified, the value of the **QPS** parameter is smaller than the value of the PerIpQps parameter.
+   * 
+   * @example
+   * 80
+   */
   perIpQps?: number;
+  /**
+   * @remarks
+   * The number of queries per second (QPS). Valid values: **1 to 1000000**.
+   * 
+   * @example
+   * 100
+   */
   QPS?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7524,6 +13866,13 @@ export class CreateRuleRequestRuleActionsTrafficLimitConfig extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the VServer group.
+   * 
+   * @example
+   * sgp-00mkgijak0w4qgz9****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7543,6 +13892,10 @@ export class CreateRuleRequestRuleActionsTrafficMirrorConfigMirrorGroupConfigSer
 }
 
 export class CreateRuleRequestRuleActionsTrafficMirrorConfigMirrorGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The server group to which traffic is mirrored.
+   */
   serverGroupTuples?: CreateRuleRequestRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -7562,7 +13915,20 @@ export class CreateRuleRequestRuleActionsTrafficMirrorConfigMirrorGroupConfig ex
 }
 
 export class CreateRuleRequestRuleActionsTrafficMirrorConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the server group to which traffic is mirrored.
+   */
   mirrorGroupConfig?: CreateRuleRequestRuleActionsTrafficMirrorConfigMirrorGroupConfig;
+  /**
+   * @remarks
+   * The type of target to which network traffic is mirrored. Valid values:
+   * 
+   * *   **ForwardGroupMirror**: a server group.
+   * 
+   * @example
+   * ForwardGroupMirror
+   */
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7584,16 +13950,89 @@ export class CreateRuleRequestRuleActionsTrafficMirrorConfig extends $tea.Model 
 }
 
 export class CreateRuleRequestRuleActions extends $tea.Model {
+  /**
+   * @remarks
+   * Request forwarding based on CORS.
+   */
   corsConfig?: CreateRuleRequestRuleActionsCorsConfig;
+  /**
+   * @remarks
+   * The configuration of the custom response.
+   */
   fixedResponseConfig?: CreateRuleRequestRuleActionsFixedResponseConfig;
+  /**
+   * @remarks
+   * The server groups to which requests are forwarded. You can specify at most five server groups for each forwarding rule.
+   */
   forwardGroupConfig?: CreateRuleRequestRuleActionsForwardGroupConfig;
+  /**
+   * @remarks
+   * The key of the header to be inserted.
+   */
   insertHeaderConfig?: CreateRuleRequestRuleActionsInsertHeaderConfig;
+  /**
+   * @remarks
+   * The priority of the action. Valid values: **1 to 50000**. A smaller value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter cannot empty. The priority of each action within a forwarding rule must be unique.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   order?: number;
+  /**
+   * @remarks
+   * The configuration of the redirect action.
+   * 
+   * >  Do not set all fields in **RedirectConfig** to default values, except for **httpCode**.
+   */
   redirectConfig?: CreateRuleRequestRuleActionsRedirectConfig;
+  /**
+   * @remarks
+   * The HTTP header to be removed.
+   */
   removeHeaderConfig?: CreateRuleRequestRuleActionsRemoveHeaderConfig;
+  /**
+   * @remarks
+   * The configuration of the rewrite action.
+   * 
+   * >  If you specify multiple actions for a forwarding rule, you must configure the **ForwardGroup** parameter for the **RewriteConfig** action.
+   */
   rewriteConfig?: CreateRuleRequestRuleActionsRewriteConfig;
+  /**
+   * @remarks
+   * The configuration of the traffic throttling action.
+   */
   trafficLimitConfig?: CreateRuleRequestRuleActionsTrafficLimitConfig;
+  /**
+   * @remarks
+   * The configuration of the traffic mirroring action.
+   */
   trafficMirrorConfig?: CreateRuleRequestRuleActionsTrafficMirrorConfig;
+  /**
+   * @remarks
+   * The action. Valid values:
+   * 
+   * *   **ForwardGroup**: distributes requests to multiple vServer groups.
+   * *   **Redirect**: redirects a request.
+   * *   **FixedResponse**: returns a custom response.
+   * *   **Rewrite**: rewrites a request.
+   * *   **InsertHeader**: inserts headers.
+   * *   **RemoveHeaderConfig:** deletes the header of a request.
+   * *   **TrafficLimit**: throttles traffic.
+   * *   **TrafficMirror**: mirrors network traffic.
+   * *   **Cors**: enables cross-origin resource sharing (CORS).
+   * 
+   * The following action types are supported:
+   * 
+   * *   **FinalType**: Each forwarding rule can contain only one FinalType action, which is performed at the end. You can specify only one of **ForwardGroup**, **Redirect**, and **FixedResponse**.
+   * *   **ExtType**: Each forwarding rule can contain one or more **ExtType** actions, which are performed before the **FinalType** action. If you want to specify an ExtType action, you must also specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ForwardGroup
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7633,7 +14072,29 @@ export class CreateRuleRequestRuleActions extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleConditionsCookieConfigValues extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie key.
+   * 
+   * *   The cookie key must be 1 to 100 characters in length.
+   * *   You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   * *   The cookie key can contain printable characters, but cannot contain uppercase letters, space characters, or the following special characters: `; # [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The cookie value.
+   * 
+   * *   The cookie value must be 1 to 100 characters in length.
+   * *   You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   * *   The cookie value can contain printable characters, but cannot contain uppercase letters, space characters, or the following special characters: `; # [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7655,6 +14116,10 @@ export class CreateRuleRequestRuleConditionsCookieConfigValues extends $tea.Mode
 }
 
 export class CreateRuleRequestRuleConditionsCookieConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie values.
+   */
   values?: CreateRuleRequestRuleConditionsCookieConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -7674,7 +14139,22 @@ export class CreateRuleRequestRuleConditionsCookieConfig extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleConditionsHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The header key.
+   * 
+   * *   The header key must be 1 to 40 characters in length.
+   * *   The key can contain letters, digits, hyphens (-), and underscores (_).
+   * *   Cookie and Host are not supported.
+   * 
+   * @example
+   * Port
+   */
   key?: string;
+  /**
+   * @remarks
+   * The header values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7696,6 +14176,10 @@ export class CreateRuleRequestRuleConditionsHeaderConfig extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleConditionsHostConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostnames.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7715,6 +14199,10 @@ export class CreateRuleRequestRuleConditionsHostConfig extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleConditionsMethodConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The request methods.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7734,6 +14222,10 @@ export class CreateRuleRequestRuleConditionsMethodConfig extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleConditionsPathConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The forwarding URLs.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7753,7 +14245,27 @@ export class CreateRuleRequestRuleConditionsPathConfig extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleConditionsQueryStringConfigValues extends $tea.Model {
+  /**
+   * @remarks
+   * They key of the query string.
+   * 
+   * *   The key must be 1 to 100 characters in length.
+   * *   You can use asterisks (\\*) and question marks (?) as wildcard characters. The key can contain printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the query string.
+   * 
+   * *   The query string must be 1 to 128 characters in length.
+   * *   The value can contain printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > &`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7775,6 +14287,10 @@ export class CreateRuleRequestRuleConditionsQueryStringConfigValues extends $tea
 }
 
 export class CreateRuleRequestRuleConditionsQueryStringConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The query strings.
+   */
   values?: CreateRuleRequestRuleConditionsQueryStringConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -7794,7 +14310,22 @@ export class CreateRuleRequestRuleConditionsQueryStringConfig extends $tea.Model
 }
 
 export class CreateRuleRequestRuleConditionsResponseHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the header.
+   * 
+   * *   The key must be 1 to 40 characters in length,
+   * *   The key can contain letters, digits, hyphens (-), and underscores (_).
+   * *   Cookie and Host are not supported.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The header values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7816,6 +14347,10 @@ export class CreateRuleRequestRuleConditionsResponseHeaderConfig extends $tea.Mo
 }
 
 export class CreateRuleRequestRuleConditionsResponseStatusCodeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The response status codes.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7835,6 +14370,10 @@ export class CreateRuleRequestRuleConditionsResponseStatusCodeConfig extends $te
 }
 
 export class CreateRuleRequestRuleConditionsSourceIpConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The source IP addresses used for traffic matching.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7854,15 +14393,70 @@ export class CreateRuleRequestRuleConditionsSourceIpConfig extends $tea.Model {
 }
 
 export class CreateRuleRequestRuleConditions extends $tea.Model {
+  /**
+   * @remarks
+   * The key-value pairs of the cookie.
+   */
   cookieConfig?: CreateRuleRequestRuleConditionsCookieConfig;
+  /**
+   * @remarks
+   * The configuration of the header.
+   */
   headerConfig?: CreateRuleRequestRuleConditionsHeaderConfig;
+  /**
+   * @remarks
+   * The configuration of the host.
+   */
   hostConfig?: CreateRuleRequestRuleConditionsHostConfig;
+  /**
+   * @remarks
+   * The configurations of the request method.
+   */
   methodConfig?: CreateRuleRequestRuleConditionsMethodConfig;
+  /**
+   * @remarks
+   * The configurations of the URL to which requests are forwarded.
+   */
   pathConfig?: CreateRuleRequestRuleConditionsPathConfig;
+  /**
+   * @remarks
+   * The configurations of the query strings.
+   */
   queryStringConfig?: CreateRuleRequestRuleConditionsQueryStringConfig;
+  /**
+   * @remarks
+   * The configuration of headers.
+   */
   responseHeaderConfig?: CreateRuleRequestRuleConditionsResponseHeaderConfig;
+  /**
+   * @remarks
+   * The configurations of the response status codes.
+   */
   responseStatusCodeConfig?: CreateRuleRequestRuleConditionsResponseStatusCodeConfig;
+  /**
+   * @remarks
+   * Configurations of traffic matching based on source IP addresses. This parameter is required and valid when **Type** is set to **SourceIP**.
+   */
   sourceIpConfig?: CreateRuleRequestRuleConditionsSourceIpConfig;
+  /**
+   * @remarks
+   * The type of forwarding rule. Valid values:
+   * 
+   * *   **Host**: Requests are distributed based on hosts.
+   * *   **Path**: Requests are distributed based on paths.
+   * *   **Header**: Requests are forwarded based on HTTP headers.
+   * *   **QueryString**: Requests are distributed based on query strings.
+   * *   **Method**: Requests are distributed based on request methods.
+   * *   **Cookie**: Requests are distributed based on cookies.
+   * *   **SourceIp**: Requests are forwarded based on source IP addresses.
+   * *   **ResponseHeader**: Requests are forwarded based on HTTP response headers.
+   * *   **ResponseStatusCode**: Requests are forwarded based on response status codes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Host
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7900,7 +14494,21 @@ export class CreateRuleRequestRuleConditions extends $tea.Model {
 }
 
 export class CreateRuleRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7922,11 +14530,49 @@ export class CreateRuleRequestTag extends $tea.Model {
 }
 
 export class CreateRulesRequestRulesRuleActionsCorsConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to allow credentials to be carried in CORS requests. Valid values:
+   * 
+   * *   **on**: allows credentials to be carried in CORS requests.
+   * *   **off**: does not allow credentials to be carried in CORS requests.
+   * 
+   * @example
+   * on
+   */
   allowCredentials?: string;
+  /**
+   * @remarks
+   * The trusted headers of CORS requests.
+   */
   allowHeaders?: string[];
+  /**
+   * @remarks
+   * The trusted HTTP methods of CORS requests.
+   */
   allowMethods?: string[];
+  /**
+   * @remarks
+   * The trusted origins of CORS requests. You can specify one or more values, or only an asterisk (`*`).
+   * 
+   * *   Each value must start with `http://` or `https://`, which must be followed by a valid domain name, including top-level domain names. Example: `http://*.test.abc.example.com`.
+   * *   You can specify a port in each value or leave the port empty. Valid values: **1** to **65535**.
+   */
   allowOrigin?: string[];
+  /**
+   * @remarks
+   * The headers that can be exposed.
+   */
   exposeHeaders?: string[];
+  /**
+   * @remarks
+   * The maximum cache time of dry run requests in the browser. Unit: seconds.
+   * 
+   * Valid values: **-1** to **172800**.
+   * 
+   * @example
+   * 1000
+   */
   maxAge?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7956,8 +14602,35 @@ export class CreateRulesRequestRulesRuleActionsCorsConfig extends $tea.Model {
 }
 
 export class CreateRulesRequestRulesRuleActionsFixedResponseConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the custom response. The content cannot exceed 1 KB in size, and can contain only ASCII characters.
+   * 
+   * @example
+   * dssacav
+   */
   content?: string;
+  /**
+   * @remarks
+   * The format of the content. Valid values:
+   * 
+   * *   **text/plain**
+   * *   **text/css**
+   * *   **text/html**
+   * *   **application/javascript**
+   * *   **application/json**
+   * 
+   * @example
+   * text/plain
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * The HTTP status code in responses. Valid values: **2xx**, **4xx**, **5xx**. The value must be a numeric string. **x** must be a digit.
+   * 
+   * @example
+   * HTTP_200
+   */
   httpCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7981,7 +14654,24 @@ export class CreateRulesRequestRulesRuleActionsFixedResponseConfig extends $tea.
 }
 
 export class CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupStickySession extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable session persistence. Valid values:
+   * 
+   * *   **true**: enables session persistence.
+   * *   **false** (default): disables session persistence.
+   * 
+   * @example
+   * false
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The timeout period of sessions. Unit: seconds Valid values: **1 to 86400**.
+   * 
+   * @example
+   * 2
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8003,7 +14693,24 @@ export class CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupStic
 }
 
 export class CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The server group to which requests are forwarded.
+   * 
+   * @example
+   * sgp-k86c1ov501id6p****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The weight of the server group. A larger value specifies a higher weight. A server group with a higher weight receives more requests. Valid values: **0** to **100**.
+   * 
+   * *   If the number of destination server groups is 1, the default weight of the server group is **100**, unless you specify a weight.
+   * *   If the number of destination server groups is larger than 1, you must specify a weight.
+   * 
+   * @example
+   * 100
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8025,7 +14732,15 @@ export class CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupTupl
 }
 
 export class CreateRulesRequestRulesRuleActionsForwardGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of session persistence for the server groups.
+   */
   serverGroupStickySession?: CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupStickySession;
+  /**
+   * @remarks
+   * The server groups to which requests are forwarded.
+   */
   serverGroupTuples?: CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -8047,8 +14762,47 @@ export class CreateRulesRequestRulesRuleActionsForwardGroupConfig extends $tea.M
 }
 
 export class CreateRulesRequestRulesRuleActionsInsertHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the header. The header key must be 1 to 40 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The header keys specified by **InsertHeaderConfig** must be unique.
+   * 
+   * >  The following header keys are not supported: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, and `authority`. The header keys are not case-sensitive.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the header to be inserted.
+   * 
+   * *   If **ValueType** is set to **SystemDefined**, you can set the Value parameter to one of the following values:
+   * 
+   *     *   **ClientSrcPort**: the client port.
+   *     *   **ClientSrcIp**: the IP address of the client.
+   *     *   **Protocol**: the request protocol (HTTP or HTTPS).
+   *     *   **SLBId**: the ID of the ALB instance.
+   *     *   **SLBPort**: the listener port.
+   * 
+   * *   If **ValueType** is set to **UserDefined**, you can specify a custom header value. The header value must be 1 to 128 characters in length, and can contain wildcard characters, such as asterisks (\\*) and question marks (?), and printable characters whose ASCII values are `larger than or equal to 32 and smaller than 127`. The header value cannot start or end with a space character.
+   * 
+   * *   If **ValueType** is set to **ReferenceHeader**, you can reference a value from request headers. The value must be 1 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * @example
+   * UserDefined
+   */
   value?: string;
+  /**
+   * @remarks
+   * The type of the header. Valid values:
+   * 
+   * *   **UserDefined**: a custom header
+   * *   **ReferenceHeader**: a header that references one of the request headers
+   * *   **SystemDefined**: a system-defined header
+   * 
+   * @example
+   * UserDefined
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8072,11 +14826,91 @@ export class CreateRulesRequestRulesRuleActionsInsertHeaderConfig extends $tea.M
 }
 
 export class CreateRulesRequestRulesRuleActionsRedirectConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostname to which requests are forwarded. Valid values:
+   * 
+   * *   **${host}** (default): If you set the value to ${host}, you cannot append other characters.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (\\*), and question marks (?).
+   *     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
+   *     *   The rightmost domain label can contain only letters and wildcard characters. It does not contain digits or hyphens (-).
+   *     *   The domain labels cannot start or end with a hyphen (-).
+   *     *   You can use an asterisk (\\*) or a question mark (?) anywhere in a domain label as wildcard characters.
+   * 
+   * @example
+   * www.example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * The HTTP status code that indicates the redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
+   * 
+   * @example
+   * 301
+   */
   httpCode?: string;
+  /**
+   * @remarks
+   * The URL to which requests are redirected. Valid values:
+   * 
+   * *   Default value: **${path}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. You can specify one or more of the preceding variables in each request. You can also combine them with a custom value.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The URL must be 1 to 128 characters in length.
+   *     *   The URL must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   *     *   The URL is case-sensitive.
+   * 
+   * @example
+   * /test
+   */
   path?: string;
+  /**
+   * @remarks
+   * The port to which requests are distributed. Valid values:
+   * 
+   * *   **${port}** (default): If you set the value to ${port}, you cannot append other characters.
+   * *   You can also enter a port number. Valid values: **1 to 63335**.
+   * 
+   * @example
+   * 10
+   */
   port?: string;
+  /**
+   * @remarks
+   * The redirect protocol. Valid values:
+   * 
+   * *   **${protocol}** (default): If you set the value to ${protocol}, you cannot modify the value or append other characters.
+   * *   **HTTP**
+   * *   **HTTPS**
+   * 
+   * > 
+   * 
+   * *   HTTPS listeners support only HTTPS redirection.
+   * 
+   * *   HTTP listeners support HTTP and HTTPS redirection.
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The query string to which requests are redirected.
+   * 
+   * *   Default value: **${query}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The query string must be 1 to 128 characters in length.
+   *     *   The query string can contain printable characters, but cannot contain space characters, the special characters `# [ ] { } \\ | < > &`, or uppercase letters.
+   * 
+   * @example
+   * quert
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8106,6 +14940,16 @@ export class CreateRulesRequestRulesRuleActionsRedirectConfig extends $tea.Model
 }
 
 export class CreateRulesRequestRulesRuleActionsRemoveHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the header to be removed. The header key must be 1 to 40 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The header keys specified in RemoveHeader must be unique.
+   * 
+   * *   If you set Direction to Requests, the following header keys are not supported: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, and `authority`. The header keys are not case-sensitive.
+   * *   If Direction is set to Response, the following header keys are not supported: `connection`, `upgrade`, `content-length`, and `transfer-encoding`. The header keys are not case-sensitive.
+   * 
+   * @example
+   * test
+   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8125,8 +14969,53 @@ export class CreateRulesRequestRulesRuleActionsRemoveHeaderConfig extends $tea.M
 }
 
 export class CreateRulesRequestRulesRuleActionsRewriteConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostname to which requests are rewritten. Valid values:
+   * 
+   * *   **${host}** (default): If you set the value to ${host}, you cannot append other characters.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (\\*), and question marks (?).
+   *     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
+   *     *   The rightmost domain label can contain only letters and wildcard characters. It does not contain digits or hyphens (-).
+   *     *   The domain labels cannot start or end with hyphens (-). You can use asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
+   * 
+   * @example
+   * www.example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * The URL to which requests are redirected. Valid values:
+   * 
+   * *   Default value: **${path}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. You can specify one or more of the preceding variables in each request. You can also combine them with a custom value.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The URL must be 1 to 128 characters in length.
+   *     *   The URL must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   *     *   The URL is case-sensitive.
+   * 
+   * @example
+   * /tsdf
+   */
   path?: string;
+  /**
+   * @remarks
+   * The query string of the URL to which requests are forwarded.
+   * 
+   * *   Default value: **${query}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The query string must be 1 to 128 characters in length.
+   *     *   The query string can contain printable characters, but cannot contain space characters, the special characters `# [ ] { } \\ | < > &`, or uppercase letters.
+   * 
+   * @example
+   * quedsa
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8150,7 +15039,23 @@ export class CreateRulesRequestRulesRuleActionsRewriteConfig extends $tea.Model 
 }
 
 export class CreateRulesRequestRulesRuleActionsTrafficLimitConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The number of requests per IP address. Value values: **1 to 1000000**.
+   * 
+   * >  If both the **QPS** and **PerIpQps** parameters are specified, the value of the **QPS** parameter is smaller than the value of the PerIpQps parameter.
+   * 
+   * @example
+   * 80
+   */
   perIpQps?: number;
+  /**
+   * @remarks
+   * The number of queries per second (QPS). Valid values: **1 to 1000000**.
+   * 
+   * @example
+   * 100
+   */
   QPS?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8172,6 +15077,13 @@ export class CreateRulesRequestRulesRuleActionsTrafficLimitConfig extends $tea.M
 }
 
 export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The server group ID.
+   * 
+   * @example
+   * srg-00mkgijak0w4qgz9****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8191,6 +15103,10 @@ export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupCon
 }
 
 export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The server group to which traffic is mirrored.
+   */
   serverGroupTuples?: CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -8210,7 +15126,20 @@ export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupCon
 }
 
 export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the server group to which traffic is mirrored.
+   */
   mirrorGroupConfig?: CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig;
+  /**
+   * @remarks
+   * The type of target to which network traffic is mirrored. Valid values:
+   * 
+   * *   **ForwardGroupMirror**: a server group.
+   * 
+   * @example
+   * ForwardGroupMirror
+   */
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8232,16 +15161,85 @@ export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfig extends $tea.
 }
 
 export class CreateRulesRequestRulesRuleActions extends $tea.Model {
+  /**
+   * @remarks
+   * The CORS configuration.
+   */
   corsConfig?: CreateRulesRequestRulesRuleActionsCorsConfig;
+  /**
+   * @remarks
+   * The configuration of the custom response. You can specify at most 20 custom responses.
+   */
   fixedResponseConfig?: CreateRulesRequestRulesRuleActionsFixedResponseConfig;
+  /**
+   * @remarks
+   * The configuration of the server group. You can specify at most 20 server groups.
+   */
   forwardGroupConfig?: CreateRulesRequestRulesRuleActionsForwardGroupConfig;
+  /**
+   * @remarks
+   * The key of the header to be inserted. You can specify at most 20 headers.
+   */
   insertHeaderConfig?: CreateRulesRequestRulesRuleActionsInsertHeaderConfig;
+  /**
+   * @remarks
+   * The priority of the action. Valid values: **1 to 50000**. A lower value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter cannot empty. The priority of each action within a forwarding rule must be unique. You can specify at most 20 action priorities.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   order?: number;
+  /**
+   * @remarks
+   * The configuration of the redirect action. You can specify at most 20 redirects.
+   */
   redirectConfig?: CreateRulesRequestRulesRuleActionsRedirectConfig;
+  /**
+   * @remarks
+   * The HTTP header to be removed.
+   */
   removeHeaderConfig?: CreateRulesRequestRulesRuleActionsRemoveHeaderConfig;
+  /**
+   * @remarks
+   * The configuration of the rewrite action. You can specify at most 20 rewrites.
+   */
   rewriteConfig?: CreateRulesRequestRulesRuleActionsRewriteConfig;
+  /**
+   * @remarks
+   * The configuration of traffic throttling. You can specify at most 20 traffic throttling rules.
+   */
   trafficLimitConfig?: CreateRulesRequestRulesRuleActionsTrafficLimitConfig;
+  /**
+   * @remarks
+   * The configuration of traffic mirroring. You can specify at most 20 traffic mirroring rules.
+   */
   trafficMirrorConfig?: CreateRulesRequestRulesRuleActionsTrafficMirrorConfig;
+  /**
+   * @remarks
+   * The action. You can specify at most 11 types of action. Valid values:
+   * 
+   * *   **ForwardGroup**: distributes requests to multiple vServer groups.
+   * *   **Redirect**: redirects requests.
+   * *   **FixedResponse**: returns a custom response.
+   * *   **Rewrite**: rewrites requests.
+   * *   **InsertHeader**: inserts headers.
+   * *   **RemoveHeaderConfig**: deletes a header.
+   * *   **TrafficLimit**: throttles traffic.
+   * *   **TrafficMirror**: mirrors network traffic.
+   * *   **Cors**: enables cross-origin resource sharing (CORS).
+   * 
+   * You can specify the last action and the actions that you want to perform before the last action:
+   * 
+   * *   **FinalType**: Each forwarding rule can contain only one FinalType action, which is performed at the end. You can specify only one of **ForwardGroup**, **Redirect**, and **FixedResponse**.
+   * *   **ExtType**: Each forwarding rule can contain one or more **ExtType** actions, which are performed before the **FinalType** action. If you want to specify an ExtType action, you must also specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ForwardGroup
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8281,7 +15279,29 @@ export class CreateRulesRequestRulesRuleActions extends $tea.Model {
 }
 
 export class CreateRulesRequestRulesRuleConditionsCookieConfigValues extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie key.
+   * 
+   * *   The cookie key must be 1 to 100 characters in length.
+   * *   You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   * *   The cookie key can contain printable characters, but cannot contain uppercase letters, space characters, or the following special characters: `; # [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The cookie value.
+   * 
+   * *   The cookie value must be 1 to 100 characters in length.
+   * *   You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   * *   The cookie value can contain printable characters, but cannot contain uppercase letters, space characters, or the following special characters: `; # [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8303,6 +15323,10 @@ export class CreateRulesRequestRulesRuleConditionsCookieConfigValues extends $te
 }
 
 export class CreateRulesRequestRulesRuleConditionsCookieConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie value.
+   */
   values?: CreateRulesRequestRulesRuleConditionsCookieConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -8322,7 +15346,22 @@ export class CreateRulesRequestRulesRuleConditionsCookieConfig extends $tea.Mode
 }
 
 export class CreateRulesRequestRulesRuleConditionsHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The header key.
+   * 
+   * *   The header key must be 1 to 40 characters in length,
+   * *   The header key can contain letters, digits, hyphens (-), and underscores (_).
+   * *   Cookie and Host are not supported.
+   * 
+   * @example
+   * Port
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the header.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8344,6 +15383,10 @@ export class CreateRulesRequestRulesRuleConditionsHeaderConfig extends $tea.Mode
 }
 
 export class CreateRulesRequestRulesRuleConditionsHostConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostname. You can specify at most 20 hosts.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8363,6 +15406,10 @@ export class CreateRulesRequestRulesRuleConditionsHostConfig extends $tea.Model 
 }
 
 export class CreateRulesRequestRulesRuleConditionsMethodConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The request methods. You can specify at most 20 request methods.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8382,6 +15429,10 @@ export class CreateRulesRequestRulesRuleConditionsMethodConfig extends $tea.Mode
 }
 
 export class CreateRulesRequestRulesRuleConditionsPathConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The forwarding URLs. You can specify at most 20 forwarding URLs.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8401,7 +15452,27 @@ export class CreateRulesRequestRulesRuleConditionsPathConfig extends $tea.Model 
 }
 
 export class CreateRulesRequestRulesRuleConditionsQueryStringConfigValues extends $tea.Model {
+  /**
+   * @remarks
+   * They key of the query string.
+   * 
+   * *   The key must be 1 to 100 characters in length.
+   * *   You can use asterisks (\\*) and question marks (?) as wildcard characters. The key can contain printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the query string.
+   * 
+   * *   The value must be 1 to 128 characters in length,
+   * *   The value can contain printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > &`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8423,6 +15494,10 @@ export class CreateRulesRequestRulesRuleConditionsQueryStringConfigValues extend
 }
 
 export class CreateRulesRequestRulesRuleConditionsQueryStringConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the query string.
+   */
   values?: CreateRulesRequestRulesRuleConditionsQueryStringConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -8442,7 +15517,22 @@ export class CreateRulesRequestRulesRuleConditionsQueryStringConfig extends $tea
 }
 
 export class CreateRulesRequestRulesRuleConditionsResponseHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the header.
+   * 
+   * *   The header key must be 1 to 40 characters in length.
+   * *   The header key can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * *   Cookie and Host are not supported.
+   * 
+   * @example
+   * Port
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the header.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8464,6 +15554,10 @@ export class CreateRulesRequestRulesRuleConditionsResponseHeaderConfig extends $
 }
 
 export class CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The response status codes.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8483,6 +15577,10 @@ export class CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig exten
 }
 
 export class CreateRulesRequestRulesRuleConditionsSourceIpConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Traffic matching based on source IP addresses.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8502,15 +15600,70 @@ export class CreateRulesRequestRulesRuleConditionsSourceIpConfig extends $tea.Mo
 }
 
 export class CreateRulesRequestRulesRuleConditions extends $tea.Model {
+  /**
+   * @remarks
+   * The key-value pairs of the cookie. You can specify at most 20 cookies.
+   */
   cookieConfig?: CreateRulesRequestRulesRuleConditionsCookieConfig;
+  /**
+   * @remarks
+   * The configuration of the header. You can specify at most 20 headers.
+   */
   headerConfig?: CreateRulesRequestRulesRuleConditionsHeaderConfig;
+  /**
+   * @remarks
+   * The configuration of the hosts.
+   */
   hostConfig?: CreateRulesRequestRulesRuleConditionsHostConfig;
+  /**
+   * @remarks
+   * The configurations of the request methods.
+   */
   methodConfig?: CreateRulesRequestRulesRuleConditionsMethodConfig;
+  /**
+   * @remarks
+   * The configurations of the forwarding URLs.
+   */
   pathConfig?: CreateRulesRequestRulesRuleConditionsPathConfig;
+  /**
+   * @remarks
+   * The configurations of the query strings. You can specify at most 20 query strings.
+   */
   queryStringConfig?: CreateRulesRequestRulesRuleConditionsQueryStringConfig;
+  /**
+   * @remarks
+   * The configuration of the header. You can specify at most 20 headers.
+   */
   responseHeaderConfig?: CreateRulesRequestRulesRuleConditionsResponseHeaderConfig;
+  /**
+   * @remarks
+   * The configurations of the response status codes.
+   */
   responseStatusCodeConfig?: CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig;
+  /**
+   * @remarks
+   * Traffic matching based on source IP addresses. This parameter is required and valid when **Type** is set to **SourceIP**. You can specify up to five IP addresses or CIDR blocks in the **SourceIpConfig** parameter.
+   */
   sourceIpConfig?: CreateRulesRequestRulesRuleConditionsSourceIpConfig;
+  /**
+   * @remarks
+   * The type of forwarding rule. You can specify at most seven types of forwarding rules. Valid values:
+   * 
+   * *   **Host**: Requests are forwarded based on hosts.
+   * *   **Path**: Requests are forwarded based on URLs.
+   * *   **Header**: Requests are forwarded based on HTTP headers.
+   * *   **QueryString**: Requests are forwarded based on query strings.
+   * *   **Method**: Requests are forwarded based on request methods.
+   * *   **Cookie**: Requests are forwarded based on cookies.
+   * *   **SourceIp**: Requests are forwarded based on source IP addresses.
+   * *   **ResponseHeader**: Requests are forwarded based on HTTP response headers.
+   * *   **ResponseStatusCode**: Requests are forwarded based on response status codes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Host
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8548,7 +15701,21 @@ export class CreateRulesRequestRulesRuleConditions extends $tea.Model {
 }
 
 export class CreateRulesRequestRulesTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8570,11 +15737,62 @@ export class CreateRulesRequestRulesTag extends $tea.Model {
 }
 
 export class CreateRulesRequestRules extends $tea.Model {
+  /**
+   * @remarks
+   * The direction to which the forwarding rule is applied. You can specify only one direction. Valid values:
+   * 
+   * *   **Request** (default): The forwarding rule applies to requests. Requests sent from clients to ALB are matches against the match conditions and processed based on the rule actions.
+   * *   **Response**: The forwarding rule applies to responses. Responses from backend servers to ALB are matches against the match conditions and processed based on the rule actions.
+   * 
+   * >  Basic ALB instances do not support forwarding rules applied to the **Response** direction.
+   * 
+   * @example
+   * Request
+   */
   direction?: string;
+  /**
+   * @remarks
+   * The priority of the forwarding rule. Valid values: **1** to **10000**. A lower value specifies a higher priority. You can specify at most 10 priorities.
+   * 
+   * >  The priorities of forwarding rules for the same listener must be unique.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The actions of the forwarding rule.
+   * 
+   * This parameter is required.
+   */
   ruleActions?: CreateRulesRequestRulesRuleActions[];
+  /**
+   * @remarks
+   * The match conditions of the forwarding rule.
+   * 
+   * This parameter is required.
+   */
   ruleConditions?: CreateRulesRequestRulesRuleConditions[];
+  /**
+   * @remarks
+   * The name of the forwarding rule. You can specify at most 20 rule names.
+   * 
+   * *   The name must be 2 to 128 characters in length.
+   * *   The name can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateRulesRequestRulesTag[];
   static names(): { [key: string]: string } {
     return {
@@ -8604,7 +15822,23 @@ export class CreateRulesRequestRules extends $tea.Model {
 }
 
 export class CreateRulesResponseBodyRuleIds extends $tea.Model {
+  /**
+   * @remarks
+   * The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value indicates a higher priority.
+   * 
+   * > The priorities of the forwarding rules created for the same listener must be unique.
+   * 
+   * @example
+   * 10
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The forwarding rule ID.
+   * 
+   * @example
+   * rule-a3x3pg1yohq3lq****
+   */
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8626,7 +15860,21 @@ export class CreateRulesResponseBodyRuleIds extends $tea.Model {
 }
 
 export class CreateSecurityPolicyRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8648,7 +15896,28 @@ export class CreateSecurityPolicyRequestTag extends $tea.Model {
 }
 
 export class CreateServerGroupRequestConnectionDrainConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable connection draining. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * false
+   */
   connectionDrainEnabled?: boolean;
+  /**
+   * @remarks
+   * The timeout period of connection draining.
+   * 
+   * Valid values: **0** to **900**.
+   * 
+   * Default value: **300**.
+   * 
+   * @example
+   * 300
+   */
   connectionDrainTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8670,17 +15939,150 @@ export class CreateServerGroupRequestConnectionDrainConfig extends $tea.Model {
 }
 
 export class CreateServerGroupRequestHealthCheckConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status codes that are used to indicate whether the backend server passes the health check.
+   */
   healthCheckCodes?: string[];
+  /**
+   * @remarks
+   * The backend port that is used for health checks.
+   * 
+   * Valid values: **0** to **65535**.
+   * 
+   * The default value is **0**, which specifies that the port of a backend server is used for health checks.
+   * 
+   * @example
+   * 80
+   */
   healthCheckConnectPort?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the health check feature. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  If the **ServerGroupType** parameter is set to **Instance** or **Ip**, the health check feature is enabled by default. If the **ServerGroupType** parameter is set to **Fc**, the health check feature is disabled by default.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   healthCheckEnabled?: boolean;
+  /**
+   * @remarks
+   * The domain name that is used for health checks. The domain name must meet the following requirements:
+   * 
+   * *   The domain name must be 1 to 80 characters in length.
+   * *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
+   * *   The domain name must contain at least one period (.) but cannot start or end with a period (.).
+   * *   The rightmost domain label of the domain name can contain only letters, and cannot contain digits or hyphens (-).
+   * *   The domain name cannot start or end with a hyphen (-).
+   * 
+   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * www.example.com
+   */
   healthCheckHost?: string;
+  /**
+   * @remarks
+   * The version of the HTTP protocol. Valid values: **HTTP1.0** and **HTTP1.1**. Default value: HTTP1.1.
+   * 
+   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * HTTP1.1
+   */
   healthCheckHttpVersion?: string;
+  /**
+   * @remarks
+   * The interval at which health checks are performed. Unit: seconds.
+   * 
+   * Valid values: **1** to **50**.
+   * 
+   * Default value: **2**.
+   * 
+   * @example
+   * 2
+   */
   healthCheckInterval?: number;
+  /**
+   * @remarks
+   * The HTTP method that is used for health checks. Valid values:
+   * 
+   * *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
+   * *   **POST**: By default, gRPC health checks use the POST method.
+   * *   **HEAD** (default): By default, HTTP and HTTPS use the HEAD method.
+   * 
+   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
+   * 
+   * @example
+   * HEAD
+   */
   healthCheckMethod?: string;
+  /**
+   * @remarks
+   * The URL that is used for health checks.
+   * 
+   * The URL must be 1 to 80 characters in length, and can contain letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
+   * 
+   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * /test/index.html
+   */
   healthCheckPath?: string;
+  /**
+   * @remarks
+   * The protocol that is used for health checks. Valid values:
+   * 
+   * *   **HTTP**: HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
+   * *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS provides higher security than HTTP because HTTPS supports data encryption.
+   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
+   * *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
+   * 
+   * @example
+   * HTTP
+   */
   healthCheckProtocol?: string;
+  /**
+   * @remarks
+   * The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the backend server is declared unhealthy. Unit: seconds.
+   * 
+   * Valid values: **1** to **300**.
+   * 
+   * Default value: **5**.
+   * 
+   * @example
+   * 5
+   */
   healthCheckTimeout?: number;
+  /**
+   * @remarks
+   * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status changes from **fail** to **success**.
+   * 
+   * Valid values: **2** to **10**.
+   * 
+   * Default value: **3**.
+   * 
+   * @example
+   * 3
+   */
   healthyThreshold?: number;
+  /**
+   * @remarks
+   * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status changes from **success** to **fail**.
+   * 
+   * Valid values: **2** to **10**.
+   * 
+   * Default value: **3**.
+   * 
+   * @example
+   * 3
+   */
   unhealthyThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8722,7 +16124,27 @@ export class CreateServerGroupRequestHealthCheckConfig extends $tea.Model {
 }
 
 export class CreateServerGroupRequestSlowStartConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of a slow start.
+   * Valid values: 30 to 900.
+   * Default value: 30.
+   * 
+   * @example
+   * 30
+   */
   slowStartDuration?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable slow starts. Valid values:
+   * 
+   * - true
+   * 
+   * - false(default)
+   * 
+   * @example
+   * false
+   */
   slowStartEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -8744,9 +16166,57 @@ export class CreateServerGroupRequestSlowStartConfig extends $tea.Model {
 }
 
 export class CreateServerGroupRequestStickySessionConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie that you want to configure for the server.
+   * 
+   * The cookie must be 1 to 200 characters in length, and can contain only ASCII letters and digits. It cannot contain commas (,), semicolons (;), or space characters. It cannot start with a dollar sign ($).
+   * 
+   * >  This parameter takes effect only when **StickySessionEnabled** is set to **true** and **StickySessionType** is set to **server**.
+   * 
+   * @example
+   * B490B5EBF6F3CD402E515D22BCDA****
+   */
   cookie?: string;
+  /**
+   * @remarks
+   * The maximum amount of time to wait before the session cookie expires. Unit: seconds.
+   * 
+   * Valid values: **1** to **86400**.
+   * 
+   * Default value: **1000**.
+   * 
+   * >  This parameter takes effect only when **StickySessionEnabled** is set to **true** and **StickySessionType** is set to **Insert**.
+   * 
+   * @example
+   * 1000
+   */
   cookieTimeout?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable session persistence. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
+   * 
+   * @example
+   * false
+   */
   stickySessionEnabled?: boolean;
+  /**
+   * @remarks
+   * The method that is used to handle cookies. Valid values:
+   * 
+   * *   **Insert** (default value): inserts a cookie. The first time a client accesses SLB, SLB inserts the SERVERID cookie into the HTTP or HTTPS response packet. Subsequent requests from the client that carry this cookie are forwarded to the same backend server as the first request.
+   * *   **Server**: rewrites a cookie. SLB rewrites the custom cookies in requests from a client. Subsequent requests from the client that carry the new cookie are forwarded to the same backend server as the first request.
+   * 
+   * >  This parameter takes effect when the **StickySessionEnabled** parameter is set to **true**.
+   * 
+   * @example
+   * Insert
+   */
   stickySessionType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8772,7 +16242,21 @@ export class CreateServerGroupRequestStickySessionConfig extends $tea.Model {
 }
 
 export class CreateServerGroupRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length, and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length, and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8794,7 +16278,25 @@ export class CreateServerGroupRequestTag extends $tea.Model {
 }
 
 export class CreateServerGroupRequestUchConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the parameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * QueryString
+   */
   type?: string;
+  /**
+   * @remarks
+   * The parameter value for consistent hashing.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * abc
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8816,8 +16318,29 @@ export class CreateServerGroupRequestUchConfig extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * China (Hangzhou)
+   */
   localName?: string;
+  /**
+   * @remarks
+   * The endpoint of region service.
+   * 
+   * @example
+   * alb.cn-hangzhou.aliyuncs.com
+   */
   regionEndpoint?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8841,7 +16364,21 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class DescribeZonesResponseBodyZones extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the zone.
+   * 
+   * @example
+   * Hangzhou Zone G
+   */
   localName?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-g
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8863,6 +16400,15 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
 }
 
 export class DissociateAdditionalCertificatesFromListenerRequestCertificates extends $tea.Model {
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12315790343_166f8204689_1714763408_70998****
+   */
   certificateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8882,7 +16428,21 @@ export class DissociateAdditionalCertificatesFromListenerRequestCertificates ext
 }
 
 export class GetHealthCheckTemplateAttributeResponseBodyTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length, and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8904,7 +16464,25 @@ export class GetHealthCheckTemplateAttributeResponseBodyTags extends $tea.Model 
 }
 
 export class GetListenerAttributeResponseBodyAclConfigAclRelations extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ACL that is associated with the listener.
+   * 
+   * @example
+   * acl-doc****
+   */
   aclId?: string;
+  /**
+   * @remarks
+   * Indicates whether the ACL is associated with the listener. Valid values:
+   * 
+   * *   **Associating**
+   * *   **Associated**
+   * *   **Dissociating**
+   * 
+   * @example
+   * Associating
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8926,7 +16504,26 @@ export class GetListenerAttributeResponseBodyAclConfigAclRelations extends $tea.
 }
 
 export class GetListenerAttributeResponseBodyAclConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the ACLs that are associated with the listener.
+   */
   aclRelations?: GetListenerAttributeResponseBodyAclConfigAclRelations[];
+  /**
+   * @remarks
+   * The type of the ACL. Valid values:
+   * 
+   * *   **White**: a whitelist. Only requests from the IP addresses or CIDR blocks in the network ACL are forwarded. Whitelists are applicable to scenarios in which you want to allow only specific IP addresses to access an application. Your service may be adversely affected if the whitelist is not properly configured. If a whitelist is configured for a listener, only requests from IP addresses that are on the whitelist are forwarded by the listener.
+   * 
+   *     If you enable a whitelist but do not add an IP address to the whitelist, the listener forwards all requests.
+   * 
+   * *   **Black**: a blacklist. Requests from the IP addresses or CIDR blocks in the network ACL are denied. Blacklists are suitable for scenarios in which you want to deny access from specific IP addresses or CIDR blocks to an application.
+   * 
+   *     If a blacklist is configured for a listener but no IP addresses are added to the blacklist, the listener forwards all requests.
+   * 
+   * @example
+   * White
+   */
   aclType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8948,8 +16545,32 @@ export class GetListenerAttributeResponseBodyAclConfig extends $tea.Model {
 }
 
 export class GetListenerAttributeResponseBodyCaCertificates extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the default CA certificate.
+   * 
+   * @example
+   * 139a00604bd-cn-east-hangzho****
+   */
   certificateId?: string;
+  /**
+   * @remarks
+   * Indicates whether the certificate is a default certificate: Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isDefault?: boolean;
+  /**
+   * @remarks
+   * The status of the certificate.
+   * 
+   * @example
+   * Associated
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8973,6 +16594,13 @@ export class GetListenerAttributeResponseBodyCaCertificates extends $tea.Model {
 }
 
 export class GetListenerAttributeResponseBodyCertificates extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the certificate. Only server certificates are supported.
+   * 
+   * @example
+   * 12315790212_166f8204689_1714763408_70998****
+   */
   certificateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8992,6 +16620,13 @@ export class GetListenerAttributeResponseBodyCertificates extends $tea.Model {
 }
 
 export class GetListenerAttributeResponseBodyDefaultActionsForwardGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the server group to which requests are forwarded.
+   * 
+   * @example
+   * rsp-cige6j****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9011,6 +16646,10 @@ export class GetListenerAttributeResponseBodyDefaultActionsForwardGroupConfigSer
 }
 
 export class GetListenerAttributeResponseBodyDefaultActionsForwardGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The server group to which requests are forwarded.
+   */
   serverGroupTuples?: GetListenerAttributeResponseBodyDefaultActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -9030,7 +16669,20 @@ export class GetListenerAttributeResponseBodyDefaultActionsForwardGroupConfig ex
 }
 
 export class GetListenerAttributeResponseBodyDefaultActions extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the ForwardGroup action. This parameter is returned and takes effect when Type is set to **ForwardGroup**.
+   */
   forwardGroupConfig?: GetListenerAttributeResponseBodyDefaultActionsForwardGroupConfig;
+  /**
+   * @remarks
+   * The type of the action.
+   * 
+   * If **ForwardGroup** is returned, requests are forwarded to multiple vServer groups.
+   * 
+   * @example
+   * ForwardGroup
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9052,8 +16704,38 @@ export class GetListenerAttributeResponseBodyDefaultActions extends $tea.Model {
 }
 
 export class GetListenerAttributeResponseBodyLogConfigAccessLogTracingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether Xtrace is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > You can set this parameter to **true** only if the AccessLogEnabled parameter is set to true.
+   * 
+   * @example
+   * true
+   */
   tracingEnabled?: boolean;
+  /**
+   * @remarks
+   * The sampling rate of Xtrace. Valid values: 1 to 10000.
+   * 
+   * > If **TracingEnabled** is set to **true**, this parameter is valid.
+   * 
+   * @example
+   * 100
+   */
   tracingSample?: number;
+  /**
+   * @remarks
+   * The Xtrace type. Supported Xtrace type: **Zipkin**.
+   * 
+   * > If **TracingEnabled** is set to **true**, this parameter is valid.
+   * 
+   * @example
+   * Zipkin
+   */
   tracingType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9077,7 +16759,21 @@ export class GetListenerAttributeResponseBodyLogConfigAccessLogTracingConfig ext
 }
 
 export class GetListenerAttributeResponseBodyLogConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether custom headers are recorded in the access log. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   accessLogRecordCustomizedHeadersEnabled?: boolean;
+  /**
+   * @remarks
+   * The configuration of Xtrace. Xtrace is used to record requests sent to ALB.
+   */
   accessLogTracingConfig?: GetListenerAttributeResponseBodyLogConfigAccessLogTracingConfig;
   static names(): { [key: string]: string } {
     return {
@@ -9099,7 +16795,28 @@ export class GetListenerAttributeResponseBodyLogConfig extends $tea.Model {
 }
 
 export class GetListenerAttributeResponseBodyQuicConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the QUIC listener. This parameter is returned when **QuicUpgradeEnabled** is set to **true**. Only HTTPS listeners support this parameter.
+   * 
+   * > You must associate the HTTPS listener and the QUIC listener with the same ALB instance. In addition, make sure that the QUIC listener has never been associated with another listener.
+   * 
+   * @example
+   * lsn-333
+   */
   quicListenerId?: string;
+  /**
+   * @remarks
+   * Indicates whether QUIC upgrade is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   quicUpgradeEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9121,7 +16838,21 @@ export class GetListenerAttributeResponseBodyQuicConfig extends $tea.Model {
 }
 
 export class GetListenerAttributeResponseBodyTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9143,20 +16874,193 @@ export class GetListenerAttributeResponseBodyTags extends $tea.Model {
 }
 
 export class GetListenerAttributeResponseBodyXForwardedForConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertClientVerifyEnabled** is set to **true**.
+   * 
+   * The name is 1 to 40 characters in length, and can contain lowercase letters, hyphens (-), underscores (_), and digits.
+   * 
+   * > This parameter is available only when you create an HTTPS listener.
+   * 
+   * @example
+   * test_client-verify-alias_123456
+   */
   XForwardedForClientCertClientVerifyAlias?: string;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Clientcert-clientverify` header is used to retrieve the verification result of the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > This parameter is available only when you create an HTTPS listener.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientCertClientVerifyEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertFingerprintEnabled** is set to **true**.
+   * 
+   * The name is 1 to 40 characters in length, and can contain lowercase letters, hyphens (-), underscores (_), and digits.
+   * 
+   * > This parameter is available only when you create an HTTPS listener.
+   * 
+   * @example
+   * test_finger-print-alias_123456
+   */
   XForwardedForClientCertFingerprintAlias?: string;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Clientcert-fingerprint` header is used to retrieve the fingerprint of the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > This parameter is available only when you create an HTTPS listener.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientCertFingerprintEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertIssuerDNEnabled** is set to **true**.
+   * 
+   * The name is 1 to 40 characters in length, and can contain lowercase letters, hyphens (-), underscores (_), and digits.
+   * 
+   * > This parameter is available only when you create an HTTPS listener.
+   * 
+   * @example
+   * test_issue-dn-alias_123456
+   */
   XForwardedForClientCertIssuerDNAlias?: string;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Clientcert-issuerdn` header is used to retrieve information about the authority that issues the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > This parameter is available only when you create an HTTPS listener.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientCertIssuerDNEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertSubjectDNEnabled** is set to **true**.
+   * 
+   * The name is 1 to 40 characters in length, and can contain lowercase letters, hyphens (-), underscores (_), and digits.
+   * 
+   * > This parameter is available only when you create an HTTPS listener.
+   * 
+   * @example
+   * test_subject-dn-alias_123456
+   */
   XForwardedForClientCertSubjectDNAlias?: string;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Clientcert-subjectdn` header is used to retrieve information about the owner of the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > This parameter is available only when you create an HTTPS listener.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientCertSubjectDNEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Client-Ip` header is used to retrieve the source port of the ALB instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > This parameter is available only when you create an HTTP, HTTPS, or QUIC listener.
+   * 
+   * @example
+   * false
+   */
   XForwardedForClientSourceIpsEnabled?: boolean;
+  /**
+   * @remarks
+   * The trusted proxy IP address.
+   * 
+   * ALB traverses `X-Forwarded-For` backward and selects the first IP address that is not on the trusted IP address list as the real IP address of the client. The IP address is used in source IP address throttling.
+   * 
+   * @example
+   * 10.1.1.0/24
+   */
   XForwardedForClientSourceIpsTrusted?: string;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Client-Port` header is used to retrieve the client port. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > This parameter is available only when you create an HTTP or HTTPS listener.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientSrcPortEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-For` header is used to retrieve the client IP address. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > This parameter is available only when you create an HTTP or HTTPS listener.
+   * 
+   * @example
+   * true
+   */
   XForwardedForEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Proto` header is used to retrieve the listening protocol. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > This parameter is available only when you create an HTTP, HTTPS, or QUIC listener.
+   * 
+   * @example
+   * true
+   */
   XForwardedForProtoEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the `SLB-ID` header is used to retrieve the ID of the CLB instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > This parameter is available only when you create an HTTP, HTTPS, or QUIC listener.
+   * 
+   * @example
+   * true
+   */
   XForwardedForSLBIdEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Port` header is used to retrieve the listening port of the ALB instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > This parameter is available only when you create an HTTP, HTTPS, or QUIC listener.
+   * 
+   * @example
+   * true
+   */
   XForwardedForSLBPortEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9204,8 +17108,44 @@ export class GetListenerAttributeResponseBodyXForwardedForConfig extends $tea.Mo
 }
 
 export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServersReason extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code returned from the server, for example, **302**.
+   * 
+   * > A value is returned only if `ReasonCode` is set to **RESPONSE_MISMATCH**.
+   * 
+   * @example
+   * 302
+   */
   actualResponse?: string;
+  /**
+   * @remarks
+   * The HTTP status code returned after backend servers pass health checks.
+   * 
+   * Valid values: **HTTP_2xx**, **HTTP_3xx**, **HTTP_4xx**, and **HTTP_5xx**. Multiple status codes are separated by commas (,).
+   * 
+   * > This value is returned only if **ReasonCode** is set to **RESPONSE_MISMATCH**.
+   * 
+   * @example
+   * HTTP_2xx
+   */
   expectedResponse?: string;
+  /**
+   * @remarks
+   * The reason why the value of **Status** is Unhealthy. Only HTTP and HTTPS listeners support this parameter.
+   * 
+   * *   **CONNECT_TIMEOUT**: ALB failed to connect to the backend server within the specified period of time.
+   * *   **CONNECT_FAILED**: ALB failed to connect to the backend server.
+   * *   **RECV_RESPONSE_FAILED**: ALB failed to receive a response from the backend server.
+   * *   **RECV_RESPONSE_TIMEOUT**: ALB failed to receive a response from the backend server within the specified period of time.
+   * *   **SEND_REQUEST_FAILED**: ALB failed to send a request to the backend server.
+   * *   **SEND_REQUEST_TIMEOUT**: ALB failed to send a request to the backend server within the specified period of time.
+   * *   **RESPONSE_FORMAT_ERROR**: The format of the response from the backend server is invalid.
+   * *   **RESPONSE_FORMAT_ERROR**: The HTTP status code returned from the backend server is not the expected one.
+   * 
+   * @example
+   * RESPONSE_MISMATCH
+   */
   reasonCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9229,10 +17169,47 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
 }
 
 export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServers extends $tea.Model {
+  /**
+   * @remarks
+   * The backend port.
+   * 
+   * @example
+   * 90
+   */
   port?: number;
+  /**
+   * @remarks
+   * The cause of the abnormal state.
+   */
   reason?: GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServersReason;
+  /**
+   * @remarks
+   * The ID of the backend server.
+   * 
+   * @example
+   * rg-bp1bfa08ex*****
+   */
   serverId?: string;
+  /**
+   * @remarks
+   * The IP address of the backend server.
+   * 
+   * @example
+   * 192.168.8.10
+   */
   serverIp?: string;
+  /**
+   * @remarks
+   * The status of the health check. Valid values: Valid values:
+   * 
+   * *   **Initial**: indicates that health checks are configured for the NLB instance, but no data was found.
+   * *   **Unhealthy**: indicates that the backend server consecutively fails health checks.
+   * *   **Unused**: indicates that the weight of the backend server is 0.
+   * *   **Unavailable**: indicates that health checks are disabled.
+   * 
+   * @example
+   * Initial
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9260,9 +17237,37 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
 }
 
 export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The action specified for the server group. Valid values:
+   * 
+   * *   **ForwardGroup**: distributes requests to server groups.
+   * *   **TrafficMirror**: mirrors requests to server groups.
+   * 
+   * @example
+   * TrafficMirror
+   */
   actionType?: string;
+  /**
+   * @remarks
+   * Indicates whether health checks are enabled. If **on** is returned, it indicates that health checks are enabled.
+   * 
+   * @example
+   * on
+   */
   healthCheckEnabled?: string;
+  /**
+   * @remarks
+   * A list of unhealthy backend servers.
+   */
   nonNormalServers?: GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServers[];
+  /**
+   * @remarks
+   * The ID of the server group that is associated with the listener.
+   * 
+   * @example
+   * vsp-bp1qjwo61pqz3ahltv****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9288,9 +17293,34 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
 }
 
 export class GetListenerHealthStatusResponseBodyListenerHealthStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The listener ID.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
+  /**
+   * @remarks
+   * The listener port.
+   * 
+   * @example
+   * 80
+   */
   listenerPort?: number;
+  /**
+   * @remarks
+   * The listener protocol.
+   * 
+   * @example
+   * http
+   */
   listenerProtocol?: string;
+  /**
+   * @remarks
+   * The information about the server group.
+   */
   serverGroupInfos?: GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -9316,8 +17346,44 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatus extends $te
 }
 
 export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServersReason extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code returned from the server, for example, **302**.
+   * 
+   * > A value is returned only if **ReasonCode** is set to **RESPONSE_MISMATCH**.
+   * 
+   * @example
+   * 302
+   */
   actualResponse?: string;
+  /**
+   * @remarks
+   * The HTTP status code returned after backend servers pass health checks.
+   * 
+   * Valid values: **HTTP_2xx**, **HTTP_3xx**, **HTTP_4xx**, and **HTTP_5xx**. Multiple status codes are separated by commas (,).
+   * 
+   * > A value is returned only if **ReasonCode** is set to **RESPONSE_MISMATCH**.
+   * 
+   * @example
+   * HTTP_2xx
+   */
   expectedResponse?: string;
+  /**
+   * @remarks
+   * The reason why the value of **Status** is Unhealthy. Only HTTP and HTTPS listeners support this parameter.
+   * 
+   * *   **CONNECT_TIMEOUT**: ALB failed to connect to the backend server within the specified period of time.
+   * *   **CONNECT_FAILED**: ALB failed to connect to the backend server.
+   * *   **RECV_RESPONSE_FAILED**: ALB failed to receive a response from the backend server.
+   * *   **RECV_RESPONSE_TIMEOUT**: ALB failed to receive a response from the backend server within the specified period of time.
+   * *   **SEND_REQUEST_FAILED**: ALB failed to send a request to the backend server.
+   * *   **SEND_REQUEST_TIMEOUT**: ALB failed to send a request to the backend server within the specified period of time.
+   * *   **RESPONSE_FORMAT_ERROR**: The format of the response from the backend server is invalid.
+   * *   **RESPONSE_FORMAT_ERROR**: The HTTP status code returned from the backend server is not the expected one.
+   * 
+   * @example
+   * RESPONSE_MISMATCH
+   */
   reasonCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9341,10 +17407,47 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
 }
 
 export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServers extends $tea.Model {
+  /**
+   * @remarks
+   * The backend port.
+   * 
+   * @example
+   * 90
+   */
   port?: number;
+  /**
+   * @remarks
+   * The cause of the abnormal state.
+   */
   reason?: GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServersReason;
+  /**
+   * @remarks
+   * The ID of the backend server.
+   * 
+   * @example
+   * rg-bp1bfa08ex****
+   */
   serverId?: string;
+  /**
+   * @remarks
+   * The IP address of the server group.
+   * 
+   * @example
+   * 192.168.2.11
+   */
   serverIp?: string;
+  /**
+   * @remarks
+   * The status of the health check. Valid values: Valid values:
+   * 
+   * *   **Initial**: indicates that health checks are configured for the NLB instance, but no data was found.
+   * *   **Unhealthy**: indicates that the backend server consecutively fails health checks.
+   * *   **Unused**: indicates that the weight of the backend server is 0.
+   * *   **Unavailable**: indicates that health checks are disabled.
+   * 
+   * @example
+   * Initial
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9372,9 +17475,34 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
 }
 
 export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The action specified for the server group.
+   * 
+   * @example
+   * TrafficMirror
+   */
   actionType?: string;
+  /**
+   * @remarks
+   * Indicates whether health checks are enabled. If **on** is returned, it indicates that health checks are enabled.
+   * 
+   * @example
+   * on
+   */
   healthCheckEnabled?: string;
+  /**
+   * @remarks
+   * A list of unhealthy backend servers.
+   */
   nonNormalServers?: GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServers[];
+  /**
+   * @remarks
+   * The ID of the server group that is associated with the listener.
+   * 
+   * @example
+   * vsp-bp1qjwo61pqz3ahlt****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9400,7 +17528,18 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
 }
 
 export class GetListenerHealthStatusResponseBodyRuleHealthStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the forwarding rule.
+   * 
+   * @example
+   * rule-hp34s2h0xx1ht4nwo****
+   */
   ruleId?: string;
+  /**
+   * @remarks
+   * The server groups.
+   */
   serverGroupInfos?: GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -9422,7 +17561,21 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatus extends $tea.Mo
 }
 
 export class GetLoadBalancerAttributeResponseBodyAccessLogConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The Log Service project.
+   * 
+   * @example
+   * sls-setter
+   */
   logProject?: string;
+  /**
+   * @remarks
+   * The Logstore.
+   * 
+   * @example
+   * test
+   */
   logStore?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9444,7 +17597,24 @@ export class GetLoadBalancerAttributeResponseBodyAccessLogConfig extends $tea.Mo
 }
 
 export class GetLoadBalancerAttributeResponseBodyDeletionProtectionConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the deletion protection feature is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The time when the deletion protection feature was enabled. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-08-02T02:49:05Z
+   */
   enabledTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9466,6 +17636,15 @@ export class GetLoadBalancerAttributeResponseBodyDeletionProtectionConfig extend
 }
 
 export class GetLoadBalancerAttributeResponseBodyLoadBalancerBillingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The billing method.
+   * 
+   * Only **PostPay** is returned, which indicates the pay-as-you-go billing method.
+   * 
+   * @example
+   * PostPay
+   */
   payType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9485,7 +17664,26 @@ export class GetLoadBalancerAttributeResponseBodyLoadBalancerBillingConfig exten
 }
 
 export class GetLoadBalancerAttributeResponseBodyLoadBalancerOperationLocks extends $tea.Model {
+  /**
+   * @remarks
+   * The reason why the ALB instance is locked. This parameter is valid only if **LoadBalancerBussinessStatus** is set to **Abnormal**.
+   * 
+   * @example
+   * nolock
+   */
   lockReason?: string;
+  /**
+   * @remarks
+   * The lock type. Valid values:
+   * 
+   * *   **SecurityLocked**: The ALB instance is locked due to security reasons.
+   * *   **RelatedResourceLocked**: The ALB instance is locked due to other resources that are associated with the ALB instance.
+   * *   **FinancialLocked**: The ALB instance is locked due to overdue payments.
+   * *   **ResidualLocked**: The ALB instance is locked because the associated resources have overdue payments and the resources are released.
+   * 
+   * @example
+   * FinancialLocked
+   */
   lockType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9507,7 +17705,28 @@ export class GetLoadBalancerAttributeResponseBodyLoadBalancerOperationLocks exte
 }
 
 export class GetLoadBalancerAttributeResponseBodyModificationProtectionConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The reason for enabling the configuration read-only mode. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
+   * 
+   * This parameter is valid only if **ModificationProtectionStatus** is set to **ConsoleProtection**.
+   * 
+   * @example
+   * test
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The status of the configuration read-only mode. Valid values:
+   * 
+   * *   **NonProtection**: The configuration read-only mode is disabled. In this case, you cannot specify ModificationProtectionReason. If you specify ModificationProtectionReason, the value of the parameter is cleared.
+   * *   **ConsoleProtection**: The configuration read-only mode is enabled. In this case, you can specify ModificationProtectionReason.
+   * 
+   * > If you set this parameter to **ConsoleProtection**, you cannot use the ALB console to modify instance configurations. However, you can call API operations to modify instance configurations.
+   * 
+   * @example
+   * ConsoleProtection
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9529,7 +17748,25 @@ export class GetLoadBalancerAttributeResponseBodyModificationProtectionConfig ex
 }
 
 export class GetLoadBalancerAttributeResponseBodyTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `acs:` or `aliyun`.
+   * 
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * FinanceJoshua
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9551,11 +17788,55 @@ export class GetLoadBalancerAttributeResponseBodyTags extends $tea.Model {
 }
 
 export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses extends $tea.Model {
+  /**
+   * @remarks
+   * An IPv4 address.
+   * 
+   * This parameter takes effect when **AddressIPVersion** is set to **IPv4** or **DualStack**. The network type is determined by the value of **AddressType**.
+   * 
+   * @example
+   * 192.168.10.1
+   */
   address?: string;
+  /**
+   * @remarks
+   * The elastic IP address (EIP).
+   * 
+   * @example
+   * eip-uf6wm****1zj9
+   */
   allocationId?: string;
+  /**
+   * @remarks
+   * The type of EIP. Valid values:
+   * 
+   * *   **Common**: an EIP.
+   * *   **Anycast**: an Anycast EIP.
+   * 
+   * >  For more information about the regions in which ALB supports Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/460727.html).
+   * 
+   * @example
+   * Common
+   */
   eipType?: string;
+  /**
+   * @remarks
+   * The private IPv4 address.
+   * 
+   * @example
+   * 10.0.1.181
+   */
   intranetAddress?: string;
   intranetAddressHcStatus?: string;
+  /**
+   * @remarks
+   * An IPv6 address.
+   * 
+   * This parameter takes effect only when **AddressIPVersion** is set to **DualStack**. The network type is determined by the value of **Ipv6AddressType**.
+   * 
+   * @example
+   * 2408:XXXX:39d:eb00::/56
+   */
   ipv6Address?: string;
   ipv6AddressHcStatus?: string;
   static names(): { [key: string]: string } {
@@ -9588,9 +17869,29 @@ export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddress
 }
 
 export class GetLoadBalancerAttributeResponseBodyZoneMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The address of the ALB instance.
+   */
   loadBalancerAddresses?: GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses[];
   status?: string;
+  /**
+   * @remarks
+   * The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an ALB instance.
+   * 
+   * @example
+   * vsw-bp12mw1f8k3jgy****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The zone ID of the ALB instance.
+   * 
+   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the most recent zone list.
+   * 
+   * @example
+   * cn-hangzhou-a
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9616,12 +17917,69 @@ export class GetLoadBalancerAttributeResponseBodyZoneMappings extends $tea.Model
 }
 
 export class ListAScriptsResponseBodyAScripts extends $tea.Model {
+  /**
+   * @remarks
+   * The AScript rule ID.
+   * 
+   * @example
+   * as-aznwocxofkakf7****
+   */
   AScriptId?: string;
+  /**
+   * @remarks
+   * The name of the AScript rule.
+   * 
+   * @example
+   * test
+   */
   AScriptName?: string;
+  /**
+   * @remarks
+   * The status of the AScript rule. Valid values:
+   * 
+   * *   **Creating**
+   * *   **Available**
+   * *   **Configuring**
+   * *   **Deleting**
+   * 
+   * @example
+   * Available
+   */
   AScriptStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether the AScript rule is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The listener ID.
+   * 
+   * @example
+   * lsn-t0w1m9r6suiwmc****
+   */
   listenerId?: string;
+  /**
+   * @remarks
+   * The Application Load Balancer (ALB) instance ID.
+   * 
+   * @example
+   * alb-vv9rg2ub31tyec****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The content of the AScript rule.
+   * 
+   * @example
+   * {test}
+   */
   scriptContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9653,8 +18011,33 @@ export class ListAScriptsResponseBodyAScripts extends $tea.Model {
 }
 
 export class ListAclEntriesResponseBodyAclEntries extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the ACL entry. The description must be 1 to 256 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_).
+   * 
+   * @example
+   * test-entry
+   */
   description?: string;
+  /**
+   * @remarks
+   * The CIDR block for the ACL entry.
+   * 
+   * @example
+   * 10.0.1.1/24
+   */
   entry?: string;
+  /**
+   * @remarks
+   * The status of the ACL entry. Valid values:
+   * 
+   * *   **Adding**: The ACL entry is being added.
+   * *   **Available**: The ACL entry is added and available.
+   * *   **Removing**: The ACL entry is being removed.
+   * 
+   * @example
+   * Available
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9678,10 +18061,49 @@ export class ListAclEntriesResponseBodyAclEntries extends $tea.Model {
 }
 
 export class ListAclRelationsResponseBodyAclRelationsRelatedListeners extends $tea.Model {
+  /**
+   * @remarks
+   * The listener ID.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
+  /**
+   * @remarks
+   * The listener port.
+   * 
+   * @example
+   * 80
+   */
   listenerPort?: number;
+  /**
+   * @remarks
+   * The listener protocol.
+   * 
+   * @example
+   * HTTPS
+   */
   listenerProtocol?: string;
+  /**
+   * @remarks
+   * The ID of the SLB instance.
+   * 
+   * @example
+   * lb-bp1b6c719dfa08ex****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The association status between the ACL and the listener.
+   * 
+   * *   **Associating**
+   * *   **Associated**
+   * *   **Dissociating**
+   * 
+   * @example
+   * Associated
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9709,7 +18131,18 @@ export class ListAclRelationsResponseBodyAclRelationsRelatedListeners extends $t
 }
 
 export class ListAclRelationsResponseBodyAclRelations extends $tea.Model {
+  /**
+   * @remarks
+   * ACL ID
+   * 
+   * @example
+   * nacl-hp34s2h0xx1ht4nwo****
+   */
   aclId?: string;
+  /**
+   * @remarks
+   * The listeners that are associated with the ACL.
+   */
   relatedListeners?: ListAclRelationsResponseBodyAclRelationsRelatedListeners[];
   static names(): { [key: string]: string } {
     return {
@@ -9731,7 +18164,21 @@ export class ListAclRelationsResponseBodyAclRelations extends $tea.Model {
 }
 
 export class ListAclsRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9753,7 +18200,21 @@ export class ListAclsRequestTag extends $tea.Model {
 }
 
 export class ListAclsResponseBodyAclsTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9775,13 +18236,73 @@ export class ListAclsResponseBodyAclsTags extends $tea.Model {
 }
 
 export class ListAclsResponseBodyAcls extends $tea.Model {
+  /**
+   * @remarks
+   * The ACL ID.
+   * 
+   * @example
+   * nacl-hp34s2h0xx1ht4nwo****
+   */
   aclId?: string;
+  /**
+   * @remarks
+   * The name of the ACL.
+   * 
+   * @example
+   * test-acl
+   */
   aclName?: string;
+  /**
+   * @remarks
+   * The status of the ACL. Valid values:
+   * 
+   * *   **Creating**: The network ACL is being created.
+   * *   **Available**: The network ACL is available.
+   * *   **Configuring**
+   * 
+   * @example
+   * Available
+   */
   aclStatus?: string;
+  /**
+   * @remarks
+   * The IP version of the ACL. Only **IPv4** may be returned.
+   * 
+   * @example
+   * IPv4
+   */
   addressIPVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether configuration management is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   configManagedEnabled?: boolean;
+  /**
+   * @remarks
+   * The time when the ACL was created. The follows the `YYYY-MM-DDThh:mm:ssZ` format.
+   * 
+   * @example
+   * 2023-02-15T07:37:33Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-atstuj3rtopty****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListAclsResponseBodyAclsTags[];
   static names(): { [key: string]: string } {
     return {
@@ -9815,15 +18336,104 @@ export class ListAclsResponseBodyAcls extends $tea.Model {
 }
 
 export class ListAsynJobsResponseBodyJobs extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the operation.
+   * 
+   * @example
+   * CreateLoadBalancer
+   */
   apiName?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates the start time of the task. Unit: milliseconds.
+   * 
+   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 2134663231234
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * If the value of **Status** is Failed, an error code is returned.
+   * 
+   * @example
+   * 506
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * If the value of **Status** is Failed, an error message is returned.
+   * 
+   * @example
+   * AllocateEipAddress Failed
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * 365F4154-92F6-4AE4-92F8-7FF34B5****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates the end time of the task. Unit: milliseconds.
+   * 
+   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 2144663233315
+   */
   modifyTime?: number;
+  /**
+   * @remarks
+   * The type of the operation. Valid values:
+   * 
+   * *   **Create**
+   * *   **Update**
+   * *   **Delete**
+   * 
+   * @example
+   * Create
+   */
   operateType?: string;
+  /**
+   * @remarks
+   * The associated resource ID.
+   * 
+   * @example
+   * alb-o8mszt95oamfjy****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the associated resource. Valid values:
+   * 
+   * *   **loadbalancer**: an ALB instance
+   * *   **listener**: a listener
+   * *   **rule**: a forwarding rule
+   * *   **acl**: an ACL
+   * *   **securitypolicy**: a security policy
+   * *   **servergroup**: a server group
+   * 
+   * @example
+   * acl
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * *   **Succeeded**
+   * *   **Failed**
+   * *   **Processing**
+   * 
+   * @example
+   * Succeeded
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9861,7 +18471,21 @@ export class ListAsynJobsResponseBodyJobs extends $tea.Model {
 }
 
 export class ListHealthCheckTemplatesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9883,7 +18507,21 @@ export class ListHealthCheckTemplatesRequestTag extends $tea.Model {
 }
 
 export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplatesTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9905,19 +18543,153 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplatesTags extend
 }
 
 export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status codes that indicate healthy backend servers.
+   */
   healthCheckCodes?: string[];
+  /**
+   * @remarks
+   * The port that is used for health checks.
+   * 
+   * Valid values: \\*\\* 0 to 65535\\*\\*.
+   * 
+   * The default value is **0**, which specifies that the port of a backend server is used for health checks.
+   * 
+   * @example
+   * 80
+   */
   healthCheckConnectPort?: number;
+  /**
+   * @remarks
+   * The domain name that is used for health checks. Valid values:
+   * 
+   * *   **$SERVER_IP** (default): the private IP address of a backend server. If an IP address is specified, or this parameter is not specified, the ALB instance uses the private IP address of each backend server as the domain name for health checks.
+   * *   **domain**: The domain name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+   * 
+   * >  This parameter takes effect only if you set `HealthCheckProtocol` to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * $_ip
+   */
   healthCheckHost?: string;
+  /**
+   * @remarks
+   * The HTTP version for health checks.
+   * 
+   * Valid values: **HTTP 1.0** and **HTTP 1.1**.
+   * 
+   * Default value: **HTTP 1.1**.
+   * 
+   * >  This parameter takes effect only if you set `HealthCheckProtocol` to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * HTTP 1.0
+   */
   healthCheckHttpVersion?: string;
+  /**
+   * @remarks
+   * The interval at which health checks are performed. Unit: seconds. Valid values: **1 to 50**. Default value: **2**.
+   * 
+   * @example
+   * 5
+   */
   healthCheckInterval?: number;
+  /**
+   * @remarks
+   * The HTTP method that is used for health checks. Valid values:
+   * 
+   * *   **HEAD** (default): By default, HTTP and HTTPS health checks use the HEAD method.
+   * *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
+   * *   **POST**: gRPC health checks use the POST method by default.
+   * 
+   * >  This parameter takes effect only if you set **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**.
+   * 
+   * @example
+   * HEAD
+   */
   healthCheckMethod?: string;
+  /**
+   * @remarks
+   * The URL path that you want to use for health checks.
+   * 
+   * The URL must be 1 to 80 characters in length, and can contain letters, digits, the following special characters: - / . % ? # &, and the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
+   * 
+   * @example
+   * /test/index.html
+   */
   healthCheckPath?: string;
+  /**
+   * @remarks
+   * The protocol that is used for health checks. Valid values:
+   * 
+   * *   **HTTP** (default): The ALB instance sends HEAD or GET requests, which simulate browser requests, to check whether the backend server is healthy.
+   * *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS provides higher security because HTTPS supports data encryption.
+   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
+   * *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
+   * 
+   * @example
+   * HTTP
+   */
   healthCheckProtocol?: string;
+  /**
+   * @remarks
+   * The ID of the health check template.
+   * 
+   * @example
+   * hct-bp1qjwo61pqz3ahltv****
+   */
   healthCheckTemplateId?: string;
+  /**
+   * @remarks
+   * The name of the health check template.
+   * 
+   * The name must be 2 to 128 character characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+   * 
+   * @example
+   * HealthCheckTemplate1
+   */
   healthCheckTemplateName?: string;
+  /**
+   * @remarks
+   * The timeout period of a health check response. If a backend Elastic Compute Service (ECS) instance does not respond within the specified timeout period, the ECS instance fails to pass the health check.
+   * 
+   * Valid values: **1 to 300**. Unit: seconds.
+   * 
+   * Default value: **5**.
+   * 
+   * @example
+   * 3
+   */
   healthCheckTimeout?: number;
+  /**
+   * @remarks
+   * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status changes from **fail** to **success**.
+   * 
+   * Valid values: **2 to 10**.
+   * 
+   * Default value: **3**.
+   * 
+   * @example
+   * 4
+   */
   healthyThreshold?: number;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListHealthCheckTemplatesResponseBodyHealthCheckTemplatesTags[];
+  /**
+   * @remarks
+   * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status changes from **success** to **fail**.
+   * 
+   * Valid values: **2 to 10**.
+   * 
+   * Default value: **3**.
+   * 
+   * @example
+   * 4
+   */
   unhealthyThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9963,9 +18735,44 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $t
 }
 
 export class ListListenerCertificatesResponseBodyCertificates extends $tea.Model {
+  /**
+   * @remarks
+   * The certificate ID. Only server certificates are supported.
+   * 
+   * @example
+   * 12315790343_166f8204689_1714763408_70998****
+   */
   certificateId?: string;
+  /**
+   * @remarks
+   * The type of the certificate.
+   * 
+   * @example
+   * Server
+   */
   certificateType?: string;
+  /**
+   * @remarks
+   * Indicates whether the certificate is the default certificate of the listener. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isDefault?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the certificate is associated with the listener. Valid values:
+   * 
+   * *   **Associating**
+   * *   **Associated**
+   * *   **Diassociating**
+   * 
+   * @example
+   * Associating
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9991,7 +18798,21 @@ export class ListListenerCertificatesResponseBodyCertificates extends $tea.Model
 }
 
 export class ListListenersRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10013,6 +18834,13 @@ export class ListListenersRequestTag extends $tea.Model {
 }
 
 export class ListListenersResponseBodyListenersDefaultActionsForwardGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the server group to which requests are forwarded.
+   * 
+   * @example
+   * rsp-cige6j****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10032,6 +18860,10 @@ export class ListListenersResponseBodyListenersDefaultActionsForwardGroupConfigS
 }
 
 export class ListListenersResponseBodyListenersDefaultActionsForwardGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The server groups to which requests are forwarded.
+   */
   serverGroupTuples?: ListListenersResponseBodyListenersDefaultActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -10051,7 +18883,18 @@ export class ListListenersResponseBodyListenersDefaultActionsForwardGroupConfig 
 }
 
 export class ListListenersResponseBodyListenersDefaultActions extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the forwarding rule action. This parameter takes effect only when the action is **ForwardGroup**.
+   */
   forwardGroupConfig?: ListListenersResponseBodyListenersDefaultActionsForwardGroupConfig;
+  /**
+   * @remarks
+   * The action. **ForwardGroup**: forwards requests to multiple server groups.
+   * 
+   * @example
+   * ForwardGroup
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10073,8 +18916,38 @@ export class ListListenersResponseBodyListenersDefaultActions extends $tea.Model
 }
 
 export class ListListenersResponseBodyListenersLogConfigAccessLogTracingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether xtrace is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  This parameter can be set to **true** only when the access log feature of ALB is enabled by setting **AccessLogEnabled** to true.
+   * 
+   * @example
+   * true
+   */
   tracingEnabled?: boolean;
+  /**
+   * @remarks
+   * The sampling rate of xtrace. Valid values: **1 to 10000**.
+   * 
+   * >  This parameter takes effect when **TracingEnabled** is set to **true**.
+   * 
+   * @example
+   * 100
+   */
   tracingSample?: number;
+  /**
+   * @remarks
+   * The type of xtrace. The value is set to **Zipkin**.
+   * 
+   * >  This parameter takes effect when **TracingEnabled** is set to **true**.
+   * 
+   * @example
+   * Zipkin
+   */
   tracingType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10098,7 +18971,21 @@ export class ListListenersResponseBodyListenersLogConfigAccessLogTracingConfig e
 }
 
 export class ListListenersResponseBodyListenersLogConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether custom headers are carried in the access log. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   accessLogRecordCustomizedHeadersEnabled?: boolean;
+  /**
+   * @remarks
+   * The configurations of xtrace.
+   */
   accessLogTracingConfig?: ListListenersResponseBodyListenersLogConfigAccessLogTracingConfig;
   static names(): { [key: string]: string } {
     return {
@@ -10120,7 +19007,28 @@ export class ListListenersResponseBodyListenersLogConfig extends $tea.Model {
 }
 
 export class ListListenersResponseBodyListenersQuicConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the QUIC listener associated with the ALB instance. This parameter is required if the **QuicUpgradeEnabled** parameter is set to **true**. Only HTTPS listeners support this parameter.
+   * 
+   * >  The existing listener and QUIC listener must be to the same ALB instance, and the QUIC listener has not been associated with an ALB instance.
+   * 
+   * @example
+   * lsr-bp1bpn908w4nbw****
+   */
   quicListenerId?: string;
+  /**
+   * @remarks
+   * Indicates whether QUIC upgrade is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   quicUpgradeEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10142,7 +19050,21 @@ export class ListListenersResponseBodyListenersQuicConfig extends $tea.Model {
 }
 
 export class ListListenersResponseBodyListenersTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10164,20 +19086,193 @@ export class ListListenersResponseBodyListenersTags extends $tea.Model {
 }
 
 export class ListListenersResponseBodyListenersXForwardedForConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertClientVerifyEnabled** is set to **true**.
+   * 
+   * The name must be 1 to 40 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * test_client-verify-alias_123456
+   */
   XForwardedForClientCertClientVerifyAlias?: string;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Clientcert-clientverify` header is used to obtain the verification result of the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientCertClientVerifyEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertFingerprintEnabled** is set to **true**.
+   * 
+   * The name must be 1 to 40 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * test_finger-print-alias_123456
+   */
   XForwardedForClientCertFingerprintAlias?: string;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Clientcert-fingerprint` header is used to retrieve the fingerprint of the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientCertFingerprintEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertIssuerDNEnabled** is set to **true**.
+   * 
+   * The name must be 1 to 40 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * test_issue-dn-alias_123456
+   */
   XForwardedForClientCertIssuerDNAlias?: string;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Clientcert-issuerdn` header is used to retrieve information about the authority that issues the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientCertIssuerDNEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertSubjectDNEnabled** is set to **true**.
+   * 
+   * The name must be 1 to 40 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * test_subject-dn-alias_123456
+   */
   XForwardedForClientCertSubjectDNAlias?: string;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Clientcert-subjectdn` header is used to retrieve information about the owner of the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientCertSubjectDNEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the X-Forwarded-For header is used to preserver client IP addresses for the ALB instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  This parameter is returned only for HTTP and HTTPS listeners.
+   * 
+   * @example
+   * false
+   */
   XForwardedForClientSourceIpsEnabled?: boolean;
+  /**
+   * @remarks
+   * The trusted proxy IP address.
+   * 
+   * ALB instances traverse the IP addresses in the `X-Forwarded-For` header from the rightmost IP address to the leftmost IP address. The first IP address that is not on the trusted IP address list is considered the client IP address. Requests from the client IP address are throttled.
+   * 
+   * @example
+   * 10.1.1.0/24
+   */
   XForwardedForClientSourceIpsTrusted?: string;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Client-Port` header is used to retrieve the client port. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  This parameter is returned only for HTTP and HTTPS listeners.
+   * 
+   * @example
+   * true
+   */
   XForwardedForClientSrcPortEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-For` header to retrieve client IP addresses. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  This parameter is returned only for HTTP and HTTPS listeners.
+   * 
+   * @example
+   * true
+   */
   XForwardedForEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Proto` header is used to retrieve the listener protocol. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
+   * 
+   * @example
+   * true
+   */
   XForwardedForProtoEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the `SLB-ID` header to retrieve the ID of the ALB instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
+   * 
+   * @example
+   * true
+   */
   XForwardedForSLBIdEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the `X-Forwarded-Port` header is used to retrieve the listener port of the ALB instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
+   * 
+   * @example
+   * true
+   */
   XForwardedForSLBPortEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10225,21 +19320,141 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $tea.
 }
 
 export class ListListenersResponseBodyListeners extends $tea.Model {
+  /**
+   * @remarks
+   * The default actions in the forwarding rules.
+   */
   defaultActions?: ListListenersResponseBodyListenersDefaultActions[];
+  /**
+   * @remarks
+   * Indicates whether GZIP compression is enabled to compress specific types of files. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   gzipEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether HTTP/2 is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   http2Enabled?: boolean;
+  /**
+   * @remarks
+   * The timeout period of an idle connection. Unit: seconds. Valid values: **1 to 60**.
+   * 
+   * If no request is received within the specified timeout period, ALB closes the connection. ALB establishes the connection again when a new connection request is received.
+   * 
+   * @example
+   * 3
+   */
   idleTimeout?: number;
+  /**
+   * @remarks
+   * The name of the listener.
+   * 
+   * @example
+   * test
+   */
   listenerDescription?: string;
+  /**
+   * @remarks
+   * The listener ID.
+   * 
+   * @example
+   * lsr-bp1bpn0kn908w4nbw****
+   */
   listenerId?: string;
+  /**
+   * @remarks
+   * The frontend port that is used by the ALB instance. Valid values: **1 to 65535**.
+   * 
+   * @example
+   * 80
+   */
   listenerPort?: number;
+  /**
+   * @remarks
+   * The listener protocol of the instance. Valid values:
+   * 
+   * *   **HTTP**
+   * *   **HTTPS**
+   * *   **QUIC**
+   * 
+   * @example
+   * HTTP
+   */
   listenerProtocol?: string;
+  /**
+   * @remarks
+   * The status of the listener. Valid values:
+   * 
+   * *   **Provisioning**: The listener is being created.
+   * *   **Running**: The listener is running.
+   * *   **Configuring**: The listener is being configured.
+   * *   **Stopped**: The listener is disabled.
+   * 
+   * @example
+   * Running
+   */
   listenerStatus?: string;
+  /**
+   * @remarks
+   * The ALB instance ID.
+   * 
+   * @example
+   * lb-bp1b6c719dfa08ex*****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The logging configurations.
+   */
   logConfig?: ListListenersResponseBodyListenersLogConfig;
+  /**
+   * @remarks
+   * The configurations of the QUIC listener associated with the ALB instance.
+   */
   quicConfig?: ListListenersResponseBodyListenersQuicConfig;
+  /**
+   * @remarks
+   * The timeout period of a request. Unit: seconds. Valid values: **1 to 180**.
+   * 
+   * If no responses are received from the backend server within the specified timeout period, ALB returns an `HTTP 504` error code to the client.
+   * 
+   * @example
+   * 34
+   */
   requestTimeout?: number;
+  /**
+   * @remarks
+   * The security policy.
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * tls_cipher_policy_1_1
+   */
   securityPolicyId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListListenersResponseBodyListenersTags[];
+  /**
+   * @remarks
+   * The configuration of the `XForward` header.
+   */
   XForwardedForConfig?: ListListenersResponseBodyListenersXForwardedForConfig;
   static names(): { [key: string]: string } {
     return {
@@ -10289,7 +19504,25 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
 }
 
 export class ListLoadBalancersRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * 
+   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * KeyTest
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * alueTest
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10311,7 +19544,21 @@ export class ListLoadBalancersRequestTag extends $tea.Model {
 }
 
 export class ListLoadBalancersResponseBodyLoadBalancersAccessLogConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The Simple Log Service project.
+   * 
+   * @example
+   * sls-setter
+   */
   logProject?: string;
+  /**
+   * @remarks
+   * The Logstore.
+   * 
+   * @example
+   * test
+   */
   logStore?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10333,7 +19580,24 @@ export class ListLoadBalancersResponseBodyLoadBalancersAccessLogConfig extends $
 }
 
 export class ListLoadBalancersResponseBodyLoadBalancersDeletionProtectionConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether deletion protection is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The time when deletion protection is enabled.
+   * 
+   * @example
+   * 2022-08-02T02:49:05Z
+   */
   enabledTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10355,6 +19619,15 @@ export class ListLoadBalancersResponseBodyLoadBalancersDeletionProtectionConfig 
 }
 
 export class ListLoadBalancersResponseBodyLoadBalancersLoadBalancerBillingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * Only **PostPay** may be returned, which indicates the pay-as-you-go billing method.
+   * 
+   * @example
+   * PostPay
+   */
   payType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10374,7 +19647,26 @@ export class ListLoadBalancersResponseBodyLoadBalancersLoadBalancerBillingConfig
 }
 
 export class ListLoadBalancersResponseBodyLoadBalancersLoadBalancerOperationLocks extends $tea.Model {
+  /**
+   * @remarks
+   * The reason why the ALB instance is locked. This parameter is valid only if **LoadBalancerBussinessStatus** is set to **Abnormal**.
+   * 
+   * @example
+   * Test LockReason
+   */
   lockReason?: string;
+  /**
+   * @remarks
+   * The lock type. Valid values:
+   * 
+   * *   **SecurityLocked**: The ALB instance is locked due to security risks.
+   * *   **RelatedResourceLocked**: The ALB instance is locked due to other resources associated with the ALB instance.
+   * *   **FinancialLocked**: The ALB instance is locked due to overdue payments.
+   * *   **ResidualLocked**: The ALB instance is locked because the associated resources have overdue payments and the resources are released.
+   * 
+   * @example
+   * FinancialLocked
+   */
   lockType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10396,7 +19688,30 @@ export class ListLoadBalancersResponseBodyLoadBalancersLoadBalancerOperationLock
 }
 
 export class ListLoadBalancersResponseBodyLoadBalancersModificationProtectionConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The reason why the configuration read-only mode is enabled.
+   * 
+   * The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * 
+   * This parameter is available only if the **ModificationProtectionStatus** parameter is set to **ConsoleProtection**.
+   * 
+   * @example
+   * Test Reason
+   */
   reason?: string;
+  /**
+   * @remarks
+   * Indicates whether the configuration read-only mode is enabled for the ALB instance. Valid values:
+   * 
+   * *   **NonProtection**: Modification protection is disabled. In this case, you cannot set the ModificationProtectionReason parameter. If the ModificationProtectionReason parameter is specified, the value is cleared.
+   * *   **ConsoleProtection**: Modification protection is enabled. In this case, you can set the ModificationProtectionReason parameter.
+   * 
+   * >  If the value is **ConsoleProtection**, modification protection is enabled. You cannot modify the configurations of the ALB instance in the ALB console. However, you can call API operations to modify the configurations of the ALB instance.
+   * 
+   * @example
+   * ConsoleProtection
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10418,7 +19733,21 @@ export class ListLoadBalancersResponseBodyLoadBalancersModificationProtectionCon
 }
 
 export class ListLoadBalancersResponseBodyLoadBalancersTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key of the ALB instance.
+   * 
+   * @example
+   * KeyTest
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value of the ALB instance.
+   * 
+   * @example
+   * alueTest
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10440,25 +19769,172 @@ export class ListLoadBalancersResponseBodyLoadBalancersTags extends $tea.Model {
 }
 
 export class ListLoadBalancersResponseBodyLoadBalancers extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of access logs.
+   */
   accessLogConfig?: ListLoadBalancersResponseBodyLoadBalancersAccessLogConfig;
+  /**
+   * @remarks
+   * The mode in which IP addresses are allocated. Valid values:
+   * 
+   * *   **Fixed**: The ALB instance uses a static IP address.
+   * *   **Dynamic**: dynamically allocates an IP address to each zone of the ALB instance.
+   * 
+   * @example
+   * Fixed
+   */
   addressAllocatedMode?: string;
+  /**
+   * @remarks
+   * The IP version. Valid values:
+   * 
+   * *   **IPv4**
+   * *   **DualStack**
+   * 
+   * @example
+   * DualStack
+   */
   addressIpVersion?: string;
+  /**
+   * @remarks
+   * The type of IP address that the ALB instance uses to provide services. Valid values:
+   * 
+   * *   **Internet**: The ALB instance is assigned a public IP address. The domain name is resolved to the public IP address. The ALB instance is accessible over the Internet.
+   * *   **Intranet**: The ALB instance is assigned only a private IP address. The domain name is resolved to the private IP address. The ALB instance is accessible only within the VPC of the ALB instance.
+   * 
+   * @example
+   * Intranet
+   */
   addressType?: string;
+  /**
+   * @remarks
+   * The ID of the Internet Shared Bandwidth instance that is associated with the Internet-facing ALB instance.
+   * 
+   * @example
+   * cbwp-bp1vevu8h3ieh****
+   */
   bandwidthPackageId?: string;
+  /**
+   * @remarks
+   * The time when the resource was created.
+   * 
+   * @example
+   * 2022-07-02T02:49:05Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * alb-95qnr2itwu9orb****.cn-hangzhou.alb.aliyuncs.com
+   */
   DNSName?: string;
+  /**
+   * @remarks
+   * The configuration of the deletion protection feature.
+   */
   deletionProtectionConfig?: ListLoadBalancersResponseBodyLoadBalancersDeletionProtectionConfig;
+  /**
+   * @remarks
+   * The type of IPv6 address used by the ALB instance. Valid values:
+   * 
+   * *   **Internet** The ALB instance is assigned a public IP address. The domain name is resolved to the public IP address. The ALB instance is accessible over the Internet.
+   * *   **Intranet** The ALB instance is assigned only a private IP address. The domain name is resolved to the private IP address. The ALB instance is accessible only within the VPC of the ALB instance.
+   * 
+   * @example
+   * Intranet
+   */
   ipv6AddressType?: string;
+  /**
+   * @remarks
+   * The billing information about the ALB instance.
+   */
   loadBalancerBillingConfig?: ListLoadBalancersResponseBodyLoadBalancersLoadBalancerBillingConfig;
+  /**
+   * @remarks
+   * The status of the ALB instance. Valid values:
+   * 
+   * *   **Abnormal**
+   * *   **Normal**
+   * 
+   * @example
+   * Normal
+   */
   loadBalancerBussinessStatus?: string;
+  /**
+   * @remarks
+   * The edition of the ALB instance. The features and billing rules vary based on the edition. Valid values:
+   * 
+   * *   **Basic**
+   * *   **Standard**
+   * *   **StandardWithWaf**
+   * 
+   * @example
+   * Standard
+   */
   loadBalancerEdition?: string;
+  /**
+   * @remarks
+   * The ID of the ALB instance.
+   * 
+   * @example
+   * alb-o9ulmq5hgn68jk****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The name of the ALB instance.
+   * 
+   * @example
+   * alb-instance-test
+   */
   loadBalancerName?: string;
+  /**
+   * @remarks
+   * The configuration of the operation lock.
+   */
   loadBalancerOperationLocks?: ListLoadBalancersResponseBodyLoadBalancersLoadBalancerOperationLocks[];
+  /**
+   * @remarks
+   * The status of the ALB instance. Valid values:
+   * 
+   * *   **Inactive**: The ALB instance is disabled. ALB instances in the Inactive state do not forward traffic.
+   * *   **Active**: The ALB instance is running.
+   * *   **Provisioning**: The ALB instance is being created.
+   * *   **Configuring**: The ALB instance is being modified.
+   * *   **CreateFailed**: The system failed to create the ALB instance.
+   * 
+   * @example
+   * Active
+   */
   loadBalancerStatus?: string;
+  /**
+   * @remarks
+   * The configuration of modification protection.
+   */
   modificationProtectionConfig?: ListLoadBalancersResponseBodyLoadBalancersModificationProtectionConfig;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-atstuj3rtop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The information about the tags.
+   */
   tags?: ListLoadBalancersResponseBodyLoadBalancersTags[];
+  /**
+   * @remarks
+   * The ID of the VPC in which the ALB instance is deployed.
+   * 
+   * @example
+   * vpc-bp1b49rqrybk45nio****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10516,7 +19992,21 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $tea.Model {
 }
 
 export class ListRulesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10538,11 +20028,46 @@ export class ListRulesRequestTag extends $tea.Model {
 }
 
 export class ListRulesResponseBodyRulesRuleActionsCorsConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether credentials can be carried in CORS requests. Valid values:
+   * 
+   * *   **on**
+   * *   **off**
+   * 
+   * @example
+   * on
+   */
   allowCredentials?: string;
+  /**
+   * @remarks
+   * The allowed headers of CORS requests.
+   */
   allowHeaders?: string[];
+  /**
+   * @remarks
+   * The allowed HTTP methods of CORS requests.
+   */
   allowMethods?: string[];
+  /**
+   * @remarks
+   * The allowed origins of CORS requests.
+   */
   allowOrigin?: string[];
+  /**
+   * @remarks
+   * The headers that can be exposed.
+   */
   exposeHeaders?: string[];
+  /**
+   * @remarks
+   * The maximum cache time of dry runs in the browser. Unit: seconds.
+   * 
+   * Valid values: **-1** to **172800**.
+   * 
+   * @example
+   * 1000
+   */
   maxAge?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10572,8 +20097,31 @@ export class ListRulesResponseBodyRulesRuleActionsCorsConfig extends $tea.Model 
 }
 
 export class ListRulesResponseBodyRulesRuleActionsFixedResponseConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the custom response. The content can be up to 1 KB in size, and can contain only ASCII characters.
+   * 
+   * @example
+   * dssacav
+   */
   content?: string;
+  /**
+   * @remarks
+   * The format of the response.
+   * 
+   * Valid values: **text/plain**, **text/css**, **text/html**, **application/javascript**, and **application/json**.
+   * 
+   * @example
+   * text/plain
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * The HTTP status code in responses. Valid values: **HTTP_2xx**, **HTTP_4xx**, and **HTTP_5xx**. **x** is a digit.
+   * 
+   * @example
+   * HTTP_2xx
+   */
   httpCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10597,7 +20145,18 @@ export class ListRulesResponseBodyRulesRuleActionsFixedResponseConfig extends $t
 }
 
 export class ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupStickySession extends $tea.Model {
+  /**
+   * @remarks
+   * If the value of N in ServerGroupTuple.N is larger than 1, you can enable or disable session persistence for server groups.
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * If Enabled is set to True, you can specify a session persistence timeout period.
+   * 
+   * @example
+   * 100
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10619,7 +20178,21 @@ export class ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupS
 }
 
 export class ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The server group to which requests are forwarded.
+   * 
+   * @example
+   * sg-atstuj3rtoptyui****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The weight of the server group. Valid values: **0** to **100**.
+   * 
+   * @example
+   * 2
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10641,7 +20214,15 @@ export class ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupT
 }
 
 export class ListRulesResponseBodyRulesRuleActionsForwardGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The session persistence configurations of the server group.
+   */
   serverGroupStickySession?: ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupStickySession;
+  /**
+   * @remarks
+   * The server groups to which requests are forwarded.
+   */
   serverGroupTuples?: ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -10663,8 +20244,47 @@ export class ListRulesResponseBodyRulesRuleActionsForwardGroupConfig extends $te
 }
 
 export class ListRulesResponseBodyRulesRuleActionsInsertHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the header. The header key must be 1 to 40 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The header key specified in `InsertHeader` must be unique.
+   * 
+   * >  **Cookie** and **Host** are not supported.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the header to be inserted.
+   * 
+   * *   If **ValueType** is set to **SystemDefined**, you can set the Value parameter to one of the following values:
+   * 
+   *     *   **ClientSrcPort**: the client port.
+   *     *   **ClientSrcIp**: the IP address of the client.
+   *     *   **Protocol**: the request protocol (HTTP or HTTPS).
+   *     *   **SLBId**: the ID of the ALB instance.
+   *     *   **SLBPort**: the listener port.
+   * 
+   * *   If **ValueType** is set to **UserDefined**, you can specify a custom header value. The header value must be 1 to 128 characters in length, and can contain wildcard characters, such as asterisks (\\*) and question marks (?), and printable characters whose ASCII values are `larger than or equal to 32 and smaller than 127`. The header value cannot start or end with a space character.
+   * 
+   * *   If **ValueType** is set to **ReferenceHeader**, you can reference a value from a request header. The header value must be 1 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * @example
+   * ClientSrcPort
+   */
   value?: string;
+  /**
+   * @remarks
+   * The type of the header value. Valid values:
+   * 
+   * *   **UserDefined**: a user-defined header value.
+   * *   **ReferenceHeader**: a header value that is referenced from a request header.
+   * *   **SystemDefined:** a system-defined header value.
+   * 
+   * @example
+   * SystemDefined
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10688,11 +20308,78 @@ export class ListRulesResponseBodyRulesRuleActionsInsertHeaderConfig extends $te
 }
 
 export class ListRulesResponseBodyRulesRuleActionsRedirectConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostname to which requests are redirected. Valid values:
+   * 
+   * *   **${host}** (default): If ${host} is returned, no other characters are appended.
+   * 
+   * *   A custom value. Make sure that the custom value meets the following requirements:
+   * 
+   *     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (\\*), and question marks (?).
+   *     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
+   *     *   The rightmost domain label can contain only letters and wildcard characters. It cannot contain digits or hyphens (-).
+   *     *   The domain labels cannot start or end with a hyphen (-).
+   *     *   You can use asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
+   * 
+   * @example
+   * www.example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * The forwarding method. Valid values: **301**, **302**, **303**, **307**, and **308**.
+   * 
+   * @example
+   * 301
+   */
   httpCode?: string;
+  /**
+   * @remarks
+   * The URL to which requests are redirected. Valid values:
+   * 
+   * *   **${path}** (default): You can reference \\*\\*${host}**, **${protocol}**, and**${port}**. The URL can consist of **${host}**,**${protocol}**, and **${port}\\*\\*. Each variable can be used only once. The preceding variables can be used at the same time or combined with a custom value.
+   * 
+   * *   A custom value. Make sure that the custom value meets the following requirements:
+   * 
+   *     *   The URL must be 1 to 128 characters in length.
+   *     *   It must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ] ^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   * 
+   * @example
+   * /test
+   */
   path?: string;
+  /**
+   * @remarks
+   * The port to which requests are redirected. Valid values:
+   * 
+   * *   **${port}** (default): If ${port} is returned, no other characters are appended.
+   * *   Other valid values: **1 to 63335**.
+   * 
+   * @example
+   * 10
+   */
   port?: string;
+  /**
+   * @remarks
+   * The redirect protocol. Valid values:
+   * 
+   * *   **${protocol}** (default): If ${protocol} is returned, no other characters are appended.
+   * *   **HTTP** or **HTTPS**
+   * 
+   * >  HTTPS listeners supports only HTTPS redirects.
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The query string of the URL to which requests are redirected. The query string must be 1 to 128 characters in length, and can contain printable characters, excluding uppercase letters and the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * quert
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10722,6 +20409,16 @@ export class ListRulesResponseBodyRulesRuleActionsRedirectConfig extends $tea.Mo
 }
 
 export class ListRulesResponseBodyRulesRuleActionsRemoveHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the header to be removed. The header key must be 1 to 40 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The header keys specified in RemoveHeader must be unique.
+   * 
+   * *   If Direction is set to Request, the specified headers are removed from requests. The following header keys are not supported (not case-sensitive): `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, and `authority`.
+   * *   If Direction is set to Response, the specified headers are removed from responses. The following header keys are not supported (not case-sensitive): `connection`, `upgrade`, `content-length`, and `transfer-encoding`.
+   * 
+   * @example
+   * key
+   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10741,8 +20438,39 @@ export class ListRulesResponseBodyRulesRuleActionsRemoveHeaderConfig extends $te
 }
 
 export class ListRulesResponseBodyRulesRuleActionsRewriteConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostname to which requests are redirected. Valid values:
+   * 
+   * *   **${host}** (default): If ${host} is returned, no other characters are appended.
+   * 
+   * *   A custom value. Make sure that the custom value meets the following requirements:
+   * 
+   *     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (\\*), and question marks (?).
+   *     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
+   *     *   The rightmost domain label can contain only letters and wildcard characters. It cannot contain digits or hyphens (-).
+   *     *   The domain labels cannot start or end with a hyphen (-).
+   *     *   You can use asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
+   * 
+   * @example
+   * www.example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * The URL to which requests are redirected. The URL must be 1 to 128 characters in length, and can contain letters, digits, asterisks (\\*), question marks (?), and the following special characters: `$ - _ . + / & ~ @ :`. It must start with a forward slash (/) and does not contain the following special characters: `" % # ; ! ( ) [ ] ^ , "`.
+   * 
+   * @example
+   * /tsdf
+   */
   path?: string;
+  /**
+   * @remarks
+   * The query string of the URL to which requests are redirected. The query string must be 1 to 128 characters in length, and can contain printable characters, excluding uppercase letters and the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * quedsa
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10766,7 +20494,23 @@ export class ListRulesResponseBodyRulesRuleActionsRewriteConfig extends $tea.Mod
 }
 
 export class ListRulesResponseBodyRulesRuleActionsTrafficLimitConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The number of requests per IP address. Valid values: **1 to 100000**.
+   * 
+   * >  If both the **QPS** and **PerIpQps** parameters are specified, the value of the **QPS** parameter is smaller than the value of the PerIpQps parameter.
+   * 
+   * @example
+   * 80
+   */
   perIpQps?: number;
+  /**
+   * @remarks
+   * The number of queries per second (QPS). Valid values: **1** to **100000**.
+   * 
+   * @example
+   * 4
+   */
   QPS?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10788,7 +20532,21 @@ export class ListRulesResponseBodyRulesRuleActionsTrafficLimitConfig extends $te
 }
 
 export class ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the server group.
+   * 
+   * @example
+   * srg-00mkgijak0w4qgz9****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The weight of the server group. Valid values: **0** to **100**.
+   * 
+   * @example
+   * 2
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10810,6 +20568,10 @@ export class ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroup
 }
 
 export class ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The server group to which traffic is mirrored.
+   */
   serverGroupTuples?: ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -10829,7 +20591,18 @@ export class ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroup
 }
 
 export class ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the server group to which traffic is mirrored.
+   */
   mirrorGroupConfig?: ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig;
+  /**
+   * @remarks
+   * The destination to which traffic is mirrored. The destination can be a server group.
+   * 
+   * @example
+   * ForwardGroupMirror
+   */
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10851,16 +20624,81 @@ export class ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfig extends $t
 }
 
 export class ListRulesResponseBodyRulesRuleActions extends $tea.Model {
+  /**
+   * @remarks
+   * The CORS configuration.
+   */
   corsConfig?: ListRulesResponseBodyRulesRuleActionsCorsConfig;
+  /**
+   * @remarks
+   * The configuration of the custom response.
+   */
   fixedResponseConfig?: ListRulesResponseBodyRulesRuleActionsFixedResponseConfig;
+  /**
+   * @remarks
+   * The configurations of the server groups.
+   */
   forwardGroupConfig?: ListRulesResponseBodyRulesRuleActionsForwardGroupConfig;
+  /**
+   * @remarks
+   * The key of the header to be inserted.
+   */
   insertHeaderConfig?: ListRulesResponseBodyRulesRuleActionsInsertHeaderConfig;
+  /**
+   * @remarks
+   * The priority of the action. Valid values: **1 to 50000**. A smaller value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter cannot empty. The priority of each action within a forwarding rule must be unique.
+   * 
+   * @example
+   * 1
+   */
   order?: number;
+  /**
+   * @remarks
+   * The configuration of the redirect action.
+   */
   redirectConfig?: ListRulesResponseBodyRulesRuleActionsRedirectConfig;
+  /**
+   * @remarks
+   * The HTTP header to be removed.
+   */
   removeHeaderConfig?: ListRulesResponseBodyRulesRuleActionsRemoveHeaderConfig;
+  /**
+   * @remarks
+   * The configuration of the rewrite action.
+   */
   rewriteConfig?: ListRulesResponseBodyRulesRuleActionsRewriteConfig;
+  /**
+   * @remarks
+   * The configuration of traffic throttling.
+   */
   trafficLimitConfig?: ListRulesResponseBodyRulesRuleActionsTrafficLimitConfig;
+  /**
+   * @remarks
+   * The configuration of traffic mirroring.
+   */
   trafficMirrorConfig?: ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfig;
+  /**
+   * @remarks
+   * The action. Valid values:
+   * 
+   * *   **ForwardGroup**: distributes requests to multiple vServer groups.
+   * *   **Redirect**: redirects requests.
+   * *   **FixedResponse**: returns a custom response.
+   * *   **Rewrite**: rewrites requests.
+   * *   **InsertHeader**: inserts headers.
+   * *   **RemoveHeaderConfig**: removes headers.
+   * *   **TrafficLimitConfig**: throttles network traffic.
+   * *   **TrafficMirrorConfig**: mirrors network traffic.
+   * *   **CorsConfig**: forwards requests based on CORS.
+   * 
+   * The preceding actions can be classified into two broad types:
+   * 
+   * *   **FinalType**: Each forwarding rule can contain only one FinalType action, which is performed at the end. You can specify only one of **ForwardGroup**, **Redirect**, and **FixedResponse**.
+   * *   **ExtType**: Each forwarding rule can contain one or more **ExtType** actions, which are performed before the **FinalType** action. If you want to specify an ExtType action, you must also specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+   * 
+   * @example
+   * ForwardGroup
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10900,7 +20738,21 @@ export class ListRulesResponseBodyRulesRuleActions extends $tea.Model {
 }
 
 export class ListRulesResponseBodyRulesRuleConditionsCookieConfigValues extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie key. The cookie key must be 1 to 100 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The cookie value. The cookie value must be 1 to 128 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10922,6 +20774,10 @@ export class ListRulesResponseBodyRulesRuleConditionsCookieConfigValues extends 
 }
 
 export class ListRulesResponseBodyRulesRuleConditionsCookieConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie value.
+   */
   values?: ListRulesResponseBodyRulesRuleConditionsCookieConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -10941,7 +20797,18 @@ export class ListRulesResponseBodyRulesRuleConditionsCookieConfig extends $tea.M
 }
 
 export class ListRulesResponseBodyRulesRuleConditionsHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the header. The header key must be 1 to 40 characters in length. It can contain letters, digits, hyphens (-), and underscores (_). Cookie and Host are not supported.
+   * 
+   * @example
+   * Port
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the header.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -10963,6 +20830,10 @@ export class ListRulesResponseBodyRulesRuleConditionsHeaderConfig extends $tea.M
 }
 
 export class ListRulesResponseBodyRulesRuleConditionsHostConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostnames.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -10982,6 +20853,10 @@ export class ListRulesResponseBodyRulesRuleConditionsHostConfig extends $tea.Mod
 }
 
 export class ListRulesResponseBodyRulesRuleConditionsMethodConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The request methods.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -11001,6 +20876,10 @@ export class ListRulesResponseBodyRulesRuleConditionsMethodConfig extends $tea.M
 }
 
 export class ListRulesResponseBodyRulesRuleConditionsPathConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The URLs to which requests are forwarded.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -11020,7 +20899,21 @@ export class ListRulesResponseBodyRulesRuleConditionsPathConfig extends $tea.Mod
 }
 
 export class ListRulesResponseBodyRulesRuleConditionsQueryStringConfigValues extends $tea.Model {
+  /**
+   * @remarks
+   * They key of the query string. The key must be 1 to 100 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the query string. The value must be 1 to 128 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11042,6 +20935,10 @@ export class ListRulesResponseBodyRulesRuleConditionsQueryStringConfigValues ext
 }
 
 export class ListRulesResponseBodyRulesRuleConditionsQueryStringConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The query string.
+   */
   values?: ListRulesResponseBodyRulesRuleConditionsQueryStringConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -11061,7 +20958,18 @@ export class ListRulesResponseBodyRulesRuleConditionsQueryStringConfig extends $
 }
 
 export class ListRulesResponseBodyRulesRuleConditionsResponseHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the HTTP header. The header key must be 1 to 40 characters in length, It can contain letters, digits, hyphens (-), and underscores (_). Cookie and Host are not supported.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The values of the HTTP header.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -11083,6 +20991,10 @@ export class ListRulesResponseBodyRulesRuleConditionsResponseHeaderConfig extend
 }
 
 export class ListRulesResponseBodyRulesRuleConditionsResponseStatusCodeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The response status codes.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -11102,6 +21014,10 @@ export class ListRulesResponseBodyRulesRuleConditionsResponseStatusCodeConfig ex
 }
 
 export class ListRulesResponseBodyRulesRuleConditionsSourceIpConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The source IP addresses.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -11121,15 +21037,66 @@ export class ListRulesResponseBodyRulesRuleConditionsSourceIpConfig extends $tea
 }
 
 export class ListRulesResponseBodyRulesRuleConditions extends $tea.Model {
+  /**
+   * @remarks
+   * The key-value pairs of the cookie.
+   */
   cookieConfig?: ListRulesResponseBodyRulesRuleConditionsCookieConfig;
+  /**
+   * @remarks
+   * The configuration of the header.
+   */
   headerConfig?: ListRulesResponseBodyRulesRuleConditionsHeaderConfig;
+  /**
+   * @remarks
+   * The configuration of the hosts.
+   */
   hostConfig?: ListRulesResponseBodyRulesRuleConditionsHostConfig;
+  /**
+   * @remarks
+   * The configurations of the request methods.
+   */
   methodConfig?: ListRulesResponseBodyRulesRuleConditionsMethodConfig;
+  /**
+   * @remarks
+   * The configurations of the forwarding URLs.
+   */
   pathConfig?: ListRulesResponseBodyRulesRuleConditionsPathConfig;
+  /**
+   * @remarks
+   * The configurations of the query strings.
+   */
   queryStringConfig?: ListRulesResponseBodyRulesRuleConditionsQueryStringConfig;
+  /**
+   * @remarks
+   * The HTTP header in responses.
+   */
   responseHeaderConfig?: ListRulesResponseBodyRulesRuleConditionsResponseHeaderConfig;
+  /**
+   * @remarks
+   * The configurations of the response status codes.
+   */
   responseStatusCodeConfig?: ListRulesResponseBodyRulesRuleConditionsResponseStatusCodeConfig;
+  /**
+   * @remarks
+   * Traffic matching based on source IP addresses.
+   */
   sourceIpConfig?: ListRulesResponseBodyRulesRuleConditionsSourceIpConfig;
+  /**
+   * @remarks
+   * The type of forwarding rule. Valid values:
+   * 
+   * *   **Host**: Responses are forwarded based on hosts.
+   * *   **Path**: Responses are forwarded based on URLs.
+   * *   **Header**: Responses are forwarded based on HTTP headers.
+   * *   **QueryString**: Responses are forwarded based on query strings.
+   * *   **Method**: Responses are forwarded based on request methods.
+   * *   **Cookie**: Responses are forwarded based on cookies.
+   * *   **SourceIp**: Responses are forwarded based on source IP addresses.
+   * 
+   * @example
+   * Host
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11167,7 +21134,21 @@ export class ListRulesResponseBodyRulesRuleConditions extends $tea.Model {
 }
 
 export class ListRulesResponseBodyRulesTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11189,15 +21170,87 @@ export class ListRulesResponseBodyRulesTags extends $tea.Model {
 }
 
 export class ListRulesResponseBodyRules extends $tea.Model {
+  /**
+   * @remarks
+   * The direction to which the forwarding rule is applied. Valid values:
+   * 
+   * *   Request (default): The forwarding rule is applied to requests. The forwarding action is performed on packets that are forwarded from clients to ALB.
+   * *   Responses: The forwarding rule is applied to responses. The forwarding action is performed on packets that are returned from backend servers to ALB.
+   * 
+   * >  Basic ALB instances support only the Response direction.
+   * 
+   * @example
+   * Request
+   */
   direction?: string;
+  /**
+   * @remarks
+   * The ID of the listener that is associated with the forwarding rule.
+   * 
+   * @example
+   * lsn-i35udpz3pxsmnf****
+   */
   listenerId?: string;
+  /**
+   * @remarks
+   * The ID of the Application Load Balancer (ALB) instance that is associated with the forwarding rule.
+   * 
+   * @example
+   * alb-x30o38azsuj0sx****
+   */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value indicates a higher priority.
+   * 
+   * >  The priority of each forwarding rule added to a listener must be unique.
+   * 
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The action of the forwarding rule.
+   */
   ruleActions?: ListRulesResponseBodyRulesRuleActions[];
+  /**
+   * @remarks
+   * The conditions of the forwarding rule.
+   */
   ruleConditions?: ListRulesResponseBodyRulesRuleConditions[];
+  /**
+   * @remarks
+   * The ID of the forwarding rule.
+   * 
+   * @example
+   * rule-bpn0kn908w4nbw****
+   */
   ruleId?: string;
+  /**
+   * @remarks
+   * The name of the forwarding rule. The name must be 2 to 128 letters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * @example
+   * rule-instance-test
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The status of the forwarding rule. Valid values:
+   * 
+   * *   **Provisioning**: The forwarding rule is being created.
+   * *   **Configuring**: The forwarding rule is being modified.
+   * *   **Available**: The forwarding rule is available.
+   * 
+   * @example
+   * Available
+   */
   ruleStatus?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListRulesResponseBodyRulesTags[];
   static names(): { [key: string]: string } {
     return {
@@ -11235,7 +21288,21 @@ export class ListRulesResponseBodyRules extends $tea.Model {
 }
 
 export class ListSecurityPoliciesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11257,7 +21324,21 @@ export class ListSecurityPoliciesRequestTag extends $tea.Model {
 }
 
 export class ListSecurityPoliciesResponseBodySecurityPoliciesTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11279,13 +21360,63 @@ export class ListSecurityPoliciesResponseBodySecurityPoliciesTags extends $tea.M
 }
 
 export class ListSecurityPoliciesResponseBodySecurityPolicies extends $tea.Model {
+  /**
+   * @remarks
+   * The supported cipher suites.
+   */
   ciphers?: string[];
+  /**
+   * @remarks
+   * The time when the ACL was created. The time follows the `YYYY-MM-DDThh:mm:ssZ` format.
+   * 
+   * @example
+   * 2023-02-15T07:37:33Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-atstuj3rtop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the security policy.
+   * 
+   * @example
+   * rg-atstuj3rtop****
+   */
   securityPolicyId?: string;
+  /**
+   * @remarks
+   * The name of the security policy.
+   * 
+   * @example
+   * test-secrity
+   */
   securityPolicyName?: string;
+  /**
+   * @remarks
+   * The status of the security policy. Valid values:
+   * 
+   * *   **Configuring**
+   * *   **Available**
+   * 
+   * @example
+   * Available
+   */
   securityPolicyStatus?: string;
+  /**
+   * @remarks
+   * The supported TLS protocol versions.
+   */
   TLSVersions?: string[];
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListSecurityPoliciesResponseBodySecurityPoliciesTags[];
   static names(): { [key: string]: string } {
     return {
@@ -11319,9 +21450,37 @@ export class ListSecurityPoliciesResponseBodySecurityPolicies extends $tea.Model
 }
 
 export class ListSecurityPolicyRelationsResponseBodySecrityPolicyRelationsRelatedListeners extends $tea.Model {
+  /**
+   * @remarks
+   * The listener ID.
+   * 
+   * @example
+   * lsn-0bfuc****
+   */
   listenerId?: string;
+  /**
+   * @remarks
+   * The listener port.
+   * 
+   * @example
+   * 80
+   */
   listenerPort?: number;
+  /**
+   * @remarks
+   * The listener protocol.
+   * 
+   * @example
+   * HTTPS
+   */
   listenerProtocol?: string;
+  /**
+   * @remarks
+   * The Server Load Balancer (SLB) instance ID.
+   * 
+   * @example
+   * lb-bp1o94dp5i6ea****
+   */
   loadBalancerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11347,7 +21506,18 @@ export class ListSecurityPolicyRelationsResponseBodySecrityPolicyRelationsRelate
 }
 
 export class ListSecurityPolicyRelationsResponseBodySecrityPolicyRelations extends $tea.Model {
+  /**
+   * @remarks
+   * The listeners that are associated with the security policy.
+   */
   relatedListeners?: ListSecurityPolicyRelationsResponseBodySecrityPolicyRelationsRelatedListeners[];
+  /**
+   * @remarks
+   * The security policy ID.
+   * 
+   * @example
+   * scp-bp1bpn0kn9****
+   */
   securityPolicyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11369,7 +21539,25 @@ export class ListSecurityPolicyRelationsResponseBodySecrityPolicyRelations exten
 }
 
 export class ListServerGroupServersRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. You can specify up to 10 tag keys.
+   * 
+   * The tag key can be up to 64 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * Test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. You can specify up to 10 tag values.
+   * 
+   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * Test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11391,14 +21579,87 @@ export class ListServerGroupServersRequestTag extends $tea.Model {
 }
 
 export class ListServerGroupServersResponseBodyServers extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the backend server.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The port used by the backend server. Valid values: **1** to **65535**.
+   * 
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @remarks
+   * Indicates whether the remote IP address feature is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   remoteIpEnabled?: boolean;
+  /**
+   * @remarks
+   * The ID of the server group.
+   * 
+   * @example
+   * sgp-qy042e1jabmprh****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the backend server.
+   * 
+   * > If **ServerType** is set to **Fc**, **ServerId** is the ARN of a function.
+   * 
+   * @example
+   * i-bp1f9kdprbgy9uiu****
+   */
   serverId?: string;
+  /**
+   * @remarks
+   * The IP address in inclusive ENI mode.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   serverIp?: string;
+  /**
+   * @remarks
+   * The type of the backend server.
+   * 
+   * @example
+   * Ecs
+   */
   serverType?: string;
+  /**
+   * @remarks
+   * The status of the backend server. Valid values:
+   * 
+   * *   **Adding**
+   * *   **Available**
+   * *   **Configuring**
+   * *   **Removing**
+   * 
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @remarks
+   * The weight of the backend server. An ECS instance with a higher weight receives more requests.
+   * 
+   * @example
+   * 100
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11434,7 +21695,25 @@ export class ListServerGroupServersResponseBodyServers extends $tea.Model {
 }
 
 export class ListServerGroupsRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. You can specify up to 10 tag keys.
+   * 
+   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * Test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. You can specify up to 10 tag values.
+   * 
+   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * Test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11456,7 +21735,24 @@ export class ListServerGroupsRequestTag extends $tea.Model {
 }
 
 export class ListServerGroupsResponseBodyServerGroupsConnectionDrainConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether connection draining is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   connectionDrainEnabled?: boolean;
+  /**
+   * @remarks
+   * The timeout period of connection draining.
+   * 
+   * @example
+   * 300
+   */
   connectionDrainTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11478,17 +21774,128 @@ export class ListServerGroupsResponseBodyServerGroupsConnectionDrainConfig exten
 }
 
 export class ListServerGroupsResponseBodyServerGroupsHealthCheckConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status codes that indicate healthy backend servers.
+   */
   healthCheckCodes?: string[];
+  /**
+   * @remarks
+   * The backend port that is used for health checks. Valid values: **0** to **65535**.
+   * 
+   * A value of **0** indicates that the port of a backend server is used for health checks.
+   * 
+   * @example
+   * 80
+   */
   healthCheckConnectPort?: number;
+  /**
+   * @remarks
+   * Indicates whether the health check feature is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   healthCheckEnabled?: boolean;
+  /**
+   * @remarks
+   * The domain name that is used for health checks. The domain name meets the following requirements:
+   * 
+   * *   The domain name is 1 to 80 characters in length.
+   * *   The domain name contains lowercase letters, digits, hyphens (-), and periods (.).
+   * *   The domain name contains at least one period (.) but does not start or end with a period (.).
+   * *   The rightmost domain label of the domain name contains only letters, and does not contain digits or hyphens (-).
+   * *   The domain name does not start or end with a hyphen (-).
+   * 
+   * >  This parameter takes effect only if you set **HealthCheckProtocol** to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * www.example.com
+   */
   healthCheckHost?: string;
+  /**
+   * @remarks
+   * The HTTP version that is used for health checks.
+   * 
+   * Valid values: **HTTP1.0** and **HTTP1.1**.
+   * 
+   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * HTTP1.1
+   */
   healthCheckHttpVersion?: string;
+  /**
+   * @remarks
+   * The interval at which health checks are performed. Unit: seconds. Valid values: **1** to **50**.
+   * 
+   * @example
+   * 5
+   */
   healthCheckInterval?: number;
+  /**
+   * @remarks
+   * The HTTP method that is used for health checks. Valid values:
+   * 
+   * *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
+   * *   **POST**: gRPC health checks use the POST method by default.
+   * *   **HEAD**: HTTP and HTTPS health checks use the HEAD method by default.
+   * 
+   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
+   * 
+   * @example
+   * HEAD
+   */
   healthCheckMethod?: string;
+  /**
+   * @remarks
+   * The URL that is used for health checks.
+   * 
+   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * /test/index.html
+   */
   healthCheckPath?: string;
+  /**
+   * @remarks
+   * The protocol that is used for health checks. Valid values:
+   * 
+   * *   **HTTP**: HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
+   * *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS supports encryption and provides higher security than HTTP.
+   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
+   * *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
+   * 
+   * @example
+   * HTTP
+   */
   healthCheckProtocol?: string;
+  /**
+   * @remarks
+   * The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the backend server is declared unhealthy. Unit: seconds.
+   * 
+   * @example
+   * 3
+   */
   healthCheckTimeout?: number;
+  /**
+   * @remarks
+   * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+   * 
+   * @example
+   * 4
+   */
   healthyThreshold?: number;
+  /**
+   * @remarks
+   * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+   * 
+   * @example
+   * 4
+   */
   unhealthyThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11530,7 +21937,24 @@ export class ListServerGroupsResponseBodyServerGroupsHealthCheckConfig extends $
 }
 
 export class ListServerGroupsResponseBodyServerGroupsSlowStartConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of a slow start.
+   * 
+   * @example
+   * 30
+   */
   slowStartDuration?: number;
+  /**
+   * @remarks
+   * Indicates whether slow starts are enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   slowStartEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11552,9 +21976,45 @@ export class ListServerGroupsResponseBodyServerGroupsSlowStartConfig extends $te
 }
 
 export class ListServerGroupsResponseBodyServerGroupsStickySessionConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie configured for the server.
+   * 
+   * @example
+   * B490B5EBF6F3CD402E515D22BCDA****
+   */
   cookie?: string;
+  /**
+   * @remarks
+   * The timeout period of the cookie. Unit: seconds. Valid values: **1** to **86400**.
+   * 
+   * >  This parameter takes effect only when **StickySessionEnabled** is set to **true** and **StickySessionType** is set to **Insert**.
+   * 
+   * @example
+   * 1000
+   */
   cookieTimeout?: number;
+  /**
+   * @remarks
+   * Indicates whether session persistence is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   stickySessionEnabled?: boolean;
+  /**
+   * @remarks
+   * The method that is used to handle the cookie. Valid values:
+   * 
+   * *   **insert**: inserts the cookie. The first time a client accesses ALB, ALB inserts the SERVERID cookie into the HTTP or HTTPS response packet. Subsequent requests from the client that carry this cookie are forwarded to the same backend server as the first request.
+   * *   **Server**: rewrites the cookie. ALB rewrites the custom cookies in requests from a client. Subsequent requests from the client that carry the new cookie are forwarded to the same backend server as the first request.
+   * 
+   * @example
+   * Insert
+   */
   stickySessionType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11580,7 +22040,21 @@ export class ListServerGroupsResponseBodyServerGroupsStickySessionConfig extends
 }
 
 export class ListServerGroupsResponseBodyServerGroupsTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * Test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * Test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11602,7 +22076,21 @@ export class ListServerGroupsResponseBodyServerGroupsTags extends $tea.Model {
 }
 
 export class ListServerGroupsResponseBodyServerGroupsUchConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter type. Valid value: QueryString.
+   * 
+   * @example
+   * QueryString
+   */
   type?: string;
+  /**
+   * @remarks
+   * The hash value.
+   * 
+   * @example
+   * abc
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11624,26 +22112,189 @@ export class ListServerGroupsResponseBodyServerGroupsUchConfig extends $tea.Mode
 }
 
 export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether configuration management is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   configManagedEnabled?: boolean;
+  /**
+   * @remarks
+   * The configurations of connection draining.
+   * 
+   * After connection draining is enabled, ALB maintains data transmission for a period of time after the backend server is removed or declared unhealthy.
+   * > 
+   * > - Basic ALB instances do not support connection draining. Standard and WAF-enabled ALB instances support connection draining. 
+   * > -  Server groups of the instance and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
+   */
   connectionDrainConfig?: ListServerGroupsResponseBodyServerGroupsConnectionDrainConfig;
+  /**
+   * @remarks
+   * The time when the resource was created.
+   * 
+   * @example
+   * 2022-07-02T02:49:05Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The health check configurations.
+   */
   healthCheckConfig?: ListServerGroupsResponseBodyServerGroupsHealthCheckConfig;
+  /**
+   * @remarks
+   * Indicates whether IPv6 is supported. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   ipv6Enabled?: boolean;
+  /**
+   * @remarks
+   * The backend protocol. Valid values:
+   * 
+   * *   **HTTP**: allows you to associate HTTPS, HTTP, or QUIC listeners with backend servers.
+   * *   **HTTPS**: allows you to associate HTTPS listeners with backend servers.
+   * *   **GRPC**: allows you to associate HTTPS and QUIC listeners with backend servers.
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The ID of the ALB instance associated with the server group.
+   */
   relatedLoadBalancerIds?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * rg-atstuj3rtop****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The scheduling algorithm. Valid values:
+   * 
+   * *   **Wrr**: weighted round-robin. Backend servers with higher weights receive more requests than backend servers with lower weights.
+   * *   **Wlc**: weighted least connections. Requests are distributed based on the weight and load of each backend server. The load refers to the number of connections on a backend server. If multiple backend servers have the same weight, requests are forwarded to the backend server with the least number of connections.
+   * *   **Sch**: consistent hashing. Requests that have the same hash factors are distributed to the same backend server. If you do not specify the UchConfig parameter, the source IP address is used as the hash factor by default. Requests that are from the same IP address are distributed to the same backend server. If you specify the UchConfig parameter, the URL string is used as the hash factor. Requests that have the same URL string are distributed to the same backend server.
+   * 
+   * @example
+   * Wrr
+   */
   scheduler?: string;
+  /**
+   * @remarks
+   * The number of backend servers in the server group.
+   * 
+   * @example
+   * 1
+   */
   serverCount?: number;
+  /**
+   * @remarks
+   * The server group ID.
+   * 
+   * @example
+   * sgp-cige6j****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The server group name.
+   * 
+   * @example
+   * Group3
+   */
   serverGroupName?: string;
+  /**
+   * @remarks
+   * The status of the server group. Valid values:
+   * 
+   * *   **Creating**.
+   * *   **Available**
+   * *   **Configuring**
+   * 
+   * @example
+   * Available
+   */
   serverGroupStatus?: string;
+  /**
+   * @remarks
+   * The server group type. Valid values:
+   * 
+   * *   **Instance**: instances, including ECS instances, ENIs, and elastic container instances.
+   * *   **Ip**: IP addresses.
+   * *   **Fc**: Function Compute
+   * 
+   * @example
+   * Instance
+   */
   serverGroupType?: string;
+  /**
+   * @remarks
+   * The name of the server group.
+   * 
+   * @example
+   * test
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The configurations of slow starts.
+   * 
+   * After slow starts are enabled, ALB prefetches data to newly added backend servers. Requests distributed to the backend servers gradually increase.
+   * 
+   * > 
+   * > - Basic ALB instances do not support slow starts. Standard and WAF-enabled ALB instances support slow starts.
+   * > - Server groups of the instance and IP types support slow starts. Server groups of the Function Compute type do not support slow starts.
+   * > - Slow start is supported only by the weighted round-robin scheduling algorithm.
+   */
   slowStartConfig?: ListServerGroupsResponseBodyServerGroupsSlowStartConfig;
+  /**
+   * @remarks
+   * The configuration of session persistence.
+   */
   stickySessionConfig?: ListServerGroupsResponseBodyServerGroupsStickySessionConfig;
+  /**
+   * @remarks
+   * The tags that are added to the server group.
+   */
   tags?: ListServerGroupsResponseBodyServerGroupsTags[];
+  /**
+   * @remarks
+   * The configuration of consistent hashing based on URLs.
+   */
   uchConfig?: ListServerGroupsResponseBodyServerGroupsUchConfig;
+  /**
+   * @remarks
+   * Indicates whether persistent TCP connections are enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   upstreamKeepaliveEnabled?: boolean;
+  /**
+   * @remarks
+   * The ID of the VPC to which the ALB instance belongs.
+   * 
+   * @example
+   * vpc-bp15zckdt37pq72zv****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11703,8 +22354,23 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
 }
 
 export class ListSystemSecurityPoliciesResponseBodySecurityPolicies extends $tea.Model {
+  /**
+   * @remarks
+   * The supported cipher suite.
+   */
   ciphers?: string[];
+  /**
+   * @remarks
+   * The ID of the security policy.
+   * 
+   * @example
+   * spy-n0kn923****
+   */
   securityPolicyId?: string;
+  /**
+   * @remarks
+   * The supported TLS protocol versions.
+   */
   TLSVersions?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -11728,7 +22394,25 @@ export class ListSystemSecurityPoliciesResponseBodySecurityPolicies extends $tea
 }
 
 export class ListTagKeysResponseBodyTagKeys extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the tag.
+   * 
+   * Valid values: **Custom**, **System**, and **All**.
+   * 
+   * Default value: **All**.
+   * 
+   * @example
+   * System
+   */
   category?: string;
+  /**
+   * @remarks
+   * The tag that matches all filter conditions.
+   * 
+   * @example
+   * test
+   */
   tagKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11750,7 +22434,21 @@ export class ListTagKeysResponseBodyTagKeys extends $tea.Model {
 }
 
 export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11772,9 +22470,42 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * d-2ze1ot4ah7xjyv0d****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   **acl**: an ACL
+   * *   **loadbalancer**: an ALB instance
+   * *   **securitypolicy**: a security policy
+   * *   **servergroup**: a server group
+   * 
+   * @example
+   * loadbalancer
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * env
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * product
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11800,9 +22531,55 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class RemoveServersFromServerGroupRequestServers extends $tea.Model {
+  /**
+   * @remarks
+   * The port that is used by the backend server. Valid values: **1** to **65535**.
+   * 
+   * >  This parameter is required when you set **ServerType** to **Ecs**, **Eni**, **Eci**, or **Ip**.
+   * 
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @remarks
+   * The ID of the server group.
+   * 
+   * *   If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
+   * *   If the server group is of the **Ip** type, set ServerId to IP addresses.
+   * *   If the server group is of the **Fc**, set ServerId to the Alibaba Cloud Resource Name (ARN) of a function.
+   * 
+   * >  You can call the ListServerGroups operation to query information about the server group type so that you can set ServerId to a proper value.[](~~213627~~)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp1f9kdprbgy9uiu****
+   */
   serverId?: string;
+  /**
+   * @remarks
+   * The IP address of the elastic network interface (ENI) in exclusive mode.
+   * 
+   * @example
+   * 192.168.1.1
+   */
   serverIp?: string;
+  /**
+   * @remarks
+   * The type of the backend server. Valid values:
+   * 
+   * *   **Ecs**: ECS instance
+   * *   **Eni**: ENI
+   * *   **Eci**: elastic container instance
+   * *   **Ip**: IP address
+   * *   **Fc**: Function Compute
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Ecs
+   */
   serverType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11828,11 +22605,66 @@ export class RemoveServersFromServerGroupRequestServers extends $tea.Model {
 }
 
 export class ReplaceServersInServerGroupRequestAddedServers extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the backend server. The description must be 2 to 256 characters in length, and cannot start with http:// or https://.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The port used by the backend server in the server group. Valid values: **1** to **65535**. You can specify at most 200 servers in each call.
+   * 
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @remarks
+   * The ID of the backend server. You can specify at most 200 servers in each call.
+   * 
+   * *   If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
+   * *   If the server group is of the **Ip** type, set ServerId to IP addresses.
+   * 
+   * >  You cannot perform this operation on a server group of the Function Compute type. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the type of server groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp1f9kdprbgy9uiu****
+   */
   serverId?: string;
+  /**
+   * @remarks
+   * The IP address of the elastic network interface (ENI) in exclusive mode.
+   * 
+   * @example
+   * 192.168.1.1
+   */
   serverIp?: string;
+  /**
+   * @remarks
+   * The type of backend server. You can specify at most 200 servers in each call. Valid values:
+   * 
+   * *   **Ecs**: Elastic Compute Service (ECS) instance
+   * *   **Eni**: ENI
+   * *   **Eci**: elastic container instance
+   * 
+   * @example
+   * Ecs
+   */
   serverType?: string;
+  /**
+   * @remarks
+   * The weight of the backend server. You can specify at most 200 servers in each call.
+   * 
+   * Valid values: **0** to **100**. Default value: **100**. If the value is set to **0**, no requests are forwarded to the server.
+   * 
+   * @example
+   * 100
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11862,9 +22694,48 @@ export class ReplaceServersInServerGroupRequestAddedServers extends $tea.Model {
 }
 
 export class ReplaceServersInServerGroupRequestRemovedServers extends $tea.Model {
+  /**
+   * @remarks
+   * The port that is used by the backend server. Valid values: **1** to **65535**. You can specify at most 200 servers in each call.
+   * 
+   * @example
+   * 81
+   */
   port?: number;
+  /**
+   * @remarks
+   * The ID of the backend server. You can specify at most 200 servers in each call.
+   * 
+   * *   If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
+   * *   If the server group is of the **Ip** type, set ServerId to IP addresses.
+   * 
+   * >  You cannot perform this operation on a server group of the Function Compute type. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the type of server groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ecs-bp1ac9uozods2uc****
+   */
   serverId?: string;
+  /**
+   * @remarks
+   * The IP address of the ENI in exclusive mode.
+   * 
+   * @example
+   * 192.168.1.12
+   */
   serverIp?: string;
+  /**
+   * @remarks
+   * The type of backend server. You can specify at most 200 servers in each call. Valid values:
+   * 
+   * *   **Ecs**: ECS instance
+   * *   **Eni**: ENI
+   * *   **Eci**: elastic container instance
+   * 
+   * @example
+   * ecs
+   */
   serverType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11890,7 +22761,25 @@ export class ReplaceServersInServerGroupRequestRemovedServers extends $tea.Model
 }
 
 export class StartShiftLoadBalancerZonesRequestZoneMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the vSwitch in the zone. By default, each zone uses one vSwitch and one subnet.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp1rmcrwg3erh1fh8****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The zone ID. You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the most recent zone list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-a
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11912,7 +22801,21 @@ export class StartShiftLoadBalancerZonesRequestZoneMappings extends $tea.Model {
 }
 
 export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11934,7 +22837,21 @@ export class TagResourcesRequestTag extends $tea.Model {
 }
 
 export class UnTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag that you want to remove. The tag key can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag that you want to remove. The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11956,7 +22873,27 @@ export class UnTagResourcesRequestTag extends $tea.Model {
 }
 
 export class UpdateAScriptsRequestAScriptsExtAttributes extends $tea.Model {
+  /**
+   * @remarks
+   * The attribute name.
+   * 
+   * Set the value to **EsDebug**, which specifies that when requests carry the _es_dbg parameter whose value is the specified key, the debugging header is enabled to output the execution result.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * EsDebug
+   */
   attributeKey?: string;
+  /**
+   * @remarks
+   * The attribute value, which must be 1 to 128 characters in length, and can contain letters and digits.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test123
+   */
   attributeValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11978,11 +22915,60 @@ export class UpdateAScriptsRequestAScriptsExtAttributes extends $tea.Model {
 }
 
 export class UpdateAScriptsRequestAScripts extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * as-mhqxcanmivn4g5****
+   */
   AScriptId?: string;
+  /**
+   * @remarks
+   * The name of the AScript rule.
+   * 
+   * The name must be 2 to 128 character in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+   * 
+   * @example
+   * Group1
+   */
   AScriptName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the AScript rule. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable the extended attributes of the Ascript rule. Valid values:
+   * 
+   * *   true
+   * *   false (false)
+   * 
+   * @example
+   * true
+   */
   extAttributeEnabled?: boolean;
+  /**
+   * @remarks
+   * The extended attribute.
+   */
   extAttributes?: UpdateAScriptsRequestAScriptsExtAttributes[];
+  /**
+   * @remarks
+   * The content of the AScript rule.
+   * 
+   * @example
+   * if and(match_re($uri, \\"^/1.txt$\\"), $arg_type) { rewrite(concat(\\"/1.\\", $arg_type), \\"break\\") }
+   */
   scriptContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12012,6 +22998,15 @@ export class UpdateAScriptsRequestAScripts extends $tea.Model {
 }
 
 export class UpdateListenerAttributeRequestCaCertificates extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the CA certificate.
+   * 
+   * >  This parameter is required if **CaEnabled** is set to **true**.
+   * 
+   * @example
+   * 123359******
+   */
   certificateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12031,6 +23026,13 @@ export class UpdateListenerAttributeRequestCaCertificates extends $tea.Model {
 }
 
 export class UpdateListenerAttributeRequestCertificates extends $tea.Model {
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * @example
+   * 12315790212_166f8204689_1714763408_70998****
+   */
   certificateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12050,6 +23052,15 @@ export class UpdateListenerAttributeRequestCertificates extends $tea.Model {
 }
 
 export class UpdateListenerAttributeRequestDefaultActionsForwardGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the server group to which requests are forwarded.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rsp-cige6j5e7p****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12069,6 +23080,12 @@ export class UpdateListenerAttributeRequestDefaultActionsForwardGroupConfigServe
 }
 
 export class UpdateListenerAttributeRequestDefaultActionsForwardGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The server groups to which requests are forwarded.
+   * 
+   * This parameter is required.
+   */
   serverGroupTuples?: UpdateListenerAttributeRequestDefaultActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -12088,7 +23105,22 @@ export class UpdateListenerAttributeRequestDefaultActionsForwardGroupConfig exte
 }
 
 export class UpdateListenerAttributeRequestDefaultActions extends $tea.Model {
+  /**
+   * @remarks
+   * The forwarding action. This parameter takes effect only when you set **Type** to **ForwardGroup**. You can specify at most 20 actions.
+   */
   forwardGroupConfig?: UpdateListenerAttributeRequestDefaultActionsForwardGroupConfig;
+  /**
+   * @remarks
+   * The action type. You can specify only one type.
+   * 
+   * Set the value to **ForwardGroup**, which specifies that requests are forwarded to multiple server groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ForwardGroup
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12110,7 +23142,28 @@ export class UpdateListenerAttributeRequestDefaultActions extends $tea.Model {
 }
 
 export class UpdateListenerAttributeRequestQuicConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The QUIC listener ID. This parameter is required if **QuicUpgradeEnabled** is set to **true**. Only HTTPS listeners support this parameter.
+   * 
+   * > You must add the HTTPS listener and the QUIC listener to the same ALB instance. In addition, make sure that the QUIC listener has never been associated with another listener.
+   * 
+   * @example
+   * lsn-333
+   */
   quicListenerId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable QUIC upgrade. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * > Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   quicUpgradeEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12132,20 +23185,193 @@ export class UpdateListenerAttributeRequestQuicConfig extends $tea.Model {
 }
 
 export class UpdateListenerAttributeRequestXForwardedForConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the custom header. The header takes effect only when you set **XForwardedForClientCertClientVerifyEnabled** to **true**.
+   * 
+   * The name must be 1 to 40 characters in length. The name can contain lowercase letters, digits, hyphens (-), and underscores (-).
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * test_client-verify-alias_123456
+   */
   XForwardedForClientCertClientVerifyAlias?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Clientcert-clientverify` header to retrieve the verification result of the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForClientCertClientVerifyEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the custom header. The header takes effect only when you set **XForwardedForClientCertFingerprintEnabled** to **true**.
+   * 
+   * The name must be 1 to 40 characters in length. The name can contain lowercase letters, digits, hyphens (-), and underscores (-).
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * test_finger-print-alias_123456
+   */
   XForwardedForClientCertFingerprintAlias?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Clientcert-fingerprint` header to retrieve the fingerprint of the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForClientCertFingerprintEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the custom header. The header takes effect only when you set **XForwardedForClientCertIssuerDNEnabled** to **true**.
+   * 
+   * The name must be 1 to 40 characters in length. The name can contain lowercase letters, digits, hyphens (-), and underscores (-).
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * test_issue-dn-alias_123456
+   */
   XForwardedForClientCertIssuerDNAlias?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Clientcert-issuerdn` header to retrieve information about the authority that issues the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForClientCertIssuerDNEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the custom header. This parameter is valid only if the **XForwardedForClientCertSubjectDNEnabled** parameter is set to true.****
+   * 
+   * The name must be 1 to 40 characters in length, The name can contain lowercase letters, digits, hyphens (-), and underscores (-).
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * test_subject-dn-alias_123456
+   */
   XForwardedForClientCertSubjectDNAlias?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Clientcert-subjectdn` header to retrieve information about the owner of the client certificate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  Only HTTPS listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForClientCertSubjectDNEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the X-Forwarded-For header to preserve client IP addresses. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  HTTP and HTTPS listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForClientSourceIpsEnabled?: boolean;
+  /**
+   * @remarks
+   * The trusted proxy IP address.
+   * 
+   * ALB instances traverse the IP addresses in the `X-Forwarded-For` header from the rightmost IP address to the leftmost IP address. The first IP address that is not on the trusted IP address list is considered the client IP address. Requests from the client IP address are throttled.
+   * 
+   * @example
+   * 10.1.1.0/24
+   */
   XForwardedForClientSourceIpsTrusted?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the `XForwardedFor_ClientSrcPort` header to retrieve the client port. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  HTTP and HTTPS listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForClientSrcPortEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-For` header to retrieve client IP addresses. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  HTTP and HTTPS listeners support this parameter.
+   * 
+   * @example
+   * true
+   */
   XForwardedForEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Proto` header to retrieve the listener protocol. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  HTTP, HTTPS, and QUIC listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForProtoEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the `SLB-ID` header to retrieve the ID of the ALB instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  HTTP, HTTPS, and QUIC listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForSLBIdEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Port` header to retrieve the listener port of the ALB instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  HTTP, HTTPS, and QUIC listeners support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForSLBPortEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12193,8 +23419,42 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $tea.Mode
 }
 
 export class UpdateListenerLogConfigRequestAccessLogTracingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the Xtrace feature. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * > You can set this parameter to **true** only if the access log feature is enabled by specifying **AccessLogEnabled**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   tracingEnabled?: boolean;
+  /**
+   * @remarks
+   * The sampling rate of the Xtrace feature.
+   * 
+   * Valid values: **1 to 10000**.
+   * 
+   * > This parameter takes effect only if you set **TracingEnabled** to **true**.
+   * 
+   * @example
+   * 100
+   */
   tracingSample?: number;
+  /**
+   * @remarks
+   * The type of Xtrace. Set the value to **Zipkin**.
+   * 
+   * > This parameter takes effect only if you set **TracingEnabled** to **true**.
+   * 
+   * @example
+   * Zipkin
+   */
   tracingType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12218,12 +23478,51 @@ export class UpdateListenerLogConfigRequestAccessLogTracingConfig extends $tea.M
 }
 
 export class UpdateLoadBalancerAddressTypeConfigRequestZoneMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the elastic IP address (EIP). You can specify a maximum of 10 zones.
+   * 
+   * >  This parameter is required if you want to change the network type from internal-facing to Internet-facing.
+   * 
+   * @example
+   * eip-bp1aedxso6u80u0qf****
+   */
   allocationId?: string;
+  /**
+   * @remarks
+   * The type of EIP. Valid values:
+   * 
+   * *   **Common**: an EIP.
+   * *   **Anycast**: an Anycast EIP.
+   * 
+   * >  For more information about the regions in which ALB supports Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/460727.html).
+   * 
+   * @example
+   * Common
+   */
+  eipType?: string;
+  /**
+   * @remarks
+   * The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an ALB instance. You can specify a maximum of 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service.
+   * 
+   * @example
+   * vsw-bp10ttov87felojcn****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The zone ID of the ALB instance. You can specify a maximum of 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service.
+   * 
+   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the information about the zone.
+   * 
+   * @example
+   * cn-hangzhou-a
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       allocationId: 'AllocationId',
+      eipType: 'EipType',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
     };
@@ -12232,6 +23531,7 @@ export class UpdateLoadBalancerAddressTypeConfigRequestZoneMappings extends $tea
   static types(): { [key: string]: any } {
     return {
       allocationId: 'string',
+      eipType: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
     };
@@ -12243,7 +23543,28 @@ export class UpdateLoadBalancerAddressTypeConfigRequestZoneMappings extends $tea
 }
 
 export class UpdateLoadBalancerAttributeRequestModificationProtectionConfig extends $tea.Model {
+  /**
+   * @remarks
+   * It must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+   * 
+   * This parameter takes effect only when **ModificationProtectionStatus** is set to **ConsoleProtection**.
+   * 
+   * @example
+   * test
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The status of the configuration read-only mode. Valid values:
+   * 
+   * *   **NonProtection**: disables the configuration read-only mode. In this case, you cannot specify **ModificationProtectionReason**. If you specify **ModificationProtectionReason**, the value of the parameter is cleared.
+   * *   **ConsoleProtection**: enables the configuration read-only mode. In this case, you can specify **ModificationProtectionReason**.
+   * 
+   * > If you set this parameter to **ConsoleProtection**, you cannot use the ALB console to modify instance configurations. However, you can call API operations to modify instance configurations.
+   * 
+   * @example
+   * ConsoleProtection
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12265,11 +23586,50 @@ export class UpdateLoadBalancerAttributeRequestModificationProtectionConfig exte
 }
 
 export class UpdateLoadBalancerZonesRequestZoneMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The type of EIP. Valid values:
+   * 
+   * *   **Common**: an EIP.
+   * *   **Anycast**: an Anycast EIP.
+   * 
+   * >  For more information about the regions in which ALB supports Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/460727.html).
+   * 
+   * @example
+   * Common
+   */
+  eipType?: string;
+  /**
+   * @remarks
+   * The private IPv4 address. You must specify at least two zones. You can specify a maximum of 10 zones.
+   * 
+   * @example
+   * 192.168.10.1
+   */
   intranetAddress?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch in the zone. By default, each zone contains one vSwitch and one subnet. You can specify at most 10 zones. If the region supports two or more zones, specify at least two zones.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp1rmcrwg3erh1fh8****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The zone name. You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the most recent zone list. You can specify at most 10 zones. If the region supports two or more zones, specify at least two zones.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-a
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      eipType: 'EipType',
       intranetAddress: 'IntranetAddress',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
@@ -12278,6 +23638,7 @@ export class UpdateLoadBalancerZonesRequestZoneMappings extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      eipType: 'string',
       intranetAddress: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
@@ -12290,11 +23651,49 @@ export class UpdateLoadBalancerZonesRequestZoneMappings extends $tea.Model {
 }
 
 export class UpdateRuleAttributeRequestRuleActionsCorsConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to allow credentials to be carried in CORS requests. Valid values:
+   * 
+   * *   **on**
+   * *   **off**
+   * 
+   * @example
+   * on
+   */
   allowCredentials?: string;
+  /**
+   * @remarks
+   * The trusted headers of CORS requests.
+   */
   allowHeaders?: string[];
+  /**
+   * @remarks
+   * The trusted HTTP methods of CORS requests.
+   */
   allowMethods?: string[];
+  /**
+   * @remarks
+   * The trusted origins. You can specify one or more values, or only an asterisk (`*`).
+   * 
+   * *   The value must start with `http://` or `https://`, and be followed by a valid domain name, including top-level wildcard domain names. Example: `http://*.test.abc.example.com`.
+   * *   You can specify ports for a single value. Valid values: **1** to **65535**.
+   */
   allowOrigin?: string[];
+  /**
+   * @remarks
+   * The headers that can be exposed.
+   */
   exposeHeaders?: string[];
+  /**
+   * @remarks
+   * The maximum cache time of dry runs in the browser. Unit: seconds.
+   * 
+   * Valid values: **-1** to **172800**.
+   * 
+   * @example
+   * 1000
+   */
   maxAge?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12324,8 +23723,31 @@ export class UpdateRuleAttributeRequestRuleActionsCorsConfig extends $tea.Model 
 }
 
 export class UpdateRuleAttributeRequestRuleActionsFixedResponseConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the response. The content can be up to 1 KB in size, and can contain only ASCII characters.
+   * 
+   * @example
+   * dssacav
+   */
   content?: string;
+  /**
+   * @remarks
+   * The content type.
+   * 
+   * Valid values: **text/plain**, **text/css**, **text/html**, **application/javascript**, and **application/json**.
+   * 
+   * @example
+   * text/plain
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * The HTTP status code in responses. Valid values: **2xx**, **4xx**, **5xx**. The value must be a numeric string. **x** must be a digit.
+   * 
+   * @example
+   * HTTP_200
+   */
   httpCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12349,7 +23771,24 @@ export class UpdateRuleAttributeRequestRuleActionsFixedResponseConfig extends $t
 }
 
 export class UpdateRuleAttributeRequestRuleActionsForwardGroupConfigServerGroupStickySession extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable session persistence. Valid values:
+   * 
+   * *   **true**: enables session persistence.
+   * *   **false** (default)
+   * 
+   * @example
+   * false
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The timeout period of sessions. Unit: seconds Valid values: 1 to 86400.
+   * 
+   * @example
+   * 2
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12371,7 +23810,24 @@ export class UpdateRuleAttributeRequestRuleActionsForwardGroupConfigServerGroupS
 }
 
 export class UpdateRuleAttributeRequestRuleActionsForwardGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the server group to which requests are forwarded.
+   * 
+   * @example
+   * sg--atstuj3rtoptyui****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The weight of the server group. A larger value specifies a higher weight. A server group with a higher weight receives more requests. Valid values: **0** to **100**.
+   * 
+   * *   If the number of destination server groups is 1, the default weight of the server group is **100**, unless you specify a weight.
+   * *   If the number of destination server groups is larger than 1, you must specify a weight.
+   * 
+   * @example
+   * 30
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12393,7 +23849,15 @@ export class UpdateRuleAttributeRequestRuleActionsForwardGroupConfigServerGroupT
 }
 
 export class UpdateRuleAttributeRequestRuleActionsForwardGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of session persistence.
+   */
   serverGroupStickySession?: UpdateRuleAttributeRequestRuleActionsForwardGroupConfigServerGroupStickySession;
+  /**
+   * @remarks
+   * The server groups to which requests are forwarded.
+   */
   serverGroupTuples?: UpdateRuleAttributeRequestRuleActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -12415,9 +23879,58 @@ export class UpdateRuleAttributeRequestRuleActionsForwardGroupConfig extends $te
 }
 
 export class UpdateRuleAttributeRequestRuleActionsInsertHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to overwrite the request header values. Valid values:
+   * 
+   * *   **true**: overwrites the request header.
+   * *   **false** (default): does not overwrite the request header.
+   * 
+   * @example
+   * false
+   */
   coverEnabled?: boolean;
+  /**
+   * @remarks
+   * The key of the header. The key must be 1 to 40 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The header keys specified by **InsertHeaderConfig** must be unique.
+   * 
+   * > The following header keys are not supported: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, and `authority`. The header keys are not case-sensitive.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the header.
+   * 
+   * *   If **ValueType** is set to **SystemDefined**, you can set the Value parameter to one of the following values:
+   * 
+   *     *   **ClientSrcPort**: the client port.
+   *     *   **ClientSrcIp**: the IP address of the client.
+   *     *   **Protocol**: the request protocol (HTTP or HTTPS).
+   *     *   **SLBId**: the ID of the ALB instance.
+   *     *   **SLBPort**: the listener port of the ALB instance.
+   * 
+   * *   If **ValueType** is set to **UserDefined**, you can specify a custom value. The value must be 1 to 128 characters in length, and can contain asterisks (\\*), question marks (?), and printable characters whose ASCII values are `larger than or equal to 32 and smaller than 127`. It cannot start or end with a space character.
+   * 
+   * *   If **ValueType** is set to **ReferenceHeader**, you can reference a value from request headers. The value must be 1 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * @example
+   * UserDefined
+   */
   value?: string;
+  /**
+   * @remarks
+   * The type of the header. Valid values:
+   * 
+   * *   **UserDefined**: a custom header.
+   * *   **ReferenceHeader**: a header that references one of the request headers.
+   * *   **SystemDefined**: a system-defined header value.
+   * 
+   * @example
+   * UserDefined
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12443,11 +23956,85 @@ export class UpdateRuleAttributeRequestRuleActionsInsertHeaderConfig extends $te
 }
 
 export class UpdateRuleAttributeRequestRuleActionsRedirectConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostname to which requests are redirected. Valid values:
+   * 
+   * *   **${host}** (default): If ${host} is returned, no other character is appended.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (\\*), and question marks (?).
+   *     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
+   *     *   The rightmost domain label can contain only letters and wildcard characters. It cannot contain digits or hyphens (-).
+   *     *   Other domain labels cannot start or end with a hyphen (-).
+   *     *   You can use asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
+   * 
+   * @example
+   * www.example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * The forwarding method. Valid values: **301**, **302**, **303**, **307**, and **308**.
+   * 
+   * @example
+   * 301
+   */
   httpCode?: string;
+  /**
+   * @remarks
+   * The URL to which requests are redirected. Valid values:
+   * 
+   * *   Default value: **${path}**. \\*\\*${host}**, **${protocol}**, and **${port}\\*\\* are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The URL must be 1 to 128 characters in length,
+   *     *   The URL must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   * 
+   * @example
+   * /test
+   */
   path?: string;
+  /**
+   * @remarks
+   * The port to which requests are redirected. Valid values:
+   * 
+   * *   **${port}** (default): If you set the value to ${port}, you cannot append other characters.
+   * *   Other valid values: **1 to 63335**.
+   * 
+   * @example
+   * 10
+   */
   port?: string;
+  /**
+   * @remarks
+   * The redirect protocol. Valid values:
+   * 
+   * *   **${protocol}** (default): If you set the value to ${protocol}, you cannot append other characters.
+   * *   **HTTP** or **HTTPS**.
+   * 
+   * > HTTPS listeners support only HTTPS redirects.
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The query string to which requests are redirected. Valid values:
+   * 
+   * *   Default value: **${query}**. \\*\\*${host}**, **${protocol}**, and **${port}\\*\\* are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The query string must be 1 to 128 characters in length.
+   *     *   The query string can contain printable characters, but cannot contain space characters, the special characters `# [ ] { } \\ | < > &`, or uppercase letters.
+   * 
+   * @example
+   * quert
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12477,6 +24064,16 @@ export class UpdateRuleAttributeRequestRuleActionsRedirectConfig extends $tea.Mo
 }
 
 export class UpdateRuleAttributeRequestRuleActionsRemoveHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the header to be removed. The header key must be 1 to 40 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The header keys specified in RemoveHeader must be unique.
+   * 
+   * *   If Direction is set to Request, the following request header keys are not supported: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, and `authority`. The header keys are not case-sensitive.
+   * *   If Direction is set to Response, the following header keys are not supported: `connection`, `upgrade`, `content-length`, and `transfer-encoding`. The header keys are not case-sensitive.
+   * 
+   * @example
+   * test
+   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12496,8 +24093,52 @@ export class UpdateRuleAttributeRequestRuleActionsRemoveHeaderConfig extends $te
 }
 
 export class UpdateRuleAttributeRequestRuleActionsRewriteConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostname to which requests are rewritten. Valid values:
+   * 
+   * *   **${host}** (default): If you set the value to ${host}, you cannot append other characters.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (\\*), and question marks (?).
+   *     *   The hostname contains at least one period (.) but does not start or end with a period (.).
+   *     *   The rightmost domain label can contain only letters and wildcard characters. It cannot contain digits or hyphens (-).
+   *     *   Other domain labels cannot start or end with a hyphen (-). You can use asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
+   * 
+   * @example
+   * www.example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * The URL to which requests are redirected. Valid values:
+   * 
+   * *   Default value: **${path}**. \\*\\*${host}**, **${protocol}**, and **${port}\\*\\* are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The URL must be 1 to 128 characters in length,
+   *     *   The URL must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   * 
+   * @example
+   * /tsdf
+   */
   path?: string;
+  /**
+   * @remarks
+   * The query string to which requests are redirected. Valid values:
+   * 
+   * *   Default value: **${query}**. \\*\\*${host}**, **${protocol}**, and **${port}\\*\\* are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
+   * 
+   * *   If you want to specify a custom value, make sure that the following requirements are met:
+   * 
+   *     *   The query string must be 1 to 128 characters in length.
+   *     *   The query string can contain printable characters, but cannot contain space characters, the special characters `# [ ] { } \\ | < > &`, or uppercase letters.
+   * 
+   * @example
+   * quedsa
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12521,7 +24162,23 @@ export class UpdateRuleAttributeRequestRuleActionsRewriteConfig extends $tea.Mod
 }
 
 export class UpdateRuleAttributeRequestRuleActionsTrafficLimitConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The number of requests per IP address. Value range: **1 to 1000000**.
+   * 
+   * > If both the **QPS** and **PerIpQps** parameters are specified, make sure that the value of the **QPS** parameter is smaller than the value of the PerIpQps parameter.
+   * 
+   * @example
+   * 80
+   */
   perIpQps?: number;
+  /**
+   * @remarks
+   * The queries per second (QPS). Value range: **1 to 1000000**.
+   * 
+   * @example
+   * 100
+   */
   QPS?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12543,6 +24200,13 @@ export class UpdateRuleAttributeRequestRuleActionsTrafficLimitConfig extends $te
 }
 
 export class UpdateRuleAttributeRequestRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The server group ID.
+   * 
+   * @example
+   * srg-00mkgijak0w4qgz9****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12562,6 +24226,10 @@ export class UpdateRuleAttributeRequestRuleActionsTrafficMirrorConfigMirrorGroup
 }
 
 export class UpdateRuleAttributeRequestRuleActionsTrafficMirrorConfigMirrorGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The server group to which network traffic is mirrored.
+   */
   serverGroupTuples?: UpdateRuleAttributeRequestRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -12581,7 +24249,20 @@ export class UpdateRuleAttributeRequestRuleActionsTrafficMirrorConfigMirrorGroup
 }
 
 export class UpdateRuleAttributeRequestRuleActionsTrafficMirrorConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The server group to which network traffic is mirrored.
+   */
   mirrorGroupConfig?: UpdateRuleAttributeRequestRuleActionsTrafficMirrorConfigMirrorGroupConfig;
+  /**
+   * @remarks
+   * The type of destination to which network traffic is mirrored. Valid values:
+   * 
+   * *   **ForwardGroupMirror**: a server group
+   * 
+   * @example
+   * ForwardGroupMirror
+   */
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12603,16 +24284,81 @@ export class UpdateRuleAttributeRequestRuleActionsTrafficMirrorConfig extends $t
 }
 
 export class UpdateRuleAttributeRequestRuleActions extends $tea.Model {
+  /**
+   * @remarks
+   * The CORS configuration.
+   */
   corsConfig?: UpdateRuleAttributeRequestRuleActionsCorsConfig;
+  /**
+   * @remarks
+   * The configuration of the custom response.
+   */
   fixedResponseConfig?: UpdateRuleAttributeRequestRuleActionsFixedResponseConfig;
+  /**
+   * @remarks
+   * The configurations of the server groups.
+   */
   forwardGroupConfig?: UpdateRuleAttributeRequestRuleActionsForwardGroupConfig;
+  /**
+   * @remarks
+   * The configuration of the header to be inserted.
+   */
   insertHeaderConfig?: UpdateRuleAttributeRequestRuleActionsInsertHeaderConfig;
+  /**
+   * @remarks
+   * The priority of the action. Valid values: **1 to 50000**. A smaller value specifies a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter is required. The priority of each action within a forwarding rule must be unique. You can specify at most 20 forwarding rule priorities.
+   * 
+   * @example
+   * 1
+   */
   order?: number;
+  /**
+   * @remarks
+   * The configuration of the redirect action. You can specify at most 20 redirect actions.
+   */
   redirectConfig?: UpdateRuleAttributeRequestRuleActionsRedirectConfig;
+  /**
+   * @remarks
+   * The HTTP header to be removed.
+   */
   removeHeaderConfig?: UpdateRuleAttributeRequestRuleActionsRemoveHeaderConfig;
+  /**
+   * @remarks
+   * The configuration of the rewrite action.
+   */
   rewriteConfig?: UpdateRuleAttributeRequestRuleActionsRewriteConfig;
+  /**
+   * @remarks
+   * The configuration of the action to throttle traffic.
+   */
   trafficLimitConfig?: UpdateRuleAttributeRequestRuleActionsTrafficLimitConfig;
+  /**
+   * @remarks
+   * The configuration of the traffic mirroring action.
+   */
   trafficMirrorConfig?: UpdateRuleAttributeRequestRuleActionsTrafficMirrorConfig;
+  /**
+   * @remarks
+   * The type of the task. You can specify at most 11 types of action. Valid values:
+   * 
+   * *   **ForwardGroup**: forwards requests to multiple vServer groups.
+   * *   **Redirect**: redirects requests.
+   * *   **FixedResponse**: returns a fixed response.
+   * *   **Rewrite**: rewrites requests.
+   * *   **InsertHeader**: inserts a header.
+   * *   **RemoveHeader**: removes headers.
+   * *   **TrafficLimit**: throttles traffic.
+   * *   **trafficMirror**: mirrors network traffic.
+   * *   **Cors**: forwards requests based on CORS.
+   * 
+   * The preceding actions can be classified into two types:
+   * 
+   * *   **FinalType**: Each forwarding rule can contain only one FinalType action, which is performed at the end. You can specify only one of **ForwardGroup**, **Redirect**, and **FixedResponse**.
+   * *   **ExtType**: Each forwarding rule can contain one or more **ExtType** actions, which are performed before the **FinalType** action. If you want to specify an ExtType action, you must also specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+   * 
+   * @example
+   * ForwardGroup
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12652,7 +24398,21 @@ export class UpdateRuleAttributeRequestRuleActions extends $tea.Model {
 }
 
 export class UpdateRuleAttributeRequestRuleConditionsCookieConfigValues extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie key. The cookie key must be 1 to 100 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The cookie value. The cookie value must be 1 to 128 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12674,6 +24434,10 @@ export class UpdateRuleAttributeRequestRuleConditionsCookieConfigValues extends 
 }
 
 export class UpdateRuleAttributeRequestRuleConditionsCookieConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key-value pairs of the cookie.
+   */
   values?: UpdateRuleAttributeRequestRuleConditionsCookieConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -12693,7 +24457,18 @@ export class UpdateRuleAttributeRequestRuleConditionsCookieConfig extends $tea.M
 }
 
 export class UpdateRuleAttributeRequestRuleConditionsHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the response header. The header key must be 1 to 40 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). Cookie and Host are not supported.
+   * 
+   * @example
+   * Port
+   */
   key?: string;
+  /**
+   * @remarks
+   * The header values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12715,6 +24490,10 @@ export class UpdateRuleAttributeRequestRuleConditionsHeaderConfig extends $tea.M
 }
 
 export class UpdateRuleAttributeRequestRuleConditionsHostConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostnames.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12734,6 +24513,10 @@ export class UpdateRuleAttributeRequestRuleConditionsHostConfig extends $tea.Mod
 }
 
 export class UpdateRuleAttributeRequestRuleConditionsMethodConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The request methods.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12753,6 +24536,10 @@ export class UpdateRuleAttributeRequestRuleConditionsMethodConfig extends $tea.M
 }
 
 export class UpdateRuleAttributeRequestRuleConditionsPathConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The URLs to which requests are forwarded.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12772,7 +24559,21 @@ export class UpdateRuleAttributeRequestRuleConditionsPathConfig extends $tea.Mod
 }
 
 export class UpdateRuleAttributeRequestRuleConditionsQueryStringConfigValues extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the query string. The key must be 1 to 100 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the query string. The value must be 1 to 128 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12794,6 +24595,10 @@ export class UpdateRuleAttributeRequestRuleConditionsQueryStringConfigValues ext
 }
 
 export class UpdateRuleAttributeRequestRuleConditionsQueryStringConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The query strings. You can specify at most 20 query strings.
+   */
   values?: UpdateRuleAttributeRequestRuleConditionsQueryStringConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -12813,7 +24618,22 @@ export class UpdateRuleAttributeRequestRuleConditionsQueryStringConfig extends $
 }
 
 export class UpdateRuleAttributeRequestRuleConditionsResponseHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The header key.
+   * 
+   * *   The header key must be 1 to 40 characters in length.
+   * *   The header key can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * *   Cookie and Host are not supported.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The header values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12835,6 +24655,10 @@ export class UpdateRuleAttributeRequestRuleConditionsResponseHeaderConfig extend
 }
 
 export class UpdateRuleAttributeRequestRuleConditionsResponseStatusCodeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The response status codes.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12854,6 +24678,10 @@ export class UpdateRuleAttributeRequestRuleConditionsResponseStatusCodeConfig ex
 }
 
 export class UpdateRuleAttributeRequestRuleConditionsSourceIpConfig extends $tea.Model {
+  /**
+   * @remarks
+   * You can add one or more IP addresses, including CIDR blocks.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12873,15 +24701,68 @@ export class UpdateRuleAttributeRequestRuleConditionsSourceIpConfig extends $tea
 }
 
 export class UpdateRuleAttributeRequestRuleConditions extends $tea.Model {
+  /**
+   * @remarks
+   * The key-value pairs of the cookie.
+   */
   cookieConfig?: UpdateRuleAttributeRequestRuleConditionsCookieConfig;
+  /**
+   * @remarks
+   * The configuration of the header.
+   */
   headerConfig?: UpdateRuleAttributeRequestRuleConditionsHeaderConfig;
+  /**
+   * @remarks
+   * The configurations of the hosts.
+   */
   hostConfig?: UpdateRuleAttributeRequestRuleConditionsHostConfig;
+  /**
+   * @remarks
+   * The configuration of the request method.
+   */
   methodConfig?: UpdateRuleAttributeRequestRuleConditionsMethodConfig;
+  /**
+   * @remarks
+   * The configurations of the forwarding URL.
+   */
   pathConfig?: UpdateRuleAttributeRequestRuleConditionsPathConfig;
+  /**
+   * @remarks
+   * The configurations of the query strings.
+   */
   queryStringConfig?: UpdateRuleAttributeRequestRuleConditionsQueryStringConfig;
+  /**
+   * @remarks
+   * The configuration of headers.
+   */
   responseHeaderConfig?: UpdateRuleAttributeRequestRuleConditionsResponseHeaderConfig;
+  /**
+   * @remarks
+   * The configurations of the response status codes.
+   */
   responseStatusCodeConfig?: UpdateRuleAttributeRequestRuleConditionsResponseStatusCodeConfig;
+  /**
+   * @remarks
+   * Traffic matching based on source IP addresses. You can specify at most five IP addresses, including CIDR blocks.
+   */
   sourceIpConfig?: UpdateRuleAttributeRequestRuleConditionsSourceIpConfig;
+  /**
+   * @remarks
+   * The type of forwarding rule. You can specify at most seven types of forwarding rule. Valid values:
+   * 
+   * *   **Host**: Requests are forwarded based on hosts.
+   * *   **Path**: Requests are forwarded based on paths.
+   * *   **Header**: Requests are forwarded based on HTTP headers.
+   * *   **QueryString**: Requests are forwarded based on query strings.
+   * *   **Method**: Requests are forwarded based on request methods.
+   * *   **Cookie**: Requests are forwarded based on cookies.
+   * *   **SourceIp**: Responses are forwarded based on source IP addresses.
+   * *   **ResponseHeader**: Requests are forwarded based on HTTP response headers.
+   * *   **ResponseStatusCode**: Requests are forwarded based on response status codes.
+   * 
+   * @example
+   * Host
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12919,11 +24800,49 @@ export class UpdateRuleAttributeRequestRuleConditions extends $tea.Model {
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsCorsConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to allow credentials to be carried in CORS requests. Valid values:
+   * 
+   * *   **on**: allows credentials to be carried in CORS requests.
+   * *   **off**: does not allow credentials to be carried in CORS requests.
+   * 
+   * @example
+   * on
+   */
   allowCredentials?: string;
+  /**
+   * @remarks
+   * The trusted headers of CORS requests.
+   */
   allowHeaders?: string[];
+  /**
+   * @remarks
+   * The trusted HTTP methods of CORS requests.
+   */
   allowMethods?: string[];
+  /**
+   * @remarks
+   * The trusted origins. You can specify one or more values, or only an asterisk (`*`).
+   * 
+   * *   The value must start with `http://` or `https://`, and be followed by a valid domain name, including top-level wildcard domain names. Example: `http://*.test.abc.example.com`.
+   * *   You can specify ports for a single value. Valid values: **1** to **65535**.
+   */
   allowOrigin?: string[];
+  /**
+   * @remarks
+   * The headers that can be exposed.
+   */
   exposeHeaders?: string[];
+  /**
+   * @remarks
+   * The maximum cache time of dry runs in the browser. Unit: seconds.
+   * 
+   * Valid values: **-1** to **172800**.
+   * 
+   * @example
+   * 1000
+   */
   maxAge?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12953,8 +24872,31 @@ export class UpdateRulesAttributeRequestRulesRuleActionsCorsConfig extends $tea.
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsFixedResponseConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the response. The content can be up to 1 KB in size, and can contain only ASCII characters.
+   * 
+   * @example
+   * dssacav
+   */
   content?: string;
+  /**
+   * @remarks
+   * The content format of the response.
+   * 
+   * Valid values: **text/plain**, **text/css**, **text/html**, **application/javascript**, and **application/json**.
+   * 
+   * @example
+   * text/plain
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * The HTTP status code in responses. Valid values: **2xx**, **4xx**, **5xx**. The value must be a numeric string. **x** must be a digit.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12978,7 +24920,24 @@ export class UpdateRulesAttributeRequestRulesRuleActionsFixedResponseConfig exte
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServerGroupStickySession extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable session persistence. Valid values:
+   * 
+   * *   **true**: enables session persistence.
+   * *   **false** (default): disables session persistence.
+   * 
+   * @example
+   * false
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The timeout period of sessions. Unit: seconds Valid values: **1** to **86400**.
+   * 
+   * @example
+   * 2
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13000,7 +24959,24 @@ export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServer
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The server group to which requests are forwarded.
+   * 
+   * @example
+   * sg-atstuj3rtoptyui****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The weight of the server group. A larger value specifies a higher weight. A server group with a higher weight receives more requests. Valid values: **0** to **100**.
+   * 
+   * *   If the number of destination server groups is 1, the default weight of the server group is **100**, unless you specify a weight.
+   * *   If the number of destination server groups is larger than 1, you must specify a weight.
+   * 
+   * @example
+   * 30
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13022,7 +24998,15 @@ export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServer
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of session persistence for server groups.
+   */
   serverGroupStickySession?: UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServerGroupStickySession;
+  /**
+   * @remarks
+   * The server groups to which requests are forwarded.
+   */
   serverGroupTuples?: UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -13044,9 +25028,58 @@ export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfig exten
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsInsertHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to overwrite the header in the request. Valid values:
+   * 
+   * *   **true**: overwrites the request header.
+   * *   **false** (default): does not overwrite the request header.
+   * 
+   * @example
+   * false
+   */
   coverEnabled?: boolean;
+  /**
+   * @remarks
+   * The key of the header. The header key must be 1 to 40 characters in length, and can contain lowercase letters, digits, underscores (_), and hyphens (-). The key specified in `InsertHeader` must be unique.
+   * 
+   * > The following header keys are not supported: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te, host`, `cookie`, `remoteip`, and `authority`. Header keys are not case-sensitive.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the header.
+   * 
+   * *   If **ValueType** is set to **SystemDefined**, you can set the Value parameter to one of the following values:
+   * 
+   *     *   **ClientSrcPort**: the client port.
+   *     *   **ClientSrcIp**: the IP address of the client.
+   *     *   **Protocol**: the request protocol (HTTP or HTTPS).
+   *     *   **SLBId**: the ID of the ALB instance.
+   *     *   **SLBPort**: the listener port of the ALB instance.
+   * 
+   * *   If **ValueType** is set to **UserDefined**, you can specify a custom header value. The header value must be 1 to 128 characters in length, and can contain wildcard characters, such as asterisks (\\*) and question marks (?), and printable characters whose ASCII values are `larger than or equal to 32 and smaller than 127`. The header value cannot start or end with a space character.
+   * 
+   * *   If **ValueType** is set to **ReferenceHeader**, you can reference a value from request headers. The value must be 1 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * @example
+   * UserDefined
+   */
   value?: string;
+  /**
+   * @remarks
+   * The type of header. Valid values:
+   * 
+   * *   **UserDefined**: a user-defined header.
+   * *   **ReferenceHeader**: a header that is referenced from a request header.
+   * *   **SystemDefined**: a system-defined header.
+   * 
+   * @example
+   * UserDefined
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13072,11 +25105,75 @@ export class UpdateRulesAttributeRequestRulesRuleActionsInsertHeaderConfig exten
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsRedirectConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostname to which requests are redirected.
+   * 
+   * The hostname must meet the following requirements:
+   * 
+   * *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, and the following special characters: - . \\* = ~ _ + \\ ^ ! $ & | ( ) [ ] ?.
+   * *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
+   * *   The rightmost domain label can contain only letters, asterisks (*), and question marks (?), and cannot contain digits or hyphens (-). The leftmost `domain label` can contain asterisks (*).
+   * *   The domain labels cannot start or end with hyphens (-). You can specify asterisks (∗) and question marks (?) anywhere in a domain label.
+   * 
+   * @example
+   * www.example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * The HTTP status code that indicates the redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
+   * 
+   * @example
+   * 301
+   */
   httpCode?: string;
+  /**
+   * @remarks
+   * The path of the destination to which requests are forwarded. Valid values:
+   * 
+   * *   **${path}** (default): You can reference \\*\\*${host}**, **${protocol}** and **${port}\\*\\*. Each variable can be used only once. The preceding variables can be used at the same time or combined with a custom value.
+   * 
+   * *   A custom value. You must ensure that the custom value meets the following requirements:
+   * 
+   *     *   The path must be 1 to 128 characters in length. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   *     *   The path can contain letters, digits, and the following special characters: `$ - _ . + / & ~ @ : \\" * ?`. It must start with a forward slash (/) and cannot contain the following characters: `" % # ; ! ( ) [ ] ^ , "`.
+   * 
+   * @example
+   * /test
+   */
   path?: string;
+  /**
+   * @remarks
+   * The port to which requests are forwarded.
+   * 
+   * Valid values: **1** to **63335**.
+   * 
+   * @example
+   * 10
+   */
   port?: string;
+  /**
+   * @remarks
+   * The protocol of the destination to which requests are forwarded. Valid values:
+   * 
+   * Valid values for HTTP listeners: **HTTP** and **HTTPS**.
+   * 
+   * Valid values for HTTPS listeners: **HTTPS**.
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The query string to which requests are redirected.
+   * 
+   * The query string must be 1 to 128 characters in length, and can contain printable characters, excluding uppercase letters and the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * quert
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13106,6 +25203,17 @@ export class UpdateRulesAttributeRequestRulesRuleActionsRedirectConfig extends $
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsRemoveHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the response header.
+   * 
+   * *   The header key must be 1 to 40 characters in length.
+   * *   The header key can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * *   Cookie and Host are not supported.
+   * 
+   * @example
+   * Port
+   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13125,8 +25233,45 @@ export class UpdateRulesAttributeRequestRulesRuleActionsRemoveHeaderConfig exten
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsRewriteConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostname of the destination to which requests are forwarded.
+   * 
+   * The hostname must meet the following requirements:
+   * 
+   * *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, and the following special characters: - . \\* = ~ _ + \\ ^ ! $ & | ( ) [ ] ?.
+   * *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
+   * *   The rightmost domain label can contain only letters, asterisks (*), and question marks (?), and cannot contain digits or hyphens (-). The leftmost `domain label` can contain asterisks (*).
+   * *   The domain labels cannot start or end with hyphens (-). You can specify asterisks (∗) and question marks (?) anywhere in a domain label.
+   * 
+   * @example
+   * www.example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * The path to which requests are forwarded.
+   * 
+   * *   **${path}** (default): You can reference \\*\\*${host}**, **${protocol}** and **${port}\\*\\*. Each variable can be used only once. The preceding variables can be used at the same time or combined with a custom value.
+   * 
+   * *   A custom value. You must ensure that the custom value meets the following requirements:
+   * 
+   *     *   The path must be 1 to 128 characters in length. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   *     *   The custom value can contain letters, digits, and the following special characters: `$ - _ . + / & ~ @ : \\" * ?`. The custom value must start with a forward slash (/) and cannot contain the following characters: `" % # ; ! ( ) [ ] ^ , "`.
+   * 
+   * @example
+   * /tsdf
+   */
   path?: string;
+  /**
+   * @remarks
+   * The query string of the URL to which requests are forwarded.
+   * 
+   * The query string must be 1 to 128 characters in length, and can contain printable characters, excluding uppercase letters and the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * quedsa
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13150,7 +25295,23 @@ export class UpdateRulesAttributeRequestRulesRuleActionsRewriteConfig extends $t
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsTrafficLimitConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The number of requests per IP address. Valid values: **1** to **1000000**.
+   * 
+   * > If both the QPS and PerIpQps properties are specified, make sure that the value of the QPS property is smaller than the value of the PerIpQps property.
+   * 
+   * @example
+   * 80
+   */
   perIpQps?: number;
+  /**
+   * @remarks
+   * The number of queries per second (QPS). Valid values: **1** to **1000000**.
+   * 
+   * @example
+   * 2
+   */
   QPS?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13172,6 +25333,13 @@ export class UpdateRulesAttributeRequestRulesRuleActionsTrafficLimitConfig exten
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples extends $tea.Model {
+  /**
+   * @remarks
+   * The server group ID.
+   * 
+   * @example
+   * srg-00mkgijak0w4qgz9****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13191,6 +25359,10 @@ export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirro
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The server group to which traffic is mirrored.
+   */
   serverGroupTuples?: UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -13210,7 +25382,20 @@ export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirro
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the server group to which traffic is mirrored.
+   */
   mirrorGroupConfig?: UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig;
+  /**
+   * @remarks
+   * The type of target to which network traffic is mirrored. Valid values:
+   * 
+   * *   **ForwardGroupMirror**: a server group
+   * 
+   * @example
+   * ForwardGroupMirror
+   */
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13232,16 +25417,85 @@ export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfig exte
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActions extends $tea.Model {
+  /**
+   * @remarks
+   * The CORS configuration.
+   */
   corsConfig?: UpdateRulesAttributeRequestRulesRuleActionsCorsConfig;
+  /**
+   * @remarks
+   * The configuration of the action to return a custom response. You can specify at most 20 custom responses.
+   */
   fixedResponseConfig?: UpdateRulesAttributeRequestRulesRuleActionsFixedResponseConfig;
+  /**
+   * @remarks
+   * The configuration of the action to forward requests to server groups. You can specify at most 20 actions.
+   */
   forwardGroupConfig?: UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfig;
+  /**
+   * @remarks
+   * The configuration of the action to insert a header. You can specify at most 20 actions.
+   */
   insertHeaderConfig?: UpdateRulesAttributeRequestRulesRuleActionsInsertHeaderConfig;
+  /**
+   * @remarks
+   * The priority of the action. Valid values: **1** to **50000**. A lower value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter cannot be left empty. The priority of each action within a forwarding rule must be unique. You can specify at most 20 forwarding rule priorities.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   order?: number;
+  /**
+   * @remarks
+   * The configuration of the redirect action. You can specify at most 20 redirect actions.
+   */
   redirectConfig?: UpdateRulesAttributeRequestRulesRuleActionsRedirectConfig;
+  /**
+   * @remarks
+   * The configuration of the HTTP header to be removed. You can remove at most 20 HTTP headers.
+   */
   removeHeaderConfig?: UpdateRulesAttributeRequestRulesRuleActionsRemoveHeaderConfig;
+  /**
+   * @remarks
+   * The configuration of the rewrite action. You can specify at most 20 actions.
+   */
   rewriteConfig?: UpdateRulesAttributeRequestRulesRuleActionsRewriteConfig;
+  /**
+   * @remarks
+   * The configuration of traffic throttling. You can specify at most 20 throttling actions.
+   */
   trafficLimitConfig?: UpdateRulesAttributeRequestRulesRuleActionsTrafficLimitConfig;
+  /**
+   * @remarks
+   * The configuration of traffic mirroring. You can specify at most 20 traffic mirroring configurations.
+   */
   trafficMirrorConfig?: UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfig;
+  /**
+   * @remarks
+   * The type of action. You can specify at most 11 types of action. Valid values:
+   * 
+   * *   **ForwardGroup**: forwards a request to multiple vServer groups.
+   * *   **Redirect**: redirects requests.
+   * *   **FixedResponse**: returns a fixed response.
+   * *   **Rewrite**: rewrites requests.
+   * *   **InsertHeader**: inserts a header.
+   * *   **RemoveHeaderConfig**: deletes a header.
+   * *   **TrafficLimit**: throttles traffic.
+   * *   **TrafficMirror**: mirrors network traffic.
+   * *   **Cors**: enables cross-origin resource sharing (CORS).
+   * 
+   * The preceding actions can be classified into two types:
+   * 
+   * *   **FinalType**: Each forwarding rule can contain only one FinalType action, which is performed at the end. You can specify only one of **ForwardGroup**, **Redirect**, and **FixedResponse**.
+   * *   **ExtType**: Each forwarding rule can contain one or more **ExtType** actions, which are performed before the **FinalType** action. If you want to specify an ExtType action, you must also specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Host
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13281,7 +25535,21 @@ export class UpdateRulesAttributeRequestRulesRuleActions extends $tea.Model {
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsCookieConfigValues extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie key, which must be 1 to 100 characters in length, and can contain lowercase letters, asterisks (\\*), question marks (?), and printable characters. It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The cookie value, which must be 1 to 128 characters in length, and can contain lowercase letters, asterisks (\\*), question marks (?), and printable characters. It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13303,6 +25571,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsCookieConfigValues ex
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsCookieConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key-value pairs of cookies.
+   */
   values?: UpdateRulesAttributeRequestRulesRuleConditionsCookieConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -13322,7 +25594,18 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsCookieConfig extends 
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the header. The key must be 1 to 40 characters in length. The header key can contain lowercase letters, digits, hyphens (-), and underscores (_). Cookie and Host are not supported.
+   * 
+   * @example
+   * Port
+   */
   key?: string;
+  /**
+   * @remarks
+   * The HTTP header values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13344,6 +25627,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsHeaderConfig extends 
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsHostConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The hostnames.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13363,6 +25650,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsHostConfig extends $t
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsMethodConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP request methods.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13382,6 +25673,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsMethodConfig extends 
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsPathConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The paths to which requests are forwarded.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13401,7 +25696,25 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsPathConfig extends $t
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfigValues extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the query string.
+   * 
+   * The key must be 1 to 100 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the query string.
+   * 
+   * The value must be 1 to 128 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13423,6 +25736,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfigValu
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key-value pairs of query strings.
+   */
   values?: UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -13442,7 +25759,22 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfig ext
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsResponseHeaderConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the response header.
+   * 
+   * *   The header key must be 1 to 40 characters in length.
+   * *   The header key can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * *   Cookie and Host are not supported.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the response header.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13464,6 +25796,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsResponseHeaderConfig 
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsResponseStatusCodeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The match conditions.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13483,6 +25819,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsResponseStatusCodeCon
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsSourceIpConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Traffic matching based on source IP addresses.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13502,15 +25842,73 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsSourceIpConfig extend
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditions extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the cookie. You can specify at most 20 conditions.
+   */
   cookieConfig?: UpdateRulesAttributeRequestRulesRuleConditionsCookieConfig;
+  /**
+   * @remarks
+   * The configuration of the HTTP header. You can specify at most 20 HTTP headers.
+   */
   headerConfig?: UpdateRulesAttributeRequestRulesRuleConditionsHeaderConfig;
+  /**
+   * @remarks
+   * The match conditions for hostnames. You can specify at most 20 conditions.
+   */
   hostConfig?: UpdateRulesAttributeRequestRulesRuleConditionsHostConfig;
+  /**
+   * @remarks
+   * The configuration of the HTTP request method. You can configure at most 20 HTTP request methods.
+   */
   methodConfig?: UpdateRulesAttributeRequestRulesRuleConditionsMethodConfig;
+  /**
+   * @remarks
+   * The match conditions for query strings. You can specify at most 20 conditions.
+   */
   pathConfig?: UpdateRulesAttributeRequestRulesRuleConditionsPathConfig;
+  /**
+   * @remarks
+   * The match conditions for query strings. You can specify at most 20 conditions.
+   */
   queryStringConfig?: UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfig;
+  /**
+   * @remarks
+   * The HTTP response headers. You can specify at most 20 HTTP response headers.
+   */
   responseHeaderConfig?: UpdateRulesAttributeRequestRulesRuleConditionsResponseHeaderConfig;
+  /**
+   * @remarks
+   * The match conditions for response status codes. This parameter is required and valid when **Type** is set to **ResponseStatusCode**. You can specify at most 20 conditions.
+   */
   responseStatusCodeConfig?: UpdateRulesAttributeRequestRulesRuleConditionsResponseStatusCodeConfig;
+  /**
+   * @remarks
+   * Traffic matching based on source IP addresses. You can specify at most 20 match conditions based on IP addresses.
+   */
   sourceIpConfig?: UpdateRulesAttributeRequestRulesRuleConditionsSourceIpConfig;
+  /**
+   * @remarks
+   * The condition type of the forwarding rule is invalid.
+   * 
+   * You can specify at most seven condition types for inbound forwarding rules. Valid values:
+   * 
+   * *   **Host**: Requests are forwarded based on hosts.
+   * *   **Path**: Requests are forwarded based on paths.
+   * *   **Header**: Requests are forwarded based on HTTP headers.
+   * *   **QueryString**: Requests are forwarded based on query strings.
+   * *   **Method**: Requests are forwarded based on request methods.
+   * *   **Cookie**: Requests are forwarded based on cookies.
+   * *   **SourceIp**: Requests are forwarded based on source IP addresses.
+   * 
+   * You can specify at most two condition types for outbound forwarding rules. Valid values:
+   * 
+   * *   **ResponseHeader**: Responses are forwarded based on HTTP response headers.
+   * *   **ResponseStatusCode**: Response are forwarded based on response status codes.
+   * 
+   * @example
+   * ForwardGroup
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13548,10 +25946,43 @@ export class UpdateRulesAttributeRequestRulesRuleConditions extends $tea.Model {
 }
 
 export class UpdateRulesAttributeRequestRules extends $tea.Model {
+  /**
+   * @remarks
+   * The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value specifies a higher priority. You can specify at most 20 rule priorities.
+   * 
+   * > The priority of each forwarding rule within a listener must be unique.
+   * 
+   * @example
+   * 10
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The action of the forwarding rule.
+   */
   ruleActions?: UpdateRulesAttributeRequestRulesRuleActions[];
+  /**
+   * @remarks
+   * The match conditions of the forwarding rule.
+   */
   ruleConditions?: UpdateRulesAttributeRequestRulesRuleConditions[];
+  /**
+   * @remarks
+   * The IDs of the forwarding rules. You can specify at most 20 rule IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rule-cxjh7vazn2jpnl****
+   */
   ruleId?: string;
+  /**
+   * @remarks
+   * The name of the forwarding rule. The name must be 2 to 128 letters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter. You can specify at most 20 rule names.
+   * 
+   * @example
+   * rule-instance-test
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13579,7 +26010,26 @@ export class UpdateRulesAttributeRequestRules extends $tea.Model {
 }
 
 export class UpdateServerGroupAttributeRequestConnectionDrainConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable connection draining. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   connectionDrainEnabled?: boolean;
+  /**
+   * @remarks
+   * The timeout period of connection draining.
+   * 
+   * Valid values: **0** to **900**.
+   * 
+   * @example
+   * 300
+   */
   connectionDrainTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13601,17 +26051,147 @@ export class UpdateServerGroupAttributeRequestConnectionDrainConfig extends $tea
 }
 
 export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status codes that indicate healthy backend servers.
+   */
   healthCheckCodes?: string[];
+  /**
+   * @remarks
+   * The backend port that is used for health checks.
+   * 
+   * Valid values: **0** to **65535**.
+   * 
+   * If you set the value to **0**, the backend port is used for health checks.
+   * 
+   * >  This parameter takes effect only if you set **HealthCheckEnabled** to **true**.
+   * 
+   * @example
+   * 80
+   */
   healthCheckConnectPort?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the health check feature. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   healthCheckEnabled?: boolean;
+  /**
+   * @remarks
+   * The domain name that is used for health checks. The domain name must meet the following requirements:
+   * 
+   * *   The domain name must be 1 to 80 characters in length.
+   * *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
+   * *   The domain name must contain at least one period (.) but cannot start or end with a period (.).
+   * *   The rightmost field of the domain name can contain only letters and cannot contain digits or hyphens (-).
+   * *   Other fields cannot start or end with a hyphen (-).
+   * 
+   * >  This parameter takes effect only if you set **HealthCheckEnabled** to true and **HealthCheckProtocol** to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * example.com
+   */
   healthCheckHost?: string;
+  /**
+   * @remarks
+   * The HTTP version that is used for health checks. Valid values:
+   * 
+   * *   **HTTP1.0**
+   * *   **HTTP1.1**
+   * 
+   * >  This parameter takes effect only if you set **HealthCheckEnabled** to true and **HealthCheckProtocol** to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * HTTP1.1
+   */
   healthCheckHttpVersion?: string;
+  /**
+   * @remarks
+   * The interval at which health checks are performed. Unit: seconds.
+   * 
+   * Valid values: **1** to **50**.
+   * 
+   * >  This parameter takes effect only if you set **HealthCheckEnabled** to **true**.
+   * 
+   * @example
+   * 5
+   */
   healthCheckInterval?: number;
+  /**
+   * @remarks
+   * The HTTP method that is used for health checks. Valid values:
+   * 
+   * *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
+   * *   **POST**: gRPC health checks use the POST method by default.
+   * *   **HEAD**: HTTP and HTTPS health checks use the HEAD method by default.
+   * 
+   * >  This parameter takes effect only if you set **HealthCheckEnabled** to true and **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**.
+   * 
+   * @example
+   * HEAD
+   */
   healthCheckMethod?: string;
+  /**
+   * @remarks
+   * The URL that is used for health checks.
+   * 
+   * The URL must be 1 to 80 characters in length, and can contain letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (`/`).
+   * 
+   * >  This parameter takes effect only if you set **HealthCheckEnabled** to **true** and **HealthCheckProtocol** to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * /test/index.html
+   */
   healthCheckPath?: string;
+  /**
+   * @remarks
+   * The protocol that you want to use for health checks. Valid values:
+   * 
+   * *   **HTTP**: HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
+   * *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS supports encryption and provides higher security than HTTP.
+   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
+   * *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
+   * 
+   * @example
+   * HTTP
+   */
   healthCheckProtocol?: string;
+  /**
+   * @remarks
+   * The timeout period of a health check response. If a backend ECS instance does not respond within the specified timeout period, the ECS instance fails the health check. Unit: seconds.
+   * 
+   * Valid values: **1** to **300**.
+   * 
+   * >  This parameter takes effect only if you set **HealthCheckEnabled** to **true**.
+   * 
+   * @example
+   * 3
+   */
   healthCheckTimeout?: number;
+  /**
+   * @remarks
+   * The number of times that an unhealthy backend server must consecutively pass health checks before it can be declared healthy. In this case, the health check status of the backend server changes from **fail** to **success**.
+   * 
+   * Valid values: **2** to **10**.
+   * 
+   * @example
+   * 4
+   */
   healthyThreshold?: number;
+  /**
+   * @remarks
+   * The number of times that a healthy backend server must consecutively fail health checks before it can be declared unhealthy. In this case, the health check status of the backend server changes from **success** to **fail**.
+   * 
+   * Valid values: **2** to **10**.
+   * 
+   * @example
+   * 4
+   */
   unhealthyThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13653,7 +26233,24 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $tea.Mod
 }
 
 export class UpdateServerGroupAttributeRequestSlowStartConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of a slow start.
+   * 
+   * @example
+   * 30
+   */
   slowStartDuration?: number;
+  /**
+   * @remarks
+   * Indicates whether slow starts are enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   slowStartEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13675,9 +26272,58 @@ export class UpdateServerGroupAttributeRequestSlowStartConfig extends $tea.Model
 }
 
 export class UpdateServerGroupAttributeRequestStickySessionConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie to be configured on the server.
+   * 
+   * The cookie must be 1 to 200 characters in length and can contain only ASCII characters and digits. It cannot contain commas (,), semicolons (;), or space characters. It cannot start with a dollar sign ($).
+   * 
+   * > This parameter takes effect when the **StickySessionEnabled** parameter is set to **true** and the **StickySessionType** parameter is set to **Server**.
+   * 
+   * @example
+   * B490B5EBF6F3CD402E515D22BCDA1598
+   */
   cookie?: string;
+  /**
+   * @remarks
+   * The timeout period of a cookie. Unit: seconds.
+   * 
+   * Valid values: **1** to **86400**.
+   * 
+   * > This parameter takes effect when the **StickySessionEnabled** parameter is set to **true** and the **StickySessionType** parameter is set to **Insert**.
+   * 
+   * @example
+   * 1000
+   */
   cookieTimeout?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable session persistence. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * false
+   */
   stickySessionEnabled?: boolean;
+  /**
+   * @remarks
+   * The method that is used to handle a cookie. Valid values:
+   * 
+   * *   **Insert**: inserts a cookie.
+   * 
+   * ALB inserts a cookie (SERVERID) into the first HTTP or HTTPS response packet that is sent to a client. The next request from the client contains this cookie and the listener forwards this request to the recorded backend server.
+   * 
+   * *   **Server**: rewrites a cookie.
+   * 
+   * When ALB detects a user-defined cookie, it overwrites the original cookie with the user-defined cookie. Subsequent requests to ALB carry this user-defined cookie, and ALB determines the destination servers of the requests based on the cookies.
+   * 
+   * > This parameter takes effect when the **StickySessionEnabled** parameter is set to **true** for the server group.
+   * 
+   * @example
+   * Insert
+   */
   stickySessionType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13703,7 +26349,25 @@ export class UpdateServerGroupAttributeRequestStickySessionConfig extends $tea.M
 }
 
 export class UpdateServerGroupAttributeRequestUchConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the parameter. Only query strings are supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * QueryString
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value of the parameter used for consistent hashing.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * abc
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13725,11 +26389,71 @@ export class UpdateServerGroupAttributeRequestUchConfig extends $tea.Model {
 }
 
 export class UpdateServerGroupServersAttributeRequestServers extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the backend server. The description must be 2 to 256 characters in length, and cannot start with http:// or https://.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The port that is used by the backend server. Valid values: **1** to **65535**.
+   * 
+   * > You do not need to set this parameter if **ServerType** is set to **Fc**.
+   * 
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @remarks
+   * The ID of the backend server.
+   * 
+   * *   Specify the ID of an Elastic Compute Service (ECS) instance, an elastic network interface (ENI), or an elastic container instance if you set **ServerType** to **Ecs**, **Eni**, or **Eci**.
+   * *   Specify an IP address if you set **ServerType** to **Ip**.
+   * *   Specify the Alibaba Cloud Resource Name (ARN) of a Function Compute function if you set **ServerType** to **Fc**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp1f9kdprbgy9uiu****
+   */
   serverId?: string;
+  /**
+   * @remarks
+   * The IP address of the backend server.
+   * 
+   * @example
+   * 192.168.1.1
+   */
   serverIp?: string;
+  /**
+   * @remarks
+   * The type of the backend server. Valid values:
+   * 
+   * *   **Ecs**: ECS instance
+   * *   **Eni**: ENI
+   * *   **Eci**: elastic container instance
+   * *   **Ip**: IP address
+   * *   **Fc**: Function Compute
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Ecs
+   */
   serverType?: string;
+  /**
+   * @remarks
+   * The weight of the backend server. Valid values: **0** to **100**. Default value: **100**. If the value is set to **0**, no requests are forwarded to the server. You can specify up to 40 servers in each call.
+   * 
+   * > You do not need to set this parameter if **ServerType** is set to **Fc**.
+   * 
+   * @example
+   * 100
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13782,18 +26506,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds IP entries to an access control list (ACL).
-   *
-   * @description *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
+   * Adds IP entries to an access control list (ACL).
+   * 
+   * @remarks
+   *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
    *     *   The maximum number of IP entries that can be added to an ACL with each Alibaba Cloud account at a time: 20
    *     *   The maximum number of IP entries that each ACL can contain: 1,000
    * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
    *     *   If the ACL is in the **Adding** state, the IP entries are being added.
    *     *   If the ACL is in the **Available** state, the IP entries are added.
-   *
-   * @param request AddEntriesToAclRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddEntriesToAclResponse
+   * 
+   * @param request - AddEntriesToAclRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddEntriesToAclResponse
    */
   async addEntriesToAclWithOptions(request: AddEntriesToAclRequest, runtime: $Util.RuntimeOptions): Promise<AddEntriesToAclResponse> {
     Util.validateModel(request);
@@ -13832,17 +26557,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds IP entries to an access control list (ACL).
-   *
-   * @description *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
+   * Adds IP entries to an access control list (ACL).
+   * 
+   * @remarks
+   *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
    *     *   The maximum number of IP entries that can be added to an ACL with each Alibaba Cloud account at a time: 20
    *     *   The maximum number of IP entries that each ACL can contain: 1,000
    * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
    *     *   If the ACL is in the **Adding** state, the IP entries are being added.
    *     *   If the ACL is in the **Available** state, the IP entries are added.
-   *
-   * @param request AddEntriesToAclRequest
-   * @return AddEntriesToAclResponse
+   * 
+   * @param request - AddEntriesToAclRequest
+   * @returns AddEntriesToAclResponse
    */
   async addEntriesToAcl(request: AddEntriesToAclRequest): Promise<AddEntriesToAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13850,19 +26576,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds backend servers to a server group.
-   *
-   * @description **AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * Adds backend servers to a server group.
+   * 
+   * @remarks
+   * *AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
    * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
    * *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
    * *   If a server group is in the **Available** state, it indicates that the server group is running.
    * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
    * *   If a backend server is in the **Adding** state, it indicates that the backend server is being added to a server group.
    * *   If a backend server is in the **Available** state, it indicates that the server is running.
-   *
-   * @param request AddServersToServerGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddServersToServerGroupResponse
+   * 
+   * @param request - AddServersToServerGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddServersToServerGroupResponse
    */
   async addServersToServerGroupWithOptions(request: AddServersToServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddServersToServerGroupResponse> {
     Util.validateModel(request);
@@ -13901,18 +26628,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds backend servers to a server group.
-   *
-   * @description **AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * Adds backend servers to a server group.
+   * 
+   * @remarks
+   * *AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
    * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
    * *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
    * *   If a server group is in the **Available** state, it indicates that the server group is running.
    * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
    * *   If a backend server is in the **Adding** state, it indicates that the backend server is being added to a server group.
    * *   If a backend server is in the **Available** state, it indicates that the server is running.
-   *
-   * @param request AddServersToServerGroupRequest
-   * @return AddServersToServerGroupResponse
+   * 
+   * @param request - AddServersToServerGroupRequest
+   * @returns AddServersToServerGroupResponse
    */
   async addServersToServerGroup(request: AddServersToServerGroupRequest): Promise<AddServersToServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13920,11 +26648,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Applies a health check template to a server group.
-   *
-   * @param request ApplyHealthCheckTemplateToServerGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ApplyHealthCheckTemplateToServerGroupResponse
+   * Applies a health check template to a server group.
+   * 
+   * @param request - ApplyHealthCheckTemplateToServerGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyHealthCheckTemplateToServerGroupResponse
    */
   async applyHealthCheckTemplateToServerGroupWithOptions(request: ApplyHealthCheckTemplateToServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<ApplyHealthCheckTemplateToServerGroupResponse> {
     Util.validateModel(request);
@@ -13963,10 +26691,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Applies a health check template to a server group.
-   *
-   * @param request ApplyHealthCheckTemplateToServerGroupRequest
-   * @return ApplyHealthCheckTemplateToServerGroupResponse
+   * Applies a health check template to a server group.
+   * 
+   * @param request - ApplyHealthCheckTemplateToServerGroupRequest
+   * @returns ApplyHealthCheckTemplateToServerGroupResponse
    */
   async applyHealthCheckTemplateToServerGroup(request: ApplyHealthCheckTemplateToServerGroupRequest): Promise<ApplyHealthCheckTemplateToServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13974,15 +26702,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Associates access control lists (ACLs) with a listener.
-   *
-   * @description **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
+   * Associates access control lists (ACLs) with a listener.
+   * 
+   * @remarks
+   * *DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
    * *   If an ACL is in the **Associating** state, the ACL is being associated with a listener.
    * *   If an ACL is in the **Associated** state, the ACL is associated with a listener.
-   *
-   * @param request AssociateAclsWithListenerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AssociateAclsWithListenerResponse
+   * 
+   * @param request - AssociateAclsWithListenerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateAclsWithListenerResponse
    */
   async associateAclsWithListenerWithOptions(request: AssociateAclsWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAclsWithListenerResponse> {
     Util.validateModel(request);
@@ -14025,14 +26754,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Associates access control lists (ACLs) with a listener.
-   *
-   * @description **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
+   * Associates access control lists (ACLs) with a listener.
+   * 
+   * @remarks
+   * *DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
    * *   If an ACL is in the **Associating** state, the ACL is being associated with a listener.
    * *   If an ACL is in the **Associated** state, the ACL is associated with a listener.
-   *
-   * @param request AssociateAclsWithListenerRequest
-   * @return AssociateAclsWithListenerResponse
+   * 
+   * @param request - AssociateAclsWithListenerRequest
+   * @returns AssociateAclsWithListenerResponse
    */
   async associateAclsWithListener(request: AssociateAclsWithListenerRequest): Promise<AssociateAclsWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14040,15 +26770,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Associates additional certificates with a listener.
-   *
-   * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
+   * Associates additional certificates with a listener.
+   * 
+   * @remarks
+   * *AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
    * *   If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
    * *   If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
-   *
-   * @param request AssociateAdditionalCertificatesWithListenerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AssociateAdditionalCertificatesWithListenerResponse
+   * 
+   * @param request - AssociateAdditionalCertificatesWithListenerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateAdditionalCertificatesWithListenerResponse
    */
   async associateAdditionalCertificatesWithListenerWithOptions(request: AssociateAdditionalCertificatesWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     Util.validateModel(request);
@@ -14087,14 +26818,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Associates additional certificates with a listener.
-   *
-   * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
+   * Associates additional certificates with a listener.
+   * 
+   * @remarks
+   * *AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
    * *   If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
    * *   If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
-   *
-   * @param request AssociateAdditionalCertificatesWithListenerRequest
-   * @return AssociateAdditionalCertificatesWithListenerResponse
+   * 
+   * @param request - AssociateAdditionalCertificatesWithListenerRequest
+   * @returns AssociateAdditionalCertificatesWithListenerResponse
    */
   async associateAdditionalCertificatesWithListener(request: AssociateAdditionalCertificatesWithListenerRequest): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14102,15 +26834,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
-   *
-   * @description **AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
+   * 
+   * @remarks
+   * *AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
    * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
    * *   If the ALB instance is in the **Active** state, the EIP bandwidth plan is associated with the ALB instance.
-   *
-   * @param request AttachCommonBandwidthPackageToLoadBalancerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AttachCommonBandwidthPackageToLoadBalancerResponse
+   * 
+   * @param request - AttachCommonBandwidthPackageToLoadBalancerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachCommonBandwidthPackageToLoadBalancerResponse
    */
   async attachCommonBandwidthPackageToLoadBalancerWithOptions(request: AttachCommonBandwidthPackageToLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<AttachCommonBandwidthPackageToLoadBalancerResponse> {
     Util.validateModel(request);
@@ -14153,14 +26886,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
-   *
-   * @description **AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
+   * 
+   * @remarks
+   * *AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
    * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
    * *   If the ALB instance is in the **Active** state, the EIP bandwidth plan is associated with the ALB instance.
-   *
-   * @param request AttachCommonBandwidthPackageToLoadBalancerRequest
-   * @return AttachCommonBandwidthPackageToLoadBalancerResponse
+   * 
+   * @param request - AttachCommonBandwidthPackageToLoadBalancerRequest
+   * @returns AttachCommonBandwidthPackageToLoadBalancerResponse
    */
   async attachCommonBandwidthPackageToLoadBalancer(request: AttachCommonBandwidthPackageToLoadBalancerRequest): Promise<AttachCommonBandwidthPackageToLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14168,13 +26902,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to a DNS record.
-   *
-   * @description This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
-   *
-   * @param request CancelShiftLoadBalancerZonesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelShiftLoadBalancerZonesResponse
+   * Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to a DNS record.
+   * 
+   * @remarks
+   * This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
+   * 
+   * @param request - CancelShiftLoadBalancerZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelShiftLoadBalancerZonesResponse
    */
   async cancelShiftLoadBalancerZonesWithOptions(request: CancelShiftLoadBalancerZonesRequest, runtime: $Util.RuntimeOptions): Promise<CancelShiftLoadBalancerZonesResponse> {
     Util.validateModel(request);
@@ -14213,12 +26948,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to a DNS record.
-   *
-   * @description This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
-   *
-   * @param request CancelShiftLoadBalancerZonesRequest
-   * @return CancelShiftLoadBalancerZonesResponse
+   * Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to a DNS record.
+   * 
+   * @remarks
+   * This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
+   * 
+   * @param request - CancelShiftLoadBalancerZonesRequest
+   * @returns CancelShiftLoadBalancerZonesResponse
    */
   async cancelShiftLoadBalancerZones(request: CancelShiftLoadBalancerZonesRequest): Promise<CancelShiftLoadBalancerZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14226,18 +26962,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates AScript rules.
-   *
-   * @description ### [](#)Prerequisites
+   * Creates AScript rules.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
    * *   A standard or WAF-enabled Application Load Balancer (ALB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
    * ### [](#)Usage notes
    * **CreateAScripts** an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of a script.
    * *   If the script is in the **Creating** state, the script is being created.
    * *   If the script is in the **Available**, the script is created.
-   *
-   * @param request CreateAScriptsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAScriptsResponse
+   * 
+   * @param request - CreateAScriptsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAScriptsResponse
    */
   async createAScriptsWithOptions(request: CreateAScriptsRequest, runtime: $Util.RuntimeOptions): Promise<CreateAScriptsResponse> {
     Util.validateModel(request);
@@ -14276,17 +27013,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates AScript rules.
-   *
-   * @description ### [](#)Prerequisites
+   * Creates AScript rules.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
    * *   A standard or WAF-enabled Application Load Balancer (ALB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
    * ### [](#)Usage notes
    * **CreateAScripts** an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of a script.
    * *   If the script is in the **Creating** state, the script is being created.
    * *   If the script is in the **Available**, the script is created.
-   *
-   * @param request CreateAScriptsRequest
-   * @return CreateAScriptsResponse
+   * 
+   * @param request - CreateAScriptsRequest
+   * @returns CreateAScriptsResponse
    */
   async createAScripts(request: CreateAScriptsRequest): Promise<CreateAScriptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14294,16 +27032,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an access control list (ACL) in a region.
-   *
-   * @description ## Usage notes
+   * Creates an access control list (ACL) in a region.
+   * 
+   * @remarks
+   * ## Usage notes
    * The **CreateAcl** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of an ACL:
    * *   If an ACL is in the **Creating** state, the ACL is being created.
    * *   If an ACL is in the **Available** state, the ACL is created.
-   *
-   * @param request CreateAclRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAclResponse
+   * 
+   * @param request - CreateAclRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAclResponse
    */
   async createAclWithOptions(request: CreateAclRequest, runtime: $Util.RuntimeOptions): Promise<CreateAclResponse> {
     Util.validateModel(request);
@@ -14346,15 +27085,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an access control list (ACL) in a region.
-   *
-   * @description ## Usage notes
+   * Creates an access control list (ACL) in a region.
+   * 
+   * @remarks
+   * ## Usage notes
    * The **CreateAcl** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of an ACL:
    * *   If an ACL is in the **Creating** state, the ACL is being created.
    * *   If an ACL is in the **Available** state, the ACL is created.
-   *
-   * @param request CreateAclRequest
-   * @return CreateAclResponse
+   * 
+   * @param request - CreateAclRequest
+   * @returns CreateAclResponse
    */
   async createAcl(request: CreateAclRequest): Promise<CreateAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14362,11 +27102,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a health check template in a region.
-   *
-   * @param request CreateHealthCheckTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateHealthCheckTemplateResponse
+   * Creates a health check template in a region.
+   * 
+   * @param request - CreateHealthCheckTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHealthCheckTemplateResponse
    */
   async createHealthCheckTemplateWithOptions(request: CreateHealthCheckTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateHealthCheckTemplateResponse> {
     Util.validateModel(request);
@@ -14449,10 +27189,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a health check template in a region.
-   *
-   * @param request CreateHealthCheckTemplateRequest
-   * @return CreateHealthCheckTemplateResponse
+   * Creates a health check template in a region.
+   * 
+   * @param request - CreateHealthCheckTemplateRequest
+   * @returns CreateHealthCheckTemplateResponse
    */
   async createHealthCheckTemplate(request: CreateHealthCheckTemplateRequest): Promise<CreateHealthCheckTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14460,16 +27200,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an HTTP, HTTPS, or QUIC listener in a region.
-   *
-   * @description ## Usage notes
+   * Creates a listener.
+   * 
+   * @remarks
+   * ## Usage notes
    * **CreateListener** is an asynchronous operation. After you call this operation, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/214353.html) operation to query the status of the HTTP, HTTPS, or QUIC listener.
    * *   If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, it indicates that the listener is being created.
    * *   If the HTTP, HTTPS, or QUIC listener is in the **Running** state, it indicates that the listener has been created successfully.
-   *
-   * @param request CreateListenerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateListenerResponse
+   * 
+   * @param request - CreateListenerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateListenerResponse
    */
   async createListenerWithOptions(request: CreateListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateListenerResponse> {
     Util.validateModel(request);
@@ -14564,15 +27305,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an HTTP, HTTPS, or QUIC listener in a region.
-   *
-   * @description ## Usage notes
+   * Creates a listener.
+   * 
+   * @remarks
+   * ## Usage notes
    * **CreateListener** is an asynchronous operation. After you call this operation, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/214353.html) operation to query the status of the HTTP, HTTPS, or QUIC listener.
    * *   If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, it indicates that the listener is being created.
    * *   If the HTTP, HTTPS, or QUIC listener is in the **Running** state, it indicates that the listener has been created successfully.
-   *
-   * @param request CreateListenerRequest
-   * @return CreateListenerResponse
+   * 
+   * @param request - CreateListenerRequest
+   * @returns CreateListenerResponse
    */
   async createListener(request: CreateListenerRequest): Promise<CreateListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14580,15 +27322,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an Application Load Balancer (ALB) instance in a region.
-   *
-   * @description **CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
+   * Creates an Application Load Balancer (ALB) instance in a region.
+   * 
+   * @remarks
+   * *CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
    * *   If an ALB instance is in the **Provisioning** state, it indicates that the ALB instance is being created.
    * *   If an ALB instance is in the **Active** state, it indicates that the ALB instance is created.
-   *
-   * @param request CreateLoadBalancerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLoadBalancerResponse
+   * 
+   * @param request - CreateLoadBalancerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLoadBalancerResponse
    */
   async createLoadBalancerWithOptions(request: CreateLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerResponse> {
     Util.validateModel(request);
@@ -14667,14 +27410,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an Application Load Balancer (ALB) instance in a region.
-   *
-   * @description **CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
+   * Creates an Application Load Balancer (ALB) instance in a region.
+   * 
+   * @remarks
+   * *CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
    * *   If an ALB instance is in the **Provisioning** state, it indicates that the ALB instance is being created.
    * *   If an ALB instance is in the **Active** state, it indicates that the ALB instance is created.
-   *
-   * @param request CreateLoadBalancerRequest
-   * @return CreateLoadBalancerResponse
+   * 
+   * @param request - CreateLoadBalancerRequest
+   * @returns CreateLoadBalancerResponse
    */
   async createLoadBalancer(request: CreateLoadBalancerRequest): Promise<CreateLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14682,9 +27426,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a forwarding rule for a listener.
-   *
-   * @description Take note of the following limits:
+   * Creates a forwarding rule for a listener.
+   * 
+   * @remarks
+   * Take note of the following limits:
    * *   When you configure the **Redirect** action, you can use the default value only for the **HttpCode** parameter. Do not use the default values for the other parameters.
    * *   If you specify the **Rewrite** action together with other actions in a forwarding rule, make sure that the **ForwardGroup** action is specified.
    * *   **CreateRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule.
@@ -14693,10 +27438,10 @@ export default class Client extends OpenApi {
    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. The limits on conditions and actions are:
    *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
    *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
-   *
-   * @param request CreateRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateRuleResponse
+   * 
+   * @param request - CreateRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRuleResponse
    */
   async createRuleWithOptions(request: CreateRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRuleResponse> {
     Util.validateModel(request);
@@ -14755,9 +27500,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a forwarding rule for a listener.
-   *
-   * @description Take note of the following limits:
+   * Creates a forwarding rule for a listener.
+   * 
+   * @remarks
+   * Take note of the following limits:
    * *   When you configure the **Redirect** action, you can use the default value only for the **HttpCode** parameter. Do not use the default values for the other parameters.
    * *   If you specify the **Rewrite** action together with other actions in a forwarding rule, make sure that the **ForwardGroup** action is specified.
    * *   **CreateRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule.
@@ -14766,9 +27512,9 @@ export default class Client extends OpenApi {
    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. The limits on conditions and actions are:
    *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
    *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
-   *
-   * @param request CreateRuleRequest
-   * @return CreateRuleResponse
+   * 
+   * @param request - CreateRuleRequest
+   * @returns CreateRuleResponse
    */
   async createRule(request: CreateRuleRequest): Promise<CreateRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14776,21 +27522,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates one or more forwarding rules at a time.
-   *
-   * @description When you call this operation, take note of the following limits:
-   * *   When you configure the **Redirect** action, you can use the default value for the **HttpCode** parameter but you cannot use the default values for all of the other parameters.
-   * *   If you specify the **Rewrite** action and other actions in a forwarding rule, make sure that one of the actions is **ForwardGroup**.
-   * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
-   *     *   If forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
-   *     *   If forwarding rules are in the **Available** state, the forwarding rules have been created.
+   * Creates multiple forwarding rules at a time.
+   * 
+   * @remarks
+   * When you call this operation, take note of the following limits:
+   * *   When you configure the **Redirect** action, do not use the default values for parameters other than **HttpCode**.
+   * *   If you specify multiple actions in a forward rule, you must specify the **ForwardGroup** parameter along with the **Rewrite** parameter.
+   * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the forwarding rules.
+   *     *   If the forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
+   *     *   If the forwarding rules are in the **Available** state, the forwarding rules are created.
    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
-   *     *   Limits on conditions: You can specify at most 5 conditions if you use a basic Application Load Balancer (ALB) instance, at most 10 conditions if you use a standard ALB instance, and at most 10 conditions if you use a WAF-enabled ALB instance.
-   *     *   Limits on actions: You can specify at most 3 actions if you use a basic ALB instance, at most 5 actions if you use a standard ALB instance, and at most 10 actions if you use a WAF-enabled ALB instance.
-   *
-   * @param request CreateRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateRulesResponse
+   *     *   Conditions: 5 for each basic ALB instance, 10 for each standard ALB instance, and 10 for each WAF-enabled ALB instance.
+   *     *   Actions: 3 for each basic ALB instance, 5 for each standard ALB instance, and 5 for each WAF-enabled ALB instance.
+   * 
+   * @param request - CreateRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRulesResponse
    */
   async createRulesWithOptions(request: CreateRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateRulesResponse> {
     Util.validateModel(request);
@@ -14829,20 +27576,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates one or more forwarding rules at a time.
-   *
-   * @description When you call this operation, take note of the following limits:
-   * *   When you configure the **Redirect** action, you can use the default value for the **HttpCode** parameter but you cannot use the default values for all of the other parameters.
-   * *   If you specify the **Rewrite** action and other actions in a forwarding rule, make sure that one of the actions is **ForwardGroup**.
-   * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
-   *     *   If forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
-   *     *   If forwarding rules are in the **Available** state, the forwarding rules have been created.
+   * Creates multiple forwarding rules at a time.
+   * 
+   * @remarks
+   * When you call this operation, take note of the following limits:
+   * *   When you configure the **Redirect** action, do not use the default values for parameters other than **HttpCode**.
+   * *   If you specify multiple actions in a forward rule, you must specify the **ForwardGroup** parameter along with the **Rewrite** parameter.
+   * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the forwarding rules.
+   *     *   If the forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
+   *     *   If the forwarding rules are in the **Available** state, the forwarding rules are created.
    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
-   *     *   Limits on conditions: You can specify at most 5 conditions if you use a basic Application Load Balancer (ALB) instance, at most 10 conditions if you use a standard ALB instance, and at most 10 conditions if you use a WAF-enabled ALB instance.
-   *     *   Limits on actions: You can specify at most 3 actions if you use a basic ALB instance, at most 5 actions if you use a standard ALB instance, and at most 10 actions if you use a WAF-enabled ALB instance.
-   *
-   * @param request CreateRulesRequest
-   * @return CreateRulesResponse
+   *     *   Conditions: 5 for each basic ALB instance, 10 for each standard ALB instance, and 10 for each WAF-enabled ALB instance.
+   *     *   Actions: 3 for each basic ALB instance, 5 for each standard ALB instance, and 5 for each WAF-enabled ALB instance.
+   * 
+   * @param request - CreateRulesRequest
+   * @returns CreateRulesResponse
    */
   async createRules(request: CreateRulesRequest): Promise<CreateRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14850,11 +27598,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a custom security policy in a region.
-   *
-   * @param request CreateSecurityPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSecurityPolicyResponse
+   * Creates a custom security policy in a region.
+   * 
+   * @param request - CreateSecurityPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSecurityPolicyResponse
    */
   async createSecurityPolicyWithOptions(request: CreateSecurityPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecurityPolicyResponse> {
     Util.validateModel(request);
@@ -14905,10 +27653,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a custom security policy in a region.
-   *
-   * @param request CreateSecurityPolicyRequest
-   * @return CreateSecurityPolicyResponse
+   * Creates a custom security policy in a region.
+   * 
+   * @param request - CreateSecurityPolicyRequest
+   * @returns CreateSecurityPolicyResponse
    */
   async createSecurityPolicy(request: CreateSecurityPolicyRequest): Promise<CreateSecurityPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14916,15 +27664,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a server group in a region.
-   *
-   * @description **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group.
+   * Creates a server group in a region.
+   * 
+   * @remarks
+   * *CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group.
    * *   If a server group is in the **Creating** state, it indicates that the server group is being created.
    * *   If a server group is in the **Available** state, it indicates that the server group is created.
-   *
-   * @param request CreateServerGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateServerGroupResponse
+   * 
+   * @param request - CreateServerGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServerGroupResponse
    */
   async createServerGroupWithOptions(request: CreateServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateServerGroupResponse> {
     Util.validateModel(request);
@@ -15011,14 +27760,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a server group in a region.
-   *
-   * @description **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group.
+   * Creates a server group in a region.
+   * 
+   * @remarks
+   * *CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group.
    * *   If a server group is in the **Creating** state, it indicates that the server group is being created.
    * *   If a server group is in the **Available** state, it indicates that the server group is created.
-   *
-   * @param request CreateServerGroupRequest
-   * @return CreateServerGroupResponse
+   * 
+   * @param request - CreateServerGroupRequest
+   * @returns CreateServerGroupResponse
    */
   async createServerGroup(request: CreateServerGroupRequest): Promise<CreateServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15026,15 +27776,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes AScript rules.
-   *
-   * @description **DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
+   * Deletes AScript rules.
+   * 
+   * @remarks
+   * *DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
    * *   If an AScript rule is in the **Deleting** state, the AScript rule is being deleted.
    * *   If an AScript rule cannot be found, the AScript rule is deleted.
-   *
-   * @param request DeleteAScriptsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAScriptsResponse
+   * 
+   * @param request - DeleteAScriptsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAScriptsResponse
    */
   async deleteAScriptsWithOptions(request: DeleteAScriptsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAScriptsResponse> {
     Util.validateModel(request);
@@ -15069,14 +27820,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes AScript rules.
-   *
-   * @description **DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
+   * Deletes AScript rules.
+   * 
+   * @remarks
+   * *DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
    * *   If an AScript rule is in the **Deleting** state, the AScript rule is being deleted.
    * *   If an AScript rule cannot be found, the AScript rule is deleted.
-   *
-   * @param request DeleteAScriptsRequest
-   * @return DeleteAScriptsResponse
+   * 
+   * @param request - DeleteAScriptsRequest
+   * @returns DeleteAScriptsResponse
    */
   async deleteAScripts(request: DeleteAScriptsRequest): Promise<DeleteAScriptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15084,15 +27836,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an access control list (ACL).
-   *
-   * @description **DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of the task.
+   * Deletes an access control list (ACL).
+   * 
+   * @remarks
+   * *DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of the task.
    * *   If the ACL is in the **Deleting** state, the ACL is being deleted.
    * *   If the ACL cannot be found, the ACL is deleted.
-   *
-   * @param request DeleteAclRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAclResponse
+   * 
+   * @param request - DeleteAclRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAclResponse
    */
   async deleteAclWithOptions(request: DeleteAclRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAclResponse> {
     Util.validateModel(request);
@@ -15127,14 +27880,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an access control list (ACL).
-   *
-   * @description **DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of the task.
+   * Deletes an access control list (ACL).
+   * 
+   * @remarks
+   * *DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of the task.
    * *   If the ACL is in the **Deleting** state, the ACL is being deleted.
    * *   If the ACL cannot be found, the ACL is deleted.
-   *
-   * @param request DeleteAclRequest
-   * @return DeleteAclResponse
+   * 
+   * @param request - DeleteAclRequest
+   * @returns DeleteAclResponse
    */
   async deleteAcl(request: DeleteAclRequest): Promise<DeleteAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15142,11 +27896,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes health check templates.
-   *
-   * @param request DeleteHealthCheckTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteHealthCheckTemplatesResponse
+   * Deletes health check templates.
+   * 
+   * @param request - DeleteHealthCheckTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHealthCheckTemplatesResponse
    */
   async deleteHealthCheckTemplatesWithOptions(request: DeleteHealthCheckTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHealthCheckTemplatesResponse> {
     Util.validateModel(request);
@@ -15181,10 +27935,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes health check templates.
-   *
-   * @param request DeleteHealthCheckTemplatesRequest
-   * @return DeleteHealthCheckTemplatesResponse
+   * Deletes health check templates.
+   * 
+   * @param request - DeleteHealthCheckTemplatesRequest
+   * @returns DeleteHealthCheckTemplatesResponse
    */
   async deleteHealthCheckTemplates(request: DeleteHealthCheckTemplatesRequest): Promise<DeleteHealthCheckTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15192,15 +27946,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a listener.
-   *
-   * @description **DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
+   * Deletes a listener.
+   * 
+   * @remarks
+   * *DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
    * *   If the listener is in the **Deleting** state, the listener is being deleted.
    * *   If the listener cannot be found, the listener is deleted.
-   *
-   * @param request DeleteListenerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteListenerResponse
+   * 
+   * @param request - DeleteListenerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteListenerResponse
    */
   async deleteListenerWithOptions(request: DeleteListenerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteListenerResponse> {
     Util.validateModel(request);
@@ -15235,14 +27990,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a listener.
-   *
-   * @description **DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
+   * Deletes a listener.
+   * 
+   * @remarks
+   * *DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
    * *   If the listener is in the **Deleting** state, the listener is being deleted.
    * *   If the listener cannot be found, the listener is deleted.
-   *
-   * @param request DeleteListenerRequest
-   * @return DeleteListenerResponse
+   * 
+   * @param request - DeleteListenerRequest
+   * @returns DeleteListenerResponse
    */
   async deleteListener(request: DeleteListenerRequest): Promise<DeleteListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15250,15 +28006,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an Application Load Balancer (ALB) instance.
-   *
-   * @description **DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * Deletes an Application Load Balancer (ALB) instance.
+   * 
+   * @remarks
+   * *DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
    * *   If an ALB instance is in the **Deleting** state, the ALB instance is being deleted.
    * *   If an ALB instance cannot be found, the ALB instance is deleted.
-   *
-   * @param request DeleteLoadBalancerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLoadBalancerResponse
+   * 
+   * @param request - DeleteLoadBalancerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLoadBalancerResponse
    */
   async deleteLoadBalancerWithOptions(request: DeleteLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoadBalancerResponse> {
     Util.validateModel(request);
@@ -15293,14 +28050,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an Application Load Balancer (ALB) instance.
-   *
-   * @description **DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * Deletes an Application Load Balancer (ALB) instance.
+   * 
+   * @remarks
+   * *DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
    * *   If an ALB instance is in the **Deleting** state, the ALB instance is being deleted.
    * *   If an ALB instance cannot be found, the ALB instance is deleted.
-   *
-   * @param request DeleteLoadBalancerRequest
-   * @return DeleteLoadBalancerResponse
+   * 
+   * @param request - DeleteLoadBalancerRequest
+   * @returns DeleteLoadBalancerResponse
    */
   async deleteLoadBalancer(request: DeleteLoadBalancerRequest): Promise<DeleteLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15308,15 +28066,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a forwarding rule.
-   *
-   * @description **DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
+   * Deletes a forwarding rule.
+   * 
+   * @remarks
+   * *DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
    * *   If the forwarding rule is in the **Deleting** state, the forwarding rule is being deleted.
    * *   If the forwarding rule cannot be found, the forwarding rule is deleted.
-   *
-   * @param request DeleteRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteRuleResponse
+   * 
+   * @param request - DeleteRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRuleResponse
    */
   async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleResponse> {
     Util.validateModel(request);
@@ -15351,14 +28110,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a forwarding rule.
-   *
-   * @description **DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
+   * Deletes a forwarding rule.
+   * 
+   * @remarks
+   * *DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
    * *   If the forwarding rule is in the **Deleting** state, the forwarding rule is being deleted.
    * *   If the forwarding rule cannot be found, the forwarding rule is deleted.
-   *
-   * @param request DeleteRuleRequest
-   * @return DeleteRuleResponse
+   * 
+   * @param request - DeleteRuleRequest
+   * @returns DeleteRuleResponse
    */
   async deleteRule(request: DeleteRuleRequest): Promise<DeleteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15366,15 +28126,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes one or more forwarding rules from a listener at a time.
-   *
-   * @description **DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
+   * Deletes one or more forwarding rules from a listener at a time.
+   * 
+   * @remarks
+   * *DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
    * *   If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
    * *   If the forwarding rules cannot be found, the forwarding rules are deleted.
-   *
-   * @param request DeleteRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteRulesResponse
+   * 
+   * @param request - DeleteRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRulesResponse
    */
   async deleteRulesWithOptions(request: DeleteRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRulesResponse> {
     Util.validateModel(request);
@@ -15409,14 +28170,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes one or more forwarding rules from a listener at a time.
-   *
-   * @description **DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
+   * Deletes one or more forwarding rules from a listener at a time.
+   * 
+   * @remarks
+   * *DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
    * *   If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
    * *   If the forwarding rules cannot be found, the forwarding rules are deleted.
-   *
-   * @param request DeleteRulesRequest
-   * @return DeleteRulesResponse
+   * 
+   * @param request - DeleteRulesRequest
+   * @returns DeleteRulesResponse
    */
   async deleteRules(request: DeleteRulesRequest): Promise<DeleteRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15424,11 +28186,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a custom security policy.
-   *
-   * @param request DeleteSecurityPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSecurityPolicyResponse
+   * Deletes a custom security policy.
+   * 
+   * @param request - DeleteSecurityPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSecurityPolicyResponse
    */
   async deleteSecurityPolicyWithOptions(request: DeleteSecurityPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecurityPolicyResponse> {
     Util.validateModel(request);
@@ -15463,10 +28225,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a custom security policy.
-   *
-   * @param request DeleteSecurityPolicyRequest
-   * @return DeleteSecurityPolicyResponse
+   * Deletes a custom security policy.
+   * 
+   * @param request - DeleteSecurityPolicyRequest
+   * @returns DeleteSecurityPolicyResponse
    */
   async deleteSecurityPolicy(request: DeleteSecurityPolicyRequest): Promise<DeleteSecurityPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15474,15 +28236,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a server group.
-   *
-   * @description **DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of the task.
+   * Deletes a server group.
+   * 
+   * @remarks
+   * *DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of the task.
    * *   If a server group is in the **Deleting** state, it indicates that the server group is being deleted.
    * *   If a specified server group cannot be found, it indicates that the server group has been deleted.
-   *
-   * @param request DeleteServerGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteServerGroupResponse
+   * 
+   * @param request - DeleteServerGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServerGroupResponse
    */
   async deleteServerGroupWithOptions(request: DeleteServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServerGroupResponse> {
     Util.validateModel(request);
@@ -15517,14 +28280,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a server group.
-   *
-   * @description **DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of the task.
+   * Deletes a server group.
+   * 
+   * @remarks
+   * *DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of the task.
    * *   If a server group is in the **Deleting** state, it indicates that the server group is being deleted.
    * *   If a specified server group cannot be found, it indicates that the server group has been deleted.
-   *
-   * @param request DeleteServerGroupRequest
-   * @return DeleteServerGroupResponse
+   * 
+   * @param request - DeleteServerGroupRequest
+   * @returns DeleteServerGroupResponse
    */
   async deleteServerGroup(request: DeleteServerGroupRequest): Promise<DeleteServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15532,11 +28296,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries available regions.
-   *
-   * @param request DescribeRegionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRegionsResponse
+   * Queries available regions.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
    */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
@@ -15563,10 +28327,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries available regions.
-   *
-   * @param request DescribeRegionsRequest
-   * @return DescribeRegionsResponse
+   * Queries available regions.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15574,11 +28338,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries zones in a region.
-   *
-   * @param request DescribeZonesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeZonesResponse
+   * Queries zones in a region.
+   * 
+   * @param request - DescribeZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeZonesResponse
    */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
@@ -15605,10 +28369,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries zones in a region.
-   *
-   * @param request DescribeZonesRequest
-   * @return DescribeZonesResponse
+   * Queries zones in a region.
+   * 
+   * @param request - DescribeZonesRequest
+   * @returns DescribeZonesResponse
    */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15616,15 +28380,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
-   *
-   * @description **DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
+   * Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
+   * 
+   * @remarks
+   * *DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
    * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
    * *   If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
-   *
-   * @param request DetachCommonBandwidthPackageFromLoadBalancerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
+   * 
+   * @param request - DetachCommonBandwidthPackageFromLoadBalancerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachCommonBandwidthPackageFromLoadBalancerResponse
    */
   async detachCommonBandwidthPackageFromLoadBalancerWithOptions(request: DetachCommonBandwidthPackageFromLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<DetachCommonBandwidthPackageFromLoadBalancerResponse> {
     Util.validateModel(request);
@@ -15667,14 +28432,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
-   *
-   * @description **DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
+   * Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
+   * 
+   * @remarks
+   * *DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
    * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
    * *   If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
-   *
-   * @param request DetachCommonBandwidthPackageFromLoadBalancerRequest
-   * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
+   * 
+   * @param request - DetachCommonBandwidthPackageFromLoadBalancerRequest
+   * @returns DetachCommonBandwidthPackageFromLoadBalancerResponse
    */
   async detachCommonBandwidthPackageFromLoadBalancer(request: DetachCommonBandwidthPackageFromLoadBalancerRequest): Promise<DetachCommonBandwidthPackageFromLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15682,11 +28448,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables deletion protection for an Application Load Balancer (ALB) instance.
-   *
-   * @param request DisableDeletionProtectionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DisableDeletionProtectionResponse
+   * Disables deletion protection for an Application Load Balancer (ALB) instance.
+   * 
+   * @param request - DisableDeletionProtectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableDeletionProtectionResponse
    */
   async disableDeletionProtectionWithOptions(request: DisableDeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<DisableDeletionProtectionResponse> {
     Util.validateModel(request);
@@ -15721,10 +28487,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables deletion protection for an Application Load Balancer (ALB) instance.
-   *
-   * @param request DisableDeletionProtectionRequest
-   * @return DisableDeletionProtectionResponse
+   * Disables deletion protection for an Application Load Balancer (ALB) instance.
+   * 
+   * @param request - DisableDeletionProtectionRequest
+   * @returns DisableDeletionProtectionResponse
    */
   async disableDeletionProtection(request: DisableDeletionProtectionRequest): Promise<DisableDeletionProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15732,11 +28498,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the access log feature for a Server Load Balancer (SLB) instance.
-   *
-   * @param request DisableLoadBalancerAccessLogRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DisableLoadBalancerAccessLogResponse
+   * Disables the access log feature for a Server Load Balancer (SLB) instance.
+   * 
+   * @param request - DisableLoadBalancerAccessLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableLoadBalancerAccessLogResponse
    */
   async disableLoadBalancerAccessLogWithOptions(request: DisableLoadBalancerAccessLogRequest, runtime: $Util.RuntimeOptions): Promise<DisableLoadBalancerAccessLogResponse> {
     Util.validateModel(request);
@@ -15771,10 +28537,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the access log feature for a Server Load Balancer (SLB) instance.
-   *
-   * @param request DisableLoadBalancerAccessLogRequest
-   * @return DisableLoadBalancerAccessLogResponse
+   * Disables the access log feature for a Server Load Balancer (SLB) instance.
+   * 
+   * @param request - DisableLoadBalancerAccessLogRequest
+   * @returns DisableLoadBalancerAccessLogResponse
    */
   async disableLoadBalancerAccessLog(request: DisableLoadBalancerAccessLogRequest): Promise<DisableLoadBalancerAccessLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15782,9 +28548,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from public to private.
-   *
-   * @description ### Prerequisites
+   * Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from public to private.
+   * 
+   * @remarks
+   * ### Prerequisites
    * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
    * > If you set **AddressIpVersion** to **DualStack**:
    * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
@@ -15794,10 +28561,10 @@ export default class Client extends OpenApi {
    * *   **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
    *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
    *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
-   *
-   * @param request DisableLoadBalancerIpv6InternetRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DisableLoadBalancerIpv6InternetResponse
+   * 
+   * @param request - DisableLoadBalancerIpv6InternetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableLoadBalancerIpv6InternetResponse
    */
   async disableLoadBalancerIpv6InternetWithOptions(request: DisableLoadBalancerIpv6InternetRequest, runtime: $Util.RuntimeOptions): Promise<DisableLoadBalancerIpv6InternetResponse> {
     Util.validateModel(request);
@@ -15832,9 +28599,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from public to private.
-   *
-   * @description ### Prerequisites
+   * Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from public to private.
+   * 
+   * @remarks
+   * ### Prerequisites
    * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
    * > If you set **AddressIpVersion** to **DualStack**:
    * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
@@ -15844,9 +28612,9 @@ export default class Client extends OpenApi {
    * *   **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
    *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
    *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
-   *
-   * @param request DisableLoadBalancerIpv6InternetRequest
-   * @return DisableLoadBalancerIpv6InternetResponse
+   * 
+   * @param request - DisableLoadBalancerIpv6InternetRequest
+   * @returns DisableLoadBalancerIpv6InternetResponse
    */
   async disableLoadBalancerIpv6Internet(request: DisableLoadBalancerIpv6InternetRequest): Promise<DisableLoadBalancerIpv6InternetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15854,15 +28622,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disassociates access control lists (ACLs) from a listener.
-   *
-   * @description **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
+   * Disassociates access control lists (ACLs) from a listener.
+   * 
+   * @remarks
+   * *DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
    * *   If an ACL is in the **Dissociating** state, the ACL is being disassociated from the listener.
    * *   If an ACL is in the **Dissociated** state, the ACL is disassociated from the listener.
-   *
-   * @param request DissociateAclsFromListenerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DissociateAclsFromListenerResponse
+   * 
+   * @param request - DissociateAclsFromListenerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DissociateAclsFromListenerResponse
    */
   async dissociateAclsFromListenerWithOptions(request: DissociateAclsFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAclsFromListenerResponse> {
     Util.validateModel(request);
@@ -15901,14 +28670,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disassociates access control lists (ACLs) from a listener.
-   *
-   * @description **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
+   * Disassociates access control lists (ACLs) from a listener.
+   * 
+   * @remarks
+   * *DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
    * *   If an ACL is in the **Dissociating** state, the ACL is being disassociated from the listener.
    * *   If an ACL is in the **Dissociated** state, the ACL is disassociated from the listener.
-   *
-   * @param request DissociateAclsFromListenerRequest
-   * @return DissociateAclsFromListenerResponse
+   * 
+   * @param request - DissociateAclsFromListenerRequest
+   * @returns DissociateAclsFromListenerResponse
    */
   async dissociateAclsFromListener(request: DissociateAclsFromListenerRequest): Promise<DissociateAclsFromListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15916,13 +28686,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disassociates additional certificates from a listener.
-   *
-   * @description **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/214354.html) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
-   *
-   * @param request DissociateAdditionalCertificatesFromListenerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DissociateAdditionalCertificatesFromListenerResponse
+   * Disassociates additional certificates from a listener.
+   * 
+   * @remarks
+   * *DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/214354.html) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+   * 
+   * @param request - DissociateAdditionalCertificatesFromListenerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DissociateAdditionalCertificatesFromListenerResponse
    */
   async dissociateAdditionalCertificatesFromListenerWithOptions(request: DissociateAdditionalCertificatesFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAdditionalCertificatesFromListenerResponse> {
     Util.validateModel(request);
@@ -15961,12 +28732,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disassociates additional certificates from a listener.
-   *
-   * @description **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/214354.html) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
-   *
-   * @param request DissociateAdditionalCertificatesFromListenerRequest
-   * @return DissociateAdditionalCertificatesFromListenerResponse
+   * Disassociates additional certificates from a listener.
+   * 
+   * @remarks
+   * *DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/214354.html) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+   * 
+   * @param request - DissociateAdditionalCertificatesFromListenerRequest
+   * @returns DissociateAdditionalCertificatesFromListenerResponse
    */
   async dissociateAdditionalCertificatesFromListener(request: DissociateAdditionalCertificatesFromListenerRequest): Promise<DissociateAdditionalCertificatesFromListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15974,11 +28746,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables deletion protection for a resource.
-   *
-   * @param request EnableDeletionProtectionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableDeletionProtectionResponse
+   * Enables deletion protection for a resource.
+   * 
+   * @param request - EnableDeletionProtectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableDeletionProtectionResponse
    */
   async enableDeletionProtectionWithOptions(request: EnableDeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<EnableDeletionProtectionResponse> {
     Util.validateModel(request);
@@ -16013,10 +28785,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables deletion protection for a resource.
-   *
-   * @param request EnableDeletionProtectionRequest
-   * @return EnableDeletionProtectionResponse
+   * Enables deletion protection for a resource.
+   * 
+   * @param request - EnableDeletionProtectionRequest
+   * @returns EnableDeletionProtectionResponse
    */
   async enableDeletionProtection(request: EnableDeletionProtectionRequest): Promise<EnableDeletionProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16024,11 +28796,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the access log feature for an Application Load Balancer (ALB) instance.
-   *
-   * @param request EnableLoadBalancerAccessLogRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableLoadBalancerAccessLogResponse
+   * Enables the access log feature for an Application Load Balancer (ALB) instance.
+   * 
+   * @param request - EnableLoadBalancerAccessLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableLoadBalancerAccessLogResponse
    */
   async enableLoadBalancerAccessLogWithOptions(request: EnableLoadBalancerAccessLogRequest, runtime: $Util.RuntimeOptions): Promise<EnableLoadBalancerAccessLogResponse> {
     Util.validateModel(request);
@@ -16071,10 +28843,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the access log feature for an Application Load Balancer (ALB) instance.
-   *
-   * @param request EnableLoadBalancerAccessLogRequest
-   * @return EnableLoadBalancerAccessLogResponse
+   * Enables the access log feature for an Application Load Balancer (ALB) instance.
+   * 
+   * @param request - EnableLoadBalancerAccessLogRequest
+   * @returns EnableLoadBalancerAccessLogResponse
    */
   async enableLoadBalancerAccessLog(request: EnableLoadBalancerAccessLogRequest): Promise<EnableLoadBalancerAccessLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16082,9 +28854,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from private to public.
-   *
-   * @description ### Prerequisites
+   * Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from private to public.
+   * 
+   * @remarks
+   * ### Prerequisites
    * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
    * > If you set **AddressIpVersion** to **DualStack**:
    * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
@@ -16094,10 +28867,10 @@ export default class Client extends OpenApi {
    * *   **EnableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
    *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
    *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
-   *
-   * @param request EnableLoadBalancerIpv6InternetRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableLoadBalancerIpv6InternetResponse
+   * 
+   * @param request - EnableLoadBalancerIpv6InternetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableLoadBalancerIpv6InternetResponse
    */
   async enableLoadBalancerIpv6InternetWithOptions(request: EnableLoadBalancerIpv6InternetRequest, runtime: $Util.RuntimeOptions): Promise<EnableLoadBalancerIpv6InternetResponse> {
     Util.validateModel(request);
@@ -16132,9 +28905,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from private to public.
-   *
-   * @description ### Prerequisites
+   * Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from private to public.
+   * 
+   * @remarks
+   * ### Prerequisites
    * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
    * > If you set **AddressIpVersion** to **DualStack**:
    * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
@@ -16144,9 +28918,9 @@ export default class Client extends OpenApi {
    * *   **EnableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
    *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
    *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
-   *
-   * @param request EnableLoadBalancerIpv6InternetRequest
-   * @return EnableLoadBalancerIpv6InternetResponse
+   * 
+   * @param request - EnableLoadBalancerIpv6InternetRequest
+   * @returns EnableLoadBalancerIpv6InternetResponse
    */
   async enableLoadBalancerIpv6Internet(request: EnableLoadBalancerIpv6InternetRequest): Promise<EnableLoadBalancerIpv6InternetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16154,11 +28928,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a health check template.
-   *
-   * @param request GetHealthCheckTemplateAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetHealthCheckTemplateAttributeResponse
+   * Queries the details about a health check template.
+   * 
+   * @param request - GetHealthCheckTemplateAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHealthCheckTemplateAttributeResponse
    */
   async getHealthCheckTemplateAttributeWithOptions(request: GetHealthCheckTemplateAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetHealthCheckTemplateAttributeResponse> {
     Util.validateModel(request);
@@ -16185,10 +28959,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a health check template.
-   *
-   * @param request GetHealthCheckTemplateAttributeRequest
-   * @return GetHealthCheckTemplateAttributeResponse
+   * Queries the details about a health check template.
+   * 
+   * @param request - GetHealthCheckTemplateAttributeRequest
+   * @returns GetHealthCheckTemplateAttributeResponse
    */
   async getHealthCheckTemplateAttribute(request: GetHealthCheckTemplateAttributeRequest): Promise<GetHealthCheckTemplateAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16196,11 +28970,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a listener.
-   *
-   * @param request GetListenerAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetListenerAttributeResponse
+   * Queries the details about a listener.
+   * 
+   * @param request - GetListenerAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetListenerAttributeResponse
    */
   async getListenerAttributeWithOptions(request: GetListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetListenerAttributeResponse> {
     Util.validateModel(request);
@@ -16227,10 +29001,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a listener.
-   *
-   * @param request GetListenerAttributeRequest
-   * @return GetListenerAttributeResponse
+   * Queries the details about a listener.
+   * 
+   * @param request - GetListenerAttributeRequest
+   * @returns GetListenerAttributeResponse
    */
   async getListenerAttribute(request: GetListenerAttributeRequest): Promise<GetListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16238,11 +29012,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the health check status of a listener and its forwarding rules.
-   *
-   * @param request GetListenerHealthStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetListenerHealthStatusResponse
+   * Queries the health check status of a listener and its forwarding rules.
+   * 
+   * @param request - GetListenerHealthStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetListenerHealthStatusResponse
    */
   async getListenerHealthStatusWithOptions(request: GetListenerHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetListenerHealthStatusResponse> {
     Util.validateModel(request);
@@ -16281,10 +29055,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the health check status of a listener and its forwarding rules.
-   *
-   * @param request GetListenerHealthStatusRequest
-   * @return GetListenerHealthStatusResponse
+   * Queries the health check status of a listener and its forwarding rules.
+   * 
+   * @param request - GetListenerHealthStatusRequest
+   * @returns GetListenerHealthStatusResponse
    */
   async getListenerHealthStatus(request: GetListenerHealthStatusRequest): Promise<GetListenerHealthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16292,11 +29066,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an Application Load Balancer (ALB) instance.
-   *
-   * @param request GetLoadBalancerAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLoadBalancerAttributeResponse
+   * Queries the details of an Application Load Balancer (ALB) instance.
+   * 
+   * @param request - GetLoadBalancerAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLoadBalancerAttributeResponse
    */
   async getLoadBalancerAttributeWithOptions(request: GetLoadBalancerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetLoadBalancerAttributeResponse> {
     Util.validateModel(request);
@@ -16323,10 +29097,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an Application Load Balancer (ALB) instance.
-   *
-   * @param request GetLoadBalancerAttributeRequest
-   * @return GetLoadBalancerAttributeResponse
+   * Queries the details of an Application Load Balancer (ALB) instance.
+   * 
+   * @param request - GetLoadBalancerAttributeRequest
+   * @returns GetLoadBalancerAttributeResponse
    */
   async getLoadBalancerAttribute(request: GetLoadBalancerAttributeRequest): Promise<GetLoadBalancerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16334,11 +29108,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries AScript rules.
-   *
-   * @param request ListAScriptsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAScriptsResponse
+   * Queries AScript rules.
+   * 
+   * @param request - ListAScriptsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAScriptsResponse
    */
   async listAScriptsWithOptions(request: ListAScriptsRequest, runtime: $Util.RuntimeOptions): Promise<ListAScriptsResponse> {
     Util.validateModel(request);
@@ -16381,10 +29155,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries AScript rules.
-   *
-   * @param request ListAScriptsRequest
-   * @return ListAScriptsResponse
+   * Queries AScript rules.
+   * 
+   * @param request - ListAScriptsRequest
+   * @returns ListAScriptsResponse
    */
   async listAScripts(request: ListAScriptsRequest): Promise<ListAScriptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16392,11 +29166,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the entries of an access control list (ACL).
-   *
-   * @param request ListAclEntriesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAclEntriesResponse
+   * Queries the entries of an access control list (ACL).
+   * 
+   * @param request - ListAclEntriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAclEntriesResponse
    */
   async listAclEntriesWithOptions(request: ListAclEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListAclEntriesResponse> {
     Util.validateModel(request);
@@ -16431,10 +29205,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the entries of an access control list (ACL).
-   *
-   * @param request ListAclEntriesRequest
-   * @return ListAclEntriesResponse
+   * Queries the entries of an access control list (ACL).
+   * 
+   * @param request - ListAclEntriesRequest
+   * @returns ListAclEntriesResponse
    */
   async listAclEntries(request: ListAclEntriesRequest): Promise<ListAclEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16442,11 +29216,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the listeners that are associated with access control lists (ACLs).
-   *
-   * @param request ListAclRelationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAclRelationsResponse
+   * Queries the listeners that are associated with access control lists (ACLs).
+   * 
+   * @param request - ListAclRelationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAclRelationsResponse
    */
   async listAclRelationsWithOptions(request: ListAclRelationsRequest, runtime: $Util.RuntimeOptions): Promise<ListAclRelationsResponse> {
     Util.validateModel(request);
@@ -16473,10 +29247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the listeners that are associated with access control lists (ACLs).
-   *
-   * @param request ListAclRelationsRequest
-   * @return ListAclRelationsResponse
+   * Queries the listeners that are associated with access control lists (ACLs).
+   * 
+   * @param request - ListAclRelationsRequest
+   * @returns ListAclRelationsResponse
    */
   async listAclRelations(request: ListAclRelationsRequest): Promise<ListAclRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16484,11 +29258,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the access control lists (ACLs) in a region.
-   *
-   * @param request ListAclsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAclsResponse
+   * Queries the access control lists (ACLs) in a region.
+   * 
+   * @param request - ListAclsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAclsResponse
    */
   async listAclsWithOptions(request: ListAclsRequest, runtime: $Util.RuntimeOptions): Promise<ListAclsResponse> {
     Util.validateModel(request);
@@ -16535,10 +29309,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the access control lists (ACLs) in a region.
-   *
-   * @param request ListAclsRequest
-   * @return ListAclsResponse
+   * Queries the access control lists (ACLs) in a region.
+   * 
+   * @param request - ListAclsRequest
+   * @returns ListAclsResponse
    */
   async listAcls(request: ListAclsRequest): Promise<ListAclsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16546,11 +29320,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries asynchronous tasks in a region.
-   *
-   * @param request ListAsynJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAsynJobsResponse
+   * Queries asynchronous tasks in a region.
+   * 
+   * @param request - ListAsynJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAsynJobsResponse
    */
   async listAsynJobsWithOptions(request: ListAsynJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListAsynJobsResponse> {
     Util.validateModel(request);
@@ -16605,10 +29379,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries asynchronous tasks in a region.
-   *
-   * @param request ListAsynJobsRequest
-   * @return ListAsynJobsResponse
+   * Queries asynchronous tasks in a region.
+   * 
+   * @param request - ListAsynJobsRequest
+   * @returns ListAsynJobsResponse
    */
   async listAsynJobs(request: ListAsynJobsRequest): Promise<ListAsynJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16616,11 +29390,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries health check templates in a region.
-   *
-   * @param request ListHealthCheckTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListHealthCheckTemplatesResponse
+   * Queries health check templates in a region.
+   * 
+   * @param request - ListHealthCheckTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHealthCheckTemplatesResponse
    */
   async listHealthCheckTemplatesWithOptions(request: ListHealthCheckTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListHealthCheckTemplatesResponse> {
     Util.validateModel(request);
@@ -16663,10 +29437,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries health check templates in a region.
-   *
-   * @param request ListHealthCheckTemplatesRequest
-   * @return ListHealthCheckTemplatesResponse
+   * Queries health check templates in a region.
+   * 
+   * @param request - ListHealthCheckTemplatesRequest
+   * @returns ListHealthCheckTemplatesResponse
    */
   async listHealthCheckTemplates(request: ListHealthCheckTemplatesRequest): Promise<ListHealthCheckTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16674,11 +29448,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the certificates that are associated with a listener, including additional certificates and the default certificate.
-   *
-   * @param request ListListenerCertificatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListListenerCertificatesResponse
+   * Queries the certificates that are associated with a listener, including additional certificates and the default certificate.
+   * 
+   * @param request - ListListenerCertificatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListListenerCertificatesResponse
    */
   async listListenerCertificatesWithOptions(request: ListListenerCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListListenerCertificatesResponse> {
     Util.validateModel(request);
@@ -16721,10 +29495,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the certificates that are associated with a listener, including additional certificates and the default certificate.
-   *
-   * @param request ListListenerCertificatesRequest
-   * @return ListListenerCertificatesResponse
+   * Queries the certificates that are associated with a listener, including additional certificates and the default certificate.
+   * 
+   * @param request - ListListenerCertificatesRequest
+   * @returns ListListenerCertificatesResponse
    */
   async listListenerCertificates(request: ListListenerCertificatesRequest): Promise<ListListenerCertificatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16732,11 +29506,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the listeners in a region.
-   *
-   * @param request ListListenersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListListenersResponse
+   * Queries the listeners in a region.
+   * 
+   * @param request - ListListenersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListListenersResponse
    */
   async listListenersWithOptions(request: ListListenersRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersResponse> {
     Util.validateModel(request);
@@ -16783,10 +29557,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the listeners in a region.
-   *
-   * @param request ListListenersRequest
-   * @return ListListenersResponse
+   * Queries the listeners in a region.
+   * 
+   * @param request - ListListenersRequest
+   * @returns ListListenersResponse
    */
   async listListeners(request: ListListenersRequest): Promise<ListListenersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16794,11 +29568,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries Application Load Balancer (ALB) instances in a region based on filter conditions.
-   *
-   * @param request ListLoadBalancersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLoadBalancersResponse
+   * Queries the configurations of instances.
+   * 
+   * @param request - ListLoadBalancersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLoadBalancersResponse
    */
   async listLoadBalancersWithOptions(request: ListLoadBalancersRequest, runtime: $Util.RuntimeOptions): Promise<ListLoadBalancersResponse> {
     Util.validateModel(request);
@@ -16881,10 +29655,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries Application Load Balancer (ALB) instances in a region based on filter conditions.
-   *
-   * @param request ListLoadBalancersRequest
-   * @return ListLoadBalancersResponse
+   * Queries the configurations of instances.
+   * 
+   * @param request - ListLoadBalancersRequest
+   * @returns ListLoadBalancersResponse
    */
   async listLoadBalancers(request: ListLoadBalancersRequest): Promise<ListLoadBalancersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16892,11 +29666,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the forwarding rules in a region.
-   *
-   * @param request ListRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRulesResponse
+   * Queries the forwarding rules in a region.
+   * 
+   * @param request - ListRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRulesResponse
    */
   async listRulesWithOptions(request: ListRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListRulesResponse> {
     Util.validateModel(request);
@@ -16947,10 +29721,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the forwarding rules in a region.
-   *
-   * @param request ListRulesRequest
-   * @return ListRulesResponse
+   * Queries the forwarding rules in a region.
+   * 
+   * @param request - ListRulesRequest
+   * @returns ListRulesResponse
    */
   async listRules(request: ListRulesRequest): Promise<ListRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16958,11 +29732,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries custom security policies in a region.
-   *
-   * @param request ListSecurityPoliciesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSecurityPoliciesResponse
+   * Queries custom security policies in a region.
+   * 
+   * @param request - ListSecurityPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSecurityPoliciesResponse
    */
   async listSecurityPoliciesWithOptions(request: ListSecurityPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListSecurityPoliciesResponse> {
     Util.validateModel(request);
@@ -17009,10 +29783,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries custom security policies in a region.
-   *
-   * @param request ListSecurityPoliciesRequest
-   * @return ListSecurityPoliciesResponse
+   * Queries custom security policies in a region.
+   * 
+   * @param request - ListSecurityPoliciesRequest
+   * @returns ListSecurityPoliciesResponse
    */
   async listSecurityPolicies(request: ListSecurityPoliciesRequest): Promise<ListSecurityPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17020,11 +29794,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the listeners that are associated with security policies.
-   *
-   * @param request ListSecurityPolicyRelationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSecurityPolicyRelationsResponse
+   * Queries the listeners that are associated with security policies.
+   * 
+   * @param request - ListSecurityPolicyRelationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSecurityPolicyRelationsResponse
    */
   async listSecurityPolicyRelationsWithOptions(request: ListSecurityPolicyRelationsRequest, runtime: $Util.RuntimeOptions): Promise<ListSecurityPolicyRelationsResponse> {
     Util.validateModel(request);
@@ -17051,10 +29825,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the listeners that are associated with security policies.
-   *
-   * @param request ListSecurityPolicyRelationsRequest
-   * @return ListSecurityPolicyRelationsResponse
+   * Queries the listeners that are associated with security policies.
+   * 
+   * @param request - ListSecurityPolicyRelationsRequest
+   * @returns ListSecurityPolicyRelationsResponse
    */
   async listSecurityPolicyRelations(request: ListSecurityPolicyRelationsRequest): Promise<ListSecurityPolicyRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17062,11 +29836,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries servers in a server group.
-   *
-   * @param request ListServerGroupServersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListServerGroupServersResponse
+   * Queries servers in a server group.
+   * 
+   * @param request - ListServerGroupServersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServerGroupServersResponse
    */
   async listServerGroupServersWithOptions(request: ListServerGroupServersRequest, runtime: $Util.RuntimeOptions): Promise<ListServerGroupServersResponse> {
     Util.validateModel(request);
@@ -17109,10 +29883,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries servers in a server group.
-   *
-   * @param request ListServerGroupServersRequest
-   * @return ListServerGroupServersResponse
+   * Queries servers in a server group.
+   * 
+   * @param request - ListServerGroupServersRequest
+   * @returns ListServerGroupServersResponse
    */
   async listServerGroupServers(request: ListServerGroupServersRequest): Promise<ListServerGroupServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17120,11 +29894,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries server groups in a region.
-   *
-   * @param request ListServerGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListServerGroupsResponse
+   * Queries server groups.
+   * 
+   * @param request - ListServerGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServerGroupsResponse
    */
   async listServerGroupsWithOptions(request: ListServerGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListServerGroupsResponse> {
     Util.validateModel(request);
@@ -17179,10 +29953,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries server groups in a region.
-   *
-   * @param request ListServerGroupsRequest
-   * @return ListServerGroupsResponse
+   * Queries server groups.
+   * 
+   * @param request - ListServerGroupsRequest
+   * @returns ListServerGroupsResponse
    */
   async listServerGroups(request: ListServerGroupsRequest): Promise<ListServerGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17190,11 +29964,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries system security policies in a region.
-   *
-   * @param request ListSystemSecurityPoliciesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSystemSecurityPoliciesResponse
+   * Queries system security policies in a region.
+   * 
+   * @param request - ListSystemSecurityPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSystemSecurityPoliciesResponse
    */
   async listSystemSecurityPoliciesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListSystemSecurityPoliciesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -17213,9 +29987,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries system security policies in a region.
-   *
-   * @return ListSystemSecurityPoliciesResponse
+   * Queries system security policies in a region.
+   * @returns ListSystemSecurityPoliciesResponse
    */
   async listSystemSecurityPolicies(): Promise<ListSystemSecurityPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17223,11 +29996,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tag keys.
-   *
-   * @param request ListTagKeysRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagKeysResponse
+   * Queries tag keys.
+   * 
+   * @param request - ListTagKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagKeysResponse
    */
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
@@ -17270,10 +30043,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tag keys.
-   *
-   * @param request ListTagKeysRequest
-   * @return ListTagKeysResponse
+   * Queries tag keys.
+   * 
+   * @param request - ListTagKeysRequest
+   * @returns ListTagKeysResponse
    */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17281,11 +30054,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags of resources.
-   *
-   * @param request ListTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * Queries the tags of resources.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -17328,10 +30101,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags of resources.
-   *
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * Queries the tags of resources.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17339,11 +30112,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tag values.
-   *
-   * @param request ListTagValuesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagValuesResponse
+   * Queries tag values.
+   * 
+   * @param request - ListTagValuesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagValuesResponse
    */
   async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
     Util.validateModel(request);
@@ -17386,10 +30159,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tag values.
-   *
-   * @param request ListTagValuesRequest
-   * @return ListTagValuesResponse
+   * Queries tag values.
+   * 
+   * @param request - ListTagValuesRequest
+   * @returns ListTagValuesResponse
    */
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17397,19 +30170,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds an Application Load Balancer (ALB) instance to a security group.
-   *
-   * @description *   By default, security groups are unavailable. To use security groups, contact your account manager.
+   * Adds an Application Load Balancer (ALB) instance to a security group.
+   * 
+   * @remarks
+   *   By default, security groups are unavailable. To use security groups, contact your account manager.
    * *   Make sure that a security group is created. For more information about how to create security groups, see [CreateSecurityGroup](https://help.aliyun.com/document_detail/2679843.html).
    * *   Each ALB instance can be added to at most four security groups.
    * *   To query the security groups of an ALB instance, call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/2254835.html) operation.
    * *   GetLoadBalancerAttribute is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
    *     *   If the task is in the Succeeded state, the ALB instance is added to the security group.
    *     *   If the task is in the Processing state, the ALB instance is being added to the security group. In this case, you can query the task but cannot perform other operations.
-   *
-   * @param request LoadBalancerJoinSecurityGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return LoadBalancerJoinSecurityGroupResponse
+   * 
+   * @param request - LoadBalancerJoinSecurityGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LoadBalancerJoinSecurityGroupResponse
    */
   async loadBalancerJoinSecurityGroupWithOptions(request: LoadBalancerJoinSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<LoadBalancerJoinSecurityGroupResponse> {
     Util.validateModel(request);
@@ -17448,18 +30222,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds an Application Load Balancer (ALB) instance to a security group.
-   *
-   * @description *   By default, security groups are unavailable. To use security groups, contact your account manager.
+   * Adds an Application Load Balancer (ALB) instance to a security group.
+   * 
+   * @remarks
+   *   By default, security groups are unavailable. To use security groups, contact your account manager.
    * *   Make sure that a security group is created. For more information about how to create security groups, see [CreateSecurityGroup](https://help.aliyun.com/document_detail/2679843.html).
    * *   Each ALB instance can be added to at most four security groups.
    * *   To query the security groups of an ALB instance, call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/2254835.html) operation.
    * *   GetLoadBalancerAttribute is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
    *     *   If the task is in the Succeeded state, the ALB instance is added to the security group.
    *     *   If the task is in the Processing state, the ALB instance is being added to the security group. In this case, you can query the task but cannot perform other operations.
-   *
-   * @param request LoadBalancerJoinSecurityGroupRequest
-   * @return LoadBalancerJoinSecurityGroupResponse
+   * 
+   * @param request - LoadBalancerJoinSecurityGroupRequest
+   * @returns LoadBalancerJoinSecurityGroupResponse
    */
   async loadBalancerJoinSecurityGroup(request: LoadBalancerJoinSecurityGroupRequest): Promise<LoadBalancerJoinSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17467,15 +30242,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes an Application Load Balancer (ALB) instance from a security group.
-   *
-   * @description *   LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
+   * Removes an Application Load Balancer (ALB) instance from a security group.
+   * 
+   * @remarks
+   *   LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
    *     *   If the task is in the Succeeded state, the ALB instance is removed from the security group.
    *     *   If the task is in the Processing state, the ALB instance is being removed from the security group. In this case, you can query the task but cannot perform other operations.
-   *
-   * @param request LoadBalancerLeaveSecurityGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return LoadBalancerLeaveSecurityGroupResponse
+   * 
+   * @param request - LoadBalancerLeaveSecurityGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LoadBalancerLeaveSecurityGroupResponse
    */
   async loadBalancerLeaveSecurityGroupWithOptions(request: LoadBalancerLeaveSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<LoadBalancerLeaveSecurityGroupResponse> {
     Util.validateModel(request);
@@ -17514,14 +30290,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes an Application Load Balancer (ALB) instance from a security group.
-   *
-   * @description *   LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
+   * Removes an Application Load Balancer (ALB) instance from a security group.
+   * 
+   * @remarks
+   *   LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
    *     *   If the task is in the Succeeded state, the ALB instance is removed from the security group.
    *     *   If the task is in the Processing state, the ALB instance is being removed from the security group. In this case, you can query the task but cannot perform other operations.
-   *
-   * @param request LoadBalancerLeaveSecurityGroupRequest
-   * @return LoadBalancerLeaveSecurityGroupResponse
+   * 
+   * @param request - LoadBalancerLeaveSecurityGroupRequest
+   * @returns LoadBalancerLeaveSecurityGroupResponse
    */
   async loadBalancerLeaveSecurityGroup(request: LoadBalancerLeaveSecurityGroupRequest): Promise<LoadBalancerLeaveSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17529,11 +30306,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Moves a resource to another resource group.
-   *
-   * @param request MoveResourceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MoveResourceGroupResponse
+   * Moves a resource to another resource group.
+   * 
+   * @param request - MoveResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveResourceGroupResponse
    */
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
@@ -17568,10 +30345,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Moves a resource to another resource group.
-   *
-   * @param request MoveResourceGroupRequest
-   * @return MoveResourceGroupResponse
+   * Moves a resource to another resource group.
+   * 
+   * @param request - MoveResourceGroupRequest
+   * @returns MoveResourceGroupResponse
    */
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17579,15 +30356,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes entries from an access control list (ACL).
-   *
-   * @description **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
+   * Removes entries from an access control list (ACL).
+   * 
+   * @remarks
+   * *RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
    * *   If an ACL is in the **Removing** state, the entries are being removed.
    * *   If an ACL cannot be found, the entries are removed.
-   *
-   * @param request RemoveEntriesFromAclRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveEntriesFromAclResponse
+   * 
+   * @param request - RemoveEntriesFromAclRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveEntriesFromAclResponse
    */
   async removeEntriesFromAclWithOptions(request: RemoveEntriesFromAclRequest, runtime: $Util.RuntimeOptions): Promise<RemoveEntriesFromAclResponse> {
     Util.validateModel(request);
@@ -17626,14 +30404,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes entries from an access control list (ACL).
-   *
-   * @description **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
+   * Removes entries from an access control list (ACL).
+   * 
+   * @remarks
+   * *RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
    * *   If an ACL is in the **Removing** state, the entries are being removed.
    * *   If an ACL cannot be found, the entries are removed.
-   *
-   * @param request RemoveEntriesFromAclRequest
-   * @return RemoveEntriesFromAclResponse
+   * 
+   * @param request - RemoveEntriesFromAclRequest
+   * @returns RemoveEntriesFromAclResponse
    */
   async removeEntriesFromAcl(request: RemoveEntriesFromAclRequest): Promise<RemoveEntriesFromAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17641,19 +30420,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes backend servers from a server group.
-   *
-   * @description **RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * Removes backend servers from a server group.
+   * 
+   * @remarks
+   * *RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
    * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
    *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
    *     *   If a server group is in the **Available** state, it indicates that the server group is running.
    * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
    *     *   If a backend server is in the **Removing** state, the server is being removed from the server group.
    *     *   If a backend server cannot be found, the server is no longer in the server group.
-   *
-   * @param request RemoveServersFromServerGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveServersFromServerGroupResponse
+   * 
+   * @param request - RemoveServersFromServerGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveServersFromServerGroupResponse
    */
   async removeServersFromServerGroupWithOptions(request: RemoveServersFromServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveServersFromServerGroupResponse> {
     Util.validateModel(request);
@@ -17692,18 +30472,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes backend servers from a server group.
-   *
-   * @description **RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * Removes backend servers from a server group.
+   * 
+   * @remarks
+   * *RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
    * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
    *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
    *     *   If a server group is in the **Available** state, it indicates that the server group is running.
    * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
    *     *   If a backend server is in the **Removing** state, the server is being removed from the server group.
    *     *   If a backend server cannot be found, the server is no longer in the server group.
-   *
-   * @param request RemoveServersFromServerGroupRequest
-   * @return RemoveServersFromServerGroupResponse
+   * 
+   * @param request - RemoveServersFromServerGroupRequest
+   * @returns RemoveServersFromServerGroupResponse
    */
   async removeServersFromServerGroup(request: RemoveServersFromServerGroupRequest): Promise<RemoveServersFromServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17711,19 +30492,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Replaces backend servers in a server group.
-   *
-   * @description **ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * Replaces backend servers in a server group.
+   * 
+   * @remarks
+   * *ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
    * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
    *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
    *     *   If a server group is in the **Available** state, it indicates that the server group is running.
    * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
    *     *   If a backend server is in the **Replacing** state, it indicates that the server is being removed from the server group and a new server is added to the server group.
    *     *   If a backend server is in the \\*\\*Available\\*\\* state, it indicates that the server is running.
-   *
-   * @param request ReplaceServersInServerGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReplaceServersInServerGroupResponse
+   * 
+   * @param request - ReplaceServersInServerGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReplaceServersInServerGroupResponse
    */
   async replaceServersInServerGroupWithOptions(request: ReplaceServersInServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceServersInServerGroupResponse> {
     Util.validateModel(request);
@@ -17766,18 +30548,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Replaces backend servers in a server group.
-   *
-   * @description **ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * Replaces backend servers in a server group.
+   * 
+   * @remarks
+   * *ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
    * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
    *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
    *     *   If a server group is in the **Available** state, it indicates that the server group is running.
    * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
    *     *   If a backend server is in the **Replacing** state, it indicates that the server is being removed from the server group and a new server is added to the server group.
    *     *   If a backend server is in the \\*\\*Available\\*\\* state, it indicates that the server is running.
-   *
-   * @param request ReplaceServersInServerGroupRequest
-   * @return ReplaceServersInServerGroupResponse
+   * 
+   * @param request - ReplaceServersInServerGroupRequest
+   * @returns ReplaceServersInServerGroupResponse
    */
   async replaceServersInServerGroup(request: ReplaceServersInServerGroupRequest): Promise<ReplaceServersInServerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17785,15 +30568,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables a listener.
-   *
-   * @description **StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
+   * Enables a listener.
+   * 
+   * @remarks
+   * *StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
    * *   If a listener is in the **Configuring** state, the listener is being enabled.
    * *   If a listener is in the **Running** state, the listener is enabled.
-   *
-   * @param request StartListenerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartListenerResponse
+   * 
+   * @param request - StartListenerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartListenerResponse
    */
   async startListenerWithOptions(request: StartListenerRequest, runtime: $Util.RuntimeOptions): Promise<StartListenerResponse> {
     Util.validateModel(request);
@@ -17828,14 +30612,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables a listener.
-   *
-   * @description **StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
+   * Enables a listener.
+   * 
+   * @remarks
+   * *StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
    * *   If a listener is in the **Configuring** state, the listener is being enabled.
    * *   If a listener is in the **Running** state, the listener is enabled.
-   *
-   * @param request StartListenerRequest
-   * @return StartListenerResponse
+   * 
+   * @param request - StartListenerRequest
+   * @returns StartListenerResponse
    */
   async startListener(request: StartListenerRequest): Promise<StartListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17843,13 +30628,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
-   *
-   * @description This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
-   *
-   * @param request StartShiftLoadBalancerZonesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartShiftLoadBalancerZonesResponse
+   * Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
+   * 
+   * @remarks
+   * This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
+   * 
+   * @param request - StartShiftLoadBalancerZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartShiftLoadBalancerZonesResponse
    */
   async startShiftLoadBalancerZonesWithOptions(request: StartShiftLoadBalancerZonesRequest, runtime: $Util.RuntimeOptions): Promise<StartShiftLoadBalancerZonesResponse> {
     Util.validateModel(request);
@@ -17888,12 +30674,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
-   *
-   * @description This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
-   *
-   * @param request StartShiftLoadBalancerZonesRequest
-   * @return StartShiftLoadBalancerZonesResponse
+   * Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
+   * 
+   * @remarks
+   * This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
+   * 
+   * @param request - StartShiftLoadBalancerZonesRequest
+   * @returns StartShiftLoadBalancerZonesResponse
    */
   async startShiftLoadBalancerZones(request: StartShiftLoadBalancerZonesRequest): Promise<StartShiftLoadBalancerZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17901,15 +30688,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables a listener.
-   *
-   * @description **StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
+   * Disables a listener.
+   * 
+   * @remarks
+   * *StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
    * *   If a listener is in the **Configuring** state, the listener is being disabled.
    * *   If a listener is in the **Stopped** state, the listener is disabled.
-   *
-   * @param request StopListenerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopListenerResponse
+   * 
+   * @param request - StopListenerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopListenerResponse
    */
   async stopListenerWithOptions(request: StopListenerRequest, runtime: $Util.RuntimeOptions): Promise<StopListenerResponse> {
     Util.validateModel(request);
@@ -17944,14 +30732,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables a listener.
-   *
-   * @description **StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
+   * Disables a listener.
+   * 
+   * @remarks
+   * *StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
    * *   If a listener is in the **Configuring** state, the listener is being disabled.
    * *   If a listener is in the **Stopped** state, the listener is disabled.
-   *
-   * @param request StopListenerRequest
-   * @return StopListenerResponse
+   * 
+   * @param request - StopListenerRequest
+   * @returns StopListenerResponse
    */
   async stopListener(request: StopListenerRequest): Promise<StopListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17959,11 +30748,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds tags to resources.
-   *
-   * @param request TagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * Adds tags to resources.
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -17998,10 +30787,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds tags to resources.
-   *
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * Adds tags to resources.
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18009,11 +30798,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from resources.
-   *
-   * @param request UnTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnTagResourcesResponse
+   * Removes tags from resources.
+   * 
+   * @param request - UnTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnTagResourcesResponse
    */
   async unTagResourcesWithOptions(request: UnTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UnTagResourcesResponse> {
     Util.validateModel(request);
@@ -18056,10 +30845,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from resources.
-   *
-   * @param request UnTagResourcesRequest
-   * @return UnTagResourcesResponse
+   * Removes tags from resources.
+   * 
+   * @param request - UnTagResourcesRequest
+   * @returns UnTagResourcesResponse
    */
   async unTagResources(request: UnTagResourcesRequest): Promise<UnTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18067,15 +30856,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates AScript rules.
-   *
-   * @description **UpdateAScripts** is an an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of an AScript rule.
+   * Updates AScript rules.
+   * 
+   * @remarks
+   * *UpdateAScripts** is an an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of an AScript rule.
    * *   If the rule is in the **Configuring** state, the rule is being updated.
    * *   If the rule is in the **Available** state, the rule is updated.
-   *
-   * @param request UpdateAScriptsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAScriptsResponse
+   * 
+   * @param request - UpdateAScriptsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAScriptsResponse
    */
   async updateAScriptsWithOptions(request: UpdateAScriptsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAScriptsResponse> {
     Util.validateModel(request);
@@ -18110,14 +30900,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates AScript rules.
-   *
-   * @description **UpdateAScripts** is an an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of an AScript rule.
+   * Updates AScript rules.
+   * 
+   * @remarks
+   * *UpdateAScripts** is an an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of an AScript rule.
    * *   If the rule is in the **Configuring** state, the rule is being updated.
    * *   If the rule is in the **Available** state, the rule is updated.
-   *
-   * @param request UpdateAScriptsRequest
-   * @return UpdateAScriptsResponse
+   * 
+   * @param request - UpdateAScriptsRequest
+   * @returns UpdateAScriptsResponse
    */
   async updateAScripts(request: UpdateAScriptsRequest): Promise<UpdateAScriptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18125,11 +30916,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the attributes of an access control list (ACL), such as the name.
-   *
-   * @param request UpdateAclAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAclAttributeResponse
+   * Updates the attributes of an access control list (ACL), such as the name.
+   * 
+   * @param request - UpdateAclAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAclAttributeResponse
    */
   async updateAclAttributeWithOptions(request: UpdateAclAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAclAttributeResponse> {
     Util.validateModel(request);
@@ -18168,10 +30959,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the attributes of an access control list (ACL), such as the name.
-   *
-   * @param request UpdateAclAttributeRequest
-   * @return UpdateAclAttributeResponse
+   * Updates the attributes of an access control list (ACL), such as the name.
+   * 
+   * @param request - UpdateAclAttributeRequest
+   * @returns UpdateAclAttributeResponse
    */
   async updateAclAttribute(request: UpdateAclAttributeRequest): Promise<UpdateAclAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18179,11 +30970,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the attributes, such as the name and protocol, of a health check template.
-   *
-   * @param request UpdateHealthCheckTemplateAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateHealthCheckTemplateAttributeResponse
+   * Modifies the attributes, such as the name and protocol, of a health check template.
+   * 
+   * @param request - UpdateHealthCheckTemplateAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateHealthCheckTemplateAttributeResponse
    */
   async updateHealthCheckTemplateAttributeWithOptions(request: UpdateHealthCheckTemplateAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHealthCheckTemplateAttributeResponse> {
     Util.validateModel(request);
@@ -18266,10 +31057,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the attributes, such as the name and protocol, of a health check template.
-   *
-   * @param request UpdateHealthCheckTemplateAttributeRequest
-   * @return UpdateHealthCheckTemplateAttributeResponse
+   * Modifies the attributes, such as the name and protocol, of a health check template.
+   * 
+   * @param request - UpdateHealthCheckTemplateAttributeRequest
+   * @returns UpdateHealthCheckTemplateAttributeResponse
    */
   async updateHealthCheckTemplateAttribute(request: UpdateHealthCheckTemplateAttributeRequest): Promise<UpdateHealthCheckTemplateAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18277,15 +31068,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the attributes of a listener, such as the name and the default action.
-   *
-   * @description **UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task.
+   * Updates the attributes of a listener, such as the name and the default action.
+   * 
+   * @remarks
+   * *UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task.
    * *   If a listener is in the **Configuring** state, the configuration of the listener is being modified.
    * *   If a listener is in the **Running** state, the configuration of the listener is modified.
-   *
-   * @param request UpdateListenerAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateListenerAttributeResponse
+   * 
+   * @param request - UpdateListenerAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateListenerAttributeResponse
    */
   async updateListenerAttributeWithOptions(request: UpdateListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateListenerAttributeResponse> {
     Util.validateModel(request);
@@ -18368,14 +31160,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the attributes of a listener, such as the name and the default action.
-   *
-   * @description **UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task.
+   * Updates the attributes of a listener, such as the name and the default action.
+   * 
+   * @remarks
+   * *UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task.
    * *   If a listener is in the **Configuring** state, the configuration of the listener is being modified.
    * *   If a listener is in the **Running** state, the configuration of the listener is modified.
-   *
-   * @param request UpdateListenerAttributeRequest
-   * @return UpdateListenerAttributeResponse
+   * 
+   * @param request - UpdateListenerAttributeRequest
+   * @returns UpdateListenerAttributeResponse
    */
   async updateListenerAttribute(request: UpdateListenerAttributeRequest): Promise<UpdateListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18383,16 +31176,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the log configuration of a listener, such as the access log configuration.
-   *
-   * @description **UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task:
+   * Updates the log configuration of a listener, such as the access log configuration.
+   * 
+   * @remarks
+   * *UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task:
    * *   If a listener is in the **Configuring** state, the log configuration of the listener is being modified.
    * *   If a listener is in the **Running** state, the log configuration of the listener is modified.
    * > You can update the log configuration of a listener only after you enable the access log feature.
-   *
-   * @param request UpdateListenerLogConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateListenerLogConfigResponse
+   * 
+   * @param request - UpdateListenerLogConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateListenerLogConfigResponse
    */
   async updateListenerLogConfigWithOptions(request: UpdateListenerLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateListenerLogConfigResponse> {
     Util.validateModel(request);
@@ -18435,15 +31229,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the log configuration of a listener, such as the access log configuration.
-   *
-   * @description **UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task:
+   * Updates the log configuration of a listener, such as the access log configuration.
+   * 
+   * @remarks
+   * *UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task:
    * *   If a listener is in the **Configuring** state, the log configuration of the listener is being modified.
    * *   If a listener is in the **Running** state, the log configuration of the listener is modified.
    * > You can update the log configuration of a listener only after you enable the access log feature.
-   *
-   * @param request UpdateListenerLogConfigRequest
-   * @return UpdateListenerLogConfigResponse
+   * 
+   * @param request - UpdateListenerLogConfigRequest
+   * @returns UpdateListenerLogConfigResponse
    */
   async updateListenerLogConfig(request: UpdateListenerLogConfigRequest): Promise<UpdateListenerLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18451,19 +31246,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the network type of an Application Load Balancer (ALB) instance.
-   *
-   * @description ## Prerequisites
+   * Modifies the network type of an Application Load Balancer (ALB) instance.
+   * 
+   * @remarks
+   * ## Prerequisites
    * *   An ALB instance is created. For more information about how to create an ALB instance, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
    * *   If you want to change the network type from internal-facing to Internet-facing, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
    * ## Usage notes
    * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
    * *   If an ALB instance is in the **Configuring** state, the network type is being changed.
    * *   If an ALB instance is in the **Active** state, the network type has been changed.
-   *
-   * @param request UpdateLoadBalancerAddressTypeConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLoadBalancerAddressTypeConfigResponse
+   * 
+   * @param request - UpdateLoadBalancerAddressTypeConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLoadBalancerAddressTypeConfigResponse
    */
   async updateLoadBalancerAddressTypeConfigWithOptions(request: UpdateLoadBalancerAddressTypeConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoadBalancerAddressTypeConfigResponse> {
     Util.validateModel(request);
@@ -18506,18 +31302,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the network type of an Application Load Balancer (ALB) instance.
-   *
-   * @description ## Prerequisites
+   * Modifies the network type of an Application Load Balancer (ALB) instance.
+   * 
+   * @remarks
+   * ## Prerequisites
    * *   An ALB instance is created. For more information about how to create an ALB instance, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
    * *   If you want to change the network type from internal-facing to Internet-facing, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
    * ## Usage notes
    * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
    * *   If an ALB instance is in the **Configuring** state, the network type is being changed.
    * *   If an ALB instance is in the **Active** state, the network type has been changed.
-   *
-   * @param request UpdateLoadBalancerAddressTypeConfigRequest
-   * @return UpdateLoadBalancerAddressTypeConfigResponse
+   * 
+   * @param request - UpdateLoadBalancerAddressTypeConfigRequest
+   * @returns UpdateLoadBalancerAddressTypeConfigResponse
    */
   async updateLoadBalancerAddressTypeConfig(request: UpdateLoadBalancerAddressTypeConfigRequest): Promise<UpdateLoadBalancerAddressTypeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18525,15 +31322,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the attributes of an Application Load Balancer (ALB) instance, such as the name and the configuration read-only mode.
-   *
-   * @description **UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * Modifies the attributes of an Application Load Balancer (ALB) instance, such as the name and the configuration read-only mode.
+   * 
+   * @remarks
+   * *UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
    * *   If the ALB instance is in the **Configuring** state, the ALB instance is being modified.
    * *   If the ALB instance is in the **Active** state, the ALB instance is modified.
-   *
-   * @param request UpdateLoadBalancerAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLoadBalancerAttributeResponse
+   * 
+   * @param request - UpdateLoadBalancerAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLoadBalancerAttributeResponse
    */
   async updateLoadBalancerAttributeWithOptions(request: UpdateLoadBalancerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoadBalancerAttributeResponse> {
     Util.validateModel(request);
@@ -18576,14 +31374,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the attributes of an Application Load Balancer (ALB) instance, such as the name and the configuration read-only mode.
-   *
-   * @description **UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * Modifies the attributes of an Application Load Balancer (ALB) instance, such as the name and the configuration read-only mode.
+   * 
+   * @remarks
+   * *UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
    * *   If the ALB instance is in the **Configuring** state, the ALB instance is being modified.
    * *   If the ALB instance is in the **Active** state, the ALB instance is modified.
-   *
-   * @param request UpdateLoadBalancerAttributeRequest
-   * @return UpdateLoadBalancerAttributeResponse
+   * 
+   * @param request - UpdateLoadBalancerAttributeRequest
+   * @returns UpdateLoadBalancerAttributeResponse
    */
   async updateLoadBalancerAttribute(request: UpdateLoadBalancerAttributeRequest): Promise<UpdateLoadBalancerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18591,16 +31390,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the edition of an Application Load Balancer (ALB) instance.
-   *
-   * @description *   You can only upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance. You cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](https://help.aliyun.com/document_detail/214654.html).
+   * Changes the edition of an Application Load Balancer (ALB) instance.
+   * 
+   * @remarks
+   *   You can only upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance. You cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](https://help.aliyun.com/document_detail/214654.html).
    * *   **UpdateLoadBalancerEdition** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
    *     *   If the ALB instance is in the **Configuring** state, the edition of the ALB instance is being modified.
    *     *   If the ALB instance is in the **Active** state, the edition of the ALB instance is modified.
-   *
-   * @param request UpdateLoadBalancerEditionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLoadBalancerEditionResponse
+   * 
+   * @param request - UpdateLoadBalancerEditionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLoadBalancerEditionResponse
    */
   async updateLoadBalancerEditionWithOptions(request: UpdateLoadBalancerEditionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoadBalancerEditionResponse> {
     Util.validateModel(request);
@@ -18639,15 +31439,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the edition of an Application Load Balancer (ALB) instance.
-   *
-   * @description *   You can only upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance. You cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](https://help.aliyun.com/document_detail/214654.html).
+   * Changes the edition of an Application Load Balancer (ALB) instance.
+   * 
+   * @remarks
+   *   You can only upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance. You cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](https://help.aliyun.com/document_detail/214654.html).
    * *   **UpdateLoadBalancerEdition** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
    *     *   If the ALB instance is in the **Configuring** state, the edition of the ALB instance is being modified.
    *     *   If the ALB instance is in the **Active** state, the edition of the ALB instance is modified.
-   *
-   * @param request UpdateLoadBalancerEditionRequest
-   * @return UpdateLoadBalancerEditionResponse
+   * 
+   * @param request - UpdateLoadBalancerEditionRequest
+   * @returns UpdateLoadBalancerEditionResponse
    */
   async updateLoadBalancerEdition(request: UpdateLoadBalancerEditionRequest): Promise<UpdateLoadBalancerEditionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18655,16 +31456,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the zones of an Application Load Balancer (ALB) instance.
-   *
-   * @description **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * Modifies the zones of an Application Load Balancer (ALB) instance.
+   * 
+   * @remarks
+   * *UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
    * *   If an ALB instance is in the **Configuring** state, the zones are being modified.
    * *   If an ALB instance is in the **Active** state, the zones are modified.
    * > You may be charged after you call UpdateLoadBalancerZones.
-   *
-   * @param request UpdateLoadBalancerZonesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLoadBalancerZonesResponse
+   * 
+   * @param request - UpdateLoadBalancerZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLoadBalancerZonesResponse
    */
   async updateLoadBalancerZonesWithOptions(request: UpdateLoadBalancerZonesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoadBalancerZonesResponse> {
     Util.validateModel(request);
@@ -18703,15 +31505,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the zones of an Application Load Balancer (ALB) instance.
-   *
-   * @description **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+   * Modifies the zones of an Application Load Balancer (ALB) instance.
+   * 
+   * @remarks
+   * *UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
    * *   If an ALB instance is in the **Configuring** state, the zones are being modified.
    * *   If an ALB instance is in the **Active** state, the zones are modified.
    * > You may be charged after you call UpdateLoadBalancerZones.
-   *
-   * @param request UpdateLoadBalancerZonesRequest
-   * @return UpdateLoadBalancerZonesResponse
+   * 
+   * @param request - UpdateLoadBalancerZonesRequest
+   * @returns UpdateLoadBalancerZonesResponse
    */
   async updateLoadBalancerZones(request: UpdateLoadBalancerZonesRequest): Promise<UpdateLoadBalancerZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18719,18 +31522,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a forwarding rule, such as the match condition, action, and name.
-   *
-   * @description *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
+   * Updates a forwarding rule, such as the match condition, action, and name.
+   * 
+   * @remarks
+   *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
    *     *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
    *     *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
    *     *   Number of conditions: You can specify at most 5 for a basic Application Load Balancer (ALB) instance, at most 10 for a standard ALB instance, and at most 10 for a WAF-enabled ALB instance.
    *     *   Number of actions: You can specify at most 3 for a basic ALB instance, at most 5 for a standard ALB instance, and at most 5 for a WAF-enabled ALB instance.
-   *
-   * @param request UpdateRuleAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateRuleAttributeResponse
+   * 
+   * @param request - UpdateRuleAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRuleAttributeResponse
    */
   async updateRuleAttributeWithOptions(request: UpdateRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRuleAttributeResponse> {
     Util.validateModel(request);
@@ -18781,17 +31585,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a forwarding rule, such as the match condition, action, and name.
-   *
-   * @description *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
+   * Updates a forwarding rule, such as the match condition, action, and name.
+   * 
+   * @remarks
+   *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
    *     *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
    *     *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
    *     *   Number of conditions: You can specify at most 5 for a basic Application Load Balancer (ALB) instance, at most 10 for a standard ALB instance, and at most 10 for a WAF-enabled ALB instance.
    *     *   Number of actions: You can specify at most 3 for a basic ALB instance, at most 5 for a standard ALB instance, and at most 5 for a WAF-enabled ALB instance.
-   *
-   * @param request UpdateRuleAttributeRequest
-   * @return UpdateRuleAttributeResponse
+   * 
+   * @param request - UpdateRuleAttributeRequest
+   * @returns UpdateRuleAttributeResponse
    */
   async updateRuleAttribute(request: UpdateRuleAttributeRequest): Promise<UpdateRuleAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18799,18 +31604,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the attributes of forwarding rules.
-   *
-   * @description **UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the task.
+   * Modifies the attributes of forwarding rules.
+   * 
+   * @remarks
+   * *UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the task.
    * *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
    * *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the maximum number of conditions and the maximum number of actions in each forwarding rule:
    *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
    *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
-   *
-   * @param request UpdateRulesAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateRulesAttributeResponse
+   * 
+   * @param request - UpdateRulesAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRulesAttributeResponse
    */
   async updateRulesAttributeWithOptions(request: UpdateRulesAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRulesAttributeResponse> {
     Util.validateModel(request);
@@ -18845,17 +31651,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the attributes of forwarding rules.
-   *
-   * @description **UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the task.
+   * Modifies the attributes of forwarding rules.
+   * 
+   * @remarks
+   * *UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the task.
    * *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
    * *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
    * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the maximum number of conditions and the maximum number of actions in each forwarding rule:
    *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
    *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
-   *
-   * @param request UpdateRulesAttributeRequest
-   * @return UpdateRulesAttributeResponse
+   * 
+   * @param request - UpdateRulesAttributeRequest
+   * @returns UpdateRulesAttributeResponse
    */
   async updateRulesAttribute(request: UpdateRulesAttributeRequest): Promise<UpdateRulesAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18863,16 +31670,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the attributes of a security policy, such as the TLS protocol version and the supported cipher suites.
-   *
-   * @description ##
+   * Updates the attributes of a security policy, such as the TLS protocol version and the supported cipher suites.
+   * 
+   * @remarks
+   * ##
    * **UpdateSecurityPolicyAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListSecurityPolicies](https://help.aliyun.com/document_detail/213609.html) to query the status of the task.
    * *   If a security policy is in the **Configuring** state, the security policy is being updated.
    * *   If a security policy is in the **Available** state, the security policy is updated.
-   *
-   * @param request UpdateSecurityPolicyAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSecurityPolicyAttributeResponse
+   * 
+   * @param request - UpdateSecurityPolicyAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSecurityPolicyAttributeResponse
    */
   async updateSecurityPolicyAttributeWithOptions(request: UpdateSecurityPolicyAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSecurityPolicyAttributeResponse> {
     Util.validateModel(request);
@@ -18919,15 +31727,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the attributes of a security policy, such as the TLS protocol version and the supported cipher suites.
-   *
-   * @description ##
+   * Updates the attributes of a security policy, such as the TLS protocol version and the supported cipher suites.
+   * 
+   * @remarks
+   * ##
    * **UpdateSecurityPolicyAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListSecurityPolicies](https://help.aliyun.com/document_detail/213609.html) to query the status of the task.
    * *   If a security policy is in the **Configuring** state, the security policy is being updated.
    * *   If a security policy is in the **Available** state, the security policy is updated.
-   *
-   * @param request UpdateSecurityPolicyAttributeRequest
-   * @return UpdateSecurityPolicyAttributeResponse
+   * 
+   * @param request - UpdateSecurityPolicyAttributeRequest
+   * @returns UpdateSecurityPolicyAttributeResponse
    */
   async updateSecurityPolicyAttribute(request: UpdateSecurityPolicyAttributeRequest): Promise<UpdateSecurityPolicyAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18935,16 +31744,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
-   *
-   * @description ## Description
+   * Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
+   * 
+   * @remarks
+   * ## Description
    * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group:
    * *   If a server group is in the **Configuring** state, the configuration of the server group is being modified.
    * *   If a server group is in the **Available** state, the configuration of the server group is modified.
-   *
-   * @param request UpdateServerGroupAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateServerGroupAttributeResponse
+   * 
+   * @param request - UpdateServerGroupAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServerGroupAttributeResponse
    */
   async updateServerGroupAttributeWithOptions(request: UpdateServerGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServerGroupAttributeResponse> {
     Util.validateModel(request);
@@ -19015,15 +31825,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
-   *
-   * @description ## Description
+   * Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
+   * 
+   * @remarks
+   * ## Description
    * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group:
    * *   If a server group is in the **Configuring** state, the configuration of the server group is being modified.
    * *   If a server group is in the **Available** state, the configuration of the server group is modified.
-   *
-   * @param request UpdateServerGroupAttributeRequest
-   * @return UpdateServerGroupAttributeResponse
+   * 
+   * @param request - UpdateServerGroupAttributeRequest
+   * @returns UpdateServerGroupAttributeResponse
    */
   async updateServerGroupAttribute(request: UpdateServerGroupAttributeRequest): Promise<UpdateServerGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19031,19 +31842,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations, such as the backend server weight and description, of a server group.
-   *
-   * @description **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * Modifies the configurations, such as the backend server weight and description, of a server group.
+   * 
+   * @remarks
+   * *UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
    * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
    *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
    *     *   If a server group is in the **Available** state, it indicates that the server group is running.
    * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
    *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
    *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
-   *
-   * @param request UpdateServerGroupServersAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateServerGroupServersAttributeResponse
+   * 
+   * @param request - UpdateServerGroupServersAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServerGroupServersAttributeResponse
    */
   async updateServerGroupServersAttributeWithOptions(request: UpdateServerGroupServersAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServerGroupServersAttributeResponse> {
     Util.validateModel(request);
@@ -19082,18 +31894,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations, such as the backend server weight and description, of a server group.
-   *
-   * @description **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+   * Modifies the configurations, such as the backend server weight and description, of a server group.
+   * 
+   * @remarks
+   * *UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
    * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
    *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
    *     *   If a server group is in the **Available** state, it indicates that the server group is running.
    * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
    *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
    *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
-   *
-   * @param request UpdateServerGroupServersAttributeRequest
-   * @return UpdateServerGroupServersAttributeResponse
+   * 
+   * @param request - UpdateServerGroupServersAttributeRequest
+   * @returns UpdateServerGroupServersAttributeResponse
    */
   async updateServerGroupServersAttribute(request: UpdateServerGroupServersAttributeRequest): Promise<UpdateServerGroupServersAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
