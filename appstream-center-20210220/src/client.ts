@@ -8,6 +8,7 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class FindIdpListByLoginIdentifierRequest extends $tea.Model {
+  availableFeatures?: { [key: string]: string };
   /**
    * @example
    * pc
@@ -49,6 +50,7 @@ export class FindIdpListByLoginIdentifierRequest extends $tea.Model {
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      availableFeatures: 'AvailableFeatures',
       clientChannel: 'ClientChannel',
       clientId: 'ClientId',
       clientIp: 'ClientIp',
@@ -62,6 +64,81 @@ export class FindIdpListByLoginIdentifierRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      availableFeatures: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      clientChannel: 'string',
+      clientId: 'string',
+      clientIp: 'string',
+      clientOS: 'string',
+      clientVersion: 'string',
+      loginIdentifier: 'string',
+      supportTypes: { 'type': 'array', 'itemType': 'string' },
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindIdpListByLoginIdentifierShrinkRequest extends $tea.Model {
+  availableFeaturesShrink?: string;
+  /**
+   * @example
+   * pc
+   */
+  clientChannel?: string;
+  /**
+   * @example
+   * 370b56f8-2812-4b6c-bfa6-2560791c****
+   */
+  clientId?: string;
+  /**
+   * @example
+   * 22.21.XX.XX
+   */
+  clientIp?: string;
+  /**
+   * @example
+   * windows_\\"Windows 10 Enterprise\\" 10.0 (Build 14393)
+   */
+  clientOS?: string;
+  /**
+   * @example
+   * 2.0.1-D-20211008.101607
+   */
+  clientVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Aliyun123***
+   */
+  loginIdentifier?: string;
+  supportTypes?: string[];
+  /**
+   * @example
+   * 2943802884B27030B6759F9132B2****
+   */
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableFeaturesShrink: 'AvailableFeatures',
+      clientChannel: 'ClientChannel',
+      clientId: 'ClientId',
+      clientIp: 'ClientIp',
+      clientOS: 'ClientOS',
+      clientVersion: 'ClientVersion',
+      loginIdentifier: 'LoginIdentifier',
+      supportTypes: 'SupportTypes',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableFeaturesShrink: 'string',
       clientChannel: 'string',
       clientId: 'string',
       clientIp: 'string',
@@ -151,6 +228,7 @@ export class GetLoginTokenRequest extends $tea.Model {
    * 182901
    */
   authenticationCode?: string;
+  availableFeatures?: { [key: string]: string };
   /**
    * @remarks
    * This parameter is required.
@@ -239,6 +317,7 @@ export class GetLoginTokenRequest extends $tea.Model {
    * null
    */
   loginName?: string;
+  mfaType?: string;
   /**
    * @example
    * INTERNET
@@ -312,6 +391,7 @@ export class GetLoginTokenRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authenticationCode: 'AuthenticationCode',
+      availableFeatures: 'AvailableFeatures',
       clientId: 'ClientId',
       clientOS: 'ClientOS',
       clientType: 'ClientType',
@@ -329,6 +409,7 @@ export class GetLoginTokenRequest extends $tea.Model {
       keepAliveToken: 'KeepAliveToken',
       loginIdentifier: 'LoginIdentifier',
       loginName: 'LoginName',
+      mfaType: 'MfaType',
       networkType: 'NetworkType',
       newPassword: 'NewPassword',
       officeSiteId: 'OfficeSiteId',
@@ -349,6 +430,7 @@ export class GetLoginTokenRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authenticationCode: 'string',
+      availableFeatures: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       clientId: 'string',
       clientOS: 'string',
       clientType: 'string',
@@ -366,6 +448,256 @@ export class GetLoginTokenRequest extends $tea.Model {
       keepAliveToken: 'string',
       loginIdentifier: 'string',
       loginName: 'string',
+      mfaType: 'string',
+      networkType: 'string',
+      newPassword: 'string',
+      officeSiteId: 'string',
+      oldPassword: 'string',
+      password: 'string',
+      phone: 'string',
+      phoneVerifyCode: 'string',
+      regionId: 'string',
+      sessionId: 'string',
+      ssoExtendsCookies: 'string',
+      ssoSessionToken: 'string',
+      tokenCode: 'string',
+      umidToken: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoginTokenShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 182901
+   */
+  authenticationCode?: string;
+  availableFeaturesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 05967f80-6f51-46cb-a27c-****
+   */
+  clientId?: string;
+  /**
+   * @example
+   * windows_\\"Windows 10 Pro\\" 10.0 (Build 22631)
+   */
+  clientOS?: string;
+  /**
+   * @example
+   * windows
+   */
+  clientType?: string;
+  /**
+   * @example
+   * 7.3.0-20240619.143924
+   */
+  clientVersion?: string;
+  /**
+   * @example
+   * SsoTokenLogin
+   */
+  currentStage?: string;
+  /**
+   * @example
+   * cn-beijing+dir-j9dd****
+   */
+  directoryId?: string;
+  /**
+   * @example
+   * null
+   */
+  encryptedFingerPrintData?: string;
+  /**
+   * @example
+   * 4d7****8e90bb0484fc
+   */
+  encryptedKey?: string;
+  /**
+   * @example
+   * 04d7****8e90bb0484fc;gJ1GLca1vQRRqQbRvByU0A==;5kOWZE7AtbQhki+4LAo69A==
+   */
+  encryptedPassword?: string;
+  /**
+   * @example
+   * user01
+   */
+  endUserId?: string;
+  /**
+   * @example
+   * null
+   */
+  fingerPrintData?: string;
+  /**
+   * @example
+   * idp-iwntrlbb98q7v****
+   */
+  idpId?: string;
+  /**
+   * @example
+   * null
+   */
+  imageUrl?: string;
+  /**
+   * @example
+   * true
+   */
+  keepAlive?: boolean;
+  /**
+   * @example
+   * 00ugamMAoO1+u1MlhmgCeZJ75q094x3H/4kg7ZaTI3f/joVTVPIpJgfv9JFkPLNxnQjblrvsByNas08mc6FtVWvQPOE68fqmt6QMM4UbRtahm8luxEXvicF58qSPXW1hxOtV/Ev6d92VBz2Bck/N4CYyjD0iLocfN8jkBnt231****
+   */
+  keepAliveToken?: string;
+  /**
+   * @example
+   * Fe04****
+   */
+  loginIdentifier?: string;
+  /**
+   * @example
+   * null
+   */
+  loginName?: string;
+  mfaType?: string;
+  /**
+   * @example
+   * INTERNET
+   */
+  networkType?: string;
+  /**
+   * @example
+   * Admin@1234****
+   */
+  newPassword?: string;
+  /**
+   * @example
+   * cn-beijing+dir-j9dd****
+   */
+  officeSiteId?: string;
+  /**
+   * @example
+   * Admin@1234****
+   */
+  oldPassword?: string;
+  /**
+   * @example
+   * Admin@1234****
+   */
+  password?: string;
+  /**
+   * @example
+   * 1822727****
+   */
+  phone?: string;
+  /**
+   * @example
+   * 321123
+   */
+  phoneVerifyCode?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @example
+   * c6f3cd91-65fc-4c7b-b189-2a73da0****
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * null
+   */
+  ssoExtendsCookies?: string;
+  /**
+   * @example
+   * 04d707a6-fb23-44a7-aae7-8e90****
+   */
+  ssoSessionToken?: string;
+  /**
+   * @example
+   * 1234***
+   */
+  tokenCode?: string;
+  /**
+   * @example
+   * 04d707a6-fb23-44a7-aae7-8e90bb04****
+   */
+  umidToken?: string;
+  /**
+   * @example
+   * C50973691A6D2BE23F2CDD73B85B****
+   */
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authenticationCode: 'AuthenticationCode',
+      availableFeaturesShrink: 'AvailableFeatures',
+      clientId: 'ClientId',
+      clientOS: 'ClientOS',
+      clientType: 'ClientType',
+      clientVersion: 'ClientVersion',
+      currentStage: 'CurrentStage',
+      directoryId: 'DirectoryId',
+      encryptedFingerPrintData: 'EncryptedFingerPrintData',
+      encryptedKey: 'EncryptedKey',
+      encryptedPassword: 'EncryptedPassword',
+      endUserId: 'EndUserId',
+      fingerPrintData: 'FingerPrintData',
+      idpId: 'IdpId',
+      imageUrl: 'ImageUrl',
+      keepAlive: 'KeepAlive',
+      keepAliveToken: 'KeepAliveToken',
+      loginIdentifier: 'LoginIdentifier',
+      loginName: 'LoginName',
+      mfaType: 'MfaType',
+      networkType: 'NetworkType',
+      newPassword: 'NewPassword',
+      officeSiteId: 'OfficeSiteId',
+      oldPassword: 'OldPassword',
+      password: 'Password',
+      phone: 'Phone',
+      phoneVerifyCode: 'PhoneVerifyCode',
+      regionId: 'RegionId',
+      sessionId: 'SessionId',
+      ssoExtendsCookies: 'SsoExtendsCookies',
+      ssoSessionToken: 'SsoSessionToken',
+      tokenCode: 'TokenCode',
+      umidToken: 'UmidToken',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authenticationCode: 'string',
+      availableFeaturesShrink: 'string',
+      clientId: 'string',
+      clientOS: 'string',
+      clientType: 'string',
+      clientVersion: 'string',
+      currentStage: 'string',
+      directoryId: 'string',
+      encryptedFingerPrintData: 'string',
+      encryptedKey: 'string',
+      encryptedPassword: 'string',
+      endUserId: 'string',
+      fingerPrintData: 'string',
+      idpId: 'string',
+      imageUrl: 'string',
+      keepAlive: 'boolean',
+      keepAliveToken: 'string',
+      loginIdentifier: 'string',
+      loginName: 'string',
+      mfaType: 'string',
       networkType: 'string',
       newPassword: 'string',
       officeSiteId: 'string',
@@ -439,6 +771,7 @@ export class GetLoginTokenResponseBody extends $tea.Model {
    * v185fdd7f6d39fa7861981639366085772e150a390a5bb7b43c4e62440d94fc392b945770e1596cebe90085ce0af4d****
    */
   loginToken?: string;
+  mfaTypeList?: GetLoginTokenResponseBodyMfaTypeList[];
   /**
    * @example
    * MFABind
@@ -516,6 +849,7 @@ export class GetLoginTokenResponseBody extends $tea.Model {
       keepAliveToken: 'KeepAliveToken',
       label: 'Label',
       loginToken: 'LoginToken',
+      mfaTypeList: 'MfaTypeList',
       nextStage: 'NextStage',
       officeSites: 'OfficeSites',
       passwordStrategy: 'PasswordStrategy',
@@ -548,6 +882,7 @@ export class GetLoginTokenResponseBody extends $tea.Model {
       keepAliveToken: 'string',
       label: 'string',
       loginToken: 'string',
+      mfaTypeList: { 'type': 'array', 'itemType': GetLoginTokenResponseBodyMfaTypeList },
       nextStage: 'string',
       officeSites: { 'type': 'array', 'itemType': 'string' },
       passwordStrategy: GetLoginTokenResponseBodyPasswordStrategy,
@@ -754,6 +1089,7 @@ export class FindIdpListByLoginIdentifierResponseBodyIdpInfos extends $tea.Model
    */
   idpId?: string;
   idpName?: string;
+  idpNameEN?: string;
   idpProvider?: string;
   /**
    * @example
@@ -772,6 +1108,7 @@ export class FindIdpListByLoginIdentifierResponseBodyIdpInfos extends $tea.Model
       cookies: 'Cookies',
       idpId: 'IdpId',
       idpName: 'IdpName',
+      idpNameEN: 'IdpNameEN',
       idpProvider: 'IdpProvider',
       jumpSwitch: 'JumpSwitch',
       ssoProtocol: 'SsoProtocol',
@@ -785,6 +1122,7 @@ export class FindIdpListByLoginIdentifierResponseBodyIdpInfos extends $tea.Model
       cookies: 'string',
       idpId: 'string',
       idpName: 'string',
+      idpNameEN: 'string',
       idpProvider: 'string',
       jumpSwitch: 'string',
       ssoProtocol: 'string',
@@ -866,6 +1204,28 @@ export class FindIdpListByLoginIdentifierResponseBodyTenantAliasInfo extends $te
     return {
       accessType: 'string',
       tenantAlias: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoginTokenResponseBodyMfaTypeList extends $tea.Model {
+  name?: string;
+  stage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      stage: 'Stage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      stage: 'string',
     };
   }
 
@@ -1001,12 +1361,23 @@ export default class Client extends OpenApi {
   /**
    * 身份认证查询接口
    * 
-   * @param request - FindIdpListByLoginIdentifierRequest
+   * @param tmpReq - FindIdpListByLoginIdentifierRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FindIdpListByLoginIdentifierResponse
    */
-  async findIdpListByLoginIdentifierWithOptions(request: FindIdpListByLoginIdentifierRequest, runtime: $Util.RuntimeOptions): Promise<FindIdpListByLoginIdentifierResponse> {
-    Util.validateModel(request);
+  async findIdpListByLoginIdentifierWithOptions(tmpReq: FindIdpListByLoginIdentifierRequest, runtime: $Util.RuntimeOptions): Promise<FindIdpListByLoginIdentifierResponse> {
+    Util.validateModel(tmpReq);
+    let request = new FindIdpListByLoginIdentifierShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.availableFeatures)) {
+      request.availableFeaturesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.availableFeatures, "AvailableFeatures", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.availableFeaturesShrink)) {
+      query["AvailableFeatures"] = request.availableFeaturesShrink;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientChannel)) {
       body["ClientChannel"] = request.clientChannel;
@@ -1041,6 +1412,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -1071,15 +1443,25 @@ export default class Client extends OpenApi {
   /**
    * GetLoginToken
    * 
-   * @param request - GetLoginTokenRequest
+   * @param tmpReq - GetLoginTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLoginTokenResponse
    */
-  async getLoginTokenWithOptions(request: GetLoginTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginTokenResponse> {
-    Util.validateModel(request);
+  async getLoginTokenWithOptions(tmpReq: GetLoginTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginTokenResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetLoginTokenShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.availableFeatures)) {
+      request.availableFeaturesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.availableFeatures, "AvailableFeatures", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.authenticationCode)) {
       query["AuthenticationCode"] = request.authenticationCode;
+    }
+
+    if (!Util.isUnset(request.availableFeaturesShrink)) {
+      query["AvailableFeatures"] = request.availableFeaturesShrink;
     }
 
     if (!Util.isUnset(request.clientId)) {
@@ -1148,6 +1530,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.loginName)) {
       query["LoginName"] = request.loginName;
+    }
+
+    if (!Util.isUnset(request.mfaType)) {
+      query["MfaType"] = request.mfaType;
     }
 
     if (!Util.isUnset(request.networkType)) {
