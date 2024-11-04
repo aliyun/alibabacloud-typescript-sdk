@@ -4179,6 +4179,7 @@ export class RunCommandRequest extends $tea.Model {
    * ls
    */
   commandContent?: string;
+  contentEncoding?: string;
   instanceIds?: string[];
   /**
    * @example
@@ -4188,6 +4189,7 @@ export class RunCommandRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       commandContent: 'CommandContent',
+      contentEncoding: 'ContentEncoding',
       instanceIds: 'InstanceIds',
       timeout: 'Timeout',
     };
@@ -4196,6 +4198,7 @@ export class RunCommandRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       commandContent: 'string',
+      contentEncoding: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       timeout: 'number',
     };
@@ -8708,6 +8711,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.commandContent)) {
       query["CommandContent"] = request.commandContent;
+    }
+
+    if (!Util.isUnset(request.contentEncoding)) {
+      query["ContentEncoding"] = request.contentEncoding;
     }
 
     if (!Util.isUnset(request.instanceIds)) {
