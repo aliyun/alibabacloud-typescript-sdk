@@ -577,6 +577,127 @@ export class Service extends $tea.Model {
   }
 }
 
+export class AttachGatewayDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The custom domain name information.
+   * 
+   * This parameter is required.
+   */
+  customDomain?: AttachGatewayDomainRequestCustomDomain;
+  static names(): { [key: string]: string } {
+    return {
+      customDomain: 'CustomDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customDomain: AttachGatewayDomainRequestCustomDomain,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachGatewayDomainShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The custom domain name information.
+   * 
+   * This parameter is required.
+   */
+  customDomainShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customDomainShrink: 'CustomDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customDomainShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachGatewayDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the private gateway. To obtain the private gateway ID, see the GatewayId parameter in the response parameters of the [ListGateway](https://apiworkbench.aliyun-inc.com/document/eas/2021-07-01/ListGateway?spm=openapi-amp.newDocPublishment.0.0.765e281fL2IcjJ\\&ampEnv=online) operation.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
+  gatewayId?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Successfully update custom endpoint for gateway gw-1uhcqmsc7x22******
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachGatewayDomainResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachGatewayDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachGatewayDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CloneServiceRequest extends $tea.Model {
   /**
    * @remarks
@@ -809,6 +930,8 @@ export class CreateAclPolicyRequest extends $tea.Model {
   /**
    * @remarks
    * The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
+   * 
+   * This parameter is required.
    */
   aclPolicyList?: CreateAclPolicyRequestAclPolicyList[];
   /**
@@ -842,6 +965,8 @@ export class CreateAclPolicyShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
+   * 
+   * This parameter is required.
    */
   aclPolicyListShrink?: string;
   /**
@@ -1308,6 +1433,25 @@ export class CreateGatewayRequest extends $tea.Model {
   resourceName?: string;
   /**
    * @remarks
+   * Specifies whether to enable auto-renewal. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   */
+  autoRenewal?: boolean;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   PrePaid: subscription.
+   * *   PostPaid: pay-as-you-go.
+   * 
+   * @example
+   * PostPaid
+   */
+  chargeType?: string;
+  /**
+   * @remarks
    * Specifies whether to enable Internet access. Default value: false.
    * 
    * Valid values:
@@ -1366,6 +1510,8 @@ export class CreateGatewayRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       resourceName: 'ResourceName',
+      autoRenewal: 'AutoRenewal',
+      chargeType: 'ChargeType',
       enableInternet: 'EnableInternet',
       enableIntranet: 'EnableIntranet',
       instanceType: 'InstanceType',
@@ -1377,6 +1523,8 @@ export class CreateGatewayRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       resourceName: 'string',
+      autoRenewal: 'boolean',
+      chargeType: 'string',
       enableInternet: 'boolean',
       enableIntranet: 'boolean',
       instanceType: 'string',
@@ -1570,6 +1718,120 @@ export class CreateGatewayIntranetLinkedVpcResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateGatewayIntranetLinkedVpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
+  peerVpcs?: CreateGatewayIntranetLinkedVpcPeerRequestPeerVpcs[];
+  /**
+   * @example
+   * vpc-2zetuli9ws0qgjd******
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      peerVpcs: 'PeerVpcs',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      peerVpcs: { 'type': 'array', 'itemType': CreateGatewayIntranetLinkedVpcPeerRequestPeerVpcs },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayIntranetLinkedVpcPeerShrinkRequest extends $tea.Model {
+  peerVpcsShrink?: string;
+  /**
+   * @example
+   * vpc-2zetuli9ws0qgjd******
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      peerVpcsShrink: 'PeerVpcs',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      peerVpcsShrink: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayIntranetLinkedVpcPeerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
+  gatewayId?: string;
+  /**
+   * @example
+   * Successfully add intranet linked vpc Peer for gateway
+   */
+  message?: string;
+  /**
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      message: 'Message',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayIntranetLinkedVpcPeerResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateGatewayIntranetLinkedVpcPeerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateGatewayIntranetLinkedVpcPeerResponseBody,
     };
   }
 
@@ -2750,6 +3012,110 @@ export class CreateServiceMirrorResponse extends $tea.Model {
   }
 }
 
+export class CreateVirtualResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of resources in the virtual resource group.
+   */
+  resources?: CreateVirtualResourceRequestResources[];
+  /**
+   * @remarks
+   * The name of the virtual resource group. Default value: the ID of the virtual resource group.
+   * 
+   * @example
+   * MyVirtualResource
+   */
+  virtualResourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resources: 'Resources',
+      virtualResourceName: 'VirtualResourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resources: { 'type': 'array', 'itemType': CreateVirtualResourceRequestResources },
+      virtualResourceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVirtualResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Successfully created virtual resource eas-vr-npovr28onap1xxxxxx
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 40325405-579C-4D82***
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual resource group.
+   * 
+   * @example
+   * eas-vr-npovr28onap1xxxxxx
+   */
+  virtualResourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      virtualResourceId: 'VirtualResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      virtualResourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVirtualResourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVirtualResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVirtualResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAclPolicyRequest extends $tea.Model {
   /**
    * @remarks
@@ -3118,6 +3484,120 @@ export class DeleteGatewayIntranetLinkedVpcResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteGatewayIntranetLinkedVpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
+  peerVpcs?: DeleteGatewayIntranetLinkedVpcPeerRequestPeerVpcs[];
+  /**
+   * @example
+   * vpc-2zetuli9ws0qgjd******
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      peerVpcs: 'PeerVpcs',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      peerVpcs: { 'type': 'array', 'itemType': DeleteGatewayIntranetLinkedVpcPeerRequestPeerVpcs },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayIntranetLinkedVpcPeerShrinkRequest extends $tea.Model {
+  peerVpcsShrink?: string;
+  /**
+   * @example
+   * vpc-2zetuli9ws0qgjd******
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      peerVpcsShrink: 'PeerVpcs',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      peerVpcsShrink: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayIntranetLinkedVpcPeerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
+  gatewayId?: string;
+  /**
+   * @example
+   * Successfully delete intranet linked vpc Peer for gateway
+   */
+  message?: string;
+  /**
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      message: 'Message',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayIntranetLinkedVpcPeerResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteGatewayIntranetLinkedVpcPeerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGatewayIntranetLinkedVpcPeerResponseBody,
     };
   }
 
@@ -3865,6 +4345,67 @@ export class DeleteServiceMirrorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteServiceMirrorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVirtualResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the operation result.
+   * 
+   * @example
+   * Successfully deleted virtual resource eas-vr-npovr28onap1xxxxxx
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 40325405-579C-4D82***
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVirtualResourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVirtualResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVirtualResourceResponseBody,
     };
   }
 
@@ -5767,6 +6308,225 @@ export class DescribeSpotDiscountHistoryResponse extends $tea.Model {
   }
 }
 
+export class DescribeVirtualResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the virtual resource group was created.
+   * 
+   * @example
+   * 2024-10-16T17:52:49Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The list of resources in the virtual resource group.
+   */
+  resources?: DescribeVirtualResourceResponseBodyResources[];
+  /**
+   * @remarks
+   * The time when the virtual resource group was last updated.
+   * 
+   * @example
+   * 2024-10-16T19:52:49Z
+   */
+  updateTime?: string;
+  /**
+   * @remarks
+   * The ID of the virtual resource group.
+   * 
+   * @example
+   * eas-vr-npovr28onap1xxxxxx
+   */
+  virtualResourceId?: string;
+  /**
+   * @remarks
+   * The name of the virtual resource group.
+   * 
+   * @example
+   * MyVirtualResource
+   */
+  virtualResourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      requestId: 'RequestId',
+      resources: 'Resources',
+      updateTime: 'UpdateTime',
+      virtualResourceId: 'VirtualResourceId',
+      virtualResourceName: 'VirtualResourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      requestId: 'string',
+      resources: { 'type': 'array', 'itemType': DescribeVirtualResourceResponseBodyResources },
+      updateTime: 'string',
+      virtualResourceId: 'string',
+      virtualResourceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVirtualResourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVirtualResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVirtualResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachGatewayDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The custom domain name information.
+   * 
+   * This parameter is required.
+   */
+  customDomain?: DetachGatewayDomainRequestCustomDomain;
+  static names(): { [key: string]: string } {
+    return {
+      customDomain: 'CustomDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customDomain: DetachGatewayDomainRequestCustomDomain,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachGatewayDomainShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The custom domain name information.
+   * 
+   * This parameter is required.
+   */
+  customDomainShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customDomainShrink: 'CustomDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customDomainShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachGatewayDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the private gateway. To obtain the private gateway ID, see the GatewayId parameter in the response parameters of the [ListGateway](https://apiworkbench.aliyun-inc.com/document/eas/2021-07-01/ListGateway?spm=openapi-amp.newDocPublishment.0.0.765e281fL2IcjJ\\&ampEnv=online) operation.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
+  gatewayId?: string;
+  /**
+   * @remarks
+   * The message that is returned.
+   * 
+   * @example
+   * Successfully delete custom endpoint for gateway gw-1uhcqmsc7x22******
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachGatewayDomainResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachGatewayDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachGatewayDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DevelopServiceRequest extends $tea.Model {
   /**
    * @remarks
@@ -6135,12 +6895,21 @@ export class ListGatewayRequest extends $tea.Model {
    * 100
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group. To obtain a resource group ID, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
+   * 
+   * @example
+   * eas-r-4gt8twzwllfo******
+   */
+  resourceName?: string;
   static names(): { [key: string]: string } {
     return {
       gatewayId: 'GatewayId',
       gatewayName: 'GatewayName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceName: 'ResourceName',
     };
   }
 
@@ -6150,6 +6919,7 @@ export class ListGatewayRequest extends $tea.Model {
       gatewayName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceName: 'string',
     };
   }
 
@@ -6246,6 +7016,74 @@ export class ListGatewayResponse extends $tea.Model {
   }
 }
 
+export class ListGatewayDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of custom domain names.
+   */
+  customDomains?: ListGatewayDomainsResponseBodyCustomDomains[];
+  /**
+   * @remarks
+   * The message that is returned.
+   * 
+   * @example
+   * Successfully get custom domains
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customDomains: 'CustomDomains',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customDomains: { 'type': 'array', 'itemType': ListGatewayDomainsResponseBodyCustomDomains },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayDomainsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGatewayDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGatewayDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
   /**
    * @remarks
@@ -6306,6 +7144,87 @@ export class ListGatewayIntranetLinkedVpcResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListGatewayIntranetLinkedVpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
+  /**
+   * @example
+   * vpc-2zetuli9ws0qgjd******
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIntranetLinkedVpcPeerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
+  gatewayId?: string;
+  peerVpcList?: ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcList[];
+  /**
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      peerVpcList: 'PeerVpcList',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      peerVpcList: { 'type': 'array', 'itemType': ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIntranetLinkedVpcPeerResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGatewayIntranetLinkedVpcPeerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGatewayIntranetLinkedVpcPeerResponseBody,
     };
   }
 
@@ -7795,7 +8714,7 @@ export class ListServicesRequest extends $tea.Model {
   filter?: string;
   /**
    * @remarks
-   * The ID of the private gateway.
+   * The private gateway ID.
    * 
    * @example
    * gw-1uhcqmsc7x22******
@@ -7865,6 +8784,25 @@ export class ListServicesRequest extends $tea.Model {
    * eas-r-hd0qwy8cxxxx
    */
   resourceName?: string;
+  /**
+   * @remarks
+   * The server role.
+   * 
+   * Valid values:
+   * 
+   * *   DataLoader
+   * *   FrontEnd
+   * *   DataSet
+   * *   SDProxy
+   * *   LLMSscheduler
+   * *   ScalableJob
+   * *   LLMGateway
+   * *   Job
+   * *   Queue
+   * 
+   * @example
+   * LLMGateway
+   */
   role?: string;
   /**
    * @remarks
@@ -8159,7 +9097,7 @@ export class ListServicesShrinkRequest extends $tea.Model {
   filter?: string;
   /**
    * @remarks
-   * The ID of the private gateway.
+   * The private gateway ID.
    * 
    * @example
    * gw-1uhcqmsc7x22******
@@ -8229,6 +9167,25 @@ export class ListServicesShrinkRequest extends $tea.Model {
    * eas-r-hd0qwy8cxxxx
    */
   resourceName?: string;
+  /**
+   * @remarks
+   * The server role.
+   * 
+   * Valid values:
+   * 
+   * *   DataLoader
+   * *   FrontEnd
+   * *   DataSet
+   * *   SDProxy
+   * *   LLMSscheduler
+   * *   ScalableJob
+   * *   LLMGateway
+   * *   Job
+   * *   Queue
+   * 
+   * @example
+   * LLMGateway
+   */
   role?: string;
   /**
    * @remarks
@@ -8650,6 +9607,150 @@ export class ListTenantAddonsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTenantAddonsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirtualResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the virtual resource group.
+   * 
+   * @example
+   * eas-vr-npovr28onap1xxxxxx
+   */
+  virtualResourceId?: string;
+  /**
+   * @remarks
+   * The name of the virtual resource group.
+   * 
+   * @example
+   * MyVirtualResource
+   */
+  virtualResourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      virtualResourceId: 'VirtualResourceId',
+      virtualResourceName: 'VirtualResourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      virtualResourceId: 'string',
+      virtualResourceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirtualResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  /**
+   * @remarks
+   * The list of virtual resource groups.
+   */
+  virtualResources?: ListVirtualResourceResponseBodyVirtualResources[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      virtualResources: 'VirtualResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      virtualResources: { 'type': 'array', 'itemType': ListVirtualResourceResponseBodyVirtualResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirtualResourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVirtualResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVirtualResourceResponseBody,
     };
   }
 
@@ -10632,6 +11733,102 @@ export class UpdateServiceVersionResponse extends $tea.Model {
   }
 }
 
+export class UpdateVirtualResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of resources in the virtual resource group.
+   * 
+   * >  If you specify this parameter, previous data are overwritten.
+   */
+  resources?: UpdateVirtualResourceRequestResources[];
+  /**
+   * @remarks
+   * The new name for the virtual resource group.
+   * 
+   * @example
+   * NewMyVirtualResource
+   */
+  virtualResourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resources: 'Resources',
+      virtualResourceName: 'VirtualResourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resources: { 'type': 'array', 'itemType': UpdateVirtualResourceRequestResources },
+      virtualResourceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVirtualResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Successfully updated virtual resource eas-vr-npovr28onap1xxxxxx
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVirtualResourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVirtualResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateVirtualResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ServiceLabels extends $tea.Model {
   labelKey?: string;
   labelValue?: string;
@@ -10654,6 +11851,61 @@ export class ServiceLabels extends $tea.Model {
   }
 }
 
+export class AttachGatewayDomainRequestCustomDomain extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the SSL certificate bound to the domain name. Obtain the certificate ID after you upload or purchase a certificate in the [Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc\\&p=cas) console.
+   * 
+   * @example
+   * 1473**25
+   */
+  certificateId?: string;
+  /**
+   * @remarks
+   * The custom domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The domain name type.
+   * 
+   * Valid value:
+   * 
+   * *   intranet: internal network.
+   * *   internet: public network.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * intranet
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificateId: 'CertificateId',
+      domain: 'Domain',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificateId: 'string',
+      domain: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAclPolicyRequestAclPolicyList extends $tea.Model {
   /**
    * @remarks
@@ -10666,6 +11918,8 @@ export class CreateAclPolicyRequestAclPolicyList extends $tea.Model {
   /**
    * @remarks
    * The IP CIDR block in the VPC that can access the private gateway.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 10.23.XX.XX/32
@@ -10682,6 +11936,36 @@ export class CreateAclPolicyRequestAclPolicyList extends $tea.Model {
     return {
       comment: 'string',
       entry: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayIntranetLinkedVpcPeerRequestPeerVpcs extends $tea.Model {
+  /**
+   * @example
+   * cn-shanghai
+   */
+  region?: string;
+  /**
+   * @example
+   * vpc-uf66uio7md****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -11040,6 +12324,90 @@ export class CreateServiceCronScalerRequestScaleJobs extends $tea.Model {
   }
 }
 
+export class CreateVirtualResourceRequestResources extends $tea.Model {
+  /**
+   * @remarks
+   * The instance type of the public resource group.
+   * 
+   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * 
+   * @example
+   * ecs.s6-c1m2.xlarge
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The priority of resource scheduling. A greater number specifies a higher priority.
+   * 
+   * @example
+   * 6
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * Lingjun Resource Quota ID.
+   * 
+   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * 
+   * @example
+   * quota185lqxxxxxx
+   */
+  quotaId?: string;
+  /**
+   * @remarks
+   * The region where the resource resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The ID of the dedicated resource group. For information about how to query the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
+   * 
+   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * 
+   * @example
+   * eas-r-g55ieatgg3buxxxxxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The maximum price of preemptible instances in a public resource group.
+   * 
+   * >  If you do not set this value, preemptible instances are not used.
+   * 
+   * @example
+   * 10.05
+   */
+  spotPriceLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      priority: 'Priority',
+      quotaId: 'QuotaId',
+      region: 'Region',
+      resourceId: 'ResourceId',
+      spotPriceLimit: 'SpotPriceLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      priority: 'number',
+      quotaId: 'string',
+      region: 'string',
+      resourceId: 'string',
+      spotPriceLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAclPolicyRequestAclPolicyList extends $tea.Model {
   /**
    * @remarks
@@ -11068,6 +12436,36 @@ export class DeleteAclPolicyRequestAclPolicyList extends $tea.Model {
     return {
       comment: 'string',
       entry: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayIntranetLinkedVpcPeerRequestPeerVpcs extends $tea.Model {
+  /**
+   * @example
+   * cn-shanghai
+   */
+  region?: string;
+  /**
+   * @example
+   * vpc-uf66uio7md****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -11458,6 +12856,127 @@ export class DescribeSpotDiscountHistoryResponseBodySpotDiscounts extends $tea.M
   }
 }
 
+export class DescribeVirtualResourceResponseBodyResources extends $tea.Model {
+  /**
+   * @remarks
+   * The instance type of the public resource group.
+   * 
+   * @example
+   * ecs.s6-c1m2.xlarge
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The priority of resource scheduling. A greater number specifies a higher priority.
+   * 
+   * @example
+   * 3
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The instance type of the public resource group.
+   * 
+   * @example
+   * quota185lqxxxxxx
+   */
+  quotaId?: string;
+  /**
+   * @remarks
+   * The region where the resource resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The ID of the dedicated resource group.
+   * 
+   * @example
+   * eas-r-g55ieatgg3buxxxxxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The maximum price of preemptible instances in a public resource group.
+   * 
+   * @example
+   * 10.05
+   */
+  spotPriceLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      priority: 'Priority',
+      quotaId: 'QuotaId',
+      region: 'Region',
+      resourceId: 'ResourceId',
+      spotPriceLimit: 'SpotPriceLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      priority: 'number',
+      quotaId: 'string',
+      region: 'string',
+      resourceId: 'string',
+      spotPriceLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachGatewayDomainRequestCustomDomain extends $tea.Model {
+  /**
+   * @remarks
+   * The custom domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The domain name type.
+   * 
+   * Valid value:
+   * 
+   * *   intranet: internal network.
+   * *   internet: public network.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * intranet
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList extends $tea.Model {
   /**
    * @remarks
@@ -11769,6 +13288,17 @@ export class ListBenchmarkTaskResponseBodyTasks extends $tea.Model {
 export class ListGatewayResponseBodyGateways extends $tea.Model {
   /**
    * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   PrePaid: subscription.
+   * *   PostPaid: pay-as-you-go.
+   * 
+   * @example
+   * PostPaid
+   */
+  chargeType?: string;
+  /**
+   * @remarks
    * The time when the private gateway was created. The time is displayed in UTC.
    * 
    * @example
@@ -11867,6 +13397,7 @@ export class ListGatewayResponseBodyGateways extends $tea.Model {
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      chargeType: 'ChargeType',
       createTime: 'CreateTime',
       gatewayId: 'GatewayId',
       gatewayName: 'GatewayName',
@@ -11883,6 +13414,7 @@ export class ListGatewayResponseBodyGateways extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      chargeType: 'string',
       createTime: 'string',
       gatewayId: 'string',
       gatewayName: 'string',
@@ -11894,6 +13426,57 @@ export class ListGatewayResponseBodyGateways extends $tea.Model {
       replicas: 'number',
       status: 'string',
       updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayDomainsResponseBodyCustomDomains extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the SSL certificate bound to the domain name. Obtain the certificate ID after you upload or purchase a certificate in the [Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc\\&p=cas) console.
+   * 
+   * @example
+   * 1473**25
+   */
+  certificateId?: string;
+  /**
+   * @remarks
+   * The custom domain name.
+   * 
+   * @example
+   * test.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The domain name type.
+   * 
+   * Valid value:
+   * 
+   * *   intranet: internal network.
+   * *   internet: public network.
+   * 
+   * @example
+   * intranet
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificateId: 'CertificateId',
+      domain: 'Domain',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificateId: 'string',
+      domain: 'string',
+      type: 'string',
     };
   }
 
@@ -11985,6 +13568,62 @@ export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList exten
       securityGroupId: 'string',
       status: 'string',
       vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs extends $tea.Model {
+  /**
+   * @example
+   * cn-shanghai
+   */
+  region?: string;
+  /**
+   * @example
+   * vpc-uf66uio7md****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcList extends $tea.Model {
+  peerVpcs?: ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs[];
+  /**
+   * @example
+   * vpc-2zetuli9ws0qgjd******
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      peerVpcs: 'PeerVpcs',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      peerVpcs: { 'type': 'array', 'itemType': ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs },
       vpcId: 'string',
     };
   }
@@ -12110,6 +13749,62 @@ export class ListTenantAddonsResponseBodyAddons extends $tea.Model {
     return {
       attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirtualResourceResponseBodyVirtualResources extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the virtual resource group was created.
+   * 
+   * @example
+   * 2024-10-16T17:52:49Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The time when the virtual resource group was last updated.
+   * 
+   * @example
+   * 2024-10-16T19:52:49Z
+   */
+  updateTime?: string;
+  /**
+   * @remarks
+   * The ID of the virtual resource group.
+   * 
+   * @example
+   * eas-vr-npovr28onap1xxxxxx
+   */
+  virtualResourceId?: string;
+  /**
+   * @remarks
+   * The name of the virtual resource group.
+   * 
+   * @example
+   * MyVirtualResource
+   */
+  virtualResourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      updateTime: 'UpdateTime',
+      virtualResourceId: 'VirtualResourceId',
+      virtualResourceName: 'VirtualResourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      updateTime: 'string',
+      virtualResourceId: 'string',
+      virtualResourceName: 'string',
     };
   }
 
@@ -12442,6 +14137,90 @@ export class UpdateServiceCronScalerRequestScaleJobs extends $tea.Model {
   }
 }
 
+export class UpdateVirtualResourceRequestResources extends $tea.Model {
+  /**
+   * @remarks
+   * The instance type of the public resource group.
+   * 
+   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * 
+   * @example
+   * ecs.s6-c1m2.xlarge
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The priority of resource scheduling. A greater number specifies a higher priority.
+   * 
+   * @example
+   * 6
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The Lingjun resource quota ID.
+   * 
+   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * 
+   * @example
+   * quota185lqf994k6
+   */
+  quotaId?: string;
+  /**
+   * @remarks
+   * The region where the resource resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The ID of the dedicated resource group. For information about how to query the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
+   * 
+   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * 
+   * @example
+   * eas-r-g55ieatgg3butwrn7a
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The maximum price of preemptible instances in a public resource group.
+   * 
+   * >  If you do not specify this parameter, preemptible instances are not used.
+   * 
+   * @example
+   * 10.05
+   */
+  spotPriceLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      priority: 'Priority',
+      quotaId: 'QuotaId',
+      region: 'Region',
+      resourceId: 'ResourceId',
+      spotPriceLimit: 'SpotPriceLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      priority: 'number',
+      quotaId: 'string',
+      region: 'string',
+      resourceId: 'string',
+      spotPriceLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -12480,6 +14259,57 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * Binds a custom domain name to a private gateway.
+   * 
+   * @param tmpReq - AttachGatewayDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachGatewayDomainResponse
+   */
+  async attachGatewayDomainWithOptions(ClusterId: string, GatewayId: string, tmpReq: AttachGatewayDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AttachGatewayDomainResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AttachGatewayDomainShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.customDomain)) {
+      request.customDomainShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customDomain, "CustomDomain", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customDomainShrink)) {
+      query["CustomDomain"] = request.customDomainShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachGatewayDomain",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/domain/attach`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachGatewayDomainResponse>(await this.callApi(params, req, runtime), new AttachGatewayDomainResponse({}));
+  }
+
+  /**
+   * Binds a custom domain name to a private gateway.
+   * 
+   * @param request - AttachGatewayDomainRequest
+   * @returns AttachGatewayDomainResponse
+   */
+  async attachGatewayDomain(ClusterId: string, GatewayId: string, request: AttachGatewayDomainRequest): Promise<AttachGatewayDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.attachGatewayDomainWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
 
   /**
@@ -12740,7 +14570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a private gateway. You can create a private gateway only in a self-managed resource group.
+   * Creates a gateway.
    * 
    * @param request - CreateGatewayRequest
    * @param headers - map
@@ -12755,6 +14585,14 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoRenewal)) {
+      body["AutoRenewal"] = request.autoRenewal;
+    }
+
+    if (!Util.isUnset(request.chargeType)) {
+      body["ChargeType"] = request.chargeType;
+    }
+
     if (!Util.isUnset(request.enableInternet)) {
       body["EnableInternet"] = request.enableInternet;
     }
@@ -12795,7 +14633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a private gateway. You can create a private gateway only in a self-managed resource group.
+   * Creates a gateway.
    * 
    * @param request - CreateGatewayRequest
    * @returns CreateGatewayResponse
@@ -12853,6 +14691,61 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, request, headers, runtime);
+  }
+
+  /**
+   * 创建网关内网访问端点跨VPC连接
+   * 
+   * @param tmpReq - CreateGatewayIntranetLinkedVpcPeerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGatewayIntranetLinkedVpcPeerResponse
+   */
+  async createGatewayIntranetLinkedVpcPeerWithOptions(ClusterId: string, GatewayId: string, tmpReq: CreateGatewayIntranetLinkedVpcPeerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGatewayIntranetLinkedVpcPeerResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateGatewayIntranetLinkedVpcPeerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.peerVpcs)) {
+      request.peerVpcsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.peerVpcs, "PeerVpcs", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.peerVpcsShrink)) {
+      query["PeerVpcs"] = request.peerVpcsShrink;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateGatewayIntranetLinkedVpcPeer",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_endpoint_linked_vpc_peer`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGatewayIntranetLinkedVpcPeerResponse>(await this.callApi(params, req, runtime), new CreateGatewayIntranetLinkedVpcPeerResponse({}));
+  }
+
+  /**
+   * 创建网关内网访问端点跨VPC连接
+   * 
+   * @param request - CreateGatewayIntranetLinkedVpcPeerRequest
+   * @returns CreateGatewayIntranetLinkedVpcPeerResponse
+   */
+  async createGatewayIntranetLinkedVpcPeer(ClusterId: string, GatewayId: string, request: CreateGatewayIntranetLinkedVpcPeerRequest): Promise<CreateGatewayIntranetLinkedVpcPeerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createGatewayIntranetLinkedVpcPeerWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
 
   /**
@@ -13274,6 +15167,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a virtual resource group.
+   * 
+   * @param request - CreateVirtualResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVirtualResourceResponse
+   */
+  async createVirtualResourceWithOptions(request: CreateVirtualResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVirtualResourceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resources)) {
+      body["Resources"] = request.resources;
+    }
+
+    if (!Util.isUnset(request.virtualResourceName)) {
+      body["VirtualResourceName"] = request.virtualResourceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateVirtualResource",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/virtualresources`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVirtualResourceResponse>(await this.callApi(params, req, runtime), new CreateVirtualResourceResponse({}));
+  }
+
+  /**
+   * Creates a virtual resource group.
+   * 
+   * @param request - CreateVirtualResourceRequest
+   * @returns CreateVirtualResourceResponse
+   */
+  async createVirtualResource(request: CreateVirtualResourceRequest): Promise<CreateVirtualResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createVirtualResourceWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Deletes an access control list (ACL) for a private gateway. The IP CIDR block that is deleted from the ACL cannot access the private gateway.
    * 
    * @param tmpReq - DeleteAclPolicyRequest
@@ -13445,6 +15387,61 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, request, headers, runtime);
+  }
+
+  /**
+   * 删除网关内网访问端点跨VPC连接
+   * 
+   * @param tmpReq - DeleteGatewayIntranetLinkedVpcPeerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGatewayIntranetLinkedVpcPeerResponse
+   */
+  async deleteGatewayIntranetLinkedVpcPeerWithOptions(ClusterId: string, GatewayId: string, tmpReq: DeleteGatewayIntranetLinkedVpcPeerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayIntranetLinkedVpcPeerResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteGatewayIntranetLinkedVpcPeerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.peerVpcs)) {
+      request.peerVpcsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.peerVpcs, "PeerVpcs", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.peerVpcsShrink)) {
+      query["PeerVpcs"] = request.peerVpcsShrink;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGatewayIntranetLinkedVpcPeer",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_endpoint_linked_vpc_peer`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGatewayIntranetLinkedVpcPeerResponse>(await this.callApi(params, req, runtime), new DeleteGatewayIntranetLinkedVpcPeerResponse({}));
+  }
+
+  /**
+   * 删除网关内网访问端点跨VPC连接
+   * 
+   * @param request - DeleteGatewayIntranetLinkedVpcPeerRequest
+   * @returns DeleteGatewayIntranetLinkedVpcPeerResponse
+   */
+  async deleteGatewayIntranetLinkedVpcPeer(ClusterId: string, GatewayId: string, request: DeleteGatewayIntranetLinkedVpcPeerRequest): Promise<DeleteGatewayIntranetLinkedVpcPeerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteGatewayIntranetLinkedVpcPeerWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
 
   /**
@@ -13843,6 +15840,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
+  }
+
+  /**
+   * Deletes a virtual resource group that contains no resources or instances.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVirtualResourceResponse
+   */
+  async deleteVirtualResourceWithOptions(ClusterId: string, VirtualResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualResourceResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteVirtualResource",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/virtualresources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(VirtualResourceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVirtualResourceResponse>(await this.callApi(params, req, runtime), new DeleteVirtualResourceResponse({}));
+  }
+
+  /**
+   * Deletes a virtual resource group that contains no resources or instances.
+   * @returns DeleteVirtualResourceResponse
+   */
+  async deleteVirtualResource(ClusterId: string, VirtualResourceId: string): Promise<DeleteVirtualResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteVirtualResourceWithOptions(ClusterId, VirtualResourceId, headers, runtime);
   }
 
   /**
@@ -14502,6 +16534,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Views the details of a virtual resource group.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVirtualResourceResponse
+   */
+  async describeVirtualResourceWithOptions(ClusterId: string, VirtualResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeVirtualResourceResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVirtualResource",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/virtualresources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(VirtualResourceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVirtualResourceResponse>(await this.callApi(params, req, runtime), new DescribeVirtualResourceResponse({}));
+  }
+
+  /**
+   * Views the details of a virtual resource group.
+   * @returns DescribeVirtualResourceResponse
+   */
+  async describeVirtualResource(ClusterId: string, VirtualResourceId: string): Promise<DescribeVirtualResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeVirtualResourceWithOptions(ClusterId, VirtualResourceId, headers, runtime);
+  }
+
+  /**
+   * Unbinds a custom domain name from a private gateway.
+   * 
+   * @param tmpReq - DetachGatewayDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachGatewayDomainResponse
+   */
+  async detachGatewayDomainWithOptions(ClusterId: string, GatewayId: string, tmpReq: DetachGatewayDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DetachGatewayDomainResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DetachGatewayDomainShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.customDomain)) {
+      request.customDomainShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customDomain, "CustomDomain", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customDomainShrink)) {
+      query["CustomDomain"] = request.customDomainShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachGatewayDomain",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/domain/detach`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachGatewayDomainResponse>(await this.callApi(params, req, runtime), new DetachGatewayDomainResponse({}));
+  }
+
+  /**
+   * Unbinds a custom domain name from a private gateway.
+   * 
+   * @param request - DetachGatewayDomainRequest
+   * @returns DetachGatewayDomainResponse
+   */
+  async detachGatewayDomain(ClusterId: string, GatewayId: string, request: DetachGatewayDomainRequest): Promise<DetachGatewayDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.detachGatewayDomainWithOptions(ClusterId, GatewayId, request, headers, runtime);
+  }
+
+  /**
    * Switches a container service to development mode or exits development mode.
    * 
    * @param request - DevelopServiceRequest
@@ -14675,6 +16793,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.resourceName)) {
+      query["ResourceName"] = request.resourceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -14703,6 +16825,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewayWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries a list of custom domain names of a private gateway.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayDomainsResponse
+   */
+  async listGatewayDomainsWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayDomainsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGatewayDomains",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/domains`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGatewayDomainsResponse>(await this.callApi(params, req, runtime), new ListGatewayDomainsResponse({}));
+  }
+
+  /**
+   * Queries a list of custom domain names of a private gateway.
+   * @returns ListGatewayDomainsResponse
+   */
+  async listGatewayDomains(ClusterId: string, GatewayId: string): Promise<ListGatewayDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGatewayDomainsWithOptions(ClusterId, GatewayId, headers, runtime);
   }
 
   /**
@@ -14738,6 +16895,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, headers, runtime);
+  }
+
+  /**
+   * 获取网关内网访问端点跨VPC连接列表
+   * 
+   * @param request - ListGatewayIntranetLinkedVpcPeerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayIntranetLinkedVpcPeerResponse
+   */
+  async listGatewayIntranetLinkedVpcPeerWithOptions(ClusterId: string, GatewayId: string, request: ListGatewayIntranetLinkedVpcPeerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayIntranetLinkedVpcPeerResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGatewayIntranetLinkedVpcPeer",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_endpoint_linked_vpc_peer`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGatewayIntranetLinkedVpcPeerResponse>(await this.callApi(params, req, runtime), new ListGatewayIntranetLinkedVpcPeerResponse({}));
+  }
+
+  /**
+   * 获取网关内网访问端点跨VPC连接列表
+   * 
+   * @param request - ListGatewayIntranetLinkedVpcPeerRequest
+   * @returns ListGatewayIntranetLinkedVpcPeerResponse
+   */
+  async listGatewayIntranetLinkedVpcPeer(ClusterId: string, GatewayId: string, request: ListGatewayIntranetLinkedVpcPeerRequest): Promise<ListGatewayIntranetLinkedVpcPeerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGatewayIntranetLinkedVpcPeerWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
 
   /**
@@ -15221,7 +17423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of services that are created by the current user.
+   * Lists services.
    * 
    * @param tmpReq - ListServicesRequest
    * @param headers - map
@@ -15324,7 +17526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of services that are created by the current user.
+   * Lists services.
    * 
    * @param request - ListServicesRequest
    * @returns ListServicesResponse
@@ -15371,7 +17573,64 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a tenant plug-in.
+   * Queries a list of virtual resource groups for the current user.
+   * 
+   * @param request - ListVirtualResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVirtualResourceResponse
+   */
+  async listVirtualResourceWithOptions(request: ListVirtualResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVirtualResourceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.virtualResourceId)) {
+      query["VirtualResourceId"] = request.virtualResourceId;
+    }
+
+    if (!Util.isUnset(request.virtualResourceName)) {
+      query["VirtualResourceName"] = request.virtualResourceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVirtualResource",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/virtualresources`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVirtualResourceResponse>(await this.callApi(params, req, runtime), new ListVirtualResourceResponse({}));
+  }
+
+  /**
+   * Queries a list of virtual resource groups for the current user.
+   * 
+   * @param request - ListVirtualResourceRequest
+   * @returns ListVirtualResourceResponse
+   */
+  async listVirtualResource(request: ListVirtualResourceRequest): Promise<ListVirtualResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listVirtualResourceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Resets tenant configurations.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15396,7 +17655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a tenant plug-in.
+   * Resets tenant configurations.
    * @returns ReinstallTenantAddonResponse
    */
   async reinstallTenantAddon(ClusterId: string, TenantAddonName: string): Promise<ReinstallTenantAddonResponse> {
@@ -16335,6 +18594,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceVersionWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  }
+
+  /**
+   * Updates the information about a virtual resource group.
+   * 
+   * @param request - UpdateVirtualResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVirtualResourceResponse
+   */
+  async updateVirtualResourceWithOptions(ClusterId: string, VirtualResourceId: string, request: UpdateVirtualResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateVirtualResourceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resources)) {
+      body["Resources"] = request.resources;
+    }
+
+    if (!Util.isUnset(request.virtualResourceName)) {
+      body["VirtualResourceName"] = request.virtualResourceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateVirtualResource",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/virtualresources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(VirtualResourceId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateVirtualResourceResponse>(await this.callApi(params, req, runtime), new UpdateVirtualResourceResponse({}));
+  }
+
+  /**
+   * Updates the information about a virtual resource group.
+   * 
+   * @param request - UpdateVirtualResourceRequest
+   * @returns UpdateVirtualResourceResponse
+   */
+  async updateVirtualResource(ClusterId: string, VirtualResourceId: string, request: UpdateVirtualResourceRequest): Promise<UpdateVirtualResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateVirtualResourceWithOptions(ClusterId, VirtualResourceId, request, headers, runtime);
   }
 
 }
