@@ -3411,10 +3411,11 @@ export class CreateDISyncTaskRequest extends $tea.Model {
   taskName?: string;
   /**
    * @remarks
-   * The settings that specify the storage path of the data synchronization task and the resource group used by the task. The following parameters are supported:
+   * The configuration parameters of the data synchronization task. The following parameters are supported:
    * 
    * *   FileFolderPath: the storage path of the data synchronization task.
    * *   ResourceGroup: the identifier of the resource group for Data Integration that is used by the data synchronization task. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the identifier of the resource group.
+   * *   Cu: the specifications occupied by the data synchronization task in the serverless resource group. The value of this parameter must be a multiple of 0.5.
    * 
    * @example
    * {"FileFolderPath":"Business Flow/XXX/Data Integration","ResourceGroup":"S_res_group_XXX_XXXX"}
@@ -6861,8 +6862,6 @@ export class CreateProjectRequest extends $tea.Model {
    * @remarks
    * The description of the workspace.
    * 
-   * This parameter is required.
-   * 
    * @example
    * test_describe
    */
@@ -6980,8 +6979,6 @@ export class CreateProjectShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The description of the workspace.
-   * 
-   * This parameter is required.
    * 
    * @example
    * test_describe
@@ -46169,9 +46166,10 @@ export class UpdateDISyncTaskRequest extends $tea.Model {
   taskContent?: string;
   /**
    * @remarks
-   * The setting based on which the resource group used by the data synchronization task is updated. You must configure this parameter in the JSON format.
+   * The configuration parameters of the data synchronization task. You must configure this parameter in the JSON format.
    * 
-   * Only the ResourceGroup field is supported. This field specifies the identifier of the resource group for Data Integration that is used by the data synchronization task. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the identifier of the resource group. If you do not need to update the resource group for the data synchronization task, leave this parameter empty.
+   * *   ResourceGroup: the identifier of the resource group for Data Integration that is used by the data synchronization task. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the identifier of the resource group.
+   * *   Cu: the specifications occupied by the data synchronization task in the serverless resource group. The value of this parameter must be a multiple of 0.5.
    * 
    * @example
    * {"ResourceGroup":"S_res_group_XXX_XXXX"}
@@ -48629,7 +48627,7 @@ export class UpdateQualityRuleRequest extends $tea.Model {
   blockType?: number;
   /**
    * @remarks
-   * The checker ID. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID of the checker.
+   * The checker ID. Valid values: 2: indicates that the current value is compared with the average value of the previous 7 days. 3: indicates that the current value is compared with the average value of the previous 30 days. 4: indicates that the current value is compared with the value 1 day earlier. 5: indicates that the current value is compared with the value 7 days earlier. 6: indicates that the current value is compared with the value 30 days earlier. 7: indicates the variance between the current value and the value 7 days earlier. 8: indicates the variance between the current value and the value 30 days earlier. 9: indicates that the current value is compared with a fixed value. 10: indicates that the current value is compared with the value 1, 7, or 30 days earlier. 11: indicates that the current value is compared with the value of the previous cycle. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -48703,6 +48701,8 @@ export class UpdateQualityRuleRequest extends $tea.Model {
   /**
    * @remarks
    * The comparison operator, such as >, >=, =, ≠, <, or <=.
+   * 
+   * >  If you set the Checker parameter to 9, you must configure the Operator parameter.
    * 
    * @example
    * >
@@ -67150,7 +67150,7 @@ export class GetRemindResponseBodyDataBaselines extends $tea.Model {
 export class GetRemindResponseBodyDataBizProcesses extends $tea.Model {
   /**
    * @remarks
-   * The workflow ID.
+   * The ID of the workflow.
    * 
    * @example
    * 9527
@@ -67261,6 +67261,10 @@ export class GetRemindResponseBodyDataProjects extends $tea.Model {
 
 export class GetRemindResponseBodyDataReceivers extends $tea.Model {
   alertTargets?: string[];
+  /**
+   * @example
+   * OWNER
+   */
   alertUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67326,7 +67330,15 @@ export class GetRemindResponseBodyData extends $tea.Model {
    * 1800
    */
   alertInterval?: number;
+  /**
+   * @remarks
+   * The alert notification method.
+   */
   alertMethods?: string[];
+  /**
+   * @remarks
+   * The description of the alert recipient.
+   */
   alertTargets?: string[];
   /**
    * @remarks
@@ -67444,6 +67456,10 @@ export class GetRemindResponseBodyData extends $tea.Model {
    * true
    */
   useflag?: boolean;
+  /**
+   * @remarks
+   * The information about the webhook URL.
+   */
   webhooks?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -93161,7 +93177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom alert rule.
+   * Queries the information about a custom alert rule.
    * 
    * @remarks
    * ## Debugging
@@ -93196,7 +93212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom alert rule.
+   * Queries the information about a custom alert rule.
    * 
    * @remarks
    * ## Debugging
@@ -97133,7 +97149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页获取租户下面的数据源类型粒度的表名称
+   * Obtains tables of different data source types within a tenant by page.
    * 
    * @param request - ListTablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -97172,7 +97188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页获取租户下面的数据源类型粒度的表名称
+   * Obtains tables of different data source types within a tenant by page.
    * 
    * @param request - ListTablesRequest
    * @returns ListTablesResponse
@@ -100747,7 +100763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the metadata information about a table.
+   * Updates the metadata information about a table. Only MaxCompute tables are supported.
    * 
    * @param request - UpdateMetaTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -100820,7 +100836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the metadata information about a table.
+   * Updates the metadata information about a table. Only MaxCompute tables are supported.
    * 
    * @param request - UpdateMetaTableRequest
    * @returns UpdateMetaTableResponse
