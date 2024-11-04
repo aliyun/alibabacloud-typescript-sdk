@@ -3436,6 +3436,101 @@ export class DescribePopApiVersionListResponse extends $tea.Model {
   }
 }
 
+export class DescribeProcessTaskCountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  entityUuidList?: string[];
+  /**
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @example
+   * 104739******259
+   */
+  roleFor?: number;
+  /**
+   * @example
+   * 0
+   */
+  roleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityUuidList: 'EntityUuidList',
+      lang: 'Lang',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityUuidList: { 'type': 'array', 'itemType': 'string' },
+      lang: 'string',
+      roleFor: 'number',
+      roleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProcessTaskCountResponseBody extends $tea.Model {
+  data?: DescribeProcessTaskCountResponseBodyData[];
+  /**
+   * @example
+   * e866cce0-****-41de-817e-****8d5e2650
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeProcessTaskCountResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProcessTaskCountResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProcessTaskCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeProcessTaskCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeProcessTasksRequest extends $tea.Model {
   /**
    * @remarks
@@ -7527,6 +7622,36 @@ export class DescribePopApiVersionListResponseBodyVersionList extends $tea.Model
   }
 }
 
+export class DescribeProcessTaskCountResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 67
+   */
+  count?: number;
+  /**
+   * @example
+   * a680c9ae-****-4c39-****-0302****fc8e
+   */
+  entityUuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      entityUuid: 'EntityUuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      entityUuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeProcessTasksResponseBodyPage extends $tea.Model {
   /**
    * @remarks
@@ -9751,6 +9876,44 @@ export default class Client extends OpenApi {
   async describePopApiVersionList(request: DescribePopApiVersionListRequest): Promise<DescribePopApiVersionListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePopApiVersionListWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据实体uuid查询关联的处置任务数
+   * 
+   * @param request - DescribeProcessTaskCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProcessTaskCountResponse
+   */
+  async describeProcessTaskCountWithOptions(request: DescribeProcessTaskCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProcessTaskCountResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeProcessTaskCount",
+      version: "2022-07-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProcessTaskCountResponse>(await this.callApi(params, req, runtime), new DescribeProcessTaskCountResponse({}));
+  }
+
+  /**
+   * 根据实体uuid查询关联的处置任务数
+   * 
+   * @param request - DescribeProcessTaskCountRequest
+   * @returns DescribeProcessTaskCountResponse
+   */
+  async describeProcessTaskCount(request: DescribeProcessTaskCountRequest): Promise<DescribeProcessTaskCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProcessTaskCountWithOptions(request, runtime);
   }
 
   /**
