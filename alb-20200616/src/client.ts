@@ -17828,6 +17828,7 @@ export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddress
    */
   intranetAddress?: string;
   intranetAddressHcStatus?: string;
+  ipv4LocalAddresses?: string[];
   /**
    * @remarks
    * An IPv6 address.
@@ -17839,6 +17840,7 @@ export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddress
    */
   ipv6Address?: string;
   ipv6AddressHcStatus?: string;
+  ipv6LocalAddresses?: string[];
   static names(): { [key: string]: string } {
     return {
       address: 'Address',
@@ -17846,8 +17848,10 @@ export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddress
       eipType: 'EipType',
       intranetAddress: 'IntranetAddress',
       intranetAddressHcStatus: 'IntranetAddressHcStatus',
+      ipv4LocalAddresses: 'Ipv4LocalAddresses',
       ipv6Address: 'Ipv6Address',
       ipv6AddressHcStatus: 'Ipv6AddressHcStatus',
+      ipv6LocalAddresses: 'Ipv6LocalAddresses',
     };
   }
 
@@ -17858,8 +17862,10 @@ export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddress
       eipType: 'string',
       intranetAddress: 'string',
       intranetAddressHcStatus: 'string',
+      ipv4LocalAddresses: { 'type': 'array', 'itemType': 'string' },
       ipv6Address: 'string',
       ipv6AddressHcStatus: 'string',
+      ipv6LocalAddresses: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
