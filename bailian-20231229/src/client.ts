@@ -4621,6 +4621,134 @@ export class UpdateAndPublishAgentResponse extends $tea.Model {
   }
 }
 
+export class UpdateFileTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tags?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tags: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFileTagShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFileTagResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
+  code?: string;
+  data?: UpdateFileTagResponseBodyData;
+  /**
+   * @example
+   * Requests throttling triggered.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * RequestId
+   * 
+   * @example
+   * 35A267BF-xxxx-54DB-8394-AA3B0742D833
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  status?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdateFileTagResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFileTagResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateFileTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateFileTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateMemoryRequest extends $tea.Model {
   description?: string;
   static names(): { [key: string]: string } {
@@ -7280,6 +7408,29 @@ export class UpdateAndPublishAgentRequestApplicationConfig extends $tea.Model {
   }
 }
 
+export class UpdateFileTagResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * file_9a65732555b54d5ea10796ca5742ba22_xxxxxxxx
+   */
+  fileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -9257,6 +9408,57 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAndPublishAgentWithOptions(workspaceId, appCode, request, headers, runtime);
+  }
+
+  /**
+   * 更新文档Tag
+   * 
+   * @param tmpReq - UpdateFileTagRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFileTagResponse
+   */
+  async updateFileTagWithOptions(WorkspaceId: string, FileId: string, tmpReq: UpdateFileTagRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFileTagResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateFileTagShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateFileTag",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/datacenter/file/${OpenApiUtil.getEncodeParam(FileId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFileTagResponse>(await this.callApi(params, req, runtime), new UpdateFileTagResponse({}));
+  }
+
+  /**
+   * 更新文档Tag
+   * 
+   * @param request - UpdateFileTagRequest
+   * @returns UpdateFileTagResponse
+   */
+  async updateFileTag(WorkspaceId: string, FileId: string, request: UpdateFileTagRequest): Promise<UpdateFileTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateFileTagWithOptions(WorkspaceId, FileId, request, headers, runtime);
   }
 
   /**
