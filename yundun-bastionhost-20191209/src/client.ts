@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,8 +8,39 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AcceptApproveCommandRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the command that you want to approve.
+   * 
+   * >  You can call the [ListApproveCommands](https://help.aliyun.com/document_detail/2584310.html) operation to query the IDs of all commands that need to be reviewed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7
+   */
   commandId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * >  You can call the DescribeInstances operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,6 +64,13 @@ export class AcceptApproveCommandRequest extends $tea.Model {
 }
 
 export class AcceptApproveCommandResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,14 +115,71 @@ export class AcceptApproveCommandResponse extends $tea.Model {
 }
 
 export class AcceptOperationTicketRequest extends $tea.Model {
+  comment?: string;
+  /**
+   * @remarks
+   * The maximum number of logons allowed. Valid values:
+   * 
+   * *   0: The number of logons is unlimited. The O\\&M engineer can log on to the specified asset for an unlimited number of times during the validity period.
+   * *   1: The O\\&M engineer can log on to the specified asset only once during the validity period.
+   * 
+   * >  You can set this parameter only to 0 if you review an O\\&M application on a database.
+   * 
+   * @example
+   * 1
+   */
   effectCount?: string;
+  /**
+   * @remarks
+   * The end time of the validity period. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1679393152
+   */
   effectEndTime?: string;
+  /**
+   * @remarks
+   * The start time of the validity period. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1685600242
+   */
   effectStartTime?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the O\\&M application that you want to approve. You can call the ListOperationTickets operation to query the IDs of all O\\&M applications that require review.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   operationTicketId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      comment: 'Comment',
       effectCount: 'EffectCount',
       effectEndTime: 'EffectEndTime',
       effectStartTime: 'EffectStartTime',
@@ -97,6 +191,7 @@ export class AcceptOperationTicketRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      comment: 'string',
       effectCount: 'string',
       effectEndTime: 'string',
       effectStartTime: 'string',
@@ -112,6 +207,13 @@ export class AcceptOperationTicketRequest extends $tea.Model {
 }
 
 export class AcceptOperationTicketResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -156,9 +258,46 @@ export class AcceptOperationTicketResponse extends $tea.Model {
 }
 
 export class AddDatabasesToGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the database IDs.
+   * 
+   * This parameter is required.
+   */
   databaseIds?: string[];
+  /**
+   * @remarks
+   * The ID of the asset group to which you want to add the databases.
+   * 
+   * >  You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the asset group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -184,7 +323,18 @@ export class AddDatabasesToGroupRequest extends $tea.Model {
 }
 
 export class AddDatabasesToGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   results?: AddDatabasesToGroupResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -231,9 +381,51 @@ export class AddDatabasesToGroupResponse extends $tea.Model {
 }
 
 export class AddHostsToGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asset group to which you want to add hosts.
+   * 
+   * >You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the hosts that you want to add to the asset group. Specify a JSON string. You can specify up to 100 host IDs.
+   * 
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["1","2","3"]
+   */
   hostIds?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host whose asset group you want to add hosts to.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host whose asset group you want to add hosts to.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -259,7 +451,18 @@ export class AddHostsToGroupRequest extends $tea.Model {
 }
 
 export class AddHostsToGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 81500666-d7f5-4143-8329-0223cc738105
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: AddHostsToGroupResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -306,9 +509,51 @@ export class AddHostsToGroupResponse extends $tea.Model {
 }
 
 export class AddUsersToGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to add users to the user group.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host for which you want to add users to the user group.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group to which you want to add users.
+   * 
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * １
+   */
   userGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the user that you want to add to the user group. The value is a JSON string. You can add up to 100 user IDs. If you specify multiple IDs, separate the IDs with commas (,).
+   * 
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["1","2","3"]
+   */
   userIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -334,7 +579,18 @@ export class AddUsersToGroupRequest extends $tea.Model {
 }
 
 export class AddUsersToGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: AddUsersToGroupResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -381,9 +637,46 @@ export class AddUsersToGroupResponse extends $tea.Model {
 }
 
 export class AttachDatabaseAccountsToUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of database objects.
+   * 
+   * >  You can specify up to 10 databases and 10 database accounts. The database accounts are not required. If you do not specify a database account, the user is authorized to manage only the databases.
+   */
   databases?: AttachDatabaseAccountsToUserRequestDatabases[];
+  /**
+   * @remarks
+   * The ID of the bastion host whose user you want to grant permissions.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-wwo36qbv601
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user to be authorized.
+   * 
+   * >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -409,7 +702,18 @@ export class AttachDatabaseAccountsToUserRequest extends $tea.Model {
 }
 
 export class AttachDatabaseAccountsToUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 23120B8E-8737-50BD-A3A3-902A7821F04D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: AttachDatabaseAccountsToUserResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -456,9 +760,42 @@ export class AttachDatabaseAccountsToUserResponse extends $tea.Model {
 }
 
 export class AttachDatabaseAccountsToUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the database objects.
+   * 
+   * >  You can specify up to 10 databases and 10 database accounts. The database accounts are not required. If you do not specify a database account, the user group is authorized to manage only the databases.
+   */
   databases?: AttachDatabaseAccountsToUserGroupRequestDatabases[];
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-zvp282aly06
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -484,7 +821,18 @@ export class AttachDatabaseAccountsToUserGroupRequest extends $tea.Model {
 }
 
 export class AttachDatabaseAccountsToUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5D0EB759-CB0A-537D-A2CC-13A9854FA08D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: AttachDatabaseAccountsToUserGroupResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -531,9 +879,43 @@ export class AttachDatabaseAccountsToUserGroupResponse extends $tea.Model {
 }
 
 export class AttachHostAccountsToHostShareKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The host account IDs.
+   * 
+   * >  You must specify this parameter. You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/462937.html) operation to query the host account IDs.
+   * 
+   * @example
+   * ["1","2","3"]
+   */
   hostAccountIds?: string;
+  /**
+   * @remarks
+   * The shared key ID.
+   * 
+   * >  You must specify this parameter. You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+   * 
+   * @example
+   * 10267
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host. For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -559,7 +941,18 @@ export class AttachHostAccountsToHostShareKeyRequest extends $tea.Model {
 }
 
 export class AttachHostAccountsToHostShareKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: AttachHostAccountsToHostShareKeyResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -606,9 +999,51 @@ export class AttachHostAccountsToHostShareKeyResponse extends $tea.Model {
 }
 
 export class AttachHostAccountsToUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the hosts and host accounts that you want to authorize the user to manage. You can specify up to 10 host IDs and up to 10 host account IDs for each host. You can specify only host IDs. In this case, the user is authorized to manage only the specified hosts. For more information about this parameter, see the "Description of the Hosts parameter" section of this topic.
+   * 
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host and the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the ID of the host account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [ {"HostId":"1"}, {"HostId":"2","HostAccountIds":["1","2","3"]}, {"HostId":"3","HostAccountIds":["4","5","6"]}, {"HostId":"4","HostAccountIds":["9","8","7"]}  ]
+   */
   hosts?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to authorize the user to manage the hosts and host accounts.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host for which you want to authorize the user to manage the hosts and host accounts.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user that you want to authorize to manage the hosts and host accounts.
+   * 
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -634,7 +1069,18 @@ export class AttachHostAccountsToUserRequest extends $tea.Model {
 }
 
 export class AttachHostAccountsToUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: AttachHostAccountsToUserResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -681,9 +1127,51 @@ export class AttachHostAccountsToUserResponse extends $tea.Model {
 }
 
 export class AttachHostAccountsToUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the host and host account that you want to authorize the user group to manage. You can specify up to 10 host IDs and up to 10 host account IDs for each host. You can specify only host IDs. In this case, the user group is authorized to manage only the specified hosts. For more information about this parameter, see the "Description of the Hosts parameter" section of this topic.
+   * 
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host and the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the ID of the host account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [ {"HostId":"1"}, {"HostId":"2","HostAccountIds":["1","2","3",...]}, {"HostId":"3","HostAccountIds":["4","5","6",...]}, {"HostId":"4","HostAccountIds":["9","8","7",...]} ... ]
+   */
   hosts?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host in which you want to authorize the user group to manage the specified hosts and host accounts.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host in which you want to authorize the user group to manage the specified hosts and host accounts.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group that you want to authorize to manage the specified hosts and host accounts.
+   * 
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -709,7 +1197,18 @@ export class AttachHostAccountsToUserGroupRequest extends $tea.Model {
 }
 
 export class AttachHostAccountsToUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: AttachHostAccountsToUserGroupResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -756,9 +1255,51 @@ export class AttachHostAccountsToUserGroupResponse extends $tea.Model {
 }
 
 export class AttachHostGroupAccountsToUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host group and the name of the host account that you want to authorize the user to manage. You can specify up to 10 host group IDs and up to 10 host account names for each host group. You can specify only host group IDs. In this case, the user is authorized to manage only the specified host groups. For more information about this parameter, see the "Description of the HostGroups parameter" section of this topic.
+   * 
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group and the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the name of the host account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [ {"HostGroupId":"1"}, {"HostGroupId":"2","HostAccountNames":["root","111","abc"]}, {"HostGroupId":"3","HostAccountNames":["root","111","abc"]}, {"HostGroupId":"4","HostAccountNames":["root","111","abc"]} ]
+   */
   hostGroups?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to authorize the user to manage the host groups and host accounts.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host for which you want to authorize the user to manage the host groups and host accounts.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user that you want to authorize to manage the host groups and host accounts.
+   * 
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -784,7 +1325,18 @@ export class AttachHostGroupAccountsToUserRequest extends $tea.Model {
 }
 
 export class AttachHostGroupAccountsToUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: AttachHostGroupAccountsToUserResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -831,9 +1383,51 @@ export class AttachHostGroupAccountsToUserResponse extends $tea.Model {
 }
 
 export class AttachHostGroupAccountsToUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host group and the name of the host account that you want to authorize the user group to manage. You can specify up to 10 host group IDs and up to 10 host account names for each host group. You can specify only host group IDs. In this case, the user group is authorized to manage only the specified host groups. For more information about this parameter, see the "Description of the HostGroups parameter" section of this topic.
+   * 
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group and the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the name of the host account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [ {"HostGroupId":"1"}, {"HostGroupId":"2","HostAccountNames":["root","111","abc"]}, {"HostGroupId":"3","HostAccountNames":["root","111","abc"]}, {"HostGroupId":"4","HostAccountNames":["root","111","abc"]}]
+   */
   hostGroups?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to authorize the user group to manage the specified host groups and host accounts.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host for which you want to authorize the user group to manage the specified host groups and host accounts.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group that you want to authorize to manage the specified host groups and host accounts.
+   * 
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -859,7 +1453,18 @@ export class AttachHostGroupAccountsToUserGroupRequest extends $tea.Model {
 }
 
 export class AttachHostGroupAccountsToUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: AttachHostGroupAccountsToUserGroupResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -906,9 +1511,46 @@ export class AttachHostGroupAccountsToUserGroupResponse extends $tea.Model {
 }
 
 export class ConfigInstanceSecurityGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the IDs of authorized security groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sg-bp14u00sh39jvw5****
+   */
   authorizedSecurityGroups?: string[];
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -934,7 +1576,21 @@ export class ConfigInstanceSecurityGroupsRequest extends $tea.Model {
 }
 
 export class ConfigInstanceSecurityGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host for which security groups were configured.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 0ECCC399-4D35-48A7-8379-5C6180E66235
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -981,8 +1637,33 @@ export class ConfigInstanceSecurityGroupsResponse extends $tea.Model {
 }
 
 export class ConfigInstanceWhiteListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to configure a whitelist of public IP addresses.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The IP address whitelist that you want to configure.
+   * 
+   * @example
+   * 10.162.XX.XX
+   */
   whiteList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1006,7 +1687,21 @@ export class ConfigInstanceWhiteListRequest extends $tea.Model {
 }
 
 export class ConfigInstanceWhiteListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host for which a whitelist of public IP addresses is configured.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 47820E32-5968-45CF-982F-09CB80DC180B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1053,19 +1748,154 @@ export class ConfigInstanceWhiteListResponse extends $tea.Model {
 }
 
 export class CreateDatabaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address type of the database to add. Valid values:
+   * 
+   * *   Public
+   * *   Private
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Public
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The remarks of the database to add. The remarks can be up to 500 characters in length.
+   * 
+   * @example
+   * cpp
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The name of the database to add. This parameter is required if Source is set to **Local**.
+   * 
+   * @example
+   * Oracle
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The port of the database. This parameter is required if Source is set to **Local**.
+   * 
+   * @example
+   * 5433
+   */
   databasePort?: number;
+  /**
+   * @remarks
+   * The internal IP address of the database. Specify an IPv4 address or a domain name.
+   * 
+   * >  This parameter is required if ActiveAddressType is set to Private.
+   * 
+   * @example
+   * pgm-uf6o******
+   */
   databasePrivateAddress?: string;
+  /**
+   * @remarks
+   * The public IP address of the database. Specify an IPv4 address or a domain name.
+   * 
+   * >  This parameter is required if ActiveAddressType is set to Public.
+   * 
+   * @example
+   * rm-uf65251k51******
+   */
   databasePublicAddress?: string;
+  /**
+   * @remarks
+   * The type of the database engine. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **Oracle**
+   * *   **PostgreSQL**
+   * *   **SQLServer**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MySQL
+   */
   databaseType?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-7mz2g5hu20e
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the network domain to which the database to add belongs.
+   * 
+   * >  You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+   * 
+   * @example
+   * 1
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The endpoint type of the PolarDB database. This parameter is required if Source is set to PolarDB. Valid values:
+   * 
+   * *   Cluster
+   * *   Primary
+   * 
+   * @example
+   * Cluster
+   */
   polarDBEndpointType?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the database to add. Valid values:
+   * 
+   * *   Local: on-premises database.
+   * *   Rds: ApsaraDB RDS instance.
+   * *   PolarDB: PolarDB cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The instance ID of the database to add.
+   * 
+   * > This parameter is required if **Source** is set to **Rds** or **PolarDB**.
+   * 
+   * @example
+   * i-bp19ienyt0yax748****
+   */
   sourceInstanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the database to add.
+   * 
+   * >  This parameter is required if **Source** is set to **Rds** or **PolarDB**.
+   * 
+   * @example
+   * cn-shanghai
+   */
   sourceInstanceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1111,7 +1941,21 @@ export class CreateDatabaseRequest extends $tea.Model {
 }
 
 export class CreateDatabaseResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 334
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 98EDD923-236C-5A88-88E7-4979A91B9325
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1158,12 +2002,76 @@ export class CreateDatabaseResponse extends $tea.Model {
 }
 
 export class CreateDatabaseAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The username of the database account to be created. The username can be up to 128 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * root
+   */
   databaseAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the database for which you want to create a database account.
+   * 
+   * >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The name of the database. This parameter is required for PostgreSQL and Oracle databases.
+   * 
+   * @example
+   * orcl
+   */
   databaseSchema?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to create a database account.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-5yd34ol020a
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The logon attribute. This parameter is required for Oracle databases. Valid values:
+   * 
+   * *   SERVICENAME
+   * *   SID
+   * 
+   * @example
+   * SID
+   */
   loginAttribute?: string;
+  /**
+   * @remarks
+   * The password of the database account to be created.
+   * 
+   * @example
+   * MCQ******
+   */
   password?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host for which you want to create a database account.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1195,7 +2103,21 @@ export class CreateDatabaseAccountRequest extends $tea.Model {
 }
 
 export class CreateDatabaseAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the database account.
+   * 
+   * @example
+   * 40
+   */
   databaseAccountId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B07C465D-B09F-54DD-8FEC-90788BEABAFC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1242,17 +2164,135 @@ export class CreateDatabaseAccountResponse extends $tea.Model {
 }
 
 export class CreateHostRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The endpoint type of the host that you want to create. Valid values:
+   * 
+   * *   **Public**: public endpoint
+   * *   **Private**: internal endpoint
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Public
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The description of the host that you want to create. The value can be up to 500 characters in length.
+   * 
+   * @example
+   * Local Host
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The name of the host that you want to create. The name can be up to 128 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * host01
+   */
   hostName?: string;
+  /**
+   * @remarks
+   * The internal endpoint of the host that you want to create. You can set this parameter to a domain name or an IP address.
+   * 
+   * > This parameter is required if the **ActiveAddressType** parameter is set to **Private**.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   hostPrivateAddress?: string;
+  /**
+   * @remarks
+   * The public endpoint of the host that you want to create. You can set this parameter to a domain name or an IP address.
+   * 
+   * > This parameter is required if the **ActiveAddressType** parameter is set to **Public**.
+   * 
+   * @example
+   * 172.16.XX.XX
+   */
   hostPublicAddress?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host in which you want to create the host.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the region to which the ECS instance or the host in an ApsaraDB MyBase dedicated cluster belongs.
+   * 
+   * > This parameter is required if the **Source** parameter is set to **Ecs** or **Rds**.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   instanceRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the network domain to which the host to be imported belongs.
+   * 
+   * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+   * 
+   * @example
+   * 1
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The operating system of the host that you want to create. Valid values:
+   * 
+   * *   **Linux**
+   * *   **Windows**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Linux
+   */
   OSType?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host to which you want to import the host.
+   * 
+   * > For information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The source of the host that you want to create. Valid values:
+   * 
+   * *   **Local**: a host in a data center
+   * *   **Ecs**: an Elastic Compute Service (ECS) instance
+   * *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
+   * 
+   * > This parameter is required if the **Source** parameter is set to **Ecs** or **Rds**.
+   * 
+   * @example
+   * i-dfabfda
+   */
   sourceInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1294,7 +2334,21 @@ export class CreateHostRequest extends $tea.Model {
 }
 
 export class CreateHostResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1341,14 +2395,100 @@ export class CreateHostResponse extends $tea.Model {
 }
 
 export class CreateHostAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the host account. The name can be up to 128 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * abc
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the host to which you want to add a host account.
+   * 
+   * >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The ID of the shared key.
+   * 
+   * @example
+   * 1
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host in which you want to add a host account to the host.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The passphrase for the private key of the host account.
+   * 
+   * > You can configure this parameter only if ProtocolName is set to SSH. You do not need to configure this parameter if ProtocolName is set to RDP.
+   * 
+   * @example
+   * ****
+   */
   passPhrase?: string;
+  /**
+   * @remarks
+   * The password of the host account.
+   * 
+   * @example
+   * ****
+   */
   password?: string;
+  /**
+   * @remarks
+   * The private key of the host account. Specify a Base64-encoded string.
+   * 
+   * > This parameter is valid only if ProtocolName is set to SSH. You do not need to configure this parameter if ProtocolName is set to RDP. You can configure a password and a private key for the host account at the same time. If both a password and a private key are configured for the host account, Bastionhost preferentially uses the private key for logon.
+   * 
+   * @example
+   * ****
+   */
   privateKey?: string;
+  /**
+   * @remarks
+   * The protocol of the host to which you want to add a host account.
+   * 
+   * Valid values:
+   * 
+   * *   SSH
+   * *   RDP
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SSH
+   */
   protocolName?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host in which you want to add a host account to the host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1384,7 +2524,21 @@ export class CreateHostAccountRequest extends $tea.Model {
 }
 
 export class CreateHostAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that you want to perform. Set the value to **CreateHostAccount**.
+   * 
+   * @example
+   * 1
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1431,9 +2585,45 @@ export class CreateHostAccountResponse extends $tea.Model {
 }
 
 export class CreateHostGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the asset group. The remarks can be up to 500 characters in length.
+   * 
+   * @example
+   * Local host group.
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The name of the asset group. The name can be up to 128 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * HostGroup01
+   */
   hostGroupName?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to create an asset group.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to create an asset group.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1459,7 +2649,21 @@ export class CreateHostGroupRequest extends $tea.Model {
 }
 
 export class CreateHostGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asset group ID.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1506,10 +2710,57 @@ export class CreateHostGroupResponse extends $tea.Model {
 }
 
 export class CreateHostShareKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the shared key that you want to create. The name can be a maximum of 128 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * name
+   */
   hostShareKeyName?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The password of the private key. The value is a Base64-encoded string.
+   * 
+   * @example
+   * *****
+   */
   passPhrase?: string;
+  /**
+   * @remarks
+   * The private key. The value is a Base64-encoded string.
+   * 
+   * >  You can specify a Rivest-Shamir-Adleman (RSA) key that is generated by using the ssh-keygen command or a key that is generated by using the Ed25519 algorithm.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ****
+   */
   privateKey?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1537,7 +2788,21 @@ export class CreateHostShareKeyRequest extends $tea.Model {
 }
 
 export class CreateHostShareKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the shared key.
+   * 
+   * @example
+   * 10235
+   */
   hostShareKeyId?: number;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1584,11 +2849,60 @@ export class CreateHostShareKeyResponse extends $tea.Model {
 }
 
 export class CreateNetworkDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the network domain. The remarks can be up to 500 characters in length.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to create a network domain.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-lbj3bw4ma02
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the network domain that you want to create. The name can be up to 128 characters in length.
+   * 
+   * This parameter is required.
+   */
   networkDomainName?: string;
+  /**
+   * @remarks
+   * The connection mode of the network domain to be created. Valid values:
+   * 
+   * *   Direct
+   * *   Proxy
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Proxy
+   */
   networkDomainType?: string;
+  /**
+   * @remarks
+   * The information about the proxy servers.
+   */
   proxies?: CreateNetworkDomainRequestProxies[];
+  /**
+   * @remarks
+   * The region ID of the bastion host for which you want to create a network domain.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1618,7 +2932,21 @@ export class CreateNetworkDomainRequest extends $tea.Model {
 }
 
 export class CreateNetworkDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the network domain.
+   * 
+   * @example
+   * 31
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A2873E9C-A7EA-5735-845C-65D3792623D2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1665,10 +2993,56 @@ export class CreateNetworkDomainResponse extends $tea.Model {
 }
 
 export class CreatePolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the control policy. The remarks can be up to 500 characters in length.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to create a control policy.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-20p364c1w0g
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the control policy. The name can be up to 128 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * policytest
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The priority of the control policy.
+   * 
+   * *   Valid values: 1 to 100. The default value is 1, which indicates the highest priority.
+   * *   You can configure the same priority for different control policies. If multiple control policies have the same priority, the control policy that is created at the latest point in time has the highest priority. If a command control policy and a command approval policy contain the same commands, the commands are prioritized in descending order: reject, allow, and approve. In access control policies, a blacklist has a higher priority than a whitelist.
+   * 
+   * @example
+   * 1
+   */
   priority?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host for which you want to create a control policy.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1696,7 +3070,21 @@ export class CreatePolicyRequest extends $tea.Model {
 }
 
 export class CreatePolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The control policy ID.
+   * 
+   * @example
+   * 1
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7E68165E-1191-5CC2-B54B-5EF7390A5400
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1743,16 +3131,86 @@ export class CreatePolicyResponse extends $tea.Model {
 }
 
 export class CreateRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the authorization rule. The remarks can be up to 500 characters in length.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The information about the database that runs on your server.
+   */
   databases?: CreateRuleRequestDatabases[];
+  /**
+   * @remarks
+   * The end time of the validity period of the authorization rule. Specify a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1672502400
+   */
   effectiveEndTime?: number;
+  /**
+   * @remarks
+   * The start time of the validity period of the authorization rule. Specify a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1669630029
+   */
   effectiveStartTime?: number;
+  /**
+   * @remarks
+   * The information about the asset group that you want to authorize to manage.
+   */
   hostGroups?: CreateRuleRequestHostGroups[];
+  /**
+   * @remarks
+   * The host information.
+   */
   hosts?: CreateRuleRequestHosts[];
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-5yd2ymfsa0e
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the authorization rule. The name can be up to 128 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rule
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * An array that consists of user group IDs.
+   */
   userGroupIds?: string[];
+  /**
+   * @remarks
+   * An array that consists of user IDs.
+   */
   userIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1792,7 +3250,21 @@ export class CreateRuleRequest extends $tea.Model {
 }
 
 export class CreateRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BFA818E3-0A53-51F4-8DB5-AF2A62A6D042
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The authorization rule ID.
+   * 
+   * @example
+   * 1
+   */
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1839,23 +3311,233 @@ export class CreateRuleResponse extends $tea.Model {
 }
 
 export class CreateUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the user that you want to add. The remarks can be up to 500 characters in length.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The display name of the user that you want to add. The display name can be up to 128 characters in length.
+   * 
+   * >  If you leave this parameter empty, the logon name is used as the display name.
+   * 
+   * @example
+   * Bob
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The end time of the validity period of the user. Specify a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1672502400
+   */
   effectiveEndTime?: number;
+  /**
+   * @remarks
+   * The start time of the validity period of the user. Specify a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1669630029
+   */
   effectiveStartTime?: number;
+  /**
+   * @remarks
+   * The email address of the user that you want to add.
+   * 
+   * > 
+   * 
+   * *   This parameter is required if TwoFactorStatus is set to Enable and TwoFactorMethods is set to email, or if TwoFactorStatus is set to Global and TwoFactorMethods is set to email in the global two-factor authentication settings.
+   * 
+   * *   You can call the [GetInstanceTwoFactor](https://help.aliyun.com/document_detail/462968.html) operation to query the global two-factor authentication settings.
+   * 
+   * @example
+   * username@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host to which you want to add a user.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required if LanguageStatus is set to Custom. Valid values:
+   * 
+   * *   **zh-cn**: simplified Chinese.
+   * *   **en**: English.
+   * 
+   * @example
+   * en
+   */
   language?: string;
+  /**
+   * @remarks
+   * Specifies whether to send notifications in the language specified in the global settings or a custom language.
+   * 
+   * *   **Global**
+   * *   **Custom**
+   * 
+   * >  If you leave this parameter empty, the default value Global is used.
+   * 
+   * @example
+   * Custom
+   */
   languageStatus?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the user that you want to add.
+   * 
+   * > 
+   * 
+   * *   This parameter is required if TwoFactorStatus is set to Enable and TwoFactorMethods is set to sms or dingtalk, or if TwoFactorStatus is set to Global and TwoFactorMethods is set to sms or dingtalk in the global two-factor authentication settings.
+   * 
+   * *   You can call the [GetInstanceTwoFactor](https://help.aliyun.com/document_detail/462968.html) operation to query the global two-factor authentication settings.
+   * 
+   * @example
+   * 1359999****
+   */
   mobile?: string;
+  /**
+   * @remarks
+   * The location where the mobile phone number of the user is registered. Default value: CN. Valid values:
+   * 
+   * *   **CN**: the Chinese mainland, whose international dialing code is +86.
+   * *   **HK**: Hong Kong (China), whose international dialing code is +852.
+   * *   **MO**: Macao (China), whose international dialing code is +853.
+   * *   **TW**: Taiwan (China), whose international dialing code is +886.
+   * *   **RU**: Russia, whose international dialing code is +7.
+   * *   **SG**: Singapore, whose international dialing code is +65.
+   * *   **MY**: Malaysia, whose international dialing code is +60.
+   * *   **ID**: Indonesia, whose international dialing code is +62.
+   * *   **DE**: Germany, whose international dialing code is +49.
+   * *   **AU**: Australia, whose international dialing code is +61.
+   * *   **US**: US, whose international dialing code is +1.
+   * *   **AE**: United Arab Emirates, whose international dialing code is +971.
+   * *   **JP**: Japan, whose international dialing code is +81.
+   * *   **GB**: UK, whose international dialing code is +44.
+   * *   **IN**: India, whose international dialing code is +91.
+   * *   **KR**: Republic of Korea, whose international dialing code is +82.
+   * *   **PH**: Philippines, whose international dialing code is +63.
+   * *   **CH**: Switzerland, whose international dialing code is +41.
+   * *   **SE:** Sweden, whose international dialing code is +46.
+   * *   **SA:** Saudi Arabia, whose international dialing code is +966.
+   * 
+   * @example
+   * CN
+   */
   mobileCountryCode?: string;
+  /**
+   * @remarks
+   * Specifies whether password reset is required upon the next logon. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  If you leave this parameter empty, the default value false is used.
+   * 
+   * @example
+   * true
+   */
   needResetPassword?: boolean;
+  /**
+   * @remarks
+   * The logon password of the user that you want to add. The logon password must be 8 to 128 characters in length. It must contain uppercase letters, lowercase letters, digits, and special characters.
+   * 
+   * > This parameter is required if Source is set to Local.
+   * 
+   * @example
+   * 213****
+   */
   password?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host to which you want to add a user.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the user that you want to add. Valid values:
+   * 
+   * *   **Local**: a local user.
+   * *   **Ram**: a RAM user.
+   * *   **AD**: an AD-authenticated user.
+   * *   **LDAP**: an LDAP-authenticated user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The unique ID of the user that you want to add.
+   * 
+   * > 
+   * 
+   * *   This parameter uniquely identifies a RAM user of the bastion host. This parameter is required if Source is set to Ram. You can call the [ListUsers](https://help.aliyun.com/document_detail/28684.html) operation in RAM to obtain the unique ID of the user from the UserId response parameter.
+   * 
+   * *   This parameter is required if Source is set to AD or LDAP. Specify the distinguished name (DN) of the Active Directory (AD)-authenticated user or Lightweight Directory Access Protocol (LDAP)-authenticated user that you want to add.
+   * 
+   * @example
+   * 122748924538****
+   */
   sourceUserId?: string;
+  /**
+   * @remarks
+   * The two-factor authentication method. You can select only one method. Valid values:
+   * 
+   * *   **sms**: text message-based two-factor authentication.
+   * *   **email**: email-based two-factor authentication.
+   * *   **dingtalk**: DingTalk-based two-factor authentication.
+   * *   **totp OTP**: one-time password (OTP) token-based two-factor authentication.
+   * 
+   * >  If TwoFactorStatus is set to Enable, you must select one of the preceding values for TwoFactorMethods.
+   * 
+   * @example
+   * ["sms"]
+   */
   twoFactorMethods?: string;
+  /**
+   * @remarks
+   * Specifies whether two-factor authentication is enabled for the user. Valid values:
+   * 
+   * *   **Global**: The global settings apply.
+   * *   **Disable**: Two-factor authentication is disabled.
+   * *   **Enable**: Two-factor authentication is enabled and user-specific settings apply.
+   * 
+   * >  If you leave this parameter empty, the default value Global is used.
+   * 
+   * @example
+   * Enable
+   */
   twoFactorStatus?: string;
+  /**
+   * @remarks
+   * The logon name of the user that you want to add. The logon name must be 1 to 128 characters in length and can contain only letters, digits, and underscores (_).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * abc_def
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1909,7 +3591,21 @@ export class CreateUserRequest extends $tea.Model {
 }
 
 export class CreateUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the user that is added.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1956,9 +3652,45 @@ export class CreateUserResponse extends $tea.Model {
 }
 
 export class CreateUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the user group. The description can be up to 500 characters in length.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to create a user group.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host for which you want to create a user group.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the user group that you want to create. This name can be a up to 128 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * group
+   */
   userGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1984,7 +3716,21 @@ export class CreateUserGroupRequest extends $tea.Model {
 }
 
 export class CreateUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the user group.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2031,11 +3777,67 @@ export class CreateUserGroupResponse extends $tea.Model {
 }
 
 export class CreateUserPublicKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the public key. The description can be up to 500 characters in length.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to create a public key for the user.
+   * 
+   * > You can call the [listinstances](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The public key. Encode the value by using the Base64 algorithm.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUxGQnQxUUpyT3IxK2hTTGRkbERMZUx4WGRIZ3hBalBxWHJIbWNFNWxqSk8gbm93Y29kZXJAbm93Y29kZXJkZU1hY0Jvb2stUHJvLmxvY2Fs
+   */
   publicKey?: string;
+  /**
+   * @remarks
+   * The name of the public key.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Public key of a user
+   */
   publicKeyName?: string;
+  /**
+   * @remarks
+   * Specifies the region ID of the bastion host on which you want to create a public key for the user.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user for whom you want to create a public key.
+   * 
+   * >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2065,7 +3867,21 @@ export class CreateUserPublicKeyRequest extends $tea.Model {
 }
 
 export class CreateUserPublicKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the public key.
+   * 
+   * @example
+   * 1
+   */
   publicKeyId?: string;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 5EAB922E-F476-5DFA-9290-313C608E724B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2112,8 +3928,39 @@ export class CreateUserPublicKeyResponse extends $tea.Model {
 }
 
 export class DeleteDatabaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the database that you want to delete.
+   * 
+   * > You can call the [ListDatabases](https://help.aliyun.com/document_detail/2758822.html) operation to query the database ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 11
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host from which you want to delete the database.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1ghxxxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2137,6 +3984,13 @@ export class DeleteDatabaseRequest extends $tea.Model {
 }
 
 export class DeleteDatabaseResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 81500666-d7f5-4143-8329-0223cc738105
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2181,8 +4035,39 @@ export class DeleteDatabaseResponse extends $tea.Model {
 }
 
 export class DeleteDatabaseAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the database account that you want to delete.
+   * 
+   * >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9
+   */
   databaseAccountId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host from which you want to delete the database account.
+   * 
+   * > You can call the DescribeInstances operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host from which you want to delete the database account.
+   * 
+   * > For more information about the mapping between region IDs and region names, [see Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2206,6 +4091,13 @@ export class DeleteDatabaseAccountRequest extends $tea.Model {
 }
 
 export class DeleteDatabaseAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 81500666-d7f5-4143-8329-0223cc738105
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2250,8 +4142,39 @@ export class DeleteDatabaseAccountResponse extends $tea.Model {
 }
 
 export class DeleteHostRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host that you want to delete.
+   * 
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to delete the host.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to delete the host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2275,6 +4198,13 @@ export class DeleteHostRequest extends $tea.Model {
 }
 
 export class DeleteHostResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2319,8 +4249,39 @@ export class DeleteHostResponse extends $tea.Model {
 }
 
 export class DeleteHostAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host account that you want to remove.
+   * 
+   * >  You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the ID of the host account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host from which you want to remove the host account.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host from which you want to remove the host account.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2344,6 +4305,13 @@ export class DeleteHostAccountRequest extends $tea.Model {
 }
 
 export class DeleteHostAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2388,8 +4356,39 @@ export class DeleteHostAccountResponse extends $tea.Model {
 }
 
 export class DeleteHostGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asset group that you want to delete.
+   * 
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host whose asset group you want to delete.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host whose asset group you want to delete.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2413,6 +4412,13 @@ export class DeleteHostGroupRequest extends $tea.Model {
 }
 
 export class DeleteHostGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2457,8 +4463,37 @@ export class DeleteHostGroupResponse extends $tea.Model {
 }
 
 export class DeleteHostShareKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The shared key ID.
+   * 
+   * >  You must specify this parameter. You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+   * 
+   * @example
+   * 11206
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2482,6 +4517,13 @@ export class DeleteHostShareKeyRequest extends $tea.Model {
 }
 
 export class DeleteHostShareKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2526,8 +4568,37 @@ export class DeleteHostShareKeyResponse extends $tea.Model {
 }
 
 export class DeleteNetworkDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host whose network domain you want to delete.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost_std_intl-sg-uq833e2dz02
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the network domain to be deleted.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host whose network domain you want to delete.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2551,6 +4622,13 @@ export class DeleteNetworkDomainRequest extends $tea.Model {
 }
 
 export class DeleteNetworkDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 66B9D942-E3C8-5068-A479-5A7B7BF3DE35
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2595,8 +4673,39 @@ export class DeleteNetworkDomainResponse extends $tea.Model {
 }
 
 export class DeletePolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host whose control policy you want to delete.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy to be deleted.
+   * 
+   * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2620,6 +4729,13 @@ export class DeletePolicyRequest extends $tea.Model {
 }
 
 export class DeletePolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2664,8 +4780,39 @@ export class DeletePolicyResponse extends $tea.Model {
 }
 
 export class DeleteRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host from which you want to delete the authorization rule.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host from which you want to delete the authorization rule.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the authorization rule that you want to delete.
+   * 
+   * >  You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2689,6 +4836,13 @@ export class DeleteRuleRequest extends $tea.Model {
 }
 
 export class DeleteRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2733,8 +4887,39 @@ export class DeleteRuleResponse extends $tea.Model {
 }
 
 export class DeleteUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host to which the user to be deleted belongs.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host to which the user to be deleted belongs.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user to be deleted.
+   * 
+   * >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2758,6 +4943,13 @@ export class DeleteUserRequest extends $tea.Model {
 }
 
 export class DeleteUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2802,8 +4994,39 @@ export class DeleteUserResponse extends $tea.Model {
 }
 
 export class DeleteUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to delete the user group.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to delete the user group.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group that you want to delete.
+   * 
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * １
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2827,6 +5050,13 @@ export class DeleteUserGroupRequest extends $tea.Model {
 }
 
 export class DeleteUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2871,8 +5101,37 @@ export class DeleteUserGroupResponse extends $tea.Model {
 }
 
 export class DeleteUserPublicKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Bastionhost instance to which the users to be queried belong.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the Bastionhost instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The public key ID.
+   * 
+   * >  You can call the [ListUserPublicKeys](https://help.aliyun.com/document_detail/477555.html) operation to query the public key ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 11
+   */
   publicKeyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host. For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2896,6 +5155,13 @@ export class DeleteUserPublicKeyRequest extends $tea.Model {
 }
 
 export class DeleteUserPublicKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2940,7 +5206,23 @@ export class DeleteUserPublicKeyResponse extends $tea.Model {
 }
 
 export class DescribeInstanceAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Bastionhost instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1ghxxxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2962,7 +5244,18 @@ export class DescribeInstanceAttributeRequest extends $tea.Model {
 }
 
 export class DescribeInstanceAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The attribute information about the bastion host.
+   */
   instanceAttribute?: DescribeInstanceAttributeResponseBodyInstanceAttribute;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 082FAB35-6AB9-4FD5-8750-D36673548E76
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3009,12 +5302,66 @@ export class DescribeInstanceAttributeResponse extends $tea.Model {
 }
 
 export class DescribeInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the IDs of the bastion hosts.
+   * 
+   * @example
+   * bastionhost-cn-78v1ghxxxxx
+   */
   instanceId?: string[];
+  /**
+   * @remarks
+   * The status of the bastion host. Valid values:
+   * 
+   * *   **PENDING**: The bastion host is not initialized.
+   * *   **CREATING**: The bastion host is being created.
+   * *   **RUNNING**: The bastion host is running.
+   * *   **EXPIRED**: The bastion host expired.
+   * *   **CREATE_FAILED**: The bastion host fails to be created.
+   * *   **UPGRADING**: The configurations of the bastion host are being changed.
+   * *   **UPGRADE_FAILED**: The configurations of the bastion host fail to be changed.
+   * 
+   * @example
+   * RUNNING
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the bastion host belongs.
+   * 
+   * @example
+   * rg-acfm26ougi****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * An array consisting of the tags that are added to the bastion hosts.
+   */
   tag?: DescribeInstancesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -3046,8 +5393,26 @@ export class DescribeInstancesRequest extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the bastion hosts returned.
+   */
   instances?: DescribeInstancesResponseBodyInstances[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 61D36C55-AAFC-4678-8FAD-34FEF9E7182E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of bastion hosts that are queried.
+   * 
+   * @example
+   * 4
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3096,7 +5461,25 @@ export class DescribeInstancesResponse extends $tea.Model {
 }
 
 export class DescribeRegionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The natural language in which responses are returned. Valid values:
+   * 
+   * *   **zh-CN**: Chinese. This is the default value.
+   * *   **en-US**: English.
+   * *   **ja**: Japanese.
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3118,7 +5501,18 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about regions where you can create bastion hosts.
+   */
   regions?: DescribeRegionsResponseBodyRegions[];
+  /**
+   * @remarks
+   * The ID of request.
+   * 
+   * @example
+   * B7281856-F27D-4ECE-B4F1-50511E550xxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3165,9 +5559,44 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DetachDatabaseAccountsFromUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The databases.
+   */
   databases?: DetachDatabaseAccountsFromUserRequestDatabases[];
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the DescribeInstances operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-pe335ipfk01
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user from whom you want to revoke the permissions on databases and database accounts.
+   * 
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3193,7 +5622,18 @@ export class DetachDatabaseAccountsFromUserRequest extends $tea.Model {
 }
 
 export class DetachDatabaseAccountsFromUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 79D7E114-CB52-5695-AB15-12776C308387
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: DetachDatabaseAccountsFromUserResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -3240,9 +5680,44 @@ export class DetachDatabaseAccountsFromUserResponse extends $tea.Model {
 }
 
 export class DetachDatabaseAccountsFromUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the database.
+   */
   databases?: DetachDatabaseAccountsFromUserGroupRequestDatabases[];
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-7mz2v120f0y
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group from which you want to revoke permissions on databases and database accounts.
+   * 
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3268,7 +5743,18 @@ export class DetachDatabaseAccountsFromUserGroupRequest extends $tea.Model {
 }
 
 export class DetachDatabaseAccountsFromUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC528ED1-C302-56E5-9CB5-ADA625D64FF9
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: DetachDatabaseAccountsFromUserGroupResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -3315,9 +5801,51 @@ export class DetachDatabaseAccountsFromUserGroupResponse extends $tea.Model {
 }
 
 export class DetachHostAccountsFromHostShareKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The host account IDs.
+   * 
+   * >  You can call the [ListHostAccountsForHostShareKey](https://help.aliyun.com/document_detail/462975.html) operation to query the host account IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["1","2","3"]
+   */
   hostAccountIds?: string;
+  /**
+   * @remarks
+   * The shared key ID.
+   * 
+   * >  You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 11
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3343,7 +5871,18 @@ export class DetachHostAccountsFromHostShareKeyRequest extends $tea.Model {
 }
 
 export class DetachHostAccountsFromHostShareKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: DetachHostAccountsFromHostShareKeyResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -3390,9 +5929,51 @@ export class DetachHostAccountsFromHostShareKeyResponse extends $tea.Model {
 }
 
 export class DetachHostAccountsFromUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the hosts and host accounts on which you want to revoke permissions from the user. You can specify up to 10 host IDs and up to 10 host account IDs for each host. You can specify only host IDs. In this case, the permissions on the specified hosts and all accounts of the hosts are revoked from the user. For more information about this parameter, see the Description of the Hosts parameter section of this topic.
+   * 
+   * >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host IDs and the [ListHostAccountsForUser](https://help.aliyun.com/document_detail/466581.html) operation to query the host account IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [ {"HostId":"1"}, {"HostId":"2","HostAccountIds":["1","2","3"]}, {"HostId":"3","HostAccountIds":["4","5","6"]}, {"HostId":"4","HostAccountIds":["9","8","7"]} ]
+   */
   hosts?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to revoke permissions on the specified hosts and host accounts from the user.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to revoke permissions on the specified hosts and host accounts from the user.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user from whom you want to revoke permissions on the specified hosts and host accounts.
+   * 
+   * >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3418,7 +5999,18 @@ export class DetachHostAccountsFromUserRequest extends $tea.Model {
 }
 
 export class DetachHostAccountsFromUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: DetachHostAccountsFromUserResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -3465,9 +6057,53 @@ export class DetachHostAccountsFromUserResponse extends $tea.Model {
 }
 
 export class DetachHostAccountsFromUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the host and host account on which you want to revoke permissions from the user group.
+   * 
+   * You can specify up to 10 host IDs and up to 10 host account IDs for each host. You can specify only host IDs. In this case, the permissions on both the specified hosts and all host accounts of the hosts are revoked from the user group. For more information about this parameter, see the "Description of the Hosts parameter" section of this topic.
+   * 
+   * >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host and the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the ID of the host account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [ {"HostId":"1"}, {"HostId":"2","HostAccountIds":["1","2","3",...]}, {"HostId":"3","HostAccountIds":["4","5","6"]}, {"HostId":"4","HostAccountIds":["9","8","7"]} ]
+   */
   hosts?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host in which you want to revoke permissions on the specified hosts and host accounts from the user group.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host in which you want to revoke permissions on the specified hosts and host accounts from the user group.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group from which you want to revoke permissions on the specified hosts and host accounts.
+   * 
+   * >  You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * １
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3493,7 +6129,18 @@ export class DetachHostAccountsFromUserGroupRequest extends $tea.Model {
 }
 
 export class DetachHostAccountsFromUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: DetachHostAccountsFromUserGroupResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -3540,9 +6187,51 @@ export class DetachHostAccountsFromUserGroupResponse extends $tea.Model {
 }
 
 export class DetachHostGroupAccountsFromUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host group and the name of the host account on which you want to revoke permissions from the user. You can specify up to 10 host group IDs and up to 10 host account names for each host group. You can specify only host group IDs. In this case, the permissions on the specified host groups and all host accounts in the host groups are revoked from the user. For more information about this parameter, see the "Description of the HostGroups parameter" section of this topic.
+   * 
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group and the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the name of the host account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [ {"HostGroupId":"1"}, {"HostGroupId":"2","HostAccountNames":["root","111","abc"]}]
+   */
   hostGroups?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to revoke permissions on the specified host groups and host accounts from the user.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host for which you want to revoke permissions on the specified host groups and host accounts from the user.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user from which you want to revoke permissions on the specified host groups and host accounts.
+   * 
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3568,7 +6257,18 @@ export class DetachHostGroupAccountsFromUserRequest extends $tea.Model {
 }
 
 export class DetachHostGroupAccountsFromUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: DetachHostGroupAccountsFromUserResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -3615,9 +6315,51 @@ export class DetachHostGroupAccountsFromUserResponse extends $tea.Model {
 }
 
 export class DetachHostGroupAccountsFromUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host group and the name of host account on which you want to revoke permissions from the user group. You can specify up to 10 host group IDs and up to 10 host account names for each host group. You can specify only host group IDs. In this case, the permissions on the specified host groups and all host accounts in the host groups are revoked from the user group. For more information about this parameter, see the "Description of the HostGroups parameter" section of this topic.
+   * 
+   * >  You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group and the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the name of the host account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [ {"HostGroupId":"1"}, {"HostGroupId":"2","HostAccountNames":["root","111","abc"]}, {"HostGroupId":"3","HostAccountNames":["root","111","abc"]}, {"HostGroupId":"4","HostAccountNames":["root","111","abc"]}]
+   */
   hostGroups?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to revoke permissions on the specified host groups and host accounts from the user group.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host for which you want to revoke permissions on the specified host groups and host accounts from the user group.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group from which you want to revoke permissions on the specified host groups and host accounts.
+   * 
+   * >  You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3643,7 +6385,18 @@ export class DetachHostGroupAccountsFromUserGroupRequest extends $tea.Model {
 }
 
 export class DetachHostGroupAccountsFromUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: DetachHostGroupAccountsFromUserGroupResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -3690,7 +6443,25 @@ export class DetachHostGroupAccountsFromUserGroupResponse extends $tea.Model {
 }
 
 export class DisableInstancePublicAccessRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host whose Internet access you want to disable.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3712,7 +6483,21 @@ export class DisableInstancePublicAccessRequest extends $tea.Model {
 }
 
 export class DisableInstancePublicAccessResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host whose Internet access is disabled.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 76FAAF15-D3A3-4099-9941-FC408D9FDB4C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3759,8 +6544,39 @@ export class DisableInstancePublicAccessResponse extends $tea.Model {
 }
 
 export class DisableRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the authorization rule to be disabled.
+   * 
+   * >  You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID to be disabled.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3784,6 +6600,13 @@ export class DisableRuleRequest extends $tea.Model {
 }
 
 export class DisableRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 98DBE5C2-7D7A-5393-9E5A-71074336D33B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3828,7 +6651,25 @@ export class DisableRuleResponse extends $tea.Model {
 }
 
 export class EnableInstancePublicAccessRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3850,7 +6691,21 @@ export class EnableInstancePublicAccessRequest extends $tea.Model {
 }
 
 export class EnableInstancePublicAccessResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host whose Internet access is enabled.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * D47B5043-FDD6-4FBE-976E-5FC67A23578F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3897,8 +6752,39 @@ export class EnableInstancePublicAccessResponse extends $tea.Model {
 }
 
 export class EnableRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1ghxxxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the authorization rule that you want to enable.
+   * 
+   * >  You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3922,6 +6808,13 @@ export class EnableRuleRequest extends $tea.Model {
 }
 
 export class EnableRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4F6C075F-FC86-476E-943B-097BD4E12948
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3966,14 +6859,98 @@ export class EnableRuleResponse extends $tea.Model {
 }
 
 export class GenerateAssetOperationTokenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account whose assets the O\\&M token takes effect.
+   * 
+   * >  You must specify at least one of the following parameters: AssetAccountId and AssetAccountName. If you specify both parameters, AssetAccountId takes precedence.
+   * 
+   * @example
+   * 2
+   */
   assetAccountId?: string;
+  /**
+   * @remarks
+   * The name of the host account. If you use a custom account, enter a real account name.
+   * 
+   * >  When both AssetAccountId and AssetAccountName are specified, AssetAccountId takes precedence.
+   * 
+   * @example
+   * root
+   */
   assetAccountName?: string;
+  /**
+   * @remarks
+   * The Base64-encoded password. This parameter is required if you want to apply for an O\\&M token for a custom account.
+   * 
+   * @example
+   * dGVzdHBhc3N3b3Jk
+   */
   assetAccountPassword?: string;
+  /**
+   * @remarks
+   * The name of the protocol. Valid values:
+   * 
+   * *   SSH
+   * *   RDP
+   * *   Oracle
+   * *   PostgreSQL
+   * *   MySQL
+   * *   SQLServer
+   * 
+   * @example
+   * SSH
+   */
   assetAccountProtocolName?: string;
+  /**
+   * @remarks
+   * The ID of the asset for which you want to apply for an O\\&M token.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 11
+   */
   assetId?: string;
+  /**
+   * @remarks
+   * The type of the asset for which you want to apply for an O\\&M token. Valid values:
+   * 
+   * *   **Host**
+   * *   **Database**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Host
+   */
   assetType?: string;
+  databaseSchema?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to apply an O\\&M token.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  loginAttribute?: string;
+  operationMode?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  ssoClient?: string;
   static names(): { [key: string]: string } {
     return {
       assetAccountId: 'AssetAccountId',
@@ -3982,8 +6959,12 @@ export class GenerateAssetOperationTokenRequest extends $tea.Model {
       assetAccountProtocolName: 'AssetAccountProtocolName',
       assetId: 'AssetId',
       assetType: 'AssetType',
+      databaseSchema: 'DatabaseSchema',
       instanceId: 'InstanceId',
+      loginAttribute: 'LoginAttribute',
+      operationMode: 'OperationMode',
       regionId: 'RegionId',
+      ssoClient: 'SsoClient',
     };
   }
 
@@ -3995,8 +6976,12 @@ export class GenerateAssetOperationTokenRequest extends $tea.Model {
       assetAccountProtocolName: 'string',
       assetId: 'string',
       assetType: 'string',
+      databaseSchema: 'string',
       instanceId: 'string',
+      loginAttribute: 'string',
+      operationMode: 'string',
       regionId: 'string',
+      ssoClient: 'string',
     };
   }
 
@@ -4006,7 +6991,18 @@ export class GenerateAssetOperationTokenRequest extends $tea.Model {
 }
 
 export class GenerateAssetOperationTokenResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   assetOperationToken?: GenerateAssetOperationTokenResponseBodyAssetOperationToken;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4053,8 +7049,39 @@ export class GenerateAssetOperationTokenResponse extends $tea.Model {
 }
 
 export class GetDatabaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the database to query.
+   * 
+   * >  You can call the [ListDatabases](https://help.aliyun.com/document_detail/2758822.html) operation to query the database ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 21
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host that manages the database to query.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-wwo36qbv601
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host that manages the database to query.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4078,7 +7105,18 @@ export class GetDatabaseRequest extends $tea.Model {
 }
 
 export class GetDatabaseResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned detailed information about the database.
+   */
   database?: GetDatabaseResponseBodyDatabase;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4D72B883-9D15-5B05-B987-DFD10EB1FFB4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4125,8 +7163,37 @@ export class GetDatabaseResponse extends $tea.Model {
 }
 
 export class GetDatabaseAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the database account to query.
+   * 
+   * >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9
+   */
   databaseAccountId?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-i7m2d7zrw11
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4150,7 +7217,18 @@ export class GetDatabaseAccountRequest extends $tea.Model {
 }
 
 export class GetDatabaseAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned information about the database account.
+   */
   databaseAccount?: GetDatabaseAccountResponseBodyDatabaseAccount;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * FA06D274-8D0A-59FB-8B7E-584C0EEBBFFF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4197,8 +7275,39 @@ export class GetDatabaseAccountResponse extends $tea.Model {
 }
 
 export class GetHostRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host that you want to query. You can specify only one host ID.
+   * 
+   * >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host in which you want to query the host.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host in which you want to query the host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4222,7 +7331,18 @@ export class GetHostRequest extends $tea.Model {
 }
 
 export class GetHostResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned information about the host.
+   */
   host?: GetHostResponseBodyHost;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4269,8 +7389,39 @@ export class GetHostResponse extends $tea.Model {
 }
 
 export class GetHostAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host account that you want to query.
+   * 
+   * > You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the ID of the host account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host in which you want to query the details of the host account.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host in which you want to query the details of the host account.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4294,7 +7445,18 @@ export class GetHostAccountRequest extends $tea.Model {
 }
 
 export class GetHostAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the host account that was queried.
+   */
   hostAccount?: GetHostAccountResponseBodyHostAccount;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4341,8 +7503,39 @@ export class GetHostAccountResponse extends $tea.Model {
 }
 
 export class GetHostGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asset group to query.
+   * 
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the asset group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host whose asset group you want to query.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host whose asset group you want to query.
+   * 
+   * > For more information about the mapping between region IDs and region names, [see Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4366,7 +7559,18 @@ export class GetHostGroupRequest extends $tea.Model {
 }
 
 export class GetHostGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned detailed information about the asset group.
+   */
   hostGroup?: GetHostGroupResponseBodyHostGroup;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4413,8 +7617,39 @@ export class GetHostGroupResponse extends $tea.Model {
 }
 
 export class GetHostShareKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the shared key whose information you want to query.
+   * 
+   * >  You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10427
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4438,7 +7673,18 @@ export class GetHostShareKeyRequest extends $tea.Model {
 }
 
 export class GetHostShareKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned information about the shared key.
+   */
   hostShareKey?: GetHostShareKeyResponseBodyHostShareKey;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4485,7 +7731,27 @@ export class GetHostShareKeyResponse extends $tea.Model {
 }
 
 export class GetInstanceADAuthServerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4507,7 +7773,18 @@ export class GetInstanceADAuthServerRequest extends $tea.Model {
 }
 
 export class GetInstanceADAuthServerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The settings of AD authentication.
+   */
   AD?: GetInstanceADAuthServerResponseBodyAD;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 89398CFB-4EB6-4C7E-BB3C-EF213AC8FA50
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4554,7 +7831,27 @@ export class GetInstanceADAuthServerResponse extends $tea.Model {
 }
 
 export class GetInstanceLDAPAuthServerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4576,7 +7873,18 @@ export class GetInstanceLDAPAuthServerRequest extends $tea.Model {
 }
 
 export class GetInstanceLDAPAuthServerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The settings of LDAP authentication.
+   */
   LDAP?: GetInstanceLDAPAuthServerResponseBodyLDAP;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 1C60E741-102D-5E8F-9710-B06D3F0183FE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4623,7 +7931,27 @@ export class GetInstanceLDAPAuthServerResponse extends $tea.Model {
 }
 
 export class GetInstanceTwoFactorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4645,7 +7973,18 @@ export class GetInstanceTwoFactorRequest extends $tea.Model {
 }
 
 export class GetInstanceTwoFactorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The settings of two-factor authentication.
+   */
   config?: GetInstanceTwoFactorResponseBodyConfig;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4692,8 +8031,37 @@ export class GetInstanceTwoFactorResponse extends $tea.Model {
 }
 
 export class GetNetworkDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * > You can call the [DescribeInstances ](https://help.aliyun.com/document_detail/153281.html)operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-i7m2btk6g48
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the network domain to query.
+   * > You can call the [ListNetworkDomains ](https://help.aliyun.com/document_detail/2758827.html)operation to query the network domain ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4717,7 +8085,18 @@ export class GetNetworkDomainRequest extends $tea.Model {
 }
 
 export class GetNetworkDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The detailed information about the network domain.
+   */
   networkDomain?: GetNetworkDomainResponseBodyNetworkDomain;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 05F59944-2E24-595C-B21A-8C9955E60FAF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4764,8 +8143,39 @@ export class GetNetworkDomainResponse extends $tea.Model {
 }
 
 export class GetPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host to which the control policy to query belongs.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-zvp2d3syb0g
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy that you want to query.
+   * 
+   * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host to which the control policy to query belongs.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4789,7 +8199,18 @@ export class GetPolicyRequest extends $tea.Model {
 }
 
 export class GetPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the control policy.
+   */
   policy?: GetPolicyResponseBodyPolicy;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0D29F2C0-8B4B-5861-9474-F3F23D25594B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4836,8 +8257,39 @@ export class GetPolicyResponse extends $tea.Model {
 }
 
 export class GetPolicyAssetScopeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The control policy ID.
+   * 
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4861,7 +8313,18 @@ export class GetPolicyAssetScopeRequest extends $tea.Model {
 }
 
 export class GetPolicyAssetScopeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The assets to which the control policy applies.
+   */
   assetScope?: GetPolicyAssetScopeResponseBodyAssetScope;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4908,8 +8371,39 @@ export class GetPolicyAssetScopeResponse extends $tea.Model {
 }
 
 export class GetPolicyUserScopeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host to which the control policy to query belongs.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastion-xxxx-xx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy that you want to query.
+   * 
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host to which the control policy to query belongs.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4933,7 +8427,18 @@ export class GetPolicyUserScopeRequest extends $tea.Model {
 }
 
 export class GetPolicyUserScopeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The users to whom the control policy applies.
+   */
   userScope?: GetPolicyUserScopeResponseBodyUserScope;
   static names(): { [key: string]: string } {
     return {
@@ -4980,8 +8485,39 @@ export class GetPolicyUserScopeResponse extends $tea.Model {
 }
 
 export class GetRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-wwo35essw07
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the authorization rule to query.
+   * 
+   * >  You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 18
+   */
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5005,7 +8541,18 @@ export class GetRuleRequest extends $tea.Model {
 }
 
 export class GetRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned information about the authorization rule.
+   */
   rule?: GetRuleResponseBodyRule;
   static names(): { [key: string]: string } {
     return {
@@ -5052,8 +8599,39 @@ export class GetRuleResponse extends $tea.Model {
 }
 
 export class GetUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to query the user.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to query the user.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5077,7 +8655,18 @@ export class GetUserRequest extends $tea.Model {
 }
 
 export class GetUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The detailed information about the queried user.
+   */
   user?: GetUserResponseBodyUser;
   static names(): { [key: string]: string } {
     return {
@@ -5124,8 +8713,39 @@ export class GetUserResponse extends $tea.Model {
 }
 
 export class GetUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host in which you want to query the details of the user group.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host in which you want to query the details of the user group.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group.
+   * 
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5149,7 +8769,18 @@ export class GetUserGroupRequest extends $tea.Model {
 }
 
 export class GetUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the user group returned.
+   */
   userGroup?: GetUserGroupResponseBodyUserGroup;
   static names(): { [key: string]: string } {
     return {
@@ -5196,9 +8827,50 @@ export class GetUserGroupResponse extends $tea.Model {
 }
 
 export class ListApproveCommandsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-zvp2xvysf08
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page. Default value: **1**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Maximum value: 1000. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * >  We recommend that you do not leave this parameter empty.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5224,8 +8896,26 @@ export class ListApproveCommandsRequest extends $tea.Model {
 }
 
 export class ListApproveCommandsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The commands to be reviewed.
+   */
   approveCommands?: ListApproveCommandsResponseBodyApproveCommands[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E3EF7711-766D-5888-997B-EFBA76809229
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of commands to be reviewed.
+   * 
+   * @example
+   * 15
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5274,11 +8964,64 @@ export class ListApproveCommandsResponse extends $tea.Model {
 }
 
 export class ListDatabaseAccountsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database account to query. The name can be up to 128 characters in length. Only exact match is supported.
+   * 
+   * @example
+   * test
+   */
   databaseAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the database whose database accounts you want to query.
+   * 
+   * >  You can call the [ListDatabases](https://help.aliyun.com/document_detail/2758822.html) operation to query the database ID.
+   * 
+   * @example
+   * 3
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the DescribeInstances operation to query the bastion host ID.[](~~153281~~)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-7mz2za0ro06
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5308,8 +9051,26 @@ export class ListDatabaseAccountsRequest extends $tea.Model {
 }
 
 export class ListDatabaseAccountsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned database accounts.
+   */
   databaseAccounts?: ListDatabaseAccountsResponseBodyDatabaseAccounts[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4F6C075F-FC86-476E-943B-097BD4E12948
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of database accounts returned.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5358,12 +9119,76 @@ export class ListDatabaseAccountsResponse extends $tea.Model {
 }
 
 export class ListDatabaseAccountsForUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database account to query. The name can be up to 128 characters in length. Only exact match is supported.
+   * 
+   * @example
+   * test
+   */
   databaseAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the database whose accounts you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 89
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-zz42zoqql01
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user to query. This operation returns whether the user is authorized to manage each database account.
+   * 
+   * > You can call the ListUsers operation to query the ID of the user.[](~~204522~~)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5395,8 +9220,26 @@ export class ListDatabaseAccountsForUserRequest extends $tea.Model {
 }
 
 export class ListDatabaseAccountsForUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The database accounts returned.
+   */
   databaseAccounts?: ListDatabaseAccountsForUserResponseBodyDatabaseAccounts[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 00E3701B-3616-55FE-93EC-E7CF5480B654
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of database accounts that are returned.
+   * 
+   * @example
+   * 3
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5445,12 +9288,78 @@ export class ListDatabaseAccountsForUserResponse extends $tea.Model {
 }
 
 export class ListDatabaseAccountsForUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database account to query. The name can be up to 128 characters in length. Only exact match is supported.
+   * 
+   * @example
+   * test
+   */
   databaseAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the database whose database accounts you want to query.
+   * 
+   * >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 36
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-pe334a03o0h
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group to query. This operation returns whether the user group is authorized to manage each database account.
+   * 
+   * >  You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the user group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5482,8 +9391,26 @@ export class ListDatabaseAccountsForUserGroupRequest extends $tea.Model {
 }
 
 export class ListDatabaseAccountsForUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The database accounts returned.
+   */
   databaseAccounts?: ListDatabaseAccountsForUserGroupResponseBodyDatabaseAccounts[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of database accounts returned.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5532,13 +9459,89 @@ export class ListDatabaseAccountsForUserGroupResponse extends $tea.Model {
 }
 
 export class ListDatabasesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The engine of the database to query. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **Oracle**
+   * *   **PostgreSQL**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
   databaseType?: string;
+  /**
+   * @remarks
+   * The ID of the asset group to query. This operation returns the databases in the asset group.
+   * 
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the asset group.
+   * 
+   * @example
+   * 20
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host to query.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-7mz28f5tk0o
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the network domain where the database to query resides.
+   * 
+   * @example
+   * 2
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * Valid values: 1 to100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host to query.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the database to query. Valid values:
+   * 
+   * * **Local**: on-premises database.
+   * * **Rds**: ApsaraDB for RDS instance.
+   * * **PolarDB**: PolarDB cluster
+   * 
+   * @example
+   * Local
+   */
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5572,8 +9575,26 @@ export class ListDatabasesRequest extends $tea.Model {
 }
 
 export class ListDatabasesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The databases returned.
+   */
   databases?: ListDatabasesResponseBodyDatabases[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of databases returned.
+   * 
+   * @example
+   * 4
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5622,14 +9643,93 @@ export class ListDatabasesResponse extends $tea.Model {
 }
 
 export class ListDatabasesForUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address of the database to query. Only exact match is supported.
+   * 
+   * @example
+   * ``47.101.**.**``
+   */
   databaseAddress?: string;
+  /**
+   * @remarks
+   * The name of the database to query.
+   * 
+   * @example
+   * MySQL-8.0
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The engine of the database to query. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **Oracle**
+   * *   **PostgreSQL**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
   databaseType?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-tl32swayw7o
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the network domain where the database to query resides.
+   * 
+   * @example
+   * 5
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**. Pages start from page 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5665,8 +9765,26 @@ export class ListDatabasesForUserRequest extends $tea.Model {
 }
 
 export class ListDatabasesForUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The databases returned.
+   */
   databases?: ListDatabasesForUserResponseBodyDatabases[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A8A665B9-8550-4942-9DEE-73198051856B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of databases returned.
+   * 
+   * @example
+   * 15
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5715,14 +9833,90 @@ export class ListDatabasesForUserResponse extends $tea.Model {
 }
 
 export class ListDatabasesForUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address of the database to query. Only exact match is supported.
+   * 
+   * @example
+   * ``47.101.**.**``
+   */
   databaseAddress?: string;
+  /**
+   * @remarks
+   * The name of the database to query.
+   * 
+   * @example
+   * test
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The engine of the database to query. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **Oracle**
+   * *   **PostgreSQL**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
   databaseType?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-7mz2ve7h00a
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 2
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5758,8 +9952,26 @@ export class ListDatabasesForUserGroupRequest extends $tea.Model {
 }
 
 export class ListDatabasesForUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The databases returned.
+   */
   databases?: ListDatabasesForUserGroupResponseBodyDatabases[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of databases returned.
+   * 
+   * @example
+   * 15
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5808,12 +10020,80 @@ export class ListDatabasesForUserGroupResponse extends $tea.Model {
 }
 
 export class ListHostAccountsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the host account that you want to query. The name can be up to 128 characters in length. Only exact match is supported.
+   * 
+   * @example
+   * abc
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the specified host whose accounts you want to query.
+   * 
+   * >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host in which you want to query accounts of the specified host.
+   * 
+   * >  You can call the DescribeInstances operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * >  We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The protocol used by the host whose accounts you want to query.
+   * 
+   * Valid values:
+   * 
+   * *   SSH
+   * *   RDP
+   * 
+   * @example
+   * SSH
+   */
   protocolName?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host in which you want to query accounts of the specified host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5845,8 +10125,26 @@ export class ListHostAccountsRequest extends $tea.Model {
 }
 
 export class ListHostAccountsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the queried host accounts.
+   */
   hostAccounts?: ListHostAccountsResponseBodyHostAccounts[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of host accounts that are queried.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5895,10 +10193,55 @@ export class ListHostAccountsResponse extends $tea.Model {
 }
 
 export class ListHostAccountsForHostShareKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The shared key ID.
+   * 
+   * >  You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1124
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5926,8 +10269,26 @@ export class ListHostAccountsForHostShareKeyRequest extends $tea.Model {
 }
 
 export class ListHostAccountsForHostShareKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the host accounts that are associated with the shared key.
+   */
   hostAccounts?: ListHostAccountsForHostShareKeyResponseBodyHostAccounts[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of the host accounts that are associated with the shared key.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5976,12 +10337,78 @@ export class ListHostAccountsForHostShareKeyResponse extends $tea.Model {
 }
 
 export class ListHostAccountsForUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the host account that you want to query. Exact match is supported.
+   * 
+   * @example
+   * root
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the host to query.
+   * 
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to perform the query. The host accounts that the specified user is authorized to manage on the specified host are queried.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.\\
+   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to perform the query. The host accounts that the specified user is authorized to manage on the specified host are queried.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user for which you want to query authorized host accounts.
+   * 
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6013,8 +10440,26 @@ export class ListHostAccountsForUserRequest extends $tea.Model {
 }
 
 export class ListHostAccountsForUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the queried host accounts.
+   */
   hostAccounts?: ListHostAccountsForUserResponseBodyHostAccounts[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of host accounts that were queried.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6063,12 +10508,78 @@ export class ListHostAccountsForUserResponse extends $tea.Model {
 }
 
 export class ListHostAccountsForUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the host account that you want to query. Exact match is supported.
+   * 
+   * @example
+   * root
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the host to query.
+   * 
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to query the host accounts to be managed by the specified user group on the specified host.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.\\
+   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to query the host accounts to be managed by the specified user group on the specified host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group for which you want to query authorized host accounts.
+   * 
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6100,8 +10611,26 @@ export class ListHostAccountsForUserGroupRequest extends $tea.Model {
 }
 
 export class ListHostAccountsForUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the queried host accounts.
+   */
   hostAccounts?: ListHostAccountsForUserGroupResponseBodyHostAccounts[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of host accounts that were queried.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6150,9 +10679,51 @@ export class ListHostAccountsForUserGroupResponse extends $tea.Model {
 }
 
 export class ListHostGroupAccountNamesForUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host group.
+   * 
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host to which the user belongs.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host to which the user belongs.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6178,7 +10749,18 @@ export class ListHostGroupAccountNamesForUserRequest extends $tea.Model {
 }
 
 export class ListHostGroupAccountNamesForUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the names of host accounts.
+   */
   hostAccountNames?: string[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6225,9 +10807,51 @@ export class ListHostGroupAccountNamesForUserResponse extends $tea.Model {
 }
 
 export class ListHostGroupAccountNamesForUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host group.
+   * 
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to query the host account names the user group is authorized to manage in a host group.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to query the host account names the user group is authorized to manage in a host group.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group.
+   * 
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6253,7 +10877,18 @@ export class ListHostGroupAccountNamesForUserGroupRequest extends $tea.Model {
 }
 
 export class ListHostGroupAccountNamesForUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The names of host accounts returned.
+   */
   hostAccountNames?: string[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6300,10 +10935,53 @@ export class ListHostGroupAccountNamesForUserGroupResponse extends $tea.Model {
 }
 
 export class ListHostGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the host group that you want to query. Only exact match is supported.
+   * 
+   * @example
+   * Host group 1
+   */
   hostGroupName?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host to query.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/462953.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * >  We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host in which you want to query the host group.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6331,8 +11009,26 @@ export class ListHostGroupsRequest extends $tea.Model {
 }
 
 export class ListHostGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asset groups returned.
+   */
   hostGroups?: ListHostGroupsResponseBodyHostGroups[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of asset groups returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6381,12 +11077,77 @@ export class ListHostGroupsResponse extends $tea.Model {
 }
 
 export class ListHostGroupsForUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the host group to query. The name can be up to 128 characters in length. Only exact match is supported.
+   * 
+   * @example
+   * group
+   */
   hostGroupName?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host whose user you want to query.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The category of the host groups to query. Valid values:
+   * 
+   * *   **Authorized** (default): queries the host groups that the user is authorized to manage.
+   * *   **Unauthorized**: queries the host groups that the user is not authorized to manage.
+   * 
+   * @example
+   * Authorized
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * １
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * >  We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host whose user you want to query.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * １
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6418,8 +11179,26 @@ export class ListHostGroupsForUserRequest extends $tea.Model {
 }
 
 export class ListHostGroupsForUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The host groups returned.
+   */
   hostGroups?: ListHostGroupsForUserResponseBodyHostGroups[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of host groups returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6468,12 +11247,77 @@ export class ListHostGroupsForUserResponse extends $tea.Model {
 }
 
 export class ListHostGroupsForUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the host group that you want to query. Only exact match is supported.
+   * 
+   * @example
+   * group
+   */
   hostGroupName?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host to which the user group belongs.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Specifies the category of the host group that you want to query. Valid values:
+   * 
+   * *   **Authorized**: queries the host groups that the user group is authorized to manage. This is the default value.
+   * *   **Unauthorized**: queries the host groups that the user group is not authorized to manage.
+   * 
+   * @example
+   * Authorized
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.\\
+   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host to which the user group belongs.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group.
+   * 
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6505,8 +11349,26 @@ export class ListHostGroupsForUserGroupRequest extends $tea.Model {
 }
 
 export class ListHostGroupsForUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The host groups returned.
+   */
   hostGroups?: ListHostGroupsForUserGroupResponseBodyHostGroups[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of host groups returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6555,9 +11417,43 @@ export class ListHostGroupsForUserGroupResponse extends $tea.Model {
 }
 
 export class ListHostShareKeysRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6583,8 +11479,26 @@ export class ListHostShareKeysRequest extends $tea.Model {
 }
 
 export class ListHostShareKeysResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the shared keys.
+   */
   hostShareKeys?: ListHostShareKeysResponseBodyHostShareKeys[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of the shared keys.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6633,16 +11547,113 @@ export class ListHostShareKeysResponse extends $tea.Model {
 }
 
 export class ListHostsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address of the host that you want to query. You can set this parameter to a domain name or an IP address. Only exact match is supported.
+   * 
+   * @example
+   * 1.1.XX.XX
+   */
   hostAddress?: string;
+  /**
+   * @remarks
+   * The ID of the host group to which the host to be queried belongs.
+   * 
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The name of the host that you want to query. Only exact match is supported.
+   * 
+   * @example
+   * host
+   */
   hostName?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to query hosts.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The operating system of the host that you want to query. Valid values:
+   * 
+   * *   **Linux**
+   * *   **Windows**
+   * 
+   * @example
+   * Linux
+   */
   OSType?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **10**.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to query hosts.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The source of the host that you want to query. Valid values:
+   * 
+   * *   **Local**: a host in a data center
+   * *   **Ecs**: an Elastic Compute Service (ECS) instance
+   * *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster that you want to query. Only exact match is supported.
+   * 
+   * @example
+   * i-bp19ienyt0yax748****
+   */
   sourceInstanceId?: string;
+  /**
+   * @remarks
+   * The status of the host that you want to query. Valid values:
+   * 
+   * *   **Normal**: normal
+   * *   **Release**: released
+   * 
+   * @example
+   * Normal
+   */
   sourceInstanceState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6682,8 +11693,26 @@ export class ListHostsRequest extends $tea.Model {
 }
 
 export class ListHostsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the hosts returned.
+   */
   hosts?: ListHostsResponseBodyHosts[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of hosts returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6732,14 +11761,96 @@ export class ListHostsResponse extends $tea.Model {
 }
 
 export class ListHostsForUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The endpoint of the host that you want to query. You can set this parameter to a domain name or an IP address. Only exact match is supported.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   hostAddress?: string;
+  /**
+   * @remarks
+   * The name of the host that you want to query. Only exact match is supported.
+   * 
+   * @example
+   * abc
+   */
   hostName?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to query the hosts that the user is authorized or not authorized to manage.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Specifies the category of the hosts that you want to query. Valid values:
+   * 
+   * *   **Authorized**: queries the hosts that the user is authorized to manage. This is the default value.
+   * *   **Unauthorized**: queries the hosts that the user is not authorized to manage.
+   * 
+   * @example
+   * Authorized
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The operating system of the host that you want to query. Valid values:
+   * 
+   * *   **Linux**
+   * *   **Windows**
+   * 
+   * @example
+   * Linux
+   */
   OSType?: string;
+  /**
+   * @remarks
+   * The number of the page. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to query the hosts that the user is authorized or not authorized to manage.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6775,8 +11886,26 @@ export class ListHostsForUserRequest extends $tea.Model {
 }
 
 export class ListHostsForUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The hosts returned.
+   */
   hosts?: ListHostsForUserResponseBodyHosts[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of hosts returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6825,14 +11954,96 @@ export class ListHostsForUserResponse extends $tea.Model {
 }
 
 export class ListHostsForUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The endpoint of the host that you want to query. You can set this parameter to a domain name or an IP address. Only exact match is supported.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   hostAddress?: string;
+  /**
+   * @remarks
+   * The name of the host that you want to query. Only exact match is supported.
+   * 
+   * @example
+   * abc
+   */
   hostName?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to query the hosts that the user group is authorized or not authorized to manage.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Specifies the category of the hosts that you want to query. Valid values:
+   * 
+   * *   **Authorized**: queries the hosts that the user group is authorized to manage. This is the default value.
+   * *   **Unauthorized**: queries the hosts that the user group is not authorized to manage.
+   * 
+   * @example
+   * Authorized
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The operating system of the host that you want to query. Valid values:
+   * 
+   * *   **Linux**
+   * *   **Windows**
+   * 
+   * @example
+   * Linux
+   */
   OSType?: string;
+  /**
+   * @remarks
+   * The number of the page. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to query the hosts that the user group is authorized or not authorized to manage.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group for which you want to query hosts.
+   * 
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6868,8 +12079,26 @@ export class ListHostsForUserGroupRequest extends $tea.Model {
 }
 
 export class ListHostsForUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The hosts returned.
+   */
   hosts?: ListHostsForUserGroupResponseBodyHosts[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of hosts returned.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6918,11 +12147,62 @@ export class ListHostsForUserGroupResponse extends $tea.Model {
 }
 
 export class ListNetworkDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-tl329pvu70x
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the network domain.
+   */
   networkDomainName?: string;
+  /**
+   * @remarks
+   * The connection mode of the network domain. Valid values:
+   * 
+   * *   **Direct**
+   * *   **Proxy**
+   * 
+   * @example
+   * Proxy
+   */
   networkDomainType?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6952,8 +12232,26 @@ export class ListNetworkDomainsRequest extends $tea.Model {
 }
 
 export class ListNetworkDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The network domains that are returned.
+   */
   networkDomains?: ListNetworkDomainsResponseBodyNetworkDomains[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of network domains that are returned.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7002,11 +12300,66 @@ export class ListNetworkDomainsResponse extends $tea.Model {
 }
 
 export class ListOperationDatabaseAccountsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database account. Exact match is supported.
+   * 
+   * @example
+   * test
+   */
   databaseAccountName?: string;
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * >  You can call the [ListOperationDatabases](https://help.aliyun.com/document_detail/2758856.html) operation to query the database ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 56
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-2r42t9cvf0i
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * >  We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7036,8 +12389,26 @@ export class ListOperationDatabaseAccountsRequest extends $tea.Model {
 }
 
 export class ListOperationDatabaseAccountsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The database accounts returned.
+   */
   databaseAccounts?: ListOperationDatabaseAccountsResponseBodyDatabaseAccounts[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7086,15 +12457,106 @@ export class ListOperationDatabaseAccountsResponse extends $tea.Model {
 }
 
 export class ListOperationDatabasesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address of the database.
+   * 
+   * @example
+   * 10.167.66.167
+   */
   databaseAddress?: string;
+  /**
+   * @remarks
+   * The name of the database instance. The system supports exact search.
+   * 
+   * @example
+   * aaa
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The type of the database. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **SQLServer**
+   * *   **Oracle**
+   * *   **PostgreSQL**
+   * 
+   * @example
+   * MySQL
+   */
   databaseType?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-tl32wloo90y
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * >  We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The source of the database instance. Valid values:
+   * 
+   * *   **Local**
+   * *   **Rds**
+   * *   **PolarDB**
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraDB RDS instance. The system supports exact search.
+   * 
+   * @example
+   * i-bp19ienyt0yax748****
+   */
   sourceInstanceId?: string;
+  /**
+   * @remarks
+   * The instance state.
+   * 
+   * *   **Normal**
+   * *   **RemoteRelease**
+   * 
+   * @example
+   * Normal
+   */
   sourceInstanceState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7132,8 +12594,26 @@ export class ListOperationDatabasesRequest extends $tea.Model {
 }
 
 export class ListOperationDatabasesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The databases returned.
+   */
   databases?: ListOperationDatabasesResponseBodyDatabases[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 15
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7182,11 +12662,66 @@ export class ListOperationDatabasesResponse extends $tea.Model {
 }
 
 export class ListOperationHostAccountsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the host account to query. Only exact match is supported.
+   * 
+   * @example
+   * root
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the host whose accounts you want to query.
+   * 
+   * >  You can call the [ListOperationHosts](https://help.aliyun.com/document_detail/2758857.html) operation to query the host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * >  We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7216,8 +12751,26 @@ export class ListOperationHostAccountsRequest extends $tea.Model {
 }
 
 export class ListOperationHostAccountsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The host accounts returned.
+   */
   hostAccounts?: ListOperationHostAccountsResponseBodyHostAccounts[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of host accounts returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7266,15 +12819,103 @@ export class ListOperationHostAccountsResponse extends $tea.Model {
 }
 
 export class ListOperationHostsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address of the host that you want to query. You can set this parameter to a domain name or an IP address. Only exact match is supported.
+   * 
+   * @example
+   * 10.162.172.132
+   */
   hostAddress?: string;
+  /**
+   * @remarks
+   * The name of the host that you want to query. Only exact match is supported.
+   * 
+   * @example
+   * abc
+   */
   hostName?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-09k22avmw0q
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The operating system of the host that you want to query. Valid values:
+   * 
+   * *   **Linux**
+   * *   **Windows**
+   * 
+   * @example
+   * Linux
+   */
   OSType?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * >  We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The source of the host that you want to query. Valid values:
+   * 
+   * *   **Local**
+   * *   **Ecs**
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The ID of the Elastic Compute Service (ECS) instance. Exact match is supported.
+   * 
+   * @example
+   * i-bp19ienyt0yax748****
+   */
   sourceInstanceId?: string;
+  /**
+   * @remarks
+   * The status of the host that you want to query. Valid values:
+   * 
+   * *   **Normal**
+   * *   **Release**
+   * 
+   * @example
+   * Normal
+   */
   sourceInstanceState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7312,8 +12953,26 @@ export class ListOperationHostsRequest extends $tea.Model {
 }
 
 export class ListOperationHostsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The hosts returned.
+   */
   hosts?: ListOperationHostsResponseBodyHosts[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4F6C075F-FC86-476E-943B-097BD4E12948
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of hosts returned.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7362,10 +13021,54 @@ export class ListOperationHostsResponse extends $tea.Model {
 }
 
 export class ListOperationTicketsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address of the asset that is contained in the O\\&M application to be reviewed.
+   * 
+   * @example
+   * 10.167.XX.XX
+   */
   assetAddress?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Maximum value: 1000. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * >  We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7393,8 +13096,26 @@ export class ListOperationTicketsRequest extends $tea.Model {
 }
 
 export class ListOperationTicketsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The O\\&M applications to be reviewed.
+   */
   operationTickets?: ListOperationTicketsResponseBodyOperationTickets[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of O\\&M applications to be reviewed.
+   * 
+   * @example
+   * 20
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7443,10 +13164,54 @@ export class ListOperationTicketsResponse extends $tea.Model {
 }
 
 export class ListPoliciesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-5yd393wzk08
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The name of the control policy to query. Only exact match is supported.
+   * 
+   * @example
+   * 123
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7474,8 +13239,26 @@ export class ListPoliciesRequest extends $tea.Model {
 }
 
 export class ListPoliciesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The control policies.
+   */
   policies?: ListPoliciesResponseBodyPolicies[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of control policies that are returned.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7524,11 +13307,65 @@ export class ListPoliciesResponse extends $tea.Model {
 }
 
 export class ListRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-5yd34ol020a
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the authorization rule to query. Only exact match is supported.
+   * 
+   * @example
+   * rule
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The state of the authorization rule to query.
+   * 
+   * *   **Enabled**
+   * *   **Disabled**
+   * 
+   * @example
+   * Enabled
+   */
   ruleState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7558,8 +13395,26 @@ export class ListRulesRequest extends $tea.Model {
 }
 
 export class ListRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The authorization rules that are returned.
+   */
   rules?: ListRulesResponseBodyRules[];
+  /**
+   * @remarks
+   * The total number of authorization rules that are returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7608,9 +13463,43 @@ export class ListRulesResponse extends $tea.Model {
 }
 
 export class ListTagKeysRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * Set the value to INSTANCE, which indicates that the resource is a bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7636,10 +13525,42 @@ export class ListTagKeysRequest extends $tea.Model {
 }
 
 export class ListTagKeysResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 50177258-E817-4D2F-A5C6-3FD7BC4806E3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * An array that consists of tags.
+   */
   tagKeys?: ListTagKeysResponseBodyTagKeys[];
+  /**
+   * @remarks
+   * The total number of tags returned.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7692,10 +13613,48 @@ export class ListTagKeysResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The token for starting the next query.
+   * 
+   * @example
+   * 6EwFJmScBXFFC3nf.9Rq7HzA7APx7GWLbkZbjHrR6Pq39w
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID of the Bastionhost instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The IDs of instances.
+   * 
+   * @example
+   * bastionhost-cn-78v1gcxxxxx
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * Set the value to INSTANCE, which indicates that the resource is a Bastionhost instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -7723,8 +13682,28 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The token for starting the next query.
+   * 
+   * @example
+   * 4ieSWJCwxvW3dk3wF.BqkrZmP72nWu5zJ5NWydMqyEs****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 134D6018-EB68-4B7C-BABF-4DB09023E014
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about Bastionhost instances and the tags bound to Bastionhost instances.
+   * 
+   * The following information is included: instance ID, resource type, tag key, and tag value.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {
     return {
@@ -7773,10 +13752,50 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ListUserGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to query user groups.
+   *  >You can call the [DescribeInstances ](https://help.aliyun.com/document_detail/462953.html)operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to query user groups.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/462924.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the user group that you want to query. Only exact match is supported.
+   * 
+   * @example
+   * TestGroup01
+   */
   userGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7804,8 +13823,26 @@ export class ListUserGroupsRequest extends $tea.Model {
 }
 
 export class ListUserGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of user groups returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The user groups returned.
+   */
   userGroups?: ListUserGroupsResponseBodyUserGroups[];
   static names(): { [key: string]: string } {
     return {
@@ -7854,10 +13891,54 @@ export class ListUserGroupsResponse extends $tea.Model {
 }
 
 export class ListUserPublicKeysRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to query all public keys of the user.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.\\
+   * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * > We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 50
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to query all public keys of the user.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user whose public keys you want to query.
+   * 
+   * @example
+   * 2
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7885,8 +13966,26 @@ export class ListUserPublicKeysRequest extends $tea.Model {
 }
 
 export class ListUserPublicKeysResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the public keys of the user.
+   */
   publicKeys?: ListUserPublicKeysResponseBodyPublicKeys[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of public keys.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7935,16 +14034,115 @@ export class ListUserPublicKeysResponse extends $tea.Model {
 }
 
 export class ListUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The display name of the user that you want to query. Only exact match is supported.
+   * 
+   * @example
+   * abc
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host whose users you want to query.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the user that you want to query. Only exact match is supported.
+   * 
+   * @example
+   * 1359999****
+   */
   mobile?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.\\
+   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * 
+   * >  We recommend that you do not leave this parameter empty.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host whose users you want to query.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the user that you want to query. Valid values:
+   * 
+   * *   **Local**: a local user.
+   * *   **Ram**: a Resource Access Management (RAM) user.
+   * *   **AD**: an Active Directory (AD)-authenticated user.
+   * *   **LDAP**: a Lightweight Directory Access Protocol (LDAP)-authenticated user.
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The unique ID of the user that you want to query. Only exact match is supported.
+   * 
+   * >  This parameter uniquely identifies a RAM user of the bastion host. This parameter is valid if **Source** is set to **Ram**. You can call the [ListUsers](https://help.aliyun.com/document_detail/28684.html) operation in RAM to obtain the unique ID of the user from the **UserId** response parameter.
+   * 
+   * @example
+   * 122748924538****
+   */
   sourceUserId?: string;
+  /**
+   * @remarks
+   * The ID of the user group to which the user you want to query belongs.
+   * 
+   * >  You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the user group ID.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
+  /**
+   * @remarks
+   * The logon name of the user that you want to query. Only exact match is supported.
+   * 
+   * @example
+   * abc
+   */
   userName?: string;
+  /**
+   * @remarks
+   * The state of the user that you want to query. Valid values:
+   * 
+   * *   **Normal**: The user is in normal state.
+   * *   **Frozen**: The user is locked.
+   * *   **Expired**: The user has expired.
+   * 
+   * @example
+   * Normal
+   */
   userState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7984,8 +14182,26 @@ export class ListUsersRequest extends $tea.Model {
 }
 
 export class ListUsersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of users returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The users returned.
+   */
   users?: ListUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {
     return {
@@ -8034,8 +14250,39 @@ export class ListUsersResponse extends $tea.Model {
 }
 
 export class LockUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host to which the users to be locked belong.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host to which the users to be locked belong.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user to be locked. The value is a JSON string. You can add up to 100 user IDs. If you specify multiple IDs, separate the IDs with commas (,).
+   * 
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["1","2","3"]
+   */
   userIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8059,7 +14306,18 @@ export class LockUsersRequest extends $tea.Model {
 }
 
 export class LockUsersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: LockUsersResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -8106,16 +14364,108 @@ export class LockUsersResponse extends $tea.Model {
 }
 
 export class ModifyDatabaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new address type of the database. Valid values:
+   * 
+   * *   **Public**
+   * *   **Private**
+   * 
+   * @example
+   * Public
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The new remarks of the database.
+   * 
+   * @example
+   * tttttttt
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the database to modify.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 11
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The new name of the database.
+   * 
+   * @example
+   * pgsql
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The new port of the database.
+   * 
+   * @example
+   * 5433
+   */
   databasePort?: string;
+  /**
+   * @remarks
+   * The new internal address of the database. Specify an IPv4 address or a domain name.
+   * 
+   * @example
+   * pc-bp169******
+   */
   databasePrivateAddress?: string;
+  /**
+   * @remarks
+   * The new public address of the database. Specify an IPv4 address or a domain name.
+   * 
+   * @example
+   * pgm-uf6c******
+   */
   databasePublicAddress?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host that manages the database to modify.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-72137xe5n01
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the new network domain for the database.
+   * 
+   * >  You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+   * 
+   * @example
+   * 2
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host that manages the database to modify.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraDB for RDS instance or PolarDB cluster to modify.
+   * 
+   * > This parameter is required if **Source** is set to **Rds** or **PolarDB**.
+   * 
+   * @example
+   * i-wz99nexqd62z3bvuvpz5
+   */
   sourceInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8155,6 +14505,13 @@ export class ModifyDatabaseRequest extends $tea.Model {
 }
 
 export class ModifyDatabaseResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 162088A7-7D47-56A3-9D04-93DE7B6DBE1C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8199,11 +14556,63 @@ export class ModifyDatabaseResponse extends $tea.Model {
 }
 
 export class ModifyDatabaseAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the database account to modify.
+   * 
+   * >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   databaseAccountId?: string;
+  /**
+   * @remarks
+   * The new username of the database account. The username can be up to 128 characters in length.
+   * 
+   * @example
+   * aaa
+   */
   databaseAccountName?: string;
+  /**
+   * @remarks
+   * The new name of the database. This parameter is required if the database engine is PostgreSQL or Oracle.
+   * 
+   * @example
+   * orcl
+   */
   databaseSchema?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host that manages the database account to modify.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-zpr2zyqx603
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The new password of the database account.
+   * 
+   * @example
+   * 14SZ!******
+   */
   password?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host that manages the database account to modify.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8233,6 +14642,13 @@ export class ModifyDatabaseAccountRequest extends $tea.Model {
 }
 
 export class ModifyDatabaseAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 850FA4B4-5BD2-5269-903E-3B7E07E6C975
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8277,14 +14693,92 @@ export class ModifyDatabaseAccountResponse extends $tea.Model {
 }
 
 export class ModifyHostRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new description of the host. The description can be up to 500 characters in length.
+   * 
+   * @example
+   * Host for test.
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The new name of the host. The name can be up to 128 characters.
+   * 
+   * @example
+   * TestHost
+   */
   hostName?: string;
+  /**
+   * @remarks
+   * The new internal endpoint of the host. You can set this parameter to a domain name or an IP address.
+   * 
+   * @example
+   * 193.168.XX.XX
+   */
   hostPrivateAddress?: string;
+  /**
+   * @remarks
+   * The new public endpoint of the host. You can set this parameter to a domain name or an IP address.
+   * 
+   * @example
+   * 200.1.XX.XX
+   */
   hostPublicAddress?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to modify the information about the host.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the new network domain to which the host belongs.
+   * 
+   * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+   * 
+   * @example
+   * 1
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The new operating system of the host. Valid values:
+   * 
+   * *   **Linux**
+   * *   **Windows**
+   * 
+   * @example
+   * Linux
+   */
   OSType?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to modify the information about the host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8320,6 +14814,13 @@ export class ModifyHostRequest extends $tea.Model {
 }
 
 export class ModifyHostResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8364,13 +14865,85 @@ export class ModifyHostResponse extends $tea.Model {
 }
 
 export class ModifyHostAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host account whose information you want to modify.
+   * 
+   * > You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the ID of the host account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * The new name of the host account. The name can be up to 128 characters in length.
+   * 
+   * @example
+   * abc
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the shared key that is associated with the host.
+   * 
+   * >  You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+   * 
+   * @example
+   * 1
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host in which you want to modify the information about the host account.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The passphrase for the new private key of the host account.
+   * 
+   * >  This parameter is valid only if the protocol used by the host is SSH. You do not need to configure this parameter if the protocol used by the host is Remote Desktop Protocol (RDP).
+   * 
+   * @example
+   * ****
+   */
   passPhrase?: string;
+  /**
+   * @remarks
+   * The new password of the host account.
+   * 
+   * @example
+   * ****
+   */
   password?: string;
+  /**
+   * @remarks
+   * The new private key of the host account. Specify a Base64-encoded string.
+   * 
+   * >  This parameter takes effect only if the protocol used by the host is SSH. You do not need to configure this parameter if the protocol used by the host is Remote Desktop Protocol (RDP). You can call the [GetHostAccount](https://help.aliyun.com/document_detail/204391.html) operation to query the protocol used by the host. You can configure a password and a private key for the host account at the same time. If both a password and a private key are configured for the host account, Bastionhost preferentially uses the private key for logon.
+   * 
+   * @example
+   * ****
+   */
   privateKey?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host in which you want to query the details of the host account.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8404,6 +14977,13 @@ export class ModifyHostAccountRequest extends $tea.Model {
 }
 
 export class ModifyHostAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8448,10 +15028,55 @@ export class ModifyHostAccountResponse extends $tea.Model {
 }
 
 export class ModifyHostGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new remarks of the asset group. The remarks can be up to 500 characters in length.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the asset group that you want to modify.
+   * 
+   * >  You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The new name of the asset group. The name can be up to 128 characters in length.
+   * 
+   * @example
+   * Group01
+   */
   hostGroupName?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host whose asset group you want to modify.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host whose asset group you want to modify.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8479,6 +15104,13 @@ export class ModifyHostGroupRequest extends $tea.Model {
 }
 
 export class ModifyHostGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8523,11 +15155,63 @@ export class ModifyHostGroupResponse extends $tea.Model {
 }
 
 export class ModifyHostShareKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the shared key whose information you want to modify.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10247
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The name of the shared key.
+   * 
+   * @example
+   * name
+   */
   hostShareKeyName?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The password of the private key. Specify a Base64-encoded string.
+   * 
+   * @example
+   * ****
+   */
   passPhrase?: string;
+  /**
+   * @remarks
+   * The private key. Specify a Base64-encoded string.
+   * 
+   * >  Only Rivest-Shamir-Adleman (RSA) keys that are generated by using the ssh-keygen command and keys that are generated by using the Ed25519 algorithm are supported.
+   * 
+   * @example
+   * ****
+   */
   privateKey?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8557,6 +15241,13 @@ export class ModifyHostShareKeyRequest extends $tea.Model {
 }
 
 export class ModifyHostShareKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8601,9 +15292,52 @@ export class ModifyHostShareKeyResponse extends $tea.Model {
 }
 
 export class ModifyHostsActiveAddressTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new portal type of the host. Valid values:
+   * 
+   * *   **Public**: public portal
+   * *   **Private**: internal portal
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Private
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The ID of the host for which you want to change the portal type. The value is a JSON string. You can add up to 100 host IDs.
+   * 
+   * >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["1","2"]
+   */
   hostIds?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to change the portal type of the host.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host for which you want to change the portal type of the host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8629,7 +15363,18 @@ export class ModifyHostsActiveAddressTypeRequest extends $tea.Model {
 }
 
 export class ModifyHostsActiveAddressTypeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: ModifyHostsActiveAddressTypeResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -8676,10 +15421,62 @@ export class ModifyHostsActiveAddressTypeResponse extends $tea.Model {
 }
 
 export class ModifyHostsPortRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host for which you want to change the port. The value is a JSON string. You can add up to 100 host IDs. If you specify multiple IDs, separate the IDs with commas (,).
+   * 
+   * >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the IDs of hosts.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["1","2","3"]
+   */
   hostIds?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to change the port of the host.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The new port of the host. The port number must be an integer. Valid values: 22 to 65535.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 22
+   */
   port?: string;
+  /**
+   * @remarks
+   * The protocol that is used to connect to the host. Valid values:
+   * 
+   * *   **SSH**
+   * *   **RDP**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SSH
+   */
   protocolName?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host for which you want to change the port of the host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8707,7 +15504,18 @@ export class ModifyHostsPortRequest extends $tea.Model {
 }
 
 export class ModifyHostsPortResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: ModifyHostsPortResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -8754,19 +15562,138 @@ export class ModifyHostsPortResponse extends $tea.Model {
 }
 
 export class ModifyInstanceADAuthServerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The username of the account that is used for the AD server.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn=Manager,dc=test,dc=com
+   */
   account?: string;
+  /**
+   * @remarks
+   * The Base distinguished name (DN).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dc=test,dc=com
+   */
   baseDN?: string;
+  /**
+   * @remarks
+   * The domain on the AD server.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * domain
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The field that is used to indicate the email address of a user on the AD server.
+   * 
+   * @example
+   * emailAttr
+   */
   emailMapping?: string;
+  /**
+   * @remarks
+   * The condition that is used to filter users.
+   * 
+   * @example
+   * (objectClass=top)
+   */
   filter?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Specifies whether SSL is supported. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   isSSL?: string;
+  /**
+   * @remarks
+   * The field that is used to indicate the mobile phone number of a user on the AD server.
+   * 
+   * @example
+   * mobileAttr
+   */
   mobileMapping?: string;
+  /**
+   * @remarks
+   * The field that is used to indicate the name of a user on the AD server.
+   * 
+   * @example
+   * nameAttr
+   */
   nameMapping?: string;
+  /**
+   * @remarks
+   * The password of the account that is used for the AD server.
+   * 
+   * @example
+   * ******
+   */
   password?: string;
+  /**
+   * @remarks
+   * The port that is used to access the server.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 389
+   */
   port?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The address of the AD server.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   server?: string;
+  /**
+   * @remarks
+   * The address of the secondary AD server.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   standbyServer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8812,6 +15739,13 @@ export class ModifyInstanceADAuthServerRequest extends $tea.Model {
 }
 
 export class ModifyInstanceADAuthServerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * C9E97677-BD74-584B-AFCE-948C2A70BB82
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8856,8 +15790,37 @@ export class ModifyInstanceADAuthServerResponse extends $tea.Model {
 }
 
 export class ModifyInstanceAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the bastion host.
+   * 
+   * > The description must be up to 30 characters in length, and can contain letters, digits, underscores (_), and hyphens (-).
+   * 
+   * @example
+   * Bastionhost demo
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8881,6 +15844,13 @@ export class ModifyInstanceAttributeRequest extends $tea.Model {
 }
 
 export class ModifyInstanceAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * E07158EA-D1A3-4BAA-84DA-2FE230D03884
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8925,19 +15895,134 @@ export class ModifyInstanceAttributeResponse extends $tea.Model {
 }
 
 export class ModifyInstanceLDAPAuthServerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The username of the account that is used for the LDAP server.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn=Manager,dc=test,dc=com
+   */
   account?: string;
+  /**
+   * @remarks
+   * The Base distinguished name (DN).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dc=test,dc=com
+   */
   baseDN?: string;
+  /**
+   * @remarks
+   * The field that is used to indicate the email address of a user on the LDAP server.
+   * 
+   * @example
+   * emailAttr
+   */
   emailMapping?: string;
+  /**
+   * @remarks
+   * The condition that is used to filter users.
+   * 
+   * @example
+   * (objectClass=top)
+   */
   filter?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Specifies whether to support SSL. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isSSL?: string;
+  /**
+   * @remarks
+   * The field that is used to indicate the logon name of a user on the LDAP server.
+   * 
+   * @example
+   * userNameAttr
+   */
   loginNameMapping?: string;
+  /**
+   * @remarks
+   * The field that is used to indicate the mobile phone number of a user on the LDAP server.
+   * 
+   * @example
+   * mobileAttr
+   */
   mobileMapping?: string;
+  /**
+   * @remarks
+   * The field that is used to indicate the name of a user on the LDAP server.
+   * 
+   * @example
+   * nameAttr
+   */
   nameMapping?: string;
+  /**
+   * @remarks
+   * The password of the account that is used for the LDAP server. You must configure a password when you configure LDAP authentication. If you leave this parameter empty when you modify the settings of LDAP authentication, the current password is used.
+   * 
+   * @example
+   * ******
+   */
   password?: string;
+  /**
+   * @remarks
+   * The port that is used to access the LDAP server.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 389
+   */
   port?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The address of the LDAP server.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   server?: string;
+  /**
+   * @remarks
+   * The address of the secondary LDAP server.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   standbyServer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8983,6 +16068,13 @@ export class ModifyInstanceLDAPAuthServerRequest extends $tea.Model {
 }
 
 export class ModifyInstanceLDAPAuthServerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 8F1085E3-F048-5F34-B650-F145216E4AA4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9027,10 +16119,60 @@ export class ModifyInstanceLDAPAuthServerResponse extends $tea.Model {
 }
 
 export class ModifyInstanceTwoFactorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable two-factor authentication. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   enableTwoFactor?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The duration within which two-factor authentication is not required after a user passes two-factor authentication. Valid values: 0 to 168. Unit: hours. If you set this parameter to 0, the user must pass two-factor authentication every time the user logs on to the bastion host.
+   * 
+   * @example
+   * 1
+   */
   skipTwoFactorTime?: string;
+  /**
+   * @remarks
+   * The method used to send a verification code for two-factor authentication. If EnableTwoFactor is set to true, you must specify at least one method. Valid values:
+   * 
+   * *   **sms:** text message.
+   * *   **email**: email.
+   * *   **dingtalk**: notice in DingTalk.
+   * *   **totp**: one-time password (OTP) token.
+   * *   **gmusbkey**: SM-based USB key.
+   * 
+   * @example
+   * ["sms"]
+   */
   twoFactorMethods?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9058,6 +16200,13 @@ export class ModifyInstanceTwoFactorRequest extends $tea.Model {
 }
 
 export class ModifyInstanceTwoFactorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 9CE1A352-15E9-5EB4-B589-87A8DEECB20D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9102,12 +16251,69 @@ export class ModifyInstanceTwoFactorResponse extends $tea.Model {
 }
 
 export class ModifyNetworkDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new remarks of the network domain.
+   * 
+   * @example
+   * xxx
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host to which the network domain to modify belongs.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-x0r3hyr3f09
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the network domain to modify.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The new name of the network domain.
+   * 
+   * @example
+   * test
+   */
   networkDomainName?: string;
+  /**
+   * @remarks
+   * The new connection mode of the network domain. Valid values:
+   * 
+   * *   **Direct**
+   * *   **Proxy**
+   * 
+   * @example
+   * Proxy
+   */
   networkDomainType?: string;
+  /**
+   * @remarks
+   * The information about the proxy servers in the network domain.
+   */
   proxies?: ModifyNetworkDomainRequestProxies[];
+  /**
+   * @remarks
+   * The region ID of the bastion host to which the network domain to modify belongs.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9139,6 +16345,13 @@ export class ModifyNetworkDomainRequest extends $tea.Model {
 }
 
 export class ModifyNetworkDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * ED49CD1E-3510-5E5C-9133-E2067B656501
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9183,11 +16396,58 @@ export class ModifyNetworkDomainResponse extends $tea.Model {
 }
 
 export class ModifyPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new remarks of the control policy.
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host to which the control policy to modify belongs.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-09k1u8mv501
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy that you want to modify.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The new name of the control policy.
+   * 
+   * @example
+   * test
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The priority of the modified control policy. Valid values: 1 to 100. The smaller the value, the higher the priority. Default value: 1.
+   * 
+   * @example
+   * 3
+   */
   priority?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host to which the control policy to modify belongs.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9217,6 +16477,13 @@ export class ModifyPolicyRequest extends $tea.Model {
 }
 
 export class ModifyPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A34F9731-A4EA-5D1D-8445-BAEF782BFFE6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9261,17 +16528,91 @@ export class ModifyPolicyResponse extends $tea.Model {
 }
 
 export class ModifyRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new remarks of the authorization rule. It can be up to 500 characters in length.
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The databases and database accounts that a user associated with the modified rule can manage.
+   */
   databases?: ModifyRuleRequestDatabases[];
+  /**
+   * @remarks
+   * The end time of the new validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1672502400
+   */
   effectiveEndTime?: number;
+  /**
+   * @remarks
+   * The start time of the new validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1669630029
+   */
   effectiveStartTime?: number;
+  /**
+   * @remarks
+   * The asset groups and asset accounts that a user associated with the modified rule can manage.
+   */
   hostGroups?: ModifyRuleRequestHostGroups[];
+  /**
+   * @remarks
+   * An array that consists of the host IDs and host account IDs with which the modified authorization rule is associated.
+   */
   hosts?: ModifyRuleRequestHosts[];
+  /**
+   * @remarks
+   * The ID of the bastion host whose authorization rule you want to modify.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-zmb2y9ydw08
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host to which the authorization rule to modify belongs.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the authorization rule to modify.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 68
+   */
   ruleId?: string;
+  /**
+   * @remarks
+   * The new name of the authorization rule. The name must be 1 to 128 characters in length and can contain periods (.), underscores (_), hyphens (-), single quotation marks (\\"), and spaces. It cannot start with a special character.
+   * 
+   * @example
+   * test
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The IDs of the user groups with which the modified authorization rule is associated.
+   */
   userGroupIds?: string[];
+  /**
+   * @remarks
+   * The IDs of the users with whom the modified authorization rule is associated.
+   */
   userIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -9313,6 +16654,13 @@ export class ModifyRuleRequest extends $tea.Model {
 }
 
 export class ModifyRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 67EB57AD-5C83-537B-B2A1-6082798965F0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9357,21 +16705,216 @@ export class ModifyRuleResponse extends $tea.Model {
 }
 
 export class ModifyUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new remarks of the user. The remarks can be up to 500 characters in length.
+   * 
+   * >  Leave this parameter empty if you do not want to change the remarks of the user.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The new display name of the user. The display name can be up to 128 characters in length.
+   * 
+   * >  Leave this parameter empty if you do not want to change the display name of the user.
+   * 
+   * @example
+   * Bob
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The end time of the validity period of the user. Specify a UNIX timestamp. Unit: seconds.
+   * 
+   * >  Leave this parameter empty if you do not want to change the end time of the validity period.
+   * 
+   * @example
+   * 1672502400
+   */
   effectiveEndTime?: number;
+  /**
+   * @remarks
+   * The start time of the validity period of the user. Specify a UNIX timestamp. Unit: seconds.
+   * 
+   * >  Leave this parameter empty if you do not want to change the start time of the validity period.
+   * 
+   * @example
+   * 1669630029
+   */
   effectiveStartTime?: number;
+  /**
+   * @remarks
+   * The new email address of the user.
+   * 
+   * > 
+   * 
+   * *   This parameter is required if TwoFactorStatus is set to Enable and TwoFactorMethods is set to email, or if TwoFactorStatus is set to Global and TwoFactorMethods is set to email in the global two-factor authentication settings.
+   * 
+   * *   You can call the [GetInstanceTwoFactor](https://help.aliyun.com/document_detail/462968.html) operation to query the global two-factor authentication settings.
+   * 
+   * *   Leave this parameter empty if you do not want to change the email address of the user.
+   * 
+   * @example
+   * username@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to modify the information about the user.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required if LanguageStatus is set to Custom.
+   * 
+   * - **zh-cn**: simplified Chinese
+   * - **en**: English
+   * 
+   * @example
+   * en
+   */
   language?: string;
+  /**
+   * @remarks
+   * Specifies whether to send notifications in the language specified in the global settings or a custom language.
+   * 
+   * *   **Global**
+   * *   **Custom**
+   * 
+   * >  Leave this parameter empty if you do not want to change the natural language used to notify the user.
+   * 
+   * @example
+   * Custom
+   */
   languageStatus?: string;
+  /**
+   * @remarks
+   * The new mobile phone number of the user.
+   * 
+   * > 
+   * 
+   * *   This parameter is required if TwoFactorStatus is set to Enable and TwoFactorMethods is set to sms or dingtalk, or if TwoFactorStatus is set to Global and TwoFactorMethods is set to sms or dingtalk in the global two-factor authentication settings.
+   * 
+   * *   You can call the [GetInstanceTwoFactor](https://help.aliyun.com/document_detail/462968.html) operation to query the global two-factor authentication settings.
+   * 
+   * *   Leave this parameter empty if you do not want to change the mobile phone number of the user.
+   * 
+   * @example
+   * 1358888****
+   */
   mobile?: string;
+  /**
+   * @remarks
+   * The country where the new mobile number of the user is registered. Valid values:
+   * 
+   * *   **CN:** the Chinese mainland, whose country calling code is +86
+   * *   **HK:** Hong Kong (China), whose country calling code is +852
+   * *   **MO:** Macao (China), whose country calling code is +853
+   * *   **TW:** Taiwan (China), whose country calling code is +886
+   * *   **RU:** Russia, whose country calling code is +7
+   * *   **SG:** Singapore, whose country calling code is +65
+   * *   **MY:** Malaysia, whose country calling code is +60
+   * *   **ID:** Indonesia, whose country calling code is +62
+   * *   **DE:** Germany, whose country calling code is +49
+   * *   **AU:** Australia, whose country calling code is +61
+   * *   **US:** US, whose country calling code is +1
+   * *   **AE:** United Arab Emirates, whose country calling code is +971
+   * *   **JP:** Japan, whose country calling code is +81
+   * *   **GB:** UK, whose country calling code is +44
+   * *   **IN:** India, whose country calling code is +91
+   * *   **KR:** Republic of Korea, whose country calling code is +82
+   * *   **PH:** Philippines, whose country calling code is +63
+   * *   **CH:** Switzerland, whose country calling code is +41
+   * *   **SE:** Sweden, whose country calling code is +46
+   * *   **SA:** Saudi Arabia, whose country calling code is +966
+   * 
+   * @example
+   * CN
+   */
   mobileCountryCode?: string;
+  /**
+   * @remarks
+   * Specifies whether password reset is required upon the next logon. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  Leave this parameter empty if you do not want to change the password reset settings for the user.
+   * 
+   * @example
+   * true
+   */
   needResetPassword?: boolean;
+  /**
+   * @remarks
+   * The new password of the user. The password must be 8 to 128 characters in length. It must contain uppercase letters, lowercase letters, digits, and special characters.
+   * 
+   * > Leave this parameter empty if you do not want to change the password of the user.
+   * 
+   * @example
+   * 321****
+   */
   password?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host on which you want to modify the information about the user.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The two-factor authentication method. You can select only one method. Valid values:
+   * 
+   * *   **sms**: text message-based two-factor authentication.
+   * *   **email**: email-based two-factor authentication.
+   * *   **dingtalk**: DingTalk-based two-factor authentication.
+   * *   **totp OTP:** one-time password (OTP) token-based two-factor authentication.
+   * 
+   * >  If TwoFactorStatus is set to Enable, you must specify one of the valid values as TwoFactorMethods.
+   * 
+   * @example
+   * sms
+   */
   twoFactorMethods?: string;
+  /**
+   * @remarks
+   * Specifies whether two-factor authentication is enabled for the user. Valid values:
+   * 
+   * *   **Global**: The global settings apply.
+   * *   **Disable**: Two-factor authentication is disabled.
+   * *   **Enable**: Two-factor authentication is enabled and user-specific settings apply.
+   * 
+   * >  Leave this parameter empty if you do not want to change the two-factory authentication settings for the user.
+   * 
+   * @example
+   * Enable
+   */
   twoFactorStatus?: string;
+  /**
+   * @remarks
+   * The ID of the user whose information you want to modify.
+   * 
+   * >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9421,6 +16964,13 @@ export class ModifyUserRequest extends $tea.Model {
 }
 
 export class ModifyUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9465,10 +17015,55 @@ export class ModifyUserResponse extends $tea.Model {
 }
 
 export class ModifyUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new description of the user group. The description can be up to 500 characters in length.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host in which you want to modify the information about the user group.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host in which you want to modify the information about the user group.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group that you want to modify.
+   * 
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
+  /**
+   * @remarks
+   * The new name of the user group. This name can be up to 128 characters in length.
+   * 
+   * @example
+   * TestUserGroup
+   */
   userGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9496,6 +17091,13 @@ export class ModifyUserGroupRequest extends $tea.Model {
 }
 
 export class ModifyUserGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9540,11 +17142,65 @@ export class ModifyUserGroupResponse extends $tea.Model {
 }
 
 export class ModifyUserPublicKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new description of the user group. The description can be up to 500 characters in length.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host on which you want to modify the public key of a user.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-nif236pmc1u
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The new public key.
+   * 
+   * >  Specify a Base64-encoded string.
+   * 
+   * @example
+   * c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUhVcjY4UENFYWFzZjFYRVpNYTVsMlNBQytHV3FpeXVsRVpndkV4dmlPM28gcm9vdEA5NjBkMmNhOTcwYjU=
+   */
   publicKey?: string;
+  /**
+   * @remarks
+   * The ID of the public key that you want to modify.
+   * 
+   * >  You can call the [ListUserPublicKeys](https://help.aliyun.com/document_detail/477555.html) operation to query the public key ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   publicKeyId?: string;
+  /**
+   * @remarks
+   * The name of the public key that you want to modify. This name can be up to 128 characters in length.
+   * 
+   * @example
+   * name
+   */
   publicKeyName?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host that is used to modify the public key of the user.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9574,6 +17230,13 @@ export class ModifyUserPublicKeyRequest extends $tea.Model {
 }
 
 export class ModifyUserPublicKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * AAB631FB-ABD0-5783-99F3-F29573B129E4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9618,9 +17281,45 @@ export class ModifyUserPublicKeyResponse extends $tea.Model {
 }
 
 export class MoveDatabasesToNetworkDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the databases that you want to add to the network domain.
+   * 
+   * This parameter is required.
+   */
   databaseIds?: string[];
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-zpr3h2zo60l
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the network domain to which you want to add databases.
+   * 
+   * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9646,7 +17345,18 @@ export class MoveDatabasesToNetworkDomainRequest extends $tea.Model {
 }
 
 export class MoveDatabasesToNetworkDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E5B1BC32-72B2-5BFD-BF75-5D38261264D1
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The results of the call.
+   */
   results?: MoveDatabasesToNetworkDomainResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -9693,9 +17403,46 @@ export class MoveDatabasesToNetworkDomainResponse extends $tea.Model {
 }
 
 export class MoveHostsToNetworkDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the hosts that you want to add to the network domain.
+   * 
+   * This parameter is required.
+   */
   hostIds?: string[];
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-uax2zmx8005
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the network domain to which you want to add hosts.
+   * 
+   * >  You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9721,7 +17468,18 @@ export class MoveHostsToNetworkDomainRequest extends $tea.Model {
 }
 
 export class MoveHostsToNetworkDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F9B9E190-9C8E-5FEE-B963-7E9F1FD7FB4E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: MoveHostsToNetworkDomainResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -9768,9 +17526,49 @@ export class MoveHostsToNetworkDomainResponse extends $tea.Model {
 }
 
 export class MoveResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the bastion host is moved.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the resource group ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rg-aekznp3oyo****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to change the resource group.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource. Set the value to **INSTANCE**, which indicates that the resource is a bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9796,6 +17594,13 @@ export class MoveResourceGroupRequest extends $tea.Model {
 }
 
 export class MoveResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 1DEEC28D-27B1-4358-B6DC-E1285AE655C5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9840,8 +17645,39 @@ export class MoveResourceGroupResponse extends $tea.Model {
 }
 
 export class RejectApproveCommandRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the command that you want to reject.
+   * 
+   * >  You can call the [ListApproveCommands](https://help.aliyun.com/document_detail/2584310.html) operation to query the IDs of all commands that need to be reviewed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 574
+   */
   commandId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9865,6 +17701,13 @@ export class RejectApproveCommandRequest extends $tea.Model {
 }
 
 export class RejectApproveCommandResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9909,11 +17752,44 @@ export class RejectApproveCommandResponse extends $tea.Model {
 }
 
 export class RejectOperationTicketRequest extends $tea.Model {
+  comment?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the O\\&M application that you want to reject.
+   * 
+   * >  You can call the [ListOperationTickets](https://help.aliyun.com/document_detail/2584313.html) operation to query the IDs of all O\\&M applications that require review.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   operationTicketId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      comment: 'Comment',
       instanceId: 'InstanceId',
       operationTicketId: 'OperationTicketId',
       regionId: 'RegionId',
@@ -9922,6 +17798,7 @@ export class RejectOperationTicketRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      comment: 'string',
       instanceId: 'string',
       operationTicketId: 'string',
       regionId: 'string',
@@ -9934,6 +17811,13 @@ export class RejectOperationTicketRequest extends $tea.Model {
 }
 
 export class RejectOperationTicketResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9978,9 +17862,46 @@ export class RejectOperationTicketResponse extends $tea.Model {
 }
 
 export class RemoveDatabasesFromGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the databases that you want to remove.
+   * 
+   * This parameter is required.
+   */
   databaseIds?: string[];
+  /**
+   * @remarks
+   * The ID of the asset group from which you want to remove databases.
+   * 
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host whose asset group you want to manage.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1ghxxxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host whose asset group you want to manage.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10006,7 +17927,18 @@ export class RemoveDatabasesFromGroupRequest extends $tea.Model {
 }
 
 export class RemoveDatabasesFromGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: RemoveDatabasesFromGroupResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -10053,9 +17985,51 @@ export class RemoveDatabasesFromGroupResponse extends $tea.Model {
 }
 
 export class RemoveHostsFromGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asset group from which you want to remove hosts.
+   * 
+   * >  You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the hosts that you want to remove from the host group. Specify a JSON string. You can specify up to 100 host IDs.
+   * 
+   * >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["1","2","3"]
+   */
   hostIds?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host whose asset group you want to manage.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host whose asset group you want to manage.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10081,7 +18055,18 @@ export class RemoveHostsFromGroupRequest extends $tea.Model {
 }
 
 export class RemoveHostsFromGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: RemoveHostsFromGroupResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -10128,9 +18113,51 @@ export class RemoveHostsFromGroupResponse extends $tea.Model {
 }
 
 export class RemoveUsersFromGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host for which you want to remove users from the user group.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host for which you want to remove users from the user group.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user group from which you want to remove users.
+   * 
+   * >  You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * １
+   */
   userGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the user who you want to remove. The value is a JSON string. You can add up to 100 user IDs. If you specify multiple IDs, separate the IDs with commas (,).
+   * 
+   * >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the IDs of users.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["1","2","3"]
+   */
   userIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10156,7 +18183,18 @@ export class RemoveUsersFromGroupRequest extends $tea.Model {
 }
 
 export class RemoveUsersFromGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the call.
+   */
   results?: RemoveUsersFromGroupResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -10203,8 +18241,36 @@ export class RemoveUsersFromGroupResponse extends $tea.Model {
 }
 
 export class RenewAssetOperationTokenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the O\\&M token that you want to renew.
+   * 
+   * >  You can call the [GenerateAssetOperationToken](https://help.aliyun.com/document_detail/2758861.html) operation to query the O\\&M token ID.
+   * 
+   * @example
+   * NmYyMmEzNmMwYzljNGYxMjh******
+   */
   tokenId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10228,6 +18294,13 @@ export class RenewAssetOperationTokenRequest extends $tea.Model {
 }
 
 export class RenewAssetOperationTokenResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10272,9 +18345,52 @@ export class RenewAssetOperationTokenResponse extends $tea.Model {
 }
 
 export class ResetHostAccountCredentialRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the logon credential that you want to delete. Valid values:
+   * 
+   * *   **Password**
+   * *   **PrivateKey**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Password
+   */
   credentialType?: string;
+  /**
+   * @remarks
+   * The ID of the host account for which the logon credential is to be deleted.
+   * 
+   * >  You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the ID of the host account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * The ID of the bastion host from which you want to delete the logon credential for the host account.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host from which you want to delete the logon credential for the host account.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10300,6 +18416,13 @@ export class ResetHostAccountCredentialRequest extends $tea.Model {
 }
 
 export class ResetHostAccountCredentialResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8783-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10344,9 +18467,46 @@ export class ResetHostAccountCredentialResponse extends $tea.Model {
 }
 
 export class SetPolicyAccessTimeRangeConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The logon period limits.
+   * 
+   * This parameter is required.
+   */
   accessTimeRangeConfig?: SetPolicyAccessTimeRangeConfigRequestAccessTimeRangeConfig;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The control policy ID.
+   * 
+   * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 13
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10372,9 +18532,46 @@ export class SetPolicyAccessTimeRangeConfigRequest extends $tea.Model {
 }
 
 export class SetPolicyAccessTimeRangeConfigShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The logon period limits.
+   * 
+   * This parameter is required.
+   */
   accessTimeRangeConfigShrink?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The control policy ID.
+   * 
+   * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 13
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10400,6 +18597,13 @@ export class SetPolicyAccessTimeRangeConfigShrinkRequest extends $tea.Model {
 }
 
 export class SetPolicyAccessTimeRangeConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10444,9 +18648,46 @@ export class SetPolicyAccessTimeRangeConfigResponse extends $tea.Model {
 }
 
 export class SetPolicyApprovalConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The O&M approval setting in the control policy.
+   * 
+   * This parameter is required.
+   */
   approvalConfig?: SetPolicyApprovalConfigRequestApprovalConfig;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy that you want to modify.
+   * 
+   * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10472,9 +18713,46 @@ export class SetPolicyApprovalConfigRequest extends $tea.Model {
 }
 
 export class SetPolicyApprovalConfigShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The O&M approval setting in the control policy.
+   * 
+   * This parameter is required.
+   */
   approvalConfigShrink?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy that you want to modify.
+   * 
+   * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10500,6 +18778,13 @@ export class SetPolicyApprovalConfigShrinkRequest extends $tea.Model {
 }
 
 export class SetPolicyApprovalConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10544,12 +18829,75 @@ export class SetPolicyApprovalConfigResponse extends $tea.Model {
 }
 
 export class SetPolicyAssetScopeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The databases to which the control policy applies.
+   * 
+   * >  This parameter is required if ScopeType is set to Database. You can specify up to 500 databases.
+   */
   databases?: SetPolicyAssetScopeRequestDatabases[];
+  /**
+   * @remarks
+   * The asset groups to which the control policy applies.
+   * 
+   * > This parameter is required if ScopeType is set to HostGroup. You can specify up to 100 asset groups.
+   */
   hostGroups?: SetPolicyAssetScopeRequestHostGroups[];
+  /**
+   * @remarks
+   * The hosts to which the control policy applies.
+   * 
+   * > This parameter is required if ScopeType is set to Host. You can specify up to 500 hosts.
+   */
   hosts?: SetPolicyAssetScopeRequestHosts[];
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy that you want to modify.
+   * 
+   * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The scope of assets to which the control policy applies. Valid values:
+   * 
+   * * **All**: The control policy applies to all assets.
+   * * **Host**: The control policy applies to specified hosts.
+   * * **Database**: The control policy applies to specified databases.
+   * * **HostGroup**: The control policy applies to specified asset groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * All
+   */
   scopeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10581,6 +18929,13 @@ export class SetPolicyAssetScopeRequest extends $tea.Model {
 }
 
 export class SetPolicyAssetScopeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5EAB922E-F476-5DFA-9290-313C608E724B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10625,9 +18980,48 @@ export class SetPolicyAssetScopeResponse extends $tea.Model {
 }
 
 export class SetPolicyCommandConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The command control settings.
+   * 
+   * > This parameter applies only to Linux hosts.
+   * 
+   * This parameter is required.
+   */
   commandConfig?: SetPolicyCommandConfigRequestCommandConfig;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1ghxxxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy that you want to modify.
+   * 
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 45
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10653,9 +19047,48 @@ export class SetPolicyCommandConfigRequest extends $tea.Model {
 }
 
 export class SetPolicyCommandConfigShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The command control settings.
+   * 
+   * > This parameter applies only to Linux hosts.
+   * 
+   * This parameter is required.
+   */
   commandConfigShrink?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1ghxxxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy that you want to modify.
+   * 
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 45
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10681,6 +19114,13 @@ export class SetPolicyCommandConfigShrinkRequest extends $tea.Model {
 }
 
 export class SetPolicyCommandConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4F6C075F-FC86-476E-943B-097BD4E12948
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10725,9 +19165,46 @@ export class SetPolicyCommandConfigResponse extends $tea.Model {
 }
 
 export class SetPolicyIPAclConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The access control settings for source IP addresses.
+   * 
+   * This parameter is required.
+   */
   IPAclConfig?: SetPolicyIPAclConfigRequestIPAclConfig;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the DescribeInstances operation to query the bastion host ID.[](~~153281~~)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy that you want to modify.
+   * 
+   * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10753,9 +19230,46 @@ export class SetPolicyIPAclConfigRequest extends $tea.Model {
 }
 
 export class SetPolicyIPAclConfigShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The access control settings for source IP addresses.
+   * 
+   * This parameter is required.
+   */
   IPAclConfigShrink?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the DescribeInstances operation to query the bastion host ID.[](~~153281~~)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy that you want to modify.
+   * 
+   * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10781,6 +19295,13 @@ export class SetPolicyIPAclConfigShrinkRequest extends $tea.Model {
 }
 
 export class SetPolicyIPAclConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10825,9 +19346,46 @@ export class SetPolicyIPAclConfigResponse extends $tea.Model {
 }
 
 export class SetPolicyProtocolConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy that you want to modify.
+   * 
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 61
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The protocol control settings.
+   * 
+   * This parameter is required.
+   */
   protocolConfig?: SetPolicyProtocolConfigRequestProtocolConfig;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10853,9 +19411,46 @@ export class SetPolicyProtocolConfigRequest extends $tea.Model {
 }
 
 export class SetPolicyProtocolConfigShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy that you want to modify.
+   * 
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 61
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The protocol control settings.
+   * 
+   * This parameter is required.
+   */
   protocolConfigShrink?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10881,6 +19476,13 @@ export class SetPolicyProtocolConfigShrinkRequest extends $tea.Model {
 }
 
 export class SetPolicyProtocolConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 81500666-d7f5-4143-8329-0223cc738105
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10925,11 +19527,67 @@ export class SetPolicyProtocolConfigResponse extends $tea.Model {
 }
 
 export class SetPolicyUserScopeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the control policy that you want to modify.
+   * 
+   * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The scope of users to whom the control policy applies. Valid values:
+   * 
+   * * **All**: The control policy applies to all users.
+   * * **User**: The control policy applies to specified users.
+   * * **UserGroup**: The control policy applies to specified user groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * All
+   */
   scopeType?: string;
+  /**
+   * @remarks
+   * The user groups to which the control policy applies.
+   * 
+   * > This parameter is required if ScopeType is set to UserGroup. You can specify up to 100 user group IDs.
+   */
   userGroupIds?: string[];
+  /**
+   * @remarks
+   * The users to whom the control policy applies.
+   * 
+   * > This parameter is required if ScopeType is set to User. You can specify up to 500 user IDs.
+   */
   userIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -10959,6 +19617,13 @@ export class SetPolicyUserScopeRequest extends $tea.Model {
 }
 
 export class SetPolicyUserScopeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11003,9 +19668,43 @@ export class SetPolicyUserScopeResponse extends $tea.Model {
 }
 
 export class StartInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host that you want to enable.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * An array consisting of the IDs of security groups to which the bastion host is added.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sg-bp1aiupc4yjqgmm****
+   */
   securityGroupIds?: string[];
+  /**
+   * @remarks
+   * The ID of the vSwitch to which the bastion host belongs.
+   * 
+   * @example
+   * vsw-bp1xfwzzfti0kjbf****
+   */
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11031,7 +19730,21 @@ export class StartInstanceRequest extends $tea.Model {
 }
 
 export class StartInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host that you enable.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 0F85AE0A-6A87-48F3-A0C7-90B998788A36
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11078,9 +19791,48 @@ export class StartInstanceResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID of the bastion hosts to which you want to create and add tags.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * An array that consists of IDs of bastion hosts.
+   * 
+   * Valid values: 1 to 20.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query IDs of bastion hosts.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-78v1gc****
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * Set the value to **INSTANCE**, which indicates that the resource is a bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -11106,6 +19858,13 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 2F24F0A8-4C69-4E89-9392-457D107E2D4A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11150,8 +19909,39 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UnlockUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the bastion host to which the users to be unlocked belong.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the bastion host to which the users to be unlocked belong.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the user that you want to unlock. The value is a JSON string. You can add up to 100 user IDs. If you specify multiple IDs, separate the IDs with commas (,).
+   * 
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["1","2"]
+   */
   userIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11175,7 +19965,18 @@ export class UnlockUsersRequest extends $tea.Model {
 }
 
 export class UnlockUsersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * An array that consists of information about the result of the call.
+   */
   results?: UnlockUsersResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {
@@ -11222,10 +20023,58 @@ export class UnlockUsersResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to delete all tags that are added to the bastion host.
+   * 
+   * *   If you specify TagKey.N, the value of this parameter can only be **false**, which indicates that only a specified tag is deleted.
+   * *   If you do not specify TagKey.N and the value of this parameter is **true**, all tags are deleted. If you do not specify TagKey.N and the value of this parameter is **false**, no tags are deleted.
+   * 
+   * @example
+   * false
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * The region ID of the bastion host to query.
+   * 
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * An array that consists of IDs of bastion hosts.
+   * 
+   * Valid values: 1 to 20.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * 
+   * This parameter is required.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * Set the value to **INSTANCE**, which indicates that the resource is a bastion host.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The key of tag N.
+   * 
+   * Valid values of N: 1 to 20.
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -11253,6 +20102,13 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * A8A665B9-8550-4942-9DEE-73198051856B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11297,16 +20153,84 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class VerifyInstanceADAuthServerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn=Manager,dc=test,dc=com
+   */
   account?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dc=test,dc=com
+   */
   baseDN?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * domain
+   */
   domain?: string;
+  /**
+   * @example
+   * (objectClass=top)
+   */
   filter?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   isSSL?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ******
+   */
   password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 389
+   */
   port?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   server?: string;
+  /**
+   * @example
+   * 192.168.XX.XX
+   */
   standbyServer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11346,6 +20270,10 @@ export class VerifyInstanceADAuthServerRequest extends $tea.Model {
 }
 
 export class VerifyInstanceADAuthServerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 8F1085E3-F048-5F34-B650-F145216E4AA5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11390,15 +20318,70 @@ export class VerifyInstanceADAuthServerResponse extends $tea.Model {
 }
 
 export class VerifyInstanceLDAPAuthServerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn=Manager,dc=test,dc=com
+   */
   account?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dc=test,dc=com
+   */
   baseDN?: string;
+  /**
+   * @example
+   * (objectClass=top)
+   */
   filter?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bastionhost-cn-st220aw****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * true
+   */
   isSSL?: string;
+  /**
+   * @example
+   * ******
+   */
   password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 389
+   */
   port?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   server?: string;
+  /**
+   * @example
+   * 192.168.XX.XX
+   */
   standbyServer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11436,6 +20419,10 @@ export class VerifyInstanceLDAPAuthServerRequest extends $tea.Model {
 }
 
 export class VerifyInstanceLDAPAuthServerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C9E97677-BD74-584B-AFCE-948C2A70BB83
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11480,9 +20467,34 @@ export class VerifyInstanceLDAPAuthServerResponse extends $tea.Model {
 }
 
 export class AddDatabasesToGroupResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned. If **OK** is returned, the operation was successful. If another error code is returned, the operation failed.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 9
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The asset group ID.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The error message returned.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11508,9 +20520,49 @@ export class AddDatabasesToGroupResponseBodyResults extends $tea.Model {
 }
 
 export class AddHostsToGroupResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * 
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * 
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   *     >Make sure that the request parameters are valid and call the operation again.
+   * 
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   *     > Make sure that the specified bastion host ID and host IDs are valid. Then, call the operation again.
+   * 
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The asset group ID.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The host ID.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * N/A
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11536,9 +20588,48 @@ export class AddHostsToGroupResponseBodyResults extends $tea.Model {
 }
 
 export class AddUsersToGroupResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * 
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * 
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * 
+   * > Make sure that the request parameters are valid and call the operation again.
+   * 
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * 
+   * > Check whether the specified ID of the bastion host exists, whether the specified hosts exist, and whether the specified host IDs are valid. Then, call the operation again.
+   * 
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the group.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11564,7 +20655,18 @@ export class AddUsersToGroupResponseBodyResults extends $tea.Model {
 }
 
 export class AttachDatabaseAccountsToUserRequestDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of database account IDs.
+   */
   databaseAccountIds?: string[];
+  /**
+   * @remarks
+   * The ID of the database that you want to authorize the user to manage.
+   * 
+   * @example
+   * 22
+   */
   databaseId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11586,8 +20688,29 @@ export class AttachDatabaseAccountsToUserRequestDatabases extends $tea.Model {
 }
 
 export class AttachDatabaseAccountsToUserResponseBodyResultsDatabaseAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The error code that is returned. If OK is returned, the authorization was successful. If another error code is returned, the authorization failed.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The database account ID.
+   * 
+   * @example
+   * 6
+   */
   databaseAccountId?: string;
+  /**
+   * @remarks
+   * The error message that is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11611,10 +20734,39 @@ export class AttachDatabaseAccountsToUserResponseBodyResultsDatabaseAccounts ext
 }
 
 export class AttachDatabaseAccountsToUserResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The error code that is returned. If **OK** is returned, the authorization was successful. If another error code is returned, the authorization failed.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * A list that shows the authorization results of the database accounts.
+   */
   databaseAccounts?: AttachDatabaseAccountsToUserResponseBodyResultsDatabaseAccounts[];
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 22
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The error message that is returned.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11642,7 +20794,18 @@ export class AttachDatabaseAccountsToUserResponseBodyResults extends $tea.Model 
 }
 
 export class AttachDatabaseAccountsToUserGroupRequestDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of database account IDs.
+   */
   databaseAccountIds?: string[];
+  /**
+   * @remarks
+   * The ID of the database that you want to authorize the user group to manage.
+   * 
+   * @example
+   * 58
+   */
   databaseId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11664,8 +20827,26 @@ export class AttachDatabaseAccountsToUserGroupRequestDatabases extends $tea.Mode
 }
 
 export class AttachDatabaseAccountsToUserGroupResponseBodyResultsDatabaseAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned. If OK is returned, the authorization was successful. If another error code is returned, the authorization failed.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The database account ID.
+   * 
+   * @example
+   * 8
+   */
   databaseAccountId?: string;
+  /**
+   * @remarks
+   * The error message returned.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11689,10 +20870,39 @@ export class AttachDatabaseAccountsToUserGroupResponseBodyResultsDatabaseAccount
 }
 
 export class AttachDatabaseAccountsToUserGroupResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned. If OK is returned, the authorization was successful. If another error code is returned, the authorization failed.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * A list that shows the authorization results of the database accounts.
+   */
   databaseAccounts?: AttachDatabaseAccountsToUserGroupResponseBodyResultsDatabaseAccounts[];
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 2
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The error message returned.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The user group ID.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11720,9 +20930,37 @@ export class AttachDatabaseAccountsToUserGroupResponseBodyResults extends $tea.M
 }
 
 export class AttachHostAccountsToHostShareKeyResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned. If **OK** is returned, the association was successful. If another error code is returned, the association failed.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the host account.
+   * 
+   * @example
+   * 1201
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * The ID of the shared key.
+   * 
+   * @example
+   * 10267
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The error message returned.
+   * 
+   * @example
+   * The host account does not exist
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11748,8 +20986,32 @@ export class AttachHostAccountsToHostShareKeyResponseBodyResults extends $tea.Mo
 }
 
 export class AttachHostAccountsToUserResponseBodyResultsHostAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the user was authorized to manage the host accounts. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the host account.
+   * 
+   * @example
+   * 1
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11773,10 +21035,53 @@ export class AttachHostAccountsToUserResponseBodyResultsHostAccounts extends $te
 }
 
 export class AttachHostAccountsToUserResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * 
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * 
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * 
+   * > Make sure that the request parameters are valid and call the operation again.
+   * 
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * 
+   * > Check whether the specified ID of the bastion host exists, whether the specified hosts exist, and whether the specified host IDs are valid. Then, call the operation again.
+   * 
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The result of authorizing the user to manage the host accounts.
+   */
   hostAccounts?: AttachHostAccountsToUserResponseBodyResultsHostAccounts[];
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11804,8 +21109,35 @@ export class AttachHostAccountsToUserResponseBodyResults extends $tea.Model {
 }
 
 export class AttachHostAccountsToUserGroupResponseBodyResultsHostAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the user group was authorized to manage the specified host account. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the host account.
+   * 
+   * @example
+   * 1
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * N/A
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11829,10 +21161,48 @@ export class AttachHostAccountsToUserGroupResponseBodyResultsHostAccounts extend
 }
 
 export class AttachHostAccountsToUserGroupResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The result of authorizing the specified user group to manage the specified host accounts.
+   */
   hostAccounts?: AttachHostAccountsToUserGroupResponseBodyResultsHostAccounts[];
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * N/A
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the user group.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11860,8 +21230,32 @@ export class AttachHostAccountsToUserGroupResponseBodyResults extends $tea.Model
 }
 
 export class AttachHostGroupAccountsToUserResponseBodyResultsHostAccountNames extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the user was authorized to manage the host account. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The name of the host account.
+   * 
+   * @example
+   * root
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11885,10 +21279,45 @@ export class AttachHostGroupAccountsToUserResponseBodyResultsHostAccountNames ex
 }
 
 export class AttachHostGroupAccountsToUserResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The result of authorizing the user to manage the host accounts.
+   */
   hostAccountNames?: AttachHostGroupAccountsToUserResponseBodyResultsHostAccountNames[];
+  /**
+   * @remarks
+   * The ID of the host group.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11916,8 +21345,32 @@ export class AttachHostGroupAccountsToUserResponseBodyResults extends $tea.Model
 }
 
 export class AttachHostGroupAccountsToUserGroupResponseBodyResultsHostAccountNames extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the user group was authorized to manage the specified host account. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The name of the host account.
+   * 
+   * @example
+   * abc
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11941,10 +21394,45 @@ export class AttachHostGroupAccountsToUserGroupResponseBodyResultsHostAccountNam
 }
 
 export class AttachHostGroupAccountsToUserGroupResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The result of authorizing the user group to manage the specified host accounts.
+   */
   hostAccountNames?: AttachHostGroupAccountsToUserGroupResponseBodyResultsHostAccountNames[];
+  /**
+   * @remarks
+   * The ID of the host group.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the user group.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11972,11 +21460,60 @@ export class AttachHostGroupAccountsToUserGroupResponseBodyResults extends $tea.
 }
 
 export class CreateNetworkDomainRequestProxies extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address of the proxy server.
+   * 
+   * @example
+   * ``47.104.**.**``
+   */
   address?: string;
+  /**
+   * @remarks
+   * The node type of the proxy server. Valid values:
+   * 
+   * - **Master**: primary proxy server.
+   * - **Slave**: secondary proxy server.
+   * 
+   * @example
+   * Master
+   */
   nodeType?: string;
+  /**
+   * @remarks
+   * The Base64-encoded password of the proxy server.
+   * 
+   * @example
+   * ***
+   */
   password?: string;
+  /**
+   * @remarks
+   * The port of the proxy server.
+   * 
+   * @example
+   * 22
+   */
   port?: number;
+  /**
+   * @remarks
+   * The proxy type. Valid values:
+   * 
+   * - **SSHProxy**
+   * - **HTTPProxy**
+   * - **Socks5Proxy**
+   * 
+   * @example
+   * SSHProxy
+   */
   proxyType?: string;
+  /**
+   * @remarks
+   * The username of the proxy server.
+   * 
+   * @example
+   * root
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12006,7 +21543,22 @@ export class CreateNetworkDomainRequestProxies extends $tea.Model {
 }
 
 export class CreateRuleRequestDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of database account IDs.
+   */
   databaseAccountIds?: string[];
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * [
+   *     {
+   *         "DatabaseId": "1"
+   *     }
+   * ]
+   */
   databaseId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12028,7 +21580,18 @@ export class CreateRuleRequestDatabases extends $tea.Model {
 }
 
 export class CreateRuleRequestHostGroups extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of asset account names.
+   */
   hostAccountNames?: string[];
+  /**
+   * @remarks
+   * The asset group ID.
+   * 
+   * @example
+   * [{"HostGroupId":"1"}]
+   */
   hostGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12050,7 +21613,18 @@ export class CreateRuleRequestHostGroups extends $tea.Model {
 }
 
 export class CreateRuleRequestHosts extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of host account IDs.
+   */
   hostAccountIds?: string[];
+  /**
+   * @remarks
+   * The host ID.
+   * 
+   * @example
+   * [{"HostId":"1"}]
+   */
   hostId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12072,7 +21646,27 @@ export class CreateRuleRequestHosts extends $tea.Model {
 }
 
 export class DescribeInstanceAttributeResponseBodyInstanceAttributePorts extends $tea.Model {
+  /**
+   * @remarks
+   * The custom port.
+   * 
+   * > Only the SSH and RDP ports can be changed. If no custom O\\&M port is specified for the bastion host, the value of StandardPort is returned.
+   * 
+   * @example
+   * 600xx
+   */
   customPort?: number;
+  /**
+   * @remarks
+   * The standard port of the bastion host. Valid values:
+   * 
+   * *   **SSH**: 60022.
+   * *   **RDP**: 63389.
+   * *   **HTTPS**: 443.
+   * 
+   * @example
+   * 60022
+   */
   standardPort?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12094,34 +21688,227 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttributePorts extends
 }
 
 export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of authorized security groups.
+   */
   authorizedSecurityGroups?: string[];
+  /**
+   * @remarks
+   * The total bandwidth of the bastion host.
+   * 
+   * @example
+   * 30
+   */
   bandwidth?: string;
+  /**
+   * @remarks
+   * The bandwidth plan ID.
+   * 
+   * @example
+   * 5
+   */
   bandwidthPackage?: string;
+  /**
+   * @remarks
+   * The status of the database O&M feature.
+   * 
+   * @example
+   * Disable
+   */
   dbOperationModule?: string;
+  /**
+   * @remarks
+   * The description of the instance.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the Elastic Network Interface (ENI).
+   * 
+   * @example
+   * eni-bp1455jrzwm7moaxxxxx
+   */
   eniInstanceId?: string;
+  /**
+   * @remarks
+   * The time when the instance expires.
+   * 
+   * @example
+   * 1578326400000
+   */
   expireTime?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * bastionhost-cn-78v1ghxxxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The status of the instance. Valid values:
+   * 
+   * *   PENDING: The instance is not initialized.
+   * *   CREATING: The instance is being created.
+   * *   RUNNING: The instance is running.
+   * *   EXPIRED: The instance expired.
+   * *   CREATE_FAILED: The instance fails to be created.
+   * *   UPGRADING: The configurations of the instance are being changed.
+   * *   UPGRADE_FAILED: The configurations of the instance fail to be changed.
+   * 
+   * @example
+   * RUNNING
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The public endpoint.
+   * 
+   * @example
+   * drawvxalwb-public.bastionhost.aliyuncs.com
+   */
   internetEndpoint?: string;
+  /**
+   * @remarks
+   * The private endpoint.
+   * 
+   * @example
+   * drawvxalwb.bastionhost.aliyuncs.com
+   */
   intranetEndpoint?: string;
+  /**
+   * @remarks
+   * The license code.
+   * 
+   * @example
+   * bhah_ent_50_asset
+   */
   licenseCode?: string;
+  /**
+   * @remarks
+   * The status of the automatic password change feature.
+   * 
+   * - **Enable**
+   * - **Disable**
+   * 
+   * @example
+   * Enable
+   */
   modifyPasswordModule?: string;
+  /**
+   * @remarks
+   * The status of the network domain feature.
+   * 
+   * - **Enable**
+   * - **Disable**
+   * 
+   * @example
+   * Enable
+   */
   networkProxyModule?: string;
+  /**
+   * @remarks
+   * An array that consists of the O&M ports of the bastion host.
+   */
   ports?: DescribeInstanceAttributeResponseBodyInstanceAttributePorts[];
+  /**
+   * @remarks
+   * An array that consists of the egress private IP addresses of the bastion host.
+   */
   privateExportIps?: string[];
+  /**
+   * @remarks
+   * The private IP addresses that are allowed to access the instance.
+   */
   privateWhiteList?: string[];
+  /**
+   * @remarks
+   * An array that consists of the egress public IP addresses of the bastion host.
+   */
   publicExportIps?: string[];
+  /**
+   * @remarks
+   * The public IP address.
+   */
   publicIps?: string[];
+  /**
+   * @remarks
+   * Indicates whether the Bastionhost instance can be accessed over the Internet.
+   * 
+   * @example
+   * true
+   */
   publicNetworkAccess?: boolean;
+  /**
+   * @remarks
+   * The public IP addresses that are allowed to access the instance.
+   */
   publicWhiteList?: string[];
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * rg-aekzc427dbl2shy
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the security groups to which the instance belongs.
+   */
   securityGroupIds?: string[];
+  /**
+   * @remarks
+   * The time when the instance started.
+   * 
+   * @example
+   * 1577681345000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The storage capacity of the bastion host. Unit: bytes.
+   * 
+   * @example
+   * 2199023255552
+   */
   storage?: number;
+  /**
+   * @remarks
+   * The ID of the VPC to which the instance belongs.
+   * 
+   * @example
+   * vpc-bp1c85tzgqu1bf5bxxxxx
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch to which the instance connects.
+   * 
+   * @example
+   * vsw-bp1xfwzzfti0kjbfxxxxx
+   */
   vswitchId?: string;
+  /**
+   * @remarks
+   * The status of the web terminal.
+   * 
+   * - **Enable**
+   * - **Disable**
+   * 
+   * @example
+   * Enable
+   */
   webTerminalModule?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12197,7 +21984,21 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $tea
 }
 
 export class DescribeInstancesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * testapi
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12219,21 +22020,150 @@ export class DescribeInstancesRequestTag extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBodyInstances extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the bastion host.
+   * 
+   * @example
+   * Test API
+   */
   description?: string;
+  /**
+   * @remarks
+   * The timestamp when the bastion host expires. Unit: milliseconds.
+   * 
+   * @example
+   * 1578326400000
+   */
   expireTime?: number;
+  /**
+   * @remarks
+   * The image version of the bastion host.
+   * 
+   * @example
+   * 3.0.0
+   */
   imageVersion?: string;
+  /**
+   * @remarks
+   * The bastion host ID.
+   * 
+   * @example
+   * bastionhost-cn-78v1gh****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The status of the bastion host. Valid values:
+   * 
+   * *   **PENDING**: The bastion host is not initialized.
+   * *   **CREATING**: The bastion host is being created.
+   * *   **RUNNING**: The bastion host is running.
+   * *   **EXPIRED**: The bastion host expired.
+   * *   **CREATE_FAILED**: The bastion host fails to be created.
+   * *   **UPGRADING**: The configurations of the bastion host are being changed.
+   * *   **UPGRADE_FAILED**: The configurations of the bastion host fail to be changed.
+   * 
+   * @example
+   * RUNNING
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The public O\\&M address of the bastion host.
+   * 
+   * @example
+   * drawvxalwb-public.bastionhost.aliyuncs.com
+   */
   internetEndpoint?: string;
+  /**
+   * @remarks
+   * The private O\\&M address of the bastion host.
+   * 
+   * @example
+   * drawvxalwb.bastionhost.aliyuncs.com
+   */
   intranetEndpoint?: string;
+  /**
+   * @remarks
+   * Indicates whether the bastion host runs an earlier version. Valid values:
+   * 
+   * *   **true**: The bastion host runs V2 or V3.1.
+   * *   **false**: The bastion host runs V3.2.
+   * 
+   * @example
+   * false
+   */
   legacy?: boolean;
+  /**
+   * @remarks
+   * The license code of the bastion host.
+   * 
+   * @example
+   * bhah_ent_50_asset
+   */
   licenseCode?: string;
+  /**
+   * @remarks
+   * The edition of the bastion host. Valid values:
+   * 
+   * *   **cloudbastion**: Basic Edition.
+   * *   **cloudbastion_ha**: Enterprise Edition.
+   * 
+   * @example
+   * cloudbastion_ha
+   */
   planCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the bastion host can be accessed from the Internet. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   publicNetworkAccess?: boolean;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the bastion host belongs.
+   * 
+   * @example
+   * g-acfm26ougi****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The timestamp when the bastion host is purchased or renewed. Unit: milliseconds.
+   * 
+   * @example
+   * 1577681345000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) to which the bastion host belongs.
+   * 
+   * @example
+   * vpc-bp1c85tzgqu1bf5b****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch to which the bastion host belongs.
+   * 
+   * @example
+   * vsw-bp1xfwzzfti0kjbf****
+   */
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12283,8 +22213,29 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * China (Hangzhou)
+   */
   localName?: string;
+  /**
+   * @remarks
+   * The endpoint of the region.
+   * 
+   * @example
+   * yundun-bastionhost.aliyuncs.com
+   */
   regionEndpoint?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12308,7 +22259,18 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class DetachDatabaseAccountsFromUserRequestDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of database account IDs.
+   */
   databaseAccountIds?: string[];
+  /**
+   * @remarks
+   * The ID of the database on which you want to revoke permissions.
+   * 
+   * @example
+   * 8
+   */
   databaseId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12330,8 +22292,26 @@ export class DetachDatabaseAccountsFromUserRequestDatabases extends $tea.Model {
 }
 
 export class DetachDatabaseAccountsFromUserResponseBodyResultsDatabaseAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The error code that is returned. If OK is returned, the operation was successful. If another error code is returned, the operation failed.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the database account on which the permissions are revoked.
+   * 
+   * @example
+   * 9
+   */
   databaseAccountId?: string;
+  /**
+   * @remarks
+   * The error message that is returned.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12355,10 +22335,39 @@ export class DetachDatabaseAccountsFromUserResponseBodyResultsDatabaseAccounts e
 }
 
 export class DetachDatabaseAccountsFromUserResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The error code that is returned. If **OK** is returned, the operation was successful. If another error code is returned, the operation failed.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * A list that shows the operation results of the database accounts.
+   */
   databaseAccounts?: DetachDatabaseAccountsFromUserResponseBodyResultsDatabaseAccounts[];
+  /**
+   * @remarks
+   * The ID of the database on which the permissions are revoked.
+   * 
+   * @example
+   * 4
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The error message that is returned.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12386,7 +22395,18 @@ export class DetachDatabaseAccountsFromUserResponseBodyResults extends $tea.Mode
 }
 
 export class DetachDatabaseAccountsFromUserGroupRequestDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of database account IDs.
+   */
   databaseAccountIds?: string[];
+  /**
+   * @remarks
+   * The ID of the database on which the permissions are to be revoked.
+   * 
+   * @example
+   * 4
+   */
   databaseId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12408,8 +22428,29 @@ export class DetachDatabaseAccountsFromUserGroupRequestDatabases extends $tea.Mo
 }
 
 export class DetachDatabaseAccountsFromUserGroupResponseBodyResultsDatabaseAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The error code that is returned. If OK is returned, the operation was successful. If other error codes are returned, the operation failed.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the database account on which the permissions are revoked.
+   * 
+   * @example
+   * 5
+   */
   databaseAccountId?: string;
+  /**
+   * @remarks
+   * The error message that is returned.
+   * 
+   * @example
+   * N/A
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12433,10 +22474,42 @@ export class DetachDatabaseAccountsFromUserGroupResponseBodyResultsDatabaseAccou
 }
 
 export class DetachDatabaseAccountsFromUserGroupResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The error code that is returned. If OK is returned, the operation was successful. If other error codes are returned, the operation failed.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * A list that shows the authorization results of the database accounts.
+   */
   databaseAccounts?: DetachDatabaseAccountsFromUserGroupResponseBodyResultsDatabaseAccounts[];
+  /**
+   * @remarks
+   * The ID of the database on which the permissions are revoked.
+   * 
+   * @example
+   * 27
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The error message that is returned.
+   * 
+   * @example
+   * N/A
+   */
   message?: string;
+  /**
+   * @remarks
+   * The user group ID.
+   * 
+   * @example
+   * 3
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12464,9 +22537,37 @@ export class DetachDatabaseAccountsFromUserGroupResponseBodyResults extends $tea
 }
 
 export class DetachHostAccountsFromHostShareKeyResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned. If **OK** is returned, the disassociation was successful. If a different error code is returned, the disassociation failed.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the host account.
+   * 
+   * @example
+   * 12407
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * The ID of the shared key.
+   * 
+   * @example
+   * 11
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The error message returned.
+   * 
+   * @example
+   * The host account does not exist
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12492,8 +22593,32 @@ export class DetachHostAccountsFromHostShareKeyResponseBodyResults extends $tea.
 }
 
 export class DetachHostAccountsFromUserResponseBodyResultsHostAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether permissions on the specified host accounts were revoked from the user. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The host account ID.
+   * 
+   * @example
+   * 1
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12517,10 +22642,45 @@ export class DetachHostAccountsFromUserResponseBodyResultsHostAccounts extends $
 }
 
 export class DetachHostAccountsFromUserResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The result of revoking permissions on the specified host accounts from the user.
+   */
   hostAccounts?: DetachHostAccountsFromUserResponseBodyResultsHostAccounts[];
+  /**
+   * @remarks
+   * The host ID.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12548,8 +22708,32 @@ export class DetachHostAccountsFromUserResponseBodyResults extends $tea.Model {
 }
 
 export class DetachHostAccountsFromUserGroupResponseBodyResultsHostAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether permissions on the specified host account were revoked from the user group. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the host account.
+   * 
+   * @example
+   * １
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12573,10 +22757,45 @@ export class DetachHostAccountsFromUserGroupResponseBodyResultsHostAccounts exte
 }
 
 export class DetachHostAccountsFromUserGroupResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The result of revoking permissions on the specified host accounts from the user group.
+   */
   hostAccounts?: DetachHostAccountsFromUserGroupResponseBodyResultsHostAccounts[];
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * １
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the group.
+   * 
+   * @example
+   * １
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12604,8 +22823,35 @@ export class DetachHostAccountsFromUserGroupResponseBodyResults extends $tea.Mod
 }
 
 export class DetachHostGroupAccountsFromUserResponseBodyResultsHostAccountNames extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether permissions on the specified host account were revoked from the user. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The name of the host account.
+   * 
+   * @example
+   * root
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * N/A
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12629,10 +22875,48 @@ export class DetachHostGroupAccountsFromUserResponseBodyResultsHostAccountNames 
 }
 
 export class DetachHostGroupAccountsFromUserResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The result of revoking permissions on the specified host accounts from the user.
+   */
   hostAccountNames?: DetachHostGroupAccountsFromUserResponseBodyResultsHostAccountNames[];
+  /**
+   * @remarks
+   * The ID of the host group.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * N/A
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12660,8 +22944,32 @@ export class DetachHostGroupAccountsFromUserResponseBodyResults extends $tea.Mod
 }
 
 export class DetachHostGroupAccountsFromUserGroupResponseBodyResultsHostAccountNames extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether permissions on the specified host account were revoked from the specified user group. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The name of the host account.
+   * 
+   * @example
+   * root
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12685,10 +22993,45 @@ export class DetachHostGroupAccountsFromUserGroupResponseBodyResultsHostAccountN
 }
 
 export class DetachHostGroupAccountsFromUserGroupResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The result of revoking permissions on the specified host accounts from the user group.
+   */
   hostAccountNames?: DetachHostGroupAccountsFromUserGroupResponseBodyResultsHostAccountNames[];
+  /**
+   * @remarks
+   * The ID of the host group.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the group.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12716,12 +23059,62 @@ export class DetachHostGroupAccountsFromUserGroupResponseBodyResults extends $te
 }
 
 export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends $tea.Model {
+  /**
+   * @remarks
+   * The remaining number of times that you can use the O\\&M token.
+   * 
+   * @example
+   * 1
+   */
   countLeft?: number;
+  /**
+   * @remarks
+   * The time when the O\\&M token expires. The value is a UNIX timestamp.
+   * 
+   * @example
+   * 1709110797
+   */
   expireTime?: number;
+  /**
+   * @remarks
+   * Indicates whether the number of times that you can use the O\\&M token is limited.
+   * 
+   * @example
+   * true
+   */
   hasCountLimit?: boolean;
+  /**
+   * @remarks
+   * The maximum number of renewals. A value of 0 indicates that renewal is not supported.
+   * 
+   * @example
+   * 10
+   */
   maxRenewCount?: number;
+  /**
+   * @remarks
+   * The number of times the O\\&M token is renewed.
+   * 
+   * @example
+   * 1
+   */
   renewCount?: number;
+  ssoUrl?: string;
+  /**
+   * @remarks
+   * The O\\&M token that you apply for.
+   * 
+   * @example
+   * NmYyMmEzNmMwYzljNGY******
+   */
   token?: string;
+  /**
+   * @remarks
+   * The ID of the O\\&M token.
+   * 
+   * @example
+   * 1
+   */
   tokenId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12730,6 +23123,7 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
       hasCountLimit: 'HasCountLimit',
       maxRenewCount: 'MaxRenewCount',
       renewCount: 'RenewCount',
+      ssoUrl: 'SsoUrl',
       token: 'Token',
       tokenId: 'TokenId',
     };
@@ -12742,6 +23136,7 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
       hasCountLimit: 'boolean',
       maxRenewCount: 'number',
       renewCount: 'number',
+      ssoUrl: 'string',
       token: 'string',
       tokenId: 'string',
     };
@@ -12753,18 +23148,126 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
 }
 
 export class GetDatabaseResponseBodyDatabase extends $tea.Model {
+  /**
+   * @remarks
+   * The address type of the database. Valid values:
+   * 
+   * *   Public
+   * *   Private
+   * 
+   * @example
+   * Public
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The remarks of the database.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 22
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * test
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The port of the database.
+   * 
+   * @example
+   * 3306
+   */
   databasePort?: number;
+  /**
+   * @remarks
+   * The internal endpoint of the database.
+   * 
+   * @example
+   * rm-bp1zq******
+   */
   databasePrivateAddress?: string;
+  /**
+   * @remarks
+   * The public endpoint of the database.
+   * 
+   * @example
+   * rm-uf65******
+   */
   databasePublicAddress?: string;
+  /**
+   * @remarks
+   * The database engine. Valid values:
+   * 
+   * *   **mysql**
+   * *   **sqlserver**
+   * *   **postgresql**
+   * *   **oracle**
+   * 
+   * @example
+   * MySQL
+   */
   databaseType?: string;
+  /**
+   * @remarks
+   * The ID of the network domain to which the database belongs.
+   * 
+   * @example
+   * 45
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The database type. Valid values:
+   * 
+   * *   **Local**: on-premises database.
+   * *   **Rds**: ApsaraDB RDS instance.
+   * *   **PolarDB**: PolarDB cluster.
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraDB RDS instance or PolarDB cluster.
+   * 
+   * > If **Source** is set to **Local**, this parameter is empty.
+   * 
+   * @example
+   * i-wz9527ob0e0nftcsffke
+   */
   sourceInstanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the ApsaraDB RDS instance or PolarDB cluster.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   sourceInstanceRegionId?: string;
+  /**
+   * @remarks
+   * The status of the database. Valid values:
+   * 
+   * *   **Normal**
+   * *   **Release**
+   * 
+   * @example
+   * Normal
+   */
   sourceInstanceState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12808,10 +23311,51 @@ export class GetDatabaseResponseBodyDatabase extends $tea.Model {
 }
 
 export class GetDatabaseAccountResponseBodyDatabaseAccount extends $tea.Model {
+  /**
+   * @remarks
+   * The database account ID.
+   * 
+   * @example
+   * 9
+   */
   databaseAccountId?: string;
+  /**
+   * @remarks
+   * The name of the database account.
+   * 
+   * @example
+   * uac
+   */
   databaseAccountName?: string;
+  /**
+   * @remarks
+   * The database name. A value is returned for this parameter if the database engine is PostgreSQL or Oracle.
+   * 
+   * @example
+   * orcl
+   */
   databaseSchema?: string;
+  /**
+   * @remarks
+   * Indicates whether the database account has a password.
+   * Valid values:
+   * * true
+   * * false
+   * 
+   * @example
+   * true
+   */
   hasPassword?: boolean;
+  /**
+   * @remarks
+   * The logon attribute. A value is returned for this parameter if the database engine is Oracle. Valid values:
+   * 
+   * *   SERVICENAME
+   * *   SID
+   * 
+   * @example
+   * SID
+   */
   loginAttribute?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12839,8 +23383,32 @@ export class GetDatabaseAccountResponseBodyDatabaseAccount extends $tea.Model {
 }
 
 export class GetHostResponseBodyHostProtocols extends $tea.Model {
+  /**
+   * @remarks
+   * The fingerprint of the host. This parameter uniquely identifies a host. A value is returned for this parameter only if you have performed O\\&M operations on the host by using the bastion host. Otherwise, no value is returned.
+   * 
+   * @example
+   * ssh-ed25519|3e:46:5a:e1:1f:0d:39:7e:61:35:d5:fa:7b:2b:**:**
+   */
   hostFingerPrint?: string;
+  /**
+   * @remarks
+   * The service port of the host.
+   * 
+   * @example
+   * 22
+   */
   port?: number;
+  /**
+   * @remarks
+   * The protocol that is used to connect to the host. Valid values:
+   * 
+   * *   **SSH**
+   * *   **RDP**
+   * 
+   * @example
+   * SSH
+   */
   protocolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12864,17 +23432,113 @@ export class GetHostResponseBodyHostProtocols extends $tea.Model {
 }
 
 export class GetHostResponseBodyHost extends $tea.Model {
+  /**
+   * @remarks
+   * The address type of the host. Valid values:
+   * 
+   * *   **Public**: a public address
+   * *   **Private**: a private address
+   * 
+   * @example
+   * Public
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The description of the host.
+   * 
+   * @example
+   * host
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * @example
+   * host
+   */
   hostName?: string;
+  /**
+   * @remarks
+   * The internal endpoint of the host. The value is a domain name or an IP address.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   hostPrivateAddress?: string;
+  /**
+   * @remarks
+   * The public address of the host. The value is a domain name or an IP address.
+   * 
+   * @example
+   * 1.1.XX.XX
+   */
   hostPublicAddress?: string;
+  /**
+   * @remarks
+   * The ID of the network domain to which the host belongs.
+   * 
+   * @example
+   * 1
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The operating system of the host. Valid values:
+   * 
+   * *   **Linux**
+   * *   **Windows**
+   * 
+   * @example
+   * Linux
+   */
   OSType?: string;
+  /**
+   * @remarks
+   * The protocol information about the host.
+   */
   protocols?: GetHostResponseBodyHostProtocols[];
+  /**
+   * @remarks
+   * The source of the host. Valid values:
+   * 
+   * *   **Local**: a host in a data center
+   * *   **Ecs**: an Elastic Compute Service (ECS) instance
+   * *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
+   * 
+   * >  If **Local** is returned for the **Source** parameter, no value is returned for this parameter.
+   * 
+   * @example
+   * i-bp19ienyt0yax748****
+   */
   sourceInstanceId?: string;
+  /**
+   * @remarks
+   * The status of the host. Valid values:
+   * 
+   * *   **Normal**: normal
+   * *   **Release**: released
+   * 
+   * @example
+   * Normal
+   */
   sourceInstanceState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12916,13 +23580,75 @@ export class GetHostResponseBodyHost extends $tea.Model {
 }
 
 export class GetHostAccountResponseBodyHostAccount extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether a password is configured for the host account. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   hasPassword?: boolean;
+  /**
+   * @remarks
+   * The ID of the host account.
+   * 
+   * @example
+   * 1
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * The name of the host account.
+   * 
+   * @example
+   * abc
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the host to which the host account belongs.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The ID of the shared key.
+   * 
+   * @example
+   * 1
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The name of the shared key.
+   * 
+   * @example
+   * name
+   */
   hostShareKeyName?: string;
+  /**
+   * @remarks
+   * The fingerprint of the private key.
+   * 
+   * @example
+   * fe:ca:37:42:30:00:9d:95:e6:73:e5:b0:32:0a:**:**
+   */
   privateKeyFingerprint?: string;
+  /**
+   * @remarks
+   * The protocol that is used by the host. Valid values:
+   * 
+   * *   **SSH**
+   * *   **RDP**
+   * 
+   * @example
+   * SSH
+   */
   protocolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12956,8 +23682,29 @@ export class GetHostAccountResponseBodyHostAccount extends $tea.Model {
 }
 
 export class GetHostGroupResponseBodyHostGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the asset group.
+   * 
+   * @example
+   * Description
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The asset group ID.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The name of the asset group.
+   * 
+   * @example
+   * Host group 1
+   */
   hostGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12981,9 +23728,37 @@ export class GetHostGroupResponseBodyHostGroup extends $tea.Model {
 }
 
 export class GetHostShareKeyResponseBodyHostShareKey extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the shared key.
+   * 
+   * @example
+   * 10427
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The name of the shared key.
+   * 
+   * @example
+   * name
+   */
   hostShareKeyName?: string;
+  /**
+   * @remarks
+   * The time when the information about the shared key was last modified. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1644287246
+   */
   lastModifyKeyAt?: number;
+  /**
+   * @remarks
+   * The fingerprint of the private key.
+   * 
+   * @example
+   * ***
+   */
   privateKeyFingerPrint?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13009,17 +23784,107 @@ export class GetHostShareKeyResponseBodyHostShareKey extends $tea.Model {
 }
 
 export class GetInstanceADAuthServerResponseBodyAD extends $tea.Model {
+  /**
+   * @remarks
+   * The distinguished name (DN) of the AD server account.
+   * 
+   * @example
+   * cn=Manager,dc=test,dc=com
+   */
   account?: string;
+  /**
+   * @remarks
+   * The Base DN of the AD server.
+   * 
+   * @example
+   * dc=test,dc=com
+   */
   baseDN?: string;
+  /**
+   * @remarks
+   * The domain on the AD server.
+   * 
+   * @example
+   * domain
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The field that is used to indicate the email address of a user on the AD server.
+   * 
+   * @example
+   * emailAttr
+   */
   emailMapping?: string;
+  /**
+   * @remarks
+   * The condition that is used to filter users.
+   * 
+   * @example
+   * (&(objectClass=top))
+   */
   filter?: string;
+  /**
+   * @remarks
+   * Indicates whether passwords are required. Valid values:
+   * 
+   * *   **true**:
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   hasPassword?: boolean;
+  /**
+   * @remarks
+   * Indicates whether SSL is supported. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isSSL?: boolean;
+  /**
+   * @remarks
+   * The field that is used to indicate the mobile phone number of a user on the AD server.
+   * 
+   * @example
+   * mobileAttr
+   */
   mobileMapping?: string;
+  /**
+   * @remarks
+   * The field that is used to indicate the name of a user on the AD server.
+   * 
+   * @example
+   * nameAttr
+   */
   nameMapping?: string;
+  /**
+   * @remarks
+   * The port that is used to access the AD server.
+   * 
+   * @example
+   * 389
+   */
   port?: number;
+  /**
+   * @remarks
+   * The address of the AD server.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   server?: string;
+  /**
+   * @remarks
+   * The address of the secondary AD server.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   standbyServer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13061,17 +23926,107 @@ export class GetInstanceADAuthServerResponseBodyAD extends $tea.Model {
 }
 
 export class GetInstanceLDAPAuthServerResponseBodyLDAP extends $tea.Model {
+  /**
+   * @remarks
+   * The account of the LDAP server.
+   * 
+   * @example
+   * cn=Manager,dc=test,dc=com
+   */
   account?: string;
+  /**
+   * @remarks
+   * The Base distinguished name (DN).
+   * 
+   * @example
+   * dc=test,dc=com
+   */
   baseDN?: string;
+  /**
+   * @remarks
+   * The field that is used to indicate the email address of a user on the LDAP server.
+   * 
+   * @example
+   * emailAttr
+   */
   emailMapping?: string;
+  /**
+   * @remarks
+   * The condition that is used to filter users.
+   * 
+   * @example
+   * (&(objectClass=top))
+   */
   filter?: string;
+  /**
+   * @remarks
+   * Indicates whether passwords are required. Valid values:
+   * 
+   * *   **true**: required
+   * *   **false**: not required
+   * 
+   * @example
+   * true
+   */
   hasPassword?: string;
+  /**
+   * @remarks
+   * Indicates whether SSL is supported. Valid values:
+   * 
+   * *   **true**: supported
+   * *   **false**: not supported
+   * 
+   * @example
+   * true
+   */
   isSSL?: boolean;
+  /**
+   * @remarks
+   * The field that is used to indicate the logon name of a user on the LDAP server.
+   * 
+   * @example
+   * userNameAttr
+   */
   loginNameMapping?: string;
+  /**
+   * @remarks
+   * The field that is used to indicate the mobile phone number of a user on the LDAP server.
+   * 
+   * @example
+   * mobileAttr
+   */
   mobileMapping?: string;
+  /**
+   * @remarks
+   * The field that is used to indicate the name of a user on the LDAP server.
+   * 
+   * @example
+   * nameAttr
+   */
   nameMapping?: string;
+  /**
+   * @remarks
+   * The port that is used to access the LDAP server.
+   * 
+   * @example
+   * 389
+   */
   port?: number;
+  /**
+   * @remarks
+   * The address of the LDAP server.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   server?: string;
+  /**
+   * @remarks
+   * The address of the secondary LDAP server.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   standbyServer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13113,8 +24068,31 @@ export class GetInstanceLDAPAuthServerResponseBodyLDAP extends $tea.Model {
 }
 
 export class GetInstanceTwoFactorResponseBodyConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether two-factor authentication is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   enableTwoFactor?: boolean;
+  /**
+   * @remarks
+   * The duration within which two-factor authentication is not required after a local user passes two-factor authentication. Valid values: `0 to 168`. Unit: hours.
+   * 
+   * > If 0 is returned, a local user must pass two-factor authentication every time the local user logs on to the bastion host.
+   * 
+   * @example
+   * 1
+   */
   skipTwoFactorTime?: number;
+  /**
+   * @remarks
+   * The two-factor authentication methods.
+   */
   twoFactorMethods?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13138,13 +24116,86 @@ export class GetInstanceTwoFactorResponseBodyConfig extends $tea.Model {
 }
 
 export class GetNetworkDomainResponseBodyNetworkDomainProxies extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address of the proxy server.
+   * 
+   * @example
+   * ``47.102.**.**``
+   */
   address?: string;
+  /**
+   * @remarks
+   * Indicates whether the proxy server has a password. Valid values:
+   * 
+   * - **true**
+   * - **false**
+   * 
+   * @example
+   * true
+   */
   hasPassword?: boolean;
+  /**
+   * @remarks
+   * The node type of the proxy server. Valid values:
+   * - **Master**: primary proxy server.
+   * - **Slave**: secondary proxy server.
+   * 
+   * @example
+   * Master
+   */
   nodeType?: string;
+  /**
+   * @remarks
+   * The port of the proxy server.
+   * 
+   * @example
+   * 22
+   */
   port?: number;
+  /**
+   * @remarks
+   * The status of the proxy server.
+   * 
+   * - **Available**
+   * - **Unavailable**
+   * 
+   * @example
+   * Unavailable
+   */
   proxyState?: string;
+  /**
+   * @remarks
+   * The error code that indicates the status of the proxy server.
+   * 
+   * - **CHECK_PWD_FAILED**: The password is invalid.
+   * - **CHECK_PWD_TIMEOUT**: The password verification session timed out.
+   * - **CHECK_PWD_NETWORK_ERR**: A network error occurred.
+   * - **UNEXPECTED**: An unknown error occurred.
+   * 
+   * @example
+   * CHECK_PWD_TIMEOUT
+   */
   proxyStateErrorCode?: string;
+  /**
+   * @remarks
+   * The proxy type. Valid values:
+   * 
+   * - **SSHProxy**
+   * - **HTTPProxy**
+   * - **Socks5Proxy**
+   * 
+   * @example
+   * HTTPProxy
+   */
   proxyType?: string;
+  /**
+   * @remarks
+   * The username of the proxy server.
+   * 
+   * @example
+   * root
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13178,11 +24229,56 @@ export class GetNetworkDomainResponseBodyNetworkDomainProxies extends $tea.Model
 }
 
 export class GetNetworkDomainResponseBodyNetworkDomain extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the network domain.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * Indicates whether the network domain is a built-in network domain.
+   * 
+   * * **true**
+   * * **false**
+   * 
+   * @example
+   * false
+   */
   default?: boolean;
+  /**
+   * @remarks
+   * The network domain ID.
+   * 
+   * @example
+   * 2
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The name of the network domain.
+   * 
+   * @example
+   * SSH Proxy
+   */
   networkDomainName?: string;
+  /**
+   * @remarks
+   * The connection mode of the network domain. Valid values:
+   * 
+   * * Direct
+   * * Proxy
+   * 
+   * @example
+   * Proxy
+   */
   networkDomainType?: string;
+  /**
+   * @remarks
+   * The information about the proxy servers.
+   */
   proxies?: GetNetworkDomainResponseBodyNetworkDomainProxies[];
   static names(): { [key: string]: string } {
     return {
@@ -13212,7 +24308,15 @@ export class GetNetworkDomainResponseBodyNetworkDomain extends $tea.Model {
 }
 
 export class GetPolicyResponseBodyPolicyAccessTimeRangeConfigEffectiveTime extends $tea.Model {
+  /**
+   * @remarks
+   * The days of a week on which logons are allowed.
+   */
   days?: string[];
+  /**
+   * @remarks
+   * The time periods during which logons are allowed.
+   */
   hours?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13234,6 +24338,10 @@ export class GetPolicyResponseBodyPolicyAccessTimeRangeConfigEffectiveTime exten
 }
 
 export class GetPolicyResponseBodyPolicyAccessTimeRangeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the periods during which logons are allowed.
+   */
   effectiveTime?: GetPolicyResponseBodyPolicyAccessTimeRangeConfigEffectiveTime[];
   static names(): { [key: string]: string } {
     return {
@@ -13253,6 +24361,16 @@ export class GetPolicyResponseBodyPolicyAccessTimeRangeConfig extends $tea.Model
 }
 
 export class GetPolicyResponseBodyPolicyApprovalConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether O\\&M approval is enabled in the control policy. Valid values:
+   * 
+   * *   **On**: O\\&M approval is enabled.
+   * *   **Off**: O\\&M approval is disabled.
+   * 
+   * @example
+   * Off
+   */
   switchStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13272,6 +24390,10 @@ export class GetPolicyResponseBodyPolicyApprovalConfig extends $tea.Model {
 }
 
 export class GetPolicyResponseBodyPolicyCommandConfigApproval extends $tea.Model {
+  /**
+   * @remarks
+   * An array of commands that can be run only after approval.
+   */
   commands?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13291,7 +24413,21 @@ export class GetPolicyResponseBodyPolicyCommandConfigApproval extends $tea.Model
 }
 
 export class GetPolicyResponseBodyPolicyCommandConfigDeny extends $tea.Model {
+  /**
+   * @remarks
+   * The type of command control. Valid values:
+   * 
+   * *   white: whitelist mode.
+   * *   black: blacklist mode.
+   * 
+   * @example
+   * black
+   */
   aclType?: string;
+  /**
+   * @remarks
+   * An array of controlled commands.
+   */
   commands?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13313,7 +24449,15 @@ export class GetPolicyResponseBodyPolicyCommandConfigDeny extends $tea.Model {
 }
 
 export class GetPolicyResponseBodyPolicyCommandConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the command approval settings.
+   */
   approval?: GetPolicyResponseBodyPolicyCommandConfigApproval;
+  /**
+   * @remarks
+   * The details of the command control setting.
+   */
   deny?: GetPolicyResponseBodyPolicyCommandConfigDeny;
   static names(): { [key: string]: string } {
     return {
@@ -13335,7 +24479,21 @@ export class GetPolicyResponseBodyPolicyCommandConfig extends $tea.Model {
 }
 
 export class GetPolicyResponseBodyPolicyIPAclConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The mode of access control on source IP addresses. Valid values:
+   * 
+   * *   white: whitelist mode.
+   * *   black: blacklist mode.
+   * 
+   * @example
+   * black
+   */
   aclType?: string;
+  /**
+   * @remarks
+   * The IP addresses from which logons are not allowed.
+   */
   IPs?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13357,9 +24515,49 @@ export class GetPolicyResponseBodyPolicyIPAclConfig extends $tea.Model {
 }
 
 export class GetPolicyResponseBodyPolicyProtocolConfigRDP extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether downloading from the clipboard is enabled. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   clipboardDownload?: string;
+  /**
+   * @remarks
+   * Indicates whether file uploading from the clipboard is enabled. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   clipboardUpload?: string;
+  /**
+   * @remarks
+   * Indicates whether driver mapping is enabled. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   diskRedirection?: string;
+  /**
+   * @remarks
+   * Indicates whether keyboard recording is enabled. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   recordKeyboard?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13385,15 +24583,115 @@ export class GetPolicyResponseBodyPolicyProtocolConfigRDP extends $tea.Model {
 }
 
 export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether remote command execution is enabled. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   execCommand?: string;
+  /**
+   * @remarks
+   * Indicates whether the SFTP channel option is enabled. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   SFTPChannel?: string;
+  /**
+   * @remarks
+   * Indicates whether file downloading is enabled in SFTP-based O\\&M. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   SFTPDownloadFile?: string;
+  /**
+   * @remarks
+   * Indicates whether folder creation is enabled in SFTP-based O\\&M. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   SFTPMkdir?: string;
+  /**
+   * @remarks
+   * Indicates whether file deletion is enabled in SFTP-based O\\&M. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   SFTPRemoveFile?: string;
+  /**
+   * @remarks
+   * Indicates whether file renaming is enabled in SFTP-based O\\&M. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   SFTPRenameFile?: string;
+  /**
+   * @remarks
+   * Indicates whether folder deletion is enabled in SFTP-based O\\&M. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   SFTPRmdir?: string;
+  /**
+   * @remarks
+   * Indicates whether file uploading is enabled in SFTP-based O\\&M. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   SFTPUploadFile?: string;
+  /**
+   * @remarks
+   * Indicates whether the SSH channel option is enabled. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   SSHChannel?: string;
+  /**
+   * @remarks
+   * Indicates whether X11 forwarding is enabled. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * @example
+   * Enable
+   */
   x11Forwarding?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13431,7 +24729,15 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $tea.Model {
 }
 
 export class GetPolicyResponseBodyPolicyProtocolConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration details of Remote Desktop Protocol (RDP) options.
+   */
   RDP?: GetPolicyResponseBodyPolicyProtocolConfigRDP;
+  /**
+   * @remarks
+   * The configuration details of SSH and SSH File Transfer Protocol (SFTP) options.
+   */
   SSH?: GetPolicyResponseBodyPolicyProtocolConfigSSH;
   static names(): { [key: string]: string } {
     return {
@@ -13453,14 +24759,62 @@ export class GetPolicyResponseBodyPolicyProtocolConfig extends $tea.Model {
 }
 
 export class GetPolicyResponseBodyPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the logon period restrictions.
+   */
   accessTimeRangeConfig?: GetPolicyResponseBodyPolicyAccessTimeRangeConfig;
+  /**
+   * @remarks
+   * The O\\&M approval setting.
+   */
   approvalConfig?: GetPolicyResponseBodyPolicyApprovalConfig;
+  /**
+   * @remarks
+   * The details of the command policy.
+   */
   commandConfig?: GetPolicyResponseBodyPolicyCommandConfig;
+  /**
+   * @remarks
+   * The description of the control policy.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The access control settings on source IP addresses.
+   */
   IPAclConfig?: GetPolicyResponseBodyPolicyIPAclConfig;
+  /**
+   * @remarks
+   * The ID of the control policy.
+   * 
+   * @example
+   * 3
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The name of the control policy.
+   * 
+   * @example
+   * test
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The priority of the control policy. A smaller value indicates a higher priority.
+   * 
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The details of protocol control.
+   */
   protocolConfig?: GetPolicyResponseBodyPolicyProtocolConfig;
   static names(): { [key: string]: string } {
     return {
@@ -13496,8 +24850,29 @@ export class GetPolicyResponseBodyPolicy extends $tea.Model {
 }
 
 export class GetPolicyAssetScopeResponseBodyAssetScopeDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * The scope of database accounts to which the control policy applies. Valid values:
+   * 
+   * *   **All**: The control policy applies to all database accounts of the database.
+   * *   **AccountId**: The control policy applies to specified database accounts of the database.
+   * 
+   * @example
+   * AccountId
+   */
   accountScopeType?: string;
+  /**
+   * @remarks
+   * The IDs of database accounts to which the control policy applies.
+   */
   databaseAccountIds?: string[];
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 17
+   */
   databaseId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13521,8 +24896,29 @@ export class GetPolicyAssetScopeResponseBodyAssetScopeDatabases extends $tea.Mod
 }
 
 export class GetPolicyAssetScopeResponseBodyAssetScopeHostGroups extends $tea.Model {
+  /**
+   * @remarks
+   * The asset accounts to which the control policy applies.
+   */
   accountNames?: string[];
+  /**
+   * @remarks
+   * The scope of asset accounts to which the control policy applies. Valid values:
+   * 
+   * *   **All**: The control policy applies to all accounts in the asset group.
+   * *   **AccountName**: The control policy applies to specified accounts in the asset group.
+   * 
+   * @example
+   * All
+   */
   accountScopeType?: string;
+  /**
+   * @remarks
+   * The asset group ID.
+   * 
+   * @example
+   * 4
+   */
   hostGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13546,8 +24942,29 @@ export class GetPolicyAssetScopeResponseBodyAssetScopeHostGroups extends $tea.Mo
 }
 
 export class GetPolicyAssetScopeResponseBodyAssetScopeHosts extends $tea.Model {
+  /**
+   * @remarks
+   * The scope of host accounts to which the control policy applies. Valid values:
+   * 
+   * *   **All**: The control policy applies to all accounts of the host.
+   * *   **AccountId**: The control policy applies to specified accounts of the host.
+   * 
+   * @example
+   * All
+   */
   accountScopeType?: string;
+  /**
+   * @remarks
+   * The host accounts to which the control policy applies.
+   */
   hostAccountIds?: string[];
+  /**
+   * @remarks
+   * The host ID.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13571,9 +24988,32 @@ export class GetPolicyAssetScopeResponseBodyAssetScopeHosts extends $tea.Model {
 }
 
 export class GetPolicyAssetScopeResponseBodyAssetScope extends $tea.Model {
+  /**
+   * @remarks
+   * The databases and database accounts to which the control policy applies.
+   */
   databases?: GetPolicyAssetScopeResponseBodyAssetScopeDatabases[];
+  /**
+   * @remarks
+   * The asset groups and asset accounts to which the control policy applies.
+   */
   hostGroups?: GetPolicyAssetScopeResponseBodyAssetScopeHostGroups[];
+  /**
+   * @remarks
+   * The hosts and host accounts to which the control policy applies.
+   */
   hosts?: GetPolicyAssetScopeResponseBodyAssetScopeHosts[];
+  /**
+   * @remarks
+   * The scope of assets to which the control policy applies.
+   * 
+   * *   If **All** is returned for this parameter, the control policy applies to all assets.
+   * 
+   * *   If no value is returned for this parameter, the control policy applies to the assets specified in the return values of Databases, HostGroups, and Hosts.
+   * 
+   * @example
+   * All
+   */
   scopeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13599,8 +25039,26 @@ export class GetPolicyAssetScopeResponseBodyAssetScope extends $tea.Model {
 }
 
 export class GetPolicyUserScopeResponseBodyUserScope extends $tea.Model {
+  /**
+   * @remarks
+   * The scope of users to whom the control policy applies.
+   * *   If **All** is returned for this parameter, the control policy applies to all users.
+   * 
+   * *   If no value is returned for this parameter, the control policy applies to the assets specified in the return values of UserGroupIds and UserIds.
+   * 
+   * @example
+   * All
+   */
   scopeType?: string;
+  /**
+   * @remarks
+   * The user groups to which the control policy applies.
+   */
   userGroupIds?: string[];
+  /**
+   * @remarks
+   * The users to whom the control policy applies.
+   */
   userIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13624,6 +25082,13 @@ export class GetPolicyUserScopeResponseBodyUserScope extends $tea.Model {
 }
 
 export class GetRuleResponseBodyRuleDatabasesDatabaseAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the database account that the policy authorizes users to manage.
+   * 
+   * @example
+   * 5
+   */
   databaseAccountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13643,7 +25108,18 @@ export class GetRuleResponseBodyRuleDatabasesDatabaseAccounts extends $tea.Model
 }
 
 export class GetRuleResponseBodyRuleDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * The database accounts on which permissions are granted by using the authorization rule.
+   */
   databaseAccounts?: GetRuleResponseBodyRuleDatabasesDatabaseAccounts[];
+  /**
+   * @remarks
+   * The ID of the database that the policy authorizes users to manage.
+   * 
+   * @example
+   * 2
+   */
   databaseId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13665,7 +25141,18 @@ export class GetRuleResponseBodyRuleDatabases extends $tea.Model {
 }
 
 export class GetRuleResponseBodyRuleHostGroups extends $tea.Model {
+  /**
+   * @remarks
+   * The asset accounts on which permissions are granted by using the authorization rule.
+   */
   hostAccountNames?: string[];
+  /**
+   * @remarks
+   * The ID of the asset group that the policy authorizes users to manage.
+   * 
+   * @example
+   * 7
+   */
   hostGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13687,6 +25174,13 @@ export class GetRuleResponseBodyRuleHostGroups extends $tea.Model {
 }
 
 export class GetRuleResponseBodyRuleHostsHostAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host account that the policy authorizes users to manage.
+   * 
+   * @example
+   * 9
+   */
   hostAccountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13706,7 +25200,18 @@ export class GetRuleResponseBodyRuleHostsHostAccounts extends $tea.Model {
 }
 
 export class GetRuleResponseBodyRuleHosts extends $tea.Model {
+  /**
+   * @remarks
+   * The host accounts that the policy authorizes users to manage.
+   */
   hostAccounts?: GetRuleResponseBodyRuleHostsHostAccounts[];
+  /**
+   * @remarks
+   * The ID of the host that the policy authorizes users to manage.
+   * 
+   * @example
+   * 52
+   */
   hostId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13728,6 +25233,13 @@ export class GetRuleResponseBodyRuleHosts extends $tea.Model {
 }
 
 export class GetRuleResponseBodyRuleUserGroups extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the authorized user group.
+   * 
+   * @example
+   * 2
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13747,6 +25259,13 @@ export class GetRuleResponseBodyRuleUserGroups extends $tea.Model {
 }
 
 export class GetRuleResponseBodyRuleUsers extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the authorized user.
+   * 
+   * @example
+   * 3
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13766,15 +25285,70 @@ export class GetRuleResponseBodyRuleUsers extends $tea.Model {
 }
 
 export class GetRuleResponseBodyRule extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the authorization rule.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The databases on which permissions are granted by using the authorization rule.
+   */
   databases?: GetRuleResponseBodyRuleDatabases[];
+  /**
+   * @remarks
+   * The end time of the validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1698720972
+   */
   effectiveEndTime?: string;
+  /**
+   * @remarks
+   * The start time of the validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1687140883
+   */
   effectiveStartTime?: string;
+  /**
+   * @remarks
+   * The asset groups on which permissions are granted by using the authorization rule.
+   */
   hostGroups?: GetRuleResponseBodyRuleHostGroups[];
+  /**
+   * @remarks
+   * The information about the hosts that the policy authorizes users to manage.
+   */
   hosts?: GetRuleResponseBodyRuleHosts[];
+  /**
+   * @remarks
+   * The ID of the authorization rule.
+   * 
+   * @example
+   * 3
+   */
   ruleId?: string;
+  /**
+   * @remarks
+   * The name of the authorization rule.
+   * 
+   * @example
+   * rule
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The authorized user groups.
+   */
   userGroups?: GetRuleResponseBodyRuleUserGroups[];
+  /**
+   * @remarks
+   * The authorized users.
+   */
   users?: GetRuleResponseBodyRuleUsers[];
   static names(): { [key: string]: string } {
     return {
@@ -13812,22 +25386,173 @@ export class GetRuleResponseBodyRule extends $tea.Model {
 }
 
 export class GetUserResponseBodyUser extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the user.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The display name of the user.
+   * 
+   * @example
+   * Bob
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The end of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1672502400
+   */
   effectiveEndTime?: number;
+  /**
+   * @remarks
+   * The beginning of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1669630029
+   */
   effectiveStartTime?: number;
+  /**
+   * @remarks
+   * The email address of the user.
+   * 
+   * @example
+   * 1099**@qq.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * This parameter is required if LanguageStatus is set to Custom.
+   * 
+   * - **zh-cn**: simplified Chinese.
+   * - **en**: English.
+   * 
+   * @example
+   * en
+   */
   language?: string;
+  /**
+   * @remarks
+   * Indicates whether notifications are sent in the language specified in the global settings or a custom language.
+   * 
+   * *   **Global**: Global
+   * *   **Custom**: Custom
+   * 
+   * @example
+   * Custom
+   */
   languageStatus?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the user.
+   * 
+   * @example
+   * 1359999****
+   */
   mobile?: string;
+  /**
+   * @remarks
+   * The location in which the mobile number of the user is registered. Valid values:
+   * 
+   * *   **CN**: the Chinese mainland, whose country calling code is +86
+   * *   **HK**: Hong Kong (China), whose country calling code is +852
+   * *   **MO**: Macao (China), whose country calling code is +853
+   * *   **TW**: Taiwan (China), whose country calling code is +886
+   * *   **RU**: Russia, whose country calling code is +7
+   * *   **SG**: Singapore, whose country calling code is +65
+   * *   **MY**: Malaysia, whose country calling code is +60
+   * *   **ID**: Indonesia, whose country calling code is +62
+   * *   **DE**: Germany, whose country calling code is +49
+   * *   **AU**: Australia, whose country calling code is +61
+   * *   **US**: US, whose country calling code is +1
+   * *   **AE**: United Arab Emirates, whose country calling code is +971
+   * *   **JP:** Japan, whose country calling code is +81
+   * *   **GB**: UK, whose country calling code is +44
+   * *   **IN**: India, whose country calling code is +91
+   * *   **KR**: Republic of Korea, whose country calling code is +82
+   * *   **PH**: Philippines, whose country calling code is +63
+   * *   **CH**: Switzerland, whose country calling code is +41
+   * *   **SE**: Sweden, whose country calling code is +46
+   * 
+   * @example
+   * CN
+   */
   mobileCountryCode?: string;
+  /**
+   * @remarks
+   * Specifies whether password reset is required upon the next logon. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   needResetPassword?: boolean;
+  /**
+   * @remarks
+   * The source of the user. Valid values:
+   * 
+   * *   **Local**: a local user
+   * *   **Ram**: a RAM user
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The unique ID of the user.
+   * 
+   * > This parameter uniquely identifies a RAM user of the bastion host. A value is returned for this parameter if the **Source** parameter is set to **Ram**. No value is returned for this parameter if the **Source** parameter is set to **Local**.
+   * 
+   * @example
+   * 122748924538****
+   */
   sourceUserId?: string;
+  /**
+   * @remarks
+   * An array that consists of the details of the two-factor authentication method.
+   */
   twoFactorMethods?: string[];
+  /**
+   * @remarks
+   * The two-factor authentication status of the user. Valid values:
+   * 
+   * *   **Global**: The global settings are used.
+   * *   **Disable**: The two-factor authentication is disabled.
+   * *   **Enable**: The two-factor authentication is enabled and the user-specific setting is used.
+   * 
+   * @example
+   * Enable
+   */
   twoFactorStatus?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The logon name of the user.
+   * 
+   * @example
+   * abcabc_def
+   */
   userName?: string;
+  /**
+   * @remarks
+   * An array that consists of the details of the user status.
+   */
   userState?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13879,8 +25604,29 @@ export class GetUserResponseBodyUser extends $tea.Model {
 }
 
 export class GetUserGroupResponseBodyUserGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the user group.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the group.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
+  /**
+   * @remarks
+   * The name of the user group.
+   * 
+   * @example
+   * UserGroup01
+   */
   userGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13904,16 +25650,93 @@ export class GetUserGroupResponseBodyUserGroup extends $tea.Model {
 }
 
 export class ListApproveCommandsResponseBodyApproveCommands extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the command to be reviewed.
+   * 
+   * @example
+   * 1
+   */
   approveCommandId?: string;
+  /**
+   * @remarks
+   * The username of the asset account that is used for O\\&M.
+   * 
+   * @example
+   * root
+   */
   assetAccountName?: string;
+  /**
+   * @remarks
+   * The IP address of the asset for O\\&M.
+   * 
+   * @example
+   * 10.167.XX.XX
+   */
   assetIp?: string;
+  /**
+   * @remarks
+   * The name of the asset.
+   * 
+   * @example
+   * poros-test
+   */
   assetName?: string;
+  /**
+   * @remarks
+   * The source IP address from which the application is submitted.
+   * 
+   * @example
+   * 172.18.XX.XX
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * The Bastionhost user who submitted the O\\&M application.
+   * 
+   * @example
+   * test
+   */
   clientUser?: string;
+  /**
+   * @remarks
+   * The command to be reviewed.
+   * 
+   * @example
+   * /bin/bash
+   */
   command?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M application was submitted. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1679393152
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The O\\&M protocol.
+   * 
+   * @example
+   * SSH
+   */
   protocolName?: string;
+  /**
+   * @remarks
+   * The ID of the O\\&M session that triggered the review.
+   * 
+   * @example
+   * 95f873ab64a76d5b0000000000004d5e
+   */
   sessionId?: string;
+  /**
+   * @remarks
+   * The status of the review. Valid values: **Wait**: The command is pending review.
+   * 
+   * @example
+   * Wait
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13953,10 +25776,48 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $tea.Model {
 }
 
 export class ListDatabaseAccountsResponseBodyDatabaseAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The database account ID.
+   * 
+   * @example
+   * 59
+   */
   databaseAccountId?: string;
+  /**
+   * @remarks
+   * The name of the database account.
+   * 
+   * @example
+   * test
+   */
   databaseAccountName?: string;
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 4
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The name of the database. A value is returned for this parameter if the engine of the database with the specified database ID is PostgreSQL or Oracle.
+   * 
+   * @example
+   * orcl
+   */
   databaseSchema?: string;
+  /**
+   * @remarks
+   * Indicates whether the database account has a password. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   hasPassword?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13984,10 +25845,53 @@ export class ListDatabaseAccountsResponseBodyDatabaseAccounts extends $tea.Model
 }
 
 export class ListDatabaseAccountsForUserResponseBodyDatabaseAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The database account ID.
+   * 
+   * @example
+   * 6
+   */
   databaseAccountId?: string;
+  /**
+   * @remarks
+   * The name of the database account.
+   * 
+   * @example
+   * test
+   */
   databaseAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the database to which the database account belongs.
+   * 
+   * @example
+   * 70
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * Indicates whether the user is authorized to manage the database account. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isAuthorized?: boolean;
+  /**
+   * @remarks
+   * The protocol used by the database account. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **Oracle**
+   * *   **PostgreSQL**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
   protocolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14015,10 +25919,53 @@ export class ListDatabaseAccountsForUserResponseBodyDatabaseAccounts extends $te
 }
 
 export class ListDatabaseAccountsForUserGroupResponseBodyDatabaseAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the database account.
+   * 
+   * @example
+   * 4
+   */
   databaseAccountId?: string;
+  /**
+   * @remarks
+   * The name of the database account.
+   * 
+   * @example
+   * root
+   */
   databaseAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the database to which the database account belongs.
+   * 
+   * @example
+   * 11
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * Indicates whether the user group is authorized to manage the database account. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isAuthorized?: boolean;
+  /**
+   * @remarks
+   * The protocol used by the database account. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **Oracle**
+   * *   **PostgreSQL**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
   protocolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14046,18 +25993,124 @@ export class ListDatabaseAccountsForUserGroupResponseBodyDatabaseAccounts extend
 }
 
 export class ListDatabasesResponseBodyDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * The address type of the database. Valid values:
+   * 
+   * * **Public**
+   * * **Private**
+   * 
+   * @example
+   * Public
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The remarks of the database.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 9
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * MySQL0
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The port of the database.
+   * 
+   * @example
+   * 3306
+   */
   databasePort?: number;
+  /**
+   * @remarks
+   * The internal address of the database. The value is a domain name or an IP address.
+   * 
+   * @example
+   * rm-wz973w7******
+   */
   databasePrivateAddress?: string;
+  /**
+   * @remarks
+   * The public address of the database. The value is a domain name or an IP address.
+   * 
+   * @example
+   * rm-uf65n2******
+   */
   databasePublicAddress?: string;
+  /**
+   * @remarks
+   * The database engine. Valid values:
+   * *   **MySQL**
+   * *   **Oracle**
+   * *   **PostgreSQL**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
   databaseType?: string;
+  /**
+   * @remarks
+   * The ID of the network domain where the database resides.
+   * 
+   * @example
+   * 8
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The type of the database. Valid values:
+   * 
+   * * **Local**: on-premises database.
+   * * **Rds**: ApsaraDB for RDS instance.
+   * * **PolarDB**: PolarDB cluster
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraDB for RDS instance or PolarDB cluster.
+   * > No value is returned for this parameter if **Source** is set to **Local**.
+   * 
+   * @example
+   * i-wz9ejupczf41******
+   */
   sourceInstanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the ApsaraDB for RDS instance or PolarDB cluster.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   sourceInstanceRegionId?: string;
+  /**
+   * @remarks
+   * The status of the database. Valid values:
+   * 
+   * * **Normal**
+   * * **Release**
+   * 
+   * @example
+   * Normal
+   */
   sourceInstanceState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14101,16 +26154,107 @@ export class ListDatabasesResponseBodyDatabases extends $tea.Model {
 }
 
 export class ListDatabasesForUserResponseBodyDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * The address type of the database. Valid values:
+   * 
+   * *   **Public**
+   * *   **Private**
+   * 
+   * @example
+   * Private
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The remarks of the database.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 36
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The database name.
+   * 
+   * @example
+   * MySQL56
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The database port.
+   * 
+   * @example
+   * 3306
+   */
   databasePort?: number;
+  /**
+   * @remarks
+   * The internal endpoint of the database. The value is a domain name or an IP address.
+   * 
+   * @example
+   * rm-wz97******
+   */
   databasePrivateAddress?: string;
+  /**
+   * @remarks
+   * The public endpoint of the database. The value is a domain name or an IP address.
+   * 
+   * @example
+   * rm-uf65******
+   */
   databasePublicAddress?: string;
+  /**
+   * @remarks
+   * The database engine. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **Oracle**
+   * *   **PostgreSQL**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
   databaseType?: string;
+  /**
+   * @remarks
+   * The ID of the network domain where the database resides.
+   * 
+   * @example
+   * 2
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The database type. Valid values:
+   * 
+   * *   **Local**: on-premises database.
+   * *   **Rds**: ApsaraDB RDS instance.
+   * *   **PolarDB**: PolarDB cluster.
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraDB RDS instance or PolarDB cluster.
+   * 
+   * >  No value is returned for this parameter if **Source** is set to **Local**.
+   * 
+   * @example
+   * i-wz9fv2hwux78x9h1pmje
+   */
   sourceInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14150,17 +26294,115 @@ export class ListDatabasesForUserResponseBodyDatabases extends $tea.Model {
 }
 
 export class ListDatabasesForUserGroupResponseBodyDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * The address type of the database. Valid values:
+   * 
+   * *   **Public**
+   * *   **Private**
+   * 
+   * @example
+   * Private
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The remarks of the database.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The total number of database accounts returned.
+   * 
+   * @example
+   * 2
+   */
   databaseAccountCount?: number;
+  /**
+   * @remarks
+   * The ID of the database to which the database account belongs.
+   * 
+   * @example
+   * 2
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * MySQL0
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The port of the database.
+   * 
+   * @example
+   * 3306
+   */
   databasePort?: number;
+  /**
+   * @remarks
+   * The internal address of the database. The value is a domain name or an IP address.
+   * 
+   * @example
+   * rm-bp1******
+   */
   databasePrivateAddress?: string;
+  /**
+   * @remarks
+   * The public address of the database. The value is a domain name or an IP address.
+   * 
+   * @example
+   * rm-uf65******
+   */
   databasePublicAddress?: string;
+  /**
+   * @remarks
+   * The database engine. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **Oracle**
+   * *   **PostgreSQL**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
   databaseType?: string;
+  /**
+   * @remarks
+   * The ID of the network domain where the database resides.
+   * 
+   * @example
+   * 5
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The type of the database. Valid values:
+   * 
+   * *   **Local**: on-premises database.
+   * *   **Rds**: ApsaraDB RDS instance.
+   * *   **PolarDB**: PolarDB cluster.
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraDB RDS instance or PolarDB cluster.
+   * 
+   * > No value is returned for this parameter if **Source** is set to **Local**.
+   * 
+   * @example
+   * i-wz9c7mjxywmdmqk7q6e4
+   */
   sourceInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14202,13 +26444,79 @@ export class ListDatabasesForUserGroupResponseBodyDatabases extends $tea.Model {
 }
 
 export class ListHostAccountsResponseBodyHostAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether a password is configured for the host account.
+   * 
+   * Valid values:
+   * 
+   * *   true: A password is configured for the host account.
+   * *   false: No passwords are configured for the host account.
+   * 
+   * @example
+   * true
+   */
   hasPassword?: boolean;
+  /**
+   * @remarks
+   * The ID of the host account.
+   * 
+   * @example
+   * 1
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * The name of the host account.
+   * 
+   * @example
+   * abc
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The ID of the shared key.
+   * 
+   * @example
+   * 1
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The name of the shared key.
+   * 
+   * @example
+   * name
+   */
   hostShareKeyName?: string;
+  /**
+   * @remarks
+   * The fingerprint of the private key for the host account.
+   * 
+   * @example
+   * fe:ca:37:42:30:00:9d:95:e6:73:e5:b0:32:0a:**:**
+   */
   privateKeyFingerprint?: string;
+  /**
+   * @remarks
+   * The protocol that is used by the host.
+   * 
+   * Valid values:
+   * 
+   * *   SSH
+   * *   RDP
+   * 
+   * @example
+   * SSH
+   */
   protocolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14242,9 +26550,37 @@ export class ListHostAccountsResponseBodyHostAccounts extends $tea.Model {
 }
 
 export class ListHostAccountsForHostShareKeyResponseBodyHostAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the host account.
+   * 
+   * @example
+   * root1234
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * 1113
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The ID of the host account.
+   * 
+   * @example
+   * 1235
+   */
   hostsAccountId?: string;
+  /**
+   * @remarks
+   * The O\\&M protocol.
+   * 
+   * @example
+   * SSH
+   */
   protocolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14270,10 +26606,51 @@ export class ListHostAccountsForHostShareKeyResponseBodyHostAccounts extends $te
 }
 
 export class ListHostAccountsForUserResponseBodyHostAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host account.
+   * 
+   * @example
+   * 1
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * The name of the host account.
+   * 
+   * @example
+   * root
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the host for which the host accounts were queried.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * Indicates whether the user is authorized to manage the host account. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   isAuthorized?: boolean;
+  /**
+   * @remarks
+   * The protocol that is used by the host. Valid values:
+   * 
+   * *   **SSH**
+   * *   **RDP**
+   * 
+   * @example
+   * SSH
+   */
   protocolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14301,10 +26678,51 @@ export class ListHostAccountsForUserResponseBodyHostAccounts extends $tea.Model 
 }
 
 export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host account.
+   * 
+   * @example
+   * 1
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * The name of the host account.
+   * 
+   * @example
+   * host１
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * The ID of the host for which the host accounts were queried.
+   * 
+   * @example
+   * １
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * Indicates whether the user group is authorized to manage the host account. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   isAuthorized?: boolean;
+  /**
+   * @remarks
+   * The protocol that is used by the host. Valid values:
+   * 
+   * *   **SSH**
+   * *   **RDP**
+   * 
+   * @example
+   * SSH
+   */
   protocolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14332,9 +26750,37 @@ export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $tea.M
 }
 
 export class ListHostGroupsResponseBodyHostGroups extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the asset group.
+   * 
+   * @example
+   * Description
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The asset group ID.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The name of the asset group.
+   * 
+   * @example
+   * Host group 1
+   */
   hostGroupName?: string;
+  /**
+   * @remarks
+   * The number of hosts in the asset group.
+   * 
+   * @example
+   * 1
+   */
   memberCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14360,8 +26806,29 @@ export class ListHostGroupsResponseBodyHostGroups extends $tea.Model {
 }
 
 export class ListHostGroupsForUserResponseBodyHostGroups extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the host group.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The host group ID.
+   * 
+   * @example
+   * １
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The name of the host group.
+   * 
+   * @example
+   * group
+   */
   hostGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14385,8 +26852,29 @@ export class ListHostGroupsForUserResponseBodyHostGroups extends $tea.Model {
 }
 
 export class ListHostGroupsForUserGroupResponseBodyHostGroups extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the host group.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the host group.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The name of the host group.
+   * 
+   * @example
+   * group
+   */
   hostGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14410,10 +26898,45 @@ export class ListHostGroupsForUserGroupResponseBodyHostGroups extends $tea.Model
 }
 
 export class ListHostShareKeysResponseBodyHostShareKeys extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the associated host accounts.
+   * 
+   * @example
+   * 1
+   */
   hostAccountCount?: number;
+  /**
+   * @remarks
+   * The shared key ID.
+   * 
+   * @example
+   * 10247
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The name of the shared key.
+   * 
+   * @example
+   * name
+   */
   hostShareKeyName?: string;
+  /**
+   * @remarks
+   * The time when the shared key was last modified. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1644806406
+   */
   lastModifyKeyAt?: number;
+  /**
+   * @remarks
+   * The fingerprint of the private key.
+   * 
+   * @example
+   * ****
+   */
   privateKeyFingerPrint?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14441,16 +26964,108 @@ export class ListHostShareKeysResponseBodyHostShareKeys extends $tea.Model {
 }
 
 export class ListHostsResponseBodyHosts extends $tea.Model {
+  /**
+   * @remarks
+   * The address type of the host. Valid values:
+   * 
+   * *   **Public**: a public address
+   * *   **Private**: a private address
+   * 
+   * @example
+   * Public
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The description of the host.
+   * 
+   * @example
+   * host
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The number of host accounts.
+   * 
+   * @example
+   * 1
+   */
   hostAccountCount?: number;
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The name of the host.
+   * 
+   * @example
+   * name
+   */
   hostName?: string;
+  /**
+   * @remarks
+   * The private address of the host. The value is a domain name or an IP address.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   hostPrivateAddress?: string;
+  /**
+   * @remarks
+   * The public address of the host. The value is a domain name or an IP address.
+   * 
+   * @example
+   * 1.1.XX.XX
+   */
   hostPublicAddress?: string;
+  /**
+   * @remarks
+   * The operating system of the host. Valid values:
+   * 
+   * *   **Linux**
+   * *   **Windows**
+   * 
+   * @example
+   * Linux
+   */
   OSType?: string;
+  /**
+   * @remarks
+   * The source of the host. Valid values:
+   * 
+   * *   **Local**: a host in a data center
+   * *   **Ecs**: an ECS instance
+   * *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
+   * 
+   * > No value is returned for this parameter if the **Source** parameter is set to **Local**.
+   * 
+   * @example
+   * i-bp19ienyt0yax748****
+   */
   sourceInstanceId?: string;
+  /**
+   * @remarks
+   * The status of the host. Valid values:
+   * 
+   * *   **Normal**: normal
+   * *   **Release**: released
+   * 
+   * @example
+   * Normal
+   */
   sourceInstanceState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14490,12 +27105,67 @@ export class ListHostsResponseBodyHosts extends $tea.Model {
 }
 
 export class ListHostsForUserResponseBodyHosts extends $tea.Model {
+  /**
+   * @remarks
+   * The endpoint type of the host. Valid values:
+   * 
+   * *   **Public**: public endpoint
+   * *   **Private**: internal endpoint
+   * 
+   * @example
+   * Public
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The description of the host.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The name of the host.
+   * 
+   * @example
+   * host01
+   */
   hostName?: string;
+  /**
+   * @remarks
+   * The internal endpoint of the host. The value is a domain name or an IP address.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   hostPrivateAddress?: string;
+  /**
+   * @remarks
+   * The public endpoint of the host. The value is a domain name or an IP address.
+   * 
+   * @example
+   * 10.158.XX.XX
+   */
   hostPublicAddress?: string;
+  /**
+   * @remarks
+   * The operating system of the host. Valid values:
+   * 
+   * *   **Linux**
+   * *   **Windows**
+   * 
+   * @example
+   * Linux
+   */
   OSType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14527,12 +27197,67 @@ export class ListHostsForUserResponseBodyHosts extends $tea.Model {
 }
 
 export class ListHostsForUserGroupResponseBodyHosts extends $tea.Model {
+  /**
+   * @remarks
+   * The address type of the host. Valid values:
+   * 
+   * *   **Public**: public endpoint
+   * *   **Private**: internal endpoint
+   * 
+   * @example
+   * Public
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The description of the host.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The name of the host.
+   * 
+   * @example
+   * host1
+   */
   hostName?: string;
+  /**
+   * @remarks
+   * The internal endpoint of the host. The value is a domain name or an IP address.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   hostPrivateAddress?: string;
+  /**
+   * @remarks
+   * The public endpoint of the host. The value is a domain name or an IP address.
+   * 
+   * @example
+   * 10.158.XX.XX
+   */
   hostPublicAddress?: string;
+  /**
+   * @remarks
+   * The operating system of the host. Valid values:
+   * 
+   * *   **Linux**
+   * *   **Windows**
+   * 
+   * @example
+   * Linux
+   */
   OSType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14564,7 +27289,27 @@ export class ListHostsForUserGroupResponseBodyHosts extends $tea.Model {
 }
 
 export class ListNetworkDomainsResponseBodyNetworkDomainsProxiesState extends $tea.Model {
+  /**
+   * @remarks
+   * The node type of the proxy server. Valid values:
+   * 
+   * *   **Master**: primary proxy server.
+   * *   **Slave**: secondary proxy server.
+   * 
+   * @example
+   * Master
+   */
   nodeType?: string;
+  /**
+   * @remarks
+   * The status of the proxy server.
+   * 
+   * *   **Available**
+   * *   **Unavailable**
+   * 
+   * @example
+   * Available
+   */
   proxyState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14586,10 +27331,51 @@ export class ListNetworkDomainsResponseBodyNetworkDomainsProxiesState extends $t
 }
 
 export class ListNetworkDomainsResponseBodyNetworkDomains extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the network domain.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * Indicates whether the network domain is built-in.
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   default?: boolean;
+  /**
+   * @remarks
+   * The network domain ID.
+   * 
+   * @example
+   * 2
+   */
   networkDomainId?: string;
+  /**
+   * @remarks
+   * The name of the network domain.
+   * 
+   * @example
+   * test
+   */
   networkDomainName?: string;
+  /**
+   * @remarks
+   * The connection mode of the network domain. Valid values:
+   * 
+   * *   **Direct**
+   * *   **Proxy**
+   * 
+   * @example
+   * Proxy
+   */
   networkDomainType?: string;
   proxiesState?: ListNetworkDomainsResponseBodyNetworkDomainsProxiesState[];
   static names(): { [key: string]: string } {
@@ -14620,12 +27406,64 @@ export class ListNetworkDomainsResponseBodyNetworkDomains extends $tea.Model {
 }
 
 export class ListOperationDatabaseAccountsResponseBodyDatabaseAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the PostgreSQL or Oracle database.
+   * 
+   * @example
+   * xe
+   */
   DBName?: string;
+  /**
+   * @remarks
+   * The database account ID.
+   * 
+   * @example
+   * 3
+   */
   databaseAccountId?: string;
+  /**
+   * @remarks
+   * The name of the database account.
+   * 
+   * @example
+   * system
+   */
   databaseAccountName?: string;
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 2
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * Indicates whether a password is configured for the database host account.
+   * 
+   * @example
+   * true
+   */
   hasPassword?: string;
+  /**
+   * @remarks
+   * The logon attribute. One of the following values is returned if the database engine is Oracle:
+   * 
+   * *   **SERVICENAME**
+   * *   **SID**
+   * 
+   * @example
+   * SID
+   */
   loginAttribute?: string;
+  /**
+   * @remarks
+   * The protocol that is used by the database account.
+   * 
+   * @example
+   * MySQL
+   */
   protocolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14657,17 +27495,116 @@ export class ListOperationDatabaseAccountsResponseBodyDatabaseAccounts extends $
 }
 
 export class ListOperationDatabasesResponseBodyDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * The address type of the database. Valid values:
+   * 
+   * *   **Public**
+   * *   **Private**
+   * 
+   * @example
+   * Private
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The remarks of the database.
+   * 
+   * @example
+   * cpp
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 26
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The database name.
+   * 
+   * @example
+   * zDatabase
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The port of the database.
+   * 
+   * @example
+   * 3306
+   */
   databasePort?: number;
+  /**
+   * @remarks
+   * The private address of the database.
+   * 
+   * @example
+   * rm-b******9b.mysql.rds.aliyuncs.com
+   */
   databasePrivateAddress?: string;
+  /**
+   * @remarks
+   * The public address of the database.
+   * 
+   * @example
+   * rm-uf******p45.mysql.rds.aliyuncs.com
+   */
   databasePublicAddress?: string;
+  /**
+   * @remarks
+   * The database engine. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **PostgreSQL**
+   * *   **Oracle**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
   databaseType?: string;
+  /**
+   * @remarks
+   * The database type. Valid values:
+   * 
+   * *   **Local**: on-premises database.
+   * *   **Rds**: ApsaraDB RDS instance.
+   * *   **PolarDB**: PolarDB cluster.
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraDB RDS instance.
+   * 
+   * @example
+   * i-wz9225bhipya******
+   */
   sourceInstanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the ApsaraDB RDS instance.
+   * 
+   * @example
+   * cn-shanghai
+   */
   sourceInstanceRegionId?: string;
+  /**
+   * @remarks
+   * The database status. Valid values:
+   * 
+   * *   **Normal**
+   * *   **Release**
+   * 
+   * @example
+   * Normal
+   */
   sourceInstanceState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14709,7 +27646,15 @@ export class ListOperationDatabasesResponseBodyDatabases extends $tea.Model {
 }
 
 export class ListOperationHostAccountsResponseBodyHostAccountsSSHConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether SFTP channels are enabled for the account.
+   */
   enableSFTPChannel?: boolean;
+  /**
+   * @remarks
+   * Indicates whether SSH channels are enabled for the account.
+   */
   enableSSHChannel?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14731,13 +27676,72 @@ export class ListOperationHostAccountsResponseBodyHostAccountsSSHConfig extends 
 }
 
 export class ListOperationHostAccountsResponseBodyHostAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether a password is configured for the host account.
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   hasPassword?: boolean;
+  /**
+   * @remarks
+   * The host account ID.
+   * 
+   * @example
+   * 1
+   */
   hostAccountId?: string;
+  /**
+   * @remarks
+   * The host account name.
+   * 
+   * @example
+   * root
+   */
   hostAccountName?: string;
+  /**
+   * @remarks
+   * The host ID.
+   * 
+   * @example
+   * １
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The ID of the shared key that is associated with the host.
+   * 
+   * @example
+   * 3
+   */
   hostShareKeyId?: string;
+  /**
+   * @remarks
+   * The fingerprint of the private key for the host account.
+   * 
+   * @example
+   * fe:ca:37:42:30:00:9d:95:e6:73:e5:b0:32:0a:**:**
+   */
   privateKeyFingerprint?: string;
+  /**
+   * @remarks
+   * The protocol that is used by the host account.
+   * 
+   * *   **SSH**
+   * *   **RDP**
+   * 
+   * @example
+   * SSH
+   */
   protocolName?: string;
+  /**
+   * @remarks
+   * Indicates whether the Secure File Transfer Protocol (SFTP) channels or the SSH channels are enabled for the host account that uses the SSH protocol.
+   */
   SSHConfig?: ListOperationHostAccountsResponseBodyHostAccountsSSHConfig;
   static names(): { [key: string]: string } {
     return {
@@ -14771,15 +27775,97 @@ export class ListOperationHostAccountsResponseBodyHostAccounts extends $tea.Mode
 }
 
 export class ListOperationHostsResponseBodyHosts extends $tea.Model {
+  /**
+   * @remarks
+   * The address type of the host. Valid values:
+   * 
+   * *   **Public**
+   * *   **Private**
+   * 
+   * @example
+   * Public
+   */
   activeAddressType?: string;
+  /**
+   * @remarks
+   * The remarks of the host.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The host ID.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The host name.
+   * 
+   * @example
+   * host1
+   */
   hostName?: string;
+  /**
+   * @remarks
+   * The private IP address of the host.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   hostPrivateAddress?: string;
+  /**
+   * @remarks
+   * The public IP address of the host.
+   * 
+   * @example
+   * 10.158.XX.XX
+   */
   hostPublicAddress?: string;
+  /**
+   * @remarks
+   * The host OS.
+   * 
+   * *   **Linux**
+   * *   **Windows**
+   * 
+   * @example
+   * Linux
+   */
   OSType?: string;
+  /**
+   * @remarks
+   * The host type. Valid values:
+   * 
+   * *   **Local**: on-premises host.
+   * *   **Ecs**: Elastic Compute Service (ECS) instance.
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The ECS instance ID.
+   * 
+   * @example
+   * i-bp19ienyt0yax748****
+   */
   sourceInstanceId?: string;
+  /**
+   * @remarks
+   * The host status. Valid values:
+   * 
+   * *   **Normal**
+   * *   **Release**
+   * 
+   * @example
+   * Normal
+   */
   sourceInstanceState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14817,25 +27903,142 @@ export class ListOperationHostsResponseBodyHosts extends $tea.Model {
 }
 
 export class ListOperationTicketsResponseBodyOperationTickets extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the O\\&M applicant.
+   * 
+   * @example
+   * 1
+   */
   applyUserId?: string;
+  /**
+   * @remarks
+   * The username of the O\\&M applicant.
+   * 
+   * @example
+   * test
+   */
   applyUsername?: string;
+  approveComment?: string;
+  /**
+   * @remarks
+   * The ID of the asset account.
+   * 
+   * @example
+   * 1
+   */
   assetAccountId?: string;
+  /**
+   * @remarks
+   * The username of the asset account.
+   * 
+   * @example
+   * root
+   */
   assetAccountName?: string;
+  /**
+   * @remarks
+   * The IP address of the asset.
+   * 
+   * @example
+   * 10.167.XX.XX
+   */
   assetAddress?: string;
+  /**
+   * @remarks
+   * The ID of the asset.
+   * 
+   * @example
+   * 2
+   */
   assetId?: string;
+  /**
+   * @remarks
+   * The name of the asset.
+   * 
+   * @example
+   * poros-test
+   */
   assetName?: string;
+  /**
+   * @remarks
+   * The network domain ID of the asset.
+   * 
+   * @example
+   * 2
+   */
   assetNetworkDomainId?: string;
+  /**
+   * @remarks
+   * The operating system of the asset.
+   * 
+   * @example
+   * Linux
+   */
   assetOs?: string;
+  /**
+   * @remarks
+   * The name of the asset source to which the asset belongs. Valid values:
+   * 
+   * *   **Local**: an on-premises host.
+   * *   **Ecs**: an Elastic Compute Service (ECS) instance.
+   * *   **Rds**: an ApsaraDB RDS instance.
+   * *   A third-party asset source.
+   * 
+   * @example
+   * Local
+   */
   assetSource?: string;
+  /**
+   * @remarks
+   * The ID of the asset source to which the asset belongs.
+   * 
+   * @example
+   * 1
+   */
   assetSourceInstanceId?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M application was submitted. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1669965908
+   */
   createdTime?: number;
+  effectCount?: number;
+  effectEndTime?: number;
+  effectStartTime?: number;
+  /**
+   * @remarks
+   * The ID of the O\\&M application to be reviewed.
+   * 
+   * @example
+   * 1
+   */
   operationTicketId?: string;
+  /**
+   * @remarks
+   * The O\\&M protocol.
+   * 
+   * @example
+   * SSH
+   */
   protocolName?: string;
+  /**
+   * @remarks
+   * The status of the review. Valid value:
+   * 
+   * *   Normal: to be reviewed
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
       applyUserId: 'ApplyUserId',
       applyUsername: 'ApplyUsername',
+      approveComment: 'ApproveComment',
       assetAccountId: 'AssetAccountId',
       assetAccountName: 'AssetAccountName',
       assetAddress: 'AssetAddress',
@@ -14846,6 +28049,9 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $tea.Model
       assetSource: 'AssetSource',
       assetSourceInstanceId: 'AssetSourceInstanceId',
       createdTime: 'CreatedTime',
+      effectCount: 'EffectCount',
+      effectEndTime: 'EffectEndTime',
+      effectStartTime: 'EffectStartTime',
       operationTicketId: 'OperationTicketId',
       protocolName: 'ProtocolName',
       state: 'State',
@@ -14856,6 +28062,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $tea.Model
     return {
       applyUserId: 'string',
       applyUsername: 'string',
+      approveComment: 'string',
       assetAccountId: 'string',
       assetAccountName: 'string',
       assetAddress: 'string',
@@ -14866,6 +28073,9 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $tea.Model
       assetSource: 'string',
       assetSourceInstanceId: 'string',
       createdTime: 'number',
+      effectCount: 'number',
+      effectEndTime: 'number',
+      effectStartTime: 'number',
       operationTicketId: 'string',
       protocolName: 'string',
       state: 'string',
@@ -14878,9 +28088,34 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $tea.Model
 }
 
 export class ListPoliciesResponseBodyPolicies extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the control policy.
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The control policy ID.
+   * 
+   * @example
+   * 2
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The name of the control policy.
+   * 
+   * @example
+   * test
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The priority of the control policy. A smaller value indicates a higher priority.
+   * 
+   * @example
+   * 1
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14906,11 +28141,56 @@ export class ListPoliciesResponseBodyPolicies extends $tea.Model {
 }
 
 export class ListRulesResponseBodyRules extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the authorization rule.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The end time of the validity period of the authorization rule. The value is a timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1709258400
+   */
   effectiveEndTime?: number;
+  /**
+   * @remarks
+   * The start time of the validity period of the authorization rule. The value is a timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1685499134
+   */
   effectiveStartTime?: number;
+  /**
+   * @remarks
+   * The authorization rule ID.
+   * 
+   * @example
+   * 13
+   */
   ruleId?: string;
+  /**
+   * @remarks
+   * The name of the authorization rule.
+   * 
+   * @example
+   * rule
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The state of the authorization rule.
+   * 
+   * *   **Enabled**
+   * *   **Disabled**
+   * 
+   * @example
+   * Enabled
+   */
   ruleState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14940,7 +28220,21 @@ export class ListRulesResponseBodyRules extends $tea.Model {
 }
 
 export class ListTagKeysResponseBodyTagKeys extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of tag keys.
+   * 
+   * @example
+   * 2
+   */
   tagCount?: number;
+  /**
+   * @remarks
+   * The name of the tag key.
+   * 
+   * @example
+   * key2
+   */
   tagKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14962,7 +28256,25 @@ export class ListTagKeysResponseBodyTagKeys extends $tea.Model {
 }
 
 export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of tag N.
+   * 
+   * Valid values of N: 1 to 20.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag N.
+   * 
+   * Valid values of N: 1 to 20.
+   * 
+   * @example
+   * testapi
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14984,9 +28296,39 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * bastionhost-cn-78v1gc****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * The returned value is INSTANCE, which indicates that the resource is a Bastionhost instance.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * test
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * testapi
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15012,9 +28354,37 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class ListUserGroupsResponseBodyUserGroups extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the user group.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The number of users in the user group.
+   * 
+   * @example
+   * 5
+   */
   memberCount?: number;
+  /**
+   * @remarks
+   * The ID of the user group.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
+  /**
+   * @remarks
+   * The name of the user group.
+   * 
+   * @example
+   * TestGroup01
+   */
   userGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15040,10 +28410,45 @@ export class ListUserGroupsResponseBodyUserGroups extends $tea.Model {
 }
 
 export class ListUserPublicKeysResponseBodyPublicKeys extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the public key.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The fingerprint of the public key.
+   * 
+   * @example
+   * d8:7d:b6:27:70:2d:07:fb:c6:b6:66:0a:86:7b:0f:9a
+   */
   fingerPrint?: string;
+  /**
+   * @remarks
+   * The ID of the public key.
+   * 
+   * @example
+   * 1
+   */
   publicKeyId?: string;
+  /**
+   * @remarks
+   * The name of the public key.
+   * 
+   * @example
+   * Keyname
+   */
   publicKeyName?: string;
+  /**
+   * @remarks
+   * The ID of the user to which the public key belongs.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15071,22 +28476,175 @@ export class ListUserPublicKeysResponseBodyPublicKeys extends $tea.Model {
 }
 
 export class ListUsersResponseBodyUsers extends $tea.Model {
+  /**
+   * @remarks
+   * The remarks of the user.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The display name of the user.
+   * 
+   * @example
+   * Bob
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The end time of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1672502400
+   */
   effectiveEndTime?: number;
+  /**
+   * @remarks
+   * The start time of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1669630029
+   */
   effectiveStartTime?: number;
+  /**
+   * @remarks
+   * The email address of the user.
+   * 
+   * @example
+   * 1099**@qq.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * This parameter is required if LanguageStatus is set to Custom. Valid values:
+   * 
+   * *   **zh-cn**: simplified Chinese.
+   * *   **en**: English.
+   * 
+   * @example
+   * en
+   */
   language?: string;
+  /**
+   * @remarks
+   * Indicates whether notifications are sent in the language specified in the global settings or a custom language.
+   * 
+   * *   **Global**
+   * *   **Custom**
+   * 
+   * @example
+   * Custom
+   */
   languageStatus?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the user.
+   * 
+   * @example
+   * 1359999****
+   */
   mobile?: string;
+  /**
+   * @remarks
+   * The location where the mobile phone number of the user is registered. Valid values:
+   * 
+   * *   **CN**: the Chinese mainland, whose international dialing code is +86.
+   * *   **HK**: Hong Kong (China), whose international dialing code is +852.
+   * *   **MO**: Macao (China), whose international dialing code is +853.
+   * *   **TW**: Taiwan (China), whose international dialing code is +886.
+   * *   **RU**: Russia, whose international dialing code is +7.
+   * *   **SG**: Singapore, whose international dialing code is +65.
+   * *   **MY**: Malaysia, whose international dialing code is +60.
+   * *   **ID**: Indonesia, whose international dialing code is +62.
+   * *   **DE**: Germany, whose international dialing code is +49.
+   * *   **AU**: Australia, whose international dialing code is +61.
+   * *   **US**: US, whose international dialing code is +1.
+   * *   **AE**: United Arab Emirates, whose international dialing code is +971.
+   * *   **JP:** Japan, whose international dialing code is +81.
+   * *   **GB**: UK, whose international dialing code is +44.
+   * *   **IN**: India, whose international dialing code is +91.
+   * *   **KR**: Republic of Korea, whose international dialing code is +82.
+   * *   **PH**: Philippines, whose international dialing code is +63.
+   * *   **CH**: Switzerland, whose international dialing code is +41.
+   * *   **SE**: Sweden, whose international dialing code is +46.
+   * 
+   * @example
+   * CN
+   */
   mobileCountryCode?: string;
+  /**
+   * @remarks
+   * Indicates whether password reset is required upon the next logon. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   needResetPassword?: boolean;
+  /**
+   * @remarks
+   * The type of the user. Valid values:
+   * 
+   * *   **Local**: a local user.
+   * *   **Ram**: a RAM user.
+   * *   **AD**: an AD-authenticated user.
+   * *   **LDAP**: an LDAP-authenticated user.
+   * 
+   * @example
+   * Local
+   */
   source?: string;
+  /**
+   * @remarks
+   * The unique ID of the user.
+   * 
+   * >  This parameter uniquely identifies a RAM user of the bastion host. A value is returned for this parameter if **Source** is set to **Ram**. No value is returned for this parameter if **Source** is set to **Local**.
+   * 
+   * @example
+   * 122748924538****
+   */
   sourceUserId?: string;
+  /**
+   * @remarks
+   * An array of the enabled two-factor authentication methods.
+   */
   twoFactorMethods?: string[];
+  /**
+   * @remarks
+   * Indicates whether two-factor authentication is enabled for the user. Valid values:
+   * 
+   * *   **Global**: The global setting applies.
+   * *   **Disable**: Two-factor authentication is disabled.
+   * *   **Enable**: Two-factor authentication is enabled. The user-specific setting for the authentication method applies.
+   * 
+   * @example
+   * Enable
+   */
   twoFactorStatus?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The logon name of the user.
+   * 
+   * @example
+   * abc_def
+   */
   userName?: string;
+  /**
+   * @remarks
+   * An array that lists the states of users.
+   */
   userState?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15138,8 +28696,43 @@ export class ListUsersResponseBodyUsers extends $tea.Model {
 }
 
 export class LockUsersResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * 
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * 
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * 
+   * >Make sure that the request parameters are valid and call the operation again.
+   * 
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * 
+   * >Check whether the specified ID of the bastion host exists, whether the specified hosts exist, and whether the specified host IDs are valid. Then, call the operation again.
+   * 
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * N/A
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15163,8 +28756,32 @@ export class LockUsersResponseBodyResults extends $tea.Model {
 }
 
 export class ModifyHostsActiveAddressTypeResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15188,8 +28805,40 @@ export class ModifyHostsActiveAddressTypeResponseBodyResults extends $tea.Model 
 }
 
 export class ModifyHostsPortResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   *     > Make sure that the request parameters are valid and call the operation again.
+   * 
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * 
+   *     > Check whether the specified ID of the bastion host exists, whether the specified hosts exist, and whether the specified host IDs are valid. Then, call the operation again.
+   * 
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * -
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15213,11 +28862,60 @@ export class ModifyHostsPortResponseBodyResults extends $tea.Model {
 }
 
 export class ModifyNetworkDomainRequestProxies extends $tea.Model {
+  /**
+   * @remarks
+   * The new IP address of the proxy server.
+   * 
+   * @example
+   * 114.21**.**
+   */
   address?: string;
+  /**
+   * @remarks
+   * The node type of the proxy server to modify. Valid values:
+   * 
+   * *   **Master**: primary proxy server.
+   * *   **Slave**: secondary proxy server.
+   * 
+   * @example
+   * Slave
+   */
   nodeType?: string;
+  /**
+   * @remarks
+   * The new password of the proxy server account.
+   * 
+   * @example
+   * ***
+   */
   password?: string;
+  /**
+   * @remarks
+   * The new port of the proxy server.
+   * 
+   * @example
+   * 22
+   */
   port?: number;
+  /**
+   * @remarks
+   * The new proxy mode. Valid values:
+   * 
+   * *   **SSHProxy**
+   * *   **HTTPProxy**
+   * *   **Socks5Proxy**
+   * 
+   * @example
+   * HTTPProxy
+   */
   proxyType?: string;
+  /**
+   * @remarks
+   * The new username of the proxy server account.
+   * 
+   * @example
+   * test
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15247,7 +28945,22 @@ export class ModifyNetworkDomainRequestProxies extends $tea.Model {
 }
 
 export class ModifyRuleRequestDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * The database account IDs.
+   */
   databaseAccountIds?: string[];
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * [
+   *     {
+   *         "DatabaseId": "1"
+   *     }
+   * ]
+   */
   databaseId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15269,7 +28982,18 @@ export class ModifyRuleRequestDatabases extends $tea.Model {
 }
 
 export class ModifyRuleRequestHostGroups extends $tea.Model {
+  /**
+   * @remarks
+   * The names of the asset accounts.
+   */
   hostAccountNames?: string[];
+  /**
+   * @remarks
+   * The asset group ID.
+   * 
+   * @example
+   * [{"HostGroupId":"1"}]
+   */
   hostGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15291,7 +29015,18 @@ export class ModifyRuleRequestHostGroups extends $tea.Model {
 }
 
 export class ModifyRuleRequestHosts extends $tea.Model {
+  /**
+   * @remarks
+   * The host account IDs.
+   */
   hostAccountIds?: string[];
+  /**
+   * @remarks
+   * The host ID.
+   * 
+   * @example
+   * [{"HostId":"1"}]
+   */
   hostId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15313,8 +29048,31 @@ export class ModifyRuleRequestHosts extends $tea.Model {
 }
 
 export class MoveDatabasesToNetworkDomainResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the database is added to the network domain.
+   * 
+   * > The code LICENSE_OUT_OF_LIMIT indicates that the network domain feature is not supported by the current Bastionhost edition.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 45
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The error message that is returned.
+   * 
+   * @example
+   * N/A
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15338,8 +29096,28 @@ export class MoveDatabasesToNetworkDomainResponseBodyResults extends $tea.Model 
 }
 
 export class MoveHostsToNetworkDomainResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the host is added to the network domain.
+   * 
+   * > The code LICENSE_OUT_OF_LIMIT indicates that the network domain feature is not supported by the current Bastionhost edition.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The host ID.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * The error message that is returned.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15363,9 +29141,34 @@ export class MoveHostsToNetworkDomainResponseBodyResults extends $tea.Model {
 }
 
 export class RemoveDatabasesFromGroupResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The error code that is returned. If OK is returned, the operation was successful. If another error code is returned, the operation failed.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 20
+   */
   databaseId?: string;
+  /**
+   * @remarks
+   * The asset group ID.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The error message that is returned.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15391,9 +29194,49 @@ export class RemoveDatabasesFromGroupResponseBodyResults extends $tea.Model {
 }
 
 export class RemoveHostsFromGroupResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * 
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * 
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   *     > Make sure that the request parameters are valid and call the operation again.
+   * 
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   *     > Make sure that the specified bastion host ID and host IDs are valid and call the operation again.
+   * 
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the asset group.
+   * 
+   * @example
+   * 1
+   */
   hostGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the host.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15419,9 +29262,51 @@ export class RemoveHostsFromGroupResponseBodyResults extends $tea.Model {
 }
 
 export class RemoveUsersFromGroupResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The return code that indicates whether the call was successful. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * 
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * 
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * 
+   * > Make sure that the request parameters are valid and call the operation again.
+   * 
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * 
+   * > Check whether the specified ID of the bastion host exists, whether the specified hosts exist, and whether the specified host IDs are valid. Then, call the operation again.
+   * 
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the group.
+   * 
+   * @example
+   * 1
+   */
   userGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * @example
+   * 1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15447,7 +29332,15 @@ export class RemoveUsersFromGroupResponseBodyResults extends $tea.Model {
 }
 
 export class SetPolicyAccessTimeRangeConfigRequestAccessTimeRangeConfigEffectiveTime extends $tea.Model {
+  /**
+   * @remarks
+   * The days of the week during which users can log on to the assets.
+   */
   days?: number[];
+  /**
+   * @remarks
+   * The time periods of the day during which users can log on to the assets.
+   */
   hours?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -15469,6 +29362,10 @@ export class SetPolicyAccessTimeRangeConfigRequestAccessTimeRangeConfigEffective
 }
 
 export class SetPolicyAccessTimeRangeConfigRequestAccessTimeRangeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the periods during which users can log on to the assets.
+   */
   effectiveTime?: SetPolicyAccessTimeRangeConfigRequestAccessTimeRangeConfigEffectiveTime[];
   static names(): { [key: string]: string } {
     return {
@@ -15488,6 +29385,18 @@ export class SetPolicyAccessTimeRangeConfigRequestAccessTimeRangeConfig extends 
 }
 
 export class SetPolicyApprovalConfigRequestApprovalConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable O&M approval in the control policy. Valid values:
+   * 
+   * * **On**: enables O&M approval.
+   * * **Off**: disables O&M approval.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * On
+   */
   switchStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15507,8 +29416,31 @@ export class SetPolicyApprovalConfigRequestApprovalConfig extends $tea.Model {
 }
 
 export class SetPolicyAssetScopeRequestDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * The scope of database accounts to which the control policy applies. Valid values:
+   * 
+   * *   **All**: The control policy applies to all database accounts of the database.
+   * *   **AccountId**: The control policy applies to specified database accounts of the database.
+   * 
+   * @example
+   * AccountId
+   */
   accountScopeType?: string;
+  /**
+   * @remarks
+   * The database accounts to which the control policy applies.
+   * 
+   * >  This parameter is required if AccountScopeType is set to AccountId.
+   */
   databaseAccountIds?: string[];
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 3
+   */
   databaseId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15532,8 +29464,31 @@ export class SetPolicyAssetScopeRequestDatabases extends $tea.Model {
 }
 
 export class SetPolicyAssetScopeRequestHostGroups extends $tea.Model {
+  /**
+   * @remarks
+   * The asset accounts to which the control policy applies.
+   * 
+   * > This parameter is required if AccountScopeType is set to AccountName.
+   */
   accountNames?: string[];
+  /**
+   * @remarks
+   * The scope of asset accounts to which the control policy applies. Valid values:
+   * 
+   * * **All**: The control policy applies to all accounts in the asset group.
+   * * **AccountName**: The control policy applies to specified accounts in the asset group.
+   * 
+   * @example
+   * All
+   */
   accountScopeType?: string;
+  /**
+   * @remarks
+   * The asset group ID.
+   * 
+   * @example
+   * 86
+   */
   hostGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15557,8 +29512,31 @@ export class SetPolicyAssetScopeRequestHostGroups extends $tea.Model {
 }
 
 export class SetPolicyAssetScopeRequestHosts extends $tea.Model {
+  /**
+   * @remarks
+   * The scope of host accounts to which the control policy applies. Valid values:
+   * 
+   * * **All**: The control policy applies to all accounts of the host.
+   * * **AccountId**: The control policy applies specified accounts of the host.
+   * 
+   * @example
+   * All
+   */
   accountScopeType?: string;
+  /**
+   * @remarks
+   * The host accounts to which the control policy applies.
+   * 
+   * > This parameter is required if AccountScopeType is set to AccountId.
+   */
   hostAccountIds?: string[];
+  /**
+   * @remarks
+   * The host ID.
+   * 
+   * @example
+   * 1
+   */
   hostId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15582,6 +29560,10 @@ export class SetPolicyAssetScopeRequestHosts extends $tea.Model {
 }
 
 export class SetPolicyCommandConfigRequestCommandConfigApproval extends $tea.Model {
+  /**
+   * @remarks
+   * The commands that can be run only after approval.
+   */
   commands?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15601,7 +29583,25 @@ export class SetPolicyCommandConfigRequestCommandConfigApproval extends $tea.Mod
 }
 
 export class SetPolicyCommandConfigRequestCommandConfigDeny extends $tea.Model {
+  /**
+   * @remarks
+   * The type of command control. Valid values:
+   * 
+   * *   **black**: blacklist mode.
+   * *   **white**: whitelist mode.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * white
+   */
   aclType?: string;
+  /**
+   * @remarks
+   * The commands to be controlled.
+   * 
+   * > This parameter is required if AclType is set to white.
+   */
   commands?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15623,7 +29623,19 @@ export class SetPolicyCommandConfigRequestCommandConfigDeny extends $tea.Model {
 }
 
 export class SetPolicyCommandConfigRequestCommandConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The command approval settings.
+   * 
+   * > A command approval policy is used to approve the commands that are excluded from a whitelist or blacklist specified in a command control policy. The command control policy takes precedence over the command approval policy in validation.
+   */
   approval?: SetPolicyCommandConfigRequestCommandConfigApproval;
+  /**
+   * @remarks
+   * The command control settings.
+   * 
+   * This parameter is required.
+   */
   deny?: SetPolicyCommandConfigRequestCommandConfigDeny;
   static names(): { [key: string]: string } {
     return {
@@ -15645,7 +29657,31 @@ export class SetPolicyCommandConfigRequestCommandConfig extends $tea.Model {
 }
 
 export class SetPolicyIPAclConfigRequestIPAclConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The mode of access control on source IP addresses. Valid values:
+   * 
+   * *   **black**: blacklist mode.
+   * *   **white**: whitelist mode.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * white
+   */
   aclType?: string;
+  /**
+   * @remarks
+   * The source IP addresses in the blacklist or whitelist.
+   * 
+   * > 
+   * 
+   * *   This parameter is required if AclType is set to white.
+   * 
+   * *   If AclType is set to black but you do not want to add IP addresses to the blacklist, you can leave IPs empty.
+   * 
+   * This parameter is required.
+   */
   IPs?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15667,9 +29703,57 @@ export class SetPolicyIPAclConfigRequestIPAclConfig extends $tea.Model {
 }
 
 export class SetPolicyProtocolConfigRequestProtocolConfigRDP extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable downloading from the clipboard. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > If you do not specify this parameter, the default value Disable is used.
+   * 
+   * @example
+   * Enable
+   */
   clipboardDownload?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable uploading from the clipboard. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > If you do not specify this parameter, the default value Disable is used.
+   * 
+   * @example
+   * Enable
+   */
   clipboardUpload?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable driver mapping. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > If you do not specify this parameter, the default value Disable is used.
+   * 
+   * @example
+   * Enable
+   */
   diskRedirection?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable keyboard operation recording. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > If you do not specify this parameter, the default value Disable is used.
+   * 
+   * @example
+   * Enable
+   */
   recordKeyboard?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15695,15 +29779,147 @@ export class SetPolicyProtocolConfigRequestProtocolConfigRDP extends $tea.Model 
 }
 
 export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable remote command execution. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > If you do not specify this parameter, the default value Disable is used.
+   * 
+   * @example
+   * Enable
+   */
   execCommand?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable SFTP channels. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > 
+   * 
+   * *   If you do not specify this parameter, the default value Disable is used.
+   * 
+   * *   You must set at least one of the following parameters to Enable: SSHChannel and SFTPChannel.
+   * 
+   * *   If you select Enable Only SFTP Permission for a host account, do not set SSHChannel and SFTPChannel to Disable for the account. Otherwise, users of the bastion host cannot use the account to access the host.
+   * 
+   * @example
+   * Enable
+   */
   SFTPChannel?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable file downloading during SFTP-based O\\&M. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > If you do not specify this parameter, the default value Disable is used.
+   * 
+   * @example
+   * Enable
+   */
   SFTPDownloadFile?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable folder creation during SFTP-based O\\&M. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > If you do not specify this parameter, the default value Disable is used.
+   * 
+   * @example
+   * Enable
+   */
   SFTPMkdir?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable file deletion during SFTP-based O\\&M. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > If you do not specify this parameter, the default value Disable is used.
+   * 
+   * @example
+   * Enable
+   */
   SFTPRemoveFile?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable file renaming during SFTP-based O\\&M. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > If you do not specify this parameter, the default value Disable is used.
+   * 
+   * @example
+   * Enable
+   */
   SFTPRenameFile?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable folder deletion during SFTP-based O\\&M. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > If you do not specify this parameter, the default value Disable is used.
+   * 
+   * @example
+   * Enable
+   */
   SFTPRmdir?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable file uploading during SFTP-based O\\&M. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > If you do not specify this parameter, the default value Disable is used.
+   * 
+   * @example
+   * Enable
+   */
   SFTPUploadFile?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable SSH channels. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > 
+   * 
+   * *   If you do not specify this parameter, the default value Disable is used.
+   * 
+   * *   You must set at least one of the following parameters to Enable: SSHChannel and SFTPChannel. If you set SSHChannel to Disable, SSH-based logon is disabled for the asset account. Proceed with caution.
+   * 
+   * *   If you select Enable Only SFTP Permission for a host account, do not set SSHChannel and SFTPChannel to Disable for the account. Otherwise, users of the bastion host cannot use the account to access the host.
+   * 
+   * @example
+   * Enable
+   */
   SSHChannel?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable X11 forwarding. Valid values:
+   * 
+   * *   Enable
+   * *   Disable
+   * 
+   * > If you do not specify this parameter, the default value Disable is used.
+   * 
+   * @example
+   * Enable
+   */
   x11Forwarding?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15741,7 +29957,15 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $tea.Model 
 }
 
 export class SetPolicyProtocolConfigRequestProtocolConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The settings of the Remote Desktop Protocol (RDP) options.
+   */
   RDP?: SetPolicyProtocolConfigRequestProtocolConfigRDP;
+  /**
+   * @remarks
+   * The settings of the SSH and SSH Fine Transfer Protocol (SFTP) options.
+   */
   SSH?: SetPolicyProtocolConfigRequestProtocolConfigSSH;
   static names(): { [key: string]: string } {
     return {
@@ -15763,7 +29987,28 @@ export class SetPolicyProtocolConfigRequestProtocolConfig extends $tea.Model {
 }
 
 export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key of the bastion host. You can specify up to 20 tags for the bastion host.
+   * 
+   * > - Thekey cannot be an empty string. The key can be up to 128 characters in length. 
+   * > - It cannot start with **aliyun** or **acs:**, and cannot contain **http://** or **https://**.
+   * 
+   * @example
+   * operation
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value of the bastion host.\\
+   * You can specify up to 20 tags for the bastion host.
+   * 
+   * > *   The value can be a string of up to 128 characters or an empty string.
+   * > *   It cannot start with **aliyun** or **acs:**, and cannot contain **http://** or **https://**.
+   * 
+   * @example
+   * operation_test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15785,8 +30030,47 @@ export class TagResourcesRequestTag extends $tea.Model {
 }
 
 export class UnlockUsersResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * The result of the call. Valid values:
+   * 
+   * *   **OK**: The call was successful.
+   * 
+   * *   **UNEXPECTED**: An unknown error occurred.
+   * 
+   * *   **INVALID_ARGUMENT**: A request parameter is invalid.
+   * 
+   *     **
+   * 
+   *     **Note**Make sure that the request parameters are valid and call the operation again.
+   * 
+   * *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+   * 
+   *     **
+   * 
+   *     **Note**Check whether the specified ID of the bastion host exists, whether the specified hosts exist, and whether the specified host IDs are valid. Then, call the operation again.
+   * 
+   * *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * N/A
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * @example
+   * １
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15832,6 +30116,17 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * If an O\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+   * 
+   * @remarks
+   * You can call this operation as a Bastionhost administrator to approve the request to run a command of an O\\&M engineer.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - AcceptApproveCommandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AcceptApproveCommandResponse
+   */
   async acceptApproveCommandWithOptions(request: AcceptApproveCommandRequest, runtime: $Util.RuntimeOptions): Promise<AcceptApproveCommandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15864,22 +30159,39 @@ export default class Client extends OpenApi {
     return $tea.cast<AcceptApproveCommandResponse>(await this.callApi(params, req, runtime), new AcceptApproveCommandResponse({}));
   }
 
+  /**
+   * If an O\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+   * 
+   * @remarks
+   * You can call this operation as a Bastionhost administrator to approve the request to run a command of an O\\&M engineer.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - AcceptApproveCommandRequest
+   * @returns AcceptApproveCommandResponse
+   */
   async acceptApproveCommand(request: AcceptApproveCommandRequest): Promise<AcceptApproveCommandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.acceptApproveCommandWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request AcceptOperationTicketRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AcceptOperationTicketResponse
+   * Approves an O\\\\\\&M application.
+   * 
+   * @remarks
+   * You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - AcceptOperationTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AcceptOperationTicketResponse
    */
   async acceptOperationTicketWithOptions(request: AcceptOperationTicketRequest, runtime: $Util.RuntimeOptions): Promise<AcceptOperationTicketResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
     if (!Util.isUnset(request.effectCount)) {
       query["EffectCount"] = request.effectCount;
     }
@@ -15922,17 +30234,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request AcceptOperationTicketRequest
-    * @return AcceptOperationTicketResponse
+   * Approves an O\\\\\\&M application.
+   * 
+   * @remarks
+   * You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - AcceptOperationTicketRequest
+   * @returns AcceptOperationTicketResponse
    */
   async acceptOperationTicket(request: AcceptOperationTicketRequest): Promise<AcceptOperationTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.acceptOperationTicketWithOptions(request, runtime);
   }
 
+  /**
+   * Adds multiple databases to a specified asset group.
+   * 
+   * @param request - AddDatabasesToGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDatabasesToGroupResponse
+   */
   async addDatabasesToGroupWithOptions(request: AddDatabasesToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddDatabasesToGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15969,19 +30291,28 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDatabasesToGroupResponse>(await this.callApi(params, req, runtime), new AddDatabasesToGroupResponse({}));
   }
 
+  /**
+   * Adds multiple databases to a specified asset group.
+   * 
+   * @param request - AddDatabasesToGroupRequest
+   * @returns AddDatabasesToGroupResponse
+   */
   async addDatabasesToGroup(request: AddDatabasesToGroupRequest): Promise<AddDatabasesToGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDatabasesToGroupWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-    *
-    * @param request AddHostsToGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddHostsToGroupResponse
+   * Adds one or more hosts to the specified host group.
+   * 
+   * @remarks
+   * You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+   * 
+   * @param request - AddHostsToGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddHostsToGroupResponse
    */
   async addHostsToGroupWithOptions(request: AddHostsToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddHostsToGroupResponse> {
     Util.validateModel(request);
@@ -16020,12 +30351,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-    *
-    * @param request AddHostsToGroupRequest
-    * @return AddHostsToGroupResponse
+   * Adds one or more hosts to the specified host group.
+   * 
+   * @remarks
+   * You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+   * 
+   * @param request - AddHostsToGroupRequest
+   * @returns AddHostsToGroupResponse
    */
   async addHostsToGroup(request: AddHostsToGroupRequest): Promise<AddHostsToGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16033,14 +30367,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * #
-    * You can call this operation to add one or more users to a user group. After you call the [CreateUserGroup](~~204596~~) operation to create a user group, you can call the AddUsersToGroup operation to add multiple users to the user group. Then, you can manage and grant permissions to the users at a time.
-    * # Limit
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request AddUsersToGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddUsersToGroupResponse
+   * Add one or more users to a user group.
+   * 
+   * @remarks
+   * #
+   * You can call this operation to add one or more users to a user group. After you call the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation to create a user group, you can call the AddUsersToGroup operation to add multiple users to the user group. Then, you can manage and grant permissions to the users at a time.
+   * # Limit
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - AddUsersToGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddUsersToGroupResponse
    */
   async addUsersToGroupWithOptions(request: AddUsersToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddUsersToGroupResponse> {
     Util.validateModel(request);
@@ -16079,19 +30416,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * #
-    * You can call this operation to add one or more users to a user group. After you call the [CreateUserGroup](~~204596~~) operation to create a user group, you can call the AddUsersToGroup operation to add multiple users to the user group. Then, you can manage and grant permissions to the users at a time.
-    * # Limit
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request AddUsersToGroupRequest
-    * @return AddUsersToGroupResponse
+   * Add one or more users to a user group.
+   * 
+   * @remarks
+   * #
+   * You can call this operation to add one or more users to a user group. After you call the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation to create a user group, you can call the AddUsersToGroup operation to add multiple users to the user group. Then, you can manage and grant permissions to the users at a time.
+   * # Limit
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - AddUsersToGroupRequest
+   * @returns AddUsersToGroupResponse
    */
   async addUsersToGroup(request: AddUsersToGroupRequest): Promise<AddUsersToGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUsersToGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Authorizes a user to manage databases and database accounts.
+   * 
+   * @param request - AttachDatabaseAccountsToUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachDatabaseAccountsToUserResponse
+   */
   async attachDatabaseAccountsToUserWithOptions(request: AttachDatabaseAccountsToUserRequest, runtime: $Util.RuntimeOptions): Promise<AttachDatabaseAccountsToUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16128,11 +30475,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachDatabaseAccountsToUserResponse>(await this.callApi(params, req, runtime), new AttachDatabaseAccountsToUserResponse({}));
   }
 
+  /**
+   * Authorizes a user to manage databases and database accounts.
+   * 
+   * @param request - AttachDatabaseAccountsToUserRequest
+   * @returns AttachDatabaseAccountsToUserResponse
+   */
   async attachDatabaseAccountsToUser(request: AttachDatabaseAccountsToUserRequest): Promise<AttachDatabaseAccountsToUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachDatabaseAccountsToUserWithOptions(request, runtime);
   }
 
+  /**
+   * Authorizes a user group to manage databases and database accounts.
+   * 
+   * @param request - AttachDatabaseAccountsToUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachDatabaseAccountsToUserGroupResponse
+   */
   async attachDatabaseAccountsToUserGroupWithOptions(request: AttachDatabaseAccountsToUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<AttachDatabaseAccountsToUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16169,11 +30529,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachDatabaseAccountsToUserGroupResponse>(await this.callApi(params, req, runtime), new AttachDatabaseAccountsToUserGroupResponse({}));
   }
 
+  /**
+   * Authorizes a user group to manage databases and database accounts.
+   * 
+   * @param request - AttachDatabaseAccountsToUserGroupRequest
+   * @returns AttachDatabaseAccountsToUserGroupResponse
+   */
   async attachDatabaseAccountsToUserGroup(request: AttachDatabaseAccountsToUserGroupRequest): Promise<AttachDatabaseAccountsToUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachDatabaseAccountsToUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Associates host accounts with a shared key.
+   * 
+   * @param request - AttachHostAccountsToHostShareKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachHostAccountsToHostShareKeyResponse
+   */
   async attachHostAccountsToHostShareKeyWithOptions(request: AttachHostAccountsToHostShareKeyRequest, runtime: $Util.RuntimeOptions): Promise<AttachHostAccountsToHostShareKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16210,11 +30583,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachHostAccountsToHostShareKeyResponse>(await this.callApi(params, req, runtime), new AttachHostAccountsToHostShareKeyResponse({}));
   }
 
+  /**
+   * Associates host accounts with a shared key.
+   * 
+   * @param request - AttachHostAccountsToHostShareKeyRequest
+   * @returns AttachHostAccountsToHostShareKeyResponse
+   */
   async attachHostAccountsToHostShareKey(request: AttachHostAccountsToHostShareKeyRequest): Promise<AttachHostAccountsToHostShareKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachHostAccountsToHostShareKeyWithOptions(request, runtime);
   }
 
+  /**
+   * Authorizes a user to manage the hosts and host accounts.
+   * 
+   * @param request - AttachHostAccountsToUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachHostAccountsToUserResponse
+   */
   async attachHostAccountsToUserWithOptions(request: AttachHostAccountsToUserRequest, runtime: $Util.RuntimeOptions): Promise<AttachHostAccountsToUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16251,17 +30637,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachHostAccountsToUserResponse>(await this.callApi(params, req, runtime), new AttachHostAccountsToUserResponse({}));
   }
 
+  /**
+   * Authorizes a user to manage the hosts and host accounts.
+   * 
+   * @param request - AttachHostAccountsToUserRequest
+   * @returns AttachHostAccountsToUserResponse
+   */
   async attachHostAccountsToUser(request: AttachHostAccountsToUserRequest): Promise<AttachHostAccountsToUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachHostAccountsToUserWithOptions(request, runtime);
   }
 
   /**
-    * After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
-    *
-    * @param request AttachHostAccountsToUserGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AttachHostAccountsToUserGroupResponse
+   * Authorizes a user group to manage one or more hosts and host accounts.
+   * 
+   * @remarks
+   * After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
+   * 
+   * @param request - AttachHostAccountsToUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachHostAccountsToUserGroupResponse
    */
   async attachHostAccountsToUserGroupWithOptions(request: AttachHostAccountsToUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<AttachHostAccountsToUserGroupResponse> {
     Util.validateModel(request);
@@ -16300,16 +30695,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
-    *
-    * @param request AttachHostAccountsToUserGroupRequest
-    * @return AttachHostAccountsToUserGroupResponse
+   * Authorizes a user group to manage one or more hosts and host accounts.
+   * 
+   * @remarks
+   * After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
+   * 
+   * @param request - AttachHostAccountsToUserGroupRequest
+   * @returns AttachHostAccountsToUserGroupResponse
    */
   async attachHostAccountsToUserGroup(request: AttachHostAccountsToUserGroupRequest): Promise<AttachHostAccountsToUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachHostAccountsToUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Authorizes a user to manage one or more host groups and host accounts.
+   * 
+   * @param request - AttachHostGroupAccountsToUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachHostGroupAccountsToUserResponse
+   */
   async attachHostGroupAccountsToUserWithOptions(request: AttachHostGroupAccountsToUserRequest, runtime: $Util.RuntimeOptions): Promise<AttachHostGroupAccountsToUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16346,11 +30751,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachHostGroupAccountsToUserResponse>(await this.callApi(params, req, runtime), new AttachHostGroupAccountsToUserResponse({}));
   }
 
+  /**
+   * Authorizes a user to manage one or more host groups and host accounts.
+   * 
+   * @param request - AttachHostGroupAccountsToUserRequest
+   * @returns AttachHostGroupAccountsToUserResponse
+   */
   async attachHostGroupAccountsToUser(request: AttachHostGroupAccountsToUserRequest): Promise<AttachHostGroupAccountsToUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachHostGroupAccountsToUserWithOptions(request, runtime);
   }
 
+  /**
+   * Authorizes a user to manage one or more host groups and host accounts.
+   * 
+   * @param request - AttachHostGroupAccountsToUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachHostGroupAccountsToUserGroupResponse
+   */
   async attachHostGroupAccountsToUserGroupWithOptions(request: AttachHostGroupAccountsToUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<AttachHostGroupAccountsToUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16387,11 +30805,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachHostGroupAccountsToUserGroupResponse>(await this.callApi(params, req, runtime), new AttachHostGroupAccountsToUserGroupResponse({}));
   }
 
+  /**
+   * Authorizes a user to manage one or more host groups and host accounts.
+   * 
+   * @param request - AttachHostGroupAccountsToUserGroupRequest
+   * @returns AttachHostGroupAccountsToUserGroupResponse
+   */
   async attachHostGroupAccountsToUserGroup(request: AttachHostGroupAccountsToUserGroupRequest): Promise<AttachHostGroupAccountsToUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachHostGroupAccountsToUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Configures security groups for a bastion host.
+   * 
+   * @param request - ConfigInstanceSecurityGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigInstanceSecurityGroupsResponse
+   */
   async configInstanceSecurityGroupsWithOptions(request: ConfigInstanceSecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ConfigInstanceSecurityGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16428,20 +30859,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigInstanceSecurityGroupsResponse>(await this.callApi(params, req, runtime), new ConfigInstanceSecurityGroupsResponse({}));
   }
 
+  /**
+   * Configures security groups for a bastion host.
+   * 
+   * @param request - ConfigInstanceSecurityGroupsRequest
+   * @returns ConfigInstanceSecurityGroupsResponse
+   */
   async configInstanceSecurityGroups(request: ConfigInstanceSecurityGroupsRequest): Promise<ConfigInstanceSecurityGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configInstanceSecurityGroupsWithOptions(request, runtime);
   }
 
   /**
-    * ## Usage notes
-    * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.  
-    * ## Limits
-    * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ConfigInstanceWhiteListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ConfigInstanceWhiteListResponse
+   * Configures a whitelist of public IP addresses for a bastion host.
+   * 
+   * @remarks
+   * ## Usage notes
+   * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.  
+   * ## Limits
+   * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - ConfigInstanceWhiteListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigInstanceWhiteListResponse
    */
   async configInstanceWhiteListWithOptions(request: ConfigInstanceWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<ConfigInstanceWhiteListResponse> {
     Util.validateModel(request);
@@ -16476,19 +30916,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.  
-    * ## Limits
-    * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ConfigInstanceWhiteListRequest
-    * @return ConfigInstanceWhiteListResponse
+   * Configures a whitelist of public IP addresses for a bastion host.
+   * 
+   * @remarks
+   * ## Usage notes
+   * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.  
+   * ## Limits
+   * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - ConfigInstanceWhiteListRequest
+   * @returns ConfigInstanceWhiteListResponse
    */
   async configInstanceWhiteList(request: ConfigInstanceWhiteListRequest): Promise<ConfigInstanceWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configInstanceWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * Imports an ApsaraDB RDS for MySQL instance, ApsaraDB RDS for SQL Server instance, ApsaraDB RDS for PostgreSQL instance, PolarDB for MySQL cluster, PolarDB for PostgreSQL cluster, PolarDB for PostgreSQL (Compatible with Oracle) cluster, self-managed MySQL database, self-managed SQL Server database, self-managed PostgreSQL database, or self-managed Oracle database to a bastion host.
+   * 
+   * @param request - CreateDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatabaseResponse
+   */
   async createDatabaseWithOptions(request: CreateDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16565,11 +31015,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDatabaseResponse>(await this.callApi(params, req, runtime), new CreateDatabaseResponse({}));
   }
 
+  /**
+   * Imports an ApsaraDB RDS for MySQL instance, ApsaraDB RDS for SQL Server instance, ApsaraDB RDS for PostgreSQL instance, PolarDB for MySQL cluster, PolarDB for PostgreSQL cluster, PolarDB for PostgreSQL (Compatible with Oracle) cluster, self-managed MySQL database, self-managed SQL Server database, self-managed PostgreSQL database, or self-managed Oracle database to a bastion host.
+   * 
+   * @param request - CreateDatabaseRequest
+   * @returns CreateDatabaseResponse
+   */
   async createDatabase(request: CreateDatabaseRequest): Promise<CreateDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDatabaseWithOptions(request, runtime);
   }
 
+  /**
+   * After a database is created, you can create a database account for the database. After the account is created, O\\&M engineers can use the account to log on to and perform O\\&M operations on the database.
+   * 
+   * @param request - CreateDatabaseAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatabaseAccountResponse
+   */
   async createDatabaseAccountWithOptions(request: CreateDatabaseAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatabaseAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16618,11 +31081,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDatabaseAccountResponse>(await this.callApi(params, req, runtime), new CreateDatabaseAccountResponse({}));
   }
 
+  /**
+   * After a database is created, you can create a database account for the database. After the account is created, O\\&M engineers can use the account to log on to and perform O\\&M operations on the database.
+   * 
+   * @param request - CreateDatabaseAccountRequest
+   * @returns CreateDatabaseAccountResponse
+   */
   async createDatabaseAccount(request: CreateDatabaseAccountRequest): Promise<CreateDatabaseAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDatabaseAccountWithOptions(request, runtime);
   }
 
+  /**
+   * Bastionhost allows you to perform O\\&M operations on hosts from different sources, such as Alibaba Cloud Elastic Compute Service (ECS) instances, servers in on-premises data centers, and servers on other cloud platforms. Before you perform O\\&M operations on hosts by using a bastion host, you must import the hosts to the bastion host. You can call this operation to import a host to a bastion host.
+   * 
+   * @param request - CreateHostRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHostResponse
+   */
   async createHostWithOptions(request: CreateHostRequest, runtime: $Util.RuntimeOptions): Promise<CreateHostResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16691,11 +31167,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHostResponse>(await this.callApi(params, req, runtime), new CreateHostResponse({}));
   }
 
+  /**
+   * Bastionhost allows you to perform O\\&M operations on hosts from different sources, such as Alibaba Cloud Elastic Compute Service (ECS) instances, servers in on-premises data centers, and servers on other cloud platforms. Before you perform O\\&M operations on hosts by using a bastion host, you must import the hosts to the bastion host. You can call this operation to import a host to a bastion host.
+   * 
+   * @param request - CreateHostRequest
+   * @returns CreateHostResponse
+   */
   async createHost(request: CreateHostRequest): Promise<CreateHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHostWithOptions(request, runtime);
   }
 
+  /**
+   * After you import a host to a bastion host, you must add an account of the host to the bastion host. This way, O\\&M engineers can use the account to log on to and perform O\\&M operations on the host by using the bastion host.
+   * 
+   * @param request - CreateHostAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHostAccountResponse
+   */
   async createHostAccountWithOptions(request: CreateHostAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateHostAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16752,11 +31241,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHostAccountResponse>(await this.callApi(params, req, runtime), new CreateHostAccountResponse({}));
   }
 
+  /**
+   * After you import a host to a bastion host, you must add an account of the host to the bastion host. This way, O\\&M engineers can use the account to log on to and perform O\\&M operations on the host by using the bastion host.
+   * 
+   * @param request - CreateHostAccountRequest
+   * @returns CreateHostAccountResponse
+   */
   async createHostAccount(request: CreateHostAccountRequest): Promise<CreateHostAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHostAccountWithOptions(request, runtime);
   }
 
+  /**
+   * You can create asset groups based on your business requirements and add assets of the same type to an asset group. This allows you to classify assets and manage multiple assets at a time.
+   * 
+   * @param request - CreateHostGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHostGroupResponse
+   */
   async createHostGroupWithOptions(request: CreateHostGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateHostGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16793,11 +31295,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHostGroupResponse>(await this.callApi(params, req, runtime), new CreateHostGroupResponse({}));
   }
 
+  /**
+   * You can create asset groups based on your business requirements and add assets of the same type to an asset group. This allows you to classify assets and manage multiple assets at a time.
+   * 
+   * @param request - CreateHostGroupRequest
+   * @returns CreateHostGroupResponse
+   */
   async createHostGroup(request: CreateHostGroupRequest): Promise<CreateHostGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHostGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Bastionhost provides the shared key feature. This feature allows you to manage the private key that is used to log on to a host in a bastion host. This way, you can associate the private key with multiple accounts of the host to make host account management more efficient.
+   * 
+   * @param request - CreateHostShareKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHostShareKeyResponse
+   */
   async createHostShareKeyWithOptions(request: CreateHostShareKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateHostShareKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16838,11 +31353,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHostShareKeyResponse>(await this.callApi(params, req, runtime), new CreateHostShareKeyResponse({}));
   }
 
+  /**
+   * Bastionhost provides the shared key feature. This feature allows you to manage the private key that is used to log on to a host in a bastion host. This way, you can associate the private key with multiple accounts of the host to make host account management more efficient.
+   * 
+   * @param request - CreateHostShareKeyRequest
+   * @returns CreateHostShareKeyResponse
+   */
   async createHostShareKey(request: CreateHostShareKeyRequest): Promise<CreateHostShareKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHostShareKeyWithOptions(request, runtime);
   }
 
+  /**
+   * Creates a network domain.
+   * 
+   * @param request - CreateNetworkDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNetworkDomainResponse
+   */
   async createNetworkDomainWithOptions(request: CreateNetworkDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16887,11 +31415,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNetworkDomainResponse>(await this.callApi(params, req, runtime), new CreateNetworkDomainResponse({}));
   }
 
+  /**
+   * Creates a network domain.
+   * 
+   * @param request - CreateNetworkDomainRequest
+   * @returns CreateNetworkDomainResponse
+   */
   async createNetworkDomain(request: CreateNetworkDomainRequest): Promise<CreateNetworkDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNetworkDomainWithOptions(request, runtime);
   }
 
+  /**
+   * Configures a command control, command approval, protocol control, or access control policy to manage O\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\&M security.
+   * 
+   * @param request - CreatePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePolicyResponse
+   */
   async createPolicyWithOptions(request: CreatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16932,11 +31473,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePolicyResponse>(await this.callApi(params, req, runtime), new CreatePolicyResponse({}));
   }
 
+  /**
+   * Configures a command control, command approval, protocol control, or access control policy to manage O\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\&M security.
+   * 
+   * @param request - CreatePolicyRequest
+   * @returns CreatePolicyResponse
+   */
   async createPolicy(request: CreatePolicyRequest): Promise<CreatePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * You can create authorization rules to authorize multiple users to manage assets. You can also specify a validity period for an authorization rule. This way, you can manage users and assets in a more efficient manner and limit the time periods during which users can access assets.
+   * 
+   * @param request - CreateRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRuleResponse
+   */
   async createRuleWithOptions(request: CreateRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17001,20 +31555,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRuleResponse>(await this.callApi(params, req, runtime), new CreateRuleResponse({}));
   }
 
+  /**
+   * You can create authorization rules to authorize multiple users to manage assets. You can also specify a validity period for an authorization rule. This way, you can manage users and assets in a more efficient manner and limit the time periods during which users can access assets.
+   * 
+   * @param request - CreateRuleRequest
+   * @returns CreateRuleResponse
+   */
   async createRule(request: CreateRuleRequest): Promise<CreateRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRuleWithOptions(request, runtime);
   }
 
   /**
-    * ## Usage notes
-    * You can call this operation to add a user to a bastion host. You can add local users and Resource Access Management (RAM) users. After a Bastionhost administrator adds a user to a bastion host, the O&M personnel can log on to the bastion host as the user to perform O&M operations on the host on which they have permissions.  
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateUserRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateUserResponse
+   * Adds a user to a bastion host.
+   * 
+   * @remarks
+   * You can call the CreateUser operation to add local users, Resource Access Management (RAM) users, Active Directory (AD)-authenticated users, or Lightweight Directory Access Protocol (LDAP)-authenticated users to a bastion host. After a Bastionhost administrator adds a user to a bastion host, O\\&M engineers can log on to the bastion host as the user to perform O\\&M operations on the hosts that the user is authorized to manage.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+   * 
+   * @param request - CreateUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserResponse
    */
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
@@ -17109,13 +31670,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * You can call this operation to add a user to a bastion host. You can add local users and Resource Access Management (RAM) users. After a Bastionhost administrator adds a user to a bastion host, the O&M personnel can log on to the bastion host as the user to perform O&M operations on the host on which they have permissions.  
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateUserRequest
-    * @return CreateUserResponse
+   * Adds a user to a bastion host.
+   * 
+   * @remarks
+   * You can call the CreateUser operation to add local users, Resource Access Management (RAM) users, Active Directory (AD)-authenticated users, or Lightweight Directory Access Protocol (LDAP)-authenticated users to a bastion host. After a Bastionhost administrator adds a user to a bastion host, O\\&M engineers can log on to the bastion host as the user to perform O\\&M operations on the hosts that the user is authorized to manage.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+   * 
+   * @param request - CreateUserRequest
+   * @returns CreateUserResponse
    */
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17123,12 +31685,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](~~204600~~) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateUserGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateUserGroupResponse
+   * Creates a user group for the specified bastion host.
+   * 
+   * @remarks
+   * You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - CreateUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserGroupResponse
    */
   async createUserGroupWithOptions(request: CreateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserGroupResponse> {
     Util.validateModel(request);
@@ -17167,11 +31732,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](~~204600~~) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateUserGroupRequest
-    * @return CreateUserGroupResponse
+   * Creates a user group for the specified bastion host.
+   * 
+   * @remarks
+   * You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - CreateUserGroupRequest
+   * @returns CreateUserGroupResponse
    */
   async createUserGroup(request: CreateUserGroupRequest): Promise<CreateUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17179,11 +31747,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
-    *
-    * @param request CreateUserPublicKeyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateUserPublicKeyResponse
+   * Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\&M client.
+   * 
+   * @remarks
+   * You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
+   * 
+   * @param request - CreateUserPublicKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserPublicKeyResponse
    */
   async createUserPublicKeyWithOptions(request: CreateUserPublicKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserPublicKeyResponse> {
     Util.validateModel(request);
@@ -17230,16 +31801,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
-    *
-    * @param request CreateUserPublicKeyRequest
-    * @return CreateUserPublicKeyResponse
+   * Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\&M client.
+   * 
+   * @remarks
+   * You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
+   * 
+   * @param request - CreateUserPublicKeyRequest
+   * @returns CreateUserPublicKeyResponse
    */
   async createUserPublicKey(request: CreateUserPublicKeyRequest): Promise<CreateUserPublicKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUserPublicKeyWithOptions(request, runtime);
   }
 
+  /**
+   * Deletes a database.
+   * 
+   * @param request - DeleteDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatabaseResponse
+   */
   async deleteDatabaseWithOptions(request: DeleteDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17272,11 +31853,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDatabaseResponse>(await this.callApi(params, req, runtime), new DeleteDatabaseResponse({}));
   }
 
+  /**
+   * Deletes a database.
+   * 
+   * @param request - DeleteDatabaseRequest
+   * @returns DeleteDatabaseResponse
+   */
   async deleteDatabase(request: DeleteDatabaseRequest): Promise<DeleteDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDatabaseWithOptions(request, runtime);
   }
 
+  /**
+   * Deletes a database account.
+   * 
+   * @param request - DeleteDatabaseAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatabaseAccountResponse
+   */
   async deleteDatabaseAccountWithOptions(request: DeleteDatabaseAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatabaseAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17309,11 +31903,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDatabaseAccountResponse>(await this.callApi(params, req, runtime), new DeleteDatabaseAccountResponse({}));
   }
 
+  /**
+   * Deletes a database account.
+   * 
+   * @param request - DeleteDatabaseAccountRequest
+   * @returns DeleteDatabaseAccountResponse
+   */
   async deleteDatabaseAccount(request: DeleteDatabaseAccountRequest): Promise<DeleteDatabaseAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDatabaseAccountWithOptions(request, runtime);
   }
 
+  /**
+   * Deletes the specified host.
+   * 
+   * @param request - DeleteHostRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHostResponse
+   */
   async deleteHostWithOptions(request: DeleteHostRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHostResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17346,21 +31953,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHostResponse>(await this.callApi(params, req, runtime), new DeleteHostResponse({}));
   }
 
+  /**
+   * Deletes the specified host.
+   * 
+   * @param request - DeleteHostRequest
+   * @returns DeleteHostResponse
+   */
   async deleteHost(request: DeleteHostRequest): Promise<DeleteHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHostWithOptions(request, runtime);
   }
 
   /**
-    * ## Usage notes
-    * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
-    * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.  
-    * ## QPS Limit
-    * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
-    *
-    * @param request DeleteHostAccountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteHostAccountResponse
+   * Removes a host account.
+   * 
+   * @remarks
+   * ## Usage notes
+   * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
+   * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.  
+   * ## QPS Limit
+   * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
+   * 
+   * @param request - DeleteHostAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHostAccountResponse
    */
   async deleteHostAccountWithOptions(request: DeleteHostAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHostAccountResponse> {
     Util.validateModel(request);
@@ -17395,14 +32011,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
-    * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.  
-    * ## QPS Limit
-    * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
-    *
-    * @param request DeleteHostAccountRequest
-    * @return DeleteHostAccountResponse
+   * Removes a host account.
+   * 
+   * @remarks
+   * ## Usage notes
+   * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
+   * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.  
+   * ## QPS Limit
+   * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
+   * 
+   * @param request - DeleteHostAccountRequest
+   * @returns DeleteHostAccountResponse
    */
   async deleteHostAccount(request: DeleteHostAccountRequest): Promise<DeleteHostAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17410,13 +32029,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteHostGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteHostGroupResponse
+   * Deletes a host group.
+   * 
+   * @remarks
+   * You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - DeleteHostGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHostGroupResponse
    */
   async deleteHostGroupWithOptions(request: DeleteHostGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHostGroupResponse> {
     Util.validateModel(request);
@@ -17451,18 +32073,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteHostGroupRequest
-    * @return DeleteHostGroupResponse
+   * Deletes a host group.
+   * 
+   * @remarks
+   * You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - DeleteHostGroupRequest
+   * @returns DeleteHostGroupResponse
    */
   async deleteHostGroup(request: DeleteHostGroupRequest): Promise<DeleteHostGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHostGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Deletes a shared key.
+   * 
+   * @param request - DeleteHostShareKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHostShareKeyResponse
+   */
   async deleteHostShareKeyWithOptions(request: DeleteHostShareKeyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHostShareKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17495,11 +32127,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHostShareKeyResponse>(await this.callApi(params, req, runtime), new DeleteHostShareKeyResponse({}));
   }
 
+  /**
+   * Deletes a shared key.
+   * 
+   * @param request - DeleteHostShareKeyRequest
+   * @returns DeleteHostShareKeyResponse
+   */
   async deleteHostShareKey(request: DeleteHostShareKeyRequest): Promise<DeleteHostShareKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHostShareKeyWithOptions(request, runtime);
   }
 
+  /**
+   * Deletes a network domain.
+   * 
+   * @param request - DeleteNetworkDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNetworkDomainResponse
+   */
   async deleteNetworkDomainWithOptions(request: DeleteNetworkDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17532,11 +32177,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNetworkDomainResponse>(await this.callApi(params, req, runtime), new DeleteNetworkDomainResponse({}));
   }
 
+  /**
+   * Deletes a network domain.
+   * 
+   * @param request - DeleteNetworkDomainRequest
+   * @returns DeleteNetworkDomainResponse
+   */
   async deleteNetworkDomain(request: DeleteNetworkDomainRequest): Promise<DeleteNetworkDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkDomainWithOptions(request, runtime);
   }
 
+  /**
+   * Deletes a control policy.
+   * 
+   * @param request - DeletePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePolicyResponse
+   */
   async deletePolicyWithOptions(request: DeletePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17569,11 +32227,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePolicyResponse>(await this.callApi(params, req, runtime), new DeletePolicyResponse({}));
   }
 
+  /**
+   * Deletes a control policy.
+   * 
+   * @param request - DeletePolicyRequest
+   * @returns DeletePolicyResponse
+   */
   async deletePolicy(request: DeletePolicyRequest): Promise<DeletePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePolicyWithOptions(request, runtime);
   }
 
+  /**
+   * Deletes an authorization rule.
+   * 
+   * @param request - DeleteRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRuleResponse
+   */
   async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17606,11 +32277,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRuleResponse>(await this.callApi(params, req, runtime), new DeleteRuleResponse({}));
   }
 
+  /**
+   * Deletes an authorization rule.
+   * 
+   * @param request - DeleteRuleRequest
+   * @returns DeleteRuleResponse
+   */
   async deleteRule(request: DeleteRuleRequest): Promise<DeleteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRuleWithOptions(request, runtime);
   }
 
+  /**
+   * Deletes a bastion host user.
+   * 
+   * @param request - DeleteUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserResponse
+   */
   async deleteUserWithOptions(request: DeleteUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17643,11 +32327,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
   }
 
+  /**
+   * Deletes a bastion host user.
+   * 
+   * @param request - DeleteUserRequest
+   * @returns DeleteUserResponse
+   */
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserWithOptions(request, runtime);
   }
 
+  /**
+   * Deletes a specified user group from a specified bastion host.
+   * 
+   * @param request - DeleteUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserGroupResponse
+   */
   async deleteUserGroupWithOptions(request: DeleteUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17680,17 +32377,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserGroupResponse>(await this.callApi(params, req, runtime), new DeleteUserGroupResponse({}));
   }
 
+  /**
+   * Deletes a specified user group from a specified bastion host.
+   * 
+   * @param request - DeleteUserGroupRequest
+   * @returns DeleteUserGroupResponse
+   */
   async deleteUserGroup(request: DeleteUserGroupRequest): Promise<DeleteUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserGroupWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DeleteUserPublicKey operation to delete a public key from the specified user of a bastion host.
-    *
-    * @param request DeleteUserPublicKeyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteUserPublicKeyResponse
+   * Deletes a public key from the specified user.
+   * 
+   * @remarks
+   * You can call the DeleteUserPublicKey operation to delete a public key from the specified user of a bastion host.
+   * 
+   * @param request - DeleteUserPublicKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserPublicKeyResponse
    */
   async deleteUserPublicKeyWithOptions(request: DeleteUserPublicKeyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserPublicKeyResponse> {
     Util.validateModel(request);
@@ -17725,16 +32431,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DeleteUserPublicKey operation to delete a public key from the specified user of a bastion host.
-    *
-    * @param request DeleteUserPublicKeyRequest
-    * @return DeleteUserPublicKeyResponse
+   * Deletes a public key from the specified user.
+   * 
+   * @remarks
+   * You can call the DeleteUserPublicKey operation to delete a public key from the specified user of a bastion host.
+   * 
+   * @param request - DeleteUserPublicKeyRequest
+   * @returns DeleteUserPublicKeyResponse
    */
   async deleteUserPublicKey(request: DeleteUserPublicKeyRequest): Promise<DeleteUserPublicKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserPublicKeyWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the attribute information about the specified bastion host. The information includes the ID and remarks of the bastion host.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DescribeInstanceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceAttributeResponse
+   */
   async describeInstanceAttributeWithOptions(request: DescribeInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17763,11 +32482,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAttributeResponse({}));
   }
 
+  /**
+   * Queries the attribute information about the specified bastion host. The information includes the ID and remarks of the bastion host.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DescribeInstanceAttributeRequest
+   * @returns DescribeInstanceAttributeResponse
+   */
   async describeInstanceAttribute(request: DescribeInstanceAttributeRequest): Promise<DescribeInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribeInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstancesResponse
+   */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17820,11 +32553,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
   }
 
+  /**
+   * @param request - DescribeInstancesRequest
+   * @returns DescribeInstancesResponse
+   */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * Queries available regions where you can create bastion hosts.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17853,11 +32597,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * Queries available regions where you can create bastion hosts.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * Revokes permissions on databases and database accounts from a user.
+   * 
+   * @param request - DetachDatabaseAccountsFromUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachDatabaseAccountsFromUserResponse
+   */
   async detachDatabaseAccountsFromUserWithOptions(request: DetachDatabaseAccountsFromUserRequest, runtime: $Util.RuntimeOptions): Promise<DetachDatabaseAccountsFromUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17894,11 +32651,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachDatabaseAccountsFromUserResponse>(await this.callApi(params, req, runtime), new DetachDatabaseAccountsFromUserResponse({}));
   }
 
+  /**
+   * Revokes permissions on databases and database accounts from a user.
+   * 
+   * @param request - DetachDatabaseAccountsFromUserRequest
+   * @returns DetachDatabaseAccountsFromUserResponse
+   */
   async detachDatabaseAccountsFromUser(request: DetachDatabaseAccountsFromUserRequest): Promise<DetachDatabaseAccountsFromUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachDatabaseAccountsFromUserWithOptions(request, runtime);
   }
 
+  /**
+   * Revokes permissions on databases and database accounts from a user group.
+   * 
+   * @param request - DetachDatabaseAccountsFromUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachDatabaseAccountsFromUserGroupResponse
+   */
   async detachDatabaseAccountsFromUserGroupWithOptions(request: DetachDatabaseAccountsFromUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<DetachDatabaseAccountsFromUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17935,11 +32705,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachDatabaseAccountsFromUserGroupResponse>(await this.callApi(params, req, runtime), new DetachDatabaseAccountsFromUserGroupResponse({}));
   }
 
+  /**
+   * Revokes permissions on databases and database accounts from a user group.
+   * 
+   * @param request - DetachDatabaseAccountsFromUserGroupRequest
+   * @returns DetachDatabaseAccountsFromUserGroupResponse
+   */
   async detachDatabaseAccountsFromUserGroup(request: DetachDatabaseAccountsFromUserGroupRequest): Promise<DetachDatabaseAccountsFromUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachDatabaseAccountsFromUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Disassociate host accounts from a shared key.
+   * 
+   * @param request - DetachHostAccountsFromHostShareKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachHostAccountsFromHostShareKeyResponse
+   */
   async detachHostAccountsFromHostShareKeyWithOptions(request: DetachHostAccountsFromHostShareKeyRequest, runtime: $Util.RuntimeOptions): Promise<DetachHostAccountsFromHostShareKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17976,11 +32759,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachHostAccountsFromHostShareKeyResponse>(await this.callApi(params, req, runtime), new DetachHostAccountsFromHostShareKeyResponse({}));
   }
 
+  /**
+   * Disassociate host accounts from a shared key.
+   * 
+   * @param request - DetachHostAccountsFromHostShareKeyRequest
+   * @returns DetachHostAccountsFromHostShareKeyResponse
+   */
   async detachHostAccountsFromHostShareKey(request: DetachHostAccountsFromHostShareKeyRequest): Promise<DetachHostAccountsFromHostShareKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachHostAccountsFromHostShareKeyWithOptions(request, runtime);
   }
 
+  /**
+   * Revokes permissions on hosts and host accounts from a user.
+   * 
+   * @param request - DetachHostAccountsFromUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachHostAccountsFromUserResponse
+   */
   async detachHostAccountsFromUserWithOptions(request: DetachHostAccountsFromUserRequest, runtime: $Util.RuntimeOptions): Promise<DetachHostAccountsFromUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18017,11 +32813,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachHostAccountsFromUserResponse>(await this.callApi(params, req, runtime), new DetachHostAccountsFromUserResponse({}));
   }
 
+  /**
+   * Revokes permissions on hosts and host accounts from a user.
+   * 
+   * @param request - DetachHostAccountsFromUserRequest
+   * @returns DetachHostAccountsFromUserResponse
+   */
   async detachHostAccountsFromUser(request: DetachHostAccountsFromUserRequest): Promise<DetachHostAccountsFromUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachHostAccountsFromUserWithOptions(request, runtime);
   }
 
+  /**
+   * Revokes the permissions on one or more hosts and host accounts from a user group.
+   * 
+   * @param request - DetachHostAccountsFromUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachHostAccountsFromUserGroupResponse
+   */
   async detachHostAccountsFromUserGroupWithOptions(request: DetachHostAccountsFromUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<DetachHostAccountsFromUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18058,11 +32867,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachHostAccountsFromUserGroupResponse>(await this.callApi(params, req, runtime), new DetachHostAccountsFromUserGroupResponse({}));
   }
 
+  /**
+   * Revokes the permissions on one or more hosts and host accounts from a user group.
+   * 
+   * @param request - DetachHostAccountsFromUserGroupRequest
+   * @returns DetachHostAccountsFromUserGroupResponse
+   */
   async detachHostAccountsFromUserGroup(request: DetachHostAccountsFromUserGroupRequest): Promise<DetachHostAccountsFromUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachHostAccountsFromUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Removes host groups and host accounts from the list of host groups and host accounts that a user is authorized to manage.
+   * 
+   * @param request - DetachHostGroupAccountsFromUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachHostGroupAccountsFromUserResponse
+   */
   async detachHostGroupAccountsFromUserWithOptions(request: DetachHostGroupAccountsFromUserRequest, runtime: $Util.RuntimeOptions): Promise<DetachHostGroupAccountsFromUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18099,17 +32921,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachHostGroupAccountsFromUserResponse>(await this.callApi(params, req, runtime), new DetachHostGroupAccountsFromUserResponse({}));
   }
 
+  /**
+   * Removes host groups and host accounts from the list of host groups and host accounts that a user is authorized to manage.
+   * 
+   * @param request - DetachHostGroupAccountsFromUserRequest
+   * @returns DetachHostGroupAccountsFromUserResponse
+   */
   async detachHostGroupAccountsFromUser(request: DetachHostGroupAccountsFromUserRequest): Promise<DetachHostGroupAccountsFromUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachHostGroupAccountsFromUserWithOptions(request, runtime);
   }
 
   /**
-    * ****
-    *
-    * @param request DetachHostGroupAccountsFromUserGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DetachHostGroupAccountsFromUserGroupResponse
+   * Revokes permissions on one or more host groups and host accounts from a user group.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DetachHostGroupAccountsFromUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachHostGroupAccountsFromUserGroupResponse
    */
   async detachHostGroupAccountsFromUserGroupWithOptions(request: DetachHostGroupAccountsFromUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<DetachHostGroupAccountsFromUserGroupResponse> {
     Util.validateModel(request);
@@ -18148,16 +32979,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ****
-    *
-    * @param request DetachHostGroupAccountsFromUserGroupRequest
-    * @return DetachHostGroupAccountsFromUserGroupResponse
+   * Revokes permissions on one or more host groups and host accounts from a user group.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DetachHostGroupAccountsFromUserGroupRequest
+   * @returns DetachHostGroupAccountsFromUserGroupResponse
    */
   async detachHostGroupAccountsFromUserGroup(request: DetachHostGroupAccountsFromUserGroupRequest): Promise<DetachHostGroupAccountsFromUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachHostGroupAccountsFromUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Disables Internet access for a bastion host.
+   * 
+   * @param request - DisableInstancePublicAccessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableInstancePublicAccessResponse
+   */
   async disableInstancePublicAccessWithOptions(request: DisableInstancePublicAccessRequest, runtime: $Util.RuntimeOptions): Promise<DisableInstancePublicAccessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18186,11 +33027,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableInstancePublicAccessResponse>(await this.callApi(params, req, runtime), new DisableInstancePublicAccessResponse({}));
   }
 
+  /**
+   * Disables Internet access for a bastion host.
+   * 
+   * @param request - DisableInstancePublicAccessRequest
+   * @returns DisableInstancePublicAccessResponse
+   */
   async disableInstancePublicAccess(request: DisableInstancePublicAccessRequest): Promise<DisableInstancePublicAccessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableInstancePublicAccessWithOptions(request, runtime);
   }
 
+  /**
+   * Disables an authorization rule.
+   * 
+   * @param request - DisableRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableRuleResponse
+   */
   async disableRuleWithOptions(request: DisableRuleRequest, runtime: $Util.RuntimeOptions): Promise<DisableRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18223,11 +33077,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableRuleResponse>(await this.callApi(params, req, runtime), new DisableRuleResponse({}));
   }
 
+  /**
+   * Disables an authorization rule.
+   * 
+   * @param request - DisableRuleRequest
+   * @returns DisableRuleResponse
+   */
   async disableRule(request: DisableRuleRequest): Promise<DisableRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableRuleWithOptions(request, runtime);
   }
 
+  /**
+   * Enables Internet access for a bastion host.
+   * 
+   * @param request - EnableInstancePublicAccessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableInstancePublicAccessResponse
+   */
   async enableInstancePublicAccessWithOptions(request: EnableInstancePublicAccessRequest, runtime: $Util.RuntimeOptions): Promise<EnableInstancePublicAccessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18256,11 +33123,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableInstancePublicAccessResponse>(await this.callApi(params, req, runtime), new EnableInstancePublicAccessResponse({}));
   }
 
+  /**
+   * Enables Internet access for a bastion host.
+   * 
+   * @param request - EnableInstancePublicAccessRequest
+   * @returns EnableInstancePublicAccessResponse
+   */
   async enableInstancePublicAccess(request: EnableInstancePublicAccessRequest): Promise<EnableInstancePublicAccessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableInstancePublicAccessWithOptions(request, runtime);
   }
 
+  /**
+   * Enables an authorization rule.
+   * 
+   * @param request - EnableRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableRuleResponse
+   */
   async enableRuleWithOptions(request: EnableRuleRequest, runtime: $Util.RuntimeOptions): Promise<EnableRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18293,11 +33173,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableRuleResponse>(await this.callApi(params, req, runtime), new EnableRuleResponse({}));
   }
 
+  /**
+   * Enables an authorization rule.
+   * 
+   * @param request - EnableRuleRequest
+   * @returns EnableRuleResponse
+   */
   async enableRule(request: EnableRuleRequest): Promise<EnableRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableRuleWithOptions(request, runtime);
   }
 
+  /**
+   * Applies for an O&M token.
+   * 
+   * @param request - GenerateAssetOperationTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateAssetOperationTokenResponse
+   */
   async generateAssetOperationTokenWithOptions(request: GenerateAssetOperationTokenRequest, runtime: $Util.RuntimeOptions): Promise<GenerateAssetOperationTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18325,12 +33218,28 @@ export default class Client extends OpenApi {
       query["AssetType"] = request.assetType;
     }
 
+    if (!Util.isUnset(request.databaseSchema)) {
+      query["DatabaseSchema"] = request.databaseSchema;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.loginAttribute)) {
+      query["LoginAttribute"] = request.loginAttribute;
+    }
+
+    if (!Util.isUnset(request.operationMode)) {
+      query["OperationMode"] = request.operationMode;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.ssoClient)) {
+      query["SsoClient"] = request.ssoClient;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -18350,11 +33259,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateAssetOperationTokenResponse>(await this.callApi(params, req, runtime), new GenerateAssetOperationTokenResponse({}));
   }
 
+  /**
+   * Applies for an O&M token.
+   * 
+   * @param request - GenerateAssetOperationTokenRequest
+   * @returns GenerateAssetOperationTokenResponse
+   */
   async generateAssetOperationToken(request: GenerateAssetOperationTokenRequest): Promise<GenerateAssetOperationTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateAssetOperationTokenWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the detailed information about a database.
+   * 
+   * @param request - GetDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatabaseResponse
+   */
   async getDatabaseWithOptions(request: GetDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<GetDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18387,11 +33309,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDatabaseResponse>(await this.callApi(params, req, runtime), new GetDatabaseResponse({}));
   }
 
+  /**
+   * Queries the detailed information about a database.
+   * 
+   * @param request - GetDatabaseRequest
+   * @returns GetDatabaseResponse
+   */
   async getDatabase(request: GetDatabaseRequest): Promise<GetDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDatabaseWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the detailed information about a database account.
+   * 
+   * @param request - GetDatabaseAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatabaseAccountResponse
+   */
   async getDatabaseAccountWithOptions(request: GetDatabaseAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetDatabaseAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18424,11 +33359,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDatabaseAccountResponse>(await this.callApi(params, req, runtime), new GetDatabaseAccountResponse({}));
   }
 
+  /**
+   * Queries the detailed information about a database account.
+   * 
+   * @param request - GetDatabaseAccountRequest
+   * @returns GetDatabaseAccountResponse
+   */
   async getDatabaseAccount(request: GetDatabaseAccountRequest): Promise<GetDatabaseAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDatabaseAccountWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the details of a host, such as the name, source, address, protocol, and service port of the host.
+   * 
+   * @param request - GetHostRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHostResponse
+   */
   async getHostWithOptions(request: GetHostRequest, runtime: $Util.RuntimeOptions): Promise<GetHostResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18461,11 +33409,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHostResponse>(await this.callApi(params, req, runtime), new GetHostResponse({}));
   }
 
+  /**
+   * Queries the details of a host, such as the name, source, address, protocol, and service port of the host.
+   * 
+   * @param request - GetHostRequest
+   * @returns GetHostResponse
+   */
   async getHost(request: GetHostRequest): Promise<GetHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHostWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the details of a specified host account.
+   * 
+   * @param request - GetHostAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHostAccountResponse
+   */
   async getHostAccountWithOptions(request: GetHostAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetHostAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18498,11 +33459,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHostAccountResponse>(await this.callApi(params, req, runtime), new GetHostAccountResponse({}));
   }
 
+  /**
+   * Queries the details of a specified host account.
+   * 
+   * @param request - GetHostAccountRequest
+   * @returns GetHostAccountResponse
+   */
   async getHostAccount(request: GetHostAccountRequest): Promise<GetHostAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHostAccountWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the details of a specified host group.
+   * 
+   * @param request - GetHostGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHostGroupResponse
+   */
   async getHostGroupWithOptions(request: GetHostGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetHostGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18535,11 +33509,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHostGroupResponse>(await this.callApi(params, req, runtime), new GetHostGroupResponse({}));
   }
 
+  /**
+   * Queries the details of a specified host group.
+   * 
+   * @param request - GetHostGroupRequest
+   * @returns GetHostGroupResponse
+   */
   async getHostGroup(request: GetHostGroupRequest): Promise<GetHostGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHostGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the information about a shared key.
+   * 
+   * @param request - GetHostShareKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHostShareKeyResponse
+   */
   async getHostShareKeyWithOptions(request: GetHostShareKeyRequest, runtime: $Util.RuntimeOptions): Promise<GetHostShareKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18572,20 +33559,29 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHostShareKeyResponse>(await this.callApi(params, req, runtime), new GetHostShareKeyResponse({}));
   }
 
+  /**
+   * Queries the information about a shared key.
+   * 
+   * @param request - GetHostShareKeyRequest
+   * @returns GetHostShareKeyResponse
+   */
   async getHostShareKey(request: GetHostShareKeyRequest): Promise<GetHostShareKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHostShareKeyWithOptions(request, runtime);
   }
 
   /**
-    * ###
-    * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
-    * ### Limit
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request GetInstanceADAuthServerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetInstanceADAuthServerResponse
+   * Queries the settings of Active Directory (AD) authentication on a bastion host.
+   * 
+   * @remarks
+   * ###
+   * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
+   * ### Limit
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - GetInstanceADAuthServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceADAuthServerResponse
    */
   async getInstanceADAuthServerWithOptions(request: GetInstanceADAuthServerRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceADAuthServerResponse> {
     Util.validateModel(request);
@@ -18616,19 +33612,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ###
-    * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
-    * ### Limit
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request GetInstanceADAuthServerRequest
-    * @return GetInstanceADAuthServerResponse
+   * Queries the settings of Active Directory (AD) authentication on a bastion host.
+   * 
+   * @remarks
+   * ###
+   * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
+   * ### Limit
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - GetInstanceADAuthServerRequest
+   * @returns GetInstanceADAuthServerResponse
    */
   async getInstanceADAuthServer(request: GetInstanceADAuthServerRequest): Promise<GetInstanceADAuthServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceADAuthServerWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the settings of Lightweight Directory Access Protocol (LDAP) authentication on a bastion host.
+   * 
+   * @param request - GetInstanceLDAPAuthServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceLDAPAuthServerResponse
+   */
   async getInstanceLDAPAuthServerWithOptions(request: GetInstanceLDAPAuthServerRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceLDAPAuthServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18657,19 +33663,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceLDAPAuthServerResponse>(await this.callApi(params, req, runtime), new GetInstanceLDAPAuthServerResponse({}));
   }
 
+  /**
+   * Queries the settings of Lightweight Directory Access Protocol (LDAP) authentication on a bastion host.
+   * 
+   * @param request - GetInstanceLDAPAuthServerRequest
+   * @returns GetInstanceLDAPAuthServerResponse
+   */
   async getInstanceLDAPAuthServer(request: GetInstanceLDAPAuthServerRequest): Promise<GetInstanceLDAPAuthServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceLDAPAuthServerWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
-    * ### Limit
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request GetInstanceTwoFactorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetInstanceTwoFactorResponse
+   * Queries the settings of two-factor authentication on a bastion host.
+   * 
+   * @remarks
+   * You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
+   * ### Limit
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - GetInstanceTwoFactorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceTwoFactorResponse
    */
   async getInstanceTwoFactorWithOptions(request: GetInstanceTwoFactorRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceTwoFactorResponse> {
     Util.validateModel(request);
@@ -18700,18 +33715,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
-    * ### Limit
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request GetInstanceTwoFactorRequest
-    * @return GetInstanceTwoFactorResponse
+   * Queries the settings of two-factor authentication on a bastion host.
+   * 
+   * @remarks
+   * You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
+   * ### Limit
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - GetInstanceTwoFactorRequest
+   * @returns GetInstanceTwoFactorResponse
    */
   async getInstanceTwoFactor(request: GetInstanceTwoFactorRequest): Promise<GetInstanceTwoFactorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceTwoFactorWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the detailed information about a network domain.
+   * 
+   * @param request - GetNetworkDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNetworkDomainResponse
+   */
   async getNetworkDomainWithOptions(request: GetNetworkDomainRequest, runtime: $Util.RuntimeOptions): Promise<GetNetworkDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18744,11 +33769,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNetworkDomainResponse>(await this.callApi(params, req, runtime), new GetNetworkDomainResponse({}));
   }
 
+  /**
+   * Queries the detailed information about a network domain.
+   * 
+   * @param request - GetNetworkDomainRequest
+   * @returns GetNetworkDomainResponse
+   */
   async getNetworkDomain(request: GetNetworkDomainRequest): Promise<GetNetworkDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNetworkDomainWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the detailed information about a control policy.
+   * 
+   * @param request - GetPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPolicyResponse
+   */
   async getPolicyWithOptions(request: GetPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18781,11 +33819,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPolicyResponse>(await this.callApi(params, req, runtime), new GetPolicyResponse({}));
   }
 
+  /**
+   * Queries the detailed information about a control policy.
+   * 
+   * @param request - GetPolicyRequest
+   * @returns GetPolicyResponse
+   */
   async getPolicy(request: GetPolicyRequest): Promise<GetPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the assets to which a control policy applies.
+   * 
+   * @param request - GetPolicyAssetScopeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPolicyAssetScopeResponse
+   */
   async getPolicyAssetScopeWithOptions(request: GetPolicyAssetScopeRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyAssetScopeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18818,11 +33869,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPolicyAssetScopeResponse>(await this.callApi(params, req, runtime), new GetPolicyAssetScopeResponse({}));
   }
 
+  /**
+   * Queries the assets to which a control policy applies.
+   * 
+   * @param request - GetPolicyAssetScopeRequest
+   * @returns GetPolicyAssetScopeResponse
+   */
   async getPolicyAssetScope(request: GetPolicyAssetScopeRequest): Promise<GetPolicyAssetScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPolicyAssetScopeWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the scope of users to whom a control policy applies.
+   * 
+   * @param request - GetPolicyUserScopeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPolicyUserScopeResponse
+   */
   async getPolicyUserScopeWithOptions(request: GetPolicyUserScopeRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyUserScopeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18855,11 +33919,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPolicyUserScopeResponse>(await this.callApi(params, req, runtime), new GetPolicyUserScopeResponse({}));
   }
 
+  /**
+   * Queries the scope of users to whom a control policy applies.
+   * 
+   * @param request - GetPolicyUserScopeRequest
+   * @returns GetPolicyUserScopeResponse
+   */
   async getPolicyUserScope(request: GetPolicyUserScopeRequest): Promise<GetPolicyUserScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPolicyUserScopeWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the detailed information about an authorization rule.
+   * 
+   * @param request - GetRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRuleResponse
+   */
   async getRuleWithOptions(request: GetRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18892,11 +33969,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRuleResponse>(await this.callApi(params, req, runtime), new GetRuleResponse({}));
   }
 
+  /**
+   * Queries the detailed information about an authorization rule.
+   * 
+   * @param request - GetRuleRequest
+   * @returns GetRuleResponse
+   */
   async getRule(request: GetRuleRequest): Promise<GetRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRuleWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the details of a user of the specified bastion host.
+   * 
+   * @param request - GetUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserResponse
+   */
   async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18929,11 +34019,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
   }
 
+  /**
+   * Queries the details of a user of the specified bastion host.
+   * 
+   * @param request - GetUserRequest
+   * @returns GetUserResponse
+   */
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the details of a user group in a bastion host.
+   * 
+   * @param request - GetUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserGroupResponse
+   */
   async getUserGroupWithOptions(request: GetUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18966,11 +34069,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserGroupResponse>(await this.callApi(params, req, runtime), new GetUserGroupResponse({}));
   }
 
+  /**
+   * Queries the details of a user group in a bastion host.
+   * 
+   * @param request - GetUserGroupRequest
+   * @returns GetUserGroupResponse
+   */
   async getUserGroup(request: GetUserGroupRequest): Promise<GetUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Queries commands to be reviewed.
+   * 
+   * @remarks
+   * You can call this operation to query commands to be reviewed by a Bastionhost administrator.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - ListApproveCommandsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApproveCommandsResponse
+   */
   async listApproveCommandsWithOptions(request: ListApproveCommandsRequest, runtime: $Util.RuntimeOptions): Promise<ListApproveCommandsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19007,11 +34127,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApproveCommandsResponse>(await this.callApi(params, req, runtime), new ListApproveCommandsResponse({}));
   }
 
+  /**
+   * Queries commands to be reviewed.
+   * 
+   * @remarks
+   * You can call this operation to query commands to be reviewed by a Bastionhost administrator.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - ListApproveCommandsRequest
+   * @returns ListApproveCommandsResponse
+   */
   async listApproveCommands(request: ListApproveCommandsRequest): Promise<ListApproveCommandsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApproveCommandsWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the database accounts of a database.
+   * 
+   * @param request - ListDatabaseAccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatabaseAccountsResponse
+   */
   async listDatabaseAccountsWithOptions(request: ListDatabaseAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListDatabaseAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19056,11 +34193,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDatabaseAccountsResponse>(await this.callApi(params, req, runtime), new ListDatabaseAccountsResponse({}));
   }
 
+  /**
+   * Queries the database accounts of a database.
+   * 
+   * @param request - ListDatabaseAccountsRequest
+   * @returns ListDatabaseAccountsResponse
+   */
   async listDatabaseAccounts(request: ListDatabaseAccountsRequest): Promise<ListDatabaseAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDatabaseAccountsWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the database accounts of a database and whether a user is authorized to manage each database account.
+   * 
+   * @param request - ListDatabaseAccountsForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatabaseAccountsForUserResponse
+   */
   async listDatabaseAccountsForUserWithOptions(request: ListDatabaseAccountsForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListDatabaseAccountsForUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19109,11 +34259,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDatabaseAccountsForUserResponse>(await this.callApi(params, req, runtime), new ListDatabaseAccountsForUserResponse({}));
   }
 
+  /**
+   * Queries the database accounts of a database and whether a user is authorized to manage each database account.
+   * 
+   * @param request - ListDatabaseAccountsForUserRequest
+   * @returns ListDatabaseAccountsForUserResponse
+   */
   async listDatabaseAccountsForUser(request: ListDatabaseAccountsForUserRequest): Promise<ListDatabaseAccountsForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDatabaseAccountsForUserWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the database accounts of a database and whether a user group is authorized to manage each database account.
+   * 
+   * @param request - ListDatabaseAccountsForUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatabaseAccountsForUserGroupResponse
+   */
   async listDatabaseAccountsForUserGroupWithOptions(request: ListDatabaseAccountsForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListDatabaseAccountsForUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19162,11 +34325,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDatabaseAccountsForUserGroupResponse>(await this.callApi(params, req, runtime), new ListDatabaseAccountsForUserGroupResponse({}));
   }
 
+  /**
+   * Queries the database accounts of a database and whether a user group is authorized to manage each database account.
+   * 
+   * @param request - ListDatabaseAccountsForUserGroupRequest
+   * @returns ListDatabaseAccountsForUserGroupResponse
+   */
   async listDatabaseAccountsForUserGroup(request: ListDatabaseAccountsForUserGroupRequest): Promise<ListDatabaseAccountsForUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDatabaseAccountsForUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the databases that are managed by a bastion host.
+   * 
+   * @param request - ListDatabasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatabasesResponse
+   */
   async listDatabasesWithOptions(request: ListDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<ListDatabasesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19219,11 +34395,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDatabasesResponse>(await this.callApi(params, req, runtime), new ListDatabasesResponse({}));
   }
 
+  /**
+   * Queries the databases that are managed by a bastion host.
+   * 
+   * @param request - ListDatabasesRequest
+   * @returns ListDatabasesResponse
+   */
   async listDatabases(request: ListDatabasesRequest): Promise<ListDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDatabasesWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the databases that a user is authorized to manage.
+   * 
+   * @param request - ListDatabasesForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatabasesForUserResponse
+   */
   async listDatabasesForUserWithOptions(request: ListDatabasesForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListDatabasesForUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19280,11 +34469,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDatabasesForUserResponse>(await this.callApi(params, req, runtime), new ListDatabasesForUserResponse({}));
   }
 
+  /**
+   * Queries the databases that a user is authorized to manage.
+   * 
+   * @param request - ListDatabasesForUserRequest
+   * @returns ListDatabasesForUserResponse
+   */
   async listDatabasesForUser(request: ListDatabasesForUserRequest): Promise<ListDatabasesForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDatabasesForUserWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the databases that a user group is authorized to manage.
+   * 
+   * @param request - ListDatabasesForUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatabasesForUserGroupResponse
+   */
   async listDatabasesForUserGroupWithOptions(request: ListDatabasesForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListDatabasesForUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19341,11 +34543,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDatabasesForUserGroupResponse>(await this.callApi(params, req, runtime), new ListDatabasesForUserGroupResponse({}));
   }
 
+  /**
+   * Queries the databases that a user group is authorized to manage.
+   * 
+   * @param request - ListDatabasesForUserGroupRequest
+   * @returns ListDatabasesForUserGroupResponse
+   */
   async listDatabasesForUserGroup(request: ListDatabasesForUserGroupRequest): Promise<ListDatabasesForUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDatabasesForUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Queries accounts of a specified host.
+   * 
+   * @param request - ListHostAccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHostAccountsResponse
+   */
   async listHostAccountsWithOptions(request: ListHostAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListHostAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19394,11 +34609,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHostAccountsResponse>(await this.callApi(params, req, runtime), new ListHostAccountsResponse({}));
   }
 
+  /**
+   * Queries accounts of a specified host.
+   * 
+   * @param request - ListHostAccountsRequest
+   * @returns ListHostAccountsResponse
+   */
   async listHostAccounts(request: ListHostAccountsRequest): Promise<ListHostAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHostAccountsWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the host accounts that are associated with a shared key.
+   * 
+   * @param request - ListHostAccountsForHostShareKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHostAccountsForHostShareKeyResponse
+   */
   async listHostAccountsForHostShareKeyWithOptions(request: ListHostAccountsForHostShareKeyRequest, runtime: $Util.RuntimeOptions): Promise<ListHostAccountsForHostShareKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19439,11 +34667,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHostAccountsForHostShareKeyResponse>(await this.callApi(params, req, runtime), new ListHostAccountsForHostShareKeyResponse({}));
   }
 
+  /**
+   * Queries the host accounts that are associated with a shared key.
+   * 
+   * @param request - ListHostAccountsForHostShareKeyRequest
+   * @returns ListHostAccountsForHostShareKeyResponse
+   */
   async listHostAccountsForHostShareKey(request: ListHostAccountsForHostShareKeyRequest): Promise<ListHostAccountsForHostShareKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHostAccountsForHostShareKeyWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the host accounts that the specified user is authorized to manage on the specified host.
+   * 
+   * @param request - ListHostAccountsForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHostAccountsForUserResponse
+   */
   async listHostAccountsForUserWithOptions(request: ListHostAccountsForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListHostAccountsForUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19492,11 +34733,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHostAccountsForUserResponse>(await this.callApi(params, req, runtime), new ListHostAccountsForUserResponse({}));
   }
 
+  /**
+   * Queries the host accounts that the specified user is authorized to manage on the specified host.
+   * 
+   * @param request - ListHostAccountsForUserRequest
+   * @returns ListHostAccountsForUserResponse
+   */
   async listHostAccountsForUser(request: ListHostAccountsForUserRequest): Promise<ListHostAccountsForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHostAccountsForUserWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the host accounts of the specified host that the specified user group is authorized to manage.
+   * 
+   * @param request - ListHostAccountsForUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHostAccountsForUserGroupResponse
+   */
   async listHostAccountsForUserGroupWithOptions(request: ListHostAccountsForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListHostAccountsForUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19545,11 +34799,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHostAccountsForUserGroupResponse>(await this.callApi(params, req, runtime), new ListHostAccountsForUserGroupResponse({}));
   }
 
+  /**
+   * Queries the host accounts of the specified host that the specified user group is authorized to manage.
+   * 
+   * @param request - ListHostAccountsForUserGroupRequest
+   * @returns ListHostAccountsForUserGroupResponse
+   */
   async listHostAccountsForUserGroup(request: ListHostAccountsForUserGroupRequest): Promise<ListHostAccountsForUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHostAccountsForUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the names of the host accounts that a specified user is authorized to manage in a specified host group.
+   * 
+   * @param request - ListHostGroupAccountNamesForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHostGroupAccountNamesForUserResponse
+   */
   async listHostGroupAccountNamesForUserWithOptions(request: ListHostGroupAccountNamesForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListHostGroupAccountNamesForUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19586,11 +34853,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHostGroupAccountNamesForUserResponse>(await this.callApi(params, req, runtime), new ListHostGroupAccountNamesForUserResponse({}));
   }
 
+  /**
+   * Queries the names of the host accounts that a specified user is authorized to manage in a specified host group.
+   * 
+   * @param request - ListHostGroupAccountNamesForUserRequest
+   * @returns ListHostGroupAccountNamesForUserResponse
+   */
   async listHostGroupAccountNamesForUser(request: ListHostGroupAccountNamesForUserRequest): Promise<ListHostGroupAccountNamesForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHostGroupAccountNamesForUserWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the names of the host accounts that a user group is authorized to manage in a host group.
+   * 
+   * @param request - ListHostGroupAccountNamesForUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHostGroupAccountNamesForUserGroupResponse
+   */
   async listHostGroupAccountNamesForUserGroupWithOptions(request: ListHostGroupAccountNamesForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListHostGroupAccountNamesForUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19627,11 +34907,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHostGroupAccountNamesForUserGroupResponse>(await this.callApi(params, req, runtime), new ListHostGroupAccountNamesForUserGroupResponse({}));
   }
 
+  /**
+   * Queries the names of the host accounts that a user group is authorized to manage in a host group.
+   * 
+   * @param request - ListHostGroupAccountNamesForUserGroupRequest
+   * @returns ListHostGroupAccountNamesForUserGroupResponse
+   */
   async listHostGroupAccountNamesForUserGroup(request: ListHostGroupAccountNamesForUserGroupRequest): Promise<ListHostGroupAccountNamesForUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHostGroupAccountNamesForUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Queries a list of asset groups that are managed by a bastion host.
+   * 
+   * @param request - ListHostGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHostGroupsResponse
+   */
   async listHostGroupsWithOptions(request: ListHostGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListHostGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19672,11 +34965,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHostGroupsResponse>(await this.callApi(params, req, runtime), new ListHostGroupsResponse({}));
   }
 
+  /**
+   * Queries a list of asset groups that are managed by a bastion host.
+   * 
+   * @param request - ListHostGroupsRequest
+   * @returns ListHostGroupsResponse
+   */
   async listHostGroups(request: ListHostGroupsRequest): Promise<ListHostGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHostGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * Queries a list of host groups that a bastion host user is authorized or is not authorized to manage.
+   * 
+   * @param request - ListHostGroupsForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHostGroupsForUserResponse
+   */
   async listHostGroupsForUserWithOptions(request: ListHostGroupsForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListHostGroupsForUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19725,11 +35031,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHostGroupsForUserResponse>(await this.callApi(params, req, runtime), new ListHostGroupsForUserResponse({}));
   }
 
+  /**
+   * Queries a list of host groups that a bastion host user is authorized or is not authorized to manage.
+   * 
+   * @param request - ListHostGroupsForUserRequest
+   * @returns ListHostGroupsForUserResponse
+   */
   async listHostGroupsForUser(request: ListHostGroupsForUserRequest): Promise<ListHostGroupsForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHostGroupsForUserWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the hosts that a specified user group is authorized or not authorized to manage.
+   * 
+   * @param request - ListHostGroupsForUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHostGroupsForUserGroupResponse
+   */
   async listHostGroupsForUserGroupWithOptions(request: ListHostGroupsForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListHostGroupsForUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19778,11 +35097,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHostGroupsForUserGroupResponse>(await this.callApi(params, req, runtime), new ListHostGroupsForUserGroupResponse({}));
   }
 
+  /**
+   * Queries the hosts that a specified user group is authorized or not authorized to manage.
+   * 
+   * @param request - ListHostGroupsForUserGroupRequest
+   * @returns ListHostGroupsForUserGroupResponse
+   */
   async listHostGroupsForUserGroup(request: ListHostGroupsForUserGroupRequest): Promise<ListHostGroupsForUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHostGroupsForUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the shared keys that are associated with a host.
+   * 
+   * @param request - ListHostShareKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHostShareKeysResponse
+   */
   async listHostShareKeysWithOptions(request: ListHostShareKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListHostShareKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19819,11 +35151,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHostShareKeysResponse>(await this.callApi(params, req, runtime), new ListHostShareKeysResponse({}));
   }
 
+  /**
+   * Queries the shared keys that are associated with a host.
+   * 
+   * @param request - ListHostShareKeysRequest
+   * @returns ListHostShareKeysResponse
+   */
   async listHostShareKeys(request: ListHostShareKeysRequest): Promise<ListHostShareKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHostShareKeysWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the hosts in a bastion host.
+   * 
+   * @param request - ListHostsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHostsResponse
+   */
   async listHostsWithOptions(request: ListHostsRequest, runtime: $Util.RuntimeOptions): Promise<ListHostsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19888,11 +35233,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHostsResponse>(await this.callApi(params, req, runtime), new ListHostsResponse({}));
   }
 
+  /**
+   * Queries the hosts in a bastion host.
+   * 
+   * @param request - ListHostsRequest
+   * @returns ListHostsResponse
+   */
   async listHosts(request: ListHostsRequest): Promise<ListHostsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHostsWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the hosts that a user group is authorized or not authorized to manage.
+   * 
+   * @param request - ListHostsForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHostsForUserResponse
+   */
   async listHostsForUserWithOptions(request: ListHostsForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListHostsForUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19949,11 +35307,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHostsForUserResponse>(await this.callApi(params, req, runtime), new ListHostsForUserResponse({}));
   }
 
+  /**
+   * Queries the hosts that a user group is authorized or not authorized to manage.
+   * 
+   * @param request - ListHostsForUserRequest
+   * @returns ListHostsForUserResponse
+   */
   async listHostsForUser(request: ListHostsForUserRequest): Promise<ListHostsForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHostsForUserWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the hosts that a user group is authorized or not authorized to manage.
+   * 
+   * @param request - ListHostsForUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHostsForUserGroupResponse
+   */
   async listHostsForUserGroupWithOptions(request: ListHostsForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListHostsForUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20010,11 +35381,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHostsForUserGroupResponse>(await this.callApi(params, req, runtime), new ListHostsForUserGroupResponse({}));
   }
 
+  /**
+   * Queries the hosts that a user group is authorized or not authorized to manage.
+   * 
+   * @param request - ListHostsForUserGroupRequest
+   * @returns ListHostsForUserGroupResponse
+   */
   async listHostsForUserGroup(request: ListHostsForUserGroupRequest): Promise<ListHostsForUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHostsForUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the network domains created in a bastion host.
+   * 
+   * @param request - ListNetworkDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNetworkDomainsResponse
+   */
   async listNetworkDomainsWithOptions(request: ListNetworkDomainsRequest, runtime: $Util.RuntimeOptions): Promise<ListNetworkDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20059,11 +35443,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNetworkDomainsResponse>(await this.callApi(params, req, runtime), new ListNetworkDomainsResponse({}));
   }
 
+  /**
+   * Queries the network domains created in a bastion host.
+   * 
+   * @param request - ListNetworkDomainsRequest
+   * @returns ListNetworkDomainsResponse
+   */
   async listNetworkDomains(request: ListNetworkDomainsRequest): Promise<ListNetworkDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNetworkDomainsWithOptions(request, runtime);
   }
 
+  /**
+   * Queries a list of database accounts that the current Resource Access Management (RAM) user is authorized to manage.
+   * 
+   * @param request - ListOperationDatabaseAccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOperationDatabaseAccountsResponse
+   */
   async listOperationDatabaseAccountsWithOptions(request: ListOperationDatabaseAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListOperationDatabaseAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20108,11 +35505,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOperationDatabaseAccountsResponse>(await this.callApi(params, req, runtime), new ListOperationDatabaseAccountsResponse({}));
   }
 
+  /**
+   * Queries a list of database accounts that the current Resource Access Management (RAM) user is authorized to manage.
+   * 
+   * @param request - ListOperationDatabaseAccountsRequest
+   * @returns ListOperationDatabaseAccountsResponse
+   */
   async listOperationDatabaseAccounts(request: ListOperationDatabaseAccountsRequest): Promise<ListOperationDatabaseAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOperationDatabaseAccountsWithOptions(request, runtime);
   }
 
+  /**
+   * Queries a list of databases that the current Resource Access Management (RAM) user is authorized to manage.
+   * 
+   * @param request - ListOperationDatabasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOperationDatabasesResponse
+   */
   async listOperationDatabasesWithOptions(request: ListOperationDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<ListOperationDatabasesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20173,11 +35583,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOperationDatabasesResponse>(await this.callApi(params, req, runtime), new ListOperationDatabasesResponse({}));
   }
 
+  /**
+   * Queries a list of databases that the current Resource Access Management (RAM) user is authorized to manage.
+   * 
+   * @param request - ListOperationDatabasesRequest
+   * @returns ListOperationDatabasesResponse
+   */
   async listOperationDatabases(request: ListOperationDatabasesRequest): Promise<ListOperationDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOperationDatabasesWithOptions(request, runtime);
   }
 
+  /**
+   * Queries a list of host accounts that the current Resource Access Management (RAM) user is authorized to manage.
+   * 
+   * @param request - ListOperationHostAccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOperationHostAccountsResponse
+   */
   async listOperationHostAccountsWithOptions(request: ListOperationHostAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListOperationHostAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20222,11 +35645,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOperationHostAccountsResponse>(await this.callApi(params, req, runtime), new ListOperationHostAccountsResponse({}));
   }
 
+  /**
+   * Queries a list of host accounts that the current Resource Access Management (RAM) user is authorized to manage.
+   * 
+   * @param request - ListOperationHostAccountsRequest
+   * @returns ListOperationHostAccountsResponse
+   */
   async listOperationHostAccounts(request: ListOperationHostAccountsRequest): Promise<ListOperationHostAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOperationHostAccountsWithOptions(request, runtime);
   }
 
+  /**
+   * Queries a list of hosts that the current Resource Access Management (RAM) user is authorized to manage.
+   * 
+   * @param request - ListOperationHostsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOperationHostsResponse
+   */
   async listOperationHostsWithOptions(request: ListOperationHostsRequest, runtime: $Util.RuntimeOptions): Promise<ListOperationHostsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20287,11 +35723,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOperationHostsResponse>(await this.callApi(params, req, runtime), new ListOperationHostsResponse({}));
   }
 
+  /**
+   * Queries a list of hosts that the current Resource Access Management (RAM) user is authorized to manage.
+   * 
+   * @param request - ListOperationHostsRequest
+   * @returns ListOperationHostsResponse
+   */
   async listOperationHosts(request: ListOperationHostsRequest): Promise<ListOperationHostsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOperationHostsWithOptions(request, runtime);
   }
 
+  /**
+   * Queries O\\\\\\&M applications to be reviewed.
+   * 
+   * @remarks
+   * You can call this operation to query the O\\&M applications to be reviewed by a Bastionhost administrator.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - ListOperationTicketsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOperationTicketsResponse
+   */
   async listOperationTicketsWithOptions(request: ListOperationTicketsRequest, runtime: $Util.RuntimeOptions): Promise<ListOperationTicketsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20332,11 +35785,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOperationTicketsResponse>(await this.callApi(params, req, runtime), new ListOperationTicketsResponse({}));
   }
 
+  /**
+   * Queries O\\\\\\&M applications to be reviewed.
+   * 
+   * @remarks
+   * You can call this operation to query the O\\&M applications to be reviewed by a Bastionhost administrator.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - ListOperationTicketsRequest
+   * @returns ListOperationTicketsResponse
+   */
   async listOperationTickets(request: ListOperationTicketsRequest): Promise<ListOperationTicketsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOperationTicketsWithOptions(request, runtime);
   }
 
+  /**
+   * Queries a list of control policies.
+   * 
+   * @param request - ListPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPoliciesResponse
+   */
   async listPoliciesWithOptions(request: ListPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20377,11 +35847,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPoliciesResponse>(await this.callApi(params, req, runtime), new ListPoliciesResponse({}));
   }
 
+  /**
+   * Queries a list of control policies.
+   * 
+   * @param request - ListPoliciesRequest
+   * @returns ListPoliciesResponse
+   */
   async listPolicies(request: ListPoliciesRequest): Promise<ListPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * Queries a list of authorization rules of a bastion host.
+   * 
+   * @param request - ListRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRulesResponse
+   */
   async listRulesWithOptions(request: ListRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20426,11 +35909,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRulesResponse>(await this.callApi(params, req, runtime), new ListRulesResponse({}));
   }
 
+  /**
+   * Queries a list of authorization rules of a bastion host.
+   * 
+   * @param request - ListRulesRequest
+   * @returns ListRulesResponse
+   */
   async listRules(request: ListRulesRequest): Promise<ListRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRulesWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the tags that are added to a resource.
+   * 
+   * @param request - ListTagKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagKeysResponse
+   */
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20467,11 +35963,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
   }
 
+  /**
+   * Queries the tags that are added to a resource.
+   * 
+   * @param request - ListTagKeysRequest
+   * @returns ListTagKeysResponse
+   */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
   }
 
+  /**
+   * Queries the tags bound to one or more Bastionhost instances.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20512,11 +36021,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * Queries the tags bound to one or more Bastionhost instances.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * Queries a list of user groups on a bastion host.
+   * 
+   * @param request - ListUserGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserGroupsResponse
+   */
   async listUserGroupsWithOptions(request: ListUserGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20557,11 +36079,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserGroupsResponse>(await this.callApi(params, req, runtime), new ListUserGroupsResponse({}));
   }
 
+  /**
+   * Queries a list of user groups on a bastion host.
+   * 
+   * @param request - ListUserGroupsRequest
+   * @returns ListUserGroupsResponse
+   */
   async listUserGroups(request: ListUserGroupsRequest): Promise<ListUserGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * Queries all public keys of the specified user.
+   * 
+   * @param request - ListUserPublicKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserPublicKeysResponse
+   */
   async listUserPublicKeysWithOptions(request: ListUserPublicKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListUserPublicKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20602,11 +36137,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserPublicKeysResponse>(await this.callApi(params, req, runtime), new ListUserPublicKeysResponse({}));
   }
 
+  /**
+   * Queries all public keys of the specified user.
+   * 
+   * @param request - ListUserPublicKeysRequest
+   * @returns ListUserPublicKeysResponse
+   */
   async listUserPublicKeys(request: ListUserPublicKeysRequest): Promise<ListUserPublicKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserPublicKeysWithOptions(request, runtime);
   }
 
+  /**
+   * Queries a list of users of a bastion host.
+   * 
+   * @param request - ListUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUsersResponse
+   */
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20671,20 +36219,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
+  /**
+   * Queries a list of users of a bastion host.
+   * 
+   * @param request - ListUsersRequest
+   * @returns ListUsersResponse
+   */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
   }
 
   /**
-    * # Description
-    * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](~~204590~~) operation.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request LockUsersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return LockUsersResponse
+   * Locks one or more users of a bastion host.
+   * 
+   * @remarks
+   * # Description
+   * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](https://help.aliyun.com/document_detail/204590.html) operation.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - LockUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LockUsersResponse
    */
   async lockUsersWithOptions(request: LockUsersRequest, runtime: $Util.RuntimeOptions): Promise<LockUsersResponse> {
     Util.validateModel(request);
@@ -20719,19 +36276,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # Description
-    * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](~~204590~~) operation.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request LockUsersRequest
-    * @return LockUsersResponse
+   * Locks one or more users of a bastion host.
+   * 
+   * @remarks
+   * # Description
+   * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](https://help.aliyun.com/document_detail/204590.html) operation.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - LockUsersRequest
+   * @returns LockUsersResponse
    */
   async lockUsers(request: LockUsersRequest): Promise<LockUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.lockUsersWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the basic information about a database.
+   * 
+   * @param request - ModifyDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDatabaseResponse
+   */
   async modifyDatabaseWithOptions(request: ModifyDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20796,11 +36363,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDatabaseResponse>(await this.callApi(params, req, runtime), new ModifyDatabaseResponse({}));
   }
 
+  /**
+   * Modifies the basic information about a database.
+   * 
+   * @param request - ModifyDatabaseRequest
+   * @returns ModifyDatabaseResponse
+   */
   async modifyDatabase(request: ModifyDatabaseRequest): Promise<ModifyDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDatabaseWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the basic information about a database account.
+   * 
+   * @param request - ModifyDatabaseAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDatabaseAccountResponse
+   */
   async modifyDatabaseAccountWithOptions(request: ModifyDatabaseAccountRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatabaseAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20845,18 +36425,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDatabaseAccountResponse>(await this.callApi(params, req, runtime), new ModifyDatabaseAccountResponse({}));
   }
 
+  /**
+   * Modifies the basic information about a database account.
+   * 
+   * @param request - ModifyDatabaseAccountRequest
+   * @returns ModifyDatabaseAccountResponse
+   */
   async modifyDatabaseAccount(request: ModifyDatabaseAccountRequest): Promise<ModifyDatabaseAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDatabaseAccountWithOptions(request, runtime);
   }
 
   /**
-    * You can call the ModifyHost operation to modify the basic information about a host in a data center, an Elastic Compute Service (ECS) instance, or a host in an ApsaraDB MyBase dedicated cluster.
-    * > The basic information about ECS instances and hosts in ApsaraDB MyBase dedicated clusters within your Alibaba Cloud account is synchronized to Bastionhost on a regular basis. After you modify the basic information about an ECS instance or a host in an ApsaraDB MyBase dedicated cluster, the modification result may be overwritten by the synchronized information.
-    *
-    * @param request ModifyHostRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyHostResponse
+   * Modifies information about a host. The information includes the address, name, and description of the host and the operating system that the host runs.
+   * 
+   * @remarks
+   * You can call the ModifyHost operation to modify the basic information about a host in a data center, an Elastic Compute Service (ECS) instance, or a host in an ApsaraDB MyBase dedicated cluster.
+   * > The basic information about ECS instances and hosts in ApsaraDB MyBase dedicated clusters within your Alibaba Cloud account is synchronized to Bastionhost on a regular basis. After you modify the basic information about an ECS instance or a host in an ApsaraDB MyBase dedicated cluster, the modification result may be overwritten by the synchronized information.
+   * 
+   * @param request - ModifyHostRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHostResponse
    */
   async modifyHostWithOptions(request: ModifyHostRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHostResponse> {
     Util.validateModel(request);
@@ -20915,17 +36504,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyHost operation to modify the basic information about a host in a data center, an Elastic Compute Service (ECS) instance, or a host in an ApsaraDB MyBase dedicated cluster.
-    * > The basic information about ECS instances and hosts in ApsaraDB MyBase dedicated clusters within your Alibaba Cloud account is synchronized to Bastionhost on a regular basis. After you modify the basic information about an ECS instance or a host in an ApsaraDB MyBase dedicated cluster, the modification result may be overwritten by the synchronized information.
-    *
-    * @param request ModifyHostRequest
-    * @return ModifyHostResponse
+   * Modifies information about a host. The information includes the address, name, and description of the host and the operating system that the host runs.
+   * 
+   * @remarks
+   * You can call the ModifyHost operation to modify the basic information about a host in a data center, an Elastic Compute Service (ECS) instance, or a host in an ApsaraDB MyBase dedicated cluster.
+   * > The basic information about ECS instances and hosts in ApsaraDB MyBase dedicated clusters within your Alibaba Cloud account is synchronized to Bastionhost on a regular basis. After you modify the basic information about an ECS instance or a host in an ApsaraDB MyBase dedicated cluster, the modification result may be overwritten by the synchronized information.
+   * 
+   * @param request - ModifyHostRequest
+   * @returns ModifyHostResponse
    */
   async modifyHost(request: ModifyHostRequest): Promise<ModifyHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHostWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the information about a host account, such as the username, password, and private key of the host account.
+   * 
+   * @param request - ModifyHostAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHostAccountResponse
+   */
   async modifyHostAccountWithOptions(request: ModifyHostAccountRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHostAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20978,11 +36577,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyHostAccountResponse>(await this.callApi(params, req, runtime), new ModifyHostAccountResponse({}));
   }
 
+  /**
+   * Modifies the information about a host account, such as the username, password, and private key of the host account.
+   * 
+   * @param request - ModifyHostAccountRequest
+   * @returns ModifyHostAccountResponse
+   */
   async modifyHostAccount(request: ModifyHostAccountRequest): Promise<ModifyHostAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHostAccountWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the name or description of the specified host group.
+   * 
+   * @param request - ModifyHostGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHostGroupResponse
+   */
   async modifyHostGroupWithOptions(request: ModifyHostGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHostGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21023,11 +36635,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyHostGroupResponse>(await this.callApi(params, req, runtime), new ModifyHostGroupResponse({}));
   }
 
+  /**
+   * Modifies the name or description of the specified host group.
+   * 
+   * @param request - ModifyHostGroupRequest
+   * @returns ModifyHostGroupResponse
+   */
   async modifyHostGroup(request: ModifyHostGroupRequest): Promise<ModifyHostGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHostGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies a shared key.
+   * 
+   * @param request - ModifyHostShareKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHostShareKeyResponse
+   */
   async modifyHostShareKeyWithOptions(request: ModifyHostShareKeyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHostShareKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21072,11 +36697,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyHostShareKeyResponse>(await this.callApi(params, req, runtime), new ModifyHostShareKeyResponse({}));
   }
 
+  /**
+   * Modifies a shared key.
+   * 
+   * @param request - ModifyHostShareKeyRequest
+   * @returns ModifyHostShareKeyResponse
+   */
   async modifyHostShareKey(request: ModifyHostShareKeyRequest): Promise<ModifyHostShareKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHostShareKeyWithOptions(request, runtime);
   }
 
+  /**
+   * Changes the portal type of one or more hosts for O\\&M.
+   * 
+   * @param request - ModifyHostsActiveAddressTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHostsActiveAddressTypeResponse
+   */
   async modifyHostsActiveAddressTypeWithOptions(request: ModifyHostsActiveAddressTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHostsActiveAddressTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21113,21 +36751,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyHostsActiveAddressTypeResponse>(await this.callApi(params, req, runtime), new ModifyHostsActiveAddressTypeResponse({}));
   }
 
+  /**
+   * Changes the portal type of one or more hosts for O\\&M.
+   * 
+   * @param request - ModifyHostsActiveAddressTypeRequest
+   * @returns ModifyHostsActiveAddressTypeResponse
+   */
   async modifyHostsActiveAddressType(request: ModifyHostsActiveAddressTypeRequest): Promise<ModifyHostsActiveAddressTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHostsActiveAddressTypeWithOptions(request, runtime);
   }
 
   /**
-    * ## Usage notes
-    * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.  
-    * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.  
-    * ## QPS limit
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyHostsPortRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyHostsPortResponse
+   * Changes the port for the O\\\\\\\\\\\\&M protocol on one or more hosts.
+   * 
+   * @remarks
+   * ## Usage notes
+   * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.  
+   * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.  
+   * ## QPS limit
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - ModifyHostsPortRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHostsPortResponse
    */
   async modifyHostsPortWithOptions(request: ModifyHostsPortRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHostsPortResponse> {
     Util.validateModel(request);
@@ -21170,20 +36817,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.  
-    * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.  
-    * ## QPS limit
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyHostsPortRequest
-    * @return ModifyHostsPortResponse
+   * Changes the port for the O\\\\\\\\\\\\&M protocol on one or more hosts.
+   * 
+   * @remarks
+   * ## Usage notes
+   * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.  
+   * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.  
+   * ## QPS limit
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - ModifyHostsPortRequest
+   * @returns ModifyHostsPortResponse
    */
   async modifyHostsPort(request: ModifyHostsPortRequest): Promise<ModifyHostsPortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHostsPortWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the settings of the Active Directory (AD) authentication server of a bastion host.
+   * 
+   * @param request - ModifyInstanceADAuthServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceADAuthServerResponse
+   */
   async modifyInstanceADAuthServerWithOptions(request: ModifyInstanceADAuthServerRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceADAuthServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21260,11 +36917,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceADAuthServerResponse>(await this.callApi(params, req, runtime), new ModifyInstanceADAuthServerResponse({}));
   }
 
+  /**
+   * Modifies the settings of the Active Directory (AD) authentication server of a bastion host.
+   * 
+   * @param request - ModifyInstanceADAuthServerRequest
+   * @returns ModifyInstanceADAuthServerResponse
+   */
   async modifyInstanceADAuthServer(request: ModifyInstanceADAuthServerRequest): Promise<ModifyInstanceADAuthServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceADAuthServerWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the information about a bastion host.
+   * 
+   * @param request - ModifyInstanceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceAttributeResponse
+   */
   async modifyInstanceAttributeWithOptions(request: ModifyInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21297,11 +36967,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAttributeResponse({}));
   }
 
+  /**
+   * Modifies the information about a bastion host.
+   * 
+   * @param request - ModifyInstanceAttributeRequest
+   * @returns ModifyInstanceAttributeResponse
+   */
   async modifyInstanceAttribute(request: ModifyInstanceAttributeRequest): Promise<ModifyInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
+   * 
+   * @param request - ModifyInstanceLDAPAuthServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceLDAPAuthServerResponse
+   */
   async modifyInstanceLDAPAuthServerWithOptions(request: ModifyInstanceLDAPAuthServerRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceLDAPAuthServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21378,11 +37061,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceLDAPAuthServerResponse>(await this.callApi(params, req, runtime), new ModifyInstanceLDAPAuthServerResponse({}));
   }
 
+  /**
+   * Modifies the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
+   * 
+   * @param request - ModifyInstanceLDAPAuthServerRequest
+   * @returns ModifyInstanceLDAPAuthServerResponse
+   */
   async modifyInstanceLDAPAuthServer(request: ModifyInstanceLDAPAuthServerRequest): Promise<ModifyInstanceLDAPAuthServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceLDAPAuthServerWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the two-factor authentication settings of a bastion host.
+   * 
+   * @param request - ModifyInstanceTwoFactorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceTwoFactorResponse
+   */
   async modifyInstanceTwoFactorWithOptions(request: ModifyInstanceTwoFactorRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceTwoFactorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21423,11 +37119,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceTwoFactorResponse>(await this.callApi(params, req, runtime), new ModifyInstanceTwoFactorResponse({}));
   }
 
+  /**
+   * Modifies the two-factor authentication settings of a bastion host.
+   * 
+   * @param request - ModifyInstanceTwoFactorRequest
+   * @returns ModifyInstanceTwoFactorResponse
+   */
   async modifyInstanceTwoFactor(request: ModifyInstanceTwoFactorRequest): Promise<ModifyInstanceTwoFactorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceTwoFactorWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the basic information about a network domain.
+   * 
+   * @param request - ModifyNetworkDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyNetworkDomainResponse
+   */
   async modifyNetworkDomainWithOptions(request: ModifyNetworkDomainRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNetworkDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21476,11 +37185,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyNetworkDomainResponse>(await this.callApi(params, req, runtime), new ModifyNetworkDomainResponse({}));
   }
 
+  /**
+   * Modifies the basic information about a network domain.
+   * 
+   * @param request - ModifyNetworkDomainRequest
+   * @returns ModifyNetworkDomainResponse
+   */
   async modifyNetworkDomain(request: ModifyNetworkDomainRequest): Promise<ModifyNetworkDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNetworkDomainWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the basic information about a control policy.
+   * 
+   * @param request - ModifyPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPolicyResponse
+   */
   async modifyPolicyWithOptions(request: ModifyPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21525,11 +37247,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPolicyResponse>(await this.callApi(params, req, runtime), new ModifyPolicyResponse({}));
   }
 
+  /**
+   * Modifies the basic information about a control policy.
+   * 
+   * @param request - ModifyPolicyRequest
+   * @returns ModifyPolicyResponse
+   */
   async modifyPolicy(request: ModifyPolicyRequest): Promise<ModifyPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the basic information of an authorization rule.
+   * 
+   * @param request - ModifyRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRuleResponse
+   */
   async modifyRuleWithOptions(request: ModifyRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21598,11 +37333,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyRuleResponse>(await this.callApi(params, req, runtime), new ModifyRuleResponse({}));
   }
 
+  /**
+   * Modifies the basic information of an authorization rule.
+   * 
+   * @param request - ModifyRuleRequest
+   * @returns ModifyRuleResponse
+   */
   async modifyRule(request: ModifyRuleRequest): Promise<ModifyRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRuleWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the information about a user of a bastion host.
+   * 
+   * @param request - ModifyUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyUserResponse
+   */
   async modifyUserWithOptions(request: ModifyUserRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21687,11 +37435,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyUserResponse>(await this.callApi(params, req, runtime), new ModifyUserResponse({}));
   }
 
+  /**
+   * Modifies the information about a user of a bastion host.
+   * 
+   * @param request - ModifyUserRequest
+   * @returns ModifyUserResponse
+   */
   async modifyUser(request: ModifyUserRequest): Promise<ModifyUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyUserWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the information about the specified user group.
+   * 
+   * @param request - ModifyUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyUserGroupResponse
+   */
   async modifyUserGroupWithOptions(request: ModifyUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21732,11 +37493,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyUserGroupResponse>(await this.callApi(params, req, runtime), new ModifyUserGroupResponse({}));
   }
 
+  /**
+   * Modifies the information about the specified user group.
+   * 
+   * @param request - ModifyUserGroupRequest
+   * @returns ModifyUserGroupResponse
+   */
   async modifyUserGroup(request: ModifyUserGroupRequest): Promise<ModifyUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Modifies the public key of the user.
+   * 
+   * @param request - ModifyUserPublicKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyUserPublicKeyResponse
+   */
   async modifyUserPublicKeyWithOptions(request: ModifyUserPublicKeyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserPublicKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21781,11 +37555,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyUserPublicKeyResponse>(await this.callApi(params, req, runtime), new ModifyUserPublicKeyResponse({}));
   }
 
+  /**
+   * Modifies the public key of the user.
+   * 
+   * @param request - ModifyUserPublicKeyRequest
+   * @returns ModifyUserPublicKeyResponse
+   */
   async modifyUserPublicKey(request: ModifyUserPublicKeyRequest): Promise<ModifyUserPublicKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyUserPublicKeyWithOptions(request, runtime);
   }
 
+  /**
+   * Adds multiple databases to a network domain at a time.
+   * 
+   * @param request - MoveDatabasesToNetworkDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveDatabasesToNetworkDomainResponse
+   */
   async moveDatabasesToNetworkDomainWithOptions(request: MoveDatabasesToNetworkDomainRequest, runtime: $Util.RuntimeOptions): Promise<MoveDatabasesToNetworkDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21822,11 +37609,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveDatabasesToNetworkDomainResponse>(await this.callApi(params, req, runtime), new MoveDatabasesToNetworkDomainResponse({}));
   }
 
+  /**
+   * Adds multiple databases to a network domain at a time.
+   * 
+   * @param request - MoveDatabasesToNetworkDomainRequest
+   * @returns MoveDatabasesToNetworkDomainResponse
+   */
   async moveDatabasesToNetworkDomain(request: MoveDatabasesToNetworkDomainRequest): Promise<MoveDatabasesToNetworkDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveDatabasesToNetworkDomainWithOptions(request, runtime);
   }
 
+  /**
+   * Adds multiple hosts to a network domain at a time.
+   * 
+   * @param request - MoveHostsToNetworkDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveHostsToNetworkDomainResponse
+   */
   async moveHostsToNetworkDomainWithOptions(request: MoveHostsToNetworkDomainRequest, runtime: $Util.RuntimeOptions): Promise<MoveHostsToNetworkDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21863,11 +37663,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveHostsToNetworkDomainResponse>(await this.callApi(params, req, runtime), new MoveHostsToNetworkDomainResponse({}));
   }
 
+  /**
+   * Adds multiple hosts to a network domain at a time.
+   * 
+   * @param request - MoveHostsToNetworkDomainRequest
+   * @returns MoveHostsToNetworkDomainResponse
+   */
   async moveHostsToNetworkDomain(request: MoveHostsToNetworkDomainRequest): Promise<MoveHostsToNetworkDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveHostsToNetworkDomainWithOptions(request, runtime);
   }
 
+  /**
+   * Moves a bastion host from one resource group to another resource group.
+   * 
+   * @param request - MoveResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveResourceGroupResponse
+   */
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21904,11 +37717,28 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
+  /**
+   * Moves a bastion host from one resource group to another resource group.
+   * 
+   * @param request - MoveResourceGroupRequest
+   * @returns MoveResourceGroupResponse
+   */
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * If an O\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+   * 
+   * @remarks
+   * You can call this operation as a Bastionhost administrator to reject the request to run a command of an O\\&M engineer.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - RejectApproveCommandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RejectApproveCommandResponse
+   */
   async rejectApproveCommandWithOptions(request: RejectApproveCommandRequest, runtime: $Util.RuntimeOptions): Promise<RejectApproveCommandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21941,22 +37771,39 @@ export default class Client extends OpenApi {
     return $tea.cast<RejectApproveCommandResponse>(await this.callApi(params, req, runtime), new RejectApproveCommandResponse({}));
   }
 
+  /**
+   * If an O\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+   * 
+   * @remarks
+   * You can call this operation as a Bastionhost administrator to reject the request to run a command of an O\\&M engineer.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - RejectApproveCommandRequest
+   * @returns RejectApproveCommandResponse
+   */
   async rejectApproveCommand(request: RejectApproveCommandRequest): Promise<RejectApproveCommandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rejectApproveCommandWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request RejectOperationTicketRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RejectOperationTicketResponse
+   * If a Bastionhost administrator enables O\\&M Approval on the Create Control Policy page, O\\&M engineers can log on to assets to perform O\\&M operations only after the administrator approves their O\\&M applications.
+   * 
+   * @remarks
+   * You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - RejectOperationTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RejectOperationTicketResponse
    */
   async rejectOperationTicketWithOptions(request: RejectOperationTicketRequest, runtime: $Util.RuntimeOptions): Promise<RejectOperationTicketResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -21987,17 +37834,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request RejectOperationTicketRequest
-    * @return RejectOperationTicketResponse
+   * If a Bastionhost administrator enables O\\&M Approval on the Create Control Policy page, O\\&M engineers can log on to assets to perform O\\&M operations only after the administrator approves their O\\&M applications.
+   * 
+   * @remarks
+   * You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - RejectOperationTicketRequest
+   * @returns RejectOperationTicketResponse
    */
   async rejectOperationTicket(request: RejectOperationTicketRequest): Promise<RejectOperationTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rejectOperationTicketWithOptions(request, runtime);
   }
 
+  /**
+   * Removes multiple databases from an asset group at a time.
+   * 
+   * @param request - RemoveDatabasesFromGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveDatabasesFromGroupResponse
+   */
   async removeDatabasesFromGroupWithOptions(request: RemoveDatabasesFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveDatabasesFromGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22034,11 +37891,29 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveDatabasesFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveDatabasesFromGroupResponse({}));
   }
 
+  /**
+   * Removes multiple databases from an asset group at a time.
+   * 
+   * @param request - RemoveDatabasesFromGroupRequest
+   * @returns RemoveDatabasesFromGroupResponse
+   */
   async removeDatabasesFromGroup(request: RemoveDatabasesFromGroupRequest): Promise<RemoveDatabasesFromGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeDatabasesFromGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Removes multiple hosts from an asset group at a time.
+   * 
+   * @remarks
+   * You can call the RemoveHostsFromGroup operation to remove multiple hosts from an asset group at a time. If you no longer need to manage some hosts in an asset group, you can call this operation to remove the hosts from the asset group.
+   * # [](#qps-)QPS limit
+   * You can call this API operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - RemoveHostsFromGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveHostsFromGroupResponse
+   */
   async removeHostsFromGroupWithOptions(request: RemoveHostsFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveHostsFromGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22075,19 +37950,33 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveHostsFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveHostsFromGroupResponse({}));
   }
 
+  /**
+   * Removes multiple hosts from an asset group at a time.
+   * 
+   * @remarks
+   * You can call the RemoveHostsFromGroup operation to remove multiple hosts from an asset group at a time. If you no longer need to manage some hosts in an asset group, you can call this operation to remove the hosts from the asset group.
+   * # [](#qps-)QPS limit
+   * You can call this API operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - RemoveHostsFromGroupRequest
+   * @returns RemoveHostsFromGroupResponse
+   */
   async removeHostsFromGroup(request: RemoveHostsFromGroupRequest): Promise<RemoveHostsFromGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeHostsFromGroupWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to remove one or more users from a user group. When users in a user group are transferred to a new position, resign, or are switched to another user group, you can call this operation to remove the users from the current user group at a time.  
-    * ## QPS limit
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request RemoveUsersFromGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveUsersFromGroupResponse
+   * Removes one or more users from a user group.
+   * 
+   * @remarks
+   * You can call this operation to remove one or more users from a user group. When users in a user group are transferred to a new position, resign, or are switched to another user group, you can call this operation to remove the users from the current user group at a time.  
+   * ## QPS limit
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - RemoveUsersFromGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveUsersFromGroupResponse
    */
   async removeUsersFromGroupWithOptions(request: RemoveUsersFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUsersFromGroupResponse> {
     Util.validateModel(request);
@@ -22126,18 +38015,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to remove one or more users from a user group. When users in a user group are transferred to a new position, resign, or are switched to another user group, you can call this operation to remove the users from the current user group at a time.  
-    * ## QPS limit
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request RemoveUsersFromGroupRequest
-    * @return RemoveUsersFromGroupResponse
+   * Removes one or more users from a user group.
+   * 
+   * @remarks
+   * You can call this operation to remove one or more users from a user group. When users in a user group are transferred to a new position, resign, or are switched to another user group, you can call this operation to remove the users from the current user group at a time.  
+   * ## QPS limit
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - RemoveUsersFromGroupRequest
+   * @returns RemoveUsersFromGroupResponse
    */
   async removeUsersFromGroup(request: RemoveUsersFromGroupRequest): Promise<RemoveUsersFromGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeUsersFromGroupWithOptions(request, runtime);
   }
 
+  /**
+   * Renews an O\\&M token for one hour.
+   * 
+   * @param request - RenewAssetOperationTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewAssetOperationTokenResponse
+   */
   async renewAssetOperationTokenWithOptions(request: RenewAssetOperationTokenRequest, runtime: $Util.RuntimeOptions): Promise<RenewAssetOperationTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22170,11 +38069,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewAssetOperationTokenResponse>(await this.callApi(params, req, runtime), new RenewAssetOperationTokenResponse({}));
   }
 
+  /**
+   * Renews an O\\&M token for one hour.
+   * 
+   * @param request - RenewAssetOperationTokenRequest
+   * @returns RenewAssetOperationTokenResponse
+   */
   async renewAssetOperationToken(request: RenewAssetOperationTokenRequest): Promise<RenewAssetOperationTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewAssetOperationTokenWithOptions(request, runtime);
   }
 
+  /**
+   * Deletes the logon credential of a specified host account. The logon credential can be the password or Secure Shell (SSH) private key.
+   * 
+   * @param request - ResetHostAccountCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetHostAccountCredentialResponse
+   */
   async resetHostAccountCredentialWithOptions(request: ResetHostAccountCredentialRequest, runtime: $Util.RuntimeOptions): Promise<ResetHostAccountCredentialResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22211,11 +38123,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetHostAccountCredentialResponse>(await this.callApi(params, req, runtime), new ResetHostAccountCredentialResponse({}));
   }
 
+  /**
+   * Deletes the logon credential of a specified host account. The logon credential can be the password or Secure Shell (SSH) private key.
+   * 
+   * @param request - ResetHostAccountCredentialRequest
+   * @returns ResetHostAccountCredentialResponse
+   */
   async resetHostAccountCredential(request: ResetHostAccountCredentialRequest): Promise<ResetHostAccountCredentialResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetHostAccountCredentialWithOptions(request, runtime);
   }
 
+  /**
+   * Configures the logon period limits in a control policy.
+   * 
+   * @param tmpReq - SetPolicyAccessTimeRangeConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetPolicyAccessTimeRangeConfigResponse
+   */
   async setPolicyAccessTimeRangeConfigWithOptions(tmpReq: SetPolicyAccessTimeRangeConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetPolicyAccessTimeRangeConfigResponse> {
     Util.validateModel(tmpReq);
     let request = new SetPolicyAccessTimeRangeConfigShrinkRequest({ });
@@ -22258,11 +38183,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetPolicyAccessTimeRangeConfigResponse>(await this.callApi(params, req, runtime), new SetPolicyAccessTimeRangeConfigResponse({}));
   }
 
+  /**
+   * Configures the logon period limits in a control policy.
+   * 
+   * @param request - SetPolicyAccessTimeRangeConfigRequest
+   * @returns SetPolicyAccessTimeRangeConfigResponse
+   */
   async setPolicyAccessTimeRangeConfig(request: SetPolicyAccessTimeRangeConfigRequest): Promise<SetPolicyAccessTimeRangeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setPolicyAccessTimeRangeConfigWithOptions(request, runtime);
   }
 
+  /**
+   * Configures the O&M approval setting in a control policy.
+   * 
+   * @param tmpReq - SetPolicyApprovalConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetPolicyApprovalConfigResponse
+   */
   async setPolicyApprovalConfigWithOptions(tmpReq: SetPolicyApprovalConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetPolicyApprovalConfigResponse> {
     Util.validateModel(tmpReq);
     let request = new SetPolicyApprovalConfigShrinkRequest({ });
@@ -22305,11 +38243,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetPolicyApprovalConfigResponse>(await this.callApi(params, req, runtime), new SetPolicyApprovalConfigResponse({}));
   }
 
+  /**
+   * Configures the O&M approval setting in a control policy.
+   * 
+   * @param request - SetPolicyApprovalConfigRequest
+   * @returns SetPolicyApprovalConfigResponse
+   */
   async setPolicyApprovalConfig(request: SetPolicyApprovalConfigRequest): Promise<SetPolicyApprovalConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setPolicyApprovalConfigWithOptions(request, runtime);
   }
 
+  /**
+   * Specifies the assets to which a control policy applies.
+   * 
+   * @param request - SetPolicyAssetScopeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetPolicyAssetScopeResponse
+   */
   async setPolicyAssetScopeWithOptions(request: SetPolicyAssetScopeRequest, runtime: $Util.RuntimeOptions): Promise<SetPolicyAssetScopeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22358,11 +38309,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetPolicyAssetScopeResponse>(await this.callApi(params, req, runtime), new SetPolicyAssetScopeResponse({}));
   }
 
+  /**
+   * Specifies the assets to which a control policy applies.
+   * 
+   * @param request - SetPolicyAssetScopeRequest
+   * @returns SetPolicyAssetScopeResponse
+   */
   async setPolicyAssetScope(request: SetPolicyAssetScopeRequest): Promise<SetPolicyAssetScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setPolicyAssetScopeWithOptions(request, runtime);
   }
 
+  /**
+   * Specifies the commands that can or cannot be run by the users or on the assets associated with the policy and the commands that must be reviewed.
+   * 
+   * @param tmpReq - SetPolicyCommandConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetPolicyCommandConfigResponse
+   */
   async setPolicyCommandConfigWithOptions(tmpReq: SetPolicyCommandConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetPolicyCommandConfigResponse> {
     Util.validateModel(tmpReq);
     let request = new SetPolicyCommandConfigShrinkRequest({ });
@@ -22405,11 +38369,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetPolicyCommandConfigResponse>(await this.callApi(params, req, runtime), new SetPolicyCommandConfigResponse({}));
   }
 
+  /**
+   * Specifies the commands that can or cannot be run by the users or on the assets associated with the policy and the commands that must be reviewed.
+   * 
+   * @param request - SetPolicyCommandConfigRequest
+   * @returns SetPolicyCommandConfigResponse
+   */
   async setPolicyCommandConfig(request: SetPolicyCommandConfigRequest): Promise<SetPolicyCommandConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setPolicyCommandConfigWithOptions(request, runtime);
   }
 
+  /**
+   * Configures access control settings in a control policy.
+   * 
+   * @param tmpReq - SetPolicyIPAclConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetPolicyIPAclConfigResponse
+   */
   async setPolicyIPAclConfigWithOptions(tmpReq: SetPolicyIPAclConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetPolicyIPAclConfigResponse> {
     Util.validateModel(tmpReq);
     let request = new SetPolicyIPAclConfigShrinkRequest({ });
@@ -22452,11 +38429,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetPolicyIPAclConfigResponse>(await this.callApi(params, req, runtime), new SetPolicyIPAclConfigResponse({}));
   }
 
+  /**
+   * Configures access control settings in a control policy.
+   * 
+   * @param request - SetPolicyIPAclConfigRequest
+   * @returns SetPolicyIPAclConfigResponse
+   */
   async setPolicyIPAclConfig(request: SetPolicyIPAclConfigRequest): Promise<SetPolicyIPAclConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setPolicyIPAclConfigWithOptions(request, runtime);
   }
 
+  /**
+   * Modify the protocol control settings in a control policy.
+   * 
+   * @param tmpReq - SetPolicyProtocolConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetPolicyProtocolConfigResponse
+   */
   async setPolicyProtocolConfigWithOptions(tmpReq: SetPolicyProtocolConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetPolicyProtocolConfigResponse> {
     Util.validateModel(tmpReq);
     let request = new SetPolicyProtocolConfigShrinkRequest({ });
@@ -22499,11 +38489,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetPolicyProtocolConfigResponse>(await this.callApi(params, req, runtime), new SetPolicyProtocolConfigResponse({}));
   }
 
+  /**
+   * Modify the protocol control settings in a control policy.
+   * 
+   * @param request - SetPolicyProtocolConfigRequest
+   * @returns SetPolicyProtocolConfigResponse
+   */
   async setPolicyProtocolConfig(request: SetPolicyProtocolConfigRequest): Promise<SetPolicyProtocolConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setPolicyProtocolConfigWithOptions(request, runtime);
   }
 
+  /**
+   * Specifies the users to whom a control policy applies.
+   * 
+   * @param request - SetPolicyUserScopeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetPolicyUserScopeResponse
+   */
   async setPolicyUserScopeWithOptions(request: SetPolicyUserScopeRequest, runtime: $Util.RuntimeOptions): Promise<SetPolicyUserScopeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22548,11 +38551,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetPolicyUserScopeResponse>(await this.callApi(params, req, runtime), new SetPolicyUserScopeResponse({}));
   }
 
+  /**
+   * Specifies the users to whom a control policy applies.
+   * 
+   * @param request - SetPolicyUserScopeRequest
+   * @returns SetPolicyUserScopeResponse
+   */
   async setPolicyUserScope(request: SetPolicyUserScopeRequest): Promise<SetPolicyUserScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setPolicyUserScopeWithOptions(request, runtime);
   }
 
+  /**
+   * Enables the specified bastion host.
+   * 
+   * @param request - StartInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartInstanceResponse
+   */
   async startInstanceWithOptions(request: StartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22589,11 +38605,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartInstanceResponse>(await this.callApi(params, req, runtime), new StartInstanceResponse({}));
   }
 
+  /**
+   * Enables the specified bastion host.
+   * 
+   * @param request - StartInstanceRequest
+   * @returns StartInstanceResponse
+   */
   async startInstance(request: StartInstanceRequest): Promise<StartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * Creates and adds tags to specified bastion hosts.
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22630,19 +38659,28 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * Creates and adds tags to specified bastion hosts.
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * After you call the [LockUsers](~~204591~~) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request UnlockUsersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UnlockUsersResponse
+   * Unlocks one or more users of a bastion host.
+   * 
+   * @remarks
+   * After you call the [LockUsers](https://help.aliyun.com/document_detail/204591.html) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - UnlockUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnlockUsersResponse
    */
   async unlockUsersWithOptions(request: UnlockUsersRequest, runtime: $Util.RuntimeOptions): Promise<UnlockUsersResponse> {
     Util.validateModel(request);
@@ -22677,18 +38715,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call the [LockUsers](~~204591~~) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request UnlockUsersRequest
-    * @return UnlockUsersResponse
+   * Unlocks one or more users of a bastion host.
+   * 
+   * @remarks
+   * After you call the [LockUsers](https://help.aliyun.com/document_detail/204591.html) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
+   * # Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - UnlockUsersRequest
+   * @returns UnlockUsersResponse
    */
   async unlockUsers(request: UnlockUsersRequest): Promise<UnlockUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unlockUsersWithOptions(request, runtime);
   }
 
+  /**
+   * Removes tags from the specified bastion host and deletes the tags at a time.
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22729,11 +38777,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * Removes tags from the specified bastion host and deletes the tags at a time.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * 验证实例AD服务配置
+   * 
+   * @param request - VerifyInstanceADAuthServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyInstanceADAuthServerResponse
+   */
   async verifyInstanceADAuthServerWithOptions(request: VerifyInstanceADAuthServerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyInstanceADAuthServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22798,11 +38859,24 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyInstanceADAuthServerResponse>(await this.callApi(params, req, runtime), new VerifyInstanceADAuthServerResponse({}));
   }
 
+  /**
+   * 验证实例AD服务配置
+   * 
+   * @param request - VerifyInstanceADAuthServerRequest
+   * @returns VerifyInstanceADAuthServerResponse
+   */
   async verifyInstanceADAuthServer(request: VerifyInstanceADAuthServerRequest): Promise<VerifyInstanceADAuthServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyInstanceADAuthServerWithOptions(request, runtime);
   }
 
+  /**
+   * 验证实例LDAP服务配置
+   * 
+   * @param request - VerifyInstanceLDAPAuthServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyInstanceLDAPAuthServerResponse
+   */
   async verifyInstanceLDAPAuthServerWithOptions(request: VerifyInstanceLDAPAuthServerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyInstanceLDAPAuthServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22863,6 +38937,12 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyInstanceLDAPAuthServerResponse>(await this.callApi(params, req, runtime), new VerifyInstanceLDAPAuthServerResponse({}));
   }
 
+  /**
+   * 验证实例LDAP服务配置
+   * 
+   * @param request - VerifyInstanceLDAPAuthServerRequest
+   * @returns VerifyInstanceLDAPAuthServerResponse
+   */
   async verifyInstanceLDAPAuthServer(request: VerifyInstanceLDAPAuthServerRequest): Promise<VerifyInstanceLDAPAuthServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyInstanceLDAPAuthServerWithOptions(request, runtime);
