@@ -1982,6 +1982,8 @@ export class DeleteAccountResponse extends $tea.Model {
 export class DeleteBackupsRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the backup set that you want to delete. Separate multiple backup set IDs with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1990,6 +1992,8 @@ export class DeleteBackupsRequest extends $tea.Model {
   backupIds?: string;
   /**
    * @remarks
+   * The ID of the AnalyticDB for MySQL cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1999,6 +2003,9 @@ export class DeleteBackupsRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The region ID of the cluster.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -2037,7 +2044,7 @@ export class DeleteBackupsRequest extends $tea.Model {
 export class DeleteBackupsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 771C5FAA-530F-52F7-B84D-EBAD4561D590
@@ -6137,6 +6144,7 @@ export class DescribeDBClusterShardNumberRequest extends $tea.Model {
 }
 
 export class DescribeDBClusterShardNumberResponseBody extends $tea.Model {
+  availableShardNumbers?: number[];
   /**
    * @example
    * CBE843D8-964D-5EA3-9D31-822125611B6E
@@ -6149,6 +6157,7 @@ export class DescribeDBClusterShardNumberResponseBody extends $tea.Model {
   shardNumber?: number;
   static names(): { [key: string]: string } {
     return {
+      availableShardNumbers: 'AvailableShardNumbers',
       requestId: 'RequestId',
       shardNumber: 'ShardNumber',
     };
@@ -6156,6 +6165,7 @@ export class DescribeDBClusterShardNumberResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      availableShardNumbers: { 'type': 'array', 'itemType': 'number' },
       requestId: 'string',
       shardNumber: 'number',
     };
@@ -27422,7 +27432,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手动删除备份集
+   * Manually deletes backup sets.
+   * 
+   * @remarks
+   *   Deleting backup sets is an asynchronous operation and may require 10 to 20 minutes to complete.
+   * *   You can delete up to 100 backup sets at a time. If you want to delete more than 100 backup sets, call this operation twice.
+   * *   To ensure data security, the system forcibly retains one valid backup set. If you want to delete the last backup set, the system prohibits your operation.
    * 
    * @param request - DeleteBackupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27449,7 +27464,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手动删除备份集
+   * Manually deletes backup sets.
+   * 
+   * @remarks
+   *   Deleting backup sets is an asynchronous operation and may require 10 to 20 minutes to complete.
+   * *   You can delete up to 100 backup sets at a time. If you want to delete more than 100 backup sets, call this operation twice.
+   * *   To ensure data security, the system forcibly retains one valid backup set. If you want to delete the last backup set, the system prohibits your operation.
    * 
    * @param request - DeleteBackupsRequest
    * @returns DeleteBackupsResponse
