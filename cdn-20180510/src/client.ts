@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,16 +8,95 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddCdnDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The workload type of the accelerated domain name. Valid values:
+   * 
+   * *   **web**: images and small files
+   * *   **download**: large files
+   * *   **video**: on-demand video and audio streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * web
+   */
   cdnType?: string;
+  /**
+   * @remarks
+   * The URL that is used to check the accessibility of the origin server.
+   * 
+   * @example
+   * www.example.com/test.html
+   */
   checkUrl?: string;
+  /**
+   * @remarks
+   * The domain name that you want to add to Alibaba Cloud CDN.
+   * 
+   * A wildcard domain that starts with a period (.) is supported, such as .example.com.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * .example.com
+   */
   domainName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * If you do not set this parameter, the system uses the ID of the default resource group.
+   * 
+   * @example
+   * rg-acfmyuji4b6r4**
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The acceleration region. Default value: domestic. Valid values:
+   * 
+   * *   **domestic**: Chinese mainland
+   * *   **overseas**: global (excluding the Chinese mainland)
+   * *   **global**: global
+   * 
+   * @example
+   * domestic
+   */
   scope?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The information about the addresses of origin servers.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [
+   *       {
+   *             "content": "192.0.2.0",
+   *             "type": "ipaddr",
+   *             "priority": "20",
+   *             "port": 80,
+   *             "weight": "15"
+   *       }
+   * ]
+   */
   sources?: string;
+  /**
+   * @remarks
+   * Details about the tags. You can specify up to 20 tags.
+   */
   tag?: AddCdnDomainRequestTag[];
+  /**
+   * @remarks
+   * The top-level domain.
+   * 
+   * @example
+   * example.com
+   */
   topLevelDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,6 +136,13 @@ export class AddCdnDomainRequest extends $tea.Model {
 }
 
 export class AddCdnDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A74
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -102,12 +187,73 @@ export class AddCdnDomainResponse extends $tea.Model {
 }
 
 export class AddFCTriggerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the event.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LogFileCreated
+   */
   eventMetaName?: string;
+  /**
+   * @remarks
+   * The version of the event.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1.0.0
+   */
   eventMetaVersion?: string;
+  /**
+   * @remarks
+   * The feature trigger.
+   * 
+   * @example
+   * acs:fc:1223455566666:123:services/myservice/functions/myfunction
+   */
   functionARN?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   notes?: string;
+  /**
+   * @remarks
+   * The assigned Resource Access Management (RAM) role.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acs:ram:: 1234567890:role/aliyuncdneventnotificationrole
+   */
   roleARN?: string;
+  /**
+   * @remarks
+   * The resources and filters for event listening.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acs:cdn:*:1234567890:domain/example.com
+   */
   sourceARN?: string;
+  /**
+   * @remarks
+   * The trigger that corresponds to the Function Compute service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acs:fc:cn-beijing: 1234567890:services/FCTestService/functions/printEvent/triggers/testtrigger
+   */
   triggerARN?: string;
   static names(): { [key: string]: string } {
     return {
@@ -139,6 +285,13 @@ export class AddFCTriggerRequest extends $tea.Model {
 }
 
 export class AddFCTriggerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC046C5D-8CB4-4B6B-B7F8-B335E51EF90
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -183,15 +336,86 @@ export class AddFCTriggerResponse extends $tea.Model {
 }
 
 export class BatchAddCdnDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The workload type of the domain name to accelerate. Valid values:
+   * 
+   * *   **web**: images and small files
+   * *   **download**: large files
+   * *   **video**: on-demand video and audio streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * web
+   */
   cdnType?: string;
+  /**
+   * @remarks
+   * The URL that is used for health checks.
+   * 
+   * @example
+   * url
+   */
   checkUrl?: string;
+  /**
+   * @remarks
+   * The domain names that you want to add to Alibaba Cloud CDN. Separate domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com,aliyundoc.com
+   */
   domainName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the resource group. If you do not specify a value for this parameter, the system uses the ID of the default resource group.
+   * 
+   * @example
+   * rg-acfmyuji4b6r4**
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The acceleration region. Default value: domestic. Valid values:
+   * 
+   * *   **domestic**: Chinese mainland
+   * *   **overseas**: global (excluding the Chinese mainland)
+   * *   **global**: global
+   * 
+   * @example
+   * domestic
+   */
   scope?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The information about the addresses of origin servers.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [
+   *       {
+   *             "content": "192.0.2.0",
+   *             "type": "ipaddr",
+   *             "priority": "20",
+   *             "port": 80,
+   *             "weight": "15"
+   *       }
+   * ]
+   */
   sources?: string;
+  /**
+   * @remarks
+   * The top-level domain.
+   * 
+   * @example
+   * example.com
+   */
   topLevelDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -229,6 +453,13 @@ export class BatchAddCdnDomainRequest extends $tea.Model {
 }
 
 export class BatchAddCdnDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A74
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -273,7 +504,25 @@ export class BatchAddCdnDomainResponse extends $tea.Model {
 }
 
 export class BatchDeleteCdnDomainConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain names whose configurations you want to delete. Separate multiple accelerated domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com,example.org
+   */
   domainNames?: string;
+  /**
+   * @remarks
+   * The names of the features that you want to delete. Separate multiple feature names with commas (,). For more information about feature names, see [Parameters for configuring features for domain names](https://help.aliyun.com/document_detail/388460.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * referer_white_list_set,https_force
+   */
   functionNames?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -304,6 +553,13 @@ export class BatchDeleteCdnDomainConfigRequest extends $tea.Model {
 }
 
 export class BatchDeleteCdnDomainConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -348,7 +604,29 @@ export class BatchDeleteCdnDomainConfigResponse extends $tea.Model {
 }
 
 export class BatchDescribeCdnIpInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of IP addresses to query. Separate IP addresses with commas (,). You can specify up to 20 IP addresses at a time.
+   * 
+   * > *   Example of an IPv4 address: 192.0.2.1
+   * >*   Example of an IPv6 address: 2001:db8:ffff:ffff:ffff:\\*\\*\\*\\*:ffff.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 111.XXX.XXX.230,47.XXX.XXX.243
+   */
   ipAddrList?: string;
+  /**
+   * @remarks
+   * The language of the query results. Valid values:
+   * 
+   * *   **zh** (default): Simplified Chinese.
+   * *   **en**: English.
+   * 
+   * @example
+   * en
+   */
   language?: string;
   static names(): { [key: string]: string } {
     return {
@@ -370,7 +648,18 @@ export class BatchDescribeCdnIpInfoRequest extends $tea.Model {
 }
 
 export class BatchDescribeCdnIpInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results about IP addresses returned.
+   */
   ipInfoList?: BatchDescribeCdnIpInfoResponseBodyIpInfoList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 55ADD936-763F-5E1A-BF54-2EA3F6E94A52
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -417,7 +706,108 @@ export class BatchDescribeCdnIpInfoResponse extends $tea.Model {
 }
 
 export class BatchSetCdnDomainConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain names. You can specify multiple accelerated domain names and separate them with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.example.com
+   */
   domainNames?: string;
+  /**
+   * @remarks
+   * The features that you want to configure. Format:
+   * 
+   * *   **functionName**: the name of the feature. This parameter is required. Separate multiple values with commas (,). For more information, see [Parameters for configuring features for domain names](https://help.aliyun.com/document_detail/388460.html).
+   * *   **argName**: the feature parameter for **functionName**. This parameter is required. You can specify multiple feature parameters.
+   * *   **argValue**: the parameter value that is specified for **functionName**. This parameter is required.
+   * *   **parentid**: the rule condition ID. This parameter is optional. You can use the **condition** rule engine to create a rule condition. For information, see [Parameters for configuring features for domain names](https://help.aliyun.com/document_detail/388460.html). A rule condition can identify parameters that are included in requests and filter requests based on the identified parameters. After you create a rule condition, a [configid](https://help.aliyun.com/document_detail/388994.html) is generated. A configid can be used as parentId that is referenced by other features. This way, you can combine rule conditions and features for flexible configurations.
+   * 
+   * If the **ParentId** parameter is \\*\\*-1\\*\\*, the existing rule conditions in the configurations are deleted.
+   * 
+   * ```[{
+   *    "functionArgs": [{
+   *      "argName": "Parameter A", 
+   *      "argValue": "Value of parameter A"
+   *     }, 
+   *   {
+   *     "argName": "Parameter B", 
+   *     "argValue": "Value of parameter B"
+   *      }], 
+   *  "functionName": "Feature name"
+   *  "parentId": Optional. parentId corresponds to configid of the referenced rule condition
+   * }]
+   * ```
+   * 
+   * The following code provides a sample configuration if **parentId** is not used. In this example, the **origin_request_header** feature is used to add back-to-origin HTTP headers, and the rule condition whose configuration ID is **configid=222728944812032** is referenced.
+   * 
+   * ```[{
+   *         "functionArgs": [{
+   *             "argName": "header_operation_type",
+   *             "argValue": "add"
+   *         }, {
+   *             "argName": "header_name",
+   *             "argValue": "Accept-Encoding"
+   *         }, {
+   *             "argName": "header_value",
+   *             "argValue": "gzip"
+   *         }, {
+   *             "argName": "duplicate",
+   *             "argValue": "off"
+   *         }],
+   *         "functionName": "origin_request_header"
+   * }]
+   * ```
+   * 
+   * The following code shows a sample configuration if **parentId** is used. In this example, the **origin_request_header** feature is used to add back-to-origin HTTP headers, and the rule condition whose configuration ID is **222728944812032** is referenced.
+   * 
+   * ```[{
+   *         "functionArgs": [{
+   *             "argName": "header_operation_type",
+   *             "argValue": "add"
+   *         }, {
+   *             "argName": "header_name",
+   *             "argValue": "Accept-Encoding"
+   *         }, {
+   *             "argName": "header_value",
+   *             "argValue": "gzip"
+   *         }, {
+   *             "argName": "duplicate",
+   *             "argValue": "off"
+   *         }],
+   *         "functionName": "origin_request_header",
+   *         "parentId": 222728944812032
+   * }]
+   * ```
+   * 
+   * The following code provides a sample configuration that deletes the reference to **parentId** for a feature that uses **parentId**. This example shows how to delete the rule condition that has a configuration ID of **222728944812032** and is referenced when **origin_request_header** feature is used to add back-to-origin HTTP headers.
+   * 
+   * ```[{
+   *         "functionArgs": [{
+   *             "argName": "header_operation_type",
+   *             "argValue": "add"
+   *         }, {
+   *             "argName": "header_name",
+   *             "argValue": "Accept-Encoding"
+   *         }, {
+   *             "argName": "header_value",
+   *             "argValue": "gzip"
+   *         }, {
+   *             "argName": "duplicate",
+   *             "argValue": "off"
+   *         }],
+   *         "functionName": "origin_request_header",
+   *         "parentId": -1
+   * }]
+   * ```
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"functionArgs": [{"argName": "key","argValue": "Content-Encoding"},{"argName": "value","argValue": "gzip"}],"functionName": "set_resp_header"} ]
+   */
   functions?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -448,7 +838,18 @@ export class BatchSetCdnDomainConfigRequest extends $tea.Model {
 }
 
 export class BatchSetCdnDomainConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of domain configurations.
+   */
   domainConfigList?: BatchSetCdnDomainConfigResponseBodyDomainConfigList;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -495,14 +896,82 @@ export class BatchSetCdnDomainConfigResponse extends $tea.Model {
 }
 
 export class BatchSetCdnDomainServerCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the certificate.
+   * 
+   * @example
+   * yourCertName
+   */
   certName?: string;
+  /**
+   * @remarks
+   * The type of the SSL certificate. Valid values:
+   * 
+   * *   **upload**: a user-uploaded SSL certificate.
+   * *   **cas**: a certificate that is issued by SSL Certificates Service.
+   * 
+   * @example
+   * cas
+   */
   certType?: string;
+  /**
+   * @remarks
+   * The accelerated domain name to which the SSL certificate belongs. The type of request supported by the accelerated domain name must be HTTPS. You can specify multiple accelerated domain names and separate them with commas (,).
+   * 
+   * >  You can manage the SSL certificates of up to 50 accelerated domain names in each call.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information about the existing certificate that uses the same name.
+   * 
+   * @example
+   * 1
+   */
   forceSet?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region.
+   * 
+   * @example
+   * your region
+   */
   region?: string;
+  /**
+   * @remarks
+   * The private key. Specify the private key only if you enable the SSL certificate.
+   * 
+   * @example
+   * yourSSLPri
+   */
   SSLPri?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the SSL certificate. Valid values:
+   * 
+   * *   **on**: enables the SSL certificate.
+   * *   **off**: disables the SSL certificate. This is the default value.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * on
+   */
   SSLProtocol?: string;
+  /**
+   * @remarks
+   * The content of the SSL certificate. Specify the content of the certificate only if you want to enable the SSL certificate.
+   * 
+   * @example
+   * yourSSLPub
+   */
   SSLPub?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
@@ -541,6 +1010,13 @@ export class BatchSetCdnDomainServerCertificateRequest extends $tea.Model {
 }
 
 export class BatchSetCdnDomainServerCertificateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -585,6 +1061,15 @@ export class BatchSetCdnDomainServerCertificateResponse extends $tea.Model {
 }
 
 export class BatchStartCdnDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain names. You can specify one or more domain names. Separate multiple domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainNames?: string;
   ownerId?: number;
   securityToken?: string;
@@ -610,6 +1095,13 @@ export class BatchStartCdnDomainRequest extends $tea.Model {
 }
 
 export class BatchStartCdnDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -654,6 +1146,15 @@ export class BatchStartCdnDomainResponse extends $tea.Model {
 }
 
 export class BatchStopCdnDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The names of the accelerated domain names. You can specify one or more domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainNames?: string;
   ownerId?: number;
   securityToken?: string;
@@ -679,6 +1180,13 @@ export class BatchStopCdnDomainRequest extends $tea.Model {
 }
 
 export class BatchStopCdnDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 324AEFFF-308C-4DA7-8CD3-01B277B98F28
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -723,11 +1231,45 @@ export class BatchStopCdnDomainResponse extends $tea.Model {
 }
 
 export class BatchUpdateCdnDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain names. You can specify one or more accelerated domain names. Separate domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com,example.org
+   */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmyuji4b6r4**
+   */
   resourceGroupId?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The information about the addresses of origin servers.
+   * 
+   * > Do not set **Sources** and **TopLevelDomain** at the same time. If you set **Sources** and **TopLevelDomain** at the same time, **TopLevelDomain** does not take effect.
+   * 
+   * @example
+   * [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
+   */
   sources?: string;
+  /**
+   * @remarks
+   * The root domain.
+   * 
+   * > Do not set **Sources** and **TopLevelDomain** at the same time. If you set **Sources** and **TopLevelDomain** at the same time, **TopLevelDomain** does not take effect.
+   * 
+   * @example
+   * example.com
+   */
   topLevelDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -757,6 +1299,13 @@ export class BatchUpdateCdnDomainRequest extends $tea.Model {
 }
 
 export class BatchUpdateCdnDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A74
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -801,6 +1350,15 @@ export class BatchUpdateCdnDomainResponse extends $tea.Model {
 }
 
 export class CdnMigrateRegisterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name for which you want to register the dynamic routing feature. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -820,8 +1378,33 @@ export class CdnMigrateRegisterRequest extends $tea.Model {
 }
 
 export class CdnMigrateRegisterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 64D28B53-5902-409B-94F6-FD46680144FE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The registration status. Valid values:
+   * 
+   * *   **running**
+   * *   **succeed**
+   * *   **failed**
+   * 
+   * @example
+   * succeed
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -870,7 +1453,23 @@ export class CdnMigrateRegisterResponse extends $tea.Model {
 }
 
 export class ChangeCdnDomainToDcdnRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The operation to perform. Set the value to preCheck. Precheck is performed, and the result is returned. If the precheck passes, set the value to enforce to perform the transfer.
+   * 
+   * @example
+   * preCheck
+   */
   operation?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -901,7 +1500,29 @@ export class ChangeCdnDomainToDcdnRequest extends $tea.Model {
 }
 
 export class ChangeCdnDomainToDcdnResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the migration instructions.
+   * 
+   * @example
+   * {
+   * 		"The_domain_name_quota_for_the_target_account_has_reached_the_upper_limit": true,
+   * 		"Domain_name_requires_node2_architecture_to_be_enabled": true,
+   * 		"Internal_customer_domain_name_migration_prohibited": true,
+   * 		"Prohibit_the_migration_of_important_customer_domain_names": true,
+   * 		"Protected_domain_names_are_prohibited_from_migration": true,
+   * 		"Domain_names_accessed_through_TopDomain_are_prohibited_from_migration": true,
+   * 		"Prohibit_migration_of_customer_domain_names_for_integrated_access": true
+   * 	}
+   */
   content?: { [key: string]: any };
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E6172599-7DA7-5471-9D22-359A4E0C9B94
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -948,6 +1569,15 @@ export class ChangeCdnDomainToDcdnResponse extends $tea.Model {
 }
 
 export class CheckCdnDomainExistRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -976,7 +1606,30 @@ export class CheckCdnDomainExistRequest extends $tea.Model {
 }
 
 export class CheckCdnDomainExistResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 64D28B53-5902-409B-94F6-FD46680144FE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The status of the domain name. Valid values:
+   * 
+   * *   **DomainNotExist**: The domain name is not added.
+   * *   **DomainExistOtherUser**: The domain name has been added by another account.
+   * *   **DomainExistCdnProduct**: The domain name has been added to Alibaba Cloud CDN.
+   * *   **DomainExistDcdnProduct**: The domain name has been added to Dynamic Content Delivery Network (DCDN).
+   * *   **DomainExistScdnProduct**: The domain name has been added to Secure CDN (SCDN).
+   * *   **DomainExistVodProduct**: The domain name has been added to ApsaraVideo VOD.
+   * *   **DomainExistLiveProduct**: The domain name has been added to ApsaraVideo Live.
+   * *   **DomainExistDcdnipaProduct**: The domain name has been added to DCDN IP Application Accelerator (IPA).
+   * 
+   * @example
+   * DomainNotExist
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1023,6 +1676,15 @@ export class CheckCdnDomainExistResponse extends $tea.Model {
 }
 
 export class CheckCdnDomainICPRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1051,7 +1713,24 @@ export class CheckCdnDomainICPRequest extends $tea.Model {
 }
 
 export class CheckCdnDomainICPResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The status of the resource plan. Valid value:
+   * 
+   * *   **DomainIsRegistration**: An ICP filing is obtained for the domain name.
+   * *   **DomainNotRegistration**: No ICP filing is obtained for the domain name.
+   * 
+   * @example
+   * DomainIsRegistration
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1098,13 +1777,71 @@ export class CheckCdnDomainICPResponse extends $tea.Model {
 }
 
 export class CreateCdnCertificateSigningRequestRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The city. Default value: Hangzhou.
+   * 
+   * @example
+   * Hangzhou
+   */
   city?: string;
+  /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CommonName
+   */
   commonName?: string;
+  /**
+   * @remarks
+   * The country or region in which the organization is located. Default value: CN.
+   * 
+   * @example
+   * CN
+   */
   country?: string;
+  /**
+   * @remarks
+   * The email address.
+   * 
+   * @example
+   * username@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The name of the organization. Default value: Alibaba Inc.
+   * 
+   * @example
+   * Alibaba Inc
+   */
   organization?: string;
+  /**
+   * @remarks
+   * The name of the department. Default value: Aliyun CDN.
+   * 
+   * @example
+   * Aliyun CDN
+   */
   organizationUnit?: string;
+  /**
+   * @remarks
+   * The Subject Alternative Name (SAN) extension of the SSL certificate. This extension is used to add domain names to the certificate. Separate multiple domain names with commas (,).
+   * 
+   * @example
+   * example.com
+   */
   SANs?: string;
+  /**
+   * @remarks
+   * The provincial district. Default value: Zhejiang.
+   * 
+   * @example
+   * Zhejiang
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1138,9 +1875,37 @@ export class CreateCdnCertificateSigningRequestRequest extends $tea.Model {
 }
 
 export class CreateCdnCertificateSigningRequestResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
+   * @example
+   * CommonName
+   */
   commonName?: string;
+  /**
+   * @remarks
+   * The content of the CSR file.
+   * 
+   * @example
+   * CSRName
+   */
   csr?: string;
+  /**
+   * @remarks
+   * The MD5 hash value of the certificate public key.
+   * 
+   * @example
+   * 629bf4fd8104eda171135bcb0f77****
+   */
   pubMd5?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1191,10 +1956,55 @@ export class CreateCdnCertificateSigningRequestResponse extends $tea.Model {
 }
 
 export class CreateCdnDeliverTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The method that is used to send operations reports. Operations reports are sent to you only by email. The settings must be escaped in JSON.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"email":{"subject":"the email subject","to":["username@example.com","username@example.org"]}}
+   */
   deliver?: string;
+  /**
+   * @remarks
+   * The domain names to be tracked. Separate multiple domain names with commas (,). You can specify up to 500 domain names. If you want to specify more than 500 domain names, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+   * 
+   * > If you do not specify a domain name, the tracking task is created for all domain names that belong to your Alibaba Cloud account.
+   * 
+   * @example
+   * www.example1.com,www.example2.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The name of the tracking task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Domain name report
+   */
   name?: string;
+  /**
+   * @remarks
+   * The operations reports that are tracked by the task. The data must be escaped in JSON.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{\\\\"reportId\\\\":1,\\\\"conditions\\\\":[{\\\\"field\\\\":\\\\"prov\\\\",\\\\"op\\\\":\\\\"in\\\\",\\\\"value\\\\":[\\\\"Heilongjiang\\\\",\\\\"Beijing\\\\"]}]}]
+   */
   reports?: string;
+  /**
+   * @remarks
+   * The parameters that specify the time interval at which the tracking task sends operations reports. The settings must be escaped in JSON.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {\\\\"schedName\\\\":\\\\"The name of the tracking task\\\\",\\\\"description\\\\":\\\\"The description\\\\",\\\\"crontab\\\\":\\\\"000\\*\\*?\\\\",\\\\"frequency\\\\":\\\\"d\\\\",\\\\"status\\\\":\\\\"enable\\\\",\\\\"effectiveFrom\\\\":\\\\"2020-09-17T00:00:00Z\\\\",\\\\"effectiveEnd\\\\":\\\\"2020-11-17T00:00:00Z\\\\"}"
+   */
   schedule?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1222,7 +2032,21 @@ export class CreateCdnDeliverTaskRequest extends $tea.Model {
 }
 
 export class CreateCdnDeliverTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the tracking task.
+   * 
+   * @example
+   * 1025
+   */
   deliverId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1269,7 +2093,38 @@ export class CreateCdnDeliverTaskResponse extends $tea.Model {
 }
 
 export class CreateCdnSubTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names to be tracked. Separate multiple domain names with commas (,). You can specify up to 500 domain names. If you want to specify more than 500 domain names, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+   * 
+   * > If you do not specify a domain name, the custom operations report is created for all domain names that belong to your Alibaba Cloud account.
+   * 
+   * @example
+   * www.example1.com,www.example2.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The IDs of the metrics that you want to include in the report. Separate multiple IDs with commas (,). Valid values:
+   * 
+   * *   **1**: frequently requested URLs (ranked by the number of requests)
+   * *   **3**: frequently requested URLs (ranked by the amount of network traffic)
+   * *   **5**: frequently used Referer headers (ranked by the number of requests)
+   * *   **7**: frequently used Referer headers (ranked by the amount of network traffic)
+   * *   **9**: frequently requested URLs that are redirected to the origin (ranked by the number of requests)
+   * *   **11**: frequently requested URLs that are redirected to the origin (ranked by the amount of network traffic)
+   * *   **13**: top client IP addresses (ranked by the number of requests)
+   * *   **15**: top client IP addresses (ranked by the amount of network traffic)
+   * *   **17**: domain names ranked by the amount of network traffic
+   * *   **19**: page views and unique visitors
+   * *   **21**: regions from which requests are initiated
+   * *   **23**: Internet service providers (ISPs)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1,3,5
+   */
   reportIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1291,6 +2146,13 @@ export class CreateCdnSubTaskRequest extends $tea.Model {
 }
 
 export class CreateCdnSubTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1335,9 +2197,45 @@ export class CreateCdnSubTaskResponse extends $tea.Model {
 }
 
 export class CreateRealTimeLogDeliveryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name for which you want to configure real-time log delivery.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The name of the Logstore where log entries are stored.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LogstoreName
+   */
   logstore?: string;
+  /**
+   * @remarks
+   * The name of the Log Service project that is used for real-time log delivery.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ProjectName
+   */
   project?: string;
+  /**
+   * @remarks
+   * The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](https://help.aliyun.com/document_detail/144883.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1363,6 +2261,13 @@ export class CreateRealTimeLogDeliveryRequest extends $tea.Model {
 }
 
 export class CreateRealTimeLogDeliveryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F32C57AA-7BF8-49AE-A2CC-9F42390F5A19
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1407,12 +2312,81 @@ export class CreateRealTimeLogDeliveryResponse extends $tea.Model {
 }
 
 export class CreateUsageDetailDataExportTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names. If you do not specify the Group parameter, resource usage details of these domain names are exported.
+   * 
+   * If you do not specify this parameter, resource usage details are exported based on accounts.
+   * 
+   * @example
+   * example.com
+   */
   domainNames?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-12-10T21:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The domain name group. If you specify this parameter, the **DomainNames** parameter is ignored.
+   * 
+   * @example
+   * xxx
+   */
   group?: string;
+  /**
+   * @remarks
+   * The language in which you want to export the file. Valid values:
+   * 
+   * *   **zh-cn**: Chinese. This is the default value.
+   * *   **en-us**: English
+   * 
+   * @example
+   * en-us
+   */
   language?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-12-10T20:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * Refresh
+   */
   taskName?: string;
+  /**
+   * @remarks
+   * The type of resource usage data to query. Valid values:
+   * 
+   * *   **flow**: traffic and bandwidth
+   * *   **vas**: requests
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * flow
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1444,9 +2418,37 @@ export class CreateUsageDetailDataExportTaskRequest extends $tea.Model {
 }
 
 export class CreateUsageDetailDataExportTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range for which the data was queried.
+   * 
+   * @example
+   * 2015-12-10T21:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ED61C6C3-8241-4187-AAA7-5157AE175CEC
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range for which the data was queried.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1497,9 +2499,48 @@ export class CreateUsageDetailDataExportTaskResponse extends $tea.Model {
 }
 
 export class CreateUserUsageDataExportTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The end time must be later than the start time.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2015-12-10T21:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The language in which you want to export the file. Default value: zh-cn. Valid values:
+   * 
+   * *   **zh-cn**: Chinese
+   * *   **en-us**: English
+   * 
+   * @example
+   * zh-cn
+   */
   language?: string;
+  /**
+   * @remarks
+   * The start of the time range to query. The data is collected every 5 minutes.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * Refresh
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1525,9 +2566,37 @@ export class CreateUserUsageDataExportTaskRequest extends $tea.Model {
 }
 
 export class CreateUserUsageDataExportTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-12-10T21:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ED61C6C3-8241-4187-AAA7-5157AE175CEC
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * 129456
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1578,6 +2647,15 @@ export class CreateUserUsageDataExportTaskResponse extends $tea.Model {
 }
 
 export class DeleteCdnDeliverTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the tracking task that you want to delete. You can call the [DescribeCdnDeliverList](https://help.aliyun.com/document_detail/270877.html) operation to query task IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   deliverId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1597,6 +2675,13 @@ export class DeleteCdnDeliverTaskRequest extends $tea.Model {
 }
 
 export class DeleteCdnDeliverTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1641,6 +2726,15 @@ export class DeleteCdnDeliverTaskResponse extends $tea.Model {
 }
 
 export class DeleteCdnDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name that you want to remove. You can specify only one domain name in each call.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1666,6 +2760,13 @@ export class DeleteCdnDomainRequest extends $tea.Model {
 }
 
 export class DeleteCdnDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1710,6 +2811,13 @@ export class DeleteCdnDomainResponse extends $tea.Model {
 }
 
 export class DeleteCdnSubTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1754,6 +2862,15 @@ export class DeleteCdnSubTaskResponse extends $tea.Model {
 }
 
 export class DeleteFCTriggerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The trigger that corresponds to the Function Compute service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acs:cdn:{RegionID}:{AccountID}:{Filter}
+   */
   triggerARN?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1773,6 +2890,13 @@ export class DeleteFCTriggerRequest extends $tea.Model {
 }
 
 export class DeleteFCTriggerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC046C5D-8CB4-4B6B-B7F8-B335E51EF90E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1817,8 +2941,35 @@ export class DeleteFCTriggerResponse extends $tea.Model {
 }
 
 export class DeleteRealTimeLogLogstoreRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the Logstore to which log entries are delivered.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LogstoreName
+   */
   logstore?: string;
+  /**
+   * @remarks
+   * The name of the Log Service project that is used for real-time log delivery.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ProjectName
+   */
   project?: string;
+  /**
+   * @remarks
+   * The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](https://help.aliyun.com/document_detail/144883.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1842,6 +2993,13 @@ export class DeleteRealTimeLogLogstoreRequest extends $tea.Model {
 }
 
 export class DeleteRealTimeLogLogstoreResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9732E117-8A37-49FD-A36F-ABBB87556CA7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1886,9 +3044,45 @@ export class DeleteRealTimeLogLogstoreResponse extends $tea.Model {
 }
 
 export class DeleteRealtimeLogDeliveryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The acceleration domain name for which you want to disable real-time log delivery. You can specify multiple domain names and separate them with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The name of the Logstore where log entries are stored.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LogstoreName
+   */
   logstore?: string;
+  /**
+   * @remarks
+   * The name of the Log Service project that is used for real-time log delivery.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ProjectName
+   */
   project?: string;
+  /**
+   * @remarks
+   * The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](https://help.aliyun.com/document_detail/144883.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1914,6 +3108,13 @@ export class DeleteRealtimeLogDeliveryRequest extends $tea.Model {
 }
 
 export class DeleteRealtimeLogDeliveryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9732E117-8A37-49FD-A36F-ABBB87556CA7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1958,7 +3159,25 @@ export class DeleteRealtimeLogDeliveryResponse extends $tea.Model {
 }
 
 export class DeleteSpecificConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the configuration. Separate multiple configuration IDs with commas (,). For more information about ConfigId, see [Usage notes on ConfigId](https://help.aliyun.com/document_detail/388994.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2317
+   */
   configId?: string;
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerId?: number;
   securityToken?: string;
@@ -1986,6 +3205,13 @@ export class DeleteSpecificConfigRequest extends $tea.Model {
 }
 
 export class DeleteSpecificConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2030,7 +3256,25 @@ export class DeleteSpecificConfigResponse extends $tea.Model {
 }
 
 export class DeleteSpecificStagingConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration IDs. Separate configuration IDs with commas (,). For more information about ConfigId, see [Usage notes on ConfigId](https://help.aliyun.com/document_detail/388994.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2317
+   */
   configId?: string;
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 50 domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerId?: number;
   securityToken?: string;
@@ -2058,6 +3302,13 @@ export class DeleteSpecificStagingConfigRequest extends $tea.Model {
 }
 
 export class DeleteSpecificStagingConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2102,6 +3353,15 @@ export class DeleteSpecificStagingConfigResponse extends $tea.Model {
 }
 
 export class DeleteUsageDetailDataExportTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the task. You can call the [DescribeUserUsageDataExportTask](https://help.aliyun.com/document_detail/91062.html) operation to query tasks.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2121,6 +3381,13 @@ export class DeleteUsageDetailDataExportTaskRequest extends $tea.Model {
 }
 
 export class DeleteUsageDetailDataExportTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2165,6 +3432,15 @@ export class DeleteUsageDetailDataExportTaskResponse extends $tea.Model {
 }
 
 export class DeleteUserUsageDataExportTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the task to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2184,6 +3460,13 @@ export class DeleteUserUsageDataExportTaskRequest extends $tea.Model {
 }
 
 export class DeleteUserUsageDataExportTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2228,6 +3511,19 @@ export class DeleteUserUsageDataExportTaskResponse extends $tea.Model {
 }
 
 export class DescribeBlockedRegionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language. Valid values:
+   * 
+   * *   **zh**: simplified Chinese
+   * *   **en**: English
+   * *   **jp**: Japanese
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * zh
+   */
   language?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2247,7 +3543,18 @@ export class DescribeBlockedRegionsRequest extends $tea.Model {
 }
 
 export class DescribeBlockedRegionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information returned.
+   */
   infoList?: DescribeBlockedRegionsResponseBodyInfoList;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BFFCDFAD-DACC-484E-9BE6-0AF3B3A0DD23
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2294,6 +3601,15 @@ export class DescribeBlockedRegionsResponse extends $tea.Model {
 }
 
 export class DescribeCdnCertificateDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the SSL certificate. You can query only one certificate at a time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cert-15480655xxxx
+   */
   certName?: string;
   ownerId?: number;
   securityToken?: string;
@@ -2319,10 +3635,45 @@ export class DescribeCdnCertificateDetailRequest extends $tea.Model {
 }
 
 export class DescribeCdnCertificateDetailResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The certificate.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----\\nMIIFzDCCBLSgAwIBxxxx
+   */
   cert?: string;
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * 881049
+   */
   certId?: number;
+  /**
+   * @remarks
+   * The name of the certificate.
+   * 
+   * @example
+   * cert-15480655xxxx
+   */
   certName?: string;
+  /**
+   * @remarks
+   * The key of the SSL certificate.
+   * 
+   * @example
+   * xxxx
+   */
   key?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2375,7 +3726,28 @@ export class DescribeCdnCertificateDetailResponse extends $tea.Model {
 }
 
 export class DescribeCdnCertificateDetailByIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
   certId?: string;
+  /**
+   * @remarks
+   * The region of the certificate. Valid values:
+   * 
+   * *   **ap-southeast-1**: Singapore
+   * *   **cn-hangzhou**: China (Hangzhou)
+   * 
+   * Default value: **cn-hangzhou**
+   * 
+   * @example
+   * cn-hangzhou
+   */
   certRegion?: string;
   ownerId?: number;
   securityToken?: string;
@@ -2403,10 +3775,45 @@ export class DescribeCdnCertificateDetailByIdRequest extends $tea.Model {
 }
 
 export class DescribeCdnCertificateDetailByIdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the certificate.
+   * 
+   * @example
+   * -----BEGINCERTIFICATE-----xxx-----END CERTIFICATE-----
+   */
   cert?: string;
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * 12345
+   */
   certId?: number;
+  /**
+   * @remarks
+   * The name of the certificate.
+   * 
+   * @example
+   * yourCertName
+   */
   certName?: string;
+  /**
+   * @remarks
+   * The public key of the certificate.
+   * 
+   * @example
+   * 587f6db37e3a2f01047b032b739cbe31
+   */
   key?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C370DAF1-C838-4288-A1A0-9A87633D248E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2459,6 +3866,15 @@ export class DescribeCdnCertificateDetailByIdResponse extends $tea.Model {
 }
 
 export class DescribeCdnCertificateListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+   * 
+   * If you do not specify an accelerated domain name, SSL certificates of all your accelerated domain names are queried.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerId?: number;
   securityToken?: string;
@@ -2484,7 +3900,18 @@ export class DescribeCdnCertificateListRequest extends $tea.Model {
 }
 
 export class DescribeCdnCertificateListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details about certificates.
+   */
   certificateListModel?: DescribeCdnCertificateListResponseBodyCertificateListModel;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * FC0E34AC-0239-44A7-AB0E-800DE522C8DA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2531,6 +3958,22 @@ export class DescribeCdnCertificateListResponse extends $tea.Model {
 }
 
 export class DescribeCdnConditionIPBInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration ID. Valid values:
+   * 
+   * *   condition_region_config_cn
+   * *   condition_region_config_en
+   * *   condition_isp_config_cn
+   * *   condition_isp_config_en
+   * *   condition_country_config_cn
+   * *   condition_country_config_en
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * condition_region_config_cn
+   */
   dataId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2550,7 +3993,18 @@ export class DescribeCdnConditionIPBInfoRequest extends $tea.Model {
 }
 
 export class DescribeCdnConditionIPBInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data that is returned.
+   */
   datas?: DescribeCdnConditionIPBInfoResponseBodyDatas[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2C4AA72D-8C00-1113-BD68-8BC4E3CF4FF6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2597,7 +4051,21 @@ export class DescribeCdnConditionIPBInfoResponse extends $tea.Model {
 }
 
 export class DescribeCdnDeletedDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return. Valid values: **1** to **100000**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of domain names to return per page. Valid values: an integer between **1** and **500**. Default value: **20**.
+   * 
+   * @example
+   * 5
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2619,10 +4087,42 @@ export class DescribeCdnDeletedDomainsRequest extends $tea.Model {
 }
 
 export class DescribeCdnDeletedDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of accelerated domain names and the time each domain name was last modified.
+   */
   domains?: DescribeCdnDeletedDomainsResponseBodyDomains;
+  /**
+   * @remarks
+   * The page number of the returned page, which is the same as the **PageNumber** parameter in request parameters.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of domain names returned per page, which is the same as the **PageSize** parameter in request parameters.
+   * 
+   * @example
+   * 5
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AA75AADB-5E25-4970-B480-EAA1F5658483
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of domain names returned.
+   * 
+   * @example
+   * 16
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2675,6 +4175,13 @@ export class DescribeCdnDeletedDomainsResponse extends $tea.Model {
 }
 
 export class DescribeCdnDeliverListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the tracking task that you want to query. If you do not specify an ID, all tracking tasks are queried.
+   * 
+   * @example
+   * 3
+   */
   deliverId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2694,7 +4201,21 @@ export class DescribeCdnDeliverListRequest extends $tea.Model {
 }
 
 export class DescribeCdnDeliverListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the tracking task.
+   * 
+   * @example
+   * "data": [{"deliverId": 1,"status": "enable","createTime": "2020-10-14T11:19:26Z","crontab": "0 0 0 \\* \\* ?","frequency": "d","name": "The name of the tracking task","dmList": ["www.example.com"],"reports": [{"reportId": 1,"conditions": [{"op": "in","field": "prov","value": ["Heilongjiang","Beijing"]}} },{"reportId": 2}],"deliver": {"email": {"subject": "subject","to": ["example@alibaba-inc.com","example@alibaba-inc.com"]}}}]}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 12345
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2741,6 +4262,10 @@ export class DescribeCdnDeliverListResponse extends $tea.Model {
 }
 
 export class DescribeCdnDomainAtoaLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domainName?: string;
   endTime?: string;
   pageNumber?: number;
@@ -2819,8 +4344,39 @@ export class DescribeCdnDomainAtoaLogsResponse extends $tea.Model {
 }
 
 export class DescribeCdnDomainByCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether the domain name list to return match the SSL certificate.
+   * 
+   * *   true: The domain name list match the SSL certificate.
+   * *   false: The domain name list do not match the SSL certificate.
+   * 
+   * @example
+   * true
+   */
   exact?: boolean;
+  /**
+   * @remarks
+   * The public key of the SSL certificate. You must encode the public key in Base64 and then call the encodeURIComponent function to encode the public key again.
+   * 
+   * The public key must be in the PEM format.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ******
+   */
   SSLPub?: string;
+  /**
+   * @remarks
+   * Specifies whether the domain name list to return contains only domain names with HTTPS enabled or disabled.
+   * 
+   * *   true: The domain name list contains only domain names with HTTPS enabled.
+   * *   false: The domain name list contains only domain names with HTTPS disabled.
+   * 
+   * @example
+   * true
+   */
   SSLStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2844,7 +4400,18 @@ export class DescribeCdnDomainByCertificateRequest extends $tea.Model {
 }
 
 export class DescribeCdnDomainByCertificateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the certificate.
+   */
   certInfos?: DescribeCdnDomainByCertificateResponseBodyCertInfos;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ASAF2FDS-12SADSA-DDSAE3D-DSADCD4C-CDADS2D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2891,8 +4458,31 @@ export class DescribeCdnDomainByCertificateResponse extends $tea.Model {
 }
 
 export class DescribeCdnDomainConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the configuration. For more information about ConfigId, see [Usage notes on ConfigId](https://help.aliyun.com/document_detail/388994.html).
+   * 
+   * @example
+   * 6295
+   */
   configId?: string;
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The names of the features. Separate multiple feature names with commas (,). For more information, see [Parameters for configuring features for domain names](https://help.aliyun.com/document_detail/388460.html).
+   * 
+   * @example
+   * aliauth
+   */
   functionNames?: string;
   ownerId?: number;
   securityToken?: string;
@@ -2922,7 +4512,18 @@ export class DescribeCdnDomainConfigsRequest extends $tea.Model {
 }
 
 export class DescribeCdnDomainConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the domain name.
+   */
   domainConfigs?: DescribeCdnDomainConfigsResponseBodyDomainConfigs;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C80705BF-0F76-41FA-BAD1-5B59296A4E59
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2969,6 +4570,15 @@ export class DescribeCdnDomainConfigsResponse extends $tea.Model {
 }
 
 export class DescribeCdnDomainDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerId?: number;
   securityToken?: string;
@@ -2994,7 +4604,18 @@ export class DescribeCdnDomainDetailRequest extends $tea.Model {
 }
 
 export class DescribeCdnDomainDetailResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the accelerated domain name.
+   */
   getDomainDetailModel?: DescribeCdnDomainDetailResponseBodyGetDomainDetailModel;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 18CF38AA-1275-451D-A12B-4EC0BF1C5E30
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3041,10 +4662,53 @@ export class DescribeCdnDomainDetailResponse extends $tea.Model {
 }
 
 export class DescribeCdnDomainLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2017-12-22T08:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page **1**.
+   * 
+   * @example
+   * 2
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **300**. Maximum value: **1000**. Valid values: **1** to **1000**.
+   * 
+   * @example
+   * 300
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2017-12-21T08:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3072,7 +4736,18 @@ export class DescribeCdnDomainLogsRequest extends $tea.Model {
 }
 
 export class DescribeCdnDomainLogsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * A set of DomainLogDetail data.
+   */
   domainLogDetails?: DescribeCdnDomainLogsResponseBodyDomainLogDetails;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3119,10 +4794,33 @@ export class DescribeCdnDomainLogsResponse extends $tea.Model {
 }
 
 export class DescribeCdnDomainLogsExTtlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * 2019-12-22T12:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 300
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2019-12-21T12:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3151,6 +4849,10 @@ export class DescribeCdnDomainLogsExTtlRequest extends $tea.Model {
 
 export class DescribeCdnDomainLogsExTtlResponseBody extends $tea.Model {
   domainLogDetails?: DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetails;
+  /**
+   * @example
+   * 64D28B53-5902-409B-94F6-FD46680144FE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3197,7 +4899,23 @@ export class DescribeCdnDomainLogsExTtlResponse extends $tea.Model {
 }
 
 export class DescribeCdnDomainStagingConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The list of feature names. Separate multiple values with commas (,). For more information, see [A list of features](https://help.aliyun.com/document_detail/388460.html).
+   * 
+   * @example
+   * aliauth
+   */
   functionNames?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3219,8 +4937,26 @@ export class DescribeCdnDomainStagingConfigRequest extends $tea.Model {
 }
 
 export class DescribeCdnDomainStagingConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name configurations.
+   */
   domainConfigs?: DescribeCdnDomainStagingConfigResponseBodyDomainConfigs[];
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C80705BF-0F76-41FA-BAD1-5B59296A4E59
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3269,6 +5005,10 @@ export class DescribeCdnDomainStagingConfigResponse extends $tea.Model {
 }
 
 export class DescribeCdnFullDomainsBlockIPConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * 1.XXX.XXX.1,2.XXX.XXX.2
+   */
   IPList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3288,8 +5028,20 @@ export class DescribeCdnFullDomainsBlockIPConfigRequest extends $tea.Model {
 }
 
 export class DescribeCdnFullDomainsBlockIPConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * http://xxxx-api.oss-cn-hangzhou.aliyuncs.com/blocklist%2Fxxxxxxxxxxxx.txt?Expires=1682663947&OSSAccessKeyId=xxxxxxxxxx&Signature=xxxxxx
+   */
   message?: string;
+  /**
+   * @example
+   * 95994621-8382-464B-8762-C708E73568D1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3338,8 +5090,29 @@ export class DescribeCdnFullDomainsBlockIPConfigResponse extends $tea.Model {
 }
 
 export class DescribeCdnFullDomainsBlockIPHistoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-24T19:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1.XXX.XXX.1,2.XXX.XXX.2
+   */
   IPList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-24T17:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3363,9 +5136,21 @@ export class DescribeCdnFullDomainsBlockIPHistoryRequest extends $tea.Model {
 }
 
 export class DescribeCdnFullDomainsBlockIPHistoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * OK
+   */
   description?: string;
   IPBlockInfo?: DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo[];
+  /**
+   * @example
+   * BCD7D917-76F1-442F-BB75-C810DE34C761
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3416,8 +5201,29 @@ export class DescribeCdnFullDomainsBlockIPHistoryResponse extends $tea.Model {
 }
 
 export class DescribeCdnHttpsDomainListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The keyword that is used to search for certificates.
+   * 
+   * @example
+   * com
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Valid values: **1** to **100000**.
+   * 
+   * @example
+   * 5
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3441,8 +5247,26 @@ export class DescribeCdnHttpsDomainListRequest extends $tea.Model {
 }
 
 export class DescribeCdnHttpsDomainListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the certificate.
+   */
   certInfos?: DescribeCdnHttpsDomainListResponseBodyCertInfos;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F5E8DF64-7175-4186-9B06-F002C0BBD0C5
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 16
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3491,6 +5315,15 @@ export class DescribeCdnHttpsDomainListResponse extends $tea.Model {
 }
 
 export class DescribeCdnMigrateRegisterStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3510,8 +5343,34 @@ export class DescribeCdnMigrateRegisterStatusRequest extends $tea.Model {
 }
 
 export class DescribeCdnMigrateRegisterStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * 64D28B53-5902-409B-94F6-FD46680144FE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The registration status. Valid values:
+   * 
+   * *   **not exist**
+   * *   **running**
+   * *   **succeed**
+   * *   **failed**
+   * 
+   * @example
+   * succeed
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3560,6 +5419,15 @@ export class DescribeCdnMigrateRegisterStatusResponse extends $tea.Model {
 }
 
 export class DescribeCdnOrderCommodityCodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The original commodity code.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   commodityCode?: string;
   ownerId?: number;
   securityToken?: string;
@@ -3585,7 +5453,21 @@ export class DescribeCdnOrderCommodityCodeRequest extends $tea.Model {
 }
 
 export class DescribeCdnOrderCommodityCodeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The commodity code that includes the organization unit.
+   * 
+   * @example
+   * xxx
+   */
   orderCommodityCode?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BFFCDFAD-DACC-484E-9BE6-0AF3B3A0DD23
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3654,8 +5536,23 @@ export class DescribeCdnRegionAndIspRequest extends $tea.Model {
 }
 
 export class DescribeCdnRegionAndIspResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of ISPs.
+   */
   isps?: DescribeCdnRegionAndIspResponseBodyIsps;
+  /**
+   * @remarks
+   * The list of regions.
+   */
   regions?: DescribeCdnRegionAndIspResponseBodyRegions;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2387C335-932C-4E1E-862C-1C4363B6DE72
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3704,12 +5601,80 @@ export class DescribeCdnRegionAndIspResponse extends $tea.Model {
 }
 
 export class DescribeCdnReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions.
+   * 
+   * *   If you do not specify a region, data in all regions is queried.
+   * *   If you specify a region, data in the specified region is queried. You can specify one or more regions. If you specify multiple regions, separate the regions with commas (,).
+   * 
+   * @example
+   * shanghai
+   */
   area?: string;
+  /**
+   * @remarks
+   * The domain name that you want to query. Separate domain names with commas (,).
+   * 
+   * @example
+   * www.example1.com,example2.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-09-17T01:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**
+   * *   **3xx**
+   * *   **4xx**
+   * *   **5xx**
+   * 
+   * If you do not specify this parameter, all HTTP status codes are queried.
+   * 
+   * @example
+   * 2xx
+   */
   httpCode?: string;
+  /**
+   * @remarks
+   * Specifies whether the region is outside the Chinese mainland. Valid values:
+   * 
+   * *   **1**: outside the Chinese mainland
+   * *   **0**: inside the Chinese mainland
+   * 
+   * @example
+   * 0
+   */
   isOverseas?: string;
+  /**
+   * @remarks
+   * The ID of the operations report that you want to query. You can specify only one ID in each request. You can call the [DescribeCdnSubList](https://help.aliyun.com/document_detail/271655.html) operation to query report IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   reportId?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-09-17T00:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3741,7 +5706,21 @@ export class DescribeCdnReportRequest extends $tea.Model {
 }
 
 export class DescribeCdnReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the operations report.
+   * 
+   * @example
+   * "data":[{"deliver":{"report":{"title":"TopUrlByAcc","format":"table","shape":"","header":["url","traf","traf_rate","acc","acc_rate"]}},"data":[{"acc":440,"acc_rate":"0.200%","traf":22,"url":"http://demo.com","traf_rate":"0.100%"},{"acc":440,"acc_rate":"0.200%","traf":22,"url":"http://demo.com","traf_rate":"0.100%"}]}]}}
+   */
   content?: { [key: string]: any };
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3788,6 +5767,13 @@ export class DescribeCdnReportResponse extends $tea.Model {
 }
 
 export class DescribeCdnReportListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the operations report that you want to query. If you do not specify an ID, all operations reports are queried.
+   * 
+   * @example
+   * 1
+   */
   reportId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3807,7 +5793,21 @@ export class DescribeCdnReportListRequest extends $tea.Model {
 }
 
 export class DescribeCdnReportListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the report that is queried.
+   * 
+   * @example
+   * "data":[{"reportId":1,"deliver":{"report":{"title":"DomainPvUv","format":"chart","shape":"line","xAxis":"ds","yAxis":"cnt","legend":"cnt_type","header":["ds","cnt_type","cnt"]}}}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3854,6 +5854,15 @@ export class DescribeCdnReportListResponse extends $tea.Model {
 }
 
 export class DescribeCdnSMCertificateDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 648****-cn-hangzhou
+   */
   certIdentifier?: string;
   ownerId?: number;
   securityToken?: string;
@@ -3879,14 +5888,77 @@ export class DescribeCdnSMCertificateDetailRequest extends $tea.Model {
 }
 
 export class DescribeCdnSMCertificateDetailResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The expiration time of the certificate. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-08-31T09:42:28Z
+   */
   certExpireTime?: string;
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * 648****-cn-hangzhou
+   */
   certIdentifier?: string;
+  /**
+   * @remarks
+   * The name of the certificate.
+   * 
+   * @example
+   * yourCertName
+   */
   certName?: string;
+  /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
+   * @example
+   * DigiCert Inc
+   */
   certOrg?: string;
+  /**
+   * @remarks
+   * The common name.
+   * 
+   * @example
+   * example.com
+   */
   commonName?: string;
+  /**
+   * @remarks
+   * The content of the encryption certificate.
+   * 
+   * @example
+   * -BEGIN CERTIFICATE-----***-----END CERTIFICATE--
+   */
   encryptCertificate?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A7C69682-7F88-40DD-A198-10D0309E439D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The subdomain name.
+   * 
+   * @example
+   * ***.example.com
+   */
   sans?: string;
+  /**
+   * @remarks
+   * The content of the signature certificate.
+   * 
+   * @example
+   * --BEGIN CERTIFICATE-----***-----END CERTIFICATE--
+   */
   signCertificate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3947,6 +6019,15 @@ export class DescribeCdnSMCertificateDetailResponse extends $tea.Model {
 }
 
 export class DescribeCdnSMCertificateListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerId?: number;
   securityToken?: string;
@@ -3972,7 +6053,18 @@ export class DescribeCdnSMCertificateListRequest extends $tea.Model {
 }
 
 export class DescribeCdnSMCertificateListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the certificate information.
+   */
   certificateListModel?: DescribeCdnSMCertificateListResponseBodyCertificateListModel;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DC0E34AC-0239-44A7-AB0E-800DE522C8DC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4019,10 +6111,38 @@ export class DescribeCdnSMCertificateListResponse extends $tea.Model {
 }
 
 export class DescribeCdnSSLCertificateListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each request.
+   * 
+   * @example
+   * www.example.com
+   */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: an integer from **1** to **1000**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The keyword that is used to query the certificate.
+   * 
+   * @example
+   * certabc
+   */
   searchKeyword?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
@@ -4053,7 +6173,18 @@ export class DescribeCdnSSLCertificateListRequest extends $tea.Model {
 }
 
 export class DescribeCdnSSLCertificateListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of certificates.
+   */
   certificateListModel?: DescribeCdnSSLCertificateListResponseBodyCertificateListModel;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E9D3257A-1B7C-414C-90C1-8D07AC47BCAC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4100,7 +6231,31 @@ export class DescribeCdnSSLCertificateListResponse extends $tea.Model {
 }
 
 export class DescribeCdnSecFuncInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language.
+   * 
+   * *   en: English
+   * *   zh: Chinese
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The type of the security feature. Valid values:
+   * 
+   * *   CipherSuiteGroupCustomize: custom cipher suite.
+   * *   CipherSuiteGroupStrict: dustom cipher suite.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CipherSuiteGroupCustomize
+   */
   secFuncType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4122,10 +6277,45 @@ export class DescribeCdnSecFuncInfoRequest extends $tea.Model {
 }
 
 export class DescribeCdnSecFuncInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Queried data.
+   */
   content?: DescribeCdnSecFuncInfoResponseBodyContent[];
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * OK
+   */
   description?: string;
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 200
+   */
   httpStatus?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BCD7D917-76F1-442F-BB75-C810DE34C761
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The HTTP request response code.
+   * 
+   * *   0: OK.
+   * *   Values other than 0: an error.
+   * 
+   * @example
+   * 0
+   */
   retCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4200,12 +6390,64 @@ export class DescribeCdnServiceRequest extends $tea.Model {
 }
 
 export class DescribeCdnServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the metering method for the next cycle takes effect. The time is displayed in GMT.
+   * 
+   * @example
+   * 2019-11-27T16:00:00Z
+   */
   changingAffectTime?: string;
+  /**
+   * @remarks
+   * The metering method for the next cycle. Valid values:
+   * 
+   * *   **PayByTraffic**: pay-by-data-transfer
+   * *   **PayByBandwidth**: pay-by-bandwidth
+   * 
+   * @example
+   * PayByTraffic
+   */
   changingChargeType?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * aliuidxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The current metering method. Valid values:
+   * 
+   * *   **PayByTraffic**: pay-by-data-transfer
+   * *   **PayByBandwidth**: pay-by-bandwidth
+   * 
+   * @example
+   * PayByTraffic
+   */
   internetChargeType?: string;
+  /**
+   * @remarks
+   * The time when the service was activated. The time follows the ISO 8601 standard.
+   * 
+   * @example
+   * 2019-02-28T13:11:49Z
+   */
   openingTime?: string;
+  /**
+   * @remarks
+   * The lock status.
+   */
   operationLocks?: DescribeCdnServiceResponseBodyOperationLocks;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4262,7 +6504,21 @@ export class DescribeCdnServiceResponse extends $tea.Model {
 }
 
 export class DescribeCdnSubListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the custom report task.
+   * 
+   * @example
+   * {"RequestId":"3250A51D-C11D-46BA-B6B3-95348EEDE652","Description":"Successful","Content":{"data":[{"subId":5,"reportId":[1,2,3],"createTime":"2020-09-25T09:39:33Z","domains"["www.example.com","www.example.com"],"effectiveFrom":"2020-09-17T00:00:00Z","effectiveEnd":"2020-11-17T00:00:00Z","status":"enable"}]}}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3250A51D-C11D-46BA-B6B3-95348EEDE652
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4308,8 +6564,106 @@ export class DescribeCdnSubListResponse extends $tea.Model {
   }
 }
 
+export class DescribeCdnTypesRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnTypesResponseBody extends $tea.Model {
+  cdnTypes?: DescribeCdnTypesResponseBodyCdnTypes;
+  /**
+   * @example
+   * BDA62CE4-3477-439A-B52E-D2D7C829D7C1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cdnTypes: 'CdnTypes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cdnTypes: DescribeCdnTypesResponseBodyCdnTypes,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnTypesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCdnTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCdnTypesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCdnUserBillHistoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The end time must be later than the start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2018-10-31T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The minimum data granularity is 5 minutes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2018-09-30T16:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4331,7 +6685,18 @@ export class DescribeCdnUserBillHistoryRequest extends $tea.Model {
 }
 
 export class DescribeCdnUserBillHistoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The billing history returned.
+   */
   billHistoryData?: DescribeCdnUserBillHistoryResponseBodyBillHistoryData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ED61C6C3-8241-4187-AAA7-5157AE175CEC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4378,9 +6743,53 @@ export class DescribeCdnUserBillHistoryResponse extends $tea.Model {
 }
 
 export class DescribeCdnUserBillPredictionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The billable region. Valid values:
+   * 
+   * *   **CN**: the Chinese mainland
+   * *   **OverSeas**: outside the Chinese mainland
+   * *   **AP1**: Asia Pacific 1
+   * *   **AP2**: Asia Pacific 2
+   * *   **AP3**: Asia Pacific 3
+   * *   **NA**: North America
+   * *   **SA**: South America
+   * *   **EU**: Europe
+   * *   **MEAA**: Middle East and Africa
+   * 
+   * By default, the value of this parameter is determined by the metering method that is currently used. Regions inside and outside the Chinese mainland are classified into the **CN** and **OverSeas** billable regions. Billable regions inside the Chinese mainland include **CN**. Billable regions outside the Chinese mainland include **AP1**, **AP2**, **AP3**, **NA**, **SA**, **EU**, and **MEAA**.
+   * 
+   * > For more information about billable regions, see [Billable regions](https://help.aliyun.com/document_detail/142221.html).
+   * 
+   * @example
+   * CN,OverSeas
+   */
   area?: string;
+  /**
+   * @remarks
+   * The billable item. A value of flow specifies bandwidth.
+   * 
+   * @example
+   * flow
+   */
   dimension?: string;
+  /**
+   * @remarks
+   * The end time of the estimation. The default value is the current time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2018-10-25T10:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The start time of the estimation. The default value is 00:00 on the first day of the current month. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2018-09-30T16:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4406,10 +6815,56 @@ export class DescribeCdnUserBillPredictionRequest extends $tea.Model {
 }
 
 export class DescribeCdnUserBillPredictionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The estimated bill data.
+   */
   billPredictionData?: DescribeCdnUserBillPredictionResponseBodyBillPredictionData;
+  /**
+   * @remarks
+   * The metering method.
+   * 
+   * > If the metering method ends with _overseas, the billable region is outside the Chinese mainland. For example, BillType": "month_avg_day_bandwidth_overseas specifies a billable region outside the Chinese mainland and that the metering method is pay by daily peak bandwidth per month.
+   * 
+   * Valid values:
+   * 
+   * *   hour_flow: pay by hourly data transfer
+   * *   day_bandwidth: pay by daily bandwidth
+   * *   month_95: pay by monthly 95th percentile bandwidth.
+   * *   month_avg_day_bandwidth: pay by average daily peak bandwidth per month
+   * *   month_4th_day_bandwidth: pay by monthly 4th peak bandwidth
+   * *   month_avg_day_95: pay by average daily 95th percentile bandwidth per month
+   * *   month_95_night_half: pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00.
+   * *   hour_vas: pay by value-added services per hour
+   * *   day_count: pay by daily requests
+   * 
+   * @example
+   * month_95
+   */
   billType?: string;
+  /**
+   * @remarks
+   * The end time of the estimation.
+   * 
+   * @example
+   * 2018-10-25T10:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C370DAF1-C838-4288-A1A0-9A87633D248E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start time of the estimation.
+   * 
+   * @example
+   * 2018-09-30T16:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4462,7 +6917,29 @@ export class DescribeCdnUserBillPredictionResponse extends $tea.Model {
 }
 
 export class DescribeCdnUserBillTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The end time must be later than the start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2018-10-31T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The minimum data granularity is 5 minutes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2018-09-30T16:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4484,7 +6961,18 @@ export class DescribeCdnUserBillTypeRequest extends $tea.Model {
 }
 
 export class DescribeCdnUserBillTypeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details about the metering methods returned.
+   */
   billTypeData?: DescribeCdnUserBillTypeResponseBodyBillTypeData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C370DAF1-C838-4288-A1A0-9A87633D248E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4531,6 +7019,18 @@ export class DescribeCdnUserBillTypeResponse extends $tea.Model {
 }
 
 export class DescribeCdnUserConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration that you want to query. Valid values:
+   * 
+   * *   **domain_business_control**: user configurations
+   * *   **waf**: Web Application Firewall (WAF) configurations
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * domain_business_control
+   */
   functionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4550,7 +7050,18 @@ export class DescribeCdnUserConfigsRequest extends $tea.Model {
 }
 
 export class DescribeCdnUserConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The user configurations.
+   */
   configs?: DescribeCdnUserConfigsResponseBodyConfigs[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 06D29681-B7CD-4034-A8CC-28AFFA213539
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4597,9 +7108,45 @@ export class DescribeCdnUserConfigsResponse extends $tea.Model {
 }
 
 export class DescribeCdnUserDomainsByFuncRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the feature.
+   * 
+   * For example, the ID of the origin host feature (set_req_host_header) is 18.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7
+   */
   funcId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * Valid values: **1** to **100000**.
+   * 
+   * @example
+   * 10
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of domain names to return on each page. Default value: **20**.
+   * 
+   * Valid values: **1** to **50**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-xxxxx
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4625,10 +7172,42 @@ export class DescribeCdnUserDomainsByFuncRequest extends $tea.Model {
 }
 
 export class DescribeCdnUserDomainsByFuncResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the accelerated domain name.
+   */
   domains?: DescribeCdnUserDomainsByFuncResponseBodyDomains;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 5
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AA75AADB-5E25-4970-B480-EAA1F5658483
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 16
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4703,17 +7282,101 @@ export class DescribeCdnUserQuotaRequest extends $tea.Model {
 }
 
 export class DescribeCdnUserQuotaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of URLs and directories that can be blocked.
+   * 
+   * @example
+   * 100
+   */
   blockQuota?: number;
+  /**
+   * @remarks
+   * The remaining number of URLs and directories that can be blocked.
+   * 
+   * @example
+   * 100
+   */
   blockRemain?: number;
+  /**
+   * @remarks
+   * The maximum number of accelerated domain names.
+   * 
+   * @example
+   * 50
+   */
   domainQuota?: number;
+  /**
+   * @remarks
+   * The maximum number of ignore params that can be refreshed.
+   * 
+   * @example
+   * 100
+   */
   ignoreParamsQuota?: number;
+  /**
+   * @remarks
+   * The remaining number of ignore params that can be refreshed.
+   * 
+   * @example
+   * 10
+   */
   ignoreParamsRemain?: number;
+  /**
+   * @remarks
+   * The maximum number of URLs that can be prefetched.
+   * 
+   * @example
+   * 500
+   */
   preloadQuota?: number;
+  /**
+   * @remarks
+   * The remaining number of URLs that can be prefetched.
+   * 
+   * @example
+   * 100
+   */
   preloadRemain?: number;
+  /**
+   * @remarks
+   * The maximum number of directories that can be refreshed.
+   * 
+   * @example
+   * 100
+   */
   refreshDirQuota?: number;
+  /**
+   * @remarks
+   * The remaining number of directories that can be refreshed.
+   * 
+   * @example
+   * 500
+   */
   refreshDirRemain?: number;
+  /**
+   * @remarks
+   * The maximum number of URLs that can be refreshed.
+   * 
+   * @example
+   * 2000
+   */
   refreshUrlQuota?: number;
+  /**
+   * @remarks
+   * The remaining number of URLs that can be refreshed.
+   * 
+   * @example
+   * 2000
+   */
   refreshUrlRemain?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EF4F084A-2F49-4E1C-9CA0-DC85BCE7F391
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4782,6 +7445,16 @@ export class DescribeCdnUserQuotaResponse extends $tea.Model {
 export class DescribeCdnUserResourcePackageRequest extends $tea.Model {
   ownerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The status of the resource plan that you want to query. Valid values:
+   * 
+   * *   **valid**: valid
+   * *   **closed**: expired
+   * 
+   * @example
+   * valid
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4805,7 +7478,18 @@ export class DescribeCdnUserResourcePackageRequest extends $tea.Model {
 }
 
 export class DescribeCdnUserResourcePackageResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 84839536-2B7E-457D-9D8C-82E6C7D4E1A3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The detailed information about resource plans. The returned information is displayed in an array of ResourcePackageInfo nodes.
+   */
   resourcePackageInfos?: DescribeCdnUserResourcePackageResponseBodyResourcePackageInfos;
   static names(): { [key: string]: string } {
     return {
@@ -4852,8 +7536,42 @@ export class DescribeCdnUserResourcePackageResponse extends $tea.Model {
 }
 
 export class DescribeCdnWafDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name that you want to query.
+   * 
+   * You can specify only one domain name in each request. You have three options to configure this parameter:
+   * 
+   * *   Specify an exact domain name. For example, if you set this parameter to example.com, configuration information of example.com is queried.
+   * *   Specify a keyword. For example, if you set this parameter to example, configuration information about all domain names that contain example is queried.
+   * *   Leave this parameter empty. If this parameter is left empty, all accelerated domain names for which WAF is configured are queried.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The region where WAF is enabled. Valid values:
+   * 
+   * *   **cn-hangzhou**: inside the Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * > ap-southeast-1 includes Hong Kong (China), Macao (China), Taiwan (China), and other countries and regions.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * 1234
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4877,8 +7595,26 @@ export class DescribeCdnWafDomainRequest extends $tea.Model {
 }
 
 export class DescribeCdnWafDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the accelerated domain name.
+   */
   outPutDomains?: DescribeCdnWafDomainResponseBodyOutPutDomains[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CB1A380B-09F0-41BB-802B-72F8FD6DA2FE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of accelerated domain names.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4927,6 +7663,15 @@ export class DescribeCdnWafDomainResponse extends $tea.Model {
 }
 
 export class DescribeCertificateInfoByIDRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the certificate. You can query only one certificate in each call.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1644xx
+   */
   certId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4946,7 +7691,18 @@ export class DescribeCertificateInfoByIDRequest extends $tea.Model {
 }
 
 export class DescribeCertificateInfoByIDResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the certificate.
+   */
   certInfos?: DescribeCertificateInfoByIDResponseBodyCertInfos;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5C1E43DC-9E51-4771-82C0-7D5ECEB547A1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4993,6 +7749,15 @@ export class DescribeCertificateInfoByIDResponse extends $tea.Model {
 }
 
 export class DescribeCustomLogConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the custom configuration.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   configId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5012,9 +7777,37 @@ export class DescribeCustomLogConfigRequest extends $tea.Model {
 }
 
 export class DescribeCustomLogConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The format of the log configuration.
+   * 
+   * @example
+   * $time_iso8601_$request_method_$
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 94E3559F-7B6A-4A5E-AFFD-44E2A208A249
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The sample.
+   * 
+   * @example
+   * "[9/Jun/2015:01:58:09 +0800] 188.165.15.75 - 1542 \\"-\\" \\"GEThttp: //www.aliyun.com/index.html\\" 200
+   */
   sample?: string;
+  /**
+   * @remarks
+   * The tag information about the log configuration.
+   * 
+   * @example
+   * img1
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5065,13 +7858,77 @@ export class DescribeCustomLogConfigResponse extends $tea.Model {
 }
 
 export class DescribeDomainAverageResponseTimeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+   * 
+   * By default, this operation queries the geographic distribution of users for all accelerated domain names.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The type of the query condition. When you set the value to dynamic, this operation queries the average response time of dynamic resources and static resources. If you do not set this parameter, this operation queries the average response time of only static resources.
+   * 
+   * @example
+   * domaintype
+   */
   domainType?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time interval between the data entries. Unit: seconds. The value varies based on the values of the **StartTime** and **EndTime** parameters. Valid values:
+   * 
+   * *   If the time span between StartTime and EndTime is less than 3 days, valid values are **300**, **3600**, and **86400**. Default value: **300**.
+   * *   If the time span between StartTime and EndTime is greater than or equal to 3 days and less than 31 days, valid values are **3600** and **86400**. Default value: **3600**.
+   * *   If the time range between StartTime and EndTime is 31 days or longer, the valid value is **86400**. Default value: **86400**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP) for your Alibaba Cloud CDN service. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISPs. If you do not set this parameter, data of all ISPs is queried.
+   * 
+   * @example
+   * unicom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The name of the region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions. If you do not set this parameter, data in all regions is queried.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-11-30T05:33:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically set the interval. If you set the value to 1, the value of the Interval parameter is automatically assigned based on the StartTime and EndTime parameters. You can set this parameter or the Interval parameter.
+   * 
+   * @example
+   * 1
+   */
   timeMerge?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5105,11 +7962,50 @@ export class DescribeDomainAverageResponseTimeRequest extends $tea.Model {
 }
 
 export class DescribeDomainAverageResponseTimeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The average response time data for time intervals.
+   */
   avgRTPerInterval?: DescribeDomainAverageResponseTimeResponseBodyAvgRTPerInterval;
+  /**
+   * @remarks
+   * The time interval between the data entries returned.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-11-30T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5164,11 +8060,63 @@ export class DescribeDomainAverageResponseTimeResponse extends $tea.Model {
 }
 
 export class DescribeDomainBpsDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * By default, this operation queries bandwidth data for all accelerated domain names that belong to your Alibaba Cloud account.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2020-05-14T10:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time granularity of the data entries. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISP names.
+   * 
+   * If you do not set this parameter, data of all ISPs is queried.
+   * 
+   * @example
+   * telecom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The name of the region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions.
+   * 
+   * If you do not specify a region, data in all regions is queried.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2020-05-14T09:50:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5198,13 +8146,66 @@ export class DescribeDomainBpsDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainBpsDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of bandwidth data entries returned at each interval.
+   */
   bpsDataPerInterval?: DescribeDomainBpsDataResponseBodyBpsDataPerInterval;
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-12-10T20:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The name of the ISP.
+   * 
+   * @example
+   * unicom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2020-05-14T09:50:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5263,12 +8264,77 @@ export class DescribeDomainBpsDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainBpsDataByLayerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * > If you do not specify this parameter, the bandwidth data about all accelerated domain names that belong to your Alibaba Cloud account is queried.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2020-05-06T07:20:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time granularity of the data entries. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](~~DescribeCdnRegionAndIsp~~) operation to query ISPs. If you do not specify an ISP, data of all ISPs is queried.
+   * 
+   * @example
+   * unicom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The layer at which you want to query the bandwidth data. Valid values:
+   * 
+   * *   Network layer: **IPv4** and **IPv6**.
+   * *   Application layer: **http**, **https**, and **quic**.
+   * *   **all**: specifies that both the network and application layers are included.
+   * 
+   * Default value: **all**.
+   * 
+   * @example
+   * IPv4
+   */
   layer?: string;
+  /**
+   * @remarks
+   * The name of the region. You can call the [DescribeCdnRegionAndIsp](~~DescribeCdnRegionAndIsp~~) operation to query regions. If you do not specify a region, data in all regions is queried.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2020-05-06T07:10:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5300,8 +8366,26 @@ export class DescribeDomainBpsDataByLayerRequest extends $tea.Model {
 }
 
 export class DescribeDomainBpsDataByLayerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned at each time interval.
+   */
   bpsDataInterval?: DescribeDomainBpsDataByLayerResponseBodyBpsDataInterval;
+  /**
+   * @remarks
+   * The time interval between the data entries. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C565B910-BC3B-467B-9046-2A48566EA967
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5350,9 +8434,51 @@ export class DescribeDomainBpsDataByLayerResponse extends $tea.Model {
 }
 
 export class DescribeDomainBpsDataByTimeStampRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The names of the Internet service providers (ISPs). Separate multiple ISPs with commas (,).
+   * 
+   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * uni***,tele***
+   */
   ispNames?: string;
+  /**
+   * @remarks
+   * The regions. Separate multiple regions with commas (,).
+   * 
+   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * liaoning,guangxi
+   */
   locationNames?: string;
+  /**
+   * @remarks
+   * The point in time to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The data is collected every 5 minutes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   timePoint?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5378,9 +8504,34 @@ export class DescribeDomainBpsDataByTimeStampRequest extends $tea.Model {
 }
 
 export class DescribeDomainBpsDataByTimeStampResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * A list of bandwidth values by ISP and region.
+   */
   bpsDataList?: DescribeDomainBpsDataByTimeStampResponseBodyBpsDataList;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The point in time.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5431,13 +8582,86 @@ export class DescribeDomainBpsDataByTimeStampResponse extends $tea.Model {
 }
 
 export class DescribeDomainCcActivityLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify multiple domain names and separate them with commas (,).
+   * 
+   * If you do not specify this parameter, data of all accelerated domain names under your account is queried.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The end time must be later than the start time.
+   * 
+   * @example
+   * 2018-12-10T21:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The page number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **30**.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * A custom rule name. Valid values:
+   * 
+   * *   default_normal: rule for the normal mode
+   * *   default_attack: rule for the emergency mode
+   * 
+   * If you leave this parameter empty, events that triggered rate limiting based on all rules are queried.
+   * 
+   * @example
+   * test2
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The minimum time granularity of data collection is 5 minutes.
+   * 
+   * If you leave this parameter empty, the data collected over the last 24 hours is queried.
+   * 
+   * @example
+   * 2018-12-10T20:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The trigger of rate limiting by which you want to query data.
+   * 
+   * If you leave this parameter empty, all events that triggered rate limiting are queried.
+   * 
+   * @example
+   * IP
+   */
   triggerObject?: string;
+  /**
+   * @remarks
+   * The value of the trigger.
+   * 
+   * If you leave this parameter empty, all events recorded for the trigger are queried.
+   * 
+   * @example
+   * 1.2.3.4
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5471,10 +8695,42 @@ export class DescribeDomainCcActivityLogRequest extends $tea.Model {
 }
 
 export class DescribeDomainCcActivityLogResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of rate limiting logs.
+   */
   activityLog?: DescribeDomainCcActivityLogResponseBodyActivityLog[];
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5527,6 +8783,15 @@ export class DescribeDomainCcActivityLogResponse extends $tea.Model {
 }
 
 export class DescribeDomainCertificateInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5546,7 +8811,18 @@ export class DescribeDomainCertificateInfoRequest extends $tea.Model {
 }
 
 export class DescribeDomainCertificateInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the certificate.
+   */
   certInfos?: DescribeDomainCertificateInfoResponseBodyCertInfos;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5C1E43DC-9E51-4771-82C0-7D5ECEB547A1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5593,6 +8869,15 @@ export class DescribeDomainCertificateInfoResponse extends $tea.Model {
 }
 
 export class DescribeDomainCnameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name that you want to query. Separate multiple domain names with commas (,). This parameter cannot be left empty.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pay.slci6c.mbolsos.com,mch.b7r2v7.mbolsos.com,p.h99e.mbolsos.com,p.xmko.mbolsos.com,p.f2kd.mbolsos.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5612,7 +8897,18 @@ export class DescribeDomainCnameRequest extends $tea.Model {
 }
 
 export class DescribeDomainCnameResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details about the CNAME detection results.
+   */
   cnameDatas?: DescribeDomainCnameResponseBodyCnameDatas;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 06D29681-B7CD-4034-A8CC-28AFFA213539
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5659,6 +8955,15 @@ export class DescribeDomainCnameResponse extends $tea.Model {
 }
 
 export class DescribeDomainCustomLogConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5678,10 +8983,45 @@ export class DescribeDomainCustomLogConfigRequest extends $tea.Model {
 }
 
 export class DescribeDomainCustomLogConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the log configuration.
+   * 
+   * @example
+   * 123
+   */
   configId?: string;
+  /**
+   * @remarks
+   * The format of the log configuration.
+   * 
+   * @example
+   * $time_iso8601_$request_method_$
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 94E3559F-7B6A-4A5E-AFFD-44E2A208A249
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The sample log configuration.
+   * 
+   * @example
+   * [9/Jun/2015:01:58:09+0800]188.165.15.75-1542\\"-\\"\\"GET http://www.aliyun.com/index.html\\
+   */
   sample?: string;
+  /**
+   * @remarks
+   * The tag information about the log configuration.
+   * 
+   * @example
+   * book
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5734,12 +9074,77 @@ export class DescribeDomainCustomLogConfigResponse extends $tea.Model {
 }
 
 export class DescribeDomainDetailDataByLayerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP) for your Alibaba Cloud CDN service. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISP names.
+   * 
+   * If you do not specify an ISP, data of all ISPs is queried.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The protocol by which you want to query data. Valid values: **http**, **https**, **quic**, and **all**.
+   * 
+   * The default value is **all**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-07-05T22:05:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * >  The end time must be later than the start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bps,ipv6_traf,traf,http_code,qps
+   */
   field?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * telecom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * all
+   */
   layer?: string;
+  /**
+   * @remarks
+   * The detailed data of the accelerated domain names.
+   * 
+   * @example
+   * hangzhou
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The name of the region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions.
+   * 
+   * If you do not specify a region, data in all regions is queried.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-07-05T22:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5771,7 +9176,18 @@ export class DescribeDomainDetailDataByLayerRequest extends $tea.Model {
 }
 
 export class DescribeDomainDetailDataByLayerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of IPv6 requests per second.
+   */
   data?: DescribeDomainDetailDataByLayerResponseBodyData;
+  /**
+   * @remarks
+   * The number of queries per second.
+   * 
+   * @example
+   * BEA5625F-8FCF-48F4-851B-CA63946DA664
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5818,9 +9234,47 @@ export class DescribeDomainDetailDataByLayerResponse extends $tea.Model {
 }
 
 export class DescribeDomainHitRateDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * By default, this operation queries the byte hit ratios for all accelerated domain names that belong to your Alibaba Cloud account.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-12-30T08:10:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time granularity of the data entries. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-12-30T08:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5846,11 +9300,50 @@ export class DescribeDomainHitRateDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainHitRateDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-12-30T08:10:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The byte hit ratio at each time interval. The byte hit ratio is measured in percentage.
+   */
   hitRateInterval?: DescribeDomainHitRateDataResponseBodyHitRateInterval;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-12-30T08:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5905,11 +9398,59 @@ export class DescribeDomainHitRateDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainHttpCodeDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * By default, this operation queries the number and proportions of HTTP status codes for all accelerated domain names that belong to your Alibaba Cloud account.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2021-06-29T05:45:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time granularity of the data entries. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The name of the region. You can call the DescribeCdnRegionAndIsp operation to query regions. If you do not specify this parameter, data in all regions is queried.
+   * 
+   * @example
+   * unicom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP). You can call the DescribeCdnRegionAndIsp operation to query ISPs. If you do not specify this parameter, data of all ISPs is queried.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2021-06-29T05:30:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5939,11 +9480,50 @@ export class DescribeDomainHttpCodeDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainHttpCodeDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2021-06-29T05:45:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The proportions of HTTP status codes at each time interval.
+   */
   httpCodeData?: DescribeDomainHttpCodeDataResponseBodyHttpCodeData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BC858082-736F-4A25-867B-E5B67C85ACF7
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range during which data was queried.
+   * 
+   * @example
+   * 2021-06-29T05:30:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5998,12 +9578,73 @@ export class DescribeDomainHttpCodeDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainHttpCodeDataByLayerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * If you do not specify this parameter, data of all accelerated domain names under your account is queried.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2020-07-06T22:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time granularity of the data entries. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISP names.
+   * 
+   * If you do not specify an ISP, data of all ISPs is queried.
+   * 
+   * @example
+   * telecom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The protocol by which you want to query HTTP status codes. The network layer supports **IPv4** and **IPv6**. The application layer supports **http**, **https**, and **quic**. You can also set the value to **all**.
+   * 
+   * Default value: **all**
+   * 
+   * @example
+   * all
+   */
   layer?: string;
+  /**
+   * @remarks
+   * The name of the region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions.
+   * 
+   * If you do not specify a region, data in all regions is queried.
+   * 
+   * @example
+   * hangzhou
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2020-07-05T22:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6035,8 +9676,26 @@ export class DescribeDomainHttpCodeDataByLayerRequest extends $tea.Model {
 }
 
 export class DescribeDomainHttpCodeDataByLayerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The statistics of HTTP status codes returned at each time interval.
+   */
   httpCodeDataInterval?: DescribeDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterval;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BEA5625F-8FCF-48F4-851B-CA63946DA664
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6085,8 +9744,35 @@ export class DescribeDomainHttpCodeDataByLayerResponse extends $tea.Model {
 }
 
 export class DescribeDomainISPDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each call.
+   * 
+   * By default, this operation queries the proportions of data usage for all accelerated domain names.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-11-29T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6110,11 +9796,50 @@ export class DescribeDomainISPDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainISPDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval. Unit: seconds.
+   * 
+   * @example
+   * 86400
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DE81639B-DAC1-4C76-AB72-F34B836837D5
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range that was queried.
+   * 
+   * @example
+   * 2019-11-29T05:33:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The access statistics by ISP.
+   */
   value?: DescribeDomainISPDataResponseBodyValue;
   static names(): { [key: string]: string } {
     return {
@@ -6169,10 +9894,58 @@ export class DescribeDomainISPDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainMax95BpsDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cycle to query the 95th percentile bandwidth data. Default value: **day**. Valid values:
+   * 
+   * *   **day**: queries the 95th percentile bandwidth data by day.
+   * *   **month**: queries the 95th percentile bandwidth data by month.
+   * 
+   * @example
+   * month
+   */
   cycle?: string;
+  /**
+   * @remarks
+   * The accelerated domain name. If you do not specify a domain name, data of all domain names is queried.
+   * 
+   * > You cannot specify multiple domain names in a DescribeDomainMax95BpsData request.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2017-12-22T08:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2017-12-21T08:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2017-12-21T10:00:00Z
+   */
   timePoint?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6200,13 +9973,66 @@ export class DescribeDomainMax95BpsDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainMax95BpsDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details of the 95th percentile bandwidth.
+   */
   detailData?: DescribeDomainMax95BpsDataResponseBodyDetailData;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The 95th percentile bandwidth in the Chinese mainland.
+   * 
+   * @example
+   * 16777590.28
+   */
   domesticMax95Bps?: string;
+  /**
+   * @remarks
+   * The end of the time range for which the data was queried.
+   * 
+   * @example
+   * 2015-12-11T21:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The 95th percentile bandwidth.
+   * 
+   * @example
+   * 16777590.28
+   */
   max95Bps?: string;
+  /**
+   * @remarks
+   * The 95th percentile bandwidth outside the Chinese mainland.
+   * 
+   * @example
+   * 0
+   */
   overseasMax95Bps?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range for which the data was queried.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6265,8 +10091,34 @@ export class DescribeDomainMax95BpsDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainMultiUsageDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+   * 
+   * > *   You can specify a maximum of 30 domain names at a time.
+   * >*   If this parameter is not set, data of all your accelerated domain names is queried.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2017-12-10T21:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2017-12-10T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6290,10 +10142,39 @@ export class DescribeDomainMultiUsageDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainMultiUsageDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range that was queried.
+   * 
+   * @example
+   * 2017-12-10T21:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about requests collected every 5 minutes.
+   */
   requestPerInterval?: DescribeDomainMultiUsageDataResponseBodyRequestPerInterval;
+  /**
+   * @remarks
+   * The start of the time range that was queried.
+   * 
+   * @example
+   * 2017-12-10T20:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The statistics of network traffic collected every 5 minutes.
+   */
   trafficPerInterval?: DescribeDomainMultiUsageDataResponseBodyTrafficPerInterval;
   static names(): { [key: string]: string } {
     return {
@@ -6346,11 +10227,59 @@ export class DescribeDomainMultiUsageDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainPathDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * > You can specify only one domain name in each call.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The interval between the start time and end time must be less than 30 days. Example: 2016-10-21T04:00:00Z.
+   * 
+   * @example
+   * 2016-10-21T04:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: integers from **1** to **1000**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The paths that you want to query. Separate paths with forward slashes (/). If you do not set this parameter, all paths are queried. If you set the value to a directory, it must end with a forward slash (/).
+   * 
+   * > Fuzzy match is not supported. If you want data to be collected based on a directory, you can specify a specific directory, for example, directory/path/. In this case, bandwidth data is collected based on directory/path/.
+   * 
+   * @example
+   * /path/
+   */
   path?: string;
+  /**
+   * @remarks
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Example: 2016-10-20T04:00:00Z.
+   * 
+   * @example
+   * 2016-10-20T04:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6380,13 +10309,66 @@ export class DescribeDomainPathDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainPathDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2017-09-30T17:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The page number of the returned page. Pages start from page **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * A list of bandwidth values collected at each time interval.
+   */
   pathDataPerInterval?: DescribeDomainPathDataResponseBodyPathDataPerInterval;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2017-09-30T16:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6445,8 +10427,33 @@ export class DescribeDomainPathDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainPvDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The end time must be later than the start time.
+   * 
+   * @example
+   * 2015-11-29T00:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2015-11-28T00:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6470,11 +10477,50 @@ export class DescribeDomainPvDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainPvDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 3600
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-11-28T04:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The number of PVs at each interval.
+   */
   pvDataInterval?: DescribeDomainPvDataResponseBodyPvDataInterval;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BCD7D917-76F1-442F-BB75-C810DE34C761
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-11-28T03:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6529,11 +10575,59 @@ export class DescribeDomainPvDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainQpsDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * By default, this operation queries QPS data for all accelerated domain names that belong to your Alibaba Cloud account.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time granularity of the data entries. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP) for your Alibaba Cloud CDN service. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISPs. If you do not specify an ISP, data of all ISPs is queried.
+   * 
+   * @example
+   * unicom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The name of the region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions. If you do not specify a region, data in all regions is queried.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-11-30T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6563,11 +10657,50 @@ export class DescribeDomainQpsDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainQpsDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The list of QPS records at each interval.
+   */
   qpsDataInterval?: DescribeDomainQpsDataResponseBodyQpsDataInterval;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B8333EDB-4595-46E0-AFE9-29BAA290D0E0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-11-30T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6622,12 +10755,71 @@ export class DescribeDomainQpsDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainQpsDataByLayerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify a maximum of 500 domain names in a request. Separate multiple domain names with commas (,).
+   * 
+   * By default, this operation queries the QPS of all accelerated domain names that belong to your Alibaba Cloud account.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format in the ISO 8601 standard. The time is displayed in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time interval between the data entries to return. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Description**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP) for your Alibaba Cloud CDN service. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISPs. If you do not set this parameter, all ISPs are queried.
+   * 
+   * @example
+   * unicom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The layers at which you want to query the number of queries per second. Valid values:
+   * 
+   * *   **Network layer**: **IPv4**and **IPv6**.
+   * *   **Application layer**: **http**, **https**, and **quic**.
+   * *   **all**: The default value. Both the network and application layers are included.
+   * 
+   * @example
+   * all
+   */
   layer?: string;
+  /**
+   * @remarks
+   * The name of the region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query the most recent region list. If you do not set this parameter, all regions are queried.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format in the ISO 8601 standard. The time is displayed in UTC.
+   * 
+   * @example
+   * 2019-11-30T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6659,12 +10851,58 @@ export class DescribeDomainQpsDataByLayerRequest extends $tea.Model {
 }
 
 export class DescribeDomainQpsDataByLayerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The layer at which the data was collected.
+   * 
+   * @example
+   * all
+   */
   layer?: string;
+  /**
+   * @remarks
+   * The number of queries per second at each interval.
+   */
   qpsDataInterval?: DescribeDomainQpsDataByLayerResponseBodyQpsDataInterval;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BEA5625F-8FCF-48F4-851B-CA63946DA664
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-11-30T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6721,10 +10959,59 @@ export class DescribeDomainQpsDataByLayerResponse extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeBpsDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+   * 
+   * > You can specify up to 500 domain names in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP).
+   * 
+   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISPs. If you do not set this parameter, all ISPs are queried.
+   * 
+   * @example
+   * telecom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions. If you do not set this parameter, all regions are queried.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-11-30T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6752,7 +11039,18 @@ export class DescribeDomainRealTimeBpsDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeBpsDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: DescribeDomainRealTimeBpsDataResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B49E6DDA-F413-422B-B58E-2FA23F286726
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6799,8 +11097,37 @@ export class DescribeDomainRealTimeBpsDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeByteHitRateDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 100 domain names in each call. Separate multiple domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2020-05-15T09:15:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2020-05-15T09:13:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6824,7 +11151,18 @@ export class DescribeDomainRealTimeByteHitRateDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeByteHitRateDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: DescribeDomainRealTimeByteHitRateDataResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 70A26B11-3673-479C-AEA8-E03FC5D3496D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6871,13 +11209,97 @@ export class DescribeDomainRealTimeByteHitRateDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeDetailDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Example: 2019-11-30T05:40:00Z.
+   * 
+   * > The end time must be later than the start time. The difference between the end time and the start time cannot exceed 10 minutes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The type of data that you want to query. You can specify multiple data types and separate them with commas (,). Valid values:
+   * 
+   * *   **qps**: queries per second (QPS)
+   * *   **bps**: bandwidth
+   * *   **http_code**: HTTP status code
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * qps
+   */
   field?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISPs. If you do not specify an ISP, data of all ISPs is queried.
+   * 
+   * @example
+   * telecom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The name of the region. If you do not specify a region, data in all regions is queried. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions.
+   * 
+   * @example
+   * Guangdong
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * Specifies whether to return a summary value based on ISPs and regions. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   merge?: string;
+  /**
+   * @remarks
+   * Specifies whether to return a summary value based on ISPs and regions. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   mergeLocIsp?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Example: 2019-11-30T05:33:00Z.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-11-30T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6911,7 +11333,36 @@ export class DescribeDomainRealTimeDetailDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeDetailDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The monitoring data of each ISP in each region.
+   * 
+   * @example
+   * [
+   *       {
+   *             "time_stp": "2018-06-05T20:00:00Z",
+   *             "domain_name": "example.com",
+   *             "location": "Guangdong",
+   *             "isp": "telecom",
+   *             "qps": 10
+   *       },
+   *       {
+   *             "time_stp": "2018-06-05T20:00:00Z",
+   *             "domain_name": "example.com",
+   *             "location": "Jiangsu",
+   *             "isp": "unicom",
+   *             "qps": 11.1
+   *       }
+   * ]
+   */
   data?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B49E6DDA-F413-422B-B58E-2FA23F286726
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6958,10 +11409,55 @@ export class DescribeDomainRealTimeDetailDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeHttpCodeDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify multiple accelerated domain names and separate them with commas (,).
+   * 
+   * > You can specify up to 100 accelerated domain names in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com,example.org
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISP names.
+   * 
+   * @example
+   * unicom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The name of the region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions. If you do not specify a region, all regions are queried.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-11-30T05:39:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6989,11 +11485,52 @@ export class DescribeDomainRealTimeHttpCodeDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeHttpCodeDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * Depending on the maximum time range per query, the value is 60 (1 minute), 300 (5 minutes), or 3600 (1 hour). For more information, see the "Time granularity" section in Usage notes.
+   * 
+   * @example
+   * 60
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com,example.org
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-11-29T05:42:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The proportions of HTTP status codes at each time interval.
+   */
   realTimeHttpCodeData?: DescribeDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BC858082-736F-4A25-867B-E5B67C85ACF7
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-11-29T05:39:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7048,10 +11585,59 @@ export class DescribeDomainRealTimeHttpCodeDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeQpsDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+   * 
+   * > You can specify up to 500 domain names in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-12-02T11:26:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP).
+   * 
+   * If you do not set this parameter, data of all ISPs is queried. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISP names.
+   * 
+   * @example
+   * telecom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * If you do not set this parameter, data in all regions is queried. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-12-02T11:25:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7079,7 +11665,18 @@ export class DescribeDomainRealTimeQpsDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeQpsDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data entries returned.
+   */
   data?: DescribeDomainRealTimeQpsDataResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 32DC9806-E9F9-4490-BBDC-B3A9E32FCC1D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7126,8 +11723,37 @@ export class DescribeDomainRealTimeQpsDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeReqHitRateDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 100 domain names in each call. Separate multiple domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2018-01-02T11:26:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2018-01-02T11:23:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7151,7 +11777,18 @@ export class DescribeDomainRealTimeReqHitRateDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeReqHitRateDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: DescribeDomainRealTimeReqHitRateDataResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 70A26B11-3673-479C-AEA8-E03FC5D3496D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7198,8 +11835,35 @@ export class DescribeDomainRealTimeReqHitRateDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeSrcBpsDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 100 domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-12-10T20:01:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-12-10T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7223,11 +11887,52 @@ export class DescribeDomainRealTimeSrcBpsDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeSrcBpsDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 60 (1 minute), 300 (5 minutes), and 3600(1 hour). For more information, see **Usage notes**.
+   * 
+   * @example
+   * 60
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-12-10T20:01:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The origin bandwidth data at each interval.
+   */
   realTimeSrcBpsDataPerInterval?: DescribeDomainRealTimeSrcBpsDataResponseBodyRealTimeSrcBpsDataPerInterval;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7CBCD6AD-B016-42E5-AE0B-B3731DE8F755
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-12-10T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7282,10 +11987,49 @@ export class DescribeDomainRealTimeSrcBpsDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeSrcHttpCodeDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 100 domain names in each call. Separate multiple domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISPs. If you leave this parameter empty, all ISPs are queried.
+   * 
+   * @example
+   * unicom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The name of the region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions. If you leave this parameter empty, all regions are queried.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-11-30T04:40:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7313,11 +12057,50 @@ export class DescribeDomainRealTimeSrcHttpCodeDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeSrcHttpCodeDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 60
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The proportions of HTTP status codes at each time interval.
+   */
   realTimeSrcHttpCodeData?: DescribeDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHttpCodeData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BC858082-736F-4A25-867B-E5B67C85ACF7
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-11-30T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7372,8 +12155,37 @@ export class DescribeDomainRealTimeSrcHttpCodeDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeSrcTrafficDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 100 domain names in each call. Separate multiple domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-12-10T20:01:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The start of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-12-10T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7397,11 +12209,52 @@ export class DescribeDomainRealTimeSrcTrafficDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeSrcTrafficDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * Depending on the maximum time range per query, the value is 60 (1 minute), 300 (5 minutes), or 3600 (1 hour). For more information, see the "Time granularity" section in Usage notes.
+   * 
+   * @example
+   * 60
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range for which the data was queried.
+   * 
+   * @example
+   * 2019-12-10T20:01:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The amount of back-to-origin traffic returned at each interval.
+   */
   realTimeSrcTrafficDataPerInterval?: DescribeDomainRealTimeSrcTrafficDataResponseBodyRealTimeSrcTrafficDataPerInterval;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A666D44F-19D6-490E-97CF-1A64AB962C57
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range for which the data was queried.
+   * 
+   * @example
+   * 2019-12-10T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7456,10 +12309,57 @@ export class DescribeDomainRealTimeSrcTrafficDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeTrafficDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 100 domain names in each call. Separate multiple domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-12-10T20:01:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP).
+   * 
+   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query the most recent region list. If you do not set this parameter, all regions are queried.
+   * 
+   * @example
+   * telecom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query the most recent region list. If you do not set this parameter, all regions are queried.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-12-10T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7487,11 +12387,52 @@ export class DescribeDomainRealTimeTrafficDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeTrafficDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * Depending on the maximum time range per query, the value is 60 (1 minute), 300 (5 minutes), or 3600 (1 hour). For more information, see the "Time granularity" section in Usage notes.
+   * 
+   * @example
+   * 60
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-12-10T20:01:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The network traffic returned at each time interval. Unit: bytes.
+   */
   realTimeTrafficDataPerInterval?: DescribeDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerInterval;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A666D44F-19D6-490E-97CF-1A64AB962C57
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-12-10T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7546,6 +12487,15 @@ export class DescribeDomainRealTimeTrafficDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainRealtimeLogDeliveryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name for which real-time log delivery is enabled. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7565,10 +12515,48 @@ export class DescribeDomainRealtimeLogDeliveryRequest extends $tea.Model {
 }
 
 export class DescribeDomainRealtimeLogDeliveryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the Logstore where log entries are stored.
+   * 
+   * @example
+   * LogstoreName
+   */
   logstore?: string;
+  /**
+   * @remarks
+   * The name of the Log Service project that is used for real-time log delivery.
+   * 
+   * @example
+   * ProjectName
+   */
   project?: string;
+  /**
+   * @remarks
+   * The ID of the region where the Log Service project is deployed.
+   * 
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2F8F3852-912F-42AC-80EB-F1CF4284DE93
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The status of real-time log delivery. Valid values:
+   * 
+   * *   **online**
+   * *   **offline**
+   * 
+   * @example
+   * online
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7621,8 +12609,37 @@ export class DescribeDomainRealtimeLogDeliveryResponse extends $tea.Model {
 }
 
 export class DescribeDomainRegionDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+   * 
+   * By default, this operation queries the geographic distribution of users for all accelerated domain names.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The end time must be later than the start time.
+   * 
+   * @example
+   * 2015-12-07T12:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2015-12-05T12:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7646,11 +12663,50 @@ export class DescribeDomainRegionDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainRegionDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 86400
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range for which the data was queried.
+   * 
+   * @example
+   * 2015-12-07T12:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2E5AD83F-BD7B-462E-8319-2E30E305519A
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range for which the data was queried.
+   * 
+   * @example
+   * 2015-12-05T12:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The proportions of requests initiated from each region.
+   */
   value?: DescribeDomainRegionDataResponseBodyValue;
   static names(): { [key: string]: string } {
     return {
@@ -7705,9 +12761,47 @@ export class DescribeDomainRegionDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainReqHitRateDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * By default, this operation queries the request hit ratio for all accelerated domain names that belong to your Alibaba Cloud account.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2017-12-22T08:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time granularity of the data entries. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2017-12-21T08:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7733,11 +12827,50 @@ export class DescribeDomainReqHitRateDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainReqHitRateDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2017-12-22T08:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The request hit ratio data at each time interval. The hit ratio is measured in percentage.
+   */
   reqHitRateInterval?: DescribeDomainReqHitRateDataResponseBodyReqHitRateInterval;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2017-12-21T08:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7792,9 +12925,47 @@ export class DescribeDomainReqHitRateDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainSrcBpsDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 500 domain names in each call. Separate multiple domain names with commas (,).
+   * 
+   * By default, this operation queries the geographic distribution of users for all accelerated domain names.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-12-10T20:30:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time interval between the data entries. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Description**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-12-10T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7820,11 +12991,50 @@ export class DescribeDomainSrcBpsDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainSrcBpsDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-12-10T20:30:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The origin bandwidth data at each time interval. Unit: bit/s.
+   */
   srcBpsDataPerInterval?: DescribeDomainSrcBpsDataResponseBodySrcBpsDataPerInterval;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-12-10T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7879,9 +13089,41 @@ export class DescribeDomainSrcBpsDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainSrcHttpCodeDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify a maximum of 500 domain names in a request. Separate multiple domain names with commas (,).
+   * 
+   * @example
+   * example.com,example.org
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format in the ISO 8601 standard. The time is displayed in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time interval between the data entries to return. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Description**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-11-30T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7907,11 +13149,50 @@ export class DescribeDomainSrcHttpCodeDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainSrcHttpCodeDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com,example.org
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The proportions of HTTP status codes at each time interval.
+   */
   httpCodeData?: DescribeDomainSrcHttpCodeDataResponseBodyHttpCodeData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BC858082-736F-4A25-867B-E5B67C85ACF7
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-11-30T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7966,9 +13247,45 @@ export class DescribeDomainSrcHttpCodeDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainSrcQpsDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify multiple domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * By default, this operation queries QPS data for all accelerated domain names that belong to your Alibaba Cloud account.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time interval between the data entries. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * If you leave this parameter empty, data collected in the last 24 hours is queried.
+   * 
+   * @example
+   * 2019-11-30T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7994,11 +13311,50 @@ export class DescribeDomainSrcQpsDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainSrcQpsDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7CBCD6AD-B016-42E5-AE0B-B3731DE8F755
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The back-to-origin bandwidth information at each interval.
+   */
   srcQpsDataPerInterval?: DescribeDomainSrcQpsDataResponseBodySrcQpsDataPerInterval;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-11-30T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8053,9 +13409,50 @@ export class DescribeDomainSrcQpsDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainSrcTopUrlVisitRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time. The duration between the end time and the start time cannot exceed seven days.
+   * 
+   * @example
+   * 2018-10-03T20:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The method that is used to sort the returned URLs. Default value: **pv**. Valid values:
+   * 
+   * *   **traf**: by network traffic
+   * *   **pv**: by the number of visits
+   * 
+   * @example
+   * pv
+   */
   sortBy?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > If you leave this parameter empty, data within the previous day is queried.
+   * 
+   * @example
+   * 2018-10-03T16:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8081,13 +13478,54 @@ export class DescribeDomainSrcTopUrlVisitRequest extends $tea.Model {
 }
 
 export class DescribeDomainSrcTopUrlVisitResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * A list of frequently requested URLs.
+   */
   allUrlList?: DescribeDomainSrcTopUrlVisitResponseBodyAllUrlList;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 64D28B53-5902-409B-94F6-FD46680144FE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range that was queried.
+   * 
+   * @example
+   * 2018-10-03T16:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * A list of URLs for which 2xx status codes were returned.
+   */
   url200List?: DescribeDomainSrcTopUrlVisitResponseBodyUrl200List;
+  /**
+   * @remarks
+   * A list of URLs for which 3xx status codes were returned.
+   */
   url300List?: DescribeDomainSrcTopUrlVisitResponseBodyUrl300List;
+  /**
+   * @remarks
+   * A list of URLs for which 4xx status codes were returned.
+   */
   url400List?: DescribeDomainSrcTopUrlVisitResponseBodyUrl400List;
+  /**
+   * @remarks
+   * A list of URLs for which 5xx status codes were returned.
+   */
   url500List?: DescribeDomainSrcTopUrlVisitResponseBodyUrl500List;
   static names(): { [key: string]: string } {
     return {
@@ -8146,9 +13584,47 @@ export class DescribeDomainSrcTopUrlVisitResponse extends $tea.Model {
 }
 
 export class DescribeDomainSrcTrafficDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * By default, this operation queries the origin traffic for all accelerated domain names that belong to your Alibaba Cloud account.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2015-12-10T21:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time granularity of the data entries. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8174,11 +13650,50 @@ export class DescribeDomainSrcTrafficDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainSrcTrafficDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-12-10T21:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A666D44F-19D6-490E-97CF-1A64AB962C57
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The amount of origin traffic returned at each time interval. Unit: bytes.
+   */
   srcTrafficDataPerInterval?: DescribeDomainSrcTrafficDataResponseBodySrcTrafficDataPerInterval;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8233,11 +13748,68 @@ export class DescribeDomainSrcTrafficDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainTopClientIpVisitRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+   * 
+   * By default, this operation queries client IP addresses for all accelerated domain names.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-10-01T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return. Maximum value: 100.
+   * 
+   * Default value: 20. The default value specifies that the top 20 IP addresses are returned.
+   * 
+   * @example
+   * 20
+   */
   limit?: string;
+  /**
+   * @remarks
+   * The name of the region. Separate multiple region names with commas (,).
+   * 
+   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The criterion by which you want to sort client IP addresses. Valid values:
+   * 
+   * *   **traf**: by network traffic. This is the default value.
+   * *   **acc**: by the number of requests.
+   * 
+   * @example
+   * traf
+   */
   sortBy?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-09-30T16:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8267,7 +13839,18 @@ export class DescribeDomainTopClientIpVisitRequest extends $tea.Model {
 }
 
 export class DescribeDomainTopClientIpVisitResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * A list of client IP addresses.
+   */
   clientIpList?: DescribeDomainTopClientIpVisitResponseBodyClientIpList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 64D28B53-5902-409B-94F6-FD46680144FE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8314,9 +13897,48 @@ export class DescribeDomainTopClientIpVisitResponse extends $tea.Model {
 }
 
 export class DescribeDomainTopReferVisitRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-12-22T12:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the queried information. Valid values:
+   * 
+   * *   **traf**: by network traffic.
+   * *   **pv**: by the number of page views. This is the default value.
+   * 
+   * @example
+   * pv
+   */
   sortBy?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-12-21T12:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8342,9 +13964,34 @@ export class DescribeDomainTopReferVisitRequest extends $tea.Model {
 }
 
 export class DescribeDomainTopReferVisitResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 95994621-8382-464B-8762-C708E73568D1
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range that was queried.
+   * 
+   * @example
+   * 2019-12-21T12:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The most frequently requested web pages.
+   */
   topReferList?: DescribeDomainTopReferVisitResponseBodyTopReferList;
   static names(): { [key: string]: string } {
     return {
@@ -8395,9 +14042,50 @@ export class DescribeDomainTopReferVisitResponse extends $tea.Model {
 }
 
 export class DescribeDomainTopUrlVisitRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time. The maximum time range that can be specified is seven days.
+   * 
+   * @example
+   * 2019-10-04T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The method that is used to sort the returned URLs. Default value: **pv**. Valid values:
+   * 
+   * *   **traf**: by network traffic
+   * *   **pv**: by the number of page views
+   * 
+   * @example
+   * pv
+   */
   sortBy?: string;
+  /**
+   * @remarks
+   * The start of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * If you want to query data of a specific day, we recommend that you set the value in the yyyy-MM-ddT16:00:00Z format.
+   * 
+   * @example
+   * 2019-10-04T00:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8423,13 +14111,54 @@ export class DescribeDomainTopUrlVisitRequest extends $tea.Model {
 }
 
 export class DescribeDomainTopUrlVisitResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * A list of frequently requested URLs.
+   */
   allUrlList?: DescribeDomainTopUrlVisitResponseBodyAllUrlList;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 64D28B53-5902-409B-94F6-FD46680144FE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-10-03T16:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * A list of URLs for which 2xx status codes were returned.
+   */
   url200List?: DescribeDomainTopUrlVisitResponseBodyUrl200List;
+  /**
+   * @remarks
+   * A list of URLs for which 3xx status codes were returned.
+   */
   url300List?: DescribeDomainTopUrlVisitResponseBodyUrl300List;
+  /**
+   * @remarks
+   * A list of URLs for which 4xx status codes were returned.
+   */
   url400List?: DescribeDomainTopUrlVisitResponseBodyUrl400List;
+  /**
+   * @remarks
+   * A list of URLs for which 5xx status codes were returned.
+   */
   url500List?: DescribeDomainTopUrlVisitResponseBodyUrl500List;
   static names(): { [key: string]: string } {
     return {
@@ -8488,11 +14217,63 @@ export class DescribeDomainTopUrlVisitResponse extends $tea.Model {
 }
 
 export class DescribeDomainTrafficDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * By default, this operation queries the network traffic for all accelerated domain names that belong to your Alibaba Cloud account.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2015-12-10T21:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time granularity of the data entries. Unit: seconds.
+   * 
+   * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](~~DescribeCdnRegionAndIsp~~) operation to query ISPs.
+   * 
+   * If you do not specify an ISP, data of all ISPs is queried.
+   * 
+   * @example
+   * unicom
+   */
   ispNameEn?: string;
+  /**
+   * @remarks
+   * The name of the region. You can call the [DescribeCdnRegionAndIsp](~~DescribeCdnRegionAndIsp~~) operation to query regions.
+   * 
+   * If you do not specify a region, data in all regions is queried.
+   * 
+   * @example
+   * beijing
+   */
   locationNameEn?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8522,11 +14303,50 @@ export class DescribeDomainTrafficDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainTrafficDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-12-10T21:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B955107D-E658-4E77-B913-E0AC3D31693E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The amount of network traffic at each time interval. Unit: bytes.
+   */
   trafficDataPerInterval?: DescribeDomainTrafficDataResponseBodyTrafficDataPerInterval;
   static names(): { [key: string]: string } {
     return {
@@ -8581,13 +14401,115 @@ export class DescribeDomainTrafficDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainUsageDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The billable region. Valid values:
+   * 
+   * *   **CN** (default): inside the Chinese mainland
+   * *   **OverSeas**: outside the Chinese mainland
+   * *   **AP1**: Asia Pacific 1
+   * *   **AP2**: Asia Pacific 2
+   * *   **AP3**: Asia Pacific 3
+   * *   **NA**: North America
+   * *   **SA**: South America
+   * *   **EU**: Europe
+   * *   **MEAA**: Middle East and Africa
+   * *   **all**: all the preceding billable regions
+   * 
+   * @example
+   * CN
+   */
   area?: string;
+  /**
+   * @remarks
+   * The protocol of the data that you want to query. Valid values:
+   * 
+   * *   **http:** HTTP
+   * *   **https:** HTTPS
+   * *   **quic**: QUIC
+   * *   **all** (default): HTTP, HTTPS, and QUIC
+   * 
+   * @example
+   * all
+   */
   dataProtocol?: string;
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify up to 100 domain names in each request. Separate multiple domain names with commas (,).
+   * 
+   * > If you leave this parameter empty, the usage data of all accelerated domain names in your Alibaba Cloud account is returned.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time. The maximum time range that can be specified is 31 days.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2015-12-10T22:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The type of the data that you want to query. Valid values:
+   * 
+   * *   **bps**: bandwidth
+   * *   **traf**: traffic
+   * *   **acc**: requests
+   * 
+   * > If you set this parameter to **acc**, the **Area** parameter is not supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bps
+   */
   field?: string;
+  /**
+   * @remarks
+   * The time granularity of the data entries. Unit: seconds. Valid values: **300** (5 minutes), **3600** (1 hour), and **86400** (1 day).
+   * 
+   * *   If **Interval** is set to **300**, you can query usage data in the last 6 months. The maximum time range per query that can be specified is 3 days.
+   * *   If **Interval** is set to **3600** or **86400**, you can query usage data of the previous year.
+   * *   If you leave the **Interval** parameter empty, the maximum time range that you can query is 1 month. If you specify a time range of 1 to 3 days, the time interval between the entries that are returned is 1 hour. If you specify a time range of at least 4 days, the time interval between the entries that are returned is 1 day.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > Data is collected every 5 minutes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The type of content that you want to query. Valid values:
+   * 
+   * *   **static**: static content
+   * *   **dynamic**: dynamic content
+   * *   **all** (default): both static and dynamic content
+   * 
+   * @example
+   * static
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8621,13 +14543,66 @@ export class DescribeDomainUsageDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainUsageDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the billable region where the data was collected.
+   * 
+   * @example
+   * CN
+   */
   area?: string;
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-12-10T22:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B955107D-E658-4E77-B913-E0AC3D31693E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The type of content.
+   * 
+   * @example
+   * static
+   */
   type?: string;
+  /**
+   * @remarks
+   * The resource usage that was collected at each interval.
+   */
   usageDataPerInterval?: DescribeDomainUsageDataResponseBodyUsageDataPerInterval;
   static names(): { [key: string]: string } {
     return {
@@ -8686,8 +14661,33 @@ export class DescribeDomainUsageDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainUvDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-11-29T04:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-11-29T00:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8711,11 +14711,50 @@ export class DescribeDomainUvDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainUvDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval. Unit: seconds.
+   * 
+   * @example
+   * 3600
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range that was queried.
+   * 
+   * @example
+   * 2019-11-29T04:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E9D3257A-1B7C-414C-90C1-8D07AC47BCAC
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range that was queried.
+   * 
+   * @example
+   * 2019-11-29T00:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The number of UVs at each interval.
+   */
   uvDataInterval?: DescribeDomainUvDataResponseBodyUvDataInterval;
   static names(): { [key: string]: string } {
     return {
@@ -8770,7 +14809,41 @@ export class DescribeDomainUvDataResponse extends $tea.Model {
 }
 
 export class DescribeDomainVerifyDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.yourdomain.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the global resource plan.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   on
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * off
+   */
   globalResourcePlan?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8792,7 +14865,24 @@ export class DescribeDomainVerifyDataRequest extends $tea.Model {
 }
 
 export class DescribeDomainVerifyDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The verification content.
+   * 
+   * @example
+   * {
+   *     "verifiCode": "uy0-DbxL4HBmUtSUXpkXctaSnCAUKhhNH6WKl-JnJY4",
+   *     "verifyKey": "_acme-challenge"
+   *   }
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8841,6 +14931,15 @@ export class DescribeDomainVerifyDataResponse extends $tea.Model {
 export class DescribeDomainsBySourceRequest extends $tea.Model {
   ownerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The origin servers. Separate multiple origin servers with commas (,). Fuzzy match is not supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   sources?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8864,8 +14963,26 @@ export class DescribeDomainsBySourceRequest extends $tea.Model {
 }
 
 export class DescribeDomainsBySourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names corresponding to each origin server.
+   */
   domainsList?: DescribeDomainsBySourceResponseBodyDomainsList;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B0F074E5-A1AC-4B32-8EA2-6F450410D1E0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The origin servers.
+   * 
+   * @example
+   * example.com,aliyundoc.com
+   */
   sources?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8914,8 +15031,37 @@ export class DescribeDomainsBySourceResponse extends $tea.Model {
 }
 
 export class DescribeDomainsUsageByDayRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name.
+   * 
+   * If you do not specify an accelerated domain name, the data of all accelerated domain names that belong to your account is queried.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-12-23T09:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-12-22T08:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8939,12 +15085,55 @@ export class DescribeDomainsUsageByDayRequest extends $tea.Model {
 }
 
 export class DescribeDomainsUsageByDayResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time interval between the data entries returned. Unit: seconds.
+   * 
+   * @example
+   * 86400
+   */
   dataInterval?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-12-23T09:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C88EF8ED-72F0-45EA-9E86-95114E224FC5
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-12-22T08:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The monitoring data collected at each time interval.
+   */
   usageByDays?: DescribeDomainsUsageByDayResponseBodyUsageByDays;
+  /**
+   * @remarks
+   * The summarized monitoring data.
+   */
   usageTotal?: DescribeDomainsUsageByDayResponseBodyUsageTotal;
   static names(): { [key: string]: string } {
     return {
@@ -9001,8 +15190,41 @@ export class DescribeDomainsUsageByDayResponse extends $tea.Model {
 }
 
 export class DescribeEsExceptionDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-02-18T20:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The script ID. You can call the [DescribeCdnDomainConfigs](https://help.aliyun.com/document_detail/90924.html) operation to query script IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 212896**
+   */
   ruleId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-02-17T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9026,7 +15248,18 @@ export class DescribeEsExceptionDataRequest extends $tea.Model {
 }
 
 export class DescribeEsExceptionDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the script for which an error was reported.
+   */
   contents?: DescribeEsExceptionDataResponseBodyContents[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 99D61AB3-6164-4CF2-A0DE-129C9B07618B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9073,8 +15306,37 @@ export class DescribeEsExceptionDataResponse extends $tea.Model {
 }
 
 export class DescribeEsExecuteDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-02-18T20:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the rule. You can call the [DescribeCdnDomainConfigs](https://help.aliyun.com/document_detail/90924.html) operation to query script IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 212896**
+   */
   ruleId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-02-17T20:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9098,7 +15360,18 @@ export class DescribeEsExecuteDataRequest extends $tea.Model {
 }
 
 export class DescribeEsExecuteDataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the script.
+   */
   contents?: DescribeEsExecuteDataResponseBodyContents[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 99D61AB3-6164-4CF2-A0DE-129C9B07618B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9145,6 +15418,15 @@ export class DescribeEsExecuteDataResponse extends $tea.Model {
 }
 
 export class DescribeFCTriggerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The trigger that corresponds to the Function Compute service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acs:cdn:{RegionID}:{AccountID}:{Filter}
+   */
   triggerARN?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9164,7 +15446,18 @@ export class DescribeFCTriggerRequest extends $tea.Model {
 }
 
 export class DescribeFCTriggerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The Function Compute trigger that you want to query.
+   */
   FCTrigger?: DescribeFCTriggerResponseBodyFCTrigger;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC046C5D-8CB4-4B6B-B7F8-B335E51EF90E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9211,6 +15504,15 @@ export class DescribeFCTriggerResponse extends $tea.Model {
 }
 
 export class DescribeIpInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address. You can specify only one IP address.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 192.168.0.1
+   */
   IP?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9230,11 +15532,55 @@ export class DescribeIpInfoRequest extends $tea.Model {
 }
 
 export class DescribeIpInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the IP address belongs to an Alibaba Cloud CDN POP.
+   * *   **True**:Yes.
+   * *   **False**:No.
+   * 
+   * @example
+   * True
+   */
   cdnIp?: string;
+  /**
+   * @remarks
+   * The name of the ISP in Chinese.
+   * 
+   * @example
+   * 电信
+   */
   ISP?: string;
+  /**
+   * @remarks
+   * The name of the ISP.
+   * 
+   * @example
+   * telecom
+   */
   ispEname?: string;
+  /**
+   * @remarks
+   * The name of the region in Chinese.
+   * 
+   * @example
+   * 中国-贵州省-贵阳市
+   */
   region?: string;
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * China-Guizhou-guiyang
+   */
   regionEname?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 123847FA-9A00-4426-83B8-B4B45D475930
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9289,6 +15635,15 @@ export class DescribeIpInfoResponse extends $tea.Model {
 }
 
 export class DescribeIpStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IP addresses that you want to query. Separate IP addresses with underscores (_), such as Ips=ip1_ip2.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ip1_ip2
+   */
   ips?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9308,7 +15663,18 @@ export class DescribeIpStatusRequest extends $tea.Model {
 }
 
 export class DescribeIpStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the IP addresses of the POPs.
+   */
   ipStatus?: DescribeIpStatusResponseBodyIpStatus[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9355,6 +15721,15 @@ export class DescribeIpStatusResponse extends $tea.Model {
 }
 
 export class DescribeL2VipsByDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerId?: number;
   securityToken?: string;
@@ -9380,8 +15755,26 @@ export class DescribeL2VipsByDomainRequest extends $tea.Model {
 }
 
 export class DescribeL2VipsByDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of VIPs.
+   */
   vips?: DescribeL2VipsByDomainResponseBodyVips;
   static names(): { [key: string]: string } {
     return {
@@ -9430,6 +15823,15 @@ export class DescribeL2VipsByDomainResponse extends $tea.Model {
 }
 
 export class DescribePreloadDetailByIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Queries the details of a preload task by task ID. You can query one task ID at a time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 15423123921
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9449,8 +15851,26 @@ export class DescribePreloadDetailByIdRequest extends $tea.Model {
 }
 
 export class DescribePreloadDetailByIdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request. You can use the ID to query logs and troubleshoot issues.
+   * 
+   * @example
+   * E9D3257A-1B7C-414C-90C1-8D07AC47BCAC
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of queried tasks.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The details of the task, including the task ID, start time, end time, domain name, success rate, status, returned error code, and completion details of all URL resources.
+   */
   urlDetails?: DescribePreloadDetailByIdResponseBodyUrlDetails[];
   static names(): { [key: string]: string } {
     return {
@@ -9499,10 +15919,61 @@ export class DescribePreloadDetailByIdResponse extends $tea.Model {
 }
 
 export class DescribeRangeDataByLocateAndIspServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainNames?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time. The maximum time range that can be specified is 1 hour.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The name of the ISP. You can specify only one ISP name in each call.
+   * 
+   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISPs.
+   * 
+   * @example
+   * unicom
+   */
   ispNames?: string;
+  /**
+   * @remarks
+   * The names of the regions. Separate multiple region names with commas (,).
+   * 
+   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query the most recent region list.
+   * 
+   * @example
+   * liaoning,guangxi
+   */
   locationNames?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-11-30T05:33:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9530,7 +16001,21 @@ export class DescribeRangeDataByLocateAndIspServiceRequest extends $tea.Model {
 }
 
 export class DescribeRangeDataByLocateAndIspServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response parameters in the JSON format. These parameters indicate the following information in sequence: UNIX time, region, ISP, distribution of HTTP status codes, response time, bandwidth (bit/s), average response rate, page views, cache hit ratio, and request hit ratio.
+   * 
+   * @example
+   * {"1472659200":{"Tianjin":{"China Telecom":{"http_codes":{"000":0,"200":6,"400":0},"rt":4183,"bandwidth":46639,"avg_speed":7773,"pv":6,"hit_rate":0.93,"request_hit_rate":0.66}}}}
+   */
   jsonResult?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9577,10 +16062,51 @@ export class DescribeRangeDataByLocateAndIspServiceResponse extends $tea.Model {
 }
 
 export class DescribeRealtimeDeliveryAccRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * The end time must be later than the start time.
+   * 
+   * @example
+   * 2016-10-20T05:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time granularity of the data entries. Unit: seconds. The value varies based on the values of the **StartTime** and **EndTime** parameters. Valid values:
+   * 
+   * *   If the time span between StartTime and EndTime is less than 3 days, valid values are **300**, **3600**, and **86400**. Default value: **300**.
+   * *   If the time span between StartTime and EndTime is greater than or equal to 3 days and less than 31 days, valid values are **3600** and **86400**. Default value: **3600**.
+   * *   If the time span between StartTime and EndTime is 31 days or longer, the valid value is **86400**. Default value: **86400**.
+   * 
+   * @example
+   * 300
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The name of the Logstore that stores log data. If you do leave this parameter empty, real-time log deliveries of all Logstores are queried.
+   * 
+   * @example
+   * LogStore
+   */
   logStore?: string;
+  /**
+   * @remarks
+   * The name of the Log Service project that is used for real-time log delivery. If you do leave this parameter empty, real-time log deliveries of all projects are queried.
+   * 
+   * @example
+   * Project
+   */
   project?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2016-10-20T04:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9608,7 +16134,18 @@ export class DescribeRealtimeDeliveryAccRequest extends $tea.Model {
 }
 
 export class DescribeRealtimeDeliveryAccResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The statistics about real-time log deliveries.
+   */
   reatTimeDeliveryAccData?: DescribeRealtimeDeliveryAccResponseBodyReatTimeDeliveryAccData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 684306D2-2511-4977-991D-CE97E91FD7C0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9677,20 +16214,125 @@ export class DescribeRefreshQuotaRequest extends $tea.Model {
 }
 
 export class DescribeRefreshQuotaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of URLs that can be refreshed on the current day.
+   * 
+   * @example
+   * 300
+   */
   blockQuota?: string;
+  /**
+   * @remarks
+   * The remaining number of times that you can prefetch content to L2 points of presence (POPs) on the current day.
+   * 
+   * @example
+   * 100
+   */
   blockRemain?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 100
+   */
   dirQuota?: string;
+  /**
+   * @remarks
+   * The remaining number of URLs that can be refreshed on the current day.
+   * 
+   * @example
+   * 99
+   */
   dirRemain?: string;
+  /**
+   * @remarks
+   * The maximum number of URLs or directories with parameters ignored that can be refreshed on the current day.
+   * 
+   * @example
+   * 100
+   */
   ignoreParamsQuota?: string;
+  /**
+   * @remarks
+   * The number of remaining URLs or directories that can be refreshed with parameters ignored on the current day.
+   * 
+   * @example
+   * 10
+   */
   ignoreParamsRemain?: string;
+  /**
+   * @remarks
+   * The maximum number of directories that can be refreshed on the current day.
+   * 
+   * @example
+   * 20
+   */
   preloadEdgeQuota?: string;
+  /**
+   * @remarks
+   * The maximum number of times that you can prefetch content to L1 POPs on the current day.
+   * 
+   * @example
+   * 20
+   */
   preloadEdgeRemain?: string;
+  /**
+   * @remarks
+   * The remaining number of times that you can prefetch content to L1 POPs on the current day.
+   * 
+   * @example
+   * 500
+   */
   preloadQuota?: string;
+  /**
+   * @remarks
+   * The maximum number of times that you can prefetch content to L1 nodes on the current day.
+   * 
+   * @example
+   * 400
+   */
   preloadRemain?: string;
+  /**
+   * @remarks
+   * The maximum number of times that you can prefetch content to L2 POPs on the current day.
+   * 
+   * @example
+   * 20
+   */
   regexQuota?: string;
+  /**
+   * @remarks
+   * The remaining number of URLs that can be blocked on the current day.
+   * 
+   * @example
+   * 10
+   */
   regexRemain?: string;
+  /**
+   * @remarks
+   * The maximum number of URLs and directories that can be blocked on the current day.
+   * 
+   * @example
+   * 42E0554B-80F4-4921-AED6-ACFB22CAAAD0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The remaining number of directories that can be refreshed on the current day.
+   * 
+   * @example
+   * 2000
+   */
   urlQuota?: string;
+  /**
+   * @remarks
+   * The remaining number of URLs or directories that can be refreshed by using regular expressions on the current day.
+   * 
+   * @example
+   * 1996
+   */
   urlRemain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9763,6 +16405,19 @@ export class DescribeRefreshQuotaResponse extends $tea.Model {
 }
 
 export class DescribeRefreshTaskByIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the task that you want to query.
+   * 
+   * You can call the [RefreshObjectCaches](https://help.aliyun.com/document_detail/91164.html) operation to query task IDs. Then, you can use the task IDs to query task status.
+   * 
+   * You can specify up to 10 task IDs. Separate task IDs with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12345678
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9782,8 +16437,26 @@ export class DescribeRefreshTaskByIdRequest extends $tea.Model {
 }
 
 export class DescribeRefreshTaskByIdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E0C2EF95-B1EC-4C93-855E-2059A7DA2B7B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Details about tasks.
+   */
   tasks?: DescribeRefreshTaskByIdResponseBodyTasks[];
+  /**
+   * @remarks
+   * The total number of tasks.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9832,17 +16505,100 @@ export class DescribeRefreshTaskByIdResponse extends $tea.Model {
 }
 
 export class DescribeRefreshTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one accelerated domain name in each call. By default, this operation queries the status of tasks for all accelerated domain names.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2017-12-22T08:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The path of the object. The path is used as a condition for exact matching.
+   * 
+   * @example
+   * http://example.com/1.txt
+   */
   objectPath?: string;
+  /**
+   * @remarks
+   * The type of the task. Valid values:
+   * 
+   * *   **file**: refreshes one or more files.
+   * *   **directory**: refreshes files in specific directories.
+   * *   **regex**: refreshes content based on a regular expression.
+   * *   **preload**: prefetches one or more files.
+   * 
+   * > If you set the **DomainName** or **Status** parameter, you must also set the **ObjectType** parameter.
+   * 
+   * @example
+   * file
+   */
   objectType?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. Valid values: **1** to **100000**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **20**. Maximum value: **100**. Valid values: **1** to **100**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmyuji4b6r4**
+   */
   resourceGroupId?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The start of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2017-12-21T08:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * *   **Complete**: The task is complete.
+   * *   **Refreshing**: The task is in progress.
+   * *   **Failed**: The task failed.
+   * 
+   * @example
+   * Complete
+   */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the task that you want to query.
+   * 
+   * @example
+   * 1234321
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9884,10 +16640,42 @@ export class DescribeRefreshTasksRequest extends $tea.Model {
 }
 
 export class DescribeRefreshTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 10
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 174F6032-AA26-470D-B90E-36F0EB205BEE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Details about tasks.
+   */
   tasks?: DescribeRefreshTasksResponseBodyTasks;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9940,7 +16728,18 @@ export class DescribeRefreshTasksResponse extends $tea.Model {
 }
 
 export class DescribeStagingIpResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * IPv4 addresses.
+   */
   IPV4s?: DescribeStagingIpResponseBodyIPV4s;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1B9E0E83-24AC-49F4-9EE0-BF5EB03E8381
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9987,8 +16786,30 @@ export class DescribeStagingIpResponse extends $tea.Model {
 }
 
 export class DescribeTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the resources. You can specify up to 50 IDs in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The resource type. Set the value to **DOMAIN**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DOMAIN
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags. You can specify up to 20 tags in each request.
+   */
   tag?: DescribeTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -10012,7 +16833,18 @@ export class DescribeTagResourcesRequest extends $tea.Model {
 }
 
 export class DescribeTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The tags that are attached to the specified resource.
+   */
   tagResources?: DescribeTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {
     return {
@@ -10059,8 +16891,33 @@ export class DescribeTagResourcesResponse extends $tea.Model {
 }
 
 export class DescribeTopDomainsByFlowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-12-23T08:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The maximum number of domain names to query. Valid values: **1** to **100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The value of StartTime must be in UTC. For example, if the local time is 00:00 on June 1, 2021, set StartTime to 2021-05-31T16:00:00Z.
+   * 
+   * @example
+   * 2019-12-22T08:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10084,11 +16941,50 @@ export class DescribeTopDomainsByFlowRequest extends $tea.Model {
 }
 
 export class DescribeTopDomainsByFlowResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of accelerated domain names that belong to the current Alibaba Cloud account.
+   * 
+   * @example
+   * 68
+   */
   domainCount?: number;
+  /**
+   * @remarks
+   * The total number of accelerated domain names that are in the **Enabled** state within the current Alibaba Cloud account.
+   * 
+   * @example
+   * 68
+   */
   domainOnlineCount?: number;
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-12-23T08:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4E09C5D7-E1CF-4CAA-A45E-8727F4C8FD70
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-12-22T08:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The top N domain names ranked by network traffic.
+   */
   topDomains?: DescribeTopDomainsByFlowResponseBodyTopDomains;
   static names(): { [key: string]: string } {
     return {
@@ -10142,9 +17038,128 @@ export class DescribeTopDomainsByFlowResponse extends $tea.Model {
   }
 }
 
+export class DescribeUserCdnStatusRequest extends $tea.Model {
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserCdnStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @example
+   * false
+   */
+  inDebt?: boolean;
+  /**
+   * @example
+   * false
+   */
+  inDebtOverdue?: boolean;
+  /**
+   * @example
+   * true
+   */
+  onService?: boolean;
+  /**
+   * @example
+   * 39B1DC7F-9D25-5D54-8F02-6EE26A7F48CA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      inDebt: 'InDebt',
+      inDebtOverdue: 'InDebtOverdue',
+      onService: 'OnService',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      inDebt: 'boolean',
+      inDebtOverdue: 'boolean',
+      onService: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserCdnStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserCdnStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserCdnStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserCertificateExpireCountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of domain names whose SSL certificates are about to expires within 30 days.
+   * 
+   * @example
+   * 0
+   */
   expireWithin30DaysCount?: number;
+  /**
+   * @remarks
+   * The number of domain names whose SSL certificates have already expired.
+   * 
+   * @example
+   * 6
+   */
   expiredCount?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F5E8DF64-7175-4186-9B06-F002C0BBD0C5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10193,6 +17208,15 @@ export class DescribeUserCertificateExpireCountResponse extends $tea.Model {
 }
 
 export class DescribeUserConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The feature whose configurations you want to query. You can specify only one feature in each request. Valid values: oss, green_manager, waf, cc_rule, ddos_dispatch, edge_safe, blocked_regions, http_acl_policy, bot_manager, and ip_reputation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * oss
+   */
   config?: string;
   ownerId?: number;
   securityToken?: string;
@@ -10218,7 +17242,18 @@ export class DescribeUserConfigsRequest extends $tea.Model {
 }
 
 export class DescribeUserConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the specified feature.
+   */
   configs?: DescribeUserConfigsResponseBodyConfigs;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9BCC7BAA-ACBE-45E5-83F0-98BF7E693E84
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10265,20 +17300,141 @@ export class DescribeUserConfigsResponse extends $tea.Model {
 }
 
 export class DescribeUserDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of workload accelerated by Alibaba Cloud CDN. Separate types with commas (,). Valid values:
+   * 
+   * *   **web**: images and small files
+   * *   **download**: large files
+   * *   **video**: on-demand video and audio streaming
+   * 
+   * If you do not set this parameter, all service types are queried.
+   * 
+   * @example
+   * download,web,video
+   */
   cdnType?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * > The end time must be later than the start time.
+   * 
+   * @example
+   * 2019-10-10T12:14:58Z
+   */
   changeEndTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-10-10T12:14:55Z
+   */
   changeStartTime?: string;
+  /**
+   * @remarks
+   * Specifies whether to display domain names that are under review, failed the review, or failed to be configured. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   checkDomainShow?: boolean;
+  /**
+   * @remarks
+   * The acceleration region. By default, all acceleration regions are queried. Valid values:
+   * 
+   * *   **domestic**: Chinese mainland
+   * *   **global**: global
+   * *   **overseas**: outside the Chinese mainland
+   * 
+   * @example
+   * domestic
+   */
   coverage?: string;
+  /**
+   * @remarks
+   * The accelerated domain. If you do not set this parameter, all domain names that match the conditions are returned.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The search mode. Valid values:
+   * 
+   * *   **fuzzy_match**: fuzzy match
+   * *   **pre_match**: prefix match
+   * *   **suf_match**: suffix match
+   * *   **full_match** (default): exact match
+   * 
+   * > If you specify the domain names to query but do not set the DomainSearchType parameter, the exact match mode is used.
+   * 
+   * @example
+   * fuzzy_match
+   */
   domainSearchType?: string;
+  /**
+   * @remarks
+   * The status of the domain name. Valid values:
+   * 
+   * *   **online**
+   * *   **offline**
+   * *   **configuring**
+   * *   **configure_failed**
+   * *   **checking**
+   * *   **check_failed**
+   * *   **stopping**
+   * *   **deleting**
+   * 
+   * If you do not set this parameter, domain names in all states are queried.
+   * 
+   * @example
+   * configure_failed
+   */
   domainStatus?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The page number. Valid values: **1** to **100000**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: **1 to 500**. Default value: **20**. Maximum value: **500**.
+   * 
+   * @example
+   * 5
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group. By default, all IDs are queried.
+   * 
+   * @example
+   * abcd1234abcd1234
+   */
   resourceGroupId?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The information about the origin server.
+   * 
+   * @example
+   * example.source.com
+   */
   source?: string;
+  /**
+   * @remarks
+   * The list of tags. Maximum number of elements in the list: 20
+   */
   tag?: DescribeUserDomainsRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -10326,10 +17482,42 @@ export class DescribeUserDomainsRequest extends $tea.Model {
 }
 
 export class DescribeUserDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of the accelerated domain names returned.
+   */
   domains?: DescribeUserDomainsResponseBodyDomains;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BDA62CE4-3477-439A-B52E-D2D7C829D7C1
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10382,7 +17570,18 @@ export class DescribeUserDomainsResponse extends $tea.Model {
 }
 
 export class DescribeUserTagsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: DescribeUserTagsResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
@@ -10429,7 +17628,23 @@ export class DescribeUserTagsResponse extends $tea.Model {
 }
 
 export class DescribeUserUsageDataExportTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return. Valid values: **1** to **100000**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **20**. Maximum value: **50**.
+   * 
+   * Valid values: an integer from **1** to **50**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10451,7 +17666,18 @@ export class DescribeUserUsageDataExportTaskRequest extends $tea.Model {
 }
 
 export class DescribeUserUsageDataExportTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A91BE91F-0B34-4CBF-8E0F-A2977E15AA52
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The usage details returned per page.
+   */
   usageDataPerPage?: DescribeUserUsageDataExportTaskResponseBodyUsageDataPerPage;
   static names(): { [key: string]: string } {
     return {
@@ -10498,7 +17724,23 @@ export class DescribeUserUsageDataExportTaskResponse extends $tea.Model {
 }
 
 export class DescribeUserUsageDetailDataExportTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return. Valid values: **1** to **100000**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **20**. Maximum value: **50**.
+   * 
+   * Valid values: an integer from **1** to **50**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10520,7 +17762,18 @@ export class DescribeUserUsageDetailDataExportTaskRequest extends $tea.Model {
 }
 
 export class DescribeUserUsageDetailDataExportTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A91BE91F-0B34-4CBF-8E0F-A2977E15AA52
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The usage details returned per page.
+   */
   usageDataPerPage?: DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPage;
   static names(): { [key: string]: string } {
     return {
@@ -10567,7 +17820,26 @@ export class DescribeUserUsageDetailDataExportTaskResponse extends $tea.Model {
 }
 
 export class DescribeUserVipsByDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to query the virtual IP addresses of only healthy CDN POPs. Valid values:
+   * 
+   * *   **on**: healthy CDN edge nodes.
+   * *   **off**: all CDN edge nodes.
+   * 
+   * @example
+   * on
+   */
   available?: string;
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10589,8 +17861,26 @@ export class DescribeUserVipsByDomainRequest extends $tea.Model {
 }
 
 export class DescribeUserVipsByDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 820E7900-5CA9-4AEF-B0DD-20ED5F64BE55
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of VIPs.
+   */
   vips?: DescribeUserVipsByDomainResponseBodyVips;
   static names(): { [key: string]: string } {
     return {
@@ -10639,6 +17929,15 @@ export class DescribeUserVipsByDomainResponse extends $tea.Model {
 }
 
 export class DescribeVerifyContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of which the ownership was verified. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10658,7 +17957,21 @@ export class DescribeVerifyContentRequest extends $tea.Model {
 }
 
 export class DescribeVerifyContentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The verification content.
+   * 
+   * @example
+   * verify_dffeb6610035dcb77b413a59c32cd91f
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10705,6 +18018,15 @@ export class DescribeVerifyContentResponse extends $tea.Model {
 }
 
 export class DisableRealtimeLogDeliveryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name for which you want to disable real-time log delivery. You can specify multiple domain names and separate them with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10724,6 +18046,13 @@ export class DisableRealtimeLogDeliveryRequest extends $tea.Model {
 }
 
 export class DisableRealtimeLogDeliveryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9732E117-8A37-49FD-A36F-ABBB87556CA7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10768,6 +18097,15 @@ export class DisableRealtimeLogDeliveryResponse extends $tea.Model {
 }
 
 export class EnableRealtimeLogDeliveryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name for which you want to enable real-time log delivery. You can specify multiple domain names and separate them with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10787,6 +18125,13 @@ export class EnableRealtimeLogDeliveryRequest extends $tea.Model {
 }
 
 export class EnableRealtimeLogDeliveryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9732E117-8A37-49FD-A36F-ABBB87556CA7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10831,6 +18176,15 @@ export class EnableRealtimeLogDeliveryResponse extends $tea.Model {
 }
 
 export class ListDomainsByLogConfigIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the custom configuration.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   configId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10850,7 +18204,18 @@ export class ListDomainsByLogConfigIdRequest extends $tea.Model {
 }
 
 export class ListDomainsByLogConfigIdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names.
+   */
   domains?: ListDomainsByLogConfigIdResponseBodyDomains;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9732E117-8A37-49FD-A36F-ABBB87556CA7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10897,7 +18262,25 @@ export class ListDomainsByLogConfigIdResponse extends $tea.Model {
 }
 
 export class ListFCTriggerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the event. You can specify only one name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LogFileCreated
+   */
   eventMetaName?: string;
+  /**
+   * @remarks
+   * The version number of the event. You can specify only one version number.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1.0.0
+   */
   eventMetaVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10919,7 +18302,18 @@ export class ListFCTriggerRequest extends $tea.Model {
 }
 
 export class ListFCTriggerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The Function Compute triggers that are set for Alibaba Cloud CDN events.
+   */
   FCTriggers?: ListFCTriggerResponseBodyFCTriggers[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC046C5D-8CB4-4B6B-B7F8-B335E51EF90E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10966,8 +18360,37 @@ export class ListFCTriggerResponse extends $tea.Model {
 }
 
 export class ListRealtimeLogDeliveryDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the Logstore that collects log data from Alibaba Cloud CDN in real time. You can specify multiple Logstore names and separate them with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LogstoreName
+   */
   logstore?: string;
+  /**
+   * @remarks
+   * The name of the Log Service project that is used for real-time log delivery. You can specify multiple project names and separate them with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ProjectName
+   */
   project?: string;
+  /**
+   * @remarks
+   * The ID of the region where the Log Service project is deployed. You can specify multiple region IDs and separate them with commas (,).
+   * 
+   * For more information about regions, see [Regions that support real-time log delivery](https://help.aliyun.com/document_detail/144883.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ch-shanghai
+   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10991,7 +18414,18 @@ export class ListRealtimeLogDeliveryDomainsRequest extends $tea.Model {
 }
 
 export class ListRealtimeLogDeliveryDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the accelerated domain names.
+   */
   content?: ListRealtimeLogDeliveryDomainsResponseBodyContent;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 95D5B69F-8AEC-419B-8F3A-612B35032B0D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11038,7 +18472,18 @@ export class ListRealtimeLogDeliveryDomainsResponse extends $tea.Model {
 }
 
 export class ListRealtimeLogDeliveryInfosResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about real-time log delivery.
+   */
   content?: ListRealtimeLogDeliveryInfosResponseBodyContent;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 95D5B69F-8AEC-419B-8F3A-612B35032B0D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11085,11 +18530,49 @@ export class ListRealtimeLogDeliveryInfosResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * QpgBAAAAAABsb2dzL2RzLw==
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the resource.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource. Set the value to **DOMAIN**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DOMAIN
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The key-value pair of a tag.
+   */
   tag?: ListTagResourcesRequestTag[];
+  /**
+   * @remarks
+   * The business ID of the tag owner.
+   * 
+   * @example
+   * 26842
+   */
   tagOwnerBid?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the tag belongs.
+   * 
+   * @example
+   * 123xxxx
+   */
   tagOwnerUid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11119,8 +18602,26 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * QpgBAAAAAABsb2dzL2RzLw==
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 64D28B53-5902-409B-94F6-FD46680144FE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned correspondence between the resource and tags.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {
@@ -11169,7 +18670,18 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ListUserCustomLogConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of log configuration IDs.
+   */
   configIds?: ListUserCustomLogConfigResponseBodyConfigIds;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 95D5B69F-8AEC-419B-8F3A-612B35032B0D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11216,11 +18728,45 @@ export class ListUserCustomLogConfigResponse extends $tea.Model {
 }
 
 export class ModifyCdnDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmyuji4b6r4**
+   */
   resourceGroupId?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The information about the addresses of origin servers.
+   * 
+   * > Do not set **Sources** and **TopLevelDomain** at the same time. If you set **Sources** and **TopLevelDomain** at the same time, **TopLevelDomain** does not take effect.
+   * 
+   * @example
+   * [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
+   */
   sources?: string;
+  /**
+   * @remarks
+   * The root domain. To add a root domain name, you must be added to the whitelist specified by the CDN_TOP_LEVEL_DOMAIN_GREY_USER_LIST parameter.
+   * 
+   * > Do not set **Sources** and **TopLevelDomain** at the same time. If you set **Sources** and **TopLevelDomain** at the same time, **TopLevelDomain** does not take effect.
+   * 
+   * @example
+   * aliyundoc.com
+   */
   topLevelDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11250,6 +18796,13 @@ export class ModifyCdnDomainRequest extends $tea.Model {
 }
 
 export class ModifyCdnDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11294,6 +18847,15 @@ export class ModifyCdnDomainResponse extends $tea.Model {
 }
 
 export class ModifyCdnDomainOwnerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -11322,7 +18884,21 @@ export class ModifyCdnDomainOwnerRequest extends $tea.Model {
 }
 
 export class ModifyCdnDomainOwnerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the domain name transfer.
+   * 
+   * @example
+   * The domain does not allow to transfer to a different account.
+   */
   content?: { [key: string]: any };
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C98E518B-024E-538E-8276-66310CB8667D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11369,7 +18945,31 @@ export class ModifyCdnDomainOwnerResponse extends $tea.Model {
 }
 
 export class ModifyCdnDomainSchdmByPropertyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name for which you want to change the acceleration region. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The information about the acceleration region. {"coverage":"overseas"}
+   * 
+   * Valid values for coverage:
+   * 
+   * *   **domestic**: Chinese mainland
+   * *   **overseas**: global (excluding the Chinese mainland)
+   * *   **global**: global
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"coverage":"overseas"}
+   */
   property?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11391,6 +18991,13 @@ export class ModifyCdnDomainSchdmByPropertyRequest extends $tea.Model {
 }
 
 export class ModifyCdnDomainSchdmByPropertyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A74
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11434,10 +19041,134 @@ export class ModifyCdnDomainSchdmByPropertyResponse extends $tea.Model {
   }
 }
 
+export class ModifyCdnServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new metering method for Alibaba Cloud CDN. Valid values:
+   * 
+   * *   **PayByTraffic**: pay-by-data-transfer
+   * *   **PayByBandwidth**: pay-by-bandwidth
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PayByTraffic
+   */
+  internetChargeType?: string;
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      internetChargeType: 'InternetChargeType',
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internetChargeType: 'string',
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCdnServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCdnServiceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCdnServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyCdnServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyRealtimeLogDeliveryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name for which you want to modify the configurations of real-time log delivery. Only one domain name is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The name of the Logstore where log entries are stored.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TestLog
+   */
   logstore?: string;
+  /**
+   * @remarks
+   * The name of the Log Service project that is used for real-time log delivery.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testProject
+   */
   project?: string;
+  /**
+   * @remarks
+   * The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](https://help.aliyun.com/document_detail/144883.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ch-shanghai
+   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11463,6 +19194,13 @@ export class ModifyRealtimeLogDeliveryRequest extends $tea.Model {
 }
 
 export class ModifyRealtimeLogDeliveryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9732E117-8A37-49FD-A36F-ABBB87556CA7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11507,6 +19245,15 @@ export class ModifyRealtimeLogDeliveryResponse extends $tea.Model {
 }
 
 export class OpenCdnServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The metering method of Alibaba Cloud CDN. A value of **PayByTraffic** indicates that the metering method is pay-by-data-transfer.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PayByTraffic
+   */
   internetChargeType?: string;
   ownerId?: number;
   securityToken?: string;
@@ -11532,6 +19279,13 @@ export class OpenCdnServiceRequest extends $tea.Model {
 }
 
 export class OpenCdnServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 97C68796-EB7F-4D41-9D5B-12B909D76508
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11576,6 +19330,15 @@ export class OpenCdnServiceResponse extends $tea.Model {
 }
 
 export class PublishStagingConfigToProductionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each call.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11595,6 +19358,13 @@ export class PublishStagingConfigToProductionRequest extends $tea.Model {
 }
 
 export class PublishStagingConfigToProductionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11639,11 +19409,60 @@ export class PublishStagingConfigToProductionResponse extends $tea.Model {
 }
 
 export class PushObjectCacheRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated region where content is to be prefetched. Valid values:
+   * 
+   * *   **domestic****: Chinese mainland**
+   * *   **overseas****: regions outside the Chinese mainland**
+   * 
+   * If you do not set this parameter, content in the accelerated region of the domain name is prefetched.
+   * 
+   * *   If the accelerated region is set to **Mainland China Only**, content in regions in the Chinese mainland is prefetched.
+   * *   If the accelerated region is set to **Global**, content in all regions is prefetched.
+   * *   If the accelerated region is set to **Global (Excluding Mainland China)**, content in regions outside the Chinese mainland is prefetched.
+   * 
+   * @example
+   * domestic
+   */
   area?: string;
+  /**
+   * @remarks
+   * Specifies whether to prefetch content to POPs. Valid values:
+   * 
+   * *   **true**: prefetches content to POPs.
+   * *   **false**: prefetches content to regular POPs. Regular POPs can be L2 POPs or L3 POPs. Default value: **false**.
+   * 
+   * @example
+   * true
+   */
   l2Preload?: boolean;
+  /**
+   * @remarks
+   * The URLs based on which content is prefetched. Format: **accelerated domain name/files to be prefetched**.
+   * 
+   * > Separate URLs with line feeds (\\n or \\r\\n). Each object path can be up to 1,024 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com/image/1.png\\nexample.org/image/2.png
+   */
   objectPath?: string;
   ownerId?: number;
+  queryHashkey?: boolean;
   securityToken?: string;
+  /**
+   * @remarks
+   * The custom header for prefetch in the JSON format.
+   * 
+   * @example
+   * {
+   *       "Accept-Encoding": [
+   *             "gzip"
+   *       ]
+   * }
+   */
   withHeader?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11651,6 +19470,7 @@ export class PushObjectCacheRequest extends $tea.Model {
       l2Preload: 'L2Preload',
       objectPath: 'ObjectPath',
       ownerId: 'OwnerId',
+      queryHashkey: 'QueryHashkey',
       securityToken: 'SecurityToken',
       withHeader: 'WithHeader',
     };
@@ -11662,6 +19482,7 @@ export class PushObjectCacheRequest extends $tea.Model {
       l2Preload: 'boolean',
       objectPath: 'string',
       ownerId: 'number',
+      queryHashkey: 'boolean',
       securityToken: 'string',
       withHeader: 'string',
     };
@@ -11673,7 +19494,24 @@ export class PushObjectCacheRequest extends $tea.Model {
 }
 
 export class PushObjectCacheResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the prefetch task. If multiple tasks are returned, the IDs are separated by commas (,). The task IDs are merged based on the following rules:
+   * 
+   * *   If the tasks are set for the same accelerated domain name, submitted within the same second, and prefetch content from URLs instead of directories, the tasks IDs are merged into the same task ID (RushTaskId).
+   * *   If the number of tasks that are set for the same accelerated domain name, submitted within the same second, and prefetch content from URLs instead of directories exceeds 500, every 500 task IDs are merged into the same task ID (RushTaskId).
+   * 
+   * @example
+   * 9524xxxx
+   */
   pushTaskId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11720,8 +19558,26 @@ export class PushObjectCacheResponse extends $tea.Model {
 }
 
 export class RefreshObjectCacheByCacheTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tag1,tag2
+   */
   cacheTag?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * true
+   */
   force?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11745,7 +19601,15 @@ export class RefreshObjectCacheByCacheTagRequest extends $tea.Model {
 }
 
 export class RefreshObjectCacheByCacheTagResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 17772470184
+   */
   refreshTaskId?: string;
+  /**
+   * @example
+   * 2E5AD83F-BD7B-462E-8319-2E30E305519A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11792,8 +19656,46 @@ export class RefreshObjectCacheByCacheTagResponse extends $tea.Model {
 }
 
 export class RefreshObjectCachesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * When the comparison between the source content and the source site resources is consistent, should the resources within the corresponding range be forcibly refreshed. The default is false.
+   * 
+   * *   **true**: purges all resources in the range that corresponds to the type of the purge task. If you set this parameter to true, when the requested resource matches the resource in the range that corresponds to the type of the purge task, the POP retrieves the resource from the origin server, returns the resource to the client, and caches the resource.
+   * *   **false**: purges the changed resources in the range that corresponds to the type of the purge task. If you set this parameter to false, when the requested resource matches the resource in the range that corresponds to the type of the purge task, the POP obtains the Last-Modified parameter of the resource from the origin server. If the obtained value of the Last-Modified parameter is the same as that of the cached resource, the cached resource is returned. Otherwise, the POP retrieves the resource from the origin server, returns the resource to the client, and caches the resource.
+   * 
+   * >  This parameter takes effect only when the ObjectType parameter is not set to File.
+   * 
+   * @example
+   * false
+   */
   force?: boolean;
+  /**
+   * @remarks
+   * *   If you submit multiple URLs or directories at a time, separate them with line breaks (\\n) or (\\r\\n).
+   * *   The total number of domain names contained all URLs in a submitted task cannot exceed 10.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http://example.com/image/1.png\\nhttp://aliyundoc.com/image/2.png
+   */
   objectPath?: string;
+  /**
+   * @remarks
+   * The type of the object that you want to refresh. Valid values:
+   * 
+   * *   **File** (default): refreshes one or more files.
+   * *   **Directory**: refreshes the files in one or more directories.
+   * *   **Regex**: refreshes content based on regular expressions.
+   * *   **ExQuery**: omits parameters after the question mark in the URL and refreshes content.
+   * 
+   * If you set the ObjectType parameter to File or Directory, you can view [Refresh and prefetch resources](https://help.aliyun.com/document_detail/27140.html) to obtain more information. If you set the ObjectType parameter to Regex, you can view [Configure URL refresh rules that contain regular expressions](https://help.aliyun.com/document_detail/146195.html) to obtain more information.
+   * 
+   * If you set the ObjectType parameter to Directory, the resources in the directory that you want to refresh are marked as expired. You cannot delete the directory. If clients request resources on POPs that are marked as expired, Alibaba Cloud CDN checks whether the resources on your origin server are updated. If resources are updated, Alibaba Cloud CDN retrieves the latest version of the resources and returns the resources to the clients. Otherwise, the origin server returns the 304 status code.
+   * 
+   * @example
+   * File
+   */
   objectType?: string;
   ownerId?: number;
   securityToken?: string;
@@ -11823,7 +19725,24 @@ export class RefreshObjectCachesRequest extends $tea.Model {
 }
 
 export class RefreshObjectCachesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the refresh task. If multiple tasks are returned, the task IDs are separated by commas (,). The task IDs are merged based on the following rules:
+   * 
+   * *   If the tasks are specified for the same accelerated domain name, submitted within the same second, and run to refresh content based on URLs instead of directories, the task IDs are merged into one task ID (RefreshTaskId).
+   * *   If the number of tasks that are specified for the same accelerated domain name, submitted within the same second, and run to refresh content based on URLs instead of directories exceeds 2,000, every 2,000 task IDs are merged into one task ID (RefreshTaskId).
+   * 
+   * @example
+   * 704222904
+   */
   refreshTaskId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D61E4801-EAFF-4A63-AAE1-FBF6CE1CFD1C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11870,6 +19789,15 @@ export class RefreshObjectCachesResponse extends $tea.Model {
 }
 
 export class RollbackStagingConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11889,6 +19817,13 @@ export class RollbackStagingConfigRequest extends $tea.Model {
 }
 
 export class RollbackStagingConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11933,7 +19868,25 @@ export class RollbackStagingConfigResponse extends $tea.Model {
 }
 
 export class SetCdnDomainCSRCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name for which you want to configure an SSL certificate. The domain name must have HTTPS secure acceleration enabled.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The content of the certificate. The certificate must match the certificate signing request (CSR) created by calling the [CreateCdnCertificateSigningRequest](https://help.aliyun.com/document_detail/144478.html) operation. Make sure that the content of the certificate is encoded in Base64 and then encoded by encodeURIComponent.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ----BEGIN CERTIFICATE----- MIIFz****-----END CERTIFICATE-----
+   */
   serverCertificate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11955,6 +19908,13 @@ export class SetCdnDomainCSRCertificateRequest extends $tea.Model {
 }
 
 export class SetCdnDomainCSRCertificateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11999,9 +19959,41 @@ export class SetCdnDomainCSRCertificateResponse extends $tea.Model {
 }
 
 export class SetCdnDomainSMCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the SM certificate that you want to configure. The identifier of the certificate. The value is Certificate ID-cn-hangzhou. For example, if the certificate ID is 123, set the value of this parameter to 123-cn-hangzhou.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234****-cn-hangzhou
+   */
   certIdentifier?: string;
+  /**
+   * @remarks
+   * The accelerated domain name for which you want to configure the SM certificate.
+   * 
+   * > The domain name must use HTTPS acceleration.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the SSL certificate. Valid values:
+   * 
+   * *   **on**
+   * *   **off**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * on
+   */
   SSLProtocol?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
@@ -12030,6 +20022,13 @@ export class SetCdnDomainSMCertificateRequest extends $tea.Model {
 }
 
 export class SetCdnDomainSMCertificateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12074,15 +20073,88 @@ export class SetCdnDomainSMCertificateResponse extends $tea.Model {
 }
 
 export class SetCdnDomainSSLCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * 8089870
+   */
   certId?: number;
+  /**
+   * @remarks
+   * The name of the SSL certificate. You can specify only one certificate name.
+   * 
+   * @example
+   * yourCertName
+   */
   certName?: string;
+  /**
+   * @remarks
+   * The region ID of the certificate. Valid values: **cn-hangzhou** and **ap-southeast-1**. Default value: **cn-hangzhou**.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   certRegion?: string;
+  /**
+   * @remarks
+   * The type of the certificate.
+   * 
+   * *   **upload**: a user-uploaded SSL certificate.
+   * *   **cas**: a certificate that is acquired through Certificate Management Service.
+   * 
+   * @example
+   * upload
+   */
   certType?: string;
+  /**
+   * @remarks
+   * The accelerated domain name for which you want to configure the SSL certificate. The type of request supported by the domain name must be HTTPS. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * Specifies whether the certificate is issued in canary releases. If you set this parameter to **staging**, the certificate is issued in canary releases. If you do not specify this parameter or set this parameter to other values, the certificate is officially issued.
+   * 
+   * @example
+   * staging
+   */
   env?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The private key. Specify the private key only if you want to enable the SSL certificate.
+   * 
+   * @example
+   * y****
+   */
   SSLPri?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the SSL certificate.
+   * 
+   * *   **on**
+   * *   **off**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * off
+   */
   SSLProtocol?: string;
+  /**
+   * @remarks
+   * The content of the SSL certificate. Specify the content of the SSL certificate only if you want to enable the SSL certificate.
+   * 
+   * @example
+   * xxx
+   */
   SSLPub?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
@@ -12123,6 +20195,13 @@ export class SetCdnDomainSSLCertificateRequest extends $tea.Model {
 }
 
 export class SetCdnDomainSSLCertificateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A7C69682-7F88-40DD-A198-10D0309E439D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12167,7 +20246,45 @@ export class SetCdnDomainSSLCertificateResponse extends $tea.Model {
 }
 
 export class SetCdnDomainStagingConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The features that you want to configure. Format:
+   * 
+   * > *   **functionName**: The name of the feature. Separate multiple values with commas (,). For more information, see [A list of features](https://help.aliyun.com/document_detail/388460.html).
+   * >*   **argName**: The feature parameters for **functionName**.
+   * >*   **argValue**: The parameter values set for **functionName**.
+   * 
+   *         [
+   *          {
+   *            "functionArgs": [
+   *             {
+   *              "argName": "Parameter A", 
+   *              "argValue": "Value of Parameter A"
+   *             }, 
+   *           {
+   *             "argName": "Parameter B", 
+   *             "argValue": "Value of Parameter B"
+   *              }
+   *          ], 
+   *          "functionName": "Feature name"
+   *             }
+   *         ]
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"functionArgs":[{"argName":"enable","argValue":"on"},{"argName":"pri","argValue":"1"},{"argName":"rule","argValue":"xxx"}],"functionName":"edge_function"}]
+   */
   functions?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12189,7 +20306,18 @@ export class SetCdnDomainStagingConfigRequest extends $tea.Model {
 }
 
 export class SetCdnDomainStagingConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of domain configurations.
+   */
   domainConfigList?: SetCdnDomainStagingConfigResponseBodyDomainConfigList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12236,9 +20364,31 @@ export class SetCdnDomainStagingConfigResponse extends $tea.Model {
 }
 
 export class SetCdnFullDomainsBlockIPRequest extends $tea.Model {
+  /**
+   * @example
+   * 3000
+   */
   blockInterval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1.XXX.XXX.1,2.XXX.XXX.2
+   */
   IPList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * block
+   */
   operationType?: string;
+  /**
+   * @example
+   * cover
+   */
   updateType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12264,8 +20414,20 @@ export class SetCdnFullDomainsBlockIPRequest extends $tea.Model {
 }
 
 export class SetCdnFullDomainsBlockIPResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * 23ACE7E2-2302-42E3-98F8-E5E697FD86C3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12314,14 +20476,80 @@ export class SetCdnFullDomainsBlockIPResponse extends $tea.Model {
 }
 
 export class SetDomainServerCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the SSL certificate. You can specify only one name.
+   * 
+   * @example
+   * myCert1
+   */
   certName?: string;
+  /**
+   * @remarks
+   * The type of the certificate. Valid values:
+   * 
+   * *   **upload**: a user-uploaded SSL certificate.
+   * *   **cas**: a certificate that is purchased from Alibaba Cloud SSL Certificates Service.
+   * 
+   * > If this parameter is set to **cas**, the **PrivateKey** parameter is optional.
+   * 
+   * @example
+   * cas
+   */
   certType?: string;
+  /**
+   * @remarks
+   * The accelerated domain name for which you want to configure the SSL certificate. The type of request supported by the domain name must be HTTPS.
+   * 
+   * You can specify one domain name in each call.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information about the existing certificate that uses the same name.
+   * 
+   * @example
+   * 1
+   */
   forceSet?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The private key. Specify the private key only if you want to enable the SSL certificate.
+   * 
+   * @example
+   * ----BEGIN RSA PRIVATE KEY-----QswCQ****----END RSA PRIVATE KEY-----
+   */
   privateKey?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The content of the SSL certificate. Specify the content of the SSL certificate only if you want to enable the SSL certificate. You can use one of the following methods to obtain the content of the SSL certificate:
+   * 
+   * *   Method 1: Call the [DescribeDomainCertificateInfo](https://help.aliyun.com/document_detail/91182.html) API operation to query the information about the SSL certificate corresponding to the accelerated domain name and obtain the public key of the ServerCertificate certificate from the returned data.
+   * *   Method 2: Call the [DescribeCdnCertificateList](https://help.aliyun.com/document_detail/91181.html) API operation to query the SSL certificate list corresponding to the accelerated domain name, and obtain the value of CertName from the returned data. Then, Call the [DescribeCdnCertificateDetail](https://help.aliyun.com/document_detail/131905.html) API operation with CertName as a parameter to obtain the details about the certificate, and obtain the public key of the Cert certificate from the returned data.
+   * 
+   * @example
+   * ----BEGIN CERTIFICATE----- MIIFz****-----END CERTIFICATE-----
+   */
   serverCertificate?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the SSL certificate. Default value: off. Valid values:
+   * 
+   * *   **on** : enables the SSL certificate.
+   * *   **off**: disables the SSL certificate.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * on
+   */
   serverCertificateStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12357,6 +20585,13 @@ export class SetDomainServerCertificateRequest extends $tea.Model {
 }
 
 export class SetDomainServerCertificateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12401,11 +20636,45 @@ export class SetDomainServerCertificateResponse extends $tea.Model {
 }
 
 export class SetReqHeaderConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the configuration.
+   * 
+   * @example
+   * 123
+   */
   configId?: number;
+  /**
+   * @remarks
+   * The accelerated domain name. Separate multiple domain names with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The name of the custom header.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testkey
+   */
   key?: string;
   ownerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The value of the custom header.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testvalue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12435,6 +20704,13 @@ export class SetReqHeaderConfigRequest extends $tea.Model {
 }
 
 export class SetReqHeaderConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12479,11 +20755,62 @@ export class SetReqHeaderConfigResponse extends $tea.Model {
 }
 
 export class SetWaitingRoomConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The percentage of requests that are allowed to be redirected to the origin server. Valid values: **0** to **100**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   allowPct?: number;
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The length of waiting time to skip after an exit from the queue. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   gapTime?: number;
+  /**
+   * @remarks
+   * The maximum length of waiting time in the queue. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   maxTimeWait?: number;
+  /**
+   * @remarks
+   * The regular expression that is used to match URI strings for which the virtual waiting room feature is enabled.
+   * 
+   * This parameter is required.
+   */
   waitUri?: string;
+  /**
+   * @remarks
+   * The URL of the waiting page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * https://example.com/waitingroom.html
+   */
   waitUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12513,6 +20840,13 @@ export class SetWaitingRoomConfigRequest extends $tea.Model {
 }
 
 export class SetWaitingRoomConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12557,6 +20891,15 @@ export class SetWaitingRoomConfigResponse extends $tea.Model {
 }
 
 export class StartCdnDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerId?: number;
   securityToken?: string;
@@ -12582,6 +20925,13 @@ export class StartCdnDomainRequest extends $tea.Model {
 }
 
 export class StartCdnDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12626,6 +20976,15 @@ export class StartCdnDomainResponse extends $tea.Model {
 }
 
 export class StopCdnDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name that you want to disable. You can specify only one domain name in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   ownerId?: number;
   securityToken?: string;
@@ -12651,6 +21010,13 @@ export class StopCdnDomainRequest extends $tea.Model {
 }
 
 export class StopCdnDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12695,8 +21061,32 @@ export class StopCdnDomainResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of resource IDs. Maximum number of list elements: 50.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource. Set this value to **DOMAIN**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DOMAIN
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags. Maximum number of list elements: 20.
+   * 
+   * This parameter is required.
+   */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -12720,6 +21110,13 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 97C68796-EB7F-4D41-9D5B-12B909D76508
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12764,9 +21161,46 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove all tags. Valid values:
+   * 
+   * *   **true**: yes.
+   * *   **false**: no.
+   * 
+   * Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * The list of resource IDs. You can specify up to 50 resource IDs in the list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resources from which you want to remove tags. Set this parameter to **DOMAIN**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DOMAIN
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The list of tag keys. You can specify up to 20 tag keys in the list.
+   * 
+   * @example
+   * env
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12792,6 +21226,13 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 97C68796-EB7F-4D41-9D5B-12B909D76508
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12836,11 +21277,55 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateCdnDeliverTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The method that is used to send operations reports. Operations reports are sent to you only by email. The settings must be escaped in JSON.
+   * 
+   * @example
+   * {\\\\"email\\\\":{\\\\"subject\\\\":\\\\"The email subject\\\\",\\\\"to\\\\":[\\\\"songmingyuan@alibaba-inc.com\\\\",\\\\"songmingyuan@alibaba-inc.com\\\\"]}}"
+   */
   deliver?: string;
+  /**
+   * @remarks
+   * The ID of the tracking task that you want to update.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   deliverId?: number;
+  /**
+   * @remarks
+   * The domain name that you want to track. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,). If you do not specify a domain name, the task collects data from all domain names that belong to your Alibaba Cloud account.
+   * 
+   * @example
+   * www.example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The name of the tracking task.
+   * 
+   * @example
+   * Domain name report
+   */
   name?: string;
+  /**
+   * @remarks
+   * The operations reports that are tracked by the task. The data must be escaped in JSON.
+   * 
+   * @example
+   * [{\\\\"reportId\\\\":1,\\\\"conditions\\\\":[{\\\\"field\\\\":\\\\"prov\\\\",\\\\"op\\\\":\\\\"in\\\\",\\\\"value\\\\":[\\\\"Heilongjiang\\\\",\\\\"Beijing\\\\"]}]}]
+   */
   reports?: string;
+  /**
+   * @remarks
+   * The parameters that specify the time interval at which the tracking task sends operations reports. The settings must be escaped in JSON.
+   * 
+   * @example
+   * "{\\\\"schedName\\\\":\\\\"The name of the tracking task\\\\",\\\\"description\\\\":\\\\"The description\\\\",\\\\"crontab\\\\":\\\\"000\\*\\*?\\\\",\\\\"frequency\\\\":\\\\"d\\\\",\\\\"status\\\\":\\\\"enable\\\\",\\\\"effectiveFrom\\\\":\\\\"2020-09-17T00:00:00Z\\\\",\\\\"effectiveEnd\\\\":\\\\"2020-11-17T00:00:00Z\\\\"}"
+   */
   schedule?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12870,6 +21355,13 @@ export class UpdateCdnDeliverTaskRequest extends $tea.Model {
 }
 
 export class UpdateCdnDeliverTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12914,9 +21406,37 @@ export class UpdateCdnDeliverTaskResponse extends $tea.Model {
 }
 
 export class UpdateCdnSubTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name that you want to track. You can specify up to 500 domain names in each request. If you specify multiple domain names, separate them with commas (,). If you do not specify a domain name, operations reports are updated for all domain names in your Alibaba Cloud account.
+   * 
+   * @example
+   * www.example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end time of the operations report. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2020-11-17T00:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The IDs of operations reports that you want to update. Separate IDs with commas (,).
+   * 
+   * @example
+   * 1,2,3
+   */
   reportIds?: string;
+  /**
+   * @remarks
+   * The start time of the operations report. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2020-09-17T00:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12942,6 +21462,13 @@ export class UpdateCdnSubTaskRequest extends $tea.Model {
 }
 
 export class UpdateCdnSubTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12986,10 +21513,47 @@ export class UpdateCdnSubTaskResponse extends $tea.Model {
 }
 
 export class UpdateFCTriggerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The feature trigger.
+   * 
+   * @example
+   * acs:fc:1223455566666:123:services/myservice/functions/myfunction
+   */
   functionARN?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * test
+   */
   notes?: string;
+  /**
+   * @remarks
+   * The assigned RAM role.
+   * 
+   * @example
+   * acs:ram:: 1234567890:role/aliyuncdneventnotificationrole
+   */
   roleARN?: string;
+  /**
+   * @remarks
+   * The resources and filters for event listening.
+   * 
+   * @example
+   * acs:cdn:*:1234567890:domain/example.com
+   */
   sourceARN?: string;
+  /**
+   * @remarks
+   * The trigger that corresponds to the Function Compute service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acs:fc:cn-beijing: 1234567890:services/FCTestService/functions/printEvent/triggers/testtrigger
+   */
   triggerARN?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13017,6 +21581,13 @@ export class UpdateFCTriggerRequest extends $tea.Model {
 }
 
 export class UpdateFCTriggerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EC046C5D-8CB4-4B6B-B7F8-B335E51EF90E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13061,7 +21632,28 @@ export class UpdateFCTriggerResponse extends $tea.Model {
 }
 
 export class VerifyDomainOwnerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of which you want to verify the ownership. You can specify only one domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The verification method. Valid values:
+   * 
+   * *   **dnsCheck**: by DNS record
+   * *   **fileCheck**: by verification file
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dnsCheck
+   */
   verifyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13083,7 +21675,23 @@ export class VerifyDomainOwnerRequest extends $tea.Model {
 }
 
 export class VerifyDomainOwnerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The verification result.
+   * 
+   * > This parameter is returned only if the operation fails.
+   * 
+   * @example
+   * verify_dffeb6610035dcb77b413a59c32c****
+   */
   content?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13130,7 +21738,21 @@ export class VerifyDomainOwnerResponse extends $tea.Model {
 }
 
 export class AddCdnDomainRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag. Valid values of N: **1 to 20**.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag. Valid values of N: **1 to 20**.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13152,11 +21774,56 @@ export class AddCdnDomainRequestTag extends $tea.Model {
 }
 
 export class BatchDescribeCdnIpInfoResponseBodyIpInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the IP address belongs to an Alibaba Cloud CDN point of presence (POP).
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   cdnIp?: string;
+  /**
+   * @remarks
+   * The city to which the IP address belongs.
+   * 
+   * @example
+   * Beijing
+   */
   city?: string;
+  /**
+   * @remarks
+   * The country to which the IP address belongs.
+   * 
+   * @example
+   * China
+   */
   country?: string;
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 111.XXX.XXX.230
+   */
   ipAddress?: string;
+  /**
+   * @remarks
+   * The ISP to which the IP address belongs.
+   * 
+   * @example
+   * Move
+   */
   ispName?: string;
+  /**
+   * @remarks
+   * The province to which the IP address belongs.
+   * 
+   * @example
+   * Beijing
+   */
   province?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13186,8 +21853,29 @@ export class BatchDescribeCdnIpInfoResponseBodyIpInfoList extends $tea.Model {
 }
 
 export class BatchSetCdnDomainConfigResponseBodyDomainConfigListDomainConfigModel extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the configuration.
+   * 
+   * @example
+   * 1234567
+   */
   configId?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * www.example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The name of the feature.
+   * 
+   * @example
+   * set_resp_header
+   */
   functionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13230,8 +21918,29 @@ export class BatchSetCdnDomainConfigResponseBodyDomainConfigList extends $tea.Mo
 }
 
 export class DescribeBlockedRegionsResponseBodyInfoListInfoItem extends $tea.Model {
+  /**
+   * @remarks
+   * The district to which the country or region belongs.
+   * 
+   * @example
+   * Asia
+   */
   continent?: string;
+  /**
+   * @remarks
+   * The abbreviation of the name of the country or region.
+   * 
+   * @example
+   * AF
+   */
   countriesAndRegions?: string;
+  /**
+   * @remarks
+   * The name of the country or region.
+   * 
+   * @example
+   * Afghanistan
+   */
   countriesAndRegionsName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13274,11 +21983,53 @@ export class DescribeBlockedRegionsResponseBodyInfoList extends $tea.Model {
 }
 
 export class DescribeCdnCertificateListResponseBodyCertificateListModelCertListCert extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * 1
+   */
   certId?: number;
+  /**
+   * @remarks
+   * The name of the certificate.
+   * 
+   * @example
+   * Certificate1
+   */
   certName?: string;
+  /**
+   * @remarks
+   * The Common Name (CN) attribute of the certificate. In most cases, the CN is a domain name.
+   * 
+   * @example
+   * example.com
+   */
   common?: string;
+  /**
+   * @remarks
+   * The fingerprint of the certificate.
+   * 
+   * @example
+   * 2ED68FD33786C5B42950D40A6C50353575BB****
+   */
   fingerprint?: string;
+  /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
+   * @example
+   * CO****
+   */
   issuer?: string;
+  /**
+   * @remarks
+   * The timestamp.
+   * 
+   * @example
+   * 1512388610
+   */
   lastTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13327,7 +22078,18 @@ export class DescribeCdnCertificateListResponseBodyCertificateListModelCertList 
 }
 
 export class DescribeCdnCertificateListResponseBodyCertificateListModel extends $tea.Model {
+  /**
+   * @remarks
+   * The list of certificates.
+   */
   certList?: DescribeCdnCertificateListResponseBodyCertificateListModelCertList;
+  /**
+   * @remarks
+   * The number of certificates that are returned.
+   * 
+   * @example
+   * 2
+   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13349,6 +22111,13 @@ export class DescribeCdnCertificateListResponseBodyCertificateListModel extends 
 }
 
 export class DescribeCdnConditionIPBInfoResponseBodyDatas extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration value.
+   * 
+   * @example
+   * "[{\\"text\\":\\"阿鲁巴\\",\\"value\\":\\"AW\\"}]"
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13368,7 +22137,21 @@ export class DescribeCdnConditionIPBInfoResponseBodyDatas extends $tea.Model {
 }
 
 export class DescribeCdnDeletedDomainsResponseBodyDomainsPageData extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The time when the accelerated domain name was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2015-10-28T11:05:52Z
+   */
   gmtModified?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13531,14 +22314,83 @@ export class DescribeCdnDomainAtoaLogsResponseBodyDomainLogDetails extends $tea.
 }
 
 export class DescribeCdnDomainByCertificateResponseBodyCertInfosCertInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the SSL certificate is obsolete. Valid values:
+   * 
+   * *   **yes**: The SSL certificate is obsolete.
+   * *   **no**: The SSL certificate is working as expected.
+   * 
+   * @example
+   * yes
+   */
   certCaIsLegacy?: string;
+  /**
+   * @remarks
+   * The expiration time of the certificate.
+   * 
+   * @example
+   * Nov 29 00:00:00 2016 GMT
+   */
   certExpireTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the SSL certificate is expired. Valid values:
+   * 
+   * *   **yes**: The SSL certificate is expired.
+   * *   **no**: The SSL certificate is not expired.
+   * 
+   * @example
+   * yes
+   */
   certExpired?: string;
+  /**
+   * @remarks
+   * The time when the certificate became effective.
+   * 
+   * @example
+   * Nov 29 23:59:59 2017 GMT
+   */
   certStartTime?: string;
+  /**
+   * @remarks
+   * The name of the SSL certificate owner.
+   * 
+   * @example
+   * owner
+   */
   certSubjectCommonName?: string;
+  /**
+   * @remarks
+   * The type of the certificate. Valid values: **RSA**, **DSA**, and **ECDSA**.
+   * 
+   * @example
+   * RSA
+   */
   certType?: string;
+  /**
+   * @remarks
+   * If a value is returned, the value matches the SSL certificate. Multiple domain names are separated by commas (,).
+   * 
+   * @example
+   * example.com,aliyundoc.com
+   */
   domainList?: string;
+  /**
+   * @remarks
+   * The domain names (DNS fields) that match the SSL certificate. Multiple domain names are separated by commas (,).
+   * 
+   * @example
+   * *.example.com,aliyundoc.com
+   */
   domainNames?: string;
+  /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
+   * @example
+   * C=US, O=Symantec Corporation, OU=Symantec Trust Network, OU=Domain Validated SSL, CN=Symantec Basic DV SSL CA - G1
+   */
   issuer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13593,7 +22445,21 @@ export class DescribeCdnDomainByCertificateResponseBodyCertInfos extends $tea.Mo
 }
 
 export class DescribeCdnDomainConfigsResponseBodyDomainConfigsDomainConfigFunctionArgsFunctionArg extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name, which is the configuration item of **functionName**. You can configure multiple configuration items.
+   * 
+   * @example
+   * auth_type
+   */
   argName?: string;
+  /**
+   * @remarks
+   * The parameter value, which is the value of the configuration item of **functionName**.
+   * 
+   * @example
+   * req_auth
+   */
   argValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13634,10 +22500,51 @@ export class DescribeCdnDomainConfigsResponseBodyDomainConfigsDomainConfigFuncti
 }
 
 export class DescribeCdnDomainConfigsResponseBodyDomainConfigsDomainConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the configuration.
+   * 
+   * @example
+   * 6295
+   */
   configId?: string;
+  /**
+   * @remarks
+   * The configuration of each feature.
+   */
   functionArgs?: DescribeCdnDomainConfigsResponseBodyDomainConfigsDomainConfigFunctionArgs;
+  /**
+   * @remarks
+   * The name of the feature.
+   * 
+   * @example
+   * aliauth
+   */
   functionName?: string;
+  /**
+   * @remarks
+   * The ID of the rule condition. This parameter is optional.
+   * 
+   * To create a rule condition, you can configure the **condition** feature that is described in the [Parameters for configuring features for domain names](https://help.aliyun.com/document_detail/388460.html) topic. A rule condition can identify parameters that are included in requests and filter requests based on the identified parameters. Each rule condition has a [ConfigId](https://help.aliyun.com/document_detail/388994.html). You can use ConfigId as ParentId that is referenced by other features. This way, you can combine rule conditions and features for flexible configurations.
+   * 
+   * For more information, see [BatchSetCdnDomainConfig](https://help.aliyun.com/document_detail/90915.html) or ParentId configuration example in this topic.
+   * 
+   * @example
+   * 222728944812032
+   */
   parentId?: string;
+  /**
+   * @remarks
+   * The status of the configuration. Valid values:
+   * 
+   * *   **success**
+   * *   **testing**
+   * *   **failed**
+   * *   **configuring**
+   * 
+   * @example
+   * success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13684,11 +22591,58 @@ export class DescribeCdnDomainConfigsResponseBodyDomainConfigs extends $tea.Mode
 }
 
 export class DescribeCdnDomainDetailResponseBodyGetDomainDetailModelSourceModelsSourceModel extends $tea.Model {
+  /**
+   * @remarks
+   * The address of the origin server.
+   * 
+   * @example
+   * example.com
+   */
   content?: string;
+  /**
+   * @remarks
+   * The status.
+   * 
+   * @example
+   * online
+   */
   enabled?: string;
+  /**
+   * @remarks
+   * The port over which requests are redirected to the origin server. Ports 443 and 80 are supported.
+   * 
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @remarks
+   * The priority.
+   * 
+   * @example
+   * 20
+   */
   priority?: string;
+  /**
+   * @remarks
+   * The type of the origin server. Valid values:
+   * 
+   * *   **ipaddr**: an origin IP address
+   * *   **domain**: an origin domain name
+   * *   **oss**: the domain name of an Object Storage Service (OSS) bucket
+   * *   **fc_domain:** a Function Compute domain name
+   * 
+   * @example
+   * domain
+   */
   type?: string;
+  /**
+   * @remarks
+   * The weight of the origin server if multiple origin servers have been specified.
+   * 
+   * @example
+   * 10
+   */
   weight?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13737,17 +22691,114 @@ export class DescribeCdnDomainDetailResponseBodyGetDomainDetailModelSourceModels
 }
 
 export class DescribeCdnDomainDetailResponseBodyGetDomainDetailModel extends $tea.Model {
+  /**
+   * @remarks
+   * The workload type of the accelerated domain name. Valid values:
+   * 
+   * *   **web**: images and small files
+   * *   **download**: large files
+   * *   **video**: on-demand video and audio streaming
+   * 
+   * @example
+   * web
+   */
   cdnType?: string;
+  /**
+   * @remarks
+   * The CNAME that is assigned to the accelerated domain name. You must add the CNAME record in the system of your DNS service provider to map the accelerated domain name to the CNAME.
+   * 
+   * @example
+   * example.com.w.kunlunle.com
+   */
   cname?: string;
+  /**
+   * @remarks
+   * The description of the domain name.
+   * 
+   * @example
+   * Streaming domain
+   */
   description?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The status of the accelerated domain name. Valid values:
+   * 
+   * *   **online**
+   * *   **offline**
+   * *   **configuring**
+   * *   **configure_failed**
+   * *   **checking**
+   * *   **check_failed**
+   * *   **stopping**
+   * *   **deleting**
+   * 
+   * @example
+   * online
+   */
   domainStatus?: string;
+  /**
+   * @remarks
+   * The time when the domain name was created.
+   * 
+   * @example
+   * 2015-06-25T03:30:50Z
+   */
   gmtCreated?: string;
+  /**
+   * @remarks
+   * The time when the domain name was last modified.
+   * 
+   * @example
+   * 2017-06-25T03:30:50Z
+   */
   gmtModified?: string;
+  /**
+   * @remarks
+   * The CNAME for which HTTPS is enabled.
+   * 
+   * @example
+   * example.com.w.kunlunle.com
+   */
   httpsCname?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * abcd1234abcd1234
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The acceleration region.
+   * 
+   * @example
+   * domestic
+   */
   scope?: string;
+  /**
+   * @remarks
+   * Indicates whether the SSL certificate is enabled. Valid values:
+   * 
+   * *   **on**
+   * *   **off**
+   * 
+   * @example
+   * on
+   */
   serverCertificateStatus?: string;
+  /**
+   * @remarks
+   * The information about the origin server.
+   */
   sourceModels?: DescribeCdnDomainDetailResponseBodyGetDomainDetailModelSourceModels;
   static names(): { [key: string]: string } {
     return {
@@ -13789,10 +22840,45 @@ export class DescribeCdnDomainDetailResponseBodyGetDomainDetailModel extends $te
 }
 
 export class DescribeCdnDomainLogsResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-05-23T14:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The name of the log file.
+   * 
+   * @example
+   * demo.aliyundoc.com_2015_05_23_2100_2200.gz
+   */
   logName?: string;
+  /**
+   * @remarks
+   * The path of the log file.
+   * 
+   * @example
+   * guide.aliyundoc.com-hangzhou.xxx
+   */
   logPath?: string;
+  /**
+   * @remarks
+   * The size of the log file.
+   * 
+   * @example
+   * 258
+   */
   logSize?: number;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2015-05-23T13:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13839,8 +22925,29 @@ export class DescribeCdnDomainLogsResponseBodyDomainLogDetailsDomainLogDetailLog
 }
 
 export class DescribeCdnDomainLogsResponseBodyDomainLogDetailsDomainLogDetailPageInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13864,9 +22971,31 @@ export class DescribeCdnDomainLogsResponseBodyDomainLogDetailsDomainLogDetailPag
 }
 
 export class DescribeCdnDomainLogsResponseBodyDomainLogDetailsDomainLogDetail extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The total number of entries returned on the current page.
+   * 
+   * @example
+   * 10
+   */
   logCount?: number;
+  /**
+   * @remarks
+   * A set of LogInfoDetail data.
+   */
   logInfos?: DescribeCdnDomainLogsResponseBodyDomainLogDetailsDomainLogDetailLogInfos;
+  /**
+   * @remarks
+   * A set of PageInfoDetail data.
+   */
   pageInfos?: DescribeCdnDomainLogsResponseBodyDomainLogDetailsDomainLogDetailPageInfos;
   static names(): { [key: string]: string } {
     return {
@@ -13911,10 +23040,30 @@ export class DescribeCdnDomainLogsResponseBodyDomainLogDetails extends $tea.Mode
 }
 
 export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail extends $tea.Model {
+  /**
+   * @example
+   * 2023-09-23T14:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * demo.aliyundoc.com_2015_05_23_2100_2200.gz
+   */
   logName?: string;
+  /**
+   * @example
+   * guide.aliyundoc.com-hangzhou.xxx
+   */
   logPath?: string;
+  /**
+   * @example
+   * 258
+   */
   logSize?: number;
+  /**
+   * @example
+   * 2023-09-23T13:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13961,8 +23110,20 @@ export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDeta
 }
 
 export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailPageInfos extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 20
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13986,7 +23147,15 @@ export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDeta
 }
 
 export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetail extends $tea.Model {
+  /**
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * 10
+   */
   logCount?: number;
   logInfos?: DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfos;
   pageInfos?: DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailPageInfos;
@@ -14033,7 +23202,21 @@ export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetails extends $tea
 }
 
 export class DescribeCdnDomainStagingConfigResponseBodyDomainConfigsFunctionArgs extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration name.
+   * 
+   * @example
+   * auth_type
+   */
   argName?: string;
+  /**
+   * @remarks
+   * The configuration value.
+   * 
+   * @example
+   * req_auth
+   */
   argValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14055,10 +23238,47 @@ export class DescribeCdnDomainStagingConfigResponseBodyDomainConfigsFunctionArgs
 }
 
 export class DescribeCdnDomainStagingConfigResponseBodyDomainConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 6xx5
+   */
   configId?: string;
+  /**
+   * @remarks
+   * The description of each feature.
+   */
   functionArgs?: DescribeCdnDomainStagingConfigResponseBodyDomainConfigsFunctionArgs[];
+  /**
+   * @remarks
+   * The feature name.
+   * 
+   * @example
+   * aliauth
+   */
   functionName?: string;
+  /**
+   * @remarks
+   * The rule condition ID. This parameter is optional. To create a rule condition, you can configure the **condition** feature that is described in the [Parameters for configuring features for domain names](https://help.aliyun.com/document_detail/388460.html) topic. A rule condition can identify parameters that are included in requests and filter requests based on the identified parameters. Each rule condition has a [ConfigId](https://help.aliyun.com/document_detail/388994.html). You can reference ConfigId instead of ParentId in other features. This way, you can combine rule conditions and features for flexible configurations. For more information, see [BatchSetCdnDomainConfig](https://help.aliyun.com/document_detail/90915.html) or ParentId configuration example in this topic.
+   * 
+   * @example
+   * 222728944812032
+   */
   parentId?: string;
+  /**
+   * @remarks
+   * The configuration status. Valid values:
+   * 
+   * *   **testing**
+   * *   **configuring**
+   * *   **success**
+   * *   **failed**
+   * 
+   * @example
+   * success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14086,8 +23306,20 @@ export class DescribeCdnDomainStagingConfigResponseBodyDomainConfigs extends $te
 }
 
 export class DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo extends $tea.Model {
+  /**
+   * @example
+   * 1.XXX.XXX.0~1.XXX.XXX.255
+   */
   blockIP?: string;
+  /**
+   * @example
+   * 2023-04-24 18:49:37
+   */
   deliverTime?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14111,13 +23343,78 @@ export class DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo extends
 }
 
 export class DescribeCdnHttpsDomainListResponseBodyCertInfosCertInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The returned primary domain name of the certificate.
+   * 
+   * @example
+   * example.org
+   */
   certCommonName?: string;
+  /**
+   * @remarks
+   * The time at which the certificate expires.
+   * 
+   * @example
+   * 2018-12-26 14:45:09
+   */
   certExpireTime?: string;
+  /**
+   * @remarks
+   * The name of the certificate.
+   * 
+   * @example
+   * test
+   */
   certName?: string;
+  /**
+   * @remarks
+   * The time at which the certificate became effective.
+   * 
+   * @example
+   * 2018-11-26 14:45:09
+   */
   certStartTime?: string;
+  /**
+   * @remarks
+   * The status of the certificate.
+   * 
+   * *   **ok**: The certificate is working as expected.
+   * *   **mismatch**: The certificate does not match the specified domain name.
+   * *   **expired**: The certificate has expired.
+   * *   **expire_soon**: The certificate will expire soon.
+   * 
+   * @example
+   * mismatch
+   */
   certStatus?: string;
+  /**
+   * @remarks
+   * The type of the certificate.
+   * 
+   * *   **free**: a free certificate.
+   * *   **cas**: a certificate that is purchased from Alibaba Cloud SSL Certificates Service.
+   * *   **upload**: a certificate that is uploaded by the user.
+   * 
+   * @example
+   * free
+   */
   certType?: string;
+  /**
+   * @remarks
+   * The time at which the certificate was updated.
+   * 
+   * @example
+   * 2019-01-08 18:33:16
+   */
   certUpdateTime?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14170,7 +23467,18 @@ export class DescribeCdnHttpsDomainListResponseBodyCertInfos extends $tea.Model 
 }
 
 export class DescribeCdnRegionAndIspResponseBodyIspsIsp extends $tea.Model {
+  /**
+   * @remarks
+   * The English name of the ISP.
+   * 
+   * @example
+   * unicom
+   */
   nameEn?: string;
+  /**
+   * @remarks
+   * The Chinese name of the ISP.
+   */
   nameZh?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14211,7 +23519,18 @@ export class DescribeCdnRegionAndIspResponseBodyIsps extends $tea.Model {
 }
 
 export class DescribeCdnRegionAndIspResponseBodyRegionsRegion extends $tea.Model {
+  /**
+   * @remarks
+   * The English name of the region.
+   * 
+   * @example
+   * liaoning
+   */
   nameEn?: string;
+  /**
+   * @remarks
+   * The Chinese name of the region.
+   */
   nameZh?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14252,9 +23571,37 @@ export class DescribeCdnRegionAndIspResponseBodyRegions extends $tea.Model {
 }
 
 export class DescribeCdnSMCertificateListResponseBodyCertificateListModelCertListCert extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * yourCertldentifier
+   */
   certIdentifier?: string;
+  /**
+   * @remarks
+   * The name of the certificate.
+   * 
+   * @example
+   * yourCertName
+   */
   certName?: string;
+  /**
+   * @remarks
+   * The common name of the certificate.
+   * 
+   * @example
+   * yourCertCommon
+   */
   common?: string;
+  /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
+   * @example
+   * yourCertIssuer
+   */
   issuer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14299,7 +23646,18 @@ export class DescribeCdnSMCertificateListResponseBodyCertificateListModelCertLis
 }
 
 export class DescribeCdnSMCertificateListResponseBodyCertificateListModel extends $tea.Model {
+  /**
+   * @remarks
+   * The list of certificates.
+   */
   certList?: DescribeCdnSMCertificateListResponseBodyCertificateListModelCertList;
+  /**
+   * @remarks
+   * The number of certificates that are returned.
+   * 
+   * @example
+   * 2
+   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14321,12 +23679,61 @@ export class DescribeCdnSMCertificateListResponseBodyCertificateListModel extend
 }
 
 export class DescribeCdnSSLCertificateListResponseBodyCertificateListModelCertListCert extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * 9128192
+   */
   certId?: number;
+  /**
+   * @remarks
+   * The name of the certificate.
+   * 
+   * @example
+   * yourCertName
+   */
   certName?: string;
+  /**
+   * @remarks
+   * The region ID of the certificate. Valid values: **cn-hangzhou** and **ap-southeast-1**. Default value: **cn-hangzhou**.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   certRegion?: string;
+  /**
+   * @remarks
+   * The Common Name (CN) attribute of the certificate. In most cases, the CN is a domain name.
+   * 
+   * @example
+   * example.com
+   */
   common?: string;
+  /**
+   * @remarks
+   * The fingerprint of the certificate.
+   * 
+   * @example
+   * 933c6ddee95c9c41a40f9f50493d82be03ad87bf
+   */
   fingerprint?: string;
+  /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
+   * @example
+   * yourCertIssuer
+   */
   issuer?: string;
+  /**
+   * @remarks
+   * The time when the certificate was last modified. Unit: milliseconds.
+   * 
+   * @example
+   * 1679896965
+   */
   lastTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14377,9 +23784,34 @@ export class DescribeCdnSSLCertificateListResponseBodyCertificateListModelCertLi
 }
 
 export class DescribeCdnSSLCertificateListResponseBodyCertificateListModel extends $tea.Model {
+  /**
+   * @remarks
+   * Details about each certificate.
+   */
   certList?: DescribeCdnSSLCertificateListResponseBodyCertificateListModelCertList;
+  /**
+   * @remarks
+   * The number of certificates.
+   * 
+   * @example
+   * 2
+   */
   count?: number;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 2
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: an integer from 1 to 1000.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14405,7 +23837,21 @@ export class DescribeCdnSSLCertificateListResponseBodyCertificateListModel exten
 }
 
 export class DescribeCdnSecFuncInfoResponseBodyContent extends $tea.Model {
+  /**
+   * @remarks
+   * The tag.
+   * 
+   * @example
+   * TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+   */
   label?: string;
+  /**
+   * @remarks
+   * The value.
+   * 
+   * @example
+   * TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14427,6 +23873,13 @@ export class DescribeCdnSecFuncInfoResponseBodyContent extends $tea.Model {
 }
 
 export class DescribeCdnServiceResponseBodyOperationLocksLockReason extends $tea.Model {
+  /**
+   * @remarks
+   * The reason why the service is locked. A value of financial indicates that the service is locked due to overdue payments.
+   * 
+   * @example
+   * financial
+   */
   lockReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14464,11 +23917,109 @@ export class DescribeCdnServiceResponseBodyOperationLocks extends $tea.Model {
   }
 }
 
+export class DescribeCdnTypesResponseBodyCdnTypesCdnType extends $tea.Model {
+  /**
+   * @example
+   * Download Acceleration
+   */
+  desc?: string;
+  /**
+   * @example
+   * download
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnTypesResponseBodyCdnTypes extends $tea.Model {
+  cdnType?: DescribeCdnTypesResponseBodyCdnTypesCdnType[];
+  static names(): { [key: string]: string } {
+    return {
+      cdnType: 'CdnType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cdnType: { 'type': 'array', 'itemType': DescribeCdnTypesResponseBodyCdnTypesCdnType },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCdnUserBillHistoryResponseBodyBillHistoryDataBillHistoryDataItemBillingDataBillingDataItem extends $tea.Model {
+  /**
+   * @remarks
+   * The bandwidth. Unit: bit/s.
+   * 
+   * @example
+   * 4041
+   */
   bandwidth?: number;
+  /**
+   * @remarks
+   * The billable region. Valid values:
+   * 
+   * *   **CN**: Chinese mainland
+   * *   **OverSeas**: outside the Chinese mainland
+   * *   **AP1**: Asia Pacific 1
+   * *   **AP2**: Asia Pacific 2
+   * *   **AP3**: Asia Pacific 3
+   * *   **NA**: North America
+   * *   **SA**: South America
+   * *   **EU**: Europe
+   * *   **MEAA**: Middle East and Africa
+   * 
+   * @example
+   * AP1
+   */
   cdnRegion?: string;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   **StaticHttp**: static HTTP requests
+   * *   **DynamicHttp**: dynamic HTTP requests
+   * *   **DynamicHttps**: dynamic HTTPS requests
+   * 
+   * @example
+   * DynamicHttp
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The number of requests.
+   * 
+   * @example
+   * 203601
+   */
   count?: number;
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 24567
+   */
   flow?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14515,9 +24066,34 @@ export class DescribeCdnUserBillHistoryResponseBodyBillHistoryDataBillHistoryDat
 }
 
 export class DescribeCdnUserBillHistoryResponseBodyBillHistoryDataBillHistoryDataItem extends $tea.Model {
+  /**
+   * @remarks
+   * The beginning of the time range that was queried.
+   * 
+   * @example
+   * 2018-09-30T16:00:00Z
+   */
   billTime?: string;
+  /**
+   * @remarks
+   * The metering method.
+   * 
+   * @example
+   * month_4th_day_bandwidth
+   */
   billType?: string;
+  /**
+   * @remarks
+   * The billable items.
+   */
   billingData?: DescribeCdnUserBillHistoryResponseBodyBillHistoryDataBillHistoryDataItemBillingData;
+  /**
+   * @remarks
+   * The dimension.
+   * 
+   * @example
+   * flow
+   */
   dimension?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14562,8 +24138,29 @@ export class DescribeCdnUserBillHistoryResponseBodyBillHistoryData extends $tea.
 }
 
 export class DescribeCdnUserBillPredictionResponseBodyBillPredictionDataBillPredictionDataItem extends $tea.Model {
+  /**
+   * @remarks
+   * The billable region.
+   * 
+   * @example
+   * CN
+   */
   area?: string;
+  /**
+   * @remarks
+   * The time when the value used as the estimated value is generated. This parameter is returned only if the metering method is pay by 95th percentile, pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00, or pay by 4th peak bandwidth per month.
+   * 
+   * @example
+   * 2018-10-15T16:00:00Z
+   */
   timeStp?: string;
+  /**
+   * @remarks
+   * The estimated value.
+   * 
+   * @example
+   * 10000
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14606,11 +24203,77 @@ export class DescribeCdnUserBillPredictionResponseBodyBillPredictionData extends
 }
 
 export class DescribeCdnUserBillTypeResponseBodyBillTypeDataBillTypeDataItem extends $tea.Model {
+  /**
+   * @remarks
+   * The metering method.
+   * 
+   * > If the metering method is suffixed with \\*\\*_overseas\\*\\*, the billable region is outside the Chinese mainland. For example, "BillType": "month_avg_day_bandwidth_overseas" indicates that the metering method is pay by average daily peak bandwidth per month in a billable region outside the Chinese mainland.
+   * 
+   * Valid values:
+   * 
+   * *   hour_flow: pay by hourly data transfer
+   * *   day_bandwidth: pay by daily bandwidth
+   * *   month_95: pay by monthly 95th percentile bandwidth
+   * *   month_avg_day_bandwidth: pay by average daily peak bandwidth per month
+   * *   month_4th_day_bandwidth: pay by monthly 4th peak bandwidth
+   * *   month_avg_day_95: pay by average daily 95th percentile bandwidth per month
+   * *   month_95_night_half: pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00
+   * *   hour_vas: pay by value-added services per hour
+   * *   quic_hour_count: pay by hourly QUIC requests
+   * *   day_count: pay by daily requests
+   * *   hour_count: pay by hourly requests
+   * *   day_95: pay by daily 95th percentile bandwidth
+   * 
+   * @example
+   * month_avg_day_bandwidth_overseas
+   */
   billType?: string;
+  /**
+   * @remarks
+   * The billing cycle.
+   * 
+   * @example
+   * month
+   */
   billingCycle?: string;
+  /**
+   * @remarks
+   * The dimension. Valid values:
+   * 
+   * *   flow: traffic and bandwidth
+   * *   vas: value-added services (HTTPS and requests for dynamic content)
+   * *   quic: the number of QUIC requests
+   * *   websocket: the WebSocket communications protocol
+   * *   rtlog2sls: log entries delivered to Log Service in real time
+   * *   stationflow: traffic over the internal network
+   * 
+   * @example
+   * flow
+   */
   dimension?: string;
+  /**
+   * @remarks
+   * The time when the metering method ended.
+   * 
+   * @example
+   * 2018-10-31T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The name of the product.
+   * 
+   * @example
+   * cdn
+   */
   product?: string;
+  /**
+   * @remarks
+   * The time when the metering method started.
+   * 
+   * @example
+   * 2018-10-30T16:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14659,8 +24322,39 @@ export class DescribeCdnUserBillTypeResponseBodyBillTypeData extends $tea.Model 
 }
 
 export class DescribeCdnUserConfigsResponseBodyConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the configuration.
+   * 
+   * The configuration is specified by enterprise users and public service sectors.
+   * 
+   * @example
+   * allow_function
+   */
   argName?: string;
+  /**
+   * @remarks
+   * The value of the configuration. Valid values:
+   * 
+   * *   **cc_rule**: HTTP flood protection rules
+   * *   **ddos_dispatch**: integration with Anti-DDoS
+   * *   **edge_safe**: application security settings on POPs
+   * *   **blocked_regions**: blocked regions
+   * *   **http_acl_policy**: access control list (ACL) rules
+   * *   **bot_manager**: bot traffic management
+   * *   **ip_reputation**: IP reputation library
+   * 
+   * @example
+   * {\\"dcdn_allow\\":[\\"cc_rule\\",\\"ddos_dispatch\\"]}
+   */
   argValue?: string;
+  /**
+   * @remarks
+   * The name of the feature.
+   * 
+   * @example
+   * domain_business_control
+   */
   functionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14684,10 +24378,45 @@ export class DescribeCdnUserConfigsResponseBodyConfigs extends $tea.Model {
 }
 
 export class DescribeCdnUserDomainsByFuncResponseBodyDomainsPageDataSourcesSource extends $tea.Model {
+  /**
+   * @remarks
+   * The address of the origin server.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   content?: string;
+  /**
+   * @remarks
+   * The port of the origin server.
+   * 
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @remarks
+   * The priority of the configuration item.
+   * 
+   * @example
+   * 20
+   */
   priority?: string;
+  /**
+   * @remarks
+   * The type of the origin server.
+   * 
+   * @example
+   * ipaddr
+   */
   type?: string;
+  /**
+   * @remarks
+   * The weight of the origin server if multiple origin servers have been specified.
+   * 
+   * @example
+   * 10
+   */
   weight?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14734,15 +24463,99 @@ export class DescribeCdnUserDomainsByFuncResponseBodyDomainsPageDataSources exte
 }
 
 export class DescribeCdnUserDomainsByFuncResponseBodyDomainsPageData extends $tea.Model {
+  /**
+   * @remarks
+   * The type of workload accelerated by Alibaba Cloud CDN. Valid values:
+   * 
+   * *   **web**: image and small file distribution
+   * *   **download**: large file distribution
+   * *   **video**: on-demand video and audio streaming
+   * *   **liveStream**: live streaming
+   * 
+   * @example
+   * web
+   */
   cdnType?: string;
+  /**
+   * @remarks
+   * The CNAME assigned to the accelerated domain name.
+   * 
+   * @example
+   * example.com.w.alikunlun.com
+   */
   cname?: string;
+  /**
+   * @remarks
+   * The description of the status.
+   * 
+   * @example
+   * audit failed
+   */
   description?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The status of the accelerated domain name. Valid values:
+   * 
+   * *   **online**: The domain name is enabled.
+   * *   **offline**: The domain is disabled.
+   * *   **configuring**: The endpoint group is being configured.
+   * *   **configure_failed**: The domain failed to be configured.
+   * *   **checking**: The domain name is under review.
+   * *   **check_failed**: The domain name failed the review.
+   * *   **stopping**: The domain name is be disabled.
+   * *   **deleting**: being deleted
+   * 
+   * @example
+   * configure_failed
+   */
   domainStatus?: string;
+  /**
+   * @remarks
+   * The time when the accelerated domain name was added to Alibaba Cloud CDN.
+   * 
+   * @example
+   * 2015-10-28T11:05:52Z
+   */
   gmtCreated?: string;
+  /**
+   * @remarks
+   * The last time when the accelerated domain was modified.
+   * 
+   * @example
+   * 2015-10-29T10:15:31Z
+   */
   gmtModified?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-xxxxx
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The information about the origin server.
+   */
   sources?: DescribeCdnUserDomainsByFuncResponseBodyDomainsPageDataSources;
+  /**
+   * @remarks
+   * Indicates whether HTTPS is enabled. Valid values:
+   * 
+   * *   **on**
+   * *   **off**
+   * 
+   * @example
+   * on
+   */
   sslProtocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14799,14 +24612,86 @@ export class DescribeCdnUserDomainsByFuncResponseBodyDomains extends $tea.Model 
 }
 
 export class DescribeCdnUserResourcePackageResponseBodyResourcePackageInfosResourcePackageInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource plan.
+   * 
+   * @example
+   * cdnflowbag
+   */
   commodityCode?: string;
+  /**
+   * @remarks
+   * The remaining quota of the resource plan.
+   * 
+   * *   For a data transfer plan, the quota is measured in bytes.
+   * *   For a request resource plan, the quota is measured in the number of requests.
+   * 
+   * @example
+   * 10995089554629
+   */
   currCapacity?: string;
+  /**
+   * @remarks
+   * The name of the resource plan.
+   * 
+   * @example
+   * CDN data transfer plan (Chinese mainland)
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The expiration time.
+   * 
+   * @example
+   * 2018-07-01T08:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The total quota of the resource plan.
+   * 
+   * *   For a data transfer plan, the quota is measured in bytes.
+   * *   For a request resource plan, the quota is measured in the number of requests.
+   * 
+   * @example
+   * 536870912000
+   */
   initCapacity?: string;
+  /**
+   * @remarks
+   * The ID of the instance
+   * 
+   * @example
+   * FP-ilttxc23a
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The effective time.
+   * 
+   * @example
+   * 2017-12-05T19:10:58Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The status of the resource plan. Valid values:
+   * 
+   * *   **valid**: valid
+   * *   **closed**: expired
+   * 
+   * @example
+   * valid
+   */
   status?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * CDN data transfer plan
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14861,10 +24746,58 @@ export class DescribeCdnUserResourcePackageResponseBodyResourcePackageInfos exte
 }
 
 export class DescribeCdnWafDomainResponseBodyOutPutDomains extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the access control list (ACL) feature. Valid values:
+   * 
+   * *   **0**: disabled
+   * *   **1**: enabled
+   * 
+   * @example
+   * 1
+   */
   aclStatus?: string;
+  /**
+   * @remarks
+   * The status of protection against HTTP flood attacks. Valid values:
+   * 
+   * *   **0**: disabled
+   * *   **1**: enabled
+   * 
+   * @example
+   * 1
+   */
   ccStatus?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The WAF status of the domain name. Valid values:
+   * 
+   * *   **1**: The domain name is added to WAF or valid.
+   * *   **10**: The domain name is being added to WAF.
+   * *   **11**: The domain name failed to be added to WAF.
+   * 
+   * @example
+   * 1
+   */
   status?: string;
+  /**
+   * @remarks
+   * The status of WAF. Valid values:
+   * 
+   * *   **0**: disabled
+   * *   **1**: enabled
+   * 
+   * @example
+   * 1
+   */
   wafStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14892,12 +24825,65 @@ export class DescribeCdnWafDomainResponseBodyOutPutDomains extends $tea.Model {
 }
 
 export class DescribeCertificateInfoByIDResponseBodyCertInfosCertInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The time at which the certificate expires.
+   * 
+   * @example
+   * 2098-02-08 08:02:07 +0000 UTC
+   */
   certExpireTime?: string;
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * 1644xx
+   */
   certId?: string;
+  /**
+   * @remarks
+   * The name of the certificate.
+   * 
+   * @example
+   * example_cert
+   */
   certName?: string;
+  /**
+   * @remarks
+   * The type of the certificate.
+   * 
+   * *   free: a free certificate
+   * *   cas: a certificate purchased by using Certificate Management Service
+   * *   upload: a user-uploaded certificate
+   * 
+   * @example
+   * cas
+   */
   certType?: string;
+  /**
+   * @remarks
+   * The time when the certificate became effective.
+   * 
+   * @example
+   * 2015-12-21 08:02:07 +0000 UTC
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The domain names that use the certificate.
+   * 
+   * @example
+   * ["example.com"]
+   */
   domainList?: string;
+  /**
+   * @remarks
+   * The content of the certificate.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----\\nxxx-----END CERTIFICATE-----\\n
+   */
   httpsCrt?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14948,7 +24934,21 @@ export class DescribeCertificateInfoByIDResponseBodyCertInfos extends $tea.Model
 }
 
 export class DescribeDomainAverageResponseTimeResponseBodyAvgRTPerIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The average response time.
+   * 
+   * @example
+   * 3
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14989,12 +24989,61 @@ export class DescribeDomainAverageResponseTimeResponseBodyAvgRTPerInterval exten
 }
 
 export class DescribeDomainBpsDataResponseBodyBpsDataPerIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The bandwidth value in the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
+   * 
+   * @example
+   * 11286111
+   */
   domesticValue?: string;
+  /**
+   * @remarks
+   * The bandwidth data for HTTPS requests in the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
+   * 
+   * @example
+   * 11286111
+   */
   httpsDomesticValue?: string;
+  /**
+   * @remarks
+   * The bandwidth data for HTTPS requests in regions outside the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
+   * 
+   * @example
+   * 2000
+   */
   httpsOverseasValue?: string;
+  /**
+   * @remarks
+   * The bandwidth value for HTTPS requests. Unit: bit/s.
+   * 
+   * @example
+   * 11288111
+   */
   httpsValue?: string;
+  /**
+   * @remarks
+   * The bandwidth data in regions outside the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
+   * 
+   * @example
+   * 2000
+   */
   overseasValue?: string;
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The bandwidth. Unit: bit/s.
+   * 
+   * @example
+   * 11288111
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15045,8 +25094,29 @@ export class DescribeDomainBpsDataResponseBodyBpsDataPerInterval extends $tea.Mo
 }
 
 export class DescribeDomainBpsDataByLayerResponseBodyBpsDataIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2020-05-06T07:10:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The total amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 2838
+   */
   trafficValue?: string;
+  /**
+   * @remarks
+   * The peak bandwidth value. Unit: bit/s.
+   * 
+   * @example
+   * 75.68
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15089,9 +25159,37 @@ export class DescribeDomainBpsDataByLayerResponseBodyBpsDataInterval extends $te
 }
 
 export class DescribeDomainBpsDataByTimeStampResponseBodyBpsDataListBpsDataModel extends $tea.Model {
+  /**
+   * @remarks
+   * The bandwidth value.
+   * 
+   * @example
+   * 52119553
+   */
   bps?: number;
+  /**
+   * @remarks
+   * The name of the ISP.
+   * 
+   * @example
+   * unicom
+   */
   ispName?: string;
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * Liaoning
+   */
   locationName?: string;
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15136,12 +25234,61 @@ export class DescribeDomainBpsDataByTimeStampResponseBodyBpsDataList extends $te
 }
 
 export class DescribeDomainCcActivityLogResponseBodyActivityLog extends $tea.Model {
+  /**
+   * @remarks
+   * The action that was triggered.
+   * 
+   * @example
+   * deny
+   */
   action?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The name of the rule based on which rate limiting was triggered.
+   * 
+   * @example
+   * test
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The trigger of rate limiting.
+   * 
+   * @example
+   * Ip
+   */
   triggerObject?: string;
+  /**
+   * @remarks
+   * The period of time during which rate limiting remains effective.
+   * 
+   * @example
+   * 300
+   */
   ttl?: number;
+  /**
+   * @remarks
+   * The value of the trigger for rate limiting.
+   * 
+   * @example
+   * 1.2.3.4
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15173,20 +25320,152 @@ export class DescribeDomainCcActivityLogResponseBodyActivityLog extends $tea.Mod
 }
 
 export class DescribeDomainCertificateInfoResponseBodyCertInfosCertInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name that matches the certificate.
+   * 
+   * @example
+   * example.com
+   */
   certDomainName?: string;
+  /**
+   * @remarks
+   * The time at which the certificate expires.
+   * 
+   * @example
+   * 2018-06-03T22:03:39Z
+   */
   certExpireTime?: string;
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * 9002448
+   */
   certId?: string;
+  /**
+   * @remarks
+   * The unit of the validity period of the certificate. Valid values:
+   * 
+   * *   **months**
+   * *   **years**
+   * 
+   * @example
+   * months
+   */
   certLife?: string;
+  /**
+   * @remarks
+   * The name of the certificate.
+   * 
+   * @example
+   * example.com
+   */
   certName?: string;
+  /**
+   * @remarks
+   * The name of the certificate authority (CA) that issued the certificate.
+   * 
+   * @example
+   * Let\\"s Encrypt
+   */
   certOrg?: string;
+  /**
+   * @remarks
+   * The region where the certificate is used.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   certRegion?: string;
+  /**
+   * @remarks
+   * The time when the certificate became effective.
+   * 
+   * @example
+   * 2018-06-03T22:03:39Z
+   */
   certStartTime?: string;
+  /**
+   * @remarks
+   * The type of the certificate.
+   * 
+   * *   **free**: a free certificate
+   * *   **cas**: a certificate that is purchased by using Certificate Management Service
+   * *   **upload**: a custom certificate that you upload
+   * 
+   * @example
+   * free
+   */
   certType?: string;
+  /**
+   * @remarks
+   * The time at which the certificate was updated.
+   * 
+   * @example
+   * 2018-06-03T22:03:39Z
+   */
   certUpdateTime?: string;
+  /**
+   * @remarks
+   * The CNAME status of the domain name.
+   * 
+   * *   **ok**: The domain name points to the CNAME assigned by Alibaba Cloud CDN.
+   * *   **cname_error**: An error occurred and the domain name cannot point to the CNAME.
+   * *   **op_domain_cname_error** : An error occurred to the CNAME of the top-level domain. The domain name cannot point to the CNAME.
+   * *   **unsupport_wildcard**: The wildcard domain name is not supported.
+   * 
+   * @example
+   * ok
+   */
   domainCnameStatus?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The public key of the certificate.
+   * 
+   * @example
+   * asdadaxxxx
+   */
   serverCertificate?: string;
+  /**
+   * @remarks
+   * The status of HTTPS.
+   * 
+   * *   **on**
+   * *   **off**
+   * 
+   * @example
+   * on
+   */
   serverCertificateStatus?: string;
+  /**
+   * @remarks
+   * The status of the certificate. Valid values:
+   * 
+   * *   **success**: The certificate has taken effect.
+   * *   **checking**: The system is checking whether the domain name is using Alibaba Cloud CDN.
+   * *   **cname_error**: No valid CNAME record has been added for the domain name.
+   * *   **top_domain_cname_error**: No valid CNAME record has been added for the top-level domain.
+   * *   **domain_invalid**: The domain name contains invalid characters.
+   * *   **unsupport_wildcard**: The domain name is a wildcard domain name. Wildcard domain names are not supported.
+   * *   **applying**: The certificate application is in progress.
+   * *   **get_token_timeout**: The certificate application request has timed out.
+   * *   **check_token_timeout**: The verification has timed out.
+   * *   **get_cert_timeout**: The request to obtain the certificate has timed out.
+   * *   **failed**: The certificate application request failed.
+   * 
+   * @example
+   * success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15253,8 +25532,32 @@ export class DescribeDomainCertificateInfoResponseBodyCertInfos extends $tea.Mod
 }
 
 export class DescribeDomainCnameResponseBodyCnameDatasData extends $tea.Model {
+  /**
+   * @remarks
+   * The CNAME assigned to the domain name by Alibaba Cloud CDN.
+   * 
+   * @example
+   * a.com.w.alikunlun.net
+   */
   cname?: string;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * a.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The CNAME detection result. Valid values:
+   * 
+   * *   0: The DNS can detect the CNAME assigned to the domain name.
+   * *   Value other than 0: The DNS cannot detect the CNAME assigned to the domain name.
+   * 
+   * @example
+   * 0
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15297,16 +25600,104 @@ export class DescribeDomainCnameResponseBodyCnameDatas extends $tea.Model {
 }
 
 export class DescribeDomainDetailDataByLayerResponseBodyDataDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2
+   */
   acc?: number;
+  /**
+   * @remarks
+   * The bandwidth of IPv6 requests. Unit: bit/s.
+   * 
+   * @example
+   * 21060178715.146667
+   */
   bps?: number;
+  /**
+   * @remarks
+   * The number of requests.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * - You can call this operation up to 20 times per second per account.
+   * - If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
+   * 
+   * **Time granularity**
+   * 
+   * The following table describes the time granularity, the time period within which historical data is available, and the data delay, which vary with the maximum time range per query. 
+   * 
+   * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+   * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+   * | 5 minutes | 3 days | 93 days | 15 minutes |
+   * | 1 hour | 31 days | 186 days | 4 hours |
+   * | 1 days | 366 days | 366 days | 04:00 on the next day |
+   * 
+   * @example
+   * 200:44349|206:1753719|304:45|403:1095|416:1|499:332
+   */
   httpCode?: string;
+  /**
+   * @remarks
+   * The bandwidth. Unit: bit/s.
+   * 
+   * @example
+   * 1
+   */
   ipv6Acc?: number;
+  /**
+   * @remarks
+   * The number of IPv6 requests.
+   * 
+   * @example
+   * 0
+   */
   ipv6Bps?: number;
+  /**
+   * @remarks
+   * The amount of network traffic generated by IPv6 requests. Unit: bytes.
+   * 
+   * @example
+   * 0
+   */
   ipv6Qps?: number;
+  /**
+   * @remarks
+   * The proportions of HTTP status codes.
+   * 
+   * @example
+   * 141718944482
+   */
   ipv6Traf?: number;
+  /**
+   * @remarks
+   * The number of requests.
+   * 
+   * @example
+   * 5998.47
+   */
   qps?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * 2020-07-05T22:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The bandwidth of IPv6 requests. Unit: bit/s.
+   * 
+   * @example
+   * 789756701818
+   */
   traf?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15365,8 +25756,29 @@ export class DescribeDomainDetailDataByLayerResponseBodyData extends $tea.Model 
 }
 
 export class DescribeDomainHitRateDataResponseBodyHitRateIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The byte hit ratio of HTTPS requests.
+   * 
+   * @example
+   * 50.0
+   */
   httpsValue?: string;
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2019-12-30T08:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The byte hit ratio.
+   * 
+   * @example
+   * 100.0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15409,8 +25821,29 @@ export class DescribeDomainHitRateDataResponseBodyHitRateInterval extends $tea.M
 }
 
 export class DescribeDomainHttpCodeDataResponseBodyHttpCodeDataUsageDataValueCodeProportionData extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The count of each HTTP status code.
+   * 
+   * @example
+   * 300
+   */
   count?: string;
+  /**
+   * @remarks
+   * The proportion of the HTTP status code.
+   * 
+   * @example
+   * 66.046511627907
+   */
   proportion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15453,7 +25886,18 @@ export class DescribeDomainHttpCodeDataResponseBodyHttpCodeDataUsageDataValue ex
 }
 
 export class DescribeDomainHttpCodeDataResponseBodyHttpCodeDataUsageData extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2021-06-29T05:40:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The information about the HTTP status codes.
+   */
   value?: DescribeDomainHttpCodeDataResponseBodyHttpCodeDataUsageDataValue;
   static names(): { [key: string]: string } {
     return {
@@ -15494,8 +25938,29 @@ export class DescribeDomainHttpCodeDataResponseBodyHttpCodeData extends $tea.Mod
 }
 
 export class DescribeDomainHttpCodeDataByLayerResponseBodyHttpCodeDataIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2015-12-10T20:35:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The total number of times that HTTP status codes were returned.
+   * 
+   * @example
+   * 110
+   */
   totalValue?: string;
+  /**
+   * @remarks
+   * The number of times that the HTTP status code was returned.
+   * 
+   * @example
+   * { "200": 10, "206": 100}
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15538,17 +26003,101 @@ export class DescribeDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterval e
 }
 
 export class DescribeDomainISPDataResponseBodyValueISPProportionData extends $tea.Model {
+  /**
+   * @remarks
+   * The average response size. Unit: bytes.
+   * 
+   * @example
+   * 7081884.7
+   */
   avgObjectSize?: string;
+  /**
+   * @remarks
+   * The average response speed. Unit: byte/ms.
+   * 
+   * @example
+   * 88.92594866772144
+   */
   avgResponseRate?: string;
+  /**
+   * @remarks
+   * The average response time. Unit: milliseconds.
+   * 
+   * @example
+   * 79638.0
+   */
   avgResponseTime?: string;
+  /**
+   * @remarks
+   * The bandwidth.
+   * 
+   * @example
+   * 1311.4601296296296
+   */
   bps?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic.
+   * 
+   * @example
+   * 0.012220518530445479
+   */
   bytesProportion?: string;
+  /**
+   * @remarks
+   * The information about the ISP.
+   * 
+   * @example
+   * Alibaba
+   */
   ISP?: string;
+  /**
+   * @remarks
+   * The name of the ISP.
+   * 
+   * @example
+   * alibaba
+   */
   ispEname?: string;
+  /**
+   * @remarks
+   * The proportion of the HTTP status code.
+   * 
+   * @example
+   * 0.004509176173513099
+   */
   proportion?: string;
+  /**
+   * @remarks
+   * The QPS.
+   * 
+   * @example
+   * 2.3148148148148147E-5
+   */
   qps?: string;
+  /**
+   * @remarks
+   * The request error rate.
+   * 
+   * @example
+   * 0.0
+   */
   reqErrRate?: string;
+  /**
+   * @remarks
+   * The total volume of traffic.
+   * 
+   * @example
+   * 7081884
+   */
   totalBytes?: string;
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 1
+   */
   totalQuery?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15609,9 +26158,37 @@ export class DescribeDomainISPDataResponseBodyValue extends $tea.Model {
 }
 
 export class DescribeDomainMax95BpsDataResponseBodyDetailDataMax95Detail extends $tea.Model {
+  /**
+   * @remarks
+   * Region of the 95th percentile bandwidth.
+   * 
+   * @example
+   * CN
+   */
   area?: string;
+  /**
+   * @remarks
+   * The 95th percentile bandwidth.
+   * 
+   * @example
+   * 16777590.28
+   */
   max95Bps?: number;
+  /**
+   * @remarks
+   * Time of the 95th percentile bandwidth.
+   * 
+   * @example
+   * 2015-12-11T21:05:00Z
+   */
   max95BpsPeakTime?: string;
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2015-12-11T21:00:00Z
+   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15656,9 +26233,39 @@ export class DescribeDomainMax95BpsDataResponseBodyDetailData extends $tea.Model
 }
 
 export class DescribeDomainMultiUsageDataResponseBodyRequestPerIntervalRequestDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The number of requests.
+   * 
+   * @example
+   * 11288111
+   */
   request?: number;
+  /**
+   * @remarks
+   * The timestamp of the returned number of requests.
+   * 
+   * @example
+   * 2017-12-10T20:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The type.
+   * 
+   * >  The value is Simple for Alibaba Cloud CDN.
+   * 
+   * @example
+   * Simple
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15703,10 +26310,51 @@ export class DescribeDomainMultiUsageDataResponseBodyRequestPerInterval extends 
 }
 
 export class DescribeDomainMultiUsageDataResponseBodyTrafficPerIntervalTrafficDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * CN
+   */
   area?: string;
+  /**
+   * @remarks
+   * The bandwidth. Unit: bit/s.
+   * 
+   * @example
+   * 11288111.1
+   */
   bps?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The startstamp of the returned usage data.
+   * 
+   * @example
+   * 2017-12-10T20:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The type of requests. Valid values:
+   * 
+   * *   **StaticHttps**: static HTTPS requests
+   * *   **DynamicHttps**: dynamic HTTPS requests
+   * *   **DynamicHttp**: dynamic HTTP requests
+   * *   **StaticQuic**: static QUIC requests
+   * *   **DynamicQuic**: dynamic QUIC requests
+   * 
+   * @example
+   * DynamicHttp
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15753,9 +26401,37 @@ export class DescribeDomainMultiUsageDataResponseBodyTrafficPerInterval extends 
 }
 
 export class DescribeDomainPathDataResponseBodyPathDataPerIntervalUsageData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 10
+   */
   acc?: number;
+  /**
+   * @remarks
+   * The path.
+   * 
+   * @example
+   * /path/
+   */
   path?: string;
+  /**
+   * @remarks
+   * The point in time.
+   * 
+   * @example
+   * 2017-09-30T16:00:00Z
+   */
   time?: string;
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 346
+   */
   traffic?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15800,7 +26476,21 @@ export class DescribeDomainPathDataResponseBodyPathDataPerInterval extends $tea.
 }
 
 export class DescribeDomainPvDataResponseBodyPvDataIntervalUsageData extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2015-11-28T03:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The number of PVs.
+   * 
+   * @example
+   * 9292
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15841,18 +26531,109 @@ export class DescribeDomainPvDataResponseBodyPvDataInterval extends $tea.Model {
 }
 
 export class DescribeDomainQpsDataResponseBodyQpsDataIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The number of requests in the Chinese mainland.
+   * 
+   * @example
+   * 0
+   */
   accDomesticValue?: string;
+  /**
+   * @remarks
+   * The number of requests outside the Chinese mainland.
+   * 
+   * @example
+   * 0
+   */
   accOverseasValue?: string;
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 0
+   */
   accValue?: string;
+  /**
+   * @remarks
+   * The number of queries per second in the Chinese mainland.
+   * 
+   * @example
+   * 0
+   */
   domesticValue?: string;
+  /**
+   * @remarks
+   * The number of HTTPS requests sent to POPs in the Chinese mainland.
+   * 
+   * @example
+   * 1
+   */
   httpsAccDomesticValue?: string;
+  /**
+   * @remarks
+   * The number of HTTPS requests sent to POPs outside the Chinese mainland.
+   * 
+   * @example
+   * 1
+   */
   httpsAccOverseasValue?: string;
+  /**
+   * @remarks
+   * The number of HTTPS requests sent to POPs.
+   * 
+   * @example
+   * 1
+   */
   httpsAccValue?: string;
+  /**
+   * @remarks
+   * The number of queries per second that is calculated based on the HTTPS requests sent to POPs in the Chinese mainland.
+   * 
+   * @example
+   * 1
+   */
   httpsDomesticValue?: string;
+  /**
+   * @remarks
+   * The number of queries per second that is calculated based on the HTTPS requests sent to POPs outside the Chinese mainland.
+   * 
+   * @example
+   * 1
+   */
   httpsOverseasValue?: string;
+  /**
+   * @remarks
+   * The number of queries per second that is calculated based on the HTTPS requests sent to points of presence (POPs).
+   * 
+   * @example
+   * 1
+   */
   httpsValue?: string;
+  /**
+   * @remarks
+   * The number of queries per second outside the Chinese mainland.
+   * 
+   * @example
+   * 0
+   */
   overseasValue?: string;
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The total QPS.
+   * 
+   * @example
+   * 0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15915,12 +26696,61 @@ export class DescribeDomainQpsDataResponseBodyQpsDataInterval extends $tea.Model
 }
 
 export class DescribeDomainQpsDataByLayerResponseBodyQpsDataIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The number of requests in the Chinese mainland.
+   * 
+   * @example
+   * 12
+   */
   accDomesticValue?: string;
+  /**
+   * @remarks
+   * The number of requests outside the Chinese mainland.
+   * 
+   * @example
+   * 44
+   */
   accOverseasValue?: string;
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 56
+   */
   accValue?: string;
+  /**
+   * @remarks
+   * The number of queries per second in the Chinese mainland.
+   * 
+   * @example
+   * 0.12
+   */
   domesticValue?: string;
+  /**
+   * @remarks
+   * The number of queries per second outside the Chinese mainland.
+   * 
+   * @example
+   * 0.44
+   */
   overseasValue?: string;
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2015-12-10T21:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The total number of queries per second.
+   * 
+   * @example
+   * 0.56
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15971,7 +26801,21 @@ export class DescribeDomainQpsDataByLayerResponseBodyQpsDataInterval extends $te
 }
 
 export class DescribeDomainRealTimeBpsDataResponseBodyDataBpsModel extends $tea.Model {
+  /**
+   * @remarks
+   * The bandwidth. Unit: bit/s.
+   * 
+   * @example
+   * 16710625.733333332
+   */
   bps?: number;
+  /**
+   * @remarks
+   * The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2019-11-30T05:41:00Z
+   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16012,7 +26856,21 @@ export class DescribeDomainRealTimeBpsDataResponseBodyData extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeByteHitRateDataResponseBodyDataByteHitRateDataModel extends $tea.Model {
+  /**
+   * @remarks
+   * The byte hit ratio. The byte hit ratio is measured in percentage.
+   * 
+   * @example
+   * 0.8956940476262277
+   */
   byteHitRate?: number;
+  /**
+   * @remarks
+   * The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2019-11-30T05:40:00Z
+   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16053,8 +26911,29 @@ export class DescribeDomainRealTimeByteHitRateDataResponseBodyData extends $tea.
 }
 
 export class DescribeDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValueRealTimeCodeProportionData extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 500
+   */
   code?: string;
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 100
+   */
   count?: string;
+  /**
+   * @remarks
+   * The proportion of the HTTP status code.
+   * 
+   * @example
+   * 28.4496124031008
+   */
   proportion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16097,7 +26976,18 @@ export class DescribeDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataU
 }
 
 export class DescribeDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageData extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2019-11-29T05:39:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The proportions of the HTTP status codes.
+   */
   value?: DescribeDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValue;
   static names(): { [key: string]: string } {
     return {
@@ -16138,7 +27028,21 @@ export class DescribeDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeData 
 }
 
 export class DescribeDomainRealTimeQpsDataResponseBodyDataQpsModel extends $tea.Model {
+  /**
+   * @remarks
+   * The number of queries per second.
+   * 
+   * @example
+   * 1851.25
+   */
   qps?: number;
+  /**
+   * @remarks
+   * The timestamp of the data returned. The time follows the yyyy-MM-ddTHH:mm:ssZ format in the ISO 8601 standard and is in UTC.
+   * 
+   * @example
+   * 2019-12-02T11:25:00Z
+   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16179,7 +27083,21 @@ export class DescribeDomainRealTimeQpsDataResponseBodyData extends $tea.Model {
 }
 
 export class DescribeDomainRealTimeReqHitRateDataResponseBodyDataReqHitRateDataModel extends $tea.Model {
+  /**
+   * @remarks
+   * The request hit ratio.
+   * 
+   * @example
+   * 0.8956940476262277
+   */
   reqHitRate?: number;
+  /**
+   * @remarks
+   * The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2018-01-02T11:26:00Z
+   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16220,7 +27138,21 @@ export class DescribeDomainRealTimeReqHitRateDataResponseBodyData extends $tea.M
 }
 
 export class DescribeDomainRealTimeSrcBpsDataResponseBodyRealTimeSrcBpsDataPerIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2019-12-10T20:01:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The bandwidth during back-to-origin routing. Unit: bit/s.
+   * 
+   * @example
+   * 0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16261,8 +27193,29 @@ export class DescribeDomainRealTimeSrcBpsDataResponseBodyRealTimeSrcBpsDataPerIn
 }
 
 export class DescribeDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHttpCodeDataUsageDataValueRealTimeSrcCodeProportionData extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The count of each HTTP status code.
+   * 
+   * @example
+   * 100
+   */
   count?: string;
+  /**
+   * @remarks
+   * The proportion of the HTTP status code.
+   * 
+   * @example
+   * 0.62015503875969
+   */
   proportion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16305,7 +27258,18 @@ export class DescribeDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHttpCod
 }
 
 export class DescribeDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHttpCodeDataUsageData extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2015-11-30T05:40:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The proportions of the HTTP status codes.
+   */
   value?: DescribeDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHttpCodeDataUsageDataValue;
   static names(): { [key: string]: string } {
     return {
@@ -16346,7 +27310,21 @@ export class DescribeDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHttpCod
 }
 
 export class DescribeDomainRealTimeSrcTrafficDataResponseBodyRealTimeSrcTrafficDataPerIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2019-12-10T20:01:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The amount of traffic.
+   * 
+   * @example
+   * 0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16387,7 +27365,21 @@ export class DescribeDomainRealTimeSrcTrafficDataResponseBodyRealTimeSrcTrafficD
 }
 
 export class DescribeDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2019-12-10T20:01:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The traffic value at each time interval.
+   * 
+   * @example
+   * 0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16428,17 +27420,101 @@ export class DescribeDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPer
 }
 
 export class DescribeDomainRegionDataResponseBodyValueRegionProportionData extends $tea.Model {
+  /**
+   * @remarks
+   * The average response size. Unit: bytes.
+   * 
+   * @example
+   * 800019.0
+   */
   avgObjectSize?: string;
+  /**
+   * @remarks
+   * The average response speed. Unit: bit/s.
+   * 
+   * @example
+   * 154.3345765545624
+   */
   avgResponseRate?: string;
+  /**
+   * @remarks
+   * The average response time. Unit: milliseconds.
+   * 
+   * @example
+   * 5183.666666666667
+   */
   avgResponseTime?: string;
+  /**
+   * @remarks
+   * The bandwidth.
+   * 
+   * @example
+   * 380.9614285714286
+   */
   bps?: string;
+  /**
+   * @remarks
+   * The proportion of traffic from the region. For example, a value of 90 indicates that 90% of the traffic is from the region.
+   * 
+   * @example
+   * 0.003544181046236794
+   */
   bytesProportion?: string;
+  /**
+   * @remarks
+   * The proportion of visits from the region. For example, a value of 90 indicates that 90% of the visits are from the region.
+   * 
+   * @example
+   * 0.01155980271270037
+   */
   proportion?: string;
+  /**
+   * @remarks
+   * The number of queries per second.
+   * 
+   * @example
+   * 5.9523809523809524E-5
+   */
   qps?: string;
+  /**
+   * @remarks
+   * The information about the region.
+   * 
+   * @example
+   * Japan
+   */
   region?: string;
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * japan
+   */
   regionEname?: string;
+  /**
+   * @remarks
+   * The request error rate. A value of 90 indicates that 90% of the requests encountered errors.
+   * 
+   * @example
+   * 0.0
+   */
   reqErrRate?: string;
+  /**
+   * @remarks
+   * The total traffic. Unit: bytes.
+   * 
+   * @example
+   * 2400057
+   */
   totalBytes?: string;
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 3
+   */
   totalQuery?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16499,8 +27575,29 @@ export class DescribeDomainRegionDataResponseBodyValue extends $tea.Model {
 }
 
 export class DescribeDomainReqHitRateDataResponseBodyReqHitRateIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The hit ratio of HTTPS requests.
+   * 
+   * @example
+   * 50.0
+   */
   httpsValue?: string;
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2017-12-22T08:00:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The request hit ratio.
+   * 
+   * @example
+   * 100.0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16543,8 +27640,29 @@ export class DescribeDomainReqHitRateDataResponseBodyReqHitRateInterval extends 
 }
 
 export class DescribeDomainSrcBpsDataResponseBodySrcBpsDataPerIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The bandwidth values of origin HTTPS requests.
+   * 
+   * @example
+   * 10
+   */
   httpsValue?: string;
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2019-12-10T20:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The traffic value at each time interval.
+   * 
+   * @example
+   * 500
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16587,8 +27705,29 @@ export class DescribeDomainSrcBpsDataResponseBodySrcBpsDataPerInterval extends $
 }
 
 export class DescribeDomainSrcHttpCodeDataResponseBodyHttpCodeDataUsageDataValueCodeProportionData extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 2300
+   */
   count?: string;
+  /**
+   * @remarks
+   * The proportion of the HTTP status code.
+   * 
+   * @example
+   * 67.1458998935037
+   */
   proportion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16631,7 +27770,18 @@ export class DescribeDomainSrcHttpCodeDataResponseBodyHttpCodeDataUsageDataValue
 }
 
 export class DescribeDomainSrcHttpCodeDataResponseBodyHttpCodeDataUsageData extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2015-11-30T05:30:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The proportions of the HTTP status codes.
+   */
   value?: DescribeDomainSrcHttpCodeDataResponseBodyHttpCodeDataUsageDataValue;
   static names(): { [key: string]: string } {
     return {
@@ -16672,7 +27822,21 @@ export class DescribeDomainSrcHttpCodeDataResponseBodyHttpCodeData extends $tea.
 }
 
 export class DescribeDomainSrcQpsDataResponseBodySrcQpsDataPerIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2015-12-10T21:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The QPS value.
+   * 
+   * @example
+   * 0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16713,10 +27877,45 @@ export class DescribeDomainSrcQpsDataResponseBodySrcQpsDataPerInterval extends $
 }
 
 export class DescribeDomainSrcTopUrlVisitResponseBodyAllUrlListUrlList extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
   flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
   flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/a0.m3u8
+   */
   urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
   visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16763,10 +27962,45 @@ export class DescribeDomainSrcTopUrlVisitResponseBodyAllUrlList extends $tea.Mod
 }
 
 export class DescribeDomainSrcTopUrlVisitResponseBodyUrl200ListUrlList extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
   flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
   flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/a0.m3u8
+   */
   urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
   visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16813,10 +28047,45 @@ export class DescribeDomainSrcTopUrlVisitResponseBodyUrl200List extends $tea.Mod
 }
 
 export class DescribeDomainSrcTopUrlVisitResponseBodyUrl300ListUrlList extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
   flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
   flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/a0.m3u8
+   */
   urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
   visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16863,10 +28132,45 @@ export class DescribeDomainSrcTopUrlVisitResponseBodyUrl300List extends $tea.Mod
 }
 
 export class DescribeDomainSrcTopUrlVisitResponseBodyUrl400ListUrlList extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
   flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
   flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/a0.m3u8
+   */
   urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
   visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16913,10 +28217,45 @@ export class DescribeDomainSrcTopUrlVisitResponseBodyUrl400List extends $tea.Mod
 }
 
 export class DescribeDomainSrcTopUrlVisitResponseBodyUrl500ListUrlList extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
   flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
   flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/a0.m3u8
+   */
   urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
   visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16963,8 +28302,29 @@ export class DescribeDomainSrcTopUrlVisitResponseBodyUrl500List extends $tea.Mod
 }
 
 export class DescribeDomainSrcTrafficDataResponseBodySrcTrafficDataPerIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of traffic generated by origin HTTPS requests.
+   * 
+   * @example
+   * 0
+   */
   httpsValue?: string;
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2015-12-10T20:35:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The traffic value at each time interval.
+   * 
+   * @example
+   * 0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17007,9 +28367,37 @@ export class DescribeDomainSrcTrafficDataResponseBodySrcTrafficDataPerInterval e
 }
 
 export class DescribeDomainTopClientIpVisitResponseBodyClientIpList extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 256
+   */
   acc?: number;
+  /**
+   * @remarks
+   * The client IP address returned. Only IPv4 addressed are supported.
+   * 
+   * @example
+   * 1.1.xxx
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * The ranking of the client IP address returned.
+   * 
+   * @example
+   * 2
+   */
   rank?: number;
+  /**
+   * @remarks
+   * The total amount of network traffic consumed. Unit: bytes.
+   * 
+   * @example
+   * 1024
+   */
   traffic?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17035,10 +28423,45 @@ export class DescribeDomainTopClientIpVisitResponseBodyClientIpList extends $tea
 }
 
 export class DescribeDomainTopReferVisitResponseBodyTopReferListReferList extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 200
+   */
   flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.5
+   */
   flowProportion?: number;
+  /**
+   * @remarks
+   * The URLs to the most frequently requested web pages.
+   * 
+   * @example
+   * learn.aliyundoc.com
+   */
   referDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 3
+   */
   visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.5
+   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17085,10 +28508,45 @@ export class DescribeDomainTopReferVisitResponseBodyTopReferList extends $tea.Mo
 }
 
 export class DescribeDomainTopUrlVisitResponseBodyAllUrlListUrlList extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
   flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
   flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/a0.m3u8
+   */
   urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
   visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17135,10 +28593,45 @@ export class DescribeDomainTopUrlVisitResponseBodyAllUrlList extends $tea.Model 
 }
 
 export class DescribeDomainTopUrlVisitResponseBodyUrl200ListUrlList extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
   flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
   flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/aWQ9SE5KU0bGxfcGNfbGl2ZQ,,/HNJSMPP360.m3u8
+   */
   urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
   visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17185,10 +28678,45 @@ export class DescribeDomainTopUrlVisitResponseBodyUrl200List extends $tea.Model 
 }
 
 export class DescribeDomainTopUrlVisitResponseBodyUrl300ListUrlList extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
   flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
   flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/a0.m3u8
+   */
   urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
   visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17235,10 +28763,45 @@ export class DescribeDomainTopUrlVisitResponseBodyUrl300List extends $tea.Model 
 }
 
 export class DescribeDomainTopUrlVisitResponseBodyUrl400ListUrlList extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
   flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
   flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/aWQ9SE5KU01QUhbGxfcGNfbGl2ZQ,,/HNJSMPP360.m3u8
+   */
   urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 1884
+   */
   visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17285,10 +28848,45 @@ export class DescribeDomainTopUrlVisitResponseBodyUrl400List extends $tea.Model 
 }
 
 export class DescribeDomainTopUrlVisitResponseBodyUrl500ListUrlList extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
   flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
   flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/aWQ9SE5KU0GNfbGl2ZQ,,/HNJSMPP360.m3u8
+   */
   urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
   visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17335,12 +28933,61 @@ export class DescribeDomainTopUrlVisitResponseBodyUrl500List extends $tea.Model 
 }
 
 export class DescribeDomainTrafficDataResponseBodyTrafficDataPerIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of network traffic in the Chinese mainland.
+   * 
+   * @example
+   * 0
+   */
   domesticValue?: string;
+  /**
+   * @remarks
+   * The amount of HTTPS traffic on points of presence (POPs) in the Chinese mainland.
+   * 
+   * @example
+   * 0
+   */
   httpsDomesticValue?: string;
+  /**
+   * @remarks
+   * The amount of HTTPS traffic on POPs outside the Chinese mainland.
+   * 
+   * @example
+   * 0
+   */
   httpsOverseasValue?: string;
+  /**
+   * @remarks
+   * The total amount of HTTPS traffic on POPs.
+   * 
+   * @example
+   * 423304182
+   */
   httpsValue?: string;
+  /**
+   * @remarks
+   * The amount of network traffic outside the Chinese mainland.
+   * 
+   * @example
+   * 0
+   */
   overseasValue?: string;
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2015-12-10T20:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The total volume of traffic.
+   * 
+   * @example
+   * 423304182
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17391,9 +29038,41 @@ export class DescribeDomainTrafficDataResponseBodyTrafficDataPerInterval extends
 }
 
 export class DescribeDomainUsageDataResponseBodyUsageDataPerIntervalDataModule extends $tea.Model {
+  /**
+   * @remarks
+   * The time of the peak bandwidth value if the **Field** parameter in the request is set to **bps**. Otherwise, this parameter returns the same value as the **TimeStamp** parameter.
+   * 
+   * @example
+   * 2015-12-10T21:30:00Z
+   */
   peakTime?: string;
+  /**
+   * @remarks
+   * The resource usage in a specific scenario.
+   * 
+   * > SpecialValue indicates the data usage in a specific scenario. If no special billable item is specified, ignore this parameter.
+   * 
+   * @example
+   * 423304182
+   */
   specialValue?: string;
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * > **TimeStamp** indicates the timestamp of the data returned at each interval.
+   * 
+   * @example
+   * 2015-12-10T21:30:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The amount of resource usage.
+   * 
+   * @example
+   * 423304182
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17438,7 +29117,21 @@ export class DescribeDomainUsageDataResponseBodyUsageDataPerInterval extends $te
 }
 
 export class DescribeDomainUvDataResponseBodyUvDataIntervalUsageData extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2019-11-29T00:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The number of UVs.
+   * 
+   * @example
+   * 318
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17479,11 +29172,64 @@ export class DescribeDomainUvDataResponseBodyUvDataInterval extends $tea.Model {
 }
 
 export class DescribeDomainsBySourceResponseBodyDomainsListDomainsDataDomainInfosDomainInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The workload type of the accelerated domain name. Valid values:
+   * 
+   * *   **web**: images and small files
+   * *   **download**: large files
+   * *   **video**: on-demand video and audio streaming
+   * 
+   * @example
+   * web
+   */
   cdnType?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2016-07-12T11:53:19+08:00
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The CNAME record assigned to the domain name.
+   * 
+   * @example
+   * ***.alikunlun.com
+   */
   domainCname?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.org
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The status of the domain name. Valid values:
+   * 
+   * *   **applying**: The domain name is under review.
+   * *   **configuring**: The domain name is being configured.
+   * *   **online**: The domain name is working as expected.
+   * *   **stopping**: The domain name is being stopped.
+   * *   **offline**: The domain name is disabled.
+   * *   **disabling**: The domain name is being removed.
+   * 
+   * @example
+   * online
+   */
   status?: string;
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 2017-03-31T04:49:00+08:00
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17551,8 +29297,23 @@ export class DescribeDomainsBySourceResponseBodyDomainsListDomainsDataDomains ex
 }
 
 export class DescribeDomainsBySourceResponseBodyDomainsListDomainsData extends $tea.Model {
+  /**
+   * @remarks
+   * Information about the domain name.
+   */
   domainInfos?: DescribeDomainsBySourceResponseBodyDomainsListDomainsDataDomainInfos;
+  /**
+   * @remarks
+   * The domain names that correspond to each origin server.
+   */
   domains?: DescribeDomainsBySourceResponseBodyDomainsListDomainsDataDomains;
+  /**
+   * @remarks
+   * The origin server.
+   * 
+   * @example
+   * example.com
+   */
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17595,15 +29356,85 @@ export class DescribeDomainsBySourceResponseBodyDomainsList extends $tea.Model {
 }
 
 export class DescribeDomainsUsageByDayResponseBodyUsageByDaysUsageByDay extends $tea.Model {
+  /**
+   * @remarks
+   * The byte hit ratio. The byte hit ratio is measured in percentage.
+   * 
+   * @example
+   * 97.46250599529726
+   */
   bytesHitRate?: string;
+  /**
+   * @remarks
+   * The peak bandwidth value. Unit: bit/s.
+   * 
+   * @example
+   * 306747.76
+   */
   maxBps?: string;
+  /**
+   * @remarks
+   * The time when the bandwidth reached the peak value.
+   * 
+   * @example
+   * 2019-12-23 10:55:00
+   */
   maxBpsTime?: string;
+  /**
+   * @remarks
+   * The peak bandwidth value during back-to-origin routing. Unit: bit/s.
+   * 
+   * @example
+   * 72584.072
+   */
   maxSrcBps?: string;
+  /**
+   * @remarks
+   * The time when the bandwidth during back-to-origin routing reached the peak value.
+   * 
+   * @example
+   * 2019-12-23 11:45:00
+   */
   maxSrcBpsTime?: string;
+  /**
+   * @remarks
+   * The number of queries per second (QPS).
+   * 
+   * @example
+   * 7.466354166666667
+   */
   qps?: string;
+  /**
+   * @remarks
+   * The cache hit ratio that is calculated based on requests. The cache hit ratio is measured in percentage.
+   * 
+   * @example
+   * 70.24770071912111
+   */
   requestHitRate?: string;
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2019-12-22
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * The total amount of requests.
+   * 
+   * @example
+   * 645093
+   */
   totalAccess?: string;
+  /**
+   * @remarks
+   * The total amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 564300099309
+   */
   totalTraffic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17660,13 +29491,69 @@ export class DescribeDomainsUsageByDayResponseBodyUsageByDays extends $tea.Model
 }
 
 export class DescribeDomainsUsageByDayResponseBodyUsageTotal extends $tea.Model {
+  /**
+   * @remarks
+   * The byte hit ratio. The byte hit ratio is measured in percentage.
+   * 
+   * @example
+   * 97.03110726801242
+   */
   bytesHitRate?: string;
+  /**
+   * @remarks
+   * The peak bandwidth value. Unit: bit/s.
+   * 
+   * @example
+   * 1.0747912780000001E8
+   */
   maxBps?: string;
+  /**
+   * @remarks
+   * The time when the bandwidth reached the peak value.
+   * 
+   * @example
+   * 2019-12-23 10:55:00
+   */
   maxBpsTime?: string;
+  /**
+   * @remarks
+   * The peak bandwidth value during back-to-origin routing. Unit: bit/s.
+   * 
+   * @example
+   * 72584.072
+   */
   maxSrcBps?: string;
+  /**
+   * @remarks
+   * The time when the bandwidth during back-to-origin routing reached the peak value.
+   * 
+   * @example
+   * 2019-12-23 11:45:00
+   */
   maxSrcBpsTime?: string;
+  /**
+   * @remarks
+   * The cache hit ratio that is calculated based on requests. The cache hit ratio is measured in percentage.
+   * 
+   * @example
+   * 69.92610837438424
+   */
   requestHitRate?: string;
+  /**
+   * @remarks
+   * The total amount of requests.
+   * 
+   * @example
+   * 1319500
+   */
   totalAccess?: string;
+  /**
+   * @remarks
+   * The total amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 1117711832100
+   */
   totalTraffic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17700,8 +29587,23 @@ export class DescribeDomainsUsageByDayResponseBodyUsageTotal extends $tea.Model 
 }
 
 export class DescribeEsExceptionDataResponseBodyContents extends $tea.Model {
+  /**
+   * @remarks
+   * Information about the time column and the error column name.
+   */
   columns?: string[];
+  /**
+   * @remarks
+   * The name of the table that shows the errors of the script.
+   * 
+   * @example
+   * 401
+   */
   name?: string;
+  /**
+   * @remarks
+   * The time columns and error column names.
+   */
   points?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -17725,8 +29627,23 @@ export class DescribeEsExceptionDataResponseBodyContents extends $tea.Model {
 }
 
 export class DescribeEsExecuteDataResponseBodyContents extends $tea.Model {
+  /**
+   * @remarks
+   * The time and column names in the table that shows the status of the script.
+   */
   columns?: string[];
+  /**
+   * @remarks
+   * The name of the table that shows the status of the script.
+   * 
+   * @example
+   * Exception
+   */
   name?: string;
+  /**
+   * @remarks
+   * The list of timestamps and values in the corresponding columns of the table that shows the status of the script.
+   */
   points?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -17750,11 +29667,53 @@ export class DescribeEsExecuteDataResponseBodyContents extends $tea.Model {
 }
 
 export class DescribeFCTriggerResponseBodyFCTrigger extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the event.
+   * 
+   * @example
+   * LogFileCreated
+   */
   eventMetaName?: string;
+  /**
+   * @remarks
+   * The version of the event.
+   * 
+   * @example
+   * 1.0.0
+   */
   eventMetaVersion?: string;
+  /**
+   * @remarks
+   * The remarks of the Function Compute trigger.
+   * 
+   * @example
+   * test
+   */
   notes?: string;
+  /**
+   * @remarks
+   * The assigned Resource Access Management (RAM) role.
+   * 
+   * @example
+   * acs:ram:: 1234567890:role/aliyuncdneventnotificationrole
+   */
   roleARN?: string;
+  /**
+   * @remarks
+   * The resources and filters for event listening.
+   * 
+   * @example
+   * acs:cdn:*:1234567890:domain/example.com
+   */
   sourceArn?: string;
+  /**
+   * @remarks
+   * The trigger that corresponds to the Function Compute service.
+   * 
+   * @example
+   * acs:fc:cn-beijing: 1234567890:services/FCTestService/functions/printEvent/triggers/testtrigger
+   */
   triggerARN?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17784,7 +29743,25 @@ export class DescribeFCTriggerResponseBodyFCTrigger extends $tea.Model {
 }
 
 export class DescribeIpStatusResponseBodyIpStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address of the POP.
+   * 
+   * @example
+   * 10.10.10.10
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The status.
+   * 
+   * *   **nonali**: not an Alibaba Cloud CDN POP
+   * *   **normal**: an available Alibaba Cloud CDN POP
+   * *   **abnormal**: an unavailable Alibaba Cloud CDN POP
+   * 
+   * @example
+   * abnormal
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17825,8 +29802,32 @@ export class DescribeL2VipsByDomainResponseBodyVips extends $tea.Model {
 }
 
 export class DescribePreloadDetailByIdResponseBodyUrlDetailsUrls extends $tea.Model {
+  /**
+   * @remarks
+   * The details of resource prefetch.
+   * 
+   * *   If the resource is prefetched on all POPs, "Successfully preloaded" is returned.
+   * *   If the resource fails to be prefetched on some POPs, the failure details separated by vertical bars (|) are returned.
+   * 
+   * @example
+   * Successfully preloaded
+   */
   description?: string;
+  /**
+   * @remarks
+   * The success percentage, which indicates the number of POPs on which the resource is prefetched.
+   * 
+   * @example
+   * 47%
+   */
   success?: string;
+  /**
+   * @remarks
+   * The URL of the prefetched resource.
+   * 
+   * @example
+   * /abc.jpg
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17850,13 +29851,74 @@ export class DescribePreloadDetailByIdResponseBodyUrlDetailsUrls extends $tea.Mo
 }
 
 export class DescribePreloadDetailByIdResponseBodyUrlDetails extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the task was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-11-23T02:26:56Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The domain name for prefetching resources.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The time when the task ended. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-11-23T02:27:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The progress of the prefetch task, which indicates the number of points of presence (POPs) on which the prefetch task is completed.
+   * 
+   * @example
+   * 100%
+   */
   process?: string;
+  /**
+   * @remarks
+   * The turned error code. A value of `0` indicates that the task succeeded.
+   * 
+   * @example
+   * 0
+   */
   retCode?: string;
+  /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * *   **Complete**
+   * *   **Refreshing**
+   * *   **Failed**
+   * 
+   * @example
+   * Complete
+   */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the task that you want to query.
+   * 
+   * You can call the PushObjectCache operation to query task IDs. Then, you can use the task IDs to query task status.
+   * 
+   * You can query one task ID at a time.
+   * 
+   * @example
+   * 14286878547
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * The completion details of all URL resources in the task.
+   */
   urls?: DescribePreloadDetailByIdResponseBodyUrlDetailsUrls[];
   static names(): { [key: string]: string } {
     return {
@@ -17890,8 +29952,29 @@ export class DescribePreloadDetailByIdResponseBodyUrlDetails extends $tea.Model 
 }
 
 export class DescribeRealtimeDeliveryAccResponseBodyReatTimeDeliveryAccDataAccData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of failed attempts to deliver log data to Log Service.
+   * 
+   * @example
+   * 2
+   */
   failedNum?: number;
+  /**
+   * @remarks
+   * The number of successful deliveries of log data to Log Service.
+   * 
+   * @example
+   * 2
+   */
   successNum?: number;
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2018-09-03T06:00:00Z
+   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17934,12 +30017,75 @@ export class DescribeRealtimeDeliveryAccResponseBodyReatTimeDeliveryAccData exte
 }
 
 export class DescribeRefreshTaskByIdResponseBodyTasks extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the task was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2020-08-03T08:54:23Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The error returned when the refresh or prefetch task failed. Valid values:
+   * 
+   * *   **Internal Error**
+   * *   **Origin Timeout**
+   * *   **Origin Return StatusCode 5XX**
+   * 
+   * @example
+   * Internal Error
+   */
   description?: string;
+  /**
+   * @remarks
+   * The path of the object refreshed by the refresh task.
+   * 
+   * @example
+   * http://example.com/abc.jpg
+   */
   objectPath?: string;
+  /**
+   * @remarks
+   * The type of the task. Valid values:
+   * 
+   * *   **file**: refreshes an individual file.
+   * *   **directory**: refreshes files in the specified directory.
+   * *   **preload**: prefetches an individual file.
+   * *   **regex**: refreshes content based on a regular expression.
+   * 
+   * @example
+   * file
+   */
   objectType?: string;
+  /**
+   * @remarks
+   * The progress of the task, in percentage.
+   * 
+   * @example
+   * 100%
+   */
   process?: string;
+  /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * *   **Complete**
+   * *   **Pending**
+   * *   **Refreshing**
+   * *   **Failed**
+   * 
+   * @example
+   * Complete
+   */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * 24840
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17971,12 +30117,74 @@ export class DescribeRefreshTaskByIdResponseBodyTasks extends $tea.Model {
 }
 
 export class DescribeRefreshTasksResponseBodyTasksCDNTask extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the task was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2014-11-27T08:23:22Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The type of the error returned when the refresh or prefetch task failed. Valid values:
+   * 
+   * *   **InternalError**: An internal error occurred.
+   * *   **OriginTimeout**: The response from the origin server timed out.
+   * *   **OriginReturnStatusCode 5XX**: The origin server returned a 5XX error.
+   * 
+   * @example
+   * Internal Error
+   */
   description?: string;
+  /**
+   * @remarks
+   * The URL of the object refreshed.
+   * 
+   * @example
+   * http://example.com/1.txt
+   */
   objectPath?: string;
+  /**
+   * @remarks
+   * The type of the task.
+   * 
+   * *   **file**: refreshes one or more files.
+   * *   **directory**: refreshes files in the specified directories.
+   * *   **regex**: refreshes content based on a regular expression.
+   * *   **preload**: prefetches one or more files.
+   * 
+   * @example
+   * file
+   */
   objectType?: string;
+  /**
+   * @remarks
+   * The progress of the task, in percentage.
+   * 
+   * @example
+   * 100%
+   */
   process?: string;
+  /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * *   **Complete**: The task has completed.
+   * *   **Refreshing**: The task is in progress.
+   * *   **Failed**: The task failed.
+   * 
+   * @example
+   * Complete
+   */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * 704225667
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18046,7 +30254,21 @@ export class DescribeStagingIpResponseBodyIPV4s extends $tea.Model {
 }
 
 export class DescribeTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag. Valid values of N: **1** to **20**.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag. Valid values of N: **1** to **20**.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18068,7 +30290,21 @@ export class DescribeTagResourcesRequestTag extends $tea.Model {
 }
 
 export class DescribeTagResourcesResponseBodyTagResourcesTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * product
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18090,7 +30326,18 @@ export class DescribeTagResourcesResponseBodyTagResourcesTag extends $tea.Model 
 }
 
 export class DescribeTagResourcesResponseBodyTagResources extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * example.com
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The key-value pair of the tag.
+   */
   tag?: DescribeTagResourcesResponseBodyTagResourcesTag[];
   static names(): { [key: string]: string } {
     return {
@@ -18112,12 +30359,61 @@ export class DescribeTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class DescribeTopDomainsByFlowResponseBodyTopDomainsTopDomain extends $tea.Model {
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The peak bandwidth value.
+   * 
+   * @example
+   * 22139626
+   */
   maxBps?: number;
+  /**
+   * @remarks
+   * The time when the bandwidth reached the peak value.
+   * 
+   * @example
+   * 1457111400
+   */
   maxBpsTime?: string;
+  /**
+   * @remarks
+   * The ranking of the accelerated domain name.
+   * 
+   * @example
+   * 1
+   */
   rank?: number;
+  /**
+   * @remarks
+   * The number of visits to the domain name.
+   * 
+   * @example
+   * 107784230
+   */
   totalAccess?: number;
+  /**
+   * @remarks
+   * The total volume of traffic.
+   * 
+   * @example
+   * 2043859876683.9001
+   */
   totalTraffic?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the domain name.
+   * 
+   * @example
+   * 30.64191989360235
+   */
   trafficPercent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18168,8 +30464,29 @@ export class DescribeTopDomainsByFlowResponseBodyTopDomains extends $tea.Model {
 }
 
 export class DescribeUserConfigsResponseBodyConfigsOssLogConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the bucket.
+   * 
+   * @example
+   * Buckettest
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * Indicates whether the OSS bucket is enabled.
+   * 
+   * @example
+   * off
+   */
   enable?: string;
+  /**
+   * @remarks
+   * The prefix.
+   * 
+   * @example
+   * test
+   */
   prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18193,6 +30510,13 @@ export class DescribeUserConfigsResponseBodyConfigsOssLogConfig extends $tea.Mod
 }
 
 export class DescribeUserConfigsResponseBodyConfigsWafConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether WAF is enabled.
+   * 
+   * @example
+   * on
+   */
   enable?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18212,7 +30536,15 @@ export class DescribeUserConfigsResponseBodyConfigsWafConfig extends $tea.Model 
 }
 
 export class DescribeUserConfigsResponseBodyConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of Object Storage Service (OSS).
+   */
   ossLogConfig?: DescribeUserConfigsResponseBodyConfigsOssLogConfig;
+  /**
+   * @remarks
+   * The configurations of Web Application Firewall (WAF).
+   */
   wafConfig?: DescribeUserConfigsResponseBodyConfigsWafConfig;
   static names(): { [key: string]: string } {
     return {
@@ -18234,7 +30566,25 @@ export class DescribeUserConfigsResponseBodyConfigs extends $tea.Model {
 }
 
 export class DescribeUserDomainsRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of a tag.
+   * 
+   * By default, all tag keys are queried.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * By default, all tag values are queried.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18256,10 +30606,45 @@ export class DescribeUserDomainsRequestTag extends $tea.Model {
 }
 
 export class DescribeUserDomainsResponseBodyDomainsPageDataSourcesSource extends $tea.Model {
+  /**
+   * @remarks
+   * The address of the origin server.
+   * 
+   * @example
+   * ***.oss-cn-hangzhou.aliyuncs.com
+   */
   content?: string;
+  /**
+   * @remarks
+   * The port of the origin server.
+   * 
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @remarks
+   * The priority.
+   * 
+   * @example
+   * 20
+   */
   priority?: string;
+  /**
+   * @remarks
+   * The type of the origin server.
+   * 
+   * @example
+   * oss
+   */
   type?: string;
+  /**
+   * @remarks
+   * The weight of the origin server if multiple origin servers have been specified.
+   * 
+   * @example
+   * 15
+   */
   weight?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18306,18 +30691,126 @@ export class DescribeUserDomainsResponseBodyDomainsPageDataSources extends $tea.
 }
 
 export class DescribeUserDomainsResponseBodyDomainsPageData extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the workload accelerated by Alibaba Cloud CDN. Valid values:
+   * 
+   * *   **web**: images and small files
+   * *   **download**: large files
+   * *   **video**: on-demand video and audio streaming
+   * 
+   * @example
+   * download
+   */
   cdnType?: string;
+  /**
+   * @remarks
+   * The CNAME assigned to the accelerated domain name.
+   * 
+   * @example
+   * example.com.w.alikunlun.net
+   */
   cname?: string;
+  /**
+   * @remarks
+   * The acceleration region. Valid values:
+   * 
+   * *   **domestic**: Chinese mainland
+   * *   **global**: global
+   * *   **overseas**: outside the Chinese mainland
+   * 
+   * @example
+   * domestic
+   */
   coverage?: string;
+  /**
+   * @remarks
+   * The information about Internet Content Provider (ICP) filing.
+   * 
+   * @example
+   * filing description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the accelerated domain name.
+   * 
+   * @example
+   * 11223344
+   */
   domainId?: number;
+  /**
+   * @remarks
+   * The accelerated domain.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The status of the accelerated domain name. Valid values:
+   * 
+   * *   **online**
+   * *   **offline**
+   * *   **configuring**
+   * *   **configure_failed**
+   * *   **checking**
+   * *   **check_failed**
+   * *   **stopping**
+   * *   **deleting**
+   * 
+   * @example
+   * configure_failed
+   */
   domainStatus?: string;
+  /**
+   * @remarks
+   * The time when the accelerated domain name was added.
+   * 
+   * @example
+   * 2015-10-28T09:32:51Z
+   */
   gmtCreated?: string;
+  /**
+   * @remarks
+   * The time when the accelerated domain name was modified.
+   * 
+   * @example
+   * 2015-10-28T11:05:52Z
+   */
   gmtModified?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * abcd1234abcd1234
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * Indicates whether the accelerated domain name is in a sandbox.
+   * 
+   * @example
+   * true
+   */
   sandbox?: string;
+  /**
+   * @remarks
+   * The information about the origin server.
+   */
   sources?: DescribeUserDomainsResponseBodyDomainsPageDataSources;
+  /**
+   * @remarks
+   * Indicates whether HTTPS is enabled. Valid values:
+   * 
+   * *   **on**
+   * *   **off**
+   * 
+   * @example
+   * on
+   */
   sslProtocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18380,7 +30873,18 @@ export class DescribeUserDomainsResponseBodyDomains extends $tea.Model {
 }
 
 export class DescribeUserTagsResponseBodyTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of a tag.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag values returned.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -18402,7 +30906,21 @@ export class DescribeUserTagsResponseBodyTags extends $tea.Model {
 }
 
 export class DescribeUserUsageDataExportTaskResponseBodyUsageDataPerPageDataDataItemTaskConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range that was queried.
+   * 
+   * @example
+   * 2019-12-30T15:59:59Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2019-12-29T16:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18424,12 +30942,62 @@ export class DescribeUserUsageDataExportTaskResponseBodyUsageDataPerPageDataData
 }
 
 export class DescribeUserUsageDataExportTaskResponseBodyUsageDataPerPageDataDataItem extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the task was created.
+   * 
+   * @example
+   * 2019-12-31T08:43:21Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The download URL.
+   * 
+   * @example
+   * https://cdn-polaris.xxxx
+   */
   downloadUrl?: string;
+  /**
+   * @remarks
+   * The state of the task.
+   * 
+   * *   created: The task is being created.
+   * *   success: The task is successful.
+   * *   failed: The task failed.
+   * 
+   * @example
+   * success
+   */
   status?: string;
+  /**
+   * @remarks
+   * The configurations of the task.
+   */
   taskConfig?: DescribeUserUsageDataExportTaskResponseBodyUsageDataPerPageDataDataItemTaskConfig;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * A91BE91F-0B34-4CBF-8E0F-A2977
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * Refresh
+   */
   taskName?: string;
+  /**
+   * @remarks
+   * The time when the task was last modified.
+   * 
+   * @example
+   * 2019-12-31T08:45:02Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18480,9 +31048,34 @@ export class DescribeUserUsageDataExportTaskResponseBodyUsageDataPerPageData ext
 }
 
 export class DescribeUserUsageDataExportTaskResponseBodyUsageDataPerPage extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the tasks.
+   */
   data?: DescribeUserUsageDataExportTaskResponseBodyUsageDataPerPageData;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18508,7 +31101,21 @@ export class DescribeUserUsageDataExportTaskResponseBodyUsageDataPerPage extends
 }
 
 export class DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPageDataDataItemTaskConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
+   * @example
+   * 2018-08-31T15:59:59Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The start of the time range during which data was queried.
+   * 
+   * @example
+   * 2018-07-31T16:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18530,12 +31137,58 @@ export class DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPageDa
 }
 
 export class DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPageDataDataItem extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the task was created.
+   * 
+   * @example
+   * 2018-10-09T06:33:38Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The download URL.
+   * 
+   * @example
+   * https://test.oss-cn-beijing.aliyuncs.com/billing_data/xxx
+   */
   downloadUrl?: string;
+  /**
+   * @remarks
+   * The status of the task.
+   * 
+   * @example
+   * success
+   */
   status?: string;
+  /**
+   * @remarks
+   * The configurations of the task.
+   */
   taskConfig?: DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPageDataDataItemTaskConfig;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * 11
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * Refresh
+   */
   taskName?: string;
+  /**
+   * @remarks
+   * The time when the task was last modified.
+   * 
+   * @example
+   * 2018-10-09T06:35:46Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18586,9 +31239,34 @@ export class DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPageDa
 }
 
 export class DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPage extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the task.
+   */
   data?: DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPageData;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18652,11 +31330,53 @@ export class ListDomainsByLogConfigIdResponseBodyDomains extends $tea.Model {
 }
 
 export class ListFCTriggerResponseBodyFCTriggers extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the event.
+   * 
+   * @example
+   * LogFileCreated
+   */
   eventMetaName?: string;
+  /**
+   * @remarks
+   * The version of the event.
+   * 
+   * @example
+   * 1.0.0
+   */
   eventMetaVersion?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * Test
+   */
   notes?: string;
+  /**
+   * @remarks
+   * The Resource Access Management (RAM) role.
+   * 
+   * @example
+   * acs:ram:: 1234567890:role/aliyuncdneventnotificationrole
+   */
   roleARN?: string;
+  /**
+   * @remarks
+   * The resources and filters for event listening.
+   * 
+   * @example
+   * acs:cdn:*:1234567890:domain/example.com
+   */
   sourceArn?: string;
+  /**
+   * @remarks
+   * The trigger that corresponds to the Function Compute service.
+   * 
+   * @example
+   * acs:fc:cn-beijing: 1234567890:services/FCTestService/functions/printEvent/triggers/testtrigger
+   */
   triggerARN?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18686,7 +31406,24 @@ export class ListFCTriggerResponseBodyFCTriggers extends $tea.Model {
 }
 
 export class ListRealtimeLogDeliveryDomainsResponseBodyContentDomains extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The status. Valid values:
+   * 
+   * *   **online**: enabled
+   * *   **offline**: disabled
+   * 
+   * @example
+   * online
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18727,8 +31464,29 @@ export class ListRealtimeLogDeliveryDomainsResponseBodyContent extends $tea.Mode
 }
 
 export class ListRealtimeLogDeliveryInfosResponseBodyContentRealtimeLogDeliveryInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the Logstore that collects log data from Alibaba Cloud CDN in real time.
+   * 
+   * @example
+   * LogstoreName
+   */
   logstore?: string;
+  /**
+   * @remarks
+   * The name of the Log Service project that is used for real-time log delivery.
+   * 
+   * @example
+   * ProjectName
+   */
   project?: string;
+  /**
+   * @remarks
+   * The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](https://help.aliyun.com/document_detail/144883.html).
+   * 
+   * @example
+   * ch-shanghai
+   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18771,7 +31529,21 @@ export class ListRealtimeLogDeliveryInfosResponseBodyContent extends $tea.Model 
 }
 
 export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * testKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * testValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18793,9 +31565,37 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * example.com
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource. Set the value to **DOMAIN**.
+   * 
+   * @example
+   * DOMAIN
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * testKey
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * testValue
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18859,8 +31659,29 @@ export class ListUserCustomLogConfigResponseBodyConfigIds extends $tea.Model {
 }
 
 export class SetCdnDomainStagingConfigResponseBodyDomainConfigList extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the configuration.
+   * 
+   * @example
+   * 1234567
+   */
   configId?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * www.example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The name of the feature.
+   * 
+   * @example
+   * set_resp_header
+   */
   functionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18884,7 +31705,23 @@ export class SetCdnDomainStagingConfigResponseBodyDomainConfigList extends $tea.
 }
 
 export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of a tag.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of a tag.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18942,17 +31779,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a domain name to accelerate.
-   *
-   * @description *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](https://help.aliyun.com/document_detail/27272.html).
+   * Adds a domain name to accelerate.
+   * 
+   * @remarks
+   *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](https://help.aliyun.com/document_detail/27272.html).
    * *   The domain name that you want to add has a valid Internet Content Provider (ICP) number.
    * *   You can add only one domain name to Alibaba Cloud CDN in each call. Each Alibaba Cloud account can add a maximum of 50 domain names to Alibaba Cloud CDN.
    * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. The review will be completed by the end of the next business day after you submit the application.
    * *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request AddCdnDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddCdnDomainResponse
+   * 
+   * @param request - AddCdnDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddCdnDomainResponse
    */
   async addCdnDomainWithOptions(request: AddCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddCdnDomainResponse> {
     Util.validateModel(request);
@@ -19019,16 +31857,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a domain name to accelerate.
-   *
-   * @description *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](https://help.aliyun.com/document_detail/27272.html).
+   * Adds a domain name to accelerate.
+   * 
+   * @remarks
+   *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](https://help.aliyun.com/document_detail/27272.html).
    * *   The domain name that you want to add has a valid Internet Content Provider (ICP) number.
    * *   You can add only one domain name to Alibaba Cloud CDN in each call. Each Alibaba Cloud account can add a maximum of 50 domain names to Alibaba Cloud CDN.
    * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. The review will be completed by the end of the next business day after you submit the application.
    * *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request AddCdnDomainRequest
-   * @return AddCdnDomainResponse
+   * 
+   * @param request - AddCdnDomainRequest
+   * @returns AddCdnDomainResponse
    */
   async addCdnDomain(request: AddCdnDomainRequest): Promise<AddCdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19036,11 +31875,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a Function Compute trigger.
-   *
-   * @param request AddFCTriggerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddFCTriggerResponse
+   * Adds a Function Compute trigger.
+   * 
+   * @param request - AddFCTriggerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddFCTriggerResponse
    */
   async addFCTriggerWithOptions(request: AddFCTriggerRequest, runtime: $Util.RuntimeOptions): Promise<AddFCTriggerResponse> {
     Util.validateModel(request);
@@ -19093,10 +31932,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a Function Compute trigger.
-   *
-   * @param request AddFCTriggerRequest
-   * @return AddFCTriggerResponse
+   * Adds a Function Compute trigger.
+   * 
+   * @param request - AddFCTriggerRequest
+   * @returns AddFCTriggerResponse
    */
   async addFCTrigger(request: AddFCTriggerRequest): Promise<AddFCTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19104,17 +31943,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds one or more domain names to Alibaba Cloud CDN. You can add a maximum of 50 domain names at a time.
-   *
-   * @description *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](https://help.aliyun.com/document_detail/27272.html).
+   * Adds one or more domain names to Alibaba Cloud CDN. You can add a maximum of 50 domain names at a time.
+   * 
+   * @remarks
+   *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](https://help.aliyun.com/document_detail/27272.html).
    * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
    * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
    * *   For more information, see [Add a domain name](https://help.aliyun.com/document_detail/122181.html).
    * *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request BatchAddCdnDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchAddCdnDomainResponse
+   * 
+   * @param request - BatchAddCdnDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchAddCdnDomainResponse
    */
   async batchAddCdnDomainWithOptions(request: BatchAddCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddCdnDomainResponse> {
     Util.validateModel(request);
@@ -19177,16 +32017,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds one or more domain names to Alibaba Cloud CDN. You can add a maximum of 50 domain names at a time.
-   *
-   * @description *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](https://help.aliyun.com/document_detail/27272.html).
+   * Adds one or more domain names to Alibaba Cloud CDN. You can add a maximum of 50 domain names at a time.
+   * 
+   * @remarks
+   *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](https://help.aliyun.com/document_detail/27272.html).
    * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
    * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
    * *   For more information, see [Add a domain name](https://help.aliyun.com/document_detail/122181.html).
    * *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request BatchAddCdnDomainRequest
-   * @return BatchAddCdnDomainResponse
+   * 
+   * @param request - BatchAddCdnDomainRequest
+   * @returns BatchAddCdnDomainResponse
    */
   async batchAddCdnDomain(request: BatchAddCdnDomainRequest): Promise<BatchAddCdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19194,14 +32035,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes configurations of multiple accelerated domain names at a time.
-   *
-   * @description *   You can specify up to 50 domain names in each request.
+   * Deletes configurations of multiple accelerated domain names at a time.
+   * 
+   * @remarks
+   *   You can specify up to 50 domain names in each request.
    * *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request BatchDeleteCdnDomainConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchDeleteCdnDomainConfigResponse
+   * 
+   * @param request - BatchDeleteCdnDomainConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchDeleteCdnDomainConfigResponse
    */
   async batchDeleteCdnDomainConfigWithOptions(request: BatchDeleteCdnDomainConfigRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteCdnDomainConfigResponse> {
     Util.validateModel(request);
@@ -19244,13 +32086,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes configurations of multiple accelerated domain names at a time.
-   *
-   * @description *   You can specify up to 50 domain names in each request.
+   * Deletes configurations of multiple accelerated domain names at a time.
+   * 
+   * @remarks
+   *   You can specify up to 50 domain names in each request.
    * *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request BatchDeleteCdnDomainConfigRequest
-   * @return BatchDeleteCdnDomainConfigResponse
+   * 
+   * @param request - BatchDeleteCdnDomainConfigRequest
+   * @returns BatchDeleteCdnDomainConfigResponse
    */
   async batchDeleteCdnDomainConfig(request: BatchDeleteCdnDomainConfigRequest): Promise<BatchDeleteCdnDomainConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19258,13 +32101,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether one or more IP addresses are assigned to Alibaba Cloud CDN.
-   *
-   * @description >The maximum number of times that each user can call this operation per second is 20.
-   *
-   * @param request BatchDescribeCdnIpInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchDescribeCdnIpInfoResponse
+   * Queries whether one or more IP addresses are assigned to Alibaba Cloud CDN.
+   * 
+   * @remarks
+   * >The maximum number of times that each user can call this operation per second is 20.
+   * 
+   * @param request - BatchDescribeCdnIpInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchDescribeCdnIpInfoResponse
    */
   async batchDescribeCdnIpInfoWithOptions(request: BatchDescribeCdnIpInfoRequest, runtime: $Util.RuntimeOptions): Promise<BatchDescribeCdnIpInfoResponse> {
     Util.validateModel(request);
@@ -19295,12 +32139,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether one or more IP addresses are assigned to Alibaba Cloud CDN.
-   *
-   * @description >The maximum number of times that each user can call this operation per second is 20.
-   *
-   * @param request BatchDescribeCdnIpInfoRequest
-   * @return BatchDescribeCdnIpInfoResponse
+   * Queries whether one or more IP addresses are assigned to Alibaba Cloud CDN.
+   * 
+   * @remarks
+   * >The maximum number of times that each user can call this operation per second is 20.
+   * 
+   * @param request - BatchDescribeCdnIpInfoRequest
+   * @returns BatchDescribeCdnIpInfoResponse
    */
   async batchDescribeCdnIpInfo(request: BatchDescribeCdnIpInfoRequest): Promise<BatchDescribeCdnIpInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19308,15 +32153,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures multiple accelerated domain names at a time.
-   *
-   * @description *   You can call this operation up to 30 times per second per account.
+   * Configures multiple accelerated domain names at a time.
+   * 
+   * @remarks
+   *   You can call this operation up to 30 times per second per account.
    * *   You can specify multiple domain names and must separate them with commas (,). You can specify up to 50 domain names in each call.
    * *   If the BatchSetCdnDomainConfig operation is successful, a unique configuration ID (ConfigId) is generated. You can use configuration IDs to update or delete configurations. For more information, see [Usage notes on ConfigId](https://help.aliyun.com/document_detail/388994.html).
-   *
-   * @param request BatchSetCdnDomainConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchSetCdnDomainConfigResponse
+   * 
+   * @param request - BatchSetCdnDomainConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchSetCdnDomainConfigResponse
    */
   async batchSetCdnDomainConfigWithOptions(request: BatchSetCdnDomainConfigRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetCdnDomainConfigResponse> {
     Util.validateModel(request);
@@ -19359,14 +32205,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures multiple accelerated domain names at a time.
-   *
-   * @description *   You can call this operation up to 30 times per second per account.
+   * Configures multiple accelerated domain names at a time.
+   * 
+   * @remarks
+   *   You can call this operation up to 30 times per second per account.
    * *   You can specify multiple domain names and must separate them with commas (,). You can specify up to 50 domain names in each call.
    * *   If the BatchSetCdnDomainConfig operation is successful, a unique configuration ID (ConfigId) is generated. You can use configuration IDs to update or delete configurations. For more information, see [Usage notes on ConfigId](https://help.aliyun.com/document_detail/388994.html).
-   *
-   * @param request BatchSetCdnDomainConfigRequest
-   * @return BatchSetCdnDomainConfigResponse
+   * 
+   * @param request - BatchSetCdnDomainConfigRequest
+   * @returns BatchSetCdnDomainConfigResponse
    */
   async batchSetCdnDomainConfig(request: BatchSetCdnDomainConfigRequest): Promise<BatchSetCdnDomainConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19374,15 +32221,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables, disables, or configures the SSL certificates of one or more accelerated domain names at a time.
-   *
-   * @description > *   You can call this operation up to 10 times per second per account.
+   * Enables, disables, or configures the SSL certificates of one or more accelerated domain names at a time.
+   * 
+   * @remarks
+   * > *   You can call this operation up to 10 times per second per account.
    * >*   You can specify up to 10 domain names in each request. Separate multiple domain names with commas (,)
    * >*   If the service type of a domain name is live streaming, the service may be unavailable after you configure the certificate for the domain name. Therefore, you cannot use this operation to configure the certificate for a domain name that is used for live streaming.
-   *
-   * @param request BatchSetCdnDomainServerCertificateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchSetCdnDomainServerCertificateResponse
+   * 
+   * @param request - BatchSetCdnDomainServerCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchSetCdnDomainServerCertificateResponse
    */
   async batchSetCdnDomainServerCertificateWithOptions(request: BatchSetCdnDomainServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetCdnDomainServerCertificateResponse> {
     Util.validateModel(request);
@@ -19445,14 +32293,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables, disables, or configures the SSL certificates of one or more accelerated domain names at a time.
-   *
-   * @description > *   You can call this operation up to 10 times per second per account.
+   * Enables, disables, or configures the SSL certificates of one or more accelerated domain names at a time.
+   * 
+   * @remarks
+   * > *   You can call this operation up to 10 times per second per account.
    * >*   You can specify up to 10 domain names in each request. Separate multiple domain names with commas (,)
    * >*   If the service type of a domain name is live streaming, the service may be unavailable after you configure the certificate for the domain name. Therefore, you cannot use this operation to configure the certificate for a domain name that is used for live streaming.
-   *
-   * @param request BatchSetCdnDomainServerCertificateRequest
-   * @return BatchSetCdnDomainServerCertificateResponse
+   * 
+   * @param request - BatchSetCdnDomainServerCertificateRequest
+   * @returns BatchSetCdnDomainServerCertificateResponse
    */
   async batchSetCdnDomainServerCertificate(request: BatchSetCdnDomainServerCertificateRequest): Promise<BatchSetCdnDomainServerCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19460,15 +32309,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables one or more domain names at a time. After a domain name is enabled, the value of the DomainStatus parameter is changed to Online.
-   *
-   * @description *   If a domain name specified in the request is in an invalid state or your account has an overdue payment, the domain name cannot be enabled.
+   * Enables one or more domain names at a time. After a domain name is enabled, the value of the DomainStatus parameter is changed to Online.
+   * 
+   * @remarks
+   *   If a domain name specified in the request is in an invalid state or your account has an overdue payment, the domain name cannot be enabled.
    * *   You can call this operation up to 30 times per second per account.
    * *   You can specify up to 50 domain names in each request.
-   *
-   * @param request BatchStartCdnDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchStartCdnDomainResponse
+   * 
+   * @param request - BatchStartCdnDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchStartCdnDomainResponse
    */
   async batchStartCdnDomainWithOptions(request: BatchStartCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchStartCdnDomainResponse> {
     Util.validateModel(request);
@@ -19503,14 +32353,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables one or more domain names at a time. After a domain name is enabled, the value of the DomainStatus parameter is changed to Online.
-   *
-   * @description *   If a domain name specified in the request is in an invalid state or your account has an overdue payment, the domain name cannot be enabled.
+   * Enables one or more domain names at a time. After a domain name is enabled, the value of the DomainStatus parameter is changed to Online.
+   * 
+   * @remarks
+   *   If a domain name specified in the request is in an invalid state or your account has an overdue payment, the domain name cannot be enabled.
    * *   You can call this operation up to 30 times per second per account.
    * *   You can specify up to 50 domain names in each request.
-   *
-   * @param request BatchStartCdnDomainRequest
-   * @return BatchStartCdnDomainResponse
+   * 
+   * @param request - BatchStartCdnDomainRequest
+   * @returns BatchStartCdnDomainResponse
    */
   async batchStartCdnDomain(request: BatchStartCdnDomainRequest): Promise<BatchStartCdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19518,16 +32369,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables one or more accelerated domain names at a time. After an accelerated domain name is disabled, the value of the DomainStatus parameter is changed to Offline.
-   *
-   * @description *   After an accelerated domain name is disabled, Alibaba Cloud CDN retains its information and reroutes all the requests that are destined for the accelerated domain name to the origin.
+   * Disables one or more accelerated domain names at a time. After an accelerated domain name is disabled, the value of the DomainStatus parameter is changed to Offline.
+   * 
+   * @remarks
+   *   After an accelerated domain name is disabled, Alibaba Cloud CDN retains its information and reroutes all the requests that are destined for the accelerated domain name to the origin.
    * *   If you need to temporarily disable CDN acceleration for a domain name, we recommend that you call the StopDomain operation.
    * *   You can call this operation up to 30 times per second per account.
    * *   You can specify up to 50 domain names in each request.
-   *
-   * @param request BatchStopCdnDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchStopCdnDomainResponse
+   * 
+   * @param request - BatchStopCdnDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchStopCdnDomainResponse
    */
   async batchStopCdnDomainWithOptions(request: BatchStopCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchStopCdnDomainResponse> {
     Util.validateModel(request);
@@ -19562,15 +32414,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables one or more accelerated domain names at a time. After an accelerated domain name is disabled, the value of the DomainStatus parameter is changed to Offline.
-   *
-   * @description *   After an accelerated domain name is disabled, Alibaba Cloud CDN retains its information and reroutes all the requests that are destined for the accelerated domain name to the origin.
+   * Disables one or more accelerated domain names at a time. After an accelerated domain name is disabled, the value of the DomainStatus parameter is changed to Offline.
+   * 
+   * @remarks
+   *   After an accelerated domain name is disabled, Alibaba Cloud CDN retains its information and reroutes all the requests that are destined for the accelerated domain name to the origin.
    * *   If you need to temporarily disable CDN acceleration for a domain name, we recommend that you call the StopDomain operation.
    * *   You can call this operation up to 30 times per second per account.
    * *   You can specify up to 50 domain names in each request.
-   *
-   * @param request BatchStopCdnDomainRequest
-   * @return BatchStopCdnDomainResponse
+   * 
+   * @param request - BatchStopCdnDomainRequest
+   * @returns BatchStopCdnDomainResponse
    */
   async batchStopCdnDomain(request: BatchStopCdnDomainRequest): Promise<BatchStopCdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19578,14 +32431,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the configurations of multiple accelerated domain names at a time.
-   *
-   * @description *   You can call this operation up to 30 times per second per account.
+   * Updates the configurations of multiple accelerated domain names at a time.
+   * 
+   * @remarks
+   *   You can call this operation up to 30 times per second per account.
    * *   You can specify up to 50 domain names in each request. Separate multiple domain names with commas (,).
-   *
-   * @param request BatchUpdateCdnDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchUpdateCdnDomainResponse
+   * 
+   * @param request - BatchUpdateCdnDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchUpdateCdnDomainResponse
    */
   async batchUpdateCdnDomainWithOptions(request: BatchUpdateCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchUpdateCdnDomainResponse> {
     Util.validateModel(request);
@@ -19632,13 +32486,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the configurations of multiple accelerated domain names at a time.
-   *
-   * @description *   You can call this operation up to 30 times per second per account.
+   * Updates the configurations of multiple accelerated domain names at a time.
+   * 
+   * @remarks
+   *   You can call this operation up to 30 times per second per account.
    * *   You can specify up to 50 domain names in each request. Separate multiple domain names with commas (,).
-   *
-   * @param request BatchUpdateCdnDomainRequest
-   * @return BatchUpdateCdnDomainResponse
+   * 
+   * @param request - BatchUpdateCdnDomainRequest
+   * @returns BatchUpdateCdnDomainResponse
    */
   async batchUpdateCdnDomain(request: BatchUpdateCdnDomainRequest): Promise<BatchUpdateCdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19646,11 +32501,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Registers the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for an Alibaba Cloud CDN-accelerated domain name. After the registration is successful, the routing center generates the dynamic routing information and send it to DCDN points of presence (POPs). This is a prerequisite for you to transfer a domain name from Alibaba Cloud CDN to DCDN.
-   *
-   * @param request CdnMigrateRegisterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CdnMigrateRegisterResponse
+   * Registers the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for an Alibaba Cloud CDN-accelerated domain name. After the registration is successful, the routing center generates the dynamic routing information and send it to DCDN points of presence (POPs). This is a prerequisite for you to transfer a domain name from Alibaba Cloud CDN to DCDN.
+   * 
+   * @param request - CdnMigrateRegisterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CdnMigrateRegisterResponse
    */
   async cdnMigrateRegisterWithOptions(request: CdnMigrateRegisterRequest, runtime: $Util.RuntimeOptions): Promise<CdnMigrateRegisterResponse> {
     Util.validateModel(request);
@@ -19677,10 +32532,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Registers the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for an Alibaba Cloud CDN-accelerated domain name. After the registration is successful, the routing center generates the dynamic routing information and send it to DCDN points of presence (POPs). This is a prerequisite for you to transfer a domain name from Alibaba Cloud CDN to DCDN.
-   *
-   * @param request CdnMigrateRegisterRequest
-   * @return CdnMigrateRegisterResponse
+   * Registers the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for an Alibaba Cloud CDN-accelerated domain name. After the registration is successful, the routing center generates the dynamic routing information and send it to DCDN points of presence (POPs). This is a prerequisite for you to transfer a domain name from Alibaba Cloud CDN to DCDN.
+   * 
+   * @param request - CdnMigrateRegisterRequest
+   * @returns CdnMigrateRegisterResponse
    */
   async cdnMigrateRegister(request: CdnMigrateRegisterRequest): Promise<CdnMigrateRegisterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19688,11 +32543,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Transfer a domain name from Alibaba Cloud CDN to DCDN.
-   *
-   * @param request ChangeCdnDomainToDcdnRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangeCdnDomainToDcdnResponse
+   * Transfer a domain name from Alibaba Cloud CDN to DCDN.
+   * 
+   * @param request - ChangeCdnDomainToDcdnRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeCdnDomainToDcdnResponse
    */
   async changeCdnDomainToDcdnWithOptions(request: ChangeCdnDomainToDcdnRequest, runtime: $Util.RuntimeOptions): Promise<ChangeCdnDomainToDcdnResponse> {
     Util.validateModel(request);
@@ -19735,10 +32590,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Transfer a domain name from Alibaba Cloud CDN to DCDN.
-   *
-   * @param request ChangeCdnDomainToDcdnRequest
-   * @return ChangeCdnDomainToDcdnResponse
+   * Transfer a domain name from Alibaba Cloud CDN to DCDN.
+   * 
+   * @param request - ChangeCdnDomainToDcdnRequest
+   * @returns ChangeCdnDomainToDcdnResponse
    */
   async changeCdnDomainToDcdn(request: ChangeCdnDomainToDcdnRequest): Promise<ChangeCdnDomainToDcdnResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19746,11 +32601,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether a domain name exists.
-   *
-   * @param request CheckCdnDomainExistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckCdnDomainExistResponse
+   * Checks whether a domain name exists.
+   * 
+   * @param request - CheckCdnDomainExistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckCdnDomainExistResponse
    */
   async checkCdnDomainExistWithOptions(request: CheckCdnDomainExistRequest, runtime: $Util.RuntimeOptions): Promise<CheckCdnDomainExistResponse> {
     Util.validateModel(request);
@@ -19789,10 +32644,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether a domain name exists.
-   *
-   * @param request CheckCdnDomainExistRequest
-   * @return CheckCdnDomainExistResponse
+   * Checks whether a domain name exists.
+   * 
+   * @param request - CheckCdnDomainExistRequest
+   * @returns CheckCdnDomainExistResponse
    */
   async checkCdnDomainExist(request: CheckCdnDomainExistRequest): Promise<CheckCdnDomainExistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19800,11 +32655,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether an ICP filing is obtained for the domain name.
-   *
-   * @param request CheckCdnDomainICPRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckCdnDomainICPResponse
+   * Checks whether an ICP filing is obtained for the domain name.
+   * 
+   * @param request - CheckCdnDomainICPRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckCdnDomainICPResponse
    */
   async checkCdnDomainICPWithOptions(request: CheckCdnDomainICPRequest, runtime: $Util.RuntimeOptions): Promise<CheckCdnDomainICPResponse> {
     Util.validateModel(request);
@@ -19843,10 +32698,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether an ICP filing is obtained for the domain name.
-   *
-   * @param request CheckCdnDomainICPRequest
-   * @return CheckCdnDomainICPResponse
+   * Checks whether an ICP filing is obtained for the domain name.
+   * 
+   * @param request - CheckCdnDomainICPRequest
+   * @returns CheckCdnDomainICPResponse
    */
   async checkCdnDomainICP(request: CheckCdnDomainICPRequest): Promise<CheckCdnDomainICPResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19854,13 +32709,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a certificate signing request (CSR).
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request CreateCdnCertificateSigningRequestRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCdnCertificateSigningRequestResponse
+   * Creates a certificate signing request (CSR).
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - CreateCdnCertificateSigningRequestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCdnCertificateSigningRequestResponse
    */
   async createCdnCertificateSigningRequestWithOptions(request: CreateCdnCertificateSigningRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateCdnCertificateSigningRequestResponse> {
     Util.validateModel(request);
@@ -19915,12 +32771,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a certificate signing request (CSR).
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request CreateCdnCertificateSigningRequestRequest
-   * @return CreateCdnCertificateSigningRequestResponse
+   * Creates a certificate signing request (CSR).
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - CreateCdnCertificateSigningRequestRequest
+   * @returns CreateCdnCertificateSigningRequestResponse
    */
   async createCdnCertificateSigningRequest(request: CreateCdnCertificateSigningRequestRequest): Promise<CreateCdnCertificateSigningRequestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19928,13 +32785,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a tracking task. After you create a tracking task, the system sends operations reports to you by email on a regular basis.
-   *
-   * @description > You can call this operation up to three times per second per account.
-   *
-   * @param request CreateCdnDeliverTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCdnDeliverTaskResponse
+   * Creates a tracking task. After you create a tracking task, the system sends operations reports to you by email on a regular basis.
+   * 
+   * @remarks
+   * > You can call this operation up to three times per second per account.
+   * 
+   * @param request - CreateCdnDeliverTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCdnDeliverTaskResponse
    */
   async createCdnDeliverTaskWithOptions(request: CreateCdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCdnDeliverTaskResponse> {
     Util.validateModel(request);
@@ -19977,12 +32835,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a tracking task. After you create a tracking task, the system sends operations reports to you by email on a regular basis.
-   *
-   * @description > You can call this operation up to three times per second per account.
-   *
-   * @param request CreateCdnDeliverTaskRequest
-   * @return CreateCdnDeliverTaskResponse
+   * Creates a tracking task. After you create a tracking task, the system sends operations reports to you by email on a regular basis.
+   * 
+   * @remarks
+   * > You can call this operation up to three times per second per account.
+   * 
+   * @param request - CreateCdnDeliverTaskRequest
+   * @returns CreateCdnDeliverTaskResponse
    */
   async createCdnDeliverTask(request: CreateCdnDeliverTaskRequest): Promise<CreateCdnDeliverTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19990,14 +32849,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a custom operations report.
-   *
-   * @description *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
+   * Creates a custom operations report.
+   * 
+   * @remarks
+   *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
    * *   You can call this operation up to three times per second per account.
-   *
-   * @param request CreateCdnSubTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCdnSubTaskResponse
+   * 
+   * @param request - CreateCdnSubTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCdnSubTaskResponse
    */
   async createCdnSubTaskWithOptions(request: CreateCdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCdnSubTaskResponse> {
     Util.validateModel(request);
@@ -20028,13 +32888,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a custom operations report.
-   *
-   * @description *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
+   * Creates a custom operations report.
+   * 
+   * @remarks
+   *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
    * *   You can call this operation up to three times per second per account.
-   *
-   * @param request CreateCdnSubTaskRequest
-   * @return CreateCdnSubTaskResponse
+   * 
+   * @param request - CreateCdnSubTaskRequest
+   * @returns CreateCdnSubTaskResponse
    */
   async createCdnSubTask(request: CreateCdnSubTaskRequest): Promise<CreateCdnSubTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20042,13 +32903,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables real-time log delivery for specific accelerated domain names.
-   *
-   * @description >  You can call this API operation up to 100 times per second per account.
-   *
-   * @param request CreateRealTimeLogDeliveryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateRealTimeLogDeliveryResponse
+   * Enables real-time log delivery for specific accelerated domain names.
+   * 
+   * @remarks
+   * >  You can call this API operation up to 100 times per second per account.
+   * 
+   * @param request - CreateRealTimeLogDeliveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRealTimeLogDeliveryResponse
    */
   async createRealTimeLogDeliveryWithOptions(request: CreateRealTimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<CreateRealTimeLogDeliveryResponse> {
     Util.validateModel(request);
@@ -20071,12 +32933,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables real-time log delivery for specific accelerated domain names.
-   *
-   * @description >  You can call this API operation up to 100 times per second per account.
-   *
-   * @param request CreateRealTimeLogDeliveryRequest
-   * @return CreateRealTimeLogDeliveryResponse
+   * Enables real-time log delivery for specific accelerated domain names.
+   * 
+   * @remarks
+   * >  You can call this API operation up to 100 times per second per account.
+   * 
+   * @param request - CreateRealTimeLogDeliveryRequest
+   * @returns CreateRealTimeLogDeliveryResponse
    */
   async createRealTimeLogDelivery(request: CreateRealTimeLogDeliveryRequest): Promise<CreateRealTimeLogDeliveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20084,14 +32947,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a task to export resource usage details to an Excel file.
-   *
-   * @description *   You can create a task to query data in the last year. The maximum time range that can be queried is one month.
+   * Creates a task to export resource usage details to an Excel file.
+   * 
+   * @remarks
+   *   You can create a task to query data in the last year. The maximum time range that can be queried is one month.
    * *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request CreateUsageDetailDataExportTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateUsageDetailDataExportTaskResponse
+   * 
+   * @param request - CreateUsageDetailDataExportTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUsageDetailDataExportTaskResponse
    */
   async createUsageDetailDataExportTaskWithOptions(request: CreateUsageDetailDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateUsageDetailDataExportTaskResponse> {
     Util.validateModel(request);
@@ -20142,13 +33006,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a task to export resource usage details to an Excel file.
-   *
-   * @description *   You can create a task to query data in the last year. The maximum time range that can be queried is one month.
+   * Creates a task to export resource usage details to an Excel file.
+   * 
+   * @remarks
+   *   You can create a task to query data in the last year. The maximum time range that can be queried is one month.
    * *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request CreateUsageDetailDataExportTaskRequest
-   * @return CreateUsageDetailDataExportTaskResponse
+   * 
+   * @param request - CreateUsageDetailDataExportTaskRequest
+   * @returns CreateUsageDetailDataExportTaskResponse
    */
   async createUsageDetailDataExportTask(request: CreateUsageDetailDataExportTaskRequest): Promise<CreateUsageDetailDataExportTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20156,14 +33021,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a task to export your resource usage history to a PDF file.
-   *
-   * @description *   You can create a task to query data in the last year. The maximum time range that can be queried is one month.
+   * Creates a task to export your resource usage history to a PDF file.
+   * 
+   * @remarks
+   *   You can create a task to query data in the last year. The maximum time range that can be queried is one month.
    * *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request CreateUserUsageDataExportTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateUserUsageDataExportTaskResponse
+   * 
+   * @param request - CreateUserUsageDataExportTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserUsageDataExportTaskResponse
    */
   async createUserUsageDataExportTaskWithOptions(request: CreateUserUsageDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserUsageDataExportTaskResponse> {
     Util.validateModel(request);
@@ -20202,13 +33068,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a task to export your resource usage history to a PDF file.
-   *
-   * @description *   You can create a task to query data in the last year. The maximum time range that can be queried is one month.
+   * Creates a task to export your resource usage history to a PDF file.
+   * 
+   * @remarks
+   *   You can create a task to query data in the last year. The maximum time range that can be queried is one month.
    * *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request CreateUserUsageDataExportTaskRequest
-   * @return CreateUserUsageDataExportTaskResponse
+   * 
+   * @param request - CreateUserUsageDataExportTaskRequest
+   * @returns CreateUserUsageDataExportTaskResponse
    */
   async createUserUsageDataExportTask(request: CreateUserUsageDataExportTaskRequest): Promise<CreateUserUsageDataExportTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20216,13 +33083,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes tracking tasks by task ID.
-   *
-   * @description > You can call this operation up to three times per second per account.
-   *
-   * @param request DeleteCdnDeliverTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCdnDeliverTaskResponse
+   * Deletes tracking tasks by task ID.
+   * 
+   * @remarks
+   * > You can call this operation up to three times per second per account.
+   * 
+   * @param request - DeleteCdnDeliverTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCdnDeliverTaskResponse
    */
   async deleteCdnDeliverTaskWithOptions(request: DeleteCdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCdnDeliverTaskResponse> {
     Util.validateModel(request);
@@ -20249,12 +33117,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes tracking tasks by task ID.
-   *
-   * @description > You can call this operation up to three times per second per account.
-   *
-   * @param request DeleteCdnDeliverTaskRequest
-   * @return DeleteCdnDeliverTaskResponse
+   * Deletes tracking tasks by task ID.
+   * 
+   * @remarks
+   * > You can call this operation up to three times per second per account.
+   * 
+   * @param request - DeleteCdnDeliverTaskRequest
+   * @returns DeleteCdnDeliverTaskResponse
    */
   async deleteCdnDeliverTask(request: DeleteCdnDeliverTaskRequest): Promise<DeleteCdnDeliverTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20262,15 +33131,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes an accelerated domain name from Alibaba Cloud CDN.
-   *
-   * @description *   We recommend that you add an A record for the domain name in the system of your DNS service provider before you remove the domain name from Alibaba Cloud CDN. Otherwise, the domain name may become inaccessible. Proceed with caution.
+   * Removes an accelerated domain name from Alibaba Cloud CDN.
+   * 
+   * @remarks
+   *   We recommend that you add an A record for the domain name in the system of your DNS service provider before you remove the domain name from Alibaba Cloud CDN. Otherwise, the domain name may become inaccessible. Proceed with caution.
    * *   After you successfully call the DeleteCdnDomain operation, all records of the removed domain name are deleted. If you need to only disable the domain name, we recommend that you call the StopCdnDomain operation.
    * *   You can call this operation up to 10 times per second per account.
-   *
-   * @param request DeleteCdnDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCdnDomainResponse
+   * 
+   * @param request - DeleteCdnDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCdnDomainResponse
    */
   async deleteCdnDomainWithOptions(request: DeleteCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCdnDomainResponse> {
     Util.validateModel(request);
@@ -20305,14 +33175,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes an accelerated domain name from Alibaba Cloud CDN.
-   *
-   * @description *   We recommend that you add an A record for the domain name in the system of your DNS service provider before you remove the domain name from Alibaba Cloud CDN. Otherwise, the domain name may become inaccessible. Proceed with caution.
+   * Removes an accelerated domain name from Alibaba Cloud CDN.
+   * 
+   * @remarks
+   *   We recommend that you add an A record for the domain name in the system of your DNS service provider before you remove the domain name from Alibaba Cloud CDN. Otherwise, the domain name may become inaccessible. Proceed with caution.
    * *   After you successfully call the DeleteCdnDomain operation, all records of the removed domain name are deleted. If you need to only disable the domain name, we recommend that you call the StopCdnDomain operation.
    * *   You can call this operation up to 10 times per second per account.
-   *
-   * @param request DeleteCdnDomainRequest
-   * @return DeleteCdnDomainResponse
+   * 
+   * @param request - DeleteCdnDomainRequest
+   * @returns DeleteCdnDomainResponse
    */
   async deleteCdnDomain(request: DeleteCdnDomainRequest): Promise<DeleteCdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20320,13 +33191,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the request.
-   *
-   * @description >  You can call this API operation up to three times per second per account.
-   *
-   * @param request DeleteCdnSubTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCdnSubTaskResponse
+   * The ID of the request.
+   * 
+   * @remarks
+   * >  You can call this API operation up to three times per second per account.
+   * 
+   * @param request - DeleteCdnSubTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCdnSubTaskResponse
    */
   async deleteCdnSubTaskWithOptions(runtime: $Util.RuntimeOptions): Promise<DeleteCdnSubTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -20345,11 +33217,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the request.
-   *
-   * @description >  You can call this API operation up to three times per second per account.
-   *
-   * @return DeleteCdnSubTaskResponse
+   * The ID of the request.
+   * 
+   * @remarks
+   * >  You can call this API operation up to three times per second per account.
+   * @returns DeleteCdnSubTaskResponse
    */
   async deleteCdnSubTask(): Promise<DeleteCdnSubTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20357,11 +33229,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a specified Function Compute trigger.
-   *
-   * @param request DeleteFCTriggerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteFCTriggerResponse
+   * Deletes a specified Function Compute trigger.
+   * 
+   * @param request - DeleteFCTriggerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFCTriggerResponse
    */
   async deleteFCTriggerWithOptions(request: DeleteFCTriggerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFCTriggerResponse> {
     Util.validateModel(request);
@@ -20388,10 +33260,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a specified Function Compute trigger.
-   *
-   * @param request DeleteFCTriggerRequest
-   * @return DeleteFCTriggerResponse
+   * Deletes a specified Function Compute trigger.
+   * 
+   * @param request - DeleteFCTriggerRequest
+   * @returns DeleteFCTriggerResponse
    */
   async deleteFCTrigger(request: DeleteFCTriggerRequest): Promise<DeleteFCTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20399,13 +33271,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the Logstore that is used by a specified configuration record of real-time log delivery.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DeleteRealTimeLogLogstoreRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteRealTimeLogLogstoreResponse
+   * Deletes the Logstore that is used by a specified configuration record of real-time log delivery.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DeleteRealTimeLogLogstoreRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRealTimeLogLogstoreResponse
    */
   async deleteRealTimeLogLogstoreWithOptions(request: DeleteRealTimeLogLogstoreRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRealTimeLogLogstoreResponse> {
     Util.validateModel(request);
@@ -20428,12 +33301,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the Logstore that is used by a specified configuration record of real-time log delivery.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DeleteRealTimeLogLogstoreRequest
-   * @return DeleteRealTimeLogLogstoreResponse
+   * Deletes the Logstore that is used by a specified configuration record of real-time log delivery.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DeleteRealTimeLogLogstoreRequest
+   * @returns DeleteRealTimeLogLogstoreResponse
    */
   async deleteRealTimeLogLogstore(request: DeleteRealTimeLogLogstoreRequest): Promise<DeleteRealTimeLogLogstoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20441,13 +33315,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the configurations of real-time log delivery for specific accelerated domain names.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DeleteRealtimeLogDeliveryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteRealtimeLogDeliveryResponse
+   * Deletes the configurations of real-time log delivery for specific accelerated domain names.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DeleteRealtimeLogDeliveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRealtimeLogDeliveryResponse
    */
   async deleteRealtimeLogDeliveryWithOptions(request: DeleteRealtimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRealtimeLogDeliveryResponse> {
     Util.validateModel(request);
@@ -20470,12 +33345,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the configurations of real-time log delivery for specific accelerated domain names.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DeleteRealtimeLogDeliveryRequest
-   * @return DeleteRealtimeLogDeliveryResponse
+   * Deletes the configurations of real-time log delivery for specific accelerated domain names.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DeleteRealtimeLogDeliveryRequest
+   * @returns DeleteRealtimeLogDeliveryResponse
    */
   async deleteRealtimeLogDelivery(request: DeleteRealtimeLogDeliveryRequest): Promise<DeleteRealtimeLogDeliveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20483,13 +33359,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes specified configurations of an accelerated domain name.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DeleteSpecificConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSpecificConfigResponse
+   * Deletes specified configurations of an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DeleteSpecificConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSpecificConfigResponse
    */
   async deleteSpecificConfigWithOptions(request: DeleteSpecificConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpecificConfigResponse> {
     Util.validateModel(request);
@@ -20528,12 +33405,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes specified configurations of an accelerated domain name.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DeleteSpecificConfigRequest
-   * @return DeleteSpecificConfigResponse
+   * Deletes specified configurations of an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DeleteSpecificConfigRequest
+   * @returns DeleteSpecificConfigResponse
    */
   async deleteSpecificConfig(request: DeleteSpecificConfigRequest): Promise<DeleteSpecificConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20541,13 +33419,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a specified configuration of the staging environment.
-   *
-   * @description > You can call this operation up to 20 times per second per account.
-   *
-   * @param request DeleteSpecificStagingConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSpecificStagingConfigResponse
+   * Deletes a specified configuration of the staging environment.
+   * 
+   * @remarks
+   * > You can call this operation up to 20 times per second per account.
+   * 
+   * @param request - DeleteSpecificStagingConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSpecificStagingConfigResponse
    */
   async deleteSpecificStagingConfigWithOptions(request: DeleteSpecificStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpecificStagingConfigResponse> {
     Util.validateModel(request);
@@ -20586,12 +33465,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a specified configuration of the staging environment.
-   *
-   * @description > You can call this operation up to 20 times per second per account.
-   *
-   * @param request DeleteSpecificStagingConfigRequest
-   * @return DeleteSpecificStagingConfigResponse
+   * Deletes a specified configuration of the staging environment.
+   * 
+   * @remarks
+   * > You can call this operation up to 20 times per second per account.
+   * 
+   * @param request - DeleteSpecificStagingConfigRequest
+   * @returns DeleteSpecificStagingConfigResponse
    */
   async deleteSpecificStagingConfig(request: DeleteSpecificStagingConfigRequest): Promise<DeleteSpecificStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20599,13 +33479,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a task that was used to export usage details.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DeleteUsageDetailDataExportTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteUsageDetailDataExportTaskResponse
+   * Deletes a task that was used to export usage details.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DeleteUsageDetailDataExportTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUsageDetailDataExportTaskResponse
    */
   async deleteUsageDetailDataExportTaskWithOptions(request: DeleteUsageDetailDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUsageDetailDataExportTaskResponse> {
     Util.validateModel(request);
@@ -20632,12 +33513,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a task that was used to export usage details.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DeleteUsageDetailDataExportTaskRequest
-   * @return DeleteUsageDetailDataExportTaskResponse
+   * Deletes a task that was used to export usage details.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DeleteUsageDetailDataExportTaskRequest
+   * @returns DeleteUsageDetailDataExportTaskResponse
    */
   async deleteUsageDetailDataExportTask(request: DeleteUsageDetailDataExportTaskRequest): Promise<DeleteUsageDetailDataExportTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20645,13 +33527,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a task that was used to export usage history.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DeleteUserUsageDataExportTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteUserUsageDataExportTaskResponse
+   * Deletes a task that was used to export usage history.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DeleteUserUsageDataExportTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserUsageDataExportTaskResponse
    */
   async deleteUserUsageDataExportTaskWithOptions(request: DeleteUserUsageDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserUsageDataExportTaskResponse> {
     Util.validateModel(request);
@@ -20678,12 +33561,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a task that was used to export usage history.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DeleteUserUsageDataExportTaskRequest
-   * @return DeleteUserUsageDataExportTaskResponse
+   * Deletes a task that was used to export usage history.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DeleteUserUsageDataExportTaskRequest
+   * @returns DeleteUserUsageDataExportTaskResponse
    */
   async deleteUserUsageDataExportTask(request: DeleteUserUsageDataExportTaskRequest): Promise<DeleteUserUsageDataExportTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20691,13 +33575,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries countries and regions that can be added to the blacklist.
-   *
-   * @description > You can call this operation up to 50 times per second per account.
-   *
-   * @param request DescribeBlockedRegionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBlockedRegionsResponse
+   * Queries countries and regions that can be added to the blacklist.
+   * 
+   * @remarks
+   * > You can call this operation up to 50 times per second per account.
+   * 
+   * @param request - DescribeBlockedRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBlockedRegionsResponse
    */
   async describeBlockedRegionsWithOptions(request: DescribeBlockedRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBlockedRegionsResponse> {
     Util.validateModel(request);
@@ -20720,12 +33605,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries countries and regions that can be added to the blacklist.
-   *
-   * @description > You can call this operation up to 50 times per second per account.
-   *
-   * @param request DescribeBlockedRegionsRequest
-   * @return DescribeBlockedRegionsResponse
+   * Queries countries and regions that can be added to the blacklist.
+   * 
+   * @remarks
+   * > You can call this operation up to 50 times per second per account.
+   * 
+   * @param request - DescribeBlockedRegionsRequest
+   * @returns DescribeBlockedRegionsResponse
    */
   async describeBlockedRegions(request: DescribeBlockedRegionsRequest): Promise<DescribeBlockedRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20733,13 +33619,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the detailed information about an SSL certificate.
-   *
-   * @description > You can call this operation up to 20 times per second per account.
-   *
-   * @param request DescribeCdnCertificateDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnCertificateDetailResponse
+   * Queries the detailed information about an SSL certificate.
+   * 
+   * @remarks
+   * > You can call this operation up to 20 times per second per account.
+   * 
+   * @param request - DescribeCdnCertificateDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnCertificateDetailResponse
    */
   async describeCdnCertificateDetailWithOptions(request: DescribeCdnCertificateDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnCertificateDetailResponse> {
     Util.validateModel(request);
@@ -20774,12 +33661,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the detailed information about an SSL certificate.
-   *
-   * @description > You can call this operation up to 20 times per second per account.
-   *
-   * @param request DescribeCdnCertificateDetailRequest
-   * @return DescribeCdnCertificateDetailResponse
+   * Queries the detailed information about an SSL certificate.
+   * 
+   * @remarks
+   * > You can call this operation up to 20 times per second per account.
+   * 
+   * @param request - DescribeCdnCertificateDetailRequest
+   * @returns DescribeCdnCertificateDetailResponse
    */
   async describeCdnCertificateDetail(request: DescribeCdnCertificateDetailRequest): Promise<DescribeCdnCertificateDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20787,11 +33675,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries certificate details by certificate ID.
-   *
-   * @param request DescribeCdnCertificateDetailByIdRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnCertificateDetailByIdResponse
+   * Queries certificate details by certificate ID.
+   * 
+   * @param request - DescribeCdnCertificateDetailByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnCertificateDetailByIdResponse
    */
   async describeCdnCertificateDetailByIdWithOptions(request: DescribeCdnCertificateDetailByIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnCertificateDetailByIdResponse> {
     Util.validateModel(request);
@@ -20830,10 +33718,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries certificate details by certificate ID.
-   *
-   * @param request DescribeCdnCertificateDetailByIdRequest
-   * @return DescribeCdnCertificateDetailByIdResponse
+   * Queries certificate details by certificate ID.
+   * 
+   * @param request - DescribeCdnCertificateDetailByIdRequest
+   * @returns DescribeCdnCertificateDetailByIdResponse
    */
   async describeCdnCertificateDetailById(request: DescribeCdnCertificateDetailByIdRequest): Promise<DescribeCdnCertificateDetailByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20841,15 +33729,16 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the certificates of accelerated domain names.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
    * @deprecated OpenAPI DescribeCdnCertificateList is deprecated, please use Cdn::2018-05-10::DescribeCdnSSLCertificateList instead.
-   *
-   * @summary Queries the certificates of accelerated domain names.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnCertificateListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnCertificateListResponse
+   * 
+   * @param request - DescribeCdnCertificateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnCertificateListResponse
    */
   // Deprecated
   async describeCdnCertificateListWithOptions(request: DescribeCdnCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnCertificateListResponse> {
@@ -20885,14 +33774,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the certificates of accelerated domain names.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
    * @deprecated OpenAPI DescribeCdnCertificateList is deprecated, please use Cdn::2018-05-10::DescribeCdnSSLCertificateList instead.
-   *
-   * @summary Queries the certificates of accelerated domain names.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnCertificateListRequest
-   * @return DescribeCdnCertificateListResponse
+   * 
+   * @param request - DescribeCdnCertificateListRequest
+   * @returns DescribeCdnCertificateListResponse
    */
   // Deprecated
   async describeCdnCertificateList(request: DescribeCdnCertificateListRequest): Promise<DescribeCdnCertificateListResponse> {
@@ -20901,11 +33791,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Internet service provider (ISP), region, and country that are required for advanced conditions.
-   *
-   * @param request DescribeCdnConditionIPBInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnConditionIPBInfoResponse
+   * Queries the Internet service provider (ISP), region, and country that are required for advanced conditions.
+   * 
+   * @param request - DescribeCdnConditionIPBInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnConditionIPBInfoResponse
    */
   async describeCdnConditionIPBInfoWithOptions(request: DescribeCdnConditionIPBInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnConditionIPBInfoResponse> {
     Util.validateModel(request);
@@ -20932,10 +33822,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Internet service provider (ISP), region, and country that are required for advanced conditions.
-   *
-   * @param request DescribeCdnConditionIPBInfoRequest
-   * @return DescribeCdnConditionIPBInfoResponse
+   * Queries the Internet service provider (ISP), region, and country that are required for advanced conditions.
+   * 
+   * @param request - DescribeCdnConditionIPBInfoRequest
+   * @returns DescribeCdnConditionIPBInfoResponse
    */
   async describeCdnConditionIPBInfo(request: DescribeCdnConditionIPBInfoRequest): Promise<DescribeCdnConditionIPBInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20943,13 +33833,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the domain names that are deleted from your account.
-   *
-   * @description > You can call this operation up to 10 times per second per account.
-   *
-   * @param request DescribeCdnDeletedDomainsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnDeletedDomainsResponse
+   * Queries the domain names that are deleted from your account.
+   * 
+   * @remarks
+   * > You can call this operation up to 10 times per second per account.
+   * 
+   * @param request - DescribeCdnDeletedDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnDeletedDomainsResponse
    */
   async describeCdnDeletedDomainsWithOptions(request: DescribeCdnDeletedDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDeletedDomainsResponse> {
     Util.validateModel(request);
@@ -20980,12 +33871,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the domain names that are deleted from your account.
-   *
-   * @description > You can call this operation up to 10 times per second per account.
-   *
-   * @param request DescribeCdnDeletedDomainsRequest
-   * @return DescribeCdnDeletedDomainsResponse
+   * Queries the domain names that are deleted from your account.
+   * 
+   * @remarks
+   * > You can call this operation up to 10 times per second per account.
+   * 
+   * @param request - DescribeCdnDeletedDomainsRequest
+   * @returns DescribeCdnDeletedDomainsResponse
    */
   async describeCdnDeletedDomains(request: DescribeCdnDeletedDomainsRequest): Promise<DescribeCdnDeletedDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20993,13 +33885,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries one or more tracking tasks of operations reports.
-   *
-   * @description > You can call this operation up to 3 times per second per account.
-   *
-   * @param request DescribeCdnDeliverListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnDeliverListResponse
+   * Queries one or more tracking tasks of operations reports.
+   * 
+   * @remarks
+   * > You can call this operation up to 3 times per second per account.
+   * 
+   * @param request - DescribeCdnDeliverListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnDeliverListResponse
    */
   async describeCdnDeliverListWithOptions(request: DescribeCdnDeliverListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDeliverListResponse> {
     Util.validateModel(request);
@@ -21026,12 +33919,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries one or more tracking tasks of operations reports.
-   *
-   * @description > You can call this operation up to 3 times per second per account.
-   *
-   * @param request DescribeCdnDeliverListRequest
-   * @return DescribeCdnDeliverListResponse
+   * Queries one or more tracking tasks of operations reports.
+   * 
+   * @remarks
+   * > You can call this operation up to 3 times per second per account.
+   * 
+   * @param request - DescribeCdnDeliverListRequest
+   * @returns DescribeCdnDeliverListResponse
    */
   async describeCdnDeliverList(request: DescribeCdnDeliverListRequest): Promise<DescribeCdnDeliverListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21039,11 +33933,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 天翼定制化小时日志下载接口
-   *
-   * @param request DescribeCdnDomainAtoaLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnDomainAtoaLogsResponse
+   * 天翼定制化小时日志下载接口
+   * 
+   * @param request - DescribeCdnDomainAtoaLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnDomainAtoaLogsResponse
    */
   async describeCdnDomainAtoaLogsWithOptions(request: DescribeCdnDomainAtoaLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainAtoaLogsResponse> {
     Util.validateModel(request);
@@ -21086,10 +33980,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 天翼定制化小时日志下载接口
-   *
-   * @param request DescribeCdnDomainAtoaLogsRequest
-   * @return DescribeCdnDomainAtoaLogsResponse
+   * 天翼定制化小时日志下载接口
+   * 
+   * @param request - DescribeCdnDomainAtoaLogsRequest
+   * @returns DescribeCdnDomainAtoaLogsResponse
    */
   async describeCdnDomainAtoaLogs(request: DescribeCdnDomainAtoaLogsRequest): Promise<DescribeCdnDomainAtoaLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21097,13 +33991,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries accelerated domain names by SSL certificate.
-   *
-   * @description >  You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeCdnDomainByCertificateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnDomainByCertificateResponse
+   * Queries accelerated domain names by SSL certificate.
+   * 
+   * @remarks
+   * >  You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeCdnDomainByCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnDomainByCertificateResponse
    */
   async describeCdnDomainByCertificateWithOptions(request: DescribeCdnDomainByCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainByCertificateResponse> {
     Util.validateModel(request);
@@ -21138,12 +34033,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries accelerated domain names by SSL certificate.
-   *
-   * @description >  You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeCdnDomainByCertificateRequest
-   * @return DescribeCdnDomainByCertificateResponse
+   * Queries accelerated domain names by SSL certificate.
+   * 
+   * @remarks
+   * >  You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeCdnDomainByCertificateRequest
+   * @returns DescribeCdnDomainByCertificateResponse
    */
   async describeCdnDomainByCertificate(request: DescribeCdnDomainByCertificateRequest): Promise<DescribeCdnDomainByCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21151,13 +34047,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of an accelerated domain name. You can query the configurations of one or more features at the same time.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeCdnDomainConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnDomainConfigsResponse
+   * Queries the configurations of an accelerated domain name. You can query the configurations of one or more features at the same time.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeCdnDomainConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnDomainConfigsResponse
    */
   async describeCdnDomainConfigsWithOptions(request: DescribeCdnDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainConfigsResponse> {
     Util.validateModel(request);
@@ -21200,12 +34097,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of an accelerated domain name. You can query the configurations of one or more features at the same time.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeCdnDomainConfigsRequest
-   * @return DescribeCdnDomainConfigsResponse
+   * Queries the configurations of an accelerated domain name. You can query the configurations of one or more features at the same time.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeCdnDomainConfigsRequest
+   * @returns DescribeCdnDomainConfigsResponse
    */
   async describeCdnDomainConfigs(request: DescribeCdnDomainConfigsRequest): Promise<DescribeCdnDomainConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21213,13 +34111,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the basic information about an accelerated domain name.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnDomainDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnDomainDetailResponse
+   * Queries the basic information about an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnDomainDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnDomainDetailResponse
    */
   async describeCdnDomainDetailWithOptions(request: DescribeCdnDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainDetailResponse> {
     Util.validateModel(request);
@@ -21254,12 +34153,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the basic information about an accelerated domain name.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnDomainDetailRequest
-   * @return DescribeCdnDomainDetailResponse
+   * Queries the basic information about an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnDomainDetailRequest
+   * @returns DescribeCdnDomainDetailResponse
    */
   async describeCdnDomainDetail(request: DescribeCdnDomainDetailRequest): Promise<DescribeCdnDomainDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21267,16 +34167,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the address where you can download the log data of a specific domain name.
-   *
-   * @description *   If you do not set **StartTime** or **EndTime**, the request returns the data collected in the last 24 hours. If you set both **StartTime** and **EndTime**, the request returns the data collected within the specified time range.
+   * Queries the address where you can download the log data of a specific domain name.
+   * 
+   * @remarks
+   *   If you do not set **StartTime** or **EndTime**, the request returns the data collected in the last 24 hours. If you set both **StartTime** and **EndTime**, the request returns the data collected within the specified time range.
    * *   The log data is collected every hour.
    * *   You can call this operation up to 100 times per second per account.
    * *   You can query only logs in the last month. The start time and the current time cannot exceed 31 days.
-   *
-   * @param request DescribeCdnDomainLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnDomainLogsResponse
+   * 
+   * @param request - DescribeCdnDomainLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnDomainLogsResponse
    */
   async describeCdnDomainLogsWithOptions(request: DescribeCdnDomainLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainLogsResponse> {
     Util.validateModel(request);
@@ -21319,15 +34220,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the address where you can download the log data of a specific domain name.
-   *
-   * @description *   If you do not set **StartTime** or **EndTime**, the request returns the data collected in the last 24 hours. If you set both **StartTime** and **EndTime**, the request returns the data collected within the specified time range.
+   * Queries the address where you can download the log data of a specific domain name.
+   * 
+   * @remarks
+   *   If you do not set **StartTime** or **EndTime**, the request returns the data collected in the last 24 hours. If you set both **StartTime** and **EndTime**, the request returns the data collected within the specified time range.
    * *   The log data is collected every hour.
    * *   You can call this operation up to 100 times per second per account.
    * *   You can query only logs in the last month. The start time and the current time cannot exceed 31 days.
-   *
-   * @param request DescribeCdnDomainLogsRequest
-   * @return DescribeCdnDomainLogsResponse
+   * 
+   * @param request - DescribeCdnDomainLogsRequest
+   * @returns DescribeCdnDomainLogsResponse
    */
   async describeCdnDomainLogs(request: DescribeCdnDomainLogsRequest): Promise<DescribeCdnDomainLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21335,9 +34237,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCdnDomainLogsExTtlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnDomainLogsExTtlResponse
+   * @param request - DescribeCdnDomainLogsExTtlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnDomainLogsExTtlResponse
    */
   async describeCdnDomainLogsExTtlWithOptions(request: DescribeCdnDomainLogsExTtlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainLogsExTtlResponse> {
     Util.validateModel(request);
@@ -21380,8 +34282,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCdnDomainLogsExTtlRequest
-   * @return DescribeCdnDomainLogsExTtlResponse
+   * @param request - DescribeCdnDomainLogsExTtlRequest
+   * @returns DescribeCdnDomainLogsExTtlResponse
    */
   async describeCdnDomainLogsExTtl(request: DescribeCdnDomainLogsExTtlRequest): Promise<DescribeCdnDomainLogsExTtlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21389,13 +34291,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of features in the staging environment.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnDomainStagingConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnDomainStagingConfigResponse
+   * Queries the configurations of features in the staging environment.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnDomainStagingConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnDomainStagingConfigResponse
    */
   async describeCdnDomainStagingConfigWithOptions(request: DescribeCdnDomainStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainStagingConfigResponse> {
     Util.validateModel(request);
@@ -21426,12 +34329,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of features in the staging environment.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnDomainStagingConfigRequest
-   * @return DescribeCdnDomainStagingConfigResponse
+   * Queries the configurations of features in the staging environment.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnDomainStagingConfigRequest
+   * @returns DescribeCdnDomainStagingConfigResponse
    */
   async describeCdnDomainStagingConfig(request: DescribeCdnDomainStagingConfigRequest): Promise<DescribeCdnDomainStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21439,11 +34343,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取海量封禁全量配置
-   *
-   * @param request DescribeCdnFullDomainsBlockIPConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnFullDomainsBlockIPConfigResponse
+   * 获取海量封禁全量配置
+   * 
+   * @param request - DescribeCdnFullDomainsBlockIPConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnFullDomainsBlockIPConfigResponse
    */
   async describeCdnFullDomainsBlockIPConfigWithOptions(request: DescribeCdnFullDomainsBlockIPConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnFullDomainsBlockIPConfigResponse> {
     Util.validateModel(request);
@@ -21470,10 +34374,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取海量封禁全量配置
-   *
-   * @param request DescribeCdnFullDomainsBlockIPConfigRequest
-   * @return DescribeCdnFullDomainsBlockIPConfigResponse
+   * 获取海量封禁全量配置
+   * 
+   * @param request - DescribeCdnFullDomainsBlockIPConfigRequest
+   * @returns DescribeCdnFullDomainsBlockIPConfigResponse
    */
   async describeCdnFullDomainsBlockIPConfig(request: DescribeCdnFullDomainsBlockIPConfigRequest): Promise<DescribeCdnFullDomainsBlockIPConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21481,11 +34385,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户海量封禁历史
-   *
-   * @param request DescribeCdnFullDomainsBlockIPHistoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnFullDomainsBlockIPHistoryResponse
+   * 查询用户海量封禁历史
+   * 
+   * @param request - DescribeCdnFullDomainsBlockIPHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnFullDomainsBlockIPHistoryResponse
    */
   async describeCdnFullDomainsBlockIPHistoryWithOptions(request: DescribeCdnFullDomainsBlockIPHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnFullDomainsBlockIPHistoryResponse> {
     Util.validateModel(request);
@@ -21520,10 +34424,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户海量封禁历史
-   *
-   * @param request DescribeCdnFullDomainsBlockIPHistoryRequest
-   * @return DescribeCdnFullDomainsBlockIPHistoryResponse
+   * 查询用户海量封禁历史
+   * 
+   * @param request - DescribeCdnFullDomainsBlockIPHistoryRequest
+   * @returns DescribeCdnFullDomainsBlockIPHistoryResponse
    */
   async describeCdnFullDomainsBlockIPHistory(request: DescribeCdnFullDomainsBlockIPHistoryRequest): Promise<DescribeCdnFullDomainsBlockIPHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21531,13 +34435,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about SSL certificates that belong to your Alibaba Cloud account.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeCdnHttpsDomainListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnHttpsDomainListResponse
+   * Queries the information about SSL certificates that belong to your Alibaba Cloud account.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeCdnHttpsDomainListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnHttpsDomainListResponse
    */
   async describeCdnHttpsDomainListWithOptions(request: DescribeCdnHttpsDomainListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnHttpsDomainListResponse> {
     Util.validateModel(request);
@@ -21572,12 +34477,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about SSL certificates that belong to your Alibaba Cloud account.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeCdnHttpsDomainListRequest
-   * @return DescribeCdnHttpsDomainListResponse
+   * Queries the information about SSL certificates that belong to your Alibaba Cloud account.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeCdnHttpsDomainListRequest
+   * @returns DescribeCdnHttpsDomainListResponse
    */
   async describeCdnHttpsDomainList(request: DescribeCdnHttpsDomainListRequest): Promise<DescribeCdnHttpsDomainListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21585,13 +34491,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the registration status of the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for a domain name that is added to Alibaba Cloud CDN.
-   *
-   * @description >  If a domain name is not transferred from Alibaba Cloud CDN to DCDN after it is registered in the routing center of DCDN, the registration information is retained for only one day.
-   *
-   * @param request DescribeCdnMigrateRegisterStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnMigrateRegisterStatusResponse
+   * Queries the registration status of the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for a domain name that is added to Alibaba Cloud CDN.
+   * 
+   * @remarks
+   * >  If a domain name is not transferred from Alibaba Cloud CDN to DCDN after it is registered in the routing center of DCDN, the registration information is retained for only one day.
+   * 
+   * @param request - DescribeCdnMigrateRegisterStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnMigrateRegisterStatusResponse
    */
   async describeCdnMigrateRegisterStatusWithOptions(request: DescribeCdnMigrateRegisterStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnMigrateRegisterStatusResponse> {
     Util.validateModel(request);
@@ -21618,12 +34525,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the registration status of the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for a domain name that is added to Alibaba Cloud CDN.
-   *
-   * @description >  If a domain name is not transferred from Alibaba Cloud CDN to DCDN after it is registered in the routing center of DCDN, the registration information is retained for only one day.
-   *
-   * @param request DescribeCdnMigrateRegisterStatusRequest
-   * @return DescribeCdnMigrateRegisterStatusResponse
+   * Queries the registration status of the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for a domain name that is added to Alibaba Cloud CDN.
+   * 
+   * @remarks
+   * >  If a domain name is not transferred from Alibaba Cloud CDN to DCDN after it is registered in the routing center of DCDN, the registration information is retained for only one day.
+   * 
+   * @param request - DescribeCdnMigrateRegisterStatusRequest
+   * @returns DescribeCdnMigrateRegisterStatusResponse
    */
   async describeCdnMigrateRegisterStatus(request: DescribeCdnMigrateRegisterStatusRequest): Promise<DescribeCdnMigrateRegisterStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21631,11 +34539,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the code of a commodity by account UID.
-   *
-   * @param request DescribeCdnOrderCommodityCodeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnOrderCommodityCodeResponse
+   * Queries the code of a commodity by account UID.
+   * 
+   * @param request - DescribeCdnOrderCommodityCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnOrderCommodityCodeResponse
    */
   async describeCdnOrderCommodityCodeWithOptions(request: DescribeCdnOrderCommodityCodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnOrderCommodityCodeResponse> {
     Util.validateModel(request);
@@ -21670,10 +34578,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the code of a commodity by account UID.
-   *
-   * @param request DescribeCdnOrderCommodityCodeRequest
-   * @return DescribeCdnOrderCommodityCodeResponse
+   * Queries the code of a commodity by account UID.
+   * 
+   * @param request - DescribeCdnOrderCommodityCodeRequest
+   * @returns DescribeCdnOrderCommodityCodeResponse
    */
   async describeCdnOrderCommodityCode(request: DescribeCdnOrderCommodityCodeRequest): Promise<DescribeCdnOrderCommodityCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21681,14 +34589,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries Internet service providers (ISPs) and regions that are supported by Alibaba Cloud CDN.
-   *
-   * @description *   The lists of ISPs and regions that are supported by Alibaba Cloud CDN are updated and published on the Alibaba Cloud International site.
+   * Queries Internet service providers (ISPs) and regions that are supported by Alibaba Cloud CDN.
+   * 
+   * @remarks
+   *   The lists of ISPs and regions that are supported by Alibaba Cloud CDN are updated and published on the Alibaba Cloud International site.
    * *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnRegionAndIspRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnRegionAndIspResponse
+   * 
+   * @param request - DescribeCdnRegionAndIspRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnRegionAndIspResponse
    */
   async describeCdnRegionAndIspWithOptions(request: DescribeCdnRegionAndIspRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnRegionAndIspResponse> {
     Util.validateModel(request);
@@ -21719,13 +34628,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries Internet service providers (ISPs) and regions that are supported by Alibaba Cloud CDN.
-   *
-   * @description *   The lists of ISPs and regions that are supported by Alibaba Cloud CDN are updated and published on the Alibaba Cloud International site.
+   * Queries Internet service providers (ISPs) and regions that are supported by Alibaba Cloud CDN.
+   * 
+   * @remarks
+   *   The lists of ISPs and regions that are supported by Alibaba Cloud CDN are updated and published on the Alibaba Cloud International site.
    * *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnRegionAndIspRequest
-   * @return DescribeCdnRegionAndIspResponse
+   * 
+   * @param request - DescribeCdnRegionAndIspRequest
+   * @returns DescribeCdnRegionAndIspResponse
    */
   async describeCdnRegionAndIsp(request: DescribeCdnRegionAndIspRequest): Promise<DescribeCdnRegionAndIspResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21733,13 +34643,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the content of an operations report.
-   *
-   * @description > You can call this operation up to three times per second per account.
-   *
-   * @param request DescribeCdnReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnReportResponse
+   * Queries the content of an operations report.
+   * 
+   * @remarks
+   * > You can call this operation up to three times per second per account.
+   * 
+   * @param request - DescribeCdnReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnReportResponse
    */
   async describeCdnReportWithOptions(request: DescribeCdnReportRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnReportResponse> {
     Util.validateModel(request);
@@ -21790,12 +34701,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the content of an operations report.
-   *
-   * @description > You can call this operation up to three times per second per account.
-   *
-   * @param request DescribeCdnReportRequest
-   * @return DescribeCdnReportResponse
+   * Queries the content of an operations report.
+   * 
+   * @remarks
+   * > You can call this operation up to three times per second per account.
+   * 
+   * @param request - DescribeCdnReportRequest
+   * @returns DescribeCdnReportResponse
    */
   async describeCdnReport(request: DescribeCdnReportRequest): Promise<DescribeCdnReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21803,14 +34715,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries operations reports.
-   *
-   * @description *   This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
+   * Queries operations reports.
+   * 
+   * @remarks
+   *   This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
    * *   You can call this operation up to three times per second per account.
-   *
-   * @param request DescribeCdnReportListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnReportListResponse
+   * 
+   * @param request - DescribeCdnReportListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnReportListResponse
    */
   async describeCdnReportListWithOptions(request: DescribeCdnReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnReportListResponse> {
     Util.validateModel(request);
@@ -21837,13 +34750,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries operations reports.
-   *
-   * @description *   This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
+   * Queries operations reports.
+   * 
+   * @remarks
+   *   This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
    * *   You can call this operation up to three times per second per account.
-   *
-   * @param request DescribeCdnReportListRequest
-   * @return DescribeCdnReportListResponse
+   * 
+   * @param request - DescribeCdnReportListRequest
+   * @returns DescribeCdnReportListResponse
    */
   async describeCdnReportList(request: DescribeCdnReportListRequest): Promise<DescribeCdnReportListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21851,13 +34765,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a ShangMi (SM) certificate.
-   *
-   * @description > You can call this operation up to 20 times per second per account.
-   *
-   * @param request DescribeCdnSMCertificateDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnSMCertificateDetailResponse
+   * Queries the details about a ShangMi (SM) certificate.
+   * 
+   * @remarks
+   * > You can call this operation up to 20 times per second per account.
+   * 
+   * @param request - DescribeCdnSMCertificateDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnSMCertificateDetailResponse
    */
   async describeCdnSMCertificateDetailWithOptions(request: DescribeCdnSMCertificateDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnSMCertificateDetailResponse> {
     Util.validateModel(request);
@@ -21892,12 +34807,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a ShangMi (SM) certificate.
-   *
-   * @description > You can call this operation up to 20 times per second per account.
-   *
-   * @param request DescribeCdnSMCertificateDetailRequest
-   * @return DescribeCdnSMCertificateDetailResponse
+   * Queries the details about a ShangMi (SM) certificate.
+   * 
+   * @remarks
+   * > You can call this operation up to 20 times per second per account.
+   * 
+   * @param request - DescribeCdnSMCertificateDetailRequest
+   * @returns DescribeCdnSMCertificateDetailResponse
    */
   async describeCdnSMCertificateDetail(request: DescribeCdnSMCertificateDetailRequest): Promise<DescribeCdnSMCertificateDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21905,13 +34821,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the ShangMi (SM) certificates of an accelerated domain name.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnSMCertificateListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnSMCertificateListResponse
+   * Queries the ShangMi (SM) certificates of an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnSMCertificateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnSMCertificateListResponse
    */
   async describeCdnSMCertificateListWithOptions(request: DescribeCdnSMCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnSMCertificateListResponse> {
     Util.validateModel(request);
@@ -21946,12 +34863,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the ShangMi (SM) certificates of an accelerated domain name.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnSMCertificateListRequest
-   * @return DescribeCdnSMCertificateListResponse
+   * Queries the ShangMi (SM) certificates of an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnSMCertificateListRequest
+   * @returns DescribeCdnSMCertificateListResponse
    */
   async describeCdnSMCertificateList(request: DescribeCdnSMCertificateListRequest): Promise<DescribeCdnSMCertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21959,11 +34877,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the certificate list by domain name.
-   *
-   * @param request DescribeCdnSSLCertificateListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnSSLCertificateListResponse
+   * Queries the certificate list by domain name.
+   * 
+   * @param request - DescribeCdnSSLCertificateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnSSLCertificateListResponse
    */
   async describeCdnSSLCertificateListWithOptions(request: DescribeCdnSSLCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnSSLCertificateListResponse> {
     Util.validateModel(request);
@@ -22010,10 +34928,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the certificate list by domain name.
-   *
-   * @param request DescribeCdnSSLCertificateListRequest
-   * @return DescribeCdnSSLCertificateListResponse
+   * Queries the certificate list by domain name.
+   * 
+   * @param request - DescribeCdnSSLCertificateListRequest
+   * @returns DescribeCdnSSLCertificateListResponse
    */
   async describeCdnSSLCertificateList(request: DescribeCdnSSLCertificateListRequest): Promise<DescribeCdnSSLCertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22021,11 +34939,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about security features of Alibaba Cloud CDN.
-   *
-   * @param request DescribeCdnSecFuncInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnSecFuncInfoResponse
+   * Queries information about security features of Alibaba Cloud CDN.
+   * 
+   * @param request - DescribeCdnSecFuncInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnSecFuncInfoResponse
    */
   async describeCdnSecFuncInfoWithOptions(request: DescribeCdnSecFuncInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnSecFuncInfoResponse> {
     Util.validateModel(request);
@@ -22056,10 +34974,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about security features of Alibaba Cloud CDN.
-   *
-   * @param request DescribeCdnSecFuncInfoRequest
-   * @return DescribeCdnSecFuncInfoResponse
+   * Queries information about security features of Alibaba Cloud CDN.
+   * 
+   * @param request - DescribeCdnSecFuncInfoRequest
+   * @returns DescribeCdnSecFuncInfoResponse
    */
   async describeCdnSecFuncInfo(request: DescribeCdnSecFuncInfoRequest): Promise<DescribeCdnSecFuncInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22067,13 +34985,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of your Alibaba Cloud CDN service. The information includes the service activation time, the current service status, the current metering method, and the metering method for the next cycle.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnServiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnServiceResponse
+   * Queries the status of your Alibaba Cloud CDN service. The information includes the service activation time, the current service status, the current metering method, and the metering method for the next cycle.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnServiceResponse
    */
   async describeCdnServiceWithOptions(request: DescribeCdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnServiceResponse> {
     Util.validateModel(request);
@@ -22104,12 +35023,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of your Alibaba Cloud CDN service. The information includes the service activation time, the current service status, the current metering method, and the metering method for the next cycle.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnServiceRequest
-   * @return DescribeCdnServiceResponse
+   * Queries the status of your Alibaba Cloud CDN service. The information includes the service activation time, the current service status, the current metering method, and the metering method for the next cycle.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnServiceRequest
+   * @returns DescribeCdnServiceResponse
    */
   async describeCdnService(request: DescribeCdnServiceRequest): Promise<DescribeCdnServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22117,14 +35037,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tracking tasks that you have created.
-   *
-   * @description *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
+   * Queries the tracking tasks that you have created.
+   * 
+   * @remarks
+   *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
    * *   You can call this operation up to three times per second per account.
-   *
-   * @param request DescribeCdnSubListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnSubListResponse
+   * 
+   * @param request - DescribeCdnSubListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnSubListResponse
    */
   async describeCdnSubListWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeCdnSubListResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -22143,12 +35064,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tracking tasks that you have created.
-   *
-   * @description *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
+   * Queries the tracking tasks that you have created.
+   * 
+   * @remarks
+   *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
    * *   You can call this operation up to three times per second per account.
-   *
-   * @return DescribeCdnSubListResponse
+   * @returns DescribeCdnSubListResponse
    */
   async describeCdnSubList(): Promise<DescribeCdnSubListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22156,14 +35077,61 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the billing history under your Alibaba Cloud account.
-   *
-   * @description *   You can query billing history up to the last one month.
+   * @param request - DescribeCdnTypesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnTypesResponse
+   */
+  async describeCdnTypesWithOptions(request: DescribeCdnTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnTypesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCdnTypes",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCdnTypesResponse>(await this.callApi(params, req, runtime), new DescribeCdnTypesResponse({}));
+  }
+
+  /**
+   * @param request - DescribeCdnTypesRequest
+   * @returns DescribeCdnTypesResponse
+   */
+  async describeCdnTypes(request: DescribeCdnTypesRequest): Promise<DescribeCdnTypesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCdnTypesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the billing history under your Alibaba Cloud account.
+   * 
+   * @remarks
+   *   You can query billing history up to the last one month.
    * *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeCdnUserBillHistoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnUserBillHistoryResponse
+   * 
+   * @param request - DescribeCdnUserBillHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnUserBillHistoryResponse
    */
   async describeCdnUserBillHistoryWithOptions(request: DescribeCdnUserBillHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserBillHistoryResponse> {
     Util.validateModel(request);
@@ -22194,13 +35162,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the billing history under your Alibaba Cloud account.
-   *
-   * @description *   You can query billing history up to the last one month.
+   * Queries the billing history under your Alibaba Cloud account.
+   * 
+   * @remarks
+   *   You can query billing history up to the last one month.
    * *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeCdnUserBillHistoryRequest
-   * @return DescribeCdnUserBillHistoryResponse
+   * 
+   * @param request - DescribeCdnUserBillHistoryRequest
+   * @returns DescribeCdnUserBillHistoryResponse
    */
   async describeCdnUserBillHistory(request: DescribeCdnUserBillHistoryRequest): Promise<DescribeCdnUserBillHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22208,19 +35177,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Estimates resource usage of the current month.
-   *
-   * @description You can call this operation to estimate resource usage of the current month based on the metering method that is specified on the first day of the current month. You can call this operation to estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
+   * Estimates resource usage of the current month.
+   * 
+   * @remarks
+   * You can call this operation to estimate resource usage of the current month based on the metering method that is specified on the first day of the current month. You can call this operation to estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
    * *   Pay by monthly 95th percentile: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
    * *   Pay by average daily peak bandwidth per month: Estimated value = Sum of daily peak bandwidth values/Number of days. The current day is excluded.
    * *   Pay by 4th peak bandwidth per month: The estimated value is the 4th peak bandwidth value between the start time and end time. If the time range is less than four days, the estimated value is 0.
    * *   Pay by average daily 95th percentile bandwidth per month: Estimated value = Sum of daily 95th percentile bandwidth values/Number of days. The current day is excluded.
    * *   Pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
    * > You can call this operation only once per second per account.
-   *
-   * @param request DescribeCdnUserBillPredictionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnUserBillPredictionResponse
+   * 
+   * @param request - DescribeCdnUserBillPredictionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnUserBillPredictionResponse
    */
   async describeCdnUserBillPredictionWithOptions(request: DescribeCdnUserBillPredictionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserBillPredictionResponse> {
     Util.validateModel(request);
@@ -22259,18 +35229,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Estimates resource usage of the current month.
-   *
-   * @description You can call this operation to estimate resource usage of the current month based on the metering method that is specified on the first day of the current month. You can call this operation to estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
+   * Estimates resource usage of the current month.
+   * 
+   * @remarks
+   * You can call this operation to estimate resource usage of the current month based on the metering method that is specified on the first day of the current month. You can call this operation to estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
    * *   Pay by monthly 95th percentile: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
    * *   Pay by average daily peak bandwidth per month: Estimated value = Sum of daily peak bandwidth values/Number of days. The current day is excluded.
    * *   Pay by 4th peak bandwidth per month: The estimated value is the 4th peak bandwidth value between the start time and end time. If the time range is less than four days, the estimated value is 0.
    * *   Pay by average daily 95th percentile bandwidth per month: Estimated value = Sum of daily 95th percentile bandwidth values/Number of days. The current day is excluded.
    * *   Pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
    * > You can call this operation only once per second per account.
-   *
-   * @param request DescribeCdnUserBillPredictionRequest
-   * @return DescribeCdnUserBillPredictionResponse
+   * 
+   * @param request - DescribeCdnUserBillPredictionRequest
+   * @returns DescribeCdnUserBillPredictionResponse
    */
   async describeCdnUserBillPrediction(request: DescribeCdnUserBillPredictionRequest): Promise<DescribeCdnUserBillPredictionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22278,13 +35249,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about the metering methods of an account. The maximum time range to query is one month.
-   *
-   * @description *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeCdnUserBillTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnUserBillTypeResponse
+   * Queries information about the metering methods of an account. The maximum time range to query is one month.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeCdnUserBillTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnUserBillTypeResponse
    */
   async describeCdnUserBillTypeWithOptions(request: DescribeCdnUserBillTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserBillTypeResponse> {
     Util.validateModel(request);
@@ -22315,12 +35287,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about the metering methods of an account. The maximum time range to query is one month.
-   *
-   * @description *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeCdnUserBillTypeRequest
-   * @return DescribeCdnUserBillTypeResponse
+   * Queries information about the metering methods of an account. The maximum time range to query is one month.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeCdnUserBillTypeRequest
+   * @returns DescribeCdnUserBillTypeResponse
    */
   async describeCdnUserBillType(request: DescribeCdnUserBillTypeRequest): Promise<DescribeCdnUserBillTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22328,13 +35301,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries configurations of security features.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnUserConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnUserConfigsResponse
+   * Queries configurations of security features.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnUserConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnUserConfigsResponse
    */
   async describeCdnUserConfigsWithOptions(request: DescribeCdnUserConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserConfigsResponse> {
     Util.validateModel(request);
@@ -22361,12 +35335,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries configurations of security features.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnUserConfigsRequest
-   * @return DescribeCdnUserConfigsResponse
+   * Queries configurations of security features.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnUserConfigsRequest
+   * @returns DescribeCdnUserConfigsResponse
    */
   async describeCdnUserConfigs(request: DescribeCdnUserConfigsRequest): Promise<DescribeCdnUserConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22374,13 +35349,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries accelerated domain names that have specified features configured and the status of the domain names.
-   *
-   * @description >  The maximum number of times that each user can call this operation per second is 100.
-   *
-   * @param request DescribeCdnUserDomainsByFuncRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnUserDomainsByFuncResponse
+   * Queries accelerated domain names that have specified features configured and the status of the domain names.
+   * 
+   * @remarks
+   * >  The maximum number of times that each user can call this operation per second is 100.
+   * 
+   * @param request - DescribeCdnUserDomainsByFuncRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnUserDomainsByFuncResponse
    */
   async describeCdnUserDomainsByFuncWithOptions(request: DescribeCdnUserDomainsByFuncRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserDomainsByFuncResponse> {
     Util.validateModel(request);
@@ -22419,12 +35395,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries accelerated domain names that have specified features configured and the status of the domain names.
-   *
-   * @description >  The maximum number of times that each user can call this operation per second is 100.
-   *
-   * @param request DescribeCdnUserDomainsByFuncRequest
-   * @return DescribeCdnUserDomainsByFuncResponse
+   * Queries accelerated domain names that have specified features configured and the status of the domain names.
+   * 
+   * @remarks
+   * >  The maximum number of times that each user can call this operation per second is 100.
+   * 
+   * @param request - DescribeCdnUserDomainsByFuncRequest
+   * @returns DescribeCdnUserDomainsByFuncResponse
    */
   async describeCdnUserDomainsByFunc(request: DescribeCdnUserDomainsByFuncRequest): Promise<DescribeCdnUserDomainsByFuncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22432,13 +35409,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the quotas and usage of Alibaba Cloud CDN resources.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnUserQuotaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnUserQuotaResponse
+   * Queries the quotas and usage of Alibaba Cloud CDN resources.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnUserQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnUserQuotaResponse
    */
   async describeCdnUserQuotaWithOptions(request: DescribeCdnUserQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserQuotaResponse> {
     Util.validateModel(request);
@@ -22469,12 +35447,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the quotas and usage of Alibaba Cloud CDN resources.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnUserQuotaRequest
-   * @return DescribeCdnUserQuotaResponse
+   * Queries the quotas and usage of Alibaba Cloud CDN resources.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnUserQuotaRequest
+   * @returns DescribeCdnUserQuotaResponse
    */
   async describeCdnUserQuota(request: DescribeCdnUserQuotaRequest): Promise<DescribeCdnUserQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22482,13 +35461,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the resource plans that you have purchased for Alibaba Cloud CDN.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnUserResourcePackageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnUserResourcePackageResponse
+   * Queries the resource plans that you have purchased for Alibaba Cloud CDN.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnUserResourcePackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnUserResourcePackageResponse
    */
   async describeCdnUserResourcePackageWithOptions(request: DescribeCdnUserResourcePackageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserResourcePackageResponse> {
     Util.validateModel(request);
@@ -22523,12 +35503,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the resource plans that you have purchased for Alibaba Cloud CDN.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeCdnUserResourcePackageRequest
-   * @return DescribeCdnUserResourcePackageResponse
+   * Queries the resource plans that you have purchased for Alibaba Cloud CDN.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeCdnUserResourcePackageRequest
+   * @returns DescribeCdnUserResourcePackageResponse
    */
   async describeCdnUserResourcePackage(request: DescribeCdnUserResourcePackageRequest): Promise<DescribeCdnUserResourcePackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22536,13 +35517,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries domain names that use Web Application Firewall (WAF).
-   *
-   * @description > You can call this operation up to 150 times per second per account.
-   *
-   * @param request DescribeCdnWafDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCdnWafDomainResponse
+   * Queries domain names that use Web Application Firewall (WAF).
+   * 
+   * @remarks
+   * > You can call this operation up to 150 times per second per account.
+   * 
+   * @param request - DescribeCdnWafDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnWafDomainResponse
    */
   async describeCdnWafDomainWithOptions(request: DescribeCdnWafDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnWafDomainResponse> {
     Util.validateModel(request);
@@ -22577,12 +35559,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries domain names that use Web Application Firewall (WAF).
-   *
-   * @description > You can call this operation up to 150 times per second per account.
-   *
-   * @param request DescribeCdnWafDomainRequest
-   * @return DescribeCdnWafDomainResponse
+   * Queries domain names that use Web Application Firewall (WAF).
+   * 
+   * @remarks
+   * > You can call this operation up to 150 times per second per account.
+   * 
+   * @param request - DescribeCdnWafDomainRequest
+   * @returns DescribeCdnWafDomainResponse
    */
   async describeCdnWafDomain(request: DescribeCdnWafDomainRequest): Promise<DescribeCdnWafDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22590,14 +35573,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a specific certificate by certificate ID.
-   *
-   * @description *   You can call this operation up to 100 times per second per account.
+   * Queries the information about a specific certificate by certificate ID.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
    * *   If a certificate is associated with a domain name but the certificate is not enabled, the result of this operation shows that the certificate does not exist.
-   *
-   * @param request DescribeCertificateInfoByIDRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCertificateInfoByIDResponse
+   * 
+   * @param request - DescribeCertificateInfoByIDRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCertificateInfoByIDResponse
    */
   async describeCertificateInfoByIDWithOptions(request: DescribeCertificateInfoByIDRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertificateInfoByIDResponse> {
     Util.validateModel(request);
@@ -22620,13 +35604,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a specific certificate by certificate ID.
-   *
-   * @description *   You can call this operation up to 100 times per second per account.
+   * Queries the information about a specific certificate by certificate ID.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
    * *   If a certificate is associated with a domain name but the certificate is not enabled, the result of this operation shows that the certificate does not exist.
-   *
-   * @param request DescribeCertificateInfoByIDRequest
-   * @return DescribeCertificateInfoByIDResponse
+   * 
+   * @param request - DescribeCertificateInfoByIDRequest
+   * @returns DescribeCertificateInfoByIDResponse
    */
   async describeCertificateInfoByID(request: DescribeCertificateInfoByIDRequest): Promise<DescribeCertificateInfoByIDResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22634,13 +35619,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a custom logging configuration.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeCustomLogConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCustomLogConfigResponse
+   * Queries the details about a custom logging configuration.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeCustomLogConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCustomLogConfigResponse
    */
   async describeCustomLogConfigWithOptions(request: DescribeCustomLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomLogConfigResponse> {
     Util.validateModel(request);
@@ -22663,12 +35649,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a custom logging configuration.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeCustomLogConfigRequest
-   * @return DescribeCustomLogConfigResponse
+   * Queries the details about a custom logging configuration.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeCustomLogConfigRequest
+   * @returns DescribeCustomLogConfigResponse
    */
   async describeCustomLogConfig(request: DescribeCustomLogConfigRequest): Promise<DescribeCustomLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22676,16 +35663,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the average response time of one or more accelerated domain names. You can query data collected within the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature to for data analysis.
+   * Queries the average response time of one or more accelerated domain names. You can query data collected within the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature to for data analysis.
    * > *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * >*   You can call this operation up to 100 times per second per account.
    * >*   You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,).
-   *
-   * @param request DescribeDomainAverageResponseTimeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainAverageResponseTimeResponse
+   * 
+   * @param request - DescribeDomainAverageResponseTimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainAverageResponseTimeResponse
    */
   async describeDomainAverageResponseTimeWithOptions(request: DescribeDomainAverageResponseTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainAverageResponseTimeResponse> {
     Util.validateModel(request);
@@ -22740,15 +35728,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the average response time of one or more accelerated domain names. You can query data collected within the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature to for data analysis.
+   * Queries the average response time of one or more accelerated domain names. You can query data collected within the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature to for data analysis.
    * > *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * >*   You can call this operation up to 100 times per second per account.
    * >*   You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,).
-   *
-   * @param request DescribeDomainAverageResponseTimeRequest
-   * @return DescribeDomainAverageResponseTimeResponse
+   * 
+   * @param request - DescribeDomainAverageResponseTimeRequest
+   * @returns DescribeDomainAverageResponseTimeResponse
    */
   async describeDomainAverageResponseTime(request: DescribeDomainAverageResponseTimeRequest): Promise<DescribeDomainAverageResponseTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22756,9 +35745,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries bandwidth monitoring data for one or more accelerated domain names.
-   *
-   * @description * You can call this operation up to 150 times per second per account.
+   * Queries bandwidth monitoring data for one or more accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 150 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -22767,10 +35757,10 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainBpsDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainBpsDataResponse
+   * 
+   * @param request - DescribeDomainBpsDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainBpsDataResponse
    */
   async describeDomainBpsDataWithOptions(request: DescribeDomainBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainBpsDataResponse> {
     Util.validateModel(request);
@@ -22817,9 +35807,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries bandwidth monitoring data for one or more accelerated domain names.
-   *
-   * @description * You can call this operation up to 150 times per second per account.
+   * Queries bandwidth monitoring data for one or more accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 150 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -22828,9 +35819,9 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainBpsDataRequest
-   * @return DescribeDomainBpsDataResponse
+   * 
+   * @param request - DescribeDomainBpsDataRequest
+   * @returns DescribeDomainBpsDataResponse
    */
   async describeDomainBpsData(request: DescribeDomainBpsDataRequest): Promise<DescribeDomainBpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22838,9 +35829,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries bandwidth data by protocol.
-   *
-   * @description * You can call this operation up to 20 times per second per account.
+   * Queries bandwidth data by protocol.
+   * 
+   * @remarks
+   * You can call this operation up to 20 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -22849,10 +35841,10 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainBpsDataByLayerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainBpsDataByLayerResponse
+   * 
+   * @param request - DescribeDomainBpsDataByLayerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainBpsDataByLayerResponse
    */
   async describeDomainBpsDataByLayerWithOptions(request: DescribeDomainBpsDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainBpsDataByLayerResponse> {
     Util.validateModel(request);
@@ -22903,9 +35895,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries bandwidth data by protocol.
-   *
-   * @description * You can call this operation up to 20 times per second per account.
+   * Queries bandwidth data by protocol.
+   * 
+   * @remarks
+   * You can call this operation up to 20 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -22914,9 +35907,9 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainBpsDataByLayerRequest
-   * @return DescribeDomainBpsDataByLayerResponse
+   * 
+   * @param request - DescribeDomainBpsDataByLayerRequest
+   * @returns DescribeDomainBpsDataByLayerResponse
    */
   async describeDomainBpsDataByLayer(request: DescribeDomainBpsDataByLayerRequest): Promise<DescribeDomainBpsDataByLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22924,16 +35917,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the bandwidth data at a specified time for an accelerated domain.
-   *
-   * @description *   The bandwidth is measured in bit/s.
+   * Queries the bandwidth data at a specified time for an accelerated domain.
+   * 
+   * @remarks
+   *   The bandwidth is measured in bit/s.
    * *   You can specify only one accelerated domain name in each request.
    * *   The data is collected every 5 minutes.
    * *   You can call this operation up to 20 times per second per account.
-   *
-   * @param request DescribeDomainBpsDataByTimeStampRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainBpsDataByTimeStampResponse
+   * 
+   * @param request - DescribeDomainBpsDataByTimeStampRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainBpsDataByTimeStampResponse
    */
   async describeDomainBpsDataByTimeStampWithOptions(request: DescribeDomainBpsDataByTimeStampRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainBpsDataByTimeStampResponse> {
     Util.validateModel(request);
@@ -22972,15 +35966,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the bandwidth data at a specified time for an accelerated domain.
-   *
-   * @description *   The bandwidth is measured in bit/s.
+   * Queries the bandwidth data at a specified time for an accelerated domain.
+   * 
+   * @remarks
+   *   The bandwidth is measured in bit/s.
    * *   You can specify only one accelerated domain name in each request.
    * *   The data is collected every 5 minutes.
    * *   You can call this operation up to 20 times per second per account.
-   *
-   * @param request DescribeDomainBpsDataByTimeStampRequest
-   * @return DescribeDomainBpsDataByTimeStampResponse
+   * 
+   * @param request - DescribeDomainBpsDataByTimeStampRequest
+   * @returns DescribeDomainBpsDataByTimeStampResponse
    */
   async describeDomainBpsDataByTimeStamp(request: DescribeDomainBpsDataByTimeStampRequest): Promise<DescribeDomainBpsDataByTimeStampResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22988,16 +35983,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries log entries of rate limiting.
-   *
-   * @description *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
+   * Queries log entries of rate limiting.
+   * 
+   * @remarks
+   *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
    * *   You can specify up to 20 domain names in reach request. If you specify multiple domain names, separate them with commas (,).
    * *   You can query data collected over the last 30 days.
    * *   You can call this operation up to 50 times per second per account.
-   *
-   * @param request DescribeDomainCcActivityLogRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainCcActivityLogResponse
+   * 
+   * @param request - DescribeDomainCcActivityLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainCcActivityLogResponse
    */
   async describeDomainCcActivityLogWithOptions(request: DescribeDomainCcActivityLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainCcActivityLogResponse> {
     Util.validateModel(request);
@@ -23052,15 +36048,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries log entries of rate limiting.
-   *
-   * @description *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
+   * Queries log entries of rate limiting.
+   * 
+   * @remarks
+   *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
    * *   You can specify up to 20 domain names in reach request. If you specify multiple domain names, separate them with commas (,).
    * *   You can query data collected over the last 30 days.
    * *   You can call this operation up to 50 times per second per account.
-   *
-   * @param request DescribeDomainCcActivityLogRequest
-   * @return DescribeDomainCcActivityLogResponse
+   * 
+   * @param request - DescribeDomainCcActivityLogRequest
+   * @returns DescribeDomainCcActivityLogResponse
    */
   async describeDomainCcActivityLog(request: DescribeDomainCcActivityLogRequest): Promise<DescribeDomainCcActivityLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23068,13 +36065,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the certificate information of an accelerated domain name.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeDomainCertificateInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainCertificateInfoResponse
+   * Queries the certificate information of an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeDomainCertificateInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainCertificateInfoResponse
    */
   async describeDomainCertificateInfoWithOptions(request: DescribeDomainCertificateInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainCertificateInfoResponse> {
     Util.validateModel(request);
@@ -23101,12 +36099,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the certificate information of an accelerated domain name.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeDomainCertificateInfoRequest
-   * @return DescribeDomainCertificateInfoResponse
+   * Queries the certificate information of an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeDomainCertificateInfoRequest
+   * @returns DescribeDomainCertificateInfoResponse
    */
   async describeDomainCertificateInfo(request: DescribeDomainCertificateInfoRequest): Promise<DescribeDomainCertificateInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23114,11 +36113,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Detects the CNAME for an accelerated domain name. You can check the resolution result to determine whether the CNAME is configured.
-   *
-   * @param request DescribeDomainCnameRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainCnameResponse
+   * Detects the CNAME for an accelerated domain name. You can check the resolution result to determine whether the CNAME is configured.
+   * 
+   * @param request - DescribeDomainCnameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainCnameResponse
    */
   async describeDomainCnameWithOptions(request: DescribeDomainCnameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainCnameResponse> {
     Util.validateModel(request);
@@ -23145,10 +36144,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Detects the CNAME for an accelerated domain name. You can check the resolution result to determine whether the CNAME is configured.
-   *
-   * @param request DescribeDomainCnameRequest
-   * @return DescribeDomainCnameResponse
+   * Detects the CNAME for an accelerated domain name. You can check the resolution result to determine whether the CNAME is configured.
+   * 
+   * @param request - DescribeDomainCnameRequest
+   * @returns DescribeDomainCnameResponse
    */
   async describeDomainCname(request: DescribeDomainCnameRequest): Promise<DescribeDomainCnameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23156,13 +36155,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the custom log configuration of an accelerated domain name.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeDomainCustomLogConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainCustomLogConfigResponse
+   * Queries the custom log configuration of an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeDomainCustomLogConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainCustomLogConfigResponse
    */
   async describeDomainCustomLogConfigWithOptions(request: DescribeDomainCustomLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainCustomLogConfigResponse> {
     Util.validateModel(request);
@@ -23185,12 +36185,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the custom log configuration of an accelerated domain name.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeDomainCustomLogConfigRequest
-   * @return DescribeDomainCustomLogConfigResponse
+   * Queries the custom log configuration of an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeDomainCustomLogConfigRequest
+   * @returns DescribeDomainCustomLogConfigResponse
    */
   async describeDomainCustomLogConfig(request: DescribeDomainCustomLogConfigRequest): Promise<DescribeDomainCustomLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23198,13 +36199,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The domain name that you want to query. You can specify multiple domain names and separate them with commas (,). You can specify at most 30 domain names in each call.
-   *
-   * @description You can call this operation up to 20 times per second per account.
-   *
-   * @param request DescribeDomainDetailDataByLayerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainDetailDataByLayerResponse
+   * The domain name that you want to query. You can specify multiple domain names and separate them with commas (,). You can specify at most 30 domain names in each call.
+   * 
+   * @remarks
+   * You can call this operation up to 20 times per second per account.
+   * 
+   * @param request - DescribeDomainDetailDataByLayerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainDetailDataByLayerResponse
    */
   async describeDomainDetailDataByLayerWithOptions(request: DescribeDomainDetailDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainDetailDataByLayerResponse> {
     Util.validateModel(request);
@@ -23227,12 +36229,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The domain name that you want to query. You can specify multiple domain names and separate them with commas (,). You can specify at most 30 domain names in each call.
-   *
-   * @description You can call this operation up to 20 times per second per account.
-   *
-   * @param request DescribeDomainDetailDataByLayerRequest
-   * @return DescribeDomainDetailDataByLayerResponse
+   * The domain name that you want to query. You can specify multiple domain names and separate them with commas (,). You can specify at most 30 domain names in each call.
+   * 
+   * @remarks
+   * You can call this operation up to 20 times per second per account.
+   * 
+   * @param request - DescribeDomainDetailDataByLayerRequest
+   * @returns DescribeDomainDetailDataByLayerResponse
    */
   async describeDomainDetailDataByLayer(request: DescribeDomainDetailDataByLayerRequest): Promise<DescribeDomainDetailDataByLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23240,9 +36243,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries byte hit ratios that are measured in percentage.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries byte hit ratios that are measured in percentage.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -23251,10 +36255,10 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainHitRateDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainHitRateDataResponse
+   * 
+   * @param request - DescribeDomainHitRateDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainHitRateDataResponse
    */
   async describeDomainHitRateDataWithOptions(request: DescribeDomainHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainHitRateDataResponse> {
     Util.validateModel(request);
@@ -23293,9 +36297,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries byte hit ratios that are measured in percentage.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries byte hit ratios that are measured in percentage.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -23304,9 +36309,9 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainHitRateDataRequest
-   * @return DescribeDomainHitRateDataResponse
+   * 
+   * @param request - DescribeDomainHitRateDataRequest
+   * @returns DescribeDomainHitRateDataResponse
    */
   async describeDomainHitRateData(request: DescribeDomainHitRateDataRequest): Promise<DescribeDomainHitRateDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23314,9 +36319,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the total number and proportions of HTTP status codes returned from an accelerated domain name. The data is collected every 5 minutes.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries the total number and proportions of HTTP status codes returned from an accelerated domain name. The data is collected every 5 minutes.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -23325,10 +36331,10 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainHttpCodeDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainHttpCodeDataResponse
+   * 
+   * @param request - DescribeDomainHttpCodeDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainHttpCodeDataResponse
    */
   async describeDomainHttpCodeDataWithOptions(request: DescribeDomainHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainHttpCodeDataResponse> {
     Util.validateModel(request);
@@ -23375,9 +36381,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the total number and proportions of HTTP status codes returned from an accelerated domain name. The data is collected every 5 minutes.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries the total number and proportions of HTTP status codes returned from an accelerated domain name. The data is collected every 5 minutes.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -23386,9 +36393,9 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainHttpCodeDataRequest
-   * @return DescribeDomainHttpCodeDataResponse
+   * 
+   * @param request - DescribeDomainHttpCodeDataRequest
+   * @returns DescribeDomainHttpCodeDataResponse
    */
   async describeDomainHttpCodeData(request: DescribeDomainHttpCodeDataRequest): Promise<DescribeDomainHttpCodeDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23396,9 +36403,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries HTTP status codes by protocol.
-   *
-   * @description * You can call this operation up to 20 times per second per account.
+   * Queries HTTP status codes by protocol.
+   * 
+   * @remarks
+   * You can call this operation up to 20 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * ### Time granularity
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -23407,10 +36415,10 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainHttpCodeDataByLayerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainHttpCodeDataByLayerResponse
+   * 
+   * @param request - DescribeDomainHttpCodeDataByLayerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainHttpCodeDataByLayerResponse
    */
   async describeDomainHttpCodeDataByLayerWithOptions(request: DescribeDomainHttpCodeDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainHttpCodeDataByLayerResponse> {
     Util.validateModel(request);
@@ -23461,9 +36469,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries HTTP status codes by protocol.
-   *
-   * @description * You can call this operation up to 20 times per second per account.
+   * Queries HTTP status codes by protocol.
+   * 
+   * @remarks
+   * You can call this operation up to 20 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * ### Time granularity
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -23472,9 +36481,9 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainHttpCodeDataByLayerRequest
-   * @return DescribeDomainHttpCodeDataByLayerResponse
+   * 
+   * @param request - DescribeDomainHttpCodeDataByLayerRequest
+   * @returns DescribeDomainHttpCodeDataByLayerResponse
    */
   async describeDomainHttpCodeDataByLayer(request: DescribeDomainHttpCodeDataByLayerRequest): Promise<DescribeDomainHttpCodeDataByLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23482,16 +36491,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the proportions of data usage of different Internet service providers (ISPs). Data is collected every day. You can query data collected in the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
+   * Queries the proportions of data usage of different Internet service providers (ISPs). Data is collected every day. You can query data collected in the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
    * > *   If you do not set StartTime or EndTime, the request returns the data collected in the last 24 hours. If you set both StartTime and EndTime, the request returns the data collected within the specified time range.
    * >*   This operation queries proportions of data usage of different ISPs for only a specific accelerated domain name, or for all accelerated domain names in your Alibaba Cloud account.
    * >*   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeDomainISPDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainISPDataResponse
+   * 
+   * @param request - DescribeDomainISPDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainISPDataResponse
    */
   async describeDomainISPDataWithOptions(request: DescribeDomainISPDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainISPDataResponse> {
     Util.validateModel(request);
@@ -23526,15 +36536,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the proportions of data usage of different Internet service providers (ISPs). Data is collected every day. You can query data collected in the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
+   * Queries the proportions of data usage of different Internet service providers (ISPs). Data is collected every day. You can query data collected in the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
    * > *   If you do not set StartTime or EndTime, the request returns the data collected in the last 24 hours. If you set both StartTime and EndTime, the request returns the data collected within the specified time range.
    * >*   This operation queries proportions of data usage of different ISPs for only a specific accelerated domain name, or for all accelerated domain names in your Alibaba Cloud account.
    * >*   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeDomainISPDataRequest
-   * @return DescribeDomainISPDataResponse
+   * 
+   * @param request - DescribeDomainISPDataRequest
+   * @returns DescribeDomainISPDataResponse
    */
   async describeDomainISPData(request: DescribeDomainISPDataRequest): Promise<DescribeDomainISPDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23542,9 +36553,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the 95th percentile bandwidth data of a domain name.
-   *
-   * @description **You can use one of the following methods to query data:**
+   * Queries the 95th percentile bandwidth data of a domain name.
+   * 
+   * @remarks
+   * *You can use one of the following methods to query data:**
    * *   If you specify the StartTime and EndTime parameters and the time range that is specified by these parameters is less than or equal to 24 hours, the 95th percentile bandwidth data on the day of the start time is returned. If the time range that is specified by these parameters is more than 24 hours, the 95th percentile bandwidth data in the month of the start time is returned.
    * *   If you specify the TimePoint and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned.
    * *   If you specify the StartTime, EndTime, and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned.
@@ -23554,10 +36566,10 @@ export default class Client extends OpenApi {
    * * Historical data available: 90 days
    * - You can call this operation up to 100 times per second per account.
    * - The unit of the bandwidth data returned is bit/s.
-   *
-   * @param request DescribeDomainMax95BpsDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainMax95BpsDataResponse
+   * 
+   * @param request - DescribeDomainMax95BpsDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainMax95BpsDataResponse
    */
   async describeDomainMax95BpsDataWithOptions(request: DescribeDomainMax95BpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainMax95BpsDataResponse> {
     Util.validateModel(request);
@@ -23600,9 +36612,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the 95th percentile bandwidth data of a domain name.
-   *
-   * @description **You can use one of the following methods to query data:**
+   * Queries the 95th percentile bandwidth data of a domain name.
+   * 
+   * @remarks
+   * *You can use one of the following methods to query data:**
    * *   If you specify the StartTime and EndTime parameters and the time range that is specified by these parameters is less than or equal to 24 hours, the 95th percentile bandwidth data on the day of the start time is returned. If the time range that is specified by these parameters is more than 24 hours, the 95th percentile bandwidth data in the month of the start time is returned.
    * *   If you specify the TimePoint and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned.
    * *   If you specify the StartTime, EndTime, and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned.
@@ -23612,9 +36625,9 @@ export default class Client extends OpenApi {
    * * Historical data available: 90 days
    * - You can call this operation up to 100 times per second per account.
    * - The unit of the bandwidth data returned is bit/s.
-   *
-   * @param request DescribeDomainMax95BpsDataRequest
-   * @return DescribeDomainMax95BpsDataResponse
+   * 
+   * @param request - DescribeDomainMax95BpsDataRequest
+   * @returns DescribeDomainMax95BpsDataResponse
    */
   async describeDomainMax95BpsData(request: DescribeDomainMax95BpsDataRequest): Promise<DescribeDomainMax95BpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23622,17 +36635,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the traffic data and the number of requests for multiple accelerated domain names at a time.
-   *
-   * @description *   If you do not set StartTime or EndTime, data collected within the last 10 minutes is queried.
+   * Queries the traffic data and the number of requests for multiple accelerated domain names at a time.
+   * 
+   * @remarks
+   *   If you do not set StartTime or EndTime, data collected within the last 10 minutes is queried.
    * *   The maximum interval between StartTime and EndTime is 1 hour.
    * *   You can query data within the last 90 days.
    * *   You can query the traffic data and the number of requests for accelerated domain names that are deleted.
    * *   You can call this operation up to 50 times per second per account.
-   *
-   * @param request DescribeDomainMultiUsageDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainMultiUsageDataResponse
+   * 
+   * @param request - DescribeDomainMultiUsageDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainMultiUsageDataResponse
    */
   async describeDomainMultiUsageDataWithOptions(request: DescribeDomainMultiUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainMultiUsageDataResponse> {
     Util.validateModel(request);
@@ -23667,16 +36681,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the traffic data and the number of requests for multiple accelerated domain names at a time.
-   *
-   * @description *   If you do not set StartTime or EndTime, data collected within the last 10 minutes is queried.
+   * Queries the traffic data and the number of requests for multiple accelerated domain names at a time.
+   * 
+   * @remarks
+   *   If you do not set StartTime or EndTime, data collected within the last 10 minutes is queried.
    * *   The maximum interval between StartTime and EndTime is 1 hour.
    * *   You can query data within the last 90 days.
    * *   You can query the traffic data and the number of requests for accelerated domain names that are deleted.
    * *   You can call this operation up to 50 times per second per account.
-   *
-   * @param request DescribeDomainMultiUsageDataRequest
-   * @return DescribeDomainMultiUsageDataResponse
+   * 
+   * @param request - DescribeDomainMultiUsageDataRequest
+   * @returns DescribeDomainMultiUsageDataResponse
    */
   async describeDomainMultiUsageData(request: DescribeDomainMultiUsageDataRequest): Promise<DescribeDomainMultiUsageDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23684,19 +36699,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries monitoring data including the amount of network traffic and the number of visits by directory.
-   *
-   * @description *   This operation is available only to users that are on the whitelist. If the daily peak bandwidth value of your workloads reaches 10 Gbit/s, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply to be included in the whitelist.
+   * Queries monitoring data including the amount of network traffic and the number of visits by directory.
+   * 
+   * @remarks
+   *   This operation is available only to users that are on the whitelist. If the daily peak bandwidth value of your workloads reaches 10 Gbit/s, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply to be included in the whitelist.
    * *   You can call this API operation up to 6,000 times per second per account.
    * *   Data collection by directory is available only to specified domain names within your Alibaba Cloud account. It cannot be enabled for all domain names within your Alibaba Cloud account.
    * *   The average size of the files that belong to the domain name must be larger than 1 MB.
    * *   The number of directories specified for a single domain name cannot exceed 100. If the number of directories exceeds 100, the data accuracy reduces.
    * *   If you do not set StartTime or EndTime, data collected within the last 24 hours is queried. If you set both StartTime and EndTime, data within the specified time range is queried.
    * *   You can query data collected within the last 30 days.
-   *
-   * @param request DescribeDomainPathDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainPathDataResponse
+   * 
+   * @param request - DescribeDomainPathDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainPathDataResponse
    */
   async describeDomainPathDataWithOptions(request: DescribeDomainPathDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainPathDataResponse> {
     Util.validateModel(request);
@@ -23719,18 +36735,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries monitoring data including the amount of network traffic and the number of visits by directory.
-   *
-   * @description *   This operation is available only to users that are on the whitelist. If the daily peak bandwidth value of your workloads reaches 10 Gbit/s, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply to be included in the whitelist.
+   * Queries monitoring data including the amount of network traffic and the number of visits by directory.
+   * 
+   * @remarks
+   *   This operation is available only to users that are on the whitelist. If the daily peak bandwidth value of your workloads reaches 10 Gbit/s, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply to be included in the whitelist.
    * *   You can call this API operation up to 6,000 times per second per account.
    * *   Data collection by directory is available only to specified domain names within your Alibaba Cloud account. It cannot be enabled for all domain names within your Alibaba Cloud account.
    * *   The average size of the files that belong to the domain name must be larger than 1 MB.
    * *   The number of directories specified for a single domain name cannot exceed 100. If the number of directories exceeds 100, the data accuracy reduces.
    * *   If you do not set StartTime or EndTime, data collected within the last 24 hours is queried. If you set both StartTime and EndTime, data within the specified time range is queried.
    * *   You can query data collected within the last 30 days.
-   *
-   * @param request DescribeDomainPathDataRequest
-   * @return DescribeDomainPathDataResponse
+   * 
+   * @param request - DescribeDomainPathDataRequest
+   * @returns DescribeDomainPathDataResponse
    */
   async describeDomainPathData(request: DescribeDomainPathDataRequest): Promise<DescribeDomainPathDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23738,15 +36755,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the page view (PV) data of an accelerated domain name. The data is collected at an interval of 1 hour. You can query data in the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature to for data analysis.
+   * Queries the page view (PV) data of an accelerated domain name. The data is collected at an interval of 1 hour. You can query data in the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature to for data analysis.
    * > *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * >*   You can call this operation up to 50 times per second per account.
-   *
-   * @param request DescribeDomainPvDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainPvDataResponse
+   * 
+   * @param request - DescribeDomainPvDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainPvDataResponse
    */
   async describeDomainPvDataWithOptions(request: DescribeDomainPvDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainPvDataResponse> {
     Util.validateModel(request);
@@ -23781,14 +36799,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the page view (PV) data of an accelerated domain name. The data is collected at an interval of 1 hour. You can query data in the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature to for data analysis.
+   * Queries the page view (PV) data of an accelerated domain name. The data is collected at an interval of 1 hour. You can query data in the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature to for data analysis.
    * > *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * >*   You can call this operation up to 50 times per second per account.
-   *
-   * @param request DescribeDomainPvDataRequest
-   * @return DescribeDomainPvDataResponse
+   * 
+   * @param request - DescribeDomainPvDataRequest
+   * @returns DescribeDomainPvDataResponse
    */
   async describeDomainPvData(request: DescribeDomainPvDataRequest): Promise<DescribeDomainPvDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23796,9 +36815,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of queries per second (QPS) for an accelerated domain name. The data is collected every 5 minutes. You can query data collected within the last 90 days.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries the number of queries per second (QPS) for an accelerated domain name. The data is collected every 5 minutes. You can query data collected within the last 90 days.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -23807,10 +36827,10 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainQpsDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainQpsDataResponse
+   * 
+   * @param request - DescribeDomainQpsDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainQpsDataResponse
    */
   async describeDomainQpsDataWithOptions(request: DescribeDomainQpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainQpsDataResponse> {
     Util.validateModel(request);
@@ -23857,9 +36877,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of queries per second (QPS) for an accelerated domain name. The data is collected every 5 minutes. You can query data collected within the last 90 days.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries the number of queries per second (QPS) for an accelerated domain name. The data is collected every 5 minutes. You can query data collected within the last 90 days.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -23868,9 +36889,9 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainQpsDataRequest
-   * @return DescribeDomainQpsDataResponse
+   * 
+   * @param request - DescribeDomainQpsDataRequest
+   * @returns DescribeDomainQpsDataResponse
    */
   async describeDomainQpsData(request: DescribeDomainQpsDataRequest): Promise<DescribeDomainQpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23878,9 +36899,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of queries per second (QPS) at a specific layer for one or more accelerated domain names. You can query data collected within the last 90 days.
-   *
-   * @description * You can call this operation up to 20 times per second per user.
+   * Queries the number of queries per second (QPS) at a specific layer for one or more accelerated domain names. You can query data collected within the last 90 days.
+   * 
+   * @remarks
+   * You can call this operation up to 20 times per second per user.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
@@ -23889,10 +36911,10 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainQpsDataByLayerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainQpsDataByLayerResponse
+   * 
+   * @param request - DescribeDomainQpsDataByLayerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainQpsDataByLayerResponse
    */
   async describeDomainQpsDataByLayerWithOptions(request: DescribeDomainQpsDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainQpsDataByLayerResponse> {
     Util.validateModel(request);
@@ -23943,9 +36965,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of queries per second (QPS) at a specific layer for one or more accelerated domain names. You can query data collected within the last 90 days.
-   *
-   * @description * You can call this operation up to 20 times per second per user.
+   * Queries the number of queries per second (QPS) at a specific layer for one or more accelerated domain names. You can query data collected within the last 90 days.
+   * 
+   * @remarks
+   * You can call this operation up to 20 times per second per user.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
@@ -23954,9 +36977,9 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainQpsDataByLayerRequest
-   * @return DescribeDomainQpsDataByLayerResponse
+   * 
+   * @param request - DescribeDomainQpsDataByLayerRequest
+   * @returns DescribeDomainQpsDataByLayerResponse
    */
   async describeDomainQpsDataByLayer(request: DescribeDomainQpsDataByLayerRequest): Promise<DescribeDomainQpsDataByLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23964,9 +36987,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the bandwidth data about one or more accelerated domain names.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries the bandwidth data about one or more accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
@@ -23974,10 +36998,10 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeBpsDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRealTimeBpsDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeBpsDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRealTimeBpsDataResponse
    */
   async describeDomainRealTimeBpsDataWithOptions(request: DescribeDomainRealTimeBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeBpsDataResponse> {
     Util.validateModel(request);
@@ -24000,9 +37024,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the bandwidth data about one or more accelerated domain names.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries the bandwidth data about one or more accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
@@ -24010,9 +37035,9 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeBpsDataRequest
-   * @return DescribeDomainRealTimeBpsDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeBpsDataRequest
+   * @returns DescribeDomainRealTimeBpsDataResponse
    */
   async describeDomainRealTimeBpsData(request: DescribeDomainRealTimeBpsDataRequest): Promise<DescribeDomainRealTimeBpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24020,9 +37045,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the byte hit ratios of accelerated domain names.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the byte hit ratios of accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
    * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
    * **Time granularity**
@@ -24032,10 +37058,10 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeByteHitRateDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRealTimeByteHitRateDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeByteHitRateDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRealTimeByteHitRateDataResponse
    */
   async describeDomainRealTimeByteHitRateDataWithOptions(request: DescribeDomainRealTimeByteHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeByteHitRateDataResponse> {
     Util.validateModel(request);
@@ -24058,9 +37084,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the byte hit ratios of accelerated domain names.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the byte hit ratios of accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
    * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
    * **Time granularity**
@@ -24070,9 +37097,9 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeByteHitRateDataRequest
-   * @return DescribeDomainRealTimeByteHitRateDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeByteHitRateDataRequest
+   * @returns DescribeDomainRealTimeByteHitRateDataResponse
    */
   async describeDomainRealTimeByteHitRateData(request: DescribeDomainRealTimeByteHitRateDataRequest): Promise<DescribeDomainRealTimeByteHitRateDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24080,14 +37107,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the real-time monitoring data for a domain name.
-   *
-   * @description *   You can query data in the last seven days. Data is collected every minute.
+   * Queries the real-time monitoring data for a domain name.
+   * 
+   * @remarks
+   *   You can query data in the last seven days. Data is collected every minute.
    * *   You can call this operation up to 10 times per second per account.
-   *
-   * @param request DescribeDomainRealTimeDetailDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRealTimeDetailDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeDetailDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRealTimeDetailDataResponse
    */
   async describeDomainRealTimeDetailDataWithOptions(request: DescribeDomainRealTimeDetailDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeDetailDataResponse> {
     Util.validateModel(request);
@@ -24110,13 +37138,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the real-time monitoring data for a domain name.
-   *
-   * @description *   You can query data in the last seven days. Data is collected every minute.
+   * Queries the real-time monitoring data for a domain name.
+   * 
+   * @remarks
+   *   You can query data in the last seven days. Data is collected every minute.
    * *   You can call this operation up to 10 times per second per account.
-   *
-   * @param request DescribeDomainRealTimeDetailDataRequest
-   * @return DescribeDomainRealTimeDetailDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeDetailDataRequest
+   * @returns DescribeDomainRealTimeDetailDataResponse
    */
   async describeDomainRealTimeDetailData(request: DescribeDomainRealTimeDetailDataRequest): Promise<DescribeDomainRealTimeDetailDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24124,9 +37153,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the total number and proportions of HTTP status codes returned from an accelerated domain name.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the total number and proportions of HTTP status codes returned from an accelerated domain name.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -24135,10 +37165,10 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeHttpCodeDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRealTimeHttpCodeDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeHttpCodeDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRealTimeHttpCodeDataResponse
    */
   async describeDomainRealTimeHttpCodeDataWithOptions(request: DescribeDomainRealTimeHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeHttpCodeDataResponse> {
     Util.validateModel(request);
@@ -24181,9 +37211,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the total number and proportions of HTTP status codes returned from an accelerated domain name.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the total number and proportions of HTTP status codes returned from an accelerated domain name.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -24192,9 +37223,9 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeHttpCodeDataRequest
-   * @return DescribeDomainRealTimeHttpCodeDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeHttpCodeDataRequest
+   * @returns DescribeDomainRealTimeHttpCodeDataResponse
    */
   async describeDomainRealTimeHttpCodeData(request: DescribeDomainRealTimeHttpCodeDataRequest): Promise<DescribeDomainRealTimeHttpCodeDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24202,9 +37233,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of queries per second for one or more accelerated domain names.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the number of queries per second for one or more accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -24213,10 +37245,10 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeQpsDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRealTimeQpsDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeQpsDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRealTimeQpsDataResponse
    */
   async describeDomainRealTimeQpsDataWithOptions(request: DescribeDomainRealTimeQpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeQpsDataResponse> {
     Util.validateModel(request);
@@ -24239,9 +37271,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of queries per second for one or more accelerated domain names.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the number of queries per second for one or more accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -24250,9 +37283,9 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeQpsDataRequest
-   * @return DescribeDomainRealTimeQpsDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeQpsDataRequest
+   * @returns DescribeDomainRealTimeQpsDataResponse
    */
   async describeDomainRealTimeQpsData(request: DescribeDomainRealTimeQpsDataRequest): Promise<DescribeDomainRealTimeQpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24260,9 +37293,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the request hit ratios for one or more accelerated domain names.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the request hit ratios for one or more accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
    * * By default, requests in the Go programming language use the POST request method. You must manually change the request method to GET by declaring: request.Method="GET".
    * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the request hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
@@ -24273,10 +37307,10 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeReqHitRateDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRealTimeReqHitRateDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeReqHitRateDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRealTimeReqHitRateDataResponse
    */
   async describeDomainRealTimeReqHitRateDataWithOptions(request: DescribeDomainRealTimeReqHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeReqHitRateDataResponse> {
     Util.validateModel(request);
@@ -24299,9 +37333,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the request hit ratios for one or more accelerated domain names.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the request hit ratios for one or more accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
    * * By default, requests in the Go programming language use the POST request method. You must manually change the request method to GET by declaring: request.Method="GET".
    * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the request hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
@@ -24312,9 +37347,9 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeReqHitRateDataRequest
-   * @return DescribeDomainRealTimeReqHitRateDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeReqHitRateDataRequest
+   * @returns DescribeDomainRealTimeReqHitRateDataResponse
    */
   async describeDomainRealTimeReqHitRateData(request: DescribeDomainRealTimeReqHitRateDataRequest): Promise<DescribeDomainRealTimeReqHitRateDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24322,9 +37357,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries origin bandwidth data for accelerated domain names.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries origin bandwidth data for accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -24333,10 +37369,10 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeSrcBpsDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRealTimeSrcBpsDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeSrcBpsDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRealTimeSrcBpsDataResponse
    */
   async describeDomainRealTimeSrcBpsDataWithOptions(request: DescribeDomainRealTimeSrcBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeSrcBpsDataResponse> {
     Util.validateModel(request);
@@ -24371,9 +37407,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries origin bandwidth data for accelerated domain names.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries origin bandwidth data for accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -24382,9 +37419,9 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeSrcBpsDataRequest
-   * @return DescribeDomainRealTimeSrcBpsDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeSrcBpsDataRequest
+   * @returns DescribeDomainRealTimeSrcBpsDataResponse
    */
   async describeDomainRealTimeSrcBpsData(request: DescribeDomainRealTimeSrcBpsDataRequest): Promise<DescribeDomainRealTimeSrcBpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24392,9 +37429,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the total number and proportions of HTTP status codes returned during back-to-origin routing.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the total number and proportions of HTTP status codes returned during back-to-origin routing.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -24403,10 +37441,10 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeSrcHttpCodeDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRealTimeSrcHttpCodeDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeSrcHttpCodeDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRealTimeSrcHttpCodeDataResponse
    */
   async describeDomainRealTimeSrcHttpCodeDataWithOptions(request: DescribeDomainRealTimeSrcHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeSrcHttpCodeDataResponse> {
     Util.validateModel(request);
@@ -24449,9 +37487,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the total number and proportions of HTTP status codes returned during back-to-origin routing.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the total number and proportions of HTTP status codes returned during back-to-origin routing.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -24460,9 +37499,9 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeSrcHttpCodeDataRequest
-   * @return DescribeDomainRealTimeSrcHttpCodeDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeSrcHttpCodeDataRequest
+   * @returns DescribeDomainRealTimeSrcHttpCodeDataResponse
    */
   async describeDomainRealTimeSrcHttpCodeData(request: DescribeDomainRealTimeSrcHttpCodeDataRequest): Promise<DescribeDomainRealTimeSrcHttpCodeDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24470,9 +37509,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the monitoring data of back-to-origin traffic for one or more specified accelerated domains. The data is collected every minute.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the monitoring data of back-to-origin traffic for one or more specified accelerated domains. The data is collected every minute.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last hour by default. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -24481,10 +37521,10 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeSrcTrafficDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRealTimeSrcTrafficDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeSrcTrafficDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRealTimeSrcTrafficDataResponse
    */
   async describeDomainRealTimeSrcTrafficDataWithOptions(request: DescribeDomainRealTimeSrcTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeSrcTrafficDataResponse> {
     Util.validateModel(request);
@@ -24519,9 +37559,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the monitoring data of back-to-origin traffic for one or more specified accelerated domains. The data is collected every minute.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the monitoring data of back-to-origin traffic for one or more specified accelerated domains. The data is collected every minute.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last hour by default. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -24530,9 +37571,9 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeSrcTrafficDataRequest
-   * @return DescribeDomainRealTimeSrcTrafficDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeSrcTrafficDataRequest
+   * @returns DescribeDomainRealTimeSrcTrafficDataResponse
    */
   async describeDomainRealTimeSrcTrafficData(request: DescribeDomainRealTimeSrcTrafficDataRequest): Promise<DescribeDomainRealTimeSrcTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24540,9 +37581,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the monitoring data of network traffic for one or more accelerated domain names.
-   *
-   * @description * You can call this operation up to 50 times per second per account.
+   * Queries the monitoring data of network traffic for one or more accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 50 times per second per account.
    * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -24551,10 +37593,10 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeTrafficDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRealTimeTrafficDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeTrafficDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRealTimeTrafficDataResponse
    */
   async describeDomainRealTimeTrafficDataWithOptions(request: DescribeDomainRealTimeTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeTrafficDataResponse> {
     Util.validateModel(request);
@@ -24597,9 +37639,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the monitoring data of network traffic for one or more accelerated domain names.
-   *
-   * @description * You can call this operation up to 50 times per second per account.
+   * Queries the monitoring data of network traffic for one or more accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 50 times per second per account.
    * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -24608,9 +37651,9 @@ export default class Client extends OpenApi {
    * |1 minute|1 hour|7 days|5 minutes|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
-   *
-   * @param request DescribeDomainRealTimeTrafficDataRequest
-   * @return DescribeDomainRealTimeTrafficDataResponse
+   * 
+   * @param request - DescribeDomainRealTimeTrafficDataRequest
+   * @returns DescribeDomainRealTimeTrafficDataResponse
    */
   async describeDomainRealTimeTrafficData(request: DescribeDomainRealTimeTrafficDataRequest): Promise<DescribeDomainRealTimeTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24618,13 +37661,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the real-time log delivery information about an accelerated domain name.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeDomainRealtimeLogDeliveryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRealtimeLogDeliveryResponse
+   * Queries the real-time log delivery information about an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeDomainRealtimeLogDeliveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRealtimeLogDeliveryResponse
    */
   async describeDomainRealtimeLogDeliveryWithOptions(request: DescribeDomainRealtimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealtimeLogDeliveryResponse> {
     Util.validateModel(request);
@@ -24647,12 +37691,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the real-time log delivery information about an accelerated domain name.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeDomainRealtimeLogDeliveryRequest
-   * @return DescribeDomainRealtimeLogDeliveryResponse
+   * Queries the real-time log delivery information about an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeDomainRealtimeLogDeliveryRequest
+   * @returns DescribeDomainRealtimeLogDeliveryResponse
    */
   async describeDomainRealtimeLogDelivery(request: DescribeDomainRealtimeLogDeliveryRequest): Promise<DescribeDomainRealtimeLogDeliveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24660,16 +37705,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the geographic distribution of users for a domain name. The data is collected at an interval of one day. You can query the data in the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you not use this operation because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
+   * Queries the geographic distribution of users for a domain name. The data is collected at an interval of one day. You can query the data in the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you not use this operation because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
    * > *   If you do not specify the **StartTime** or **EndTime** parameter, data collected within the last **24** hours is queried. If you specify both the **StartTime** and **EndTime** parameters, data collected within the specified time range is queried.
    * >*   There is delay in data collection. If you want to query data collected within the last day, we recommend that you query the data on the next day.
    * >*   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeDomainRegionDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRegionDataResponse
+   * 
+   * @param request - DescribeDomainRegionDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRegionDataResponse
    */
   async describeDomainRegionDataWithOptions(request: DescribeDomainRegionDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRegionDataResponse> {
     Util.validateModel(request);
@@ -24704,15 +37750,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the geographic distribution of users for a domain name. The data is collected at an interval of one day. You can query the data in the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you not use this operation because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
+   * Queries the geographic distribution of users for a domain name. The data is collected at an interval of one day. You can query the data in the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you not use this operation because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
    * > *   If you do not specify the **StartTime** or **EndTime** parameter, data collected within the last **24** hours is queried. If you specify both the **StartTime** and **EndTime** parameters, data collected within the specified time range is queried.
    * >*   There is delay in data collection. If you want to query data collected within the last day, we recommend that you query the data on the next day.
    * >*   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeDomainRegionDataRequest
-   * @return DescribeDomainRegionDataResponse
+   * 
+   * @param request - DescribeDomainRegionDataRequest
+   * @returns DescribeDomainRegionDataResponse
    */
   async describeDomainRegionData(request: DescribeDomainRegionDataRequest): Promise<DescribeDomainRegionDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24720,9 +37767,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the request hit ratio in percentage.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries the request hit ratio in percentage.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -24731,10 +37779,10 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainReqHitRateDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainReqHitRateDataResponse
+   * 
+   * @param request - DescribeDomainReqHitRateDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainReqHitRateDataResponse
    */
   async describeDomainReqHitRateDataWithOptions(request: DescribeDomainReqHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainReqHitRateDataResponse> {
     Util.validateModel(request);
@@ -24773,9 +37821,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the request hit ratio in percentage.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries the request hit ratio in percentage.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -24784,9 +37833,9 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainReqHitRateDataRequest
-   * @return DescribeDomainReqHitRateDataResponse
+   * 
+   * @param request - DescribeDomainReqHitRateDataRequest
+   * @returns DescribeDomainReqHitRateDataResponse
    */
   async describeDomainReqHitRateData(request: DescribeDomainReqHitRateDataRequest): Promise<DescribeDomainReqHitRateDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24794,9 +37843,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries bandwidth monitoring data of requests that are redirected to origin servers for one or more accelerated domain names.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries bandwidth monitoring data of requests that are redirected to origin servers for one or more accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the time range to query, as described in the following table.
@@ -24805,10 +37855,10 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainSrcBpsDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainSrcBpsDataResponse
+   * 
+   * @param request - DescribeDomainSrcBpsDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainSrcBpsDataResponse
    */
   async describeDomainSrcBpsDataWithOptions(request: DescribeDomainSrcBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainSrcBpsDataResponse> {
     Util.validateModel(request);
@@ -24847,9 +37897,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries bandwidth monitoring data of requests that are redirected to origin servers for one or more accelerated domain names.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries bandwidth monitoring data of requests that are redirected to origin servers for one or more accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the time range to query, as described in the following table.
@@ -24858,9 +37909,9 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainSrcBpsDataRequest
-   * @return DescribeDomainSrcBpsDataResponse
+   * 
+   * @param request - DescribeDomainSrcBpsDataRequest
+   * @returns DescribeDomainSrcBpsDataResponse
    */
   async describeDomainSrcBpsData(request: DescribeDomainSrcBpsDataRequest): Promise<DescribeDomainSrcBpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24868,9 +37919,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the proportions of HTTP status codes that are returned during back-to-origin routing.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries the proportions of HTTP status codes that are returned during back-to-origin routing.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
@@ -24879,10 +37931,10 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainSrcHttpCodeDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainSrcHttpCodeDataResponse
+   * 
+   * @param request - DescribeDomainSrcHttpCodeDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainSrcHttpCodeDataResponse
    */
   async describeDomainSrcHttpCodeDataWithOptions(request: DescribeDomainSrcHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainSrcHttpCodeDataResponse> {
     Util.validateModel(request);
@@ -24921,9 +37973,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the proportions of HTTP status codes that are returned during back-to-origin routing.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries the proportions of HTTP status codes that are returned during back-to-origin routing.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
@@ -24932,9 +37985,9 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainSrcHttpCodeDataRequest
-   * @return DescribeDomainSrcHttpCodeDataResponse
+   * 
+   * @param request - DescribeDomainSrcHttpCodeDataRequest
+   * @returns DescribeDomainSrcHttpCodeDataResponse
    */
   async describeDomainSrcHttpCodeData(request: DescribeDomainSrcHttpCodeDataRequest): Promise<DescribeDomainSrcHttpCodeDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24942,9 +37995,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of queries per second (QPS) that are sent to the origin server. You can query data collected in the last 90 days.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries the number of queries per second (QPS) that are sent to the origin server. You can query data collected in the last 90 days.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * ### Time granularity
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -24953,10 +38007,10 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainSrcQpsDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainSrcQpsDataResponse
+   * 
+   * @param request - DescribeDomainSrcQpsDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainSrcQpsDataResponse
    */
   async describeDomainSrcQpsDataWithOptions(request: DescribeDomainSrcQpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainSrcQpsDataResponse> {
     Util.validateModel(request);
@@ -24995,9 +38049,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of queries per second (QPS) that are sent to the origin server. You can query data collected in the last 90 days.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries the number of queries per second (QPS) that are sent to the origin server. You can query data collected in the last 90 days.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * ### Time granularity
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -25006,9 +38061,9 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainSrcQpsDataRequest
-   * @return DescribeDomainSrcQpsDataResponse
+   * 
+   * @param request - DescribeDomainSrcQpsDataRequest
+   * @returns DescribeDomainSrcQpsDataResponse
    */
   async describeDomainSrcQpsData(request: DescribeDomainSrcQpsDataRequest): Promise<DescribeDomainSrcQpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25016,15 +38071,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries frequently requested origin URLs of one or more accelerated domain names.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
+   * Queries frequently requested origin URLs of one or more accelerated domain names.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
    * > *   The data is collected at an interval of 5 minutes.
    * >*   You can call this operation up to 10 times per second per account.
-   *
-   * @param request DescribeDomainSrcTopUrlVisitRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainSrcTopUrlVisitResponse
+   * 
+   * @param request - DescribeDomainSrcTopUrlVisitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainSrcTopUrlVisitResponse
    */
   async describeDomainSrcTopUrlVisitWithOptions(request: DescribeDomainSrcTopUrlVisitRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainSrcTopUrlVisitResponse> {
     Util.validateModel(request);
@@ -25063,14 +38119,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries frequently requested origin URLs of one or more accelerated domain names.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
+   * Queries frequently requested origin URLs of one or more accelerated domain names.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
    * > *   The data is collected at an interval of 5 minutes.
    * >*   You can call this operation up to 10 times per second per account.
-   *
-   * @param request DescribeDomainSrcTopUrlVisitRequest
-   * @return DescribeDomainSrcTopUrlVisitResponse
+   * 
+   * @param request - DescribeDomainSrcTopUrlVisitRequest
+   * @returns DescribeDomainSrcTopUrlVisitResponse
    */
   async describeDomainSrcTopUrlVisit(request: DescribeDomainSrcTopUrlVisitRequest): Promise<DescribeDomainSrcTopUrlVisitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25078,9 +38135,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries origin traffic for one or more specified accelerated domain names.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries origin traffic for one or more specified accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -25089,10 +38147,10 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainSrcTrafficDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainSrcTrafficDataResponse
+   * 
+   * @param request - DescribeDomainSrcTrafficDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainSrcTrafficDataResponse
    */
   async describeDomainSrcTrafficDataWithOptions(request: DescribeDomainSrcTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainSrcTrafficDataResponse> {
     Util.validateModel(request);
@@ -25131,9 +38189,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries origin traffic for one or more specified accelerated domain names.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries origin traffic for one or more specified accelerated domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -25142,9 +38201,9 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainSrcTrafficDataRequest
-   * @return DescribeDomainSrcTrafficDataResponse
+   * 
+   * @param request - DescribeDomainSrcTrafficDataRequest
+   * @returns DescribeDomainSrcTrafficDataResponse
    */
   async describeDomainSrcTrafficData(request: DescribeDomainSrcTrafficDataRequest): Promise<DescribeDomainSrcTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25152,16 +38211,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries client IP addresses that are ranked by the number of requests or the amount of network traffic within a specific time range for one or more accelerated domain names. You can query data collected within the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature to for data analysis.
+   * Queries client IP addresses that are ranked by the number of requests or the amount of network traffic within a specific time range for one or more accelerated domain names. You can query data collected within the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature to for data analysis.
    * > *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * >*   Data is collected every hour.
    * >*   You can call this operation up to 10 times per second per account.
-   *
-   * @param request DescribeDomainTopClientIpVisitRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainTopClientIpVisitResponse
+   * 
+   * @param request - DescribeDomainTopClientIpVisitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainTopClientIpVisitResponse
    */
   async describeDomainTopClientIpVisitWithOptions(request: DescribeDomainTopClientIpVisitRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTopClientIpVisitResponse> {
     Util.validateModel(request);
@@ -25208,15 +38268,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries client IP addresses that are ranked by the number of requests or the amount of network traffic within a specific time range for one or more accelerated domain names. You can query data collected within the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature to for data analysis.
+   * Queries client IP addresses that are ranked by the number of requests or the amount of network traffic within a specific time range for one or more accelerated domain names. You can query data collected within the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature to for data analysis.
    * > *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * >*   Data is collected every hour.
    * >*   You can call this operation up to 10 times per second per account.
-   *
-   * @param request DescribeDomainTopClientIpVisitRequest
-   * @return DescribeDomainTopClientIpVisitResponse
+   * 
+   * @param request - DescribeDomainTopClientIpVisitRequest
+   * @returns DescribeDomainTopClientIpVisitResponse
    */
   async describeDomainTopClientIpVisit(request: DescribeDomainTopClientIpVisitRequest): Promise<DescribeDomainTopClientIpVisitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25224,17 +38285,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries frequently requested web pages of one or more accelerated domain names on a specified day and sorts the web pages. You can query data collected within the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature or [ship real-time logs in Log Service](https://help.aliyun.com/document_detail/440145.html) to analyze data.
+   * Queries frequently requested web pages of one or more accelerated domain names on a specified day and sorts the web pages. You can query data collected within the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature or [ship real-time logs in Log Service](https://help.aliyun.com/document_detail/440145.html) to analyze data.
    * > 
    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * *   Data is collected at an interval of five minutes.
    * *   You can call this operation up to 10 times per second per account.
-   *
-   * @param request DescribeDomainTopReferVisitRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainTopReferVisitResponse
+   * 
+   * @param request - DescribeDomainTopReferVisitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainTopReferVisitResponse
    */
   async describeDomainTopReferVisitWithOptions(request: DescribeDomainTopReferVisitRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTopReferVisitResponse> {
     Util.validateModel(request);
@@ -25273,16 +38335,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries frequently requested web pages of one or more accelerated domain names on a specified day and sorts the web pages. You can query data collected within the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature or [ship real-time logs in Log Service](https://help.aliyun.com/document_detail/440145.html) to analyze data.
+   * Queries frequently requested web pages of one or more accelerated domain names on a specified day and sorts the web pages. You can query data collected within the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature or [ship real-time logs in Log Service](https://help.aliyun.com/document_detail/440145.html) to analyze data.
    * > 
    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * *   Data is collected at an interval of five minutes.
    * *   You can call this operation up to 10 times per second per account.
-   *
-   * @param request DescribeDomainTopReferVisitRequest
-   * @return DescribeDomainTopReferVisitResponse
+   * 
+   * @param request - DescribeDomainTopReferVisitRequest
+   * @returns DescribeDomainTopReferVisitResponse
    */
   async describeDomainTopReferVisit(request: DescribeDomainTopReferVisitRequest): Promise<DescribeDomainTopReferVisitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25290,17 +38353,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries top 100 frequently requested URLs of an accelerated domain name within a specified time range.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
+   * Queries top 100 frequently requested URLs of an accelerated domain name within a specified time range.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
    * > *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * >*   You can query data collected in the last 90 days.
    * >*   You can specify only one domain name in each call.
    * >*   You can call this operation up to 10 times per second per account.
-   *
-   * @param request DescribeDomainTopUrlVisitRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainTopUrlVisitResponse
+   * 
+   * @param request - DescribeDomainTopUrlVisitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainTopUrlVisitResponse
    */
   async describeDomainTopUrlVisitWithOptions(request: DescribeDomainTopUrlVisitRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTopUrlVisitResponse> {
     Util.validateModel(request);
@@ -25339,16 +38403,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries top 100 frequently requested URLs of an accelerated domain name within a specified time range.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
+   * Queries top 100 frequently requested URLs of an accelerated domain name within a specified time range.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
    * > *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * >*   You can query data collected in the last 90 days.
    * >*   You can specify only one domain name in each call.
    * >*   You can call this operation up to 10 times per second per account.
-   *
-   * @param request DescribeDomainTopUrlVisitRequest
-   * @return DescribeDomainTopUrlVisitResponse
+   * 
+   * @param request - DescribeDomainTopUrlVisitRequest
+   * @returns DescribeDomainTopUrlVisitResponse
    */
   async describeDomainTopUrlVisit(request: DescribeDomainTopUrlVisitRequest): Promise<DescribeDomainTopUrlVisitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25356,9 +38421,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries network traffic for one or more accelerated domain names. You can query data that is collected in the last 90 days.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries network traffic for one or more accelerated domain names. You can query data that is collected in the last 90 days.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -25367,10 +38433,10 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366|04:00 on the next day|
-   *
-   * @param request DescribeDomainTrafficDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainTrafficDataResponse
+   * 
+   * @param request - DescribeDomainTrafficDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainTrafficDataResponse
    */
   async describeDomainTrafficDataWithOptions(request: DescribeDomainTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTrafficDataResponse> {
     Util.validateModel(request);
@@ -25417,9 +38483,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries network traffic for one or more accelerated domain names. You can query data that is collected in the last 90 days.
-   *
-   * @description * You can call this operation up to 100 times per second per account.
+   * Queries network traffic for one or more accelerated domain names. You can query data that is collected in the last 90 days.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second per account.
    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * **Time granularity**
    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -25428,9 +38495,9 @@ export default class Client extends OpenApi {
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|366 days|366|04:00 on the next day|
-   *
-   * @param request DescribeDomainTrafficDataRequest
-   * @return DescribeDomainTrafficDataResponse
+   * 
+   * @param request - DescribeDomainTrafficDataRequest
+   * @returns DescribeDomainTrafficDataResponse
    */
   async describeDomainTrafficData(request: DescribeDomainTrafficDataRequest): Promise<DescribeDomainTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25438,19 +38505,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the resource usage data of specific domain names in a specified billable region.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the resource usage data of specific domain names in a specified billable region.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
    * |---|---|---|---|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|90 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainUsageDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainUsageDataResponse
+   * 
+   * @param request - DescribeDomainUsageDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainUsageDataResponse
    */
   async describeDomainUsageDataWithOptions(request: DescribeDomainUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainUsageDataResponse> {
     Util.validateModel(request);
@@ -25505,18 +38573,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the resource usage data of specific domain names in a specified billable region.
-   *
-   * @description * You can call this operation up to 10 times per second per account.
+   * Queries the resource usage data of specific domain names in a specified billable region.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
    * * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
    * |---|---|---|---|
    * |5 minutes|3 days|93 days|15 minutes|
    * |1 hour|31 days|186 days|4 hours|
    * |1 day|90 days|366 days|04:00 on the next day|
-   *
-   * @param request DescribeDomainUsageDataRequest
-   * @return DescribeDomainUsageDataResponse
+   * 
+   * @param request - DescribeDomainUsageDataRequest
+   * @returns DescribeDomainUsageDataResponse
    */
   async describeDomainUsageData(request: DescribeDomainUsageDataRequest): Promise<DescribeDomainUsageDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25524,17 +38593,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the unique visitor (UV) data of an accelerated domain name. Data is collected every hour. You can query data collected in the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
+   * Queries the unique visitor (UV) data of an accelerated domain name. Data is collected every hour. You can query data collected in the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
    * > 
    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * *   You can specify only one accelerated domain name or all accelerated domain names in your Alibaba Cloud account.
    * *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeDomainUvDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainUvDataResponse
+   * 
+   * @param request - DescribeDomainUvDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainUvDataResponse
    */
   async describeDomainUvDataWithOptions(request: DescribeDomainUvDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainUvDataResponse> {
     Util.validateModel(request);
@@ -25569,16 +38639,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the unique visitor (UV) data of an accelerated domain name. Data is collected every hour. You can query data collected in the last 90 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
+   * Queries the unique visitor (UV) data of an accelerated domain name. Data is collected every hour. You can query data collected in the last 90 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
    * > 
    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
    * *   You can specify only one accelerated domain name or all accelerated domain names in your Alibaba Cloud account.
    * *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeDomainUvDataRequest
-   * @return DescribeDomainUvDataResponse
+   * 
+   * @param request - DescribeDomainUvDataRequest
+   * @returns DescribeDomainUvDataResponse
    */
   async describeDomainUvData(request: DescribeDomainUvDataRequest): Promise<DescribeDomainUvDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25586,13 +38657,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the verification content of a domain name, including the host record and record value.
-   *
-   * @description You can call this operation to query the verification content of an accelerated domain name based on whether the global resource plan is enabled.
-   *
-   * @param request DescribeDomainVerifyDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainVerifyDataResponse
+   * Queries the verification content of a domain name, including the host record and record value.
+   * 
+   * @remarks
+   * You can call this operation to query the verification content of an accelerated domain name based on whether the global resource plan is enabled.
+   * 
+   * @param request - DescribeDomainVerifyDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainVerifyDataResponse
    */
   async describeDomainVerifyDataWithOptions(request: DescribeDomainVerifyDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainVerifyDataResponse> {
     Util.validateModel(request);
@@ -25623,12 +38695,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the verification content of a domain name, including the host record and record value.
-   *
-   * @description You can call this operation to query the verification content of an accelerated domain name based on whether the global resource plan is enabled.
-   *
-   * @param request DescribeDomainVerifyDataRequest
-   * @return DescribeDomainVerifyDataResponse
+   * Queries the verification content of a domain name, including the host record and record value.
+   * 
+   * @remarks
+   * You can call this operation to query the verification content of an accelerated domain name based on whether the global resource plan is enabled.
+   * 
+   * @param request - DescribeDomainVerifyDataRequest
+   * @returns DescribeDomainVerifyDataResponse
    */
   async describeDomainVerifyData(request: DescribeDomainVerifyDataRequest): Promise<DescribeDomainVerifyDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25636,13 +38709,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries accelerated domain names by origin server.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeDomainsBySourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainsBySourceResponse
+   * Queries accelerated domain names by origin server.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeDomainsBySourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainsBySourceResponse
    */
   async describeDomainsBySourceWithOptions(request: DescribeDomainsBySourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainsBySourceResponse> {
     Util.validateModel(request);
@@ -25677,12 +38751,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries accelerated domain names by origin server.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeDomainsBySourceRequest
-   * @return DescribeDomainsBySourceResponse
+   * Queries accelerated domain names by origin server.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeDomainsBySourceRequest
+   * @returns DescribeDomainsBySourceResponse
    */
   async describeDomainsBySource(request: DescribeDomainsBySourceRequest): Promise<DescribeDomainsBySourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25690,15 +38765,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the monitoring data of an accelerated domain name. Data is collected every day. You can query data collected within the last 90 days.
-   *
-   * @description *   You can call this operation up to 10 times per second per account.
+   * Queries the monitoring data of an accelerated domain name. Data is collected every day. You can query data collected within the last 90 days.
+   * 
+   * @remarks
+   *   You can call this operation up to 10 times per second per account.
    * *   If you do not set StartTime or EndTime, data within the last 24 hours is queried. If you set both StartTime and EndTime, data within the specified time range is queried.
    * *   You can query the monitoring data of a specific accelerated domain name or all accelerated domain names that belong to your Alibaba Cloud account.
-   *
-   * @param request DescribeDomainsUsageByDayRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainsUsageByDayResponse
+   * 
+   * @param request - DescribeDomainsUsageByDayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainsUsageByDayResponse
    */
   async describeDomainsUsageByDayWithOptions(request: DescribeDomainsUsageByDayRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainsUsageByDayResponse> {
     Util.validateModel(request);
@@ -25733,14 +38809,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the monitoring data of an accelerated domain name. Data is collected every day. You can query data collected within the last 90 days.
-   *
-   * @description *   You can call this operation up to 10 times per second per account.
+   * Queries the monitoring data of an accelerated domain name. Data is collected every day. You can query data collected within the last 90 days.
+   * 
+   * @remarks
+   *   You can call this operation up to 10 times per second per account.
    * *   If you do not set StartTime or EndTime, data within the last 24 hours is queried. If you set both StartTime and EndTime, data within the specified time range is queried.
    * *   You can query the monitoring data of a specific accelerated domain name or all accelerated domain names that belong to your Alibaba Cloud account.
-   *
-   * @param request DescribeDomainsUsageByDayRequest
-   * @return DescribeDomainsUsageByDayResponse
+   * 
+   * @param request - DescribeDomainsUsageByDayRequest
+   * @returns DescribeDomainsUsageByDayResponse
    */
   async describeDomainsUsageByDay(request: DescribeDomainsUsageByDayRequest): Promise<DescribeDomainsUsageByDayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25748,13 +38825,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the execution errors of a script in EdgeScript (ES).
-   *
-   * @description *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeEsExceptionDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeEsExceptionDataResponse
+   * Queries the execution errors of a script in EdgeScript (ES).
+   * 
+   * @remarks
+   *   You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeEsExceptionDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEsExceptionDataResponse
    */
   async describeEsExceptionDataWithOptions(request: DescribeEsExceptionDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEsExceptionDataResponse> {
     Util.validateModel(request);
@@ -25789,12 +38867,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the execution errors of a script in EdgeScript (ES).
-   *
-   * @description *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeEsExceptionDataRequest
-   * @return DescribeEsExceptionDataResponse
+   * Queries the execution errors of a script in EdgeScript (ES).
+   * 
+   * @remarks
+   *   You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeEsExceptionDataRequest
+   * @returns DescribeEsExceptionDataResponse
    */
   async describeEsExceptionData(request: DescribeEsExceptionDataRequest): Promise<DescribeEsExceptionDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25802,13 +38881,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the execution status of scripts in EdgeScript (ES).
-   *
-   * @description *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeEsExecuteDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeEsExecuteDataResponse
+   * Queries the execution status of scripts in EdgeScript (ES).
+   * 
+   * @remarks
+   *   You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeEsExecuteDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEsExecuteDataResponse
    */
   async describeEsExecuteDataWithOptions(request: DescribeEsExecuteDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEsExecuteDataResponse> {
     Util.validateModel(request);
@@ -25843,12 +38923,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the execution status of scripts in EdgeScript (ES).
-   *
-   * @description *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeEsExecuteDataRequest
-   * @return DescribeEsExecuteDataResponse
+   * Queries the execution status of scripts in EdgeScript (ES).
+   * 
+   * @remarks
+   *   You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeEsExecuteDataRequest
+   * @returns DescribeEsExecuteDataResponse
    */
   async describeEsExecuteData(request: DescribeEsExecuteDataRequest): Promise<DescribeEsExecuteDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25856,11 +38937,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a specified Function Compute trigger.
-   *
-   * @param request DescribeFCTriggerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeFCTriggerResponse
+   * Queries a specified Function Compute trigger.
+   * 
+   * @param request - DescribeFCTriggerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFCTriggerResponse
    */
   async describeFCTriggerWithOptions(request: DescribeFCTriggerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFCTriggerResponse> {
     Util.validateModel(request);
@@ -25883,10 +38964,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a specified Function Compute trigger.
-   *
-   * @param request DescribeFCTriggerRequest
-   * @return DescribeFCTriggerResponse
+   * Queries a specified Function Compute trigger.
+   * 
+   * @param request - DescribeFCTriggerRequest
+   * @returns DescribeFCTriggerResponse
    */
   async describeFCTrigger(request: DescribeFCTriggerRequest): Promise<DescribeFCTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25894,11 +38975,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether a specified IP address is the IP address of a CDN point of presence (POP).
-   *
-   * @param request DescribeIpInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeIpInfoResponse
+   * Checks whether a specified IP address is the IP address of a CDN point of presence (POP).
+   * 
+   * @param request - DescribeIpInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIpInfoResponse
    */
   async describeIpInfoWithOptions(request: DescribeIpInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpInfoResponse> {
     Util.validateModel(request);
@@ -25925,10 +39006,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether a specified IP address is the IP address of a CDN point of presence (POP).
-   *
-   * @param request DescribeIpInfoRequest
-   * @return DescribeIpInfoResponse
+   * Checks whether a specified IP address is the IP address of a CDN point of presence (POP).
+   * 
+   * @param request - DescribeIpInfoRequest
+   * @returns DescribeIpInfoResponse
    */
   async describeIpInfo(request: DescribeIpInfoRequest): Promise<DescribeIpInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25936,13 +39017,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of IP addresses of points of presence (POPs). The status of an IP address of a POP indicates whether content delivery acceleration is supported by the POP.
-   *
-   * @description > You can call this operation up to 50 times per second per account.
-   *
-   * @param request DescribeIpStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeIpStatusResponse
+   * Queries the status of IP addresses of points of presence (POPs). The status of an IP address of a POP indicates whether content delivery acceleration is supported by the POP.
+   * 
+   * @remarks
+   * > You can call this operation up to 50 times per second per account.
+   * 
+   * @param request - DescribeIpStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIpStatusResponse
    */
   async describeIpStatusWithOptions(request: DescribeIpStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpStatusResponse> {
     Util.validateModel(request);
@@ -25965,12 +39047,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of IP addresses of points of presence (POPs). The status of an IP address of a POP indicates whether content delivery acceleration is supported by the POP.
-   *
-   * @description > You can call this operation up to 50 times per second per account.
-   *
-   * @param request DescribeIpStatusRequest
-   * @return DescribeIpStatusResponse
+   * Queries the status of IP addresses of points of presence (POPs). The status of an IP address of a POP indicates whether content delivery acceleration is supported by the POP.
+   * 
+   * @remarks
+   * > You can call this operation up to 50 times per second per account.
+   * 
+   * @param request - DescribeIpStatusRequest
+   * @returns DescribeIpStatusResponse
    */
   async describeIpStatus(request: DescribeIpStatusRequest): Promise<DescribeIpStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25978,14 +39061,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the virtual IP addresses (VIPs) of L2 CDN points of presence (POPs) for a specific domain name.
-   *
-   * @description *   This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply for permissions to use this operation.
+   * Queries the virtual IP addresses (VIPs) of L2 CDN points of presence (POPs) for a specific domain name.
+   * 
+   * @remarks
+   *   This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply for permissions to use this operation.
    * *   You can call this operation up to 40 times per second per account.
-   *
-   * @param request DescribeL2VipsByDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeL2VipsByDomainResponse
+   * 
+   * @param request - DescribeL2VipsByDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeL2VipsByDomainResponse
    */
   async describeL2VipsByDomainWithOptions(request: DescribeL2VipsByDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeL2VipsByDomainResponse> {
     Util.validateModel(request);
@@ -26020,13 +39104,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the virtual IP addresses (VIPs) of L2 CDN points of presence (POPs) for a specific domain name.
-   *
-   * @description *   This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply for permissions to use this operation.
+   * Queries the virtual IP addresses (VIPs) of L2 CDN points of presence (POPs) for a specific domain name.
+   * 
+   * @remarks
+   *   This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply for permissions to use this operation.
    * *   You can call this operation up to 40 times per second per account.
-   *
-   * @param request DescribeL2VipsByDomainRequest
-   * @return DescribeL2VipsByDomainResponse
+   * 
+   * @param request - DescribeL2VipsByDomainRequest
+   * @returns DescribeL2VipsByDomainResponse
    */
   async describeL2VipsByDomain(request: DescribeL2VipsByDomainRequest): Promise<DescribeL2VipsByDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26034,14 +39119,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the prefetch details of a task, including the prefetch progress of all resources in the task. Only users who are included in the whitelist can use this operation. You can contact your business manager to apply for the whitelist.
-   *
-   * @description *   You can query data within the last 3 days.
+   * Queries the prefetch details of a task, including the prefetch progress of all resources in the task. Only users who are included in the whitelist can use this operation. You can contact your business manager to apply for the whitelist.
+   * 
+   * @remarks
+   *   You can query data within the last 3 days.
    * *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribePreloadDetailByIdRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePreloadDetailByIdResponse
+   * 
+   * @param request - DescribePreloadDetailByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePreloadDetailByIdResponse
    */
   async describePreloadDetailByIdWithOptions(request: DescribePreloadDetailByIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribePreloadDetailByIdResponse> {
     Util.validateModel(request);
@@ -26068,13 +39154,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the prefetch details of a task, including the prefetch progress of all resources in the task. Only users who are included in the whitelist can use this operation. You can contact your business manager to apply for the whitelist.
-   *
-   * @description *   You can query data within the last 3 days.
+   * Queries the prefetch details of a task, including the prefetch progress of all resources in the task. Only users who are included in the whitelist can use this operation. You can contact your business manager to apply for the whitelist.
+   * 
+   * @remarks
+   *   You can query data within the last 3 days.
    * *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribePreloadDetailByIdRequest
-   * @return DescribePreloadDetailByIdResponse
+   * 
+   * @param request - DescribePreloadDetailByIdRequest
+   * @returns DescribePreloadDetailByIdResponse
    */
   async describePreloadDetailById(request: DescribePreloadDetailByIdRequest): Promise<DescribePreloadDetailByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26082,14 +39169,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the bandwidth values by Internet service provider (ISP) and region.
-   *
-   * @description *   The data is collected every 5 minutes.
+   * Queries the bandwidth values by Internet service provider (ISP) and region.
+   * 
+   * @remarks
+   *   The data is collected every 5 minutes.
    * *   You can call this operation up to 20 times per second per account.
-   *
-   * @param request DescribeRangeDataByLocateAndIspServiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRangeDataByLocateAndIspServiceResponse
+   * 
+   * @param request - DescribeRangeDataByLocateAndIspServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRangeDataByLocateAndIspServiceResponse
    */
   async describeRangeDataByLocateAndIspServiceWithOptions(request: DescribeRangeDataByLocateAndIspServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRangeDataByLocateAndIspServiceResponse> {
     Util.validateModel(request);
@@ -26132,13 +39220,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the bandwidth values by Internet service provider (ISP) and region.
-   *
-   * @description *   The data is collected every 5 minutes.
+   * Queries the bandwidth values by Internet service provider (ISP) and region.
+   * 
+   * @remarks
+   *   The data is collected every 5 minutes.
    * *   You can call this operation up to 20 times per second per account.
-   *
-   * @param request DescribeRangeDataByLocateAndIspServiceRequest
-   * @return DescribeRangeDataByLocateAndIspServiceResponse
+   * 
+   * @param request - DescribeRangeDataByLocateAndIspServiceRequest
+   * @returns DescribeRangeDataByLocateAndIspServiceResponse
    */
   async describeRangeDataByLocateAndIspService(request: DescribeRangeDataByLocateAndIspServiceRequest): Promise<DescribeRangeDataByLocateAndIspServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26146,13 +39235,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of real-time log deliveries.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeRealtimeDeliveryAccRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRealtimeDeliveryAccResponse
+   * Queries the number of real-time log deliveries.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeRealtimeDeliveryAccRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRealtimeDeliveryAccResponse
    */
   async describeRealtimeDeliveryAccWithOptions(request: DescribeRealtimeDeliveryAccRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRealtimeDeliveryAccResponse> {
     Util.validateModel(request);
@@ -26195,12 +39285,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of real-time log deliveries.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeRealtimeDeliveryAccRequest
-   * @return DescribeRealtimeDeliveryAccResponse
+   * Queries the number of real-time log deliveries.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeRealtimeDeliveryAccRequest
+   * @returns DescribeRealtimeDeliveryAccResponse
    */
   async describeRealtimeDeliveryAcc(request: DescribeRealtimeDeliveryAccRequest): Promise<DescribeRealtimeDeliveryAccResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26208,13 +39299,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DescribeRefreshQuota
-   *
-   * @description Queries the maximum and remaining numbers of URLs and directories that can be refreshed, the maximum and remaining numbers of times that you can prefetch content, and the maximum and remaining numbers of URLs and directories that can be blocked on the current day.
-   *
-   * @param request DescribeRefreshQuotaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRefreshQuotaResponse
+   * DescribeRefreshQuota
+   * 
+   * @remarks
+   * Queries the maximum and remaining numbers of URLs and directories that can be refreshed, the maximum and remaining numbers of times that you can prefetch content, and the maximum and remaining numbers of URLs and directories that can be blocked on the current day.
+   * 
+   * @param request - DescribeRefreshQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRefreshQuotaResponse
    */
   async describeRefreshQuotaWithOptions(request: DescribeRefreshQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRefreshQuotaResponse> {
     Util.validateModel(request);
@@ -26245,12 +39337,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DescribeRefreshQuota
-   *
-   * @description Queries the maximum and remaining numbers of URLs and directories that can be refreshed, the maximum and remaining numbers of times that you can prefetch content, and the maximum and remaining numbers of URLs and directories that can be blocked on the current day.
-   *
-   * @param request DescribeRefreshQuotaRequest
-   * @return DescribeRefreshQuotaResponse
+   * DescribeRefreshQuota
+   * 
+   * @remarks
+   * Queries the maximum and remaining numbers of URLs and directories that can be refreshed, the maximum and remaining numbers of times that you can prefetch content, and the maximum and remaining numbers of URLs and directories that can be blocked on the current day.
+   * 
+   * @param request - DescribeRefreshQuotaRequest
+   * @returns DescribeRefreshQuotaResponse
    */
   async describeRefreshQuota(request: DescribeRefreshQuotaRequest): Promise<DescribeRefreshQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26258,14 +39351,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statuses of refresh or prefetch tasks by task ID.
-   *
-   * @description *   You can query data in the last three days.
+   * Queries the statuses of refresh or prefetch tasks by task ID.
+   * 
+   * @remarks
+   *   You can query data in the last three days.
    * *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeRefreshTaskByIdRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRefreshTaskByIdResponse
+   * 
+   * @param request - DescribeRefreshTaskByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRefreshTaskByIdResponse
    */
   async describeRefreshTaskByIdWithOptions(request: DescribeRefreshTaskByIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRefreshTaskByIdResponse> {
     Util.validateModel(request);
@@ -26292,13 +39386,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statuses of refresh or prefetch tasks by task ID.
-   *
-   * @description *   You can query data in the last three days.
+   * Queries the statuses of refresh or prefetch tasks by task ID.
+   * 
+   * @remarks
+   *   You can query data in the last three days.
    * *   You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeRefreshTaskByIdRequest
-   * @return DescribeRefreshTaskByIdResponse
+   * 
+   * @param request - DescribeRefreshTaskByIdRequest
+   * @returns DescribeRefreshTaskByIdResponse
    */
   async describeRefreshTaskById(request: DescribeRefreshTaskByIdRequest): Promise<DescribeRefreshTaskByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26306,17 +39401,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of refresh or prefetch tasks that belong to an accelerated domain name.
-   *
-   * @description *   You can query the status of tasks by task ID or URL.
+   * Queries the status of refresh or prefetch tasks that belong to an accelerated domain name.
+   * 
+   * @remarks
+   *   You can query the status of tasks by task ID or URL.
    * *   You can set both the **TaskId** and **ObjectPath** parameters. If you do not set the **TaskId** or **ObjectPath** parameter, data entries on the first page (20 entries) collected in the last 3 days are returned.
    * *   You can query data collected in the last 3 days.
    * *   If auto CDN cache update is enabled in the Object Storage Service (OSS) console, you cannot call the DescribeRefreshTasks operation to query automatic refresh tasks in OSS.
    * *   You can call this operation up to 10 times per second per account. If you want to query tasks at a higher frequency, call the [DescribeRefreshTaskById](https://help.aliyun.com/document_detail/187709.html) operation. This operation allows you to query tasks by task ID.
-   *
-   * @param request DescribeRefreshTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRefreshTasksResponse
+   * 
+   * @param request - DescribeRefreshTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRefreshTasksResponse
    */
   async describeRefreshTasksWithOptions(request: DescribeRefreshTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRefreshTasksResponse> {
     Util.validateModel(request);
@@ -26387,16 +39483,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of refresh or prefetch tasks that belong to an accelerated domain name.
-   *
-   * @description *   You can query the status of tasks by task ID or URL.
+   * Queries the status of refresh or prefetch tasks that belong to an accelerated domain name.
+   * 
+   * @remarks
+   *   You can query the status of tasks by task ID or URL.
    * *   You can set both the **TaskId** and **ObjectPath** parameters. If you do not set the **TaskId** or **ObjectPath** parameter, data entries on the first page (20 entries) collected in the last 3 days are returned.
    * *   You can query data collected in the last 3 days.
    * *   If auto CDN cache update is enabled in the Object Storage Service (OSS) console, you cannot call the DescribeRefreshTasks operation to query automatic refresh tasks in OSS.
    * *   You can call this operation up to 10 times per second per account. If you want to query tasks at a higher frequency, call the [DescribeRefreshTaskById](https://help.aliyun.com/document_detail/187709.html) operation. This operation allows you to query tasks by task ID.
-   *
-   * @param request DescribeRefreshTasksRequest
-   * @return DescribeRefreshTasksResponse
+   * 
+   * @param request - DescribeRefreshTasksRequest
+   * @returns DescribeRefreshTasksResponse
    */
   async describeRefreshTasks(request: DescribeRefreshTasksRequest): Promise<DescribeRefreshTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26404,13 +39501,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries node IP addresses in the staging environment.
-   *
-   * @description >The maximum number of times that each user can call this operation per second is 30.
-   *
-   * @param request DescribeStagingIpRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeStagingIpResponse
+   * Queries node IP addresses in the staging environment.
+   * 
+   * @remarks
+   * >The maximum number of times that each user can call this operation per second is 30.
+   * 
+   * @param request - DescribeStagingIpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeStagingIpResponse
    */
   async describeStagingIpWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeStagingIpResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -26429,11 +39527,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries node IP addresses in the staging environment.
-   *
-   * @description >The maximum number of times that each user can call this operation per second is 30.
-   *
-   * @return DescribeStagingIpResponse
+   * Queries node IP addresses in the staging environment.
+   * 
+   * @remarks
+   * >The maximum number of times that each user can call this operation per second is 30.
+   * @returns DescribeStagingIpResponse
    */
   async describeStagingIp(): Promise<DescribeStagingIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26441,13 +39539,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tags that are added to specified resources.
-   *
-   * @description >  The maximum number of times that each user can call this operation per second is 10.
-   *
-   * @param request DescribeTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTagResourcesResponse
+   * Queries tags that are added to specified resources.
+   * 
+   * @remarks
+   * >  The maximum number of times that each user can call this operation per second is 10.
+   * 
+   * @param request - DescribeTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTagResourcesResponse
    */
   async describeTagResourcesWithOptions(request: DescribeTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagResourcesResponse> {
     Util.validateModel(request);
@@ -26482,12 +39581,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tags that are added to specified resources.
-   *
-   * @description >  The maximum number of times that each user can call this operation per second is 10.
-   *
-   * @param request DescribeTagResourcesRequest
-   * @return DescribeTagResourcesResponse
+   * Queries tags that are added to specified resources.
+   * 
+   * @remarks
+   * >  The maximum number of times that each user can call this operation per second is 10.
+   * 
+   * @param request - DescribeTagResourcesRequest
+   * @returns DescribeTagResourcesResponse
    */
   async describeTagResources(request: DescribeTagResourcesRequest): Promise<DescribeTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26495,15 +39595,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N domain names ranked by network traffic. You can query data collected in the last 30 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
+   * Queries the top N domain names ranked by network traffic. You can query data collected in the last 30 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
    * > *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the current month. If you set both these parameters, the request returns the data collected within the specified time range.
    * >*   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeTopDomainsByFlowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTopDomainsByFlowResponse
+   * 
+   * @param request - DescribeTopDomainsByFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTopDomainsByFlowResponse
    */
   async describeTopDomainsByFlowWithOptions(request: DescribeTopDomainsByFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTopDomainsByFlowResponse> {
     Util.validateModel(request);
@@ -26538,14 +39639,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N domain names ranked by network traffic. You can query data collected in the last 30 days.
-   *
-   * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
+   * Queries the top N domain names ranked by network traffic. You can query data collected in the last 30 days.
+   * 
+   * @remarks
+   * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://help.aliyun.com/document_detail/279577.html) feature for data analysis.
    * > *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the current month. If you set both these parameters, the request returns the data collected within the specified time range.
    * >*   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeTopDomainsByFlowRequest
-   * @return DescribeTopDomainsByFlowResponse
+   * 
+   * @param request - DescribeTopDomainsByFlowRequest
+   * @returns DescribeTopDomainsByFlowResponse
    */
   async describeTopDomainsByFlow(request: DescribeTopDomainsByFlowRequest): Promise<DescribeTopDomainsByFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26553,13 +39655,56 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of domain names whose SSL certificates are about to expire or have already expired.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeUserCertificateExpireCountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUserCertificateExpireCountResponse
+   * @param request - DescribeUserCdnStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserCdnStatusResponse
+   */
+  async describeUserCdnStatusWithOptions(request: DescribeUserCdnStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserCdnStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserCdnStatus",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserCdnStatusResponse>(await this.callApi(params, req, runtime), new DescribeUserCdnStatusResponse({}));
+  }
+
+  /**
+   * @param request - DescribeUserCdnStatusRequest
+   * @returns DescribeUserCdnStatusResponse
+   */
+  async describeUserCdnStatus(request: DescribeUserCdnStatusRequest): Promise<DescribeUserCdnStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserCdnStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the number of domain names whose SSL certificates are about to expire or have already expired.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeUserCertificateExpireCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserCertificateExpireCountResponse
    */
   async describeUserCertificateExpireCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUserCertificateExpireCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -26578,11 +39723,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of domain names whose SSL certificates are about to expire or have already expired.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @return DescribeUserCertificateExpireCountResponse
+   * Queries the number of domain names whose SSL certificates are about to expire or have already expired.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * @returns DescribeUserCertificateExpireCountResponse
    */
   async describeUserCertificateExpireCount(): Promise<DescribeUserCertificateExpireCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26590,13 +39735,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries configurations of security features.
+   * 
    * @deprecated OpenAPI DescribeUserConfigs is deprecated
-   *
-   * @summary Queries configurations of security features.
-   *
-   * @param request DescribeUserConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUserConfigsResponse
+   * 
+   * @param request - DescribeUserConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserConfigsResponse
    */
   // Deprecated
   async describeUserConfigsWithOptions(request: DescribeUserConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserConfigsResponse> {
@@ -26632,12 +39777,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries configurations of security features.
+   * 
    * @deprecated OpenAPI DescribeUserConfigs is deprecated
-   *
-   * @summary Queries configurations of security features.
-   *
-   * @param request DescribeUserConfigsRequest
-   * @return DescribeUserConfigsResponse
+   * 
+   * @param request - DescribeUserConfigsRequest
+   * @returns DescribeUserConfigsResponse
    */
   // Deprecated
   async describeUserConfigs(request: DescribeUserConfigsRequest): Promise<DescribeUserConfigsResponse> {
@@ -26646,14 +39791,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all accelerated domain names in your Alibaba Cloud account and the status of the accelerated domain names. You can filter domain names by name or status. Fuzzy match is supported.
-   *
-   * @description *   You can call this operation up to 100 times per second per account.
+   * Queries all accelerated domain names in your Alibaba Cloud account and the status of the accelerated domain names. You can filter domain names by name or status. Fuzzy match is supported.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
    * *   You can specify up to 50 domain names in each request. Separate multiple domain names with commas (,).
-   *
-   * @param request DescribeUserDomainsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUserDomainsResponse
+   * 
+   * @param request - DescribeUserDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserDomainsResponse
    */
   async describeUserDomainsWithOptions(request: DescribeUserDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserDomainsResponse> {
     Util.validateModel(request);
@@ -26736,13 +39882,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all accelerated domain names in your Alibaba Cloud account and the status of the accelerated domain names. You can filter domain names by name or status. Fuzzy match is supported.
-   *
-   * @description *   You can call this operation up to 100 times per second per account.
+   * Queries all accelerated domain names in your Alibaba Cloud account and the status of the accelerated domain names. You can filter domain names by name or status. Fuzzy match is supported.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
    * *   You can specify up to 50 domain names in each request. Separate multiple domain names with commas (,).
-   *
-   * @param request DescribeUserDomainsRequest
-   * @return DescribeUserDomainsResponse
+   * 
+   * @param request - DescribeUserDomainsRequest
+   * @returns DescribeUserDomainsResponse
    */
   async describeUserDomains(request: DescribeUserDomainsRequest): Promise<DescribeUserDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26750,13 +39897,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries user tags.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeUserTagsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUserTagsResponse
+   * Queries user tags.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeUserTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserTagsResponse
    */
   async describeUserTagsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUserTagsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -26775,11 +39923,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries user tags.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @return DescribeUserTagsResponse
+   * Queries user tags.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * @returns DescribeUserTagsResponse
    */
   async describeUserTags(): Promise<DescribeUserTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26787,13 +39935,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries usage export tasks that were created in the last three months.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeUserUsageDataExportTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUserUsageDataExportTaskResponse
+   * Queries usage export tasks that were created in the last three months.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeUserUsageDataExportTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserUsageDataExportTaskResponse
    */
   async describeUserUsageDataExportTaskWithOptions(request: DescribeUserUsageDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserUsageDataExportTaskResponse> {
     Util.validateModel(request);
@@ -26824,12 +39973,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries usage export tasks that were created in the last three months.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeUserUsageDataExportTaskRequest
-   * @return DescribeUserUsageDataExportTaskResponse
+   * Queries usage export tasks that were created in the last three months.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - DescribeUserUsageDataExportTaskRequest
+   * @returns DescribeUserUsageDataExportTaskResponse
    */
   async describeUserUsageDataExportTask(request: DescribeUserUsageDataExportTaskRequest): Promise<DescribeUserUsageDataExportTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26837,14 +39987,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tasks that were used to export resource usage details of one or more accelerated domain names that belong to your Alibaba Cloud account. Resource usage information is collected every five minutes.
-   *
-   * @description *   This operation has been available since July 20, 2018. You can query information about resource usage collected within the last three months.
+   * Queries tasks that were used to export resource usage details of one or more accelerated domain names that belong to your Alibaba Cloud account. Resource usage information is collected every five minutes.
+   * 
+   * @remarks
+   *   This operation has been available since July 20, 2018. You can query information about resource usage collected within the last three months.
    * *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeUserUsageDetailDataExportTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUserUsageDetailDataExportTaskResponse
+   * 
+   * @param request - DescribeUserUsageDetailDataExportTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserUsageDetailDataExportTaskResponse
    */
   async describeUserUsageDetailDataExportTaskWithOptions(request: DescribeUserUsageDetailDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserUsageDetailDataExportTaskResponse> {
     Util.validateModel(request);
@@ -26875,13 +40026,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tasks that were used to export resource usage details of one or more accelerated domain names that belong to your Alibaba Cloud account. Resource usage information is collected every five minutes.
-   *
-   * @description *   This operation has been available since July 20, 2018. You can query information about resource usage collected within the last three months.
+   * Queries tasks that were used to export resource usage details of one or more accelerated domain names that belong to your Alibaba Cloud account. Resource usage information is collected every five minutes.
+   * 
+   * @remarks
+   *   This operation has been available since July 20, 2018. You can query information about resource usage collected within the last three months.
    * *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request DescribeUserUsageDetailDataExportTaskRequest
-   * @return DescribeUserUsageDetailDataExportTaskResponse
+   * 
+   * @param request - DescribeUserUsageDetailDataExportTaskRequest
+   * @returns DescribeUserUsageDetailDataExportTaskResponse
    */
   async describeUserUsageDetailDataExportTask(request: DescribeUserUsageDetailDataExportTaskRequest): Promise<DescribeUserUsageDetailDataExportTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26889,13 +40041,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries virtual IP addresses (VIPs) of CDN points of presence (POPs) by domain name.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeUserVipsByDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUserVipsByDomainResponse
+   * Queries virtual IP addresses (VIPs) of CDN points of presence (POPs) by domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeUserVipsByDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserVipsByDomainResponse
    */
   async describeUserVipsByDomainWithOptions(request: DescribeUserVipsByDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserVipsByDomainResponse> {
     Util.validateModel(request);
@@ -26918,12 +40071,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries virtual IP addresses (VIPs) of CDN points of presence (POPs) by domain name.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request DescribeUserVipsByDomainRequest
-   * @return DescribeUserVipsByDomainResponse
+   * Queries virtual IP addresses (VIPs) of CDN points of presence (POPs) by domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - DescribeUserVipsByDomainRequest
+   * @returns DescribeUserVipsByDomainResponse
    */
   async describeUserVipsByDomain(request: DescribeUserVipsByDomainRequest): Promise<DescribeUserVipsByDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26931,11 +40085,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the ownership verification content of an accelerated domain name.
-   *
-   * @param request DescribeVerifyContentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeVerifyContentResponse
+   * Queries the ownership verification content of an accelerated domain name.
+   * 
+   * @param request - DescribeVerifyContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVerifyContentResponse
    */
   async describeVerifyContentWithOptions(request: DescribeVerifyContentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyContentResponse> {
     Util.validateModel(request);
@@ -26962,10 +40116,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the ownership verification content of an accelerated domain name.
-   *
-   * @param request DescribeVerifyContentRequest
-   * @return DescribeVerifyContentResponse
+   * Queries the ownership verification content of an accelerated domain name.
+   * 
+   * @param request - DescribeVerifyContentRequest
+   * @returns DescribeVerifyContentResponse
    */
   async describeVerifyContent(request: DescribeVerifyContentRequest): Promise<DescribeVerifyContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26973,13 +40127,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the request.
-   *
-   * @description >  The maximum number of times that each user can call this operation per second is 100.
-   *
-   * @param request DisableRealtimeLogDeliveryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DisableRealtimeLogDeliveryResponse
+   * The ID of the request.
+   * 
+   * @remarks
+   * >  The maximum number of times that each user can call this operation per second is 100.
+   * 
+   * @param request - DisableRealtimeLogDeliveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableRealtimeLogDeliveryResponse
    */
   async disableRealtimeLogDeliveryWithOptions(request: DisableRealtimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<DisableRealtimeLogDeliveryResponse> {
     Util.validateModel(request);
@@ -27002,12 +40157,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the request.
-   *
-   * @description >  The maximum number of times that each user can call this operation per second is 100.
-   *
-   * @param request DisableRealtimeLogDeliveryRequest
-   * @return DisableRealtimeLogDeliveryResponse
+   * The ID of the request.
+   * 
+   * @remarks
+   * >  The maximum number of times that each user can call this operation per second is 100.
+   * 
+   * @param request - DisableRealtimeLogDeliveryRequest
+   * @returns DisableRealtimeLogDeliveryResponse
    */
   async disableRealtimeLogDelivery(request: DisableRealtimeLogDeliveryRequest): Promise<DisableRealtimeLogDeliveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27015,13 +40171,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the request.
-   *
-   * @description >  The maximum number of times that each user can call this operation per second is 100.
-   *
-   * @param request EnableRealtimeLogDeliveryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableRealtimeLogDeliveryResponse
+   * The ID of the request.
+   * 
+   * @remarks
+   * >  The maximum number of times that each user can call this operation per second is 100.
+   * 
+   * @param request - EnableRealtimeLogDeliveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableRealtimeLogDeliveryResponse
    */
   async enableRealtimeLogDeliveryWithOptions(request: EnableRealtimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<EnableRealtimeLogDeliveryResponse> {
     Util.validateModel(request);
@@ -27044,12 +40201,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the request.
-   *
-   * @description >  The maximum number of times that each user can call this operation per second is 100.
-   *
-   * @param request EnableRealtimeLogDeliveryRequest
-   * @return EnableRealtimeLogDeliveryResponse
+   * The ID of the request.
+   * 
+   * @remarks
+   * >  The maximum number of times that each user can call this operation per second is 100.
+   * 
+   * @param request - EnableRealtimeLogDeliveryRequest
+   * @returns EnableRealtimeLogDeliveryResponse
    */
   async enableRealtimeLogDelivery(request: EnableRealtimeLogDeliveryRequest): Promise<EnableRealtimeLogDeliveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27057,13 +40215,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries domain names by log configuration ID.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request ListDomainsByLogConfigIdRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDomainsByLogConfigIdResponse
+   * Queries domain names by log configuration ID.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - ListDomainsByLogConfigIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDomainsByLogConfigIdResponse
    */
   async listDomainsByLogConfigIdWithOptions(request: ListDomainsByLogConfigIdRequest, runtime: $Util.RuntimeOptions): Promise<ListDomainsByLogConfigIdResponse> {
     Util.validateModel(request);
@@ -27086,12 +40245,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries domain names by log configuration ID.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request ListDomainsByLogConfigIdRequest
-   * @return ListDomainsByLogConfigIdResponse
+   * Queries domain names by log configuration ID.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - ListDomainsByLogConfigIdRequest
+   * @returns ListDomainsByLogConfigIdResponse
    */
   async listDomainsByLogConfigId(request: ListDomainsByLogConfigIdRequest): Promise<ListDomainsByLogConfigIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27099,13 +40259,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Function Compute trigger that is set for an Alibaba Cloud CDN event.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request ListFCTriggerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFCTriggerResponse
+   * Queries the Function Compute trigger that is set for an Alibaba Cloud CDN event.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - ListFCTriggerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFCTriggerResponse
    */
   async listFCTriggerWithOptions(request: ListFCTriggerRequest, runtime: $Util.RuntimeOptions): Promise<ListFCTriggerResponse> {
     Util.validateModel(request);
@@ -27128,12 +40289,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Function Compute trigger that is set for an Alibaba Cloud CDN event.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request ListFCTriggerRequest
-   * @return ListFCTriggerResponse
+   * Queries the Function Compute trigger that is set for an Alibaba Cloud CDN event.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - ListFCTriggerRequest
+   * @returns ListFCTriggerResponse
    */
   async listFCTrigger(request: ListFCTriggerRequest): Promise<ListFCTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27141,13 +40303,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all domain names that are associated with a specific real-time log delivery configuration record.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request ListRealtimeLogDeliveryDomainsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRealtimeLogDeliveryDomainsResponse
+   * Queries all domain names that are associated with a specific real-time log delivery configuration record.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - ListRealtimeLogDeliveryDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRealtimeLogDeliveryDomainsResponse
    */
   async listRealtimeLogDeliveryDomainsWithOptions(request: ListRealtimeLogDeliveryDomainsRequest, runtime: $Util.RuntimeOptions): Promise<ListRealtimeLogDeliveryDomainsResponse> {
     Util.validateModel(request);
@@ -27170,12 +40333,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all domain names that are associated with a specific real-time log delivery configuration record.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request ListRealtimeLogDeliveryDomainsRequest
-   * @return ListRealtimeLogDeliveryDomainsResponse
+   * Queries all domain names that are associated with a specific real-time log delivery configuration record.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - ListRealtimeLogDeliveryDomainsRequest
+   * @returns ListRealtimeLogDeliveryDomainsResponse
    */
   async listRealtimeLogDeliveryDomains(request: ListRealtimeLogDeliveryDomainsRequest): Promise<ListRealtimeLogDeliveryDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27183,13 +40347,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the real-time log delivery feature in a specified region.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request ListRealtimeLogDeliveryInfosRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRealtimeLogDeliveryInfosResponse
+   * Queries the information about the real-time log delivery feature in a specified region.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - ListRealtimeLogDeliveryInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRealtimeLogDeliveryInfosResponse
    */
   async listRealtimeLogDeliveryInfosWithOptions(runtime: $Util.RuntimeOptions): Promise<ListRealtimeLogDeliveryInfosResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -27208,11 +40373,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the real-time log delivery feature in a specified region.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @return ListRealtimeLogDeliveryInfosResponse
+   * Queries the information about the real-time log delivery feature in a specified region.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * @returns ListRealtimeLogDeliveryInfosResponse
    */
   async listRealtimeLogDeliveryInfos(): Promise<ListRealtimeLogDeliveryInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27220,11 +40385,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags that are attached to a resource.
-   *
-   * @param request ListTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * Queries the tags that are attached to a resource.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -27271,10 +40436,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags that are attached to a resource.
-   *
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * Queries the tags that are attached to a resource.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27282,13 +40447,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all custom log configurations in your account.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request ListUserCustomLogConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserCustomLogConfigResponse
+   * Queries all custom log configurations in your account.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - ListUserCustomLogConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserCustomLogConfigResponse
    */
   async listUserCustomLogConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<ListUserCustomLogConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -27307,11 +40473,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all custom log configurations in your account.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @return ListUserCustomLogConfigResponse
+   * Queries all custom log configurations in your account.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * @returns ListUserCustomLogConfigResponse
    */
   async listUserCustomLogConfig(): Promise<ListUserCustomLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27319,13 +40485,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configuration of an accelerated domain name.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request ModifyCdnDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyCdnDomainResponse
+   * Modifies the configuration of an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - ModifyCdnDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCdnDomainResponse
    */
   async modifyCdnDomainWithOptions(request: ModifyCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCdnDomainResponse> {
     Util.validateModel(request);
@@ -27372,12 +40539,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configuration of an accelerated domain name.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request ModifyCdnDomainRequest
-   * @return ModifyCdnDomainResponse
+   * Modifies the configuration of an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - ModifyCdnDomainRequest
+   * @returns ModifyCdnDomainResponse
    */
   async modifyCdnDomain(request: ModifyCdnDomainRequest): Promise<ModifyCdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27385,15 +40553,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Transfer domain names from an Alibaba Cloud account to the current account.
-   *
-   * @description This operation is used in the following scenario:
+   * Transfer domain names from an Alibaba Cloud account to the current account.
+   * 
+   * @remarks
+   * This operation is used in the following scenario:
    * *   You have multiple Alibaba Cloud accounts and want to transfer domain names from Account A to Account B.
    * *   You are prompted that a domain name has been added when you add the domain name to Alibaba Cloud CDN. You do not know which account does the domain name belong to, and you want to transfer the domain name to your current account.
-   *
-   * @param request ModifyCdnDomainOwnerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyCdnDomainOwnerResponse
+   * 
+   * @param request - ModifyCdnDomainOwnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCdnDomainOwnerResponse
    */
   async modifyCdnDomainOwnerWithOptions(request: ModifyCdnDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCdnDomainOwnerResponse> {
     Util.validateModel(request);
@@ -27432,14 +40601,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Transfer domain names from an Alibaba Cloud account to the current account.
-   *
-   * @description This operation is used in the following scenario:
+   * Transfer domain names from an Alibaba Cloud account to the current account.
+   * 
+   * @remarks
+   * This operation is used in the following scenario:
    * *   You have multiple Alibaba Cloud accounts and want to transfer domain names from Account A to Account B.
    * *   You are prompted that a domain name has been added when you add the domain name to Alibaba Cloud CDN. You do not know which account does the domain name belong to, and you want to transfer the domain name to your current account.
-   *
-   * @param request ModifyCdnDomainOwnerRequest
-   * @return ModifyCdnDomainOwnerResponse
+   * 
+   * @param request - ModifyCdnDomainOwnerRequest
+   * @returns ModifyCdnDomainOwnerResponse
    */
   async modifyCdnDomainOwner(request: ModifyCdnDomainOwnerRequest): Promise<ModifyCdnDomainOwnerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27447,13 +40617,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the acceleration region for an accelerated domain name.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request ModifyCdnDomainSchdmByPropertyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyCdnDomainSchdmByPropertyResponse
+   * Changes the acceleration region for an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - ModifyCdnDomainSchdmByPropertyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCdnDomainSchdmByPropertyResponse
    */
   async modifyCdnDomainSchdmByPropertyWithOptions(request: ModifyCdnDomainSchdmByPropertyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCdnDomainSchdmByPropertyResponse> {
     Util.validateModel(request);
@@ -27484,12 +40655,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the acceleration region for an accelerated domain name.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request ModifyCdnDomainSchdmByPropertyRequest
-   * @return ModifyCdnDomainSchdmByPropertyResponse
+   * Changes the acceleration region for an accelerated domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - ModifyCdnDomainSchdmByPropertyRequest
+   * @returns ModifyCdnDomainSchdmByPropertyResponse
    */
   async modifyCdnDomainSchdmByProperty(request: ModifyCdnDomainSchdmByPropertyRequest): Promise<ModifyCdnDomainSchdmByPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27497,13 +40669,64 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of real-time log delivery for a specific domain name. Each domain name supports only one Logstore.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request ModifyRealtimeLogDeliveryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyRealtimeLogDeliveryResponse
+   * Changes the metering method of Alibaba Cloud CDN.
+   * 
+   * @param request - ModifyCdnServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCdnServiceResponse
+   */
+  async modifyCdnServiceWithOptions(request: ModifyCdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCdnServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyCdnService",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyCdnServiceResponse>(await this.callApi(params, req, runtime), new ModifyCdnServiceResponse({}));
+  }
+
+  /**
+   * Changes the metering method of Alibaba Cloud CDN.
+   * 
+   * @param request - ModifyCdnServiceRequest
+   * @returns ModifyCdnServiceResponse
+   */
+  async modifyCdnService(request: ModifyCdnServiceRequest): Promise<ModifyCdnServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyCdnServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the configurations of real-time log delivery for a specific domain name. Each domain name supports only one Logstore.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - ModifyRealtimeLogDeliveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRealtimeLogDeliveryResponse
    */
   async modifyRealtimeLogDeliveryWithOptions(request: ModifyRealtimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRealtimeLogDeliveryResponse> {
     Util.validateModel(request);
@@ -27526,12 +40749,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of real-time log delivery for a specific domain name. Each domain name supports only one Logstore.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request ModifyRealtimeLogDeliveryRequest
-   * @return ModifyRealtimeLogDeliveryResponse
+   * Modifies the configurations of real-time log delivery for a specific domain name. Each domain name supports only one Logstore.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - ModifyRealtimeLogDeliveryRequest
+   * @returns ModifyRealtimeLogDeliveryResponse
    */
   async modifyRealtimeLogDelivery(request: ModifyRealtimeLogDeliveryRequest): Promise<ModifyRealtimeLogDeliveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27539,14 +40763,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Activates Alibaba Cloud CDN. You must activate Alibaba Cloud CDN before you can manage domain names in Alibaba Cloud CDN.
-   *
-   * @description *   Alibaba Cloud CDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must complete real-name verification to activate Alibaba Cloud CDN.
+   * Activates Alibaba Cloud CDN. You must activate Alibaba Cloud CDN before you can manage domain names in Alibaba Cloud CDN.
+   * 
+   * @remarks
+   *   Alibaba Cloud CDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must complete real-name verification to activate Alibaba Cloud CDN.
    * *   You can call this operation up to five times per second per user.
-   *
-   * @param request OpenCdnServiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenCdnServiceResponse
+   * 
+   * @param request - OpenCdnServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenCdnServiceResponse
    */
   async openCdnServiceWithOptions(request: OpenCdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenCdnServiceResponse> {
     Util.validateModel(request);
@@ -27581,13 +40806,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Activates Alibaba Cloud CDN. You must activate Alibaba Cloud CDN before you can manage domain names in Alibaba Cloud CDN.
-   *
-   * @description *   Alibaba Cloud CDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must complete real-name verification to activate Alibaba Cloud CDN.
+   * Activates Alibaba Cloud CDN. You must activate Alibaba Cloud CDN before you can manage domain names in Alibaba Cloud CDN.
+   * 
+   * @remarks
+   *   Alibaba Cloud CDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must complete real-name verification to activate Alibaba Cloud CDN.
    * *   You can call this operation up to five times per second per user.
-   *
-   * @param request OpenCdnServiceRequest
-   * @return OpenCdnServiceResponse
+   * 
+   * @param request - OpenCdnServiceRequest
+   * @returns OpenCdnServiceResponse
    */
   async openCdnService(request: OpenCdnServiceRequest): Promise<OpenCdnServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27595,13 +40821,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Publishes the configurations of the staging environment to the production environment.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request PublishStagingConfigToProductionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PublishStagingConfigToProductionResponse
+   * Publishes the configurations of the staging environment to the production environment.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - PublishStagingConfigToProductionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishStagingConfigToProductionResponse
    */
   async publishStagingConfigToProductionWithOptions(request: PublishStagingConfigToProductionRequest, runtime: $Util.RuntimeOptions): Promise<PublishStagingConfigToProductionResponse> {
     Util.validateModel(request);
@@ -27628,12 +40855,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Publishes the configurations of the staging environment to the production environment.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request PublishStagingConfigToProductionRequest
-   * @return PublishStagingConfigToProductionResponse
+   * Publishes the configurations of the staging environment to the production environment.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - PublishStagingConfigToProductionRequest
+   * @returns PublishStagingConfigToProductionResponse
    */
   async publishStagingConfigToProduction(request: PublishStagingConfigToProductionRequest): Promise<PublishStagingConfigToProductionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27641,9 +40869,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Prefetches content from origin servers to points of presence (POPs). This reduces loads on origin servers because users can directly hit cache upon their first visits.
-   *
-   * @description *   Alibaba Cloud CDN supports POST requests in which parameters are sent as a form.
+   * Prefetches content from origin servers to points of presence (POPs). This reduces loads on origin servers because users can directly hit cache upon their first visits.
+   * 
+   * @remarks
+   *   Alibaba Cloud CDN supports POST requests in which parameters are sent as a form.
    * *   You can call the [RefreshObjectCaches](https://help.aliyun.com/document_detail/91164.html) operation to refresh content and call the [PushObjectCache](https://help.aliyun.com/document_detail/91161.html) operation to prefetch content.
    * *   By default, each Alibaba Cloud account can submit up to 1,000 URLs per day. If the daily peak bandwidth value of your workloads exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to increase your daily quota. Alibaba Cloud reviews your application and then increases the quota accordingly.
    * *   You can specify at most 100 URLs in each prefetch request.
@@ -27654,10 +40883,10 @@ export default class Client extends OpenApi {
    * *   After a prefetch task is submitted and completed, the POPs immediately start to retrieve resources from the origin server. Therefore, a large number of refresh tasks cause a large number of concurrent download tasks. This increases the number of requests that are redirected to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
    * *   The time required for a prefetch task to complete is proportional to the size of the prefetched file. In actual practice, most prefetch tasks require 5 to 30 minutes to complete. A task with a smaller average file size requires less time.
    * *   To allow RAM users to perform this operation, you must first grant them the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](https://help.aliyun.com/document_detail/260300.html).
-   *
-   * @param request PushObjectCacheRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushObjectCacheResponse
+   * 
+   * @param request - PushObjectCacheRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushObjectCacheResponse
    */
   async pushObjectCacheWithOptions(request: PushObjectCacheRequest, runtime: $Util.RuntimeOptions): Promise<PushObjectCacheResponse> {
     Util.validateModel(request);
@@ -27676,6 +40905,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.queryHashkey)) {
+      query["QueryHashkey"] = request.queryHashkey;
     }
 
     if (!Util.isUnset(request.securityToken)) {
@@ -27704,9 +40937,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Prefetches content from origin servers to points of presence (POPs). This reduces loads on origin servers because users can directly hit cache upon their first visits.
-   *
-   * @description *   Alibaba Cloud CDN supports POST requests in which parameters are sent as a form.
+   * Prefetches content from origin servers to points of presence (POPs). This reduces loads on origin servers because users can directly hit cache upon their first visits.
+   * 
+   * @remarks
+   *   Alibaba Cloud CDN supports POST requests in which parameters are sent as a form.
    * *   You can call the [RefreshObjectCaches](https://help.aliyun.com/document_detail/91164.html) operation to refresh content and call the [PushObjectCache](https://help.aliyun.com/document_detail/91161.html) operation to prefetch content.
    * *   By default, each Alibaba Cloud account can submit up to 1,000 URLs per day. If the daily peak bandwidth value of your workloads exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to increase your daily quota. Alibaba Cloud reviews your application and then increases the quota accordingly.
    * *   You can specify at most 100 URLs in each prefetch request.
@@ -27717,9 +40951,9 @@ export default class Client extends OpenApi {
    * *   After a prefetch task is submitted and completed, the POPs immediately start to retrieve resources from the origin server. Therefore, a large number of refresh tasks cause a large number of concurrent download tasks. This increases the number of requests that are redirected to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
    * *   The time required for a prefetch task to complete is proportional to the size of the prefetched file. In actual practice, most prefetch tasks require 5 to 30 minutes to complete. A task with a smaller average file size requires less time.
    * *   To allow RAM users to perform this operation, you must first grant them the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](https://help.aliyun.com/document_detail/260300.html).
-   *
-   * @param request PushObjectCacheRequest
-   * @return PushObjectCacheResponse
+   * 
+   * @param request - PushObjectCacheRequest
+   * @returns PushObjectCacheResponse
    */
   async pushObjectCache(request: PushObjectCacheRequest): Promise<PushObjectCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27727,11 +40961,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 指定缓存tag刷新节点上的文件内容
-   *
-   * @param request RefreshObjectCacheByCacheTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RefreshObjectCacheByCacheTagResponse
+   * 指定缓存tag刷新节点上的文件内容
+   * 
+   * @param request - RefreshObjectCacheByCacheTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshObjectCacheByCacheTagResponse
    */
   async refreshObjectCacheByCacheTagWithOptions(request: RefreshObjectCacheByCacheTagRequest, runtime: $Util.RuntimeOptions): Promise<RefreshObjectCacheByCacheTagResponse> {
     Util.validateModel(request);
@@ -27766,10 +41000,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 指定缓存tag刷新节点上的文件内容
-   *
-   * @param request RefreshObjectCacheByCacheTagRequest
-   * @return RefreshObjectCacheByCacheTagResponse
+   * 指定缓存tag刷新节点上的文件内容
+   * 
+   * @param request - RefreshObjectCacheByCacheTagRequest
+   * @returns RefreshObjectCacheByCacheTagResponse
    */
   async refreshObjectCacheByCacheTag(request: RefreshObjectCacheByCacheTagRequest): Promise<RefreshObjectCacheByCacheTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27777,9 +41011,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Refreshes files on Alibaba Cloud CDN points of presence (POPs). After files are refreshed, the original file content immediately becomes invalid. If clients request the original file content, Alibaba Cloud CDN forwards the requests to the origin server. Then, Alibaba Cloud CDN caches the latest content to the POPs and returns the content to the clients. Alibaba Cloud CDN allows you to refresh content from multiple URLs at the same time.
-   *
-   * @description *   Alibaba Cloud CDN supports POST requests in which parameters are sent as a form.
+   * Refreshes files on Alibaba Cloud CDN points of presence (POPs). After files are refreshed, the original file content immediately becomes invalid. If clients request the original file content, Alibaba Cloud CDN forwards the requests to the origin server. Then, Alibaba Cloud CDN caches the latest content to the POPs and returns the content to the clients. Alibaba Cloud CDN allows you to refresh content from multiple URLs at the same time.
+   * 
+   * @remarks
+   *   Alibaba Cloud CDN supports POST requests in which parameters are sent as a form.
    * *   You can call the [RefreshObjectCaches](https://help.aliyun.com/document_detail/91164.html) operation to refresh content and call the [PushObjectCache](https://help.aliyun.com/document_detail/91161.html) operation to prefetch content.
    * *   You can call the RefreshObjectCaches operation up to 50 times per second per account.
    * *   For more information about how to automatically refresh or prefetch tasks, see [Run scripts to refresh and prefetch content](https://help.aliyun.com/document_detail/151829.html).
@@ -27792,10 +41027,10 @@ export default class Client extends OpenApi {
    * *   By default, each Alibaba Cloud account can submit up to 20 refresh rules that contain regular expressions per day. If the daily peak bandwidth of your Alibaba Cloud account exceeds 10 Gbit/s, you can [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to request a quota increase.
    * *   You can specify up to 1,000 URL refresh rules, 100 directory refresh rules, or 1 refresh rule that contains regular expressions in each call.
    * *   You can refresh up to 1,000 URLs per minute for each domain name.
-   *
-   * @param request RefreshObjectCachesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RefreshObjectCachesResponse
+   * 
+   * @param request - RefreshObjectCachesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshObjectCachesResponse
    */
   async refreshObjectCachesWithOptions(request: RefreshObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<RefreshObjectCachesResponse> {
     Util.validateModel(request);
@@ -27838,9 +41073,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Refreshes files on Alibaba Cloud CDN points of presence (POPs). After files are refreshed, the original file content immediately becomes invalid. If clients request the original file content, Alibaba Cloud CDN forwards the requests to the origin server. Then, Alibaba Cloud CDN caches the latest content to the POPs and returns the content to the clients. Alibaba Cloud CDN allows you to refresh content from multiple URLs at the same time.
-   *
-   * @description *   Alibaba Cloud CDN supports POST requests in which parameters are sent as a form.
+   * Refreshes files on Alibaba Cloud CDN points of presence (POPs). After files are refreshed, the original file content immediately becomes invalid. If clients request the original file content, Alibaba Cloud CDN forwards the requests to the origin server. Then, Alibaba Cloud CDN caches the latest content to the POPs and returns the content to the clients. Alibaba Cloud CDN allows you to refresh content from multiple URLs at the same time.
+   * 
+   * @remarks
+   *   Alibaba Cloud CDN supports POST requests in which parameters are sent as a form.
    * *   You can call the [RefreshObjectCaches](https://help.aliyun.com/document_detail/91164.html) operation to refresh content and call the [PushObjectCache](https://help.aliyun.com/document_detail/91161.html) operation to prefetch content.
    * *   You can call the RefreshObjectCaches operation up to 50 times per second per account.
    * *   For more information about how to automatically refresh or prefetch tasks, see [Run scripts to refresh and prefetch content](https://help.aliyun.com/document_detail/151829.html).
@@ -27853,9 +41089,9 @@ export default class Client extends OpenApi {
    * *   By default, each Alibaba Cloud account can submit up to 20 refresh rules that contain regular expressions per day. If the daily peak bandwidth of your Alibaba Cloud account exceeds 10 Gbit/s, you can [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to request a quota increase.
    * *   You can specify up to 1,000 URL refresh rules, 100 directory refresh rules, or 1 refresh rule that contains regular expressions in each call.
    * *   You can refresh up to 1,000 URLs per minute for each domain name.
-   *
-   * @param request RefreshObjectCachesRequest
-   * @return RefreshObjectCachesResponse
+   * 
+   * @param request - RefreshObjectCachesRequest
+   * @returns RefreshObjectCachesResponse
    */
   async refreshObjectCaches(request: RefreshObjectCachesRequest): Promise<RefreshObjectCachesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27863,13 +41099,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Rolls back configurations in the staging environment. After you call this operation, all configurations in the staging environment are cleared.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request RollbackStagingConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RollbackStagingConfigResponse
+   * Rolls back configurations in the staging environment. After you call this operation, all configurations in the staging environment are cleared.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - RollbackStagingConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RollbackStagingConfigResponse
    */
   async rollbackStagingConfigWithOptions(request: RollbackStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<RollbackStagingConfigResponse> {
     Util.validateModel(request);
@@ -27896,12 +41133,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Rolls back configurations in the staging environment. After you call this operation, all configurations in the staging environment are cleared.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request RollbackStagingConfigRequest
-   * @return RollbackStagingConfigResponse
+   * Rolls back configurations in the staging environment. After you call this operation, all configurations in the staging environment are cleared.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - RollbackStagingConfigRequest
+   * @returns RollbackStagingConfigResponse
    */
   async rollbackStagingConfig(request: RollbackStagingConfigRequest): Promise<RollbackStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27909,13 +41147,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to configure an SSL certificate for a specific domain name.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request SetCdnDomainCSRCertificateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetCdnDomainCSRCertificateResponse
+   * You can call this operation to configure an SSL certificate for a specific domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - SetCdnDomainCSRCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetCdnDomainCSRCertificateResponse
    */
   async setCdnDomainCSRCertificateWithOptions(request: SetCdnDomainCSRCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetCdnDomainCSRCertificateResponse> {
     Util.validateModel(request);
@@ -27946,12 +41185,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to configure an SSL certificate for a specific domain name.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request SetCdnDomainCSRCertificateRequest
-   * @return SetCdnDomainCSRCertificateResponse
+   * You can call this operation to configure an SSL certificate for a specific domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - SetCdnDomainCSRCertificateRequest
+   * @returns SetCdnDomainCSRCertificateResponse
    */
   async setCdnDomainCSRCertificate(request: SetCdnDomainCSRCertificateRequest): Promise<SetCdnDomainCSRCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27959,13 +41199,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables a ShangMi (SM) certificate for a domain name.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request SetCdnDomainSMCertificateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetCdnDomainSMCertificateResponse
+   * Enables or disables a ShangMi (SM) certificate for a domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - SetCdnDomainSMCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetCdnDomainSMCertificateResponse
    */
   async setCdnDomainSMCertificateWithOptions(request: SetCdnDomainSMCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetCdnDomainSMCertificateResponse> {
     Util.validateModel(request);
@@ -28008,12 +41249,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables a ShangMi (SM) certificate for a domain name.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request SetCdnDomainSMCertificateRequest
-   * @return SetCdnDomainSMCertificateResponse
+   * Enables or disables a ShangMi (SM) certificate for a domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - SetCdnDomainSMCertificateRequest
+   * @returns SetCdnDomainSMCertificateResponse
    */
   async setCdnDomainSMCertificate(request: SetCdnDomainSMCertificateRequest): Promise<SetCdnDomainSMCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28021,14 +41263,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the certificate for a domain name and updates the certificate information.
-   *
-   * @description *   You can call this operation up to 30 times per second per account.
+   * Enables or disables the certificate for a domain name and updates the certificate information.
+   * 
+   * @remarks
+   *   You can call this operation up to 30 times per second per account.
    * *   Method: POST.
-   *
-   * @param request SetCdnDomainSSLCertificateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetCdnDomainSSLCertificateResponse
+   * 
+   * @param request - SetCdnDomainSSLCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetCdnDomainSSLCertificateResponse
    */
   async setCdnDomainSSLCertificateWithOptions(request: SetCdnDomainSSLCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetCdnDomainSSLCertificateResponse> {
     Util.validateModel(request);
@@ -28095,13 +41338,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the certificate for a domain name and updates the certificate information.
-   *
-   * @description *   You can call this operation up to 30 times per second per account.
+   * Enables or disables the certificate for a domain name and updates the certificate information.
+   * 
+   * @remarks
+   *   You can call this operation up to 30 times per second per account.
    * *   Method: POST.
-   *
-   * @param request SetCdnDomainSSLCertificateRequest
-   * @return SetCdnDomainSSLCertificateResponse
+   * 
+   * @param request - SetCdnDomainSSLCertificateRequest
+   * @returns SetCdnDomainSSLCertificateResponse
    */
   async setCdnDomainSSLCertificate(request: SetCdnDomainSSLCertificateRequest): Promise<SetCdnDomainSSLCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28109,13 +41353,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures a domain name to be accelerated in the staging environment.
-   *
-   * @description >  You can call this operation up to 30 times per second per account.
-   *
-   * @param request SetCdnDomainStagingConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetCdnDomainStagingConfigResponse
+   * Configures a domain name to be accelerated in the staging environment.
+   * 
+   * @remarks
+   * >  You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - SetCdnDomainStagingConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetCdnDomainStagingConfigResponse
    */
   async setCdnDomainStagingConfigWithOptions(request: SetCdnDomainStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetCdnDomainStagingConfigResponse> {
     Util.validateModel(request);
@@ -28146,12 +41391,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures a domain name to be accelerated in the staging environment.
-   *
-   * @description >  You can call this operation up to 30 times per second per account.
-   *
-   * @param request SetCdnDomainStagingConfigRequest
-   * @return SetCdnDomainStagingConfigResponse
+   * Configures a domain name to be accelerated in the staging environment.
+   * 
+   * @remarks
+   * >  You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - SetCdnDomainStagingConfigRequest
+   * @returns SetCdnDomainStagingConfigResponse
    */
   async setCdnDomainStagingConfig(request: SetCdnDomainStagingConfigRequest): Promise<SetCdnDomainStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28159,11 +41405,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 配置CDN上的海量封禁功能
-   *
-   * @param request SetCdnFullDomainsBlockIPRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetCdnFullDomainsBlockIPResponse
+   * 配置CDN上的海量封禁功能
+   * 
+   * @param request - SetCdnFullDomainsBlockIPRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetCdnFullDomainsBlockIPResponse
    */
   async setCdnFullDomainsBlockIPWithOptions(request: SetCdnFullDomainsBlockIPRequest, runtime: $Util.RuntimeOptions): Promise<SetCdnFullDomainsBlockIPResponse> {
     Util.validateModel(request);
@@ -28202,10 +41448,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 配置CDN上的海量封禁功能
-   *
-   * @param request SetCdnFullDomainsBlockIPRequest
-   * @return SetCdnFullDomainsBlockIPResponse
+   * 配置CDN上的海量封禁功能
+   * 
+   * @param request - SetCdnFullDomainsBlockIPRequest
+   * @returns SetCdnFullDomainsBlockIPResponse
    */
   async setCdnFullDomainsBlockIP(request: SetCdnFullDomainsBlockIPRequest): Promise<SetCdnFullDomainsBlockIPResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28213,16 +41459,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI SetDomainServerCertificate is deprecated, please use Cdn::2018-05-10::SetCdnDomainSSLCertificate instead.
-   *
-   * @summary Configures an SSL certificate for an accelerated domain name.
-   *
-   * @description *   You can call this operation up to 10 times per second per user.
+   * Configures an SSL certificate for an accelerated domain name.
+   * 
+   * @remarks
+   *   You can call this operation up to 10 times per second per user.
    * *   Method: POST.
-   *
-   * @param request SetDomainServerCertificateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetDomainServerCertificateResponse
+   * 
+   * @deprecated OpenAPI SetDomainServerCertificate is deprecated, please use Cdn::2018-05-10::SetCdnDomainSSLCertificate instead.
+   * 
+   * @param request - SetDomainServerCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetDomainServerCertificateResponse
    */
   // Deprecated
   async setDomainServerCertificateWithOptions(request: SetDomainServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainServerCertificateResponse> {
@@ -28282,15 +41529,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI SetDomainServerCertificate is deprecated, please use Cdn::2018-05-10::SetCdnDomainSSLCertificate instead.
-   *
-   * @summary Configures an SSL certificate for an accelerated domain name.
-   *
-   * @description *   You can call this operation up to 10 times per second per user.
+   * Configures an SSL certificate for an accelerated domain name.
+   * 
+   * @remarks
+   *   You can call this operation up to 10 times per second per user.
    * *   Method: POST.
-   *
-   * @param request SetDomainServerCertificateRequest
-   * @return SetDomainServerCertificateResponse
+   * 
+   * @deprecated OpenAPI SetDomainServerCertificate is deprecated, please use Cdn::2018-05-10::SetCdnDomainSSLCertificate instead.
+   * 
+   * @param request - SetDomainServerCertificateRequest
+   * @returns SetDomainServerCertificateResponse
    */
   // Deprecated
   async setDomainServerCertificate(request: SetDomainServerCertificateRequest): Promise<SetDomainServerCertificateResponse> {
@@ -28299,11 +41547,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sets a custom origin header.
-   *
-   * @param request SetReqHeaderConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetReqHeaderConfigResponse
+   * Sets a custom origin header.
+   * 
+   * @param request - SetReqHeaderConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetReqHeaderConfigResponse
    */
   async setReqHeaderConfigWithOptions(request: SetReqHeaderConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetReqHeaderConfigResponse> {
     Util.validateModel(request);
@@ -28350,10 +41598,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sets a custom origin header.
-   *
-   * @param request SetReqHeaderConfigRequest
-   * @return SetReqHeaderConfigResponse
+   * Sets a custom origin header.
+   * 
+   * @param request - SetReqHeaderConfigRequest
+   * @returns SetReqHeaderConfigResponse
    */
   async setReqHeaderConfig(request: SetReqHeaderConfigRequest): Promise<SetReqHeaderConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28361,13 +41609,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the virtual waiting room feature for an accelerated domain name. This operation is available only for accelerated domain names of the Dynamic CDN workload type.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request SetWaitingRoomConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetWaitingRoomConfigResponse
+   * Configures the virtual waiting room feature for an accelerated domain name. This operation is available only for accelerated domain names of the Dynamic CDN workload type.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - SetWaitingRoomConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetWaitingRoomConfigResponse
    */
   async setWaitingRoomConfigWithOptions(request: SetWaitingRoomConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetWaitingRoomConfigResponse> {
     Util.validateModel(request);
@@ -28414,12 +41663,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the virtual waiting room feature for an accelerated domain name. This operation is available only for accelerated domain names of the Dynamic CDN workload type.
-   *
-   * @description > You can call this operation up to 30 times per second per account.
-   *
-   * @param request SetWaitingRoomConfigRequest
-   * @return SetWaitingRoomConfigResponse
+   * Configures the virtual waiting room feature for an accelerated domain name. This operation is available only for accelerated domain names of the Dynamic CDN workload type.
+   * 
+   * @remarks
+   * > You can call this operation up to 30 times per second per account.
+   * 
+   * @param request - SetWaitingRoomConfigRequest
+   * @returns SetWaitingRoomConfigResponse
    */
   async setWaitingRoomConfig(request: SetWaitingRoomConfigRequest): Promise<SetWaitingRoomConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28427,14 +41677,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables a disabled domain name. After the domain name is enabled, the value of the DomainStatus parameter is changed to Online.
-   *
-   * @description *   If the domain name is in an invalid state or you have an overdue payment in your account, the domain name cannot be enabled.
+   * Enables a disabled domain name. After the domain name is enabled, the value of the DomainStatus parameter is changed to Online.
+   * 
+   * @remarks
+   *   If the domain name is in an invalid state or you have an overdue payment in your account, the domain name cannot be enabled.
    * *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request StartCdnDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartCdnDomainResponse
+   * 
+   * @param request - StartCdnDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartCdnDomainResponse
    */
   async startCdnDomainWithOptions(request: StartCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<StartCdnDomainResponse> {
     Util.validateModel(request);
@@ -28469,13 +41720,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables a disabled domain name. After the domain name is enabled, the value of the DomainStatus parameter is changed to Online.
-   *
-   * @description *   If the domain name is in an invalid state or you have an overdue payment in your account, the domain name cannot be enabled.
+   * Enables a disabled domain name. After the domain name is enabled, the value of the DomainStatus parameter is changed to Online.
+   * 
+   * @remarks
+   *   If the domain name is in an invalid state or you have an overdue payment in your account, the domain name cannot be enabled.
    * *   You can call this operation up to 100 times per second per account.
-   *
-   * @param request StartCdnDomainRequest
-   * @return StartCdnDomainResponse
+   * 
+   * @param request - StartCdnDomainRequest
+   * @returns StartCdnDomainResponse
    */
   async startCdnDomain(request: StartCdnDomainRequest): Promise<StartCdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28483,14 +41735,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables an accelerated domain name. After the domain name is disabled, the value of the DomainStatus parameter is changed to Offline.
-   *
-   * @description *   After an accelerated domain is disabled, Alibaba Cloud CDN retains its information and routes all the requests that are destined for the accelerated domain to the origin server.
+   * Disables an accelerated domain name. After the domain name is disabled, the value of the DomainStatus parameter is changed to Offline.
+   * 
+   * @remarks
+   *   After an accelerated domain is disabled, Alibaba Cloud CDN retains its information and routes all the requests that are destined for the accelerated domain to the origin server.
    * *   You can call this operation up to 40 times per second per account.
-   *
-   * @param request StopCdnDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopCdnDomainResponse
+   * 
+   * @param request - StopCdnDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopCdnDomainResponse
    */
   async stopCdnDomainWithOptions(request: StopCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<StopCdnDomainResponse> {
     Util.validateModel(request);
@@ -28525,13 +41778,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables an accelerated domain name. After the domain name is disabled, the value of the DomainStatus parameter is changed to Offline.
-   *
-   * @description *   After an accelerated domain is disabled, Alibaba Cloud CDN retains its information and routes all the requests that are destined for the accelerated domain to the origin server.
+   * Disables an accelerated domain name. After the domain name is disabled, the value of the DomainStatus parameter is changed to Offline.
+   * 
+   * @remarks
+   *   After an accelerated domain is disabled, Alibaba Cloud CDN retains its information and routes all the requests that are destined for the accelerated domain to the origin server.
    * *   You can call this operation up to 40 times per second per account.
-   *
-   * @param request StopCdnDomainRequest
-   * @return StopCdnDomainResponse
+   * 
+   * @param request - StopCdnDomainRequest
+   * @returns StopCdnDomainResponse
    */
   async stopCdnDomain(request: StopCdnDomainRequest): Promise<StopCdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28539,13 +41793,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds one or more tags to specific resources.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request TagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * Adds one or more tags to specific resources.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -28580,12 +41835,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds one or more tags to specific resources.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * Adds one or more tags to specific resources.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28593,13 +41849,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from specified resources.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request UntagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UntagResourcesResponse
+   * Removes tags from specified resources.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
    */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
@@ -28638,12 +41895,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from specified resources.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request UntagResourcesRequest
-   * @return UntagResourcesResponse
+   * Removes tags from specified resources.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28651,13 +41909,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a tracking task.
-   *
-   * @description > You can call this operation up to three times per second per account.
-   *
-   * @param request UpdateCdnDeliverTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCdnDeliverTaskResponse
+   * Updates a tracking task.
+   * 
+   * @remarks
+   * > You can call this operation up to three times per second per account.
+   * 
+   * @param request - UpdateCdnDeliverTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCdnDeliverTaskResponse
    */
   async updateCdnDeliverTaskWithOptions(request: UpdateCdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCdnDeliverTaskResponse> {
     Util.validateModel(request);
@@ -28704,12 +41963,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a tracking task.
-   *
-   * @description > You can call this operation up to three times per second per account.
-   *
-   * @param request UpdateCdnDeliverTaskRequest
-   * @return UpdateCdnDeliverTaskResponse
+   * Updates a tracking task.
+   * 
+   * @remarks
+   * > You can call this operation up to three times per second per account.
+   * 
+   * @param request - UpdateCdnDeliverTaskRequest
+   * @returns UpdateCdnDeliverTaskResponse
    */
   async updateCdnDeliverTask(request: UpdateCdnDeliverTaskRequest): Promise<UpdateCdnDeliverTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28717,13 +41977,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates one or more operations reports.
-   *
-   * @description > You can call this operation up to three times per second per account.
-   *
-   * @param request UpdateCdnSubTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCdnSubTaskResponse
+   * Updates one or more operations reports.
+   * 
+   * @remarks
+   * > You can call this operation up to three times per second per account.
+   * 
+   * @param request - UpdateCdnSubTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCdnSubTaskResponse
    */
   async updateCdnSubTaskWithOptions(request: UpdateCdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCdnSubTaskResponse> {
     Util.validateModel(request);
@@ -28762,12 +42023,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates one or more operations reports.
-   *
-   * @description > You can call this operation up to three times per second per account.
-   *
-   * @param request UpdateCdnSubTaskRequest
-   * @return UpdateCdnSubTaskResponse
+   * Updates one or more operations reports.
+   * 
+   * @remarks
+   * > You can call this operation up to three times per second per account.
+   * 
+   * @param request - UpdateCdnSubTaskRequest
+   * @returns UpdateCdnSubTaskResponse
    */
   async updateCdnSubTask(request: UpdateCdnSubTaskRequest): Promise<UpdateCdnSubTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28775,11 +42037,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a specified Function Compute trigger.
-   *
-   * @param request UpdateFCTriggerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateFCTriggerResponse
+   * Updates a specified Function Compute trigger.
+   * 
+   * @param request - UpdateFCTriggerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFCTriggerResponse
    */
   async updateFCTriggerWithOptions(request: UpdateFCTriggerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFCTriggerResponse> {
     Util.validateModel(request);
@@ -28824,10 +42086,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a specified Function Compute trigger.
-   *
-   * @param request UpdateFCTriggerRequest
-   * @return UpdateFCTriggerResponse
+   * Updates a specified Function Compute trigger.
+   * 
+   * @param request - UpdateFCTriggerRequest
+   * @returns UpdateFCTriggerResponse
    */
   async updateFCTrigger(request: UpdateFCTriggerRequest): Promise<UpdateFCTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28835,13 +42097,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Verifies the ownership of a specified domain name.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request VerifyDomainOwnerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return VerifyDomainOwnerResponse
+   * Verifies the ownership of a specified domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - VerifyDomainOwnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyDomainOwnerResponse
    */
   async verifyDomainOwnerWithOptions(request: VerifyDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyDomainOwnerResponse> {
     Util.validateModel(request);
@@ -28872,12 +42135,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Verifies the ownership of a specified domain name.
-   *
-   * @description > You can call this operation up to 100 times per second per account.
-   *
-   * @param request VerifyDomainOwnerRequest
-   * @return VerifyDomainOwnerResponse
+   * Verifies the ownership of a specified domain name.
+   * 
+   * @remarks
+   * > You can call this operation up to 100 times per second per account.
+   * 
+   * @param request - VerifyDomainOwnerRequest
+   * @returns VerifyDomainOwnerResponse
    */
   async verifyDomainOwner(request: VerifyDomainOwnerRequest): Promise<VerifyDomainOwnerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
