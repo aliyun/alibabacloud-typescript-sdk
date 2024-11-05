@@ -530,9 +530,9 @@ export class AccosicateNetworkAclResponse extends $tea.Model {
 export class AddBackendServersRequest extends $tea.Model {
   /**
    * @remarks
-   * The list of backend servers that you want to add. You can add at most 20 backend servers.
+   * The list of backend servers that you want to add to the Edge Load Balancer (ELB) instance. You can add up to 20 backend servers at a time.
    * 
-   * >  Only ENS instances that are in the running state can be attached to the ELB instance as backend servers.
+   * >  Only Edge Node Service (ENS) instances that are in the running state can be added to the ELB instance as backend servers.
    * 
    * This parameter is required.
    */
@@ -569,9 +569,9 @@ export class AddBackendServersRequest extends $tea.Model {
 export class AddBackendServersShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The list of backend servers that you want to add. You can add at most 20 backend servers.
+   * The list of backend servers that you want to add to the Edge Load Balancer (ELB) instance. You can add up to 20 backend servers at a time.
    * 
-   * >  Only ENS instances that are in the running state can be attached to the ELB instance as backend servers.
+   * >  Only Edge Node Service (ENS) instances that are in the running state can be added to the ELB instance as backend servers.
    * 
    * This parameter is required.
    */
@@ -1228,6 +1228,8 @@ export class AssociateEnsEipAddressResponse extends $tea.Model {
 export class AssociateHaVipRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the HAVIP.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1236,6 +1238,8 @@ export class AssociateHaVipRequest extends $tea.Model {
   haVipId?: string;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1243,6 +1247,12 @@ export class AssociateHaVipRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The type of the instance to be associated with the HAVIP. Valid values:
+   * 
+   * *   EnsInstance (default): ENS instance.
+   * *   NetworkInterface: ENI. If you want to associate the HAVIP with an ENI, this parameter is required.
+   * 
    * @example
    * EnsInstance
    */
@@ -1270,6 +1280,9 @@ export class AssociateHaVipRequest extends $tea.Model {
 
 export class AssociateHaVipResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
    */
@@ -2388,6 +2401,7 @@ export class CreateARMServerInstancesRequest extends $tea.Model {
    * cn-guiyang-12
    */
   ensRegionId?: string;
+  environmentVar?: string;
   /**
    * @remarks
    * The refresh rate. Unit: Hz. Valid values: 30 and 60.
@@ -2543,6 +2557,7 @@ export class CreateARMServerInstancesRequest extends $tea.Model {
       autoRenew: 'AutoRenew',
       autoUseCoupon: 'AutoUseCoupon',
       ensRegionId: 'EnsRegionId',
+      environmentVar: 'EnvironmentVar',
       frequency: 'Frequency',
       imageId: 'ImageId',
       instanceType: 'InstanceType',
@@ -2563,6 +2578,7 @@ export class CreateARMServerInstancesRequest extends $tea.Model {
       autoRenew: 'boolean',
       autoUseCoupon: 'boolean',
       ensRegionId: 'string',
+      environmentVar: 'string',
       frequency: 'number',
       imageId: 'string',
       instanceType: 'string',
@@ -2885,11 +2901,17 @@ export class CreateClassicNetworkResponse extends $tea.Model {
 
 export class CreateClusterRequest extends $tea.Model {
   /**
+   * @remarks
+   * The version of the cluster.
+   * 
    * @example
    * 1.18.8
    */
   clusterVersion?: string;
   /**
+   * @remarks
+   * The name of the cluster.
+   * 
    * @example
    * mycluster-1
    */
@@ -2915,11 +2937,17 @@ export class CreateClusterRequest extends $tea.Model {
 
 export class CreateClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * c34b69b095f8241c5a91cc2252dceb976
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * C0003E8B-B930-4F59-ADC0-0E209A9012A8
    */
@@ -7279,6 +7307,13 @@ export class CreateSnapshotResponse extends $tea.Model {
 }
 
 export class CreateSnatEntryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The timeout period for idle connections. Valid values: **1** to **86400**. Unit: seconds.
+   * 
+   * @example
+   * 15
+   */
   idleTimeout?: number;
   /**
    * @remarks
@@ -12182,6 +12217,9 @@ export class DescribeCloudDiskTypesResponse extends $tea.Model {
 
 export class DescribeClusterRequest extends $tea.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * c8f0377146d104687ac562eef9403****
    */
@@ -12204,8 +12242,15 @@ export class DescribeClusterRequest extends $tea.Model {
 }
 
 export class DescribeClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the information about clusters.
+   */
   clusters?: DescribeClusterResponseBodyClusters[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
    */
@@ -12256,6 +12301,9 @@ export class DescribeClusterResponse extends $tea.Model {
 
 export class DescribeClusterKubeConfigRequest extends $tea.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * c8f0377146d104687ac562eef9403****
    */
@@ -12279,11 +12327,17 @@ export class DescribeClusterKubeConfigRequest extends $tea.Model {
 
 export class DescribeClusterKubeConfigResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * c8f0377146d104687ac562eef9403****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The cluster certificate.
+   * 
    * @example
    * apiVersion: v1
    * clusters:
@@ -12305,6 +12359,9 @@ export class DescribeClusterKubeConfigResponseBody extends $tea.Model {
    */
   kubeconfig?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
@@ -16527,46 +16584,78 @@ export class DescribeForwardTableEntriesResponse extends $tea.Model {
 
 export class DescribeHaVipsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the region.
+   * 
    * @example
    * cn-beijing-cmcc
    */
   ensRegionId?: string;
   /**
+   * @remarks
+   * The IP address of the HAVIP.
+   * 
    * @example
    * 10.5.XX.XX
    */
   haVipAddress?: string;
   /**
+   * @remarks
+   * The ID of the HAVIP.
+   * 
    * @example
    * havip-5p14t****
    */
   haVipId?: string;
   /**
+   * @remarks
+   * The name of the HAVIP.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the network.
+   * 
    * @example
    * n-57gqcdfvx6n****
    */
   networkId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The status of the HAVIP. Valid values:
+   * 
+   * *   Creating
+   * *   Available
+   * *   InUse
+   * *   Deleting
+   * 
    * @example
    * Available
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
    * @example
    * vsw-5****
    */
@@ -16605,23 +16694,39 @@ export class DescribeHaVipsRequest extends $tea.Model {
 }
 
 export class DescribeHaVipsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details of the HAVIPs.
+   */
   haVips?: DescribeHaVipsResponseBodyHaVips[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AAE90880-4970-4D81-A534-A6C0F3631F74
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 49
    */
@@ -19430,6 +19535,8 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponse extends $tea.Mod
 export class DescribeLoadBalancerListenMonitorRequest extends $tea.Model {
   /**
    * @remarks
+   * The end of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19438,6 +19545,8 @@ export class DescribeLoadBalancerListenMonitorRequest extends $tea.Model {
   endTime?: string;
   /**
    * @remarks
+   * The ID of the ELB instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19445,12 +19554,17 @@ export class DescribeLoadBalancerListenMonitorRequest extends $tea.Model {
    */
   loadBalancerId?: string;
   /**
+   * @remarks
+   * The network protocol, such as tcp or udp.
+   * 
    * @example
    * tcp
    */
   proto?: string;
   /**
    * @remarks
+   * The beginning of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19459,6 +19573,8 @@ export class DescribeLoadBalancerListenMonitorRequest extends $tea.Model {
   startTime?: string;
   /**
    * @remarks
+   * The virtual IP address (VIP) port of the ELB instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19491,6 +19607,10 @@ export class DescribeLoadBalancerListenMonitorRequest extends $tea.Model {
 }
 
 export class DescribeLoadBalancerListenMonitorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The TCP/UDP monitoring data of the ELB instance.
+   */
   loadBalancerMonitorListenData?: DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorListenData[];
   /**
    * @remarks
@@ -19547,6 +19667,8 @@ export class DescribeLoadBalancerListenMonitorResponse extends $tea.Model {
 export class DescribeLoadBalancerListenersRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the ELB instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19554,11 +19676,17 @@ export class DescribeLoadBalancerListenersRequest extends $tea.Model {
    */
   loadBalancerId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
@@ -19585,23 +19713,39 @@ export class DescribeLoadBalancerListenersRequest extends $tea.Model {
 }
 
 export class DescribeLoadBalancerListenersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The listeners of the ELB instance.
+   */
   listeners?: DescribeLoadBalancerListenersResponseBodyListeners;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F3B261DD-3858-4D3C-877D-303ADF374600
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 49
    */
@@ -21476,6 +21620,10 @@ export class DescribeNetworkInterfacesRequest extends $tea.Model {
    * i-5t7z99n32gplriv
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * IPv6 addresses N of the ENI. You can specify multiple IPv6 addresses. Valid values of N: 1 to 100.
+   */
   ipv6Address?: string[];
   /**
    * @remarks
@@ -21551,7 +21699,7 @@ export class DescribeNetworkInterfacesRequest extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the ENI. Valid Values:
+   * The type of the ENI. Valid values:
    * 
    * *   Primary: primary ENI.
    * *   Secondary: secondary ENI.
@@ -21628,6 +21776,10 @@ export class DescribeNetworkInterfacesShrinkRequest extends $tea.Model {
    * i-5t7z99n32gplriv
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * IPv6 addresses N of the ENI. You can specify multiple IPv6 addresses. Valid values of N: 1 to 100.
+   */
   ipv6AddressShrink?: string;
   /**
    * @remarks
@@ -21703,7 +21855,7 @@ export class DescribeNetworkInterfacesShrinkRequest extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the ENI. Valid Values:
+   * The type of the ENI. Valid values:
    * 
    * *   Primary: primary ENI.
    * *   Secondary: secondary ENI.
@@ -24049,6 +24201,8 @@ export class DescribeServcieScheduleResponse extends $tea.Model {
 export class DescribeServerLoadBalancerListenMonitorRequest extends $tea.Model {
   /**
    * @remarks
+   * The end of the time range to query. The maximum range between StartTime and EndTime is 24 hours.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24057,6 +24211,8 @@ export class DescribeServerLoadBalancerListenMonitorRequest extends $tea.Model {
   endTime?: string;
   /**
    * @remarks
+   * The ID of the ELB instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24064,12 +24220,17 @@ export class DescribeServerLoadBalancerListenMonitorRequest extends $tea.Model {
    */
   loadBalancerId?: string;
   /**
+   * @remarks
+   * The request protocol, such as http, https, or tcp.
+   * 
    * @example
    * tcp
    */
   proto?: string;
   /**
    * @remarks
+   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24077,6 +24238,9 @@ export class DescribeServerLoadBalancerListenMonitorRequest extends $tea.Model {
    */
   startTime?: string;
   /**
+   * @remarks
+   * The virtual IP address (VIP) port, such as 80, 8080, or 443.
+   * 
    * @example
    * 80
    */
@@ -24109,12 +24273,16 @@ export class DescribeServerLoadBalancerListenMonitorRequest extends $tea.Model {
 export class DescribeServerLoadBalancerListenMonitorResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request。
+   * The ID of the request.
    * 
    * @example
    * 125B04C7-3D0D-4245-AF96-14E3758E3F06
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The array of the monitoring data.
+   */
   serverLoadBalancerMonitorData?: DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalancerMonitorData[];
   static names(): { [key: string]: string } {
     return {
@@ -24163,6 +24331,8 @@ export class DescribeServerLoadBalancerListenMonitorResponse extends $tea.Model 
 export class DescribeServerLoadBalancerMonitorRequest extends $tea.Model {
   /**
    * @remarks
+   * The end of the time range to query. The maximum range between StartTime and EndTime is 24 hours.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24171,6 +24341,8 @@ export class DescribeServerLoadBalancerMonitorRequest extends $tea.Model {
   endTime?: string;
   /**
    * @remarks
+   * The ID of the ELB instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24179,6 +24351,8 @@ export class DescribeServerLoadBalancerMonitorRequest extends $tea.Model {
   loadBalancerId?: string;
   /**
    * @remarks
+   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24209,12 +24383,16 @@ export class DescribeServerLoadBalancerMonitorRequest extends $tea.Model {
 export class DescribeServerLoadBalancerMonitorResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request。
+   * The ID of the request.
    * 
    * @example
    * AAE90880-4970-4D81-A534-A6C0F3631F74
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The array of the monitoring data.
+   */
   serverLoadBalancerMonitorData?: DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMonitorData[];
   static names(): { [key: string]: string } {
     return {
@@ -25936,11 +26114,7 @@ export class ExportImageRequest extends $tea.Model {
   OSSPrefix?: string;
   /**
    * @remarks
-   * The ID of the region.
-   * 
-   * Valid values:
-   * 
-   * *   cn-beijing
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -33525,10 +33699,10 @@ export class RevokeSecurityGroupRequest extends $tea.Model {
    * @remarks
    * The transport layer protocol. The value of this parameter is case-sensitive. Valid values:
    * 
-   * *   tcp: TCP.
-   * *   udp: UDP.
-   * *   icmp: ICMP.
-   * *   gre: GRE.
+   * *   tcp
+   * *   udp
+   * *   icmp
+   * *   gre
    * *   all: all protocols.
    * 
    * This parameter is required.
@@ -33542,7 +33716,7 @@ export class RevokeSecurityGroupRequest extends $tea.Model {
    * The authorization policy. Valid values:
    * 
    * *   accept: allows access. This is the default value.
-   * *   drop: denies access and returns no responses.
+   * *   drop: denies access and does not return responses.
    * 
    * @example
    * accept
@@ -33565,7 +33739,7 @@ export class RevokeSecurityGroupRequest extends $tea.Model {
   portRange?: string;
   /**
    * @remarks
-   * The priority of security group rule N. Valid values: **1** to **100**. Default value: **1**.
+   * The priority of the security group rule. Valid values: **1** to **100**. Default value: **1**.
    * 
    * @example
    * 1
@@ -37488,7 +37662,7 @@ export class TagResourcesRequest extends $tea.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The type of resource. Set the value to instance.
+   * The type of the resource. Set the value to instance.
    * 
    * This parameter is required.
    * 
@@ -38090,6 +38264,15 @@ export class UntagResourcesRequest extends $tea.Model {
    * @remarks
    * The type of the resource.
    * 
+   * Valid values:
+   * 
+   * *   instance
+   * *   eip
+   * *   disk
+   * *   network
+   * *   natgateway
+   * *   vswitch
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38633,7 +38816,7 @@ export class AddBackendServersRequestBackendServers extends $tea.Model {
    * The IP address of the backend server.
    * 
    * @example
-   * 192.168.0.1
+   * 192.168.X.X
    */
   ip?: string;
   /**
@@ -38646,7 +38829,7 @@ export class AddBackendServersRequestBackendServers extends $tea.Model {
   port?: number;
   /**
    * @remarks
-   * The ID of the ENS instance.
+   * The ID of the backend server.
    * 
    * This parameter is required.
    * 
@@ -38658,8 +38841,8 @@ export class AddBackendServersRequestBackendServers extends $tea.Model {
    * @remarks
    * The type of the backend server. Valid values:
    * 
-   * *   **ens**: ENS instance.
-   * *   **eni**: ENI.
+   * *   **ens**: ENS instance
+   * *   **eni**: elastic network interface (ENI)
    * 
    * @example
    * ens
@@ -41134,26 +41317,46 @@ export class DescribeCloudDiskTypesResponseBodySupportResources extends $tea.Mod
 
 export class DescribeClusterResponseBodyClusters extends $tea.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * c8f0377146d104687ac562eef9403****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The version of the cluster.
+   * 
    * @example
    * 1.18.8
    */
   currentVersion?: string;
   /**
+   * @remarks
+   * The cluster name.
+   * 
    * @example
    * vc-a622bb**
    */
   name?: string;
   /**
+   * @remarks
+   * The next version of the cluster.
+   * 
    * @example
    * 1.20.8
    */
   nextVersion?: string;
   /**
+   * @remarks
+   * The health status of the instance.
+   * 
+   * Valid values:
+   * 
+   * *   healthy
+   * *   unhealthy
+   * 
    * @example
    * healthy
    */
@@ -45358,11 +45561,17 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
 
 export class DescribeHaVipsResponseBodyHaVipsAssociatedEipAddresses extends $tea.Model {
   /**
+   * @remarks
+   * The EIP.
+   * 
    * @example
    * 47.XX.XX.40
    */
   eip?: string;
   /**
+   * @remarks
+   * The ID of the EIP.
+   * 
    * @example
    * eip-5p1wz****
    */
@@ -45388,26 +45597,48 @@ export class DescribeHaVipsResponseBodyHaVipsAssociatedEipAddresses extends $tea
 
 export class DescribeHaVipsResponseBodyHaVipsAssociatedInstances extends $tea.Model {
   /**
+   * @remarks
+   * The time when the instance was created.
+   * 
    * @example
    * 2023-01-05T07:09:28Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * i-51p****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The type of the instance that is associated with the HAVIP. Valid values:
+   * 
+   * *   EnsInstance: ENS instance
+   * *   NetworkInterface: elastic network interface (ENI)
+   * 
    * @example
    * EnsInstance
    */
   instanceType?: string;
   /**
+   * @remarks
+   * The private IP address of the instance that is associated with the HAVIP. Valid values:
+   * 
    * @example
    * 192.XX.XX.9
    */
   ipAddress?: string;
   /**
+   * @remarks
+   * The association status of the HAVIP. Valid values:
+   * 
+   * *   Associating
+   * *   InUse
+   * *   Unassociating
+   * 
    * @example
    * InUse
    */
@@ -45438,49 +45669,89 @@ export class DescribeHaVipsResponseBodyHaVipsAssociatedInstances extends $tea.Mo
 }
 
 export class DescribeHaVipsResponseBodyHaVips extends $tea.Model {
+  /**
+   * @remarks
+   * The elastic IP addresses (EIPs) that are associated with the HAVIP.
+   */
   associatedEipAddresses?: DescribeHaVipsResponseBodyHaVipsAssociatedEipAddresses[];
+  /**
+   * @remarks
+   * The information about instances that are associated with the HAVIP.
+   */
   associatedInstances?: DescribeHaVipsResponseBodyHaVipsAssociatedInstances[];
   /**
+   * @remarks
+   * The time when the HAVIP was created.
+   * 
    * @example
    * 2023-03-29T11:17:38Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The description of the HAVIP.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the region.
+   * 
    * @example
    * cn-guiyang-14
    */
   ensRegionId?: string;
   /**
+   * @remarks
+   * The ID of the HAVIP.
+   * 
    * @example
    * havip-52y28****
    */
   haVipId?: string;
   /**
+   * @remarks
+   * The IP address of the HAVIP.
+   * 
    * @example
    * 192.XX.XX.5
    */
   ipAddress?: string;
   /**
+   * @remarks
+   * The name of the HAVIP.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the network.
+   * 
    * @example
    * n-5wtkyrk****
    */
   networkId?: string;
   /**
+   * @remarks
+   * The status of the HAVIP. Valid values:
+   * 
+   * *   Creating
+   * *   Available
+   * *   InUse
+   * *   Deleting
+   * 
    * @example
    * Available
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
    * @example
    * vsw-5yc8d****
    */
@@ -47515,106 +47786,169 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocols 
 
 export class DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorListenData extends $tea.Model {
   /**
+   * @remarks
+   * The number of active connections.
+   * 
    * @example
    * 80285
    */
   actConns?: string;
   /**
+   * @remarks
+   * The business time.
+   * 
    * @example
    * 2024-01-15 16:03:00
    */
   bizTime?: string;
   /**
+   * @remarks
+   * The number of new connections.
+   * 
    * @example
    * 37150
    */
   conns?: string;
   /**
+   * @remarks
+   * The number of dropped connections.
+   * 
    * @example
    * 10
    */
   dropConns?: string;
   /**
+   * @remarks
+   * The ID of the node to which the ELB instance belongs.
+   * 
    * @example
    * cn-dongguan-9
    */
   ensRegionId?: string;
   /**
+   * @remarks
+   * The number of inactive connections.
+   * 
    * @example
    * 16322
    */
   inActConns?: string;
   /**
+   * @remarks
+   * The inbound traffic.
+   * 
    * @example
    * 67532
    */
   inBytes?: string;
   /**
+   * @remarks
+   * The dropped inbound traffic.
+   * 
    * @example
    * 324
    */
   inDropBytes?: string;
   /**
+   * @remarks
+   * The number of dropped inbound packets.
+   * 
    * @example
    * 27
    */
   inDropPkts?: string;
   /**
+   * @remarks
+   * The number of inbound packets.
+   * 
    * @example
    * 12
    */
   inPkts?: string;
   /**
+   * @remarks
+   * The number of unavailable servers that are attached to the monitored ELB instance.
+   * 
    * @example
    * 0
    */
   inValidRsNum?: string;
   /**
+   * @remarks
+   * The ID of the ELB instance.
+   * 
    * @example
    * lb-5q73cv04zeyh43lh74lp4****
    */
   loadBalancerId?: string;
   /**
+   * @remarks
+   * The outbound traffic.
+   * 
    * @example
    * 5155487
    */
   outBytes?: string;
   /**
+   * @remarks
+   * The dropped outbound traffic.
+   * 
    * @example
    * 0
    */
   outDropBytes?: string;
   /**
+   * @remarks
+   * The number of dropped outbound packets.
+   * 
    * @example
    * 76
    */
   outDropPkts?: string;
   /**
+   * @remarks
+   * The number of outbound packets.
+   * 
    * @example
    * 34
    */
   outPkts?: string;
   /**
+   * @remarks
+   * The network protocol.
+   * 
    * @example
    * tcp
    */
   proto?: string;
   /**
+   * @remarks
+   * The VIP port of the ELB instance.
+   * 
    * @example
    * 80
    */
   VPort?: string;
   /**
+   * @remarks
+   * The number of available servers that are attached to the monitored ELB instance.
+   * 
    * @example
    * 2
    */
   validRsNum?: string;
   /**
+   * @remarks
+   * The VIP of the instance.
+   * 
    * @example
    * 10.8.*.*
    */
   vip?: string;
   /**
+   * @remarks
+   * The ID of the tunnel.
+   * 
    * @example
    * 53284
    */
@@ -47678,41 +48012,76 @@ export class DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorLis
 
 export class DescribeLoadBalancerListenersResponseBodyListenersListener extends $tea.Model {
   /**
+   * @remarks
+   * The timestamp when the listener was created.
+   * 
    * @example
    * 2022-08-15T08:42:57Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description of the listener.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The listener port that is used for HTTP-to-HTTPS redirection.
+   * 
    * @example
    * 443
    */
   forwardPort?: string;
   /**
+   * @remarks
+   * Indicates whether HTTP-to-HTTPS redirection is enabled for the listener. Valid values:
+   * 
+   * *   **on**
+   * *   **off**
+   * 
    * @example
    * off
    */
   listenerForward?: string;
   /**
+   * @remarks
+   * The listening port.
+   * 
    * @example
    * 8080
    */
   listenerPort?: string;
   /**
+   * @remarks
+   * The ID of the ELB instance.
+   * 
    * @example
    * lb-51a5fhou****
    */
   loadBalancerId?: string;
   /**
+   * @remarks
+   * The network transmission protocol that is used by the listener.
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * *   **http**
+   * *   **https**
+   * 
    * @example
    * tcp
    */
   protocol?: string;
   /**
+   * @remarks
+   * The status of the listener. Valid values:
+   * 
+   * *   **running**
+   * *   **stopped**
+   * 
    * @example
    * running
    */
@@ -49276,6 +49645,13 @@ export class DescribeNetworkAttributeResponseBodyVSwitchIds extends $tea.Model {
 }
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6SetsIpv6Set extends $tea.Model {
+  /**
+   * @remarks
+   * The IPv6 address of the ENI.
+   * 
+   * @example
+   * 2605:340:cdb1:XXXX:XXXX:XXXX:XXXX:e2d6
+   */
   ipv6Address?: string;
   static names(): { [key: string]: string } {
     return {
@@ -49423,6 +49799,10 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
    * i-5siavnr3
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IPv6 addresses of the ENIs.
+   */
   ipv6Sets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6Sets;
   /**
    * @remarks
@@ -52425,76 +52805,121 @@ export class DescribeServcieScheduleResponseBodyPodAbstractInfo extends $tea.Mod
 
 export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalancerMonitorData extends $tea.Model {
   /**
+   * @remarks
+   * The total number of requests.
+   * 
    * @example
    * 20
    */
   acc?: number;
   /**
+   * @remarks
+   * The business time of the log. Logs are collected every minute.
+   * 
    * @example
    * 2024-05-16 15:00:00
    */
   bizTime?: string;
   /**
+   * @remarks
+   * The ID of the node to which the ELB instance belongs.
+   * 
    * @example
    * cn-fuzhou-7
    */
   ensRegionId?: string;
   /**
+   * @remarks
+   * The ID of the ELB instance.
+   * 
    * @example
    * lb-5rcvo1n1t3hykfhhjwjgqp****
    */
   loadBalancerId?: string;
   /**
+   * @remarks
+   * The name of the ELB instance.
+   * 
    * @example
    * esk-edge-service-lb-8377****
    */
   loadBalancerName?: string;
   /**
+   * @remarks
+   * The specification of the ELB instance.
+   * 
    * @example
    * elb.s2.medium
    */
   loadBalancerSpec?: string;
   /**
+   * @remarks
+   * The request protocol, such as http, https, or tcp.
+   * 
    * @example
    * tcp
    */
   proto?: string;
   /**
+   * @remarks
+   * The number of requests with HTTP 2xx status code returned.
+   * 
    * @example
    * 10
    */
   reqs2xx?: number;
   /**
+   * @remarks
+   * The number of requests with HTTP 3xx status code returned.
+   * 
    * @example
    * 0
    */
   reqs3xx?: number;
   /**
+   * @remarks
+   * The number of requests with HTTP 4xx status code returned.
+   * 
    * @example
    * 0
    */
   reqs4xx?: number;
   /**
+   * @remarks
+   * The number of requests with HTTP 5xx status code returned.
+   * 
    * @example
    * 10
    */
   reqs5xx?: number;
   /**
+   * @remarks
+   * The average response time. Unit: milliseconds.
+   * 
    * @example
    * 1037
    */
   rtAvg?: number;
   /**
+   * @remarks
+   * The VIP of the instance.
+   * 
    * @example
    * 10.0****
    */
   vip?: string;
   /**
+   * @remarks
+   * The ID of the tunnel.
+   * 
    * @example
    * 52497
    */
   vni?: number;
   /**
+   * @remarks
+   * The VIP port, such as 80, 8080, or 443.
+   * 
    * @example
    * 80
    */
@@ -52546,66 +52971,105 @@ export class DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalanc
 
 export class DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMonitorData extends $tea.Model {
   /**
+   * @remarks
+   * The total number of requests.
+   * 
    * @example
    * 30
    */
   acc?: number;
   /**
+   * @remarks
+   * The business time of the log. Logs are collected every minute.
+   * 
    * @example
    * 2024-09-15 16:00:00
    */
   bizTime?: string;
   /**
+   * @remarks
+   * The ID of the node to which the ELB instance belongs.
+   * 
    * @example
    * cn-wuxi-10
    */
   ensRegionId?: string;
   /**
+   * @remarks
+   * The ID of the ELB instance.
+   * 
    * @example
    * lb-5sc1s9zrui8lpb8u7cl4f****
    */
   loadBalancerId?: string;
   /**
+   * @remarks
+   * The name of the ELB instance.
+   * 
    * @example
    * esk-edge-service-lb-a34****
    */
   loadBalancerName?: string;
   /**
+   * @remarks
+   * The specification of the ELB instance.
+   * 
    * @example
    * elb.s2.medium
    */
   loadBalancerSpec?: string;
   /**
+   * @remarks
+   * The number of requests with HTTP 2xx status code returned.
+   * 
    * @example
    * 25
    */
   reqs2xx?: number;
   /**
+   * @remarks
+   * The number of requests with HTTP 3xx status code returned.
+   * 
    * @example
    * 0
    */
   reqs3xx?: number;
   /**
+   * @remarks
+   * The number of requests with HTTP 4xx status code returned.
+   * 
    * @example
    * 5
    */
   reqs4xx?: number;
   /**
+   * @remarks
+   * The number of requests with HTTP 5xx status code returned.
+   * 
    * @example
    * 0
    */
   reqs5xx?: number;
   /**
+   * @remarks
+   * The average response time. Unit: milliseconds.
+   * 
    * @example
    * 1404
    */
   rtAvg?: number;
   /**
+   * @remarks
+   * The virtual IP address (VIP) of the instance.
+   * 
    * @example
    * 10.0****
    */
   vip?: string;
   /**
+   * @remarks
+   * The ID of the tunnel.
+   * 
    * @example
    * 3018
    */
@@ -52853,6 +53317,13 @@ export class DescribeSnatAttributeResponseBodySnatIps extends $tea.Model {
 }
 
 export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $tea.Model {
+  /**
+   * @remarks
+   * The timeout period for idle connections. Valid values: **1** to **86400**. Unit: seconds.
+   * 
+   * @example
+   * 900
+   */
   idleTimeout?: number;
   /**
    * @remarks
@@ -56032,7 +56503,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用AssociateHaVip接口将高可用VIP绑定到同地域的云产品实例上。
+   * Associates a high-availability virtual IP address (HAVIP) with an Edge Node Service (ENS) instance or elastic network interface (ENI).
+   * 
+   * @remarks
+   * When you call this operation to associate an HAVIP, take note of the following items:
+   * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ENS instance. However, you need to associate the HAVIP with the ENI of the ENS instance.
+   * *   The HAVIP and ENS instance must belong to the same vSwitch.
+   * *   The ENS instance must be in the Running or Stopped state.
+   * *   The HAVIP must be in the Available or InUse state.
+   * *   AssociateHaVip is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the DescribeHaVips operation to query the status of an HAVIP:
+   *     *   If the HAVIP is in the Associating state, the HAVIP is being associated.
+   *     <!---->
+   *     *   If the HAVIP is in the InUse state, the HAVIP is associated.
    * 
    * @param request - AssociateHaVipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -56071,7 +56553,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用AssociateHaVip接口将高可用VIP绑定到同地域的云产品实例上。
+   * Associates a high-availability virtual IP address (HAVIP) with an Edge Node Service (ENS) instance or elastic network interface (ENI).
+   * 
+   * @remarks
+   * When you call this operation to associate an HAVIP, take note of the following items:
+   * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ENS instance. However, you need to associate the HAVIP with the ENI of the ENS instance.
+   * *   The HAVIP and ENS instance must belong to the same vSwitch.
+   * *   The ENS instance must be in the Running or Stopped state.
+   * *   The HAVIP must be in the Available or InUse state.
+   * *   AssociateHaVip is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the DescribeHaVips operation to query the status of an HAVIP:
+   *     *   If the HAVIP is in the Associating state, the HAVIP is being associated.
+   *     <!---->
+   *     *   If the HAVIP is in the InUse state, the HAVIP is associated.
    * 
    * @param request - AssociateHaVipRequest
    * @returns AssociateHaVipResponse
@@ -56573,6 +57066,10 @@ export default class Client extends OpenApi {
       query["EnsRegionId"] = request.ensRegionId;
     }
 
+    if (!Util.isUnset(request.environmentVar)) {
+      query["EnvironmentVar"] = request.environmentVar;
+    }
+
     if (!Util.isUnset(request.frequency)) {
       query["Frequency"] = request.frequency;
     }
@@ -56746,7 +57243,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建边缘容器集群
+   * Creates a Container Service for Kubernetes (ACK) edge cluster.
+   * 
+   * @remarks
+   *   You can call this operation up to 10 times per second per account.
+   * *   Creating a cluster is an asynchronous operation. After this operation returns the response, it takes 10 to 20 minutes to initialize the cluster. You can call the DescribeCluster operation to query the cluster status. After you create a cluster, you can call the DescribeClusterKubeConfig operation to obtain the cluster certificate.
    * 
    * @param request - CreateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -56781,7 +57282,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建边缘容器集群
+   * Creates a Container Service for Kubernetes (ACK) edge cluster.
+   * 
+   * @remarks
+   *   You can call this operation up to 10 times per second per account.
+   * *   Creating a cluster is an asynchronous operation. After this operation returns the response, it takes 10 to 20 minutes to initialize the cluster. You can call the DescribeCluster operation to query the cluster status. After you create a cluster, you can call the DescribeClusterKubeConfig operation to obtain the cluster certificate.
    * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
@@ -59286,7 +59791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Network Attached Storage (NAS) file system.
+   * Deletes a File Storage NAS file system.
    * 
    * @param request - DeleteFileSystemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59313,7 +59818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Network Attached Storage (NAS) file system.
+   * Deletes a File Storage NAS file system.
    * 
    * @param request - DeleteFileSystemRequest
    * @returns DeleteFileSystemResponse
@@ -60672,7 +61177,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询边缘容器集群
+   * Queries Container Service for Kubernetes (ACK) edge clusters.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
    * 
    * @param request - DescribeClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60703,7 +61211,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询边缘容器集群
+   * Queries Container Service for Kubernetes (ACK) edge clusters.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
    * 
    * @param request - DescribeClusterRequest
    * @returns DescribeClusterResponse
@@ -60714,7 +61225,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询边缘容器集群证书
+   * Queries the certificate of a Container Service for Kubernetes (ACK) edge cluster.
+   * 
+   * @remarks
+   *   The maximum number of times that each user can call this operation per second is 100.
    * 
    * @param request - DescribeClusterKubeConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60745,7 +61259,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询边缘容器集群证书
+   * Queries the certificate of a Container Service for Kubernetes (ACK) edge cluster.
+   * 
+   * @remarks
+   *   The maximum number of times that each user can call this operation per second is 100.
    * 
    * @param request - DescribeClusterKubeConfigRequest
    * @returns DescribeClusterKubeConfigResponse
@@ -62398,7 +62915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询高可用VIP
+   * Queries high-availability virtual IP addresses (HAVIPs).
    * 
    * @param request - DescribeHaVipsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -62425,7 +62942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询高可用VIP
+   * Queries high-availability virtual IP addresses (HAVIPs).
    * 
    * @param request - DescribeHaVipsRequest
    * @returns DescribeHaVipsResponse
@@ -63184,7 +63701,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * LB监听级监控数据查询
+   * Queries monitoring data of an edge load balancer (ELB) instance.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
    * 
    * @param request - DescribeLoadBalancerListenMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -63211,7 +63732,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * LB监听级监控数据查询
+   * Queries monitoring data of an edge load balancer (ELB) instance.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
    * 
    * @param request - DescribeLoadBalancerListenMonitorRequest
    * @returns DescribeLoadBalancerListenMonitorResponse
@@ -63222,7 +63747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用DescribeLoadBalancerListeners查询负载均衡实例监听列表。
+   * Queries listeners of Edge Load Balancer (ELB) instances.
    * 
    * @param request - DescribeLoadBalancerListenersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -63261,7 +63786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用DescribeLoadBalancerListeners查询负载均衡实例监听列表。
+   * Queries listeners of Edge Load Balancer (ELB) instances.
    * 
    * @param request - DescribeLoadBalancerListenersRequest
    * @returns DescribeLoadBalancerListenersResponse
@@ -64628,7 +65153,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ESLB实例监听级监控数据
+   * Queries the monitoring data of an edge load balancer (ELB) instance based on the listener.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
    * 
    * @param request - DescribeServerLoadBalancerListenMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64655,7 +65184,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ESLB实例监听级监控数据
+   * Queries the monitoring data of an edge load balancer (ELB) instance based on the listener.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
    * 
    * @param request - DescribeServerLoadBalancerListenMonitorRequest
    * @returns DescribeServerLoadBalancerListenMonitorResponse
@@ -64666,7 +65199,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ESLB实例请求监控数据
+   * Queries the request monitoring data of an edge load balancer (ELB) instance.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
    * 
    * @param request - DescribeServerLoadBalancerMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64693,7 +65230,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ESLB实例请求监控数据
+   * Queries the request monitoring data of an edge load balancer (ELB) instance.
+   * 
+   * @remarks
+   *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
    * 
    * @param request - DescribeServerLoadBalancerMonitorRequest
    * @returns DescribeServerLoadBalancerMonitorResponse
@@ -68617,9 +69158,9 @@ export default class Client extends OpenApi {
    * @remarks
    * When you call this operation, take note of the following items:
    * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
-   * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the **StopInstance** operation to stop an instance.
-   * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
-   * *   When you call the **DescribeInstance** operation to query instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons and you cannot perform operations on the instance.
+   * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the [StopInstance](~~StopInstance~~) operation to stop an instance.
+   * *   The specified snapshot must be created from the disk specified by the DiskId parameter.
+   * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ENS instance by calling the [DescribeInstances](~~DescribeInstances~~) operation, the instance is locked for security reasons and no operations are allowed on the instance.
    * 
    * @param request - ResetDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68659,9 +69200,9 @@ export default class Client extends OpenApi {
    * @remarks
    * When you call this operation, take note of the following items:
    * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
-   * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the **StopInstance** operation to stop an instance.
-   * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
-   * *   When you call the **DescribeInstance** operation to query instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons and you cannot perform operations on the instance.
+   * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the [StopInstance](~~StopInstance~~) operation to stop an instance.
+   * *   The specified snapshot must be created from the disk specified by the DiskId parameter.
+   * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ENS instance by calling the [DescribeInstances](~~DescribeInstances~~) operation, the instance is locked for security reasons and no operations are allowed on the instance.
    * 
    * @param request - ResetDiskRequest
    * @returns ResetDiskResponse
@@ -70608,7 +71149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from specific Edge Node Service (ENS) resources. After a tag is removed from a resource, the tag is automatically deleted if it is not added to other resources.
+   * Removes tags from resources.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70651,7 +71192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from specific Edge Node Service (ENS) resources. After a tag is removed from a resource, the tag is automatically deleted if it is not added to other resources.
+   * Removes tags from resources.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
