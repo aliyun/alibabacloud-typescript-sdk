@@ -422,6 +422,7 @@ export class CheckRecoveryConditionRequest extends $tea.Model {
    * cn-hangzhou
    */
   destRegion?: string;
+  engineVersion?: string;
   /**
    * @remarks
    * The instance architecture. Valid values:
@@ -496,6 +497,7 @@ export class CheckRecoveryConditionRequest extends $tea.Model {
       backupId: 'BackupId',
       databaseNames: 'DatabaseNames',
       destRegion: 'DestRegion',
+      engineVersion: 'EngineVersion',
       instanceType: 'InstanceType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -514,6 +516,7 @@ export class CheckRecoveryConditionRequest extends $tea.Model {
       backupId: 'string',
       databaseNames: 'string',
       destRegion: 'string',
+      engineVersion: 'string',
       instanceType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -982,7 +985,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   encryptionKey?: string;
   /**
    * @remarks
-   * The database engine of the instance. The value is fixed as **MongoDB**.
+   * The database engine of the instance. Set the value to **MongoDB**.
    * 
    * @example
    * MongoDB
@@ -1126,6 +1129,17 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * 2022-03-13T12:11:14Z
    */
   restoreTime?: string;
+  /**
+   * @remarks
+   * The backup restore type of the instance.
+   * - 0: restore an instance to the specified backup set.
+   * - 1:  restore an instance to the specified time.
+   * - 2: restore an  released instance to the specified backup set.
+   * - 3：restore an instance to the specified cross-regional backup set.
+   * 
+   * @example
+   * 0
+   */
   restoreType?: string;
   /**
    * @remarks
@@ -1182,17 +1196,22 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * dds-bp1ee12ad351****
    */
   srcDBInstanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * > -  This parameter is required when restore type is set to 2 or 3.
+   * 
+   * @example
+   * 2
+   */
   srcRegion?: string;
   /**
    * @remarks
-   * The storage engine of the instance. Default value: WiredTiger. Valid values:
+   * The storage engine of the instance. Set the value to **WiredTiger**.
    * 
-   * *   **WiredTiger**
-   * *   **RocksDB**
-   * *   **TerarkDB**
-   * 
-   * >  *   When you call this operation to clone an instance or restore an instance from the recycle bin, set the value of this parameter to the storage engine of the source instance.
-   * >  *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
+   * > * If you call this operation to clone an instance or restore an instance from the recycle bin, set this parameter to the storage engine of the source instance.
+   * > * For more information about the limits on database versions and storage engines of an instance, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
    * 
    * @example
    * WiredTiger
@@ -2051,6 +2070,15 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
    * true
    */
   autoRenew?: string;
+  /**
+   * @remarks
+   * The ID of the backup set. 
+   * 
+   * > When you call this operation to clone an instance based on the backup set, this parameter is required. The **SrcDBInstanceId** parameter is also required.
+   * 
+   * @example
+   * cb-xxx
+   */
   backupId?: string;
   /**
    * @remarks
@@ -2059,7 +2087,7 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
    * *   **PostPaid** (default): pay-as-you-go
    * *   **PrePaid**: subscription
    * 
-   * >  If you set this parameter to **PrePaid**, you must also specify the **Period** parameter.
+   * >  If this parameter is set to **PrePaid**, you must also configure the **Period** parameter.
    * 
    * @example
    * PrePaid
@@ -2092,10 +2120,19 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
    * test
    */
   DBInstanceDescription?: string;
+  /**
+   * @remarks
+   * The region of the backup set used for the cross-region backup and restoration.
+   * 
+   * >  This parameter is required when you set the RestoreType parameter to 3.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   destRegion?: string;
   /**
    * @remarks
-   * Specifies whether to enable disk encryption.
+   * Indicates whether disk encryption is enabled.
    * 
    * @example
    * true
@@ -2121,17 +2158,17 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
   engine?: string;
   /**
    * @remarks
-   * The version of the database engine. Valid values:
+   * The database engine version of the instance. Valid values:
    * 
+   * *   **7.0**
    * *   **6.0**
    * *   **5.0**
    * *   **4.4**
    * *   **4.2**
    * *   **4.0**
-   * *   **3.4**
    * 
-   * > *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
-   * > *   If you call this operation to clone an instance, set the value of this parameter to the engine version of the source instance.
+   * > * For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
+   * > * If you call this operation to clone an instance, set the value of this parameter to the database engine version of the source instance.
    * 
    * This parameter is required.
    * 
@@ -2187,7 +2224,9 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
   mongos?: CreateShardingDBInstanceRequestMongos[];
   /**
    * @remarks
-   * The network type of the instance. Set the value to VPC.
+   * The network type of the instance.
+   * 
+   * Set the value to **VPC**.
    * 
    * @example
    * VPC
@@ -2211,8 +2250,8 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
    * @remarks
    * The access protocol type of the instance. Valid values:
    * 
-   * *   **mongodb**: the MongoDB protocol
-   * *   **dynamodb**: the DynamoDB protocol
+   * *   **mongodb**
+   * *   **dynamodb**
    * 
    * @example
    * mongodb
@@ -2263,6 +2302,16 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
    * 2022-03-08T02:30:25Z
    */
   restoreTime?: string;
+  /**
+   * @remarks
+   * The backup restore type of the instance.
+   * - 1:  restore an instance to the specified time.
+   * - 2: restore an  released instance to the specified backup set.
+   * - 3：restore an instance to the specified cross-regional backup set.
+   * 
+   * @example
+   * 1
+   */
   restoreType?: string;
   /**
    * @remarks
@@ -2320,13 +2369,22 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
    * dds-bp11483712c1****
    */
   srcDBInstanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * > This parameter is required when restore type is set to 2 or 3.
+   * 
+   * @example
+   * cn-beijing
+   */
   srcRegion?: string;
   /**
    * @remarks
    * The storage engine of the instance. Set the value to **WiredTiger**.
    * 
-   * > *   If you call this operation to clone an instance, set the value of this parameter to the storage engine of the source instance.
-   * > *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
+   * > * If you call this operation to clone an instance, set the value of this parameter to the storage engine of the source instance.
+   * > * For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
    * 
    * @example
    * WiredTiger
@@ -4703,12 +4761,29 @@ export class DescribeBackupPolicyRequest extends $tea.Model {
    * dds-bp16cb162771****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The architecture of the instance. Valid values:
+   * 
+   * *   **sharding**: sharded cluster instance
+   * *   **replicate**: replica set or standalone instance
+   * 
+   * @example
+   * sharding
+   */
   instanceType?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-beijing
+   */
   srcRegion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4769,12 +4844,82 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
    * 30
    */
   backupRetentionPeriod?: string;
+  /**
+   * @remarks
+   * The backup retention policy configured for the instance. Valid values:
+   * 
+   * 1.  0: All backup sets are immediately deleted when the instance is released.
+   * 2.  1: Automatic backup is performed and the backup set is retained for a long period of time when the instance is released.
+   * 3.  2: Automatic backup is performed and all backup sets are retained for a long period of time when the instance is released.
+   * 
+   * For more information, see [Retain the backup files of an ApsaraDB for MongoDB instance for a long period of time](https://help.aliyun.com/document_detail/2779111.html).
+   * 
+   * @example
+   * 0
+   */
   backupRetentionPolicyOnClusterDeletion?: number;
+  /**
+   * @remarks
+   * The retention period of Cross-regional backup.
+   * Valid values:
+   * 
+   * *   **Monday**
+   * *   **Tuesday**
+   * *   **Wednesday**
+   * *   **Thursday**
+   * *   **Friday**
+   * *   **Saturday**
+   * *   **Sunday**
+   * 
+   * @example
+   * Monday
+   */
   crossBackupPeriod?: string;
+  /**
+   * @remarks
+   * The retention type of Cross-regional  log backup.
+   * 
+   * - delay : retain the backup for a period of time.
+   * - never : retain the backup permanently.
+   * 
+   * @example
+   * delay
+   */
   crossLogRetentionType?: string;
+  /**
+   * @remarks
+   * The retention time of Cross-regional log backup.
+   * 
+   * @example
+   * 7
+   */
   crossLogRetentionValue?: number;
+  /**
+   * @remarks
+   * The retention type of Cross-regional backup.
+   * 
+   * - delay : retain the backup for a period of time.
+   * - never : retain the backup permanently.
+   * 
+   * @example
+   * delay
+   */
   crossRetentionType?: string;
+  /**
+   * @remarks
+   * The retention time of Cross-regional backup.
+   * 
+   * @example
+   * 7
+   */
   crossRetentionValue?: number;
+  /**
+   * @remarks
+   * The region ID of the cross-regional backup..
+   * 
+   * @example
+   * cn-shenzhen
+   */
   destRegion?: string;
   /**
    * @remarks
@@ -4787,6 +4932,15 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
    * 1
    */
   enableBackupLog?: number;
+  /**
+   * @remarks
+   * Whether to turn on cross-regional log backup.
+   * - 1: turn on . Used for sharded cluster.
+   * - 0: turn off. Used for replicate set.
+   * 
+   * @example
+   * 1
+   */
   enableCrossLogBackup?: number;
   /**
    * @remarks
@@ -4828,6 +4982,13 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
    * 09:00Z-10:00Z
    */
   preferredBackupTime?: string;
+  /**
+   * @remarks
+   * The time of next standard backup.
+   * 
+   * @example
+   * 2024-06-19T19:11Z
+   */
   preferredNextBackupTime?: string;
   /**
    * @remarks
@@ -4848,6 +5009,13 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
    * Standard
    */
   snapshotBackupType?: string;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   srcRegion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5208,6 +5376,15 @@ export class DescribeBackupsRequest extends $tea.Model {
    * dds-bp1a7009eb24****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the Cross-regional backup.
+   * 
+   * >  This parameter is required for the Cross-regional backup.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   destRegion?: string;
   /**
    * @remarks
@@ -5231,7 +5408,7 @@ export class DescribeBackupsRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the page to return.
+   * The number of the page to return. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -5239,7 +5416,7 @@ export class DescribeBackupsRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
+   * The number of entries to return per page. Valid values:
    * 
    * *   **30** (default)
    * *   **50**
@@ -5251,6 +5428,16 @@ export class DescribeBackupsRequest extends $tea.Model {
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * >- This parameter is required if you want to query the backup sets of a released instance.
+   * >-  This parameter is required if you want to query cross-region backups.
+   * 
+   * @example
+   * cn-beijing
+   */
   srcRegion?: string;
   /**
    * @remarks
@@ -5727,7 +5914,7 @@ export class DescribeDBInstanceAttributeRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database engine of the instance. Set the value to **MongoDB**.
+   * The database engine. Set the value to **MongoDB**.
    * 
    * @example
    * MongoDB
@@ -5735,10 +5922,10 @@ export class DescribeDBInstanceAttributeRequest extends $tea.Model {
   engine?: string;
   /**
    * @remarks
-   * Specifies whether to delete the instance. Valid values:
+   * Specifies whether to query instances that are deleted. Valid values:
    * 
-   * - **false**: queries the details of running instances.
-   * - **true**: queries the details of deleted instances.
+   * *   **false**: queries instances that are running.
+   * *   **true**: queries instance that are deleted.
    * 
    * @example
    * false
@@ -5795,7 +5982,7 @@ export class DescribeDBInstanceAttributeRequest extends $tea.Model {
 export class DescribeDBInstanceAttributeResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The information of the instance.
+   * The instance details.
    */
   DBInstances?: DescribeDBInstanceAttributeResponseBodyDBInstances;
   /**
@@ -10109,6 +10296,140 @@ export class DescribeReplicaSetRoleResponse extends $tea.Model {
   }
 }
 
+export class DescribeRestoreDBInstanceListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-07-24T14:00:00Z
+   */
+  creationTimeAfter?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dds-bp114f14849d****
+   */
+  DBInstanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      creationTimeAfter: 'CreationTimeAfter',
+      DBInstanceId: 'DBInstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTimeAfter: 'string',
+      DBInstanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRestoreDBInstanceListResponseBody extends $tea.Model {
+  DBInstances?: DescribeRestoreDBInstanceListResponseBodyDBInstances;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1AF0AD89-ED4F-44AD-B65F-BFC1D5Cxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstances: 'DBInstances',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstances: DescribeRestoreDBInstanceListResponseBodyDBInstances,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRestoreDBInstanceListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRestoreDBInstanceListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRestoreDBInstanceListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRoleZoneInfoRequest extends $tea.Model {
   /**
    * @remarks
@@ -11886,11 +12207,25 @@ export class MigrateAvailableZoneRequest extends $tea.Model {
    * Immediately
    */
   effectiveTime?: string;
+  /**
+   * @remarks
+   * The ID of the destination hidden zone.
+   * 
+   * @example
+   * cn-shanghai-n
+   */
   hiddenZoneId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the destination secondary zone.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   secondaryZoneId?: string;
   /**
    * @remarks
@@ -12658,7 +12993,7 @@ export class ModifyAuditPolicyResponse extends $tea.Model {
 export class ModifyBackupPolicyRequest extends $tea.Model {
   /**
    * @remarks
-   * The frequency at which high-frequency backup is created. Valid values:
+   * The frequency at which high-frequency backups are generated. Valid values:
    * 
    * *   **-1**: High-frequency backup is disabled.
    * *   **30**: High-frequency backups are generated every 30 minutes.
@@ -12672,9 +13007,9 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * 
    * > 
    * 
-   * *   If the **SnapshotBackupType** parameter is set to **Standard**, this parameter is set to -1 and cannot be changed.
+   * *   If you set the **SnapshotBackupType** parameter to **Standard**, you must fix the value of this parameter to -1.
    * 
-   * *   High-frequency backup takes effect only when the **SnapshotBackupType** parameter is set to **Flash** and the value of this parameter is greater than 0.
+   * *   High-frequency backup takes effect only when you set the **SnapshotBackupType** parameter to **Flash** and this parameter to a value greater than 0.
    * 
    * @example
    * -1
@@ -12694,12 +13029,95 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * 30
    */
   backupRetentionPeriod?: number;
+  /**
+   * @remarks
+   * The backup retention policy configured for the instance. Valid values:
+   * 
+   * 1.  0: All backup sets are immediately deleted when the instance is released.
+   * 2.  1: Automatic backup is performed and the backup set is retained for a long period of time when the instance is released.
+   * 3.  2: Automatic backup is performed and all backup sets are retained for a long period of time when the instance is released.
+   * 
+   * For more information, see [Retain the backup files of an ApsaraDB for MongoDB instance for a long period of time](https://help.aliyun.com/document_detail/4920562.html).
+   * 
+   * @example
+   * 2
+   */
   backupRetentionPolicyOnClusterDeletion?: number;
+  /**
+   * @remarks
+   * The retention period of Cross-regional backup.
+   * Valid values:
+   * 
+   * *   **Monday**
+   * *   **Tuesday**
+   * *   **Wednesday**
+   * *   **Thursday**
+   * *   **Friday**
+   * *   **Saturday**
+   * *   **Sunday**
+   * 
+   * **
+   * 
+   * 
+   * 
+   * 
+   * 
+   * >- Separate multiple values with commas (,).
+   * >- When SnapshotBackupType  is set to standard, this value needs to be a subset of the PreferredBackupPeriod.
+   * 
+   * @example
+   * Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
+   */
   crossBackupPeriod?: string;
+  /**
+   * @remarks
+   * The operation strategy of Cross-regional backup.
+   * - update
+   * - delete
+   * 
+   * @example
+   * update
+   */
   crossBackupType?: string;
+  /**
+   * @remarks
+   * The retention type of Cross-regional  log backup.
+   * 
+   * - delay : retain the backup for a period of time.
+   * - never : retain the backup permanently.
+   * 
+   * @example
+   * delay
+   */
   crossLogRetentionType?: string;
+  /**
+   * @remarks
+   * The retention time of Cross-regional log backup, 3 - 1825 days.
+   * 
+   * @example
+   * 3
+   */
   crossLogRetentionValue?: number;
+  /**
+   * @remarks
+   * The retention type of Cross-regional backup.
+   * 
+   * - delay : retain the backup for a period of time.
+   * - never : retain the backup permanently.
+   * 
+   * @example
+   * delay
+   */
   crossRetentionType?: string;
+  /**
+   * @remarks
+   * The retention time of Cross-regional backup, 3 - 1825 days.
+   * > 
+   * > - Used and must be used when CrossRetentionType is delay.
+   * 
+   * @example
+   * 7
+   */
   crossRetentionValue?: number;
   /**
    * @remarks
@@ -12711,6 +13129,15 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * dds-bp16cb162771****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The region id of Cross-regional backup.
+   * > 
+   * > - Required for Cross-regional backup.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   destRegion?: string;
   /**
    * @remarks
@@ -12723,12 +13150,37 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * 0
    */
   enableBackupLog?: number;
+  /**
+   * @remarks
+   * Whether to turn on cross-regional log backup.
+   * - 1：turn on . Used for sharded cluster.
+   * - 0: turn off. Used for replicate set.
+   * 
+   * @example
+   * 1
+   */
   enableCrossLogBackup?: number;
   /**
    * @remarks
    * The number of days for which high-frequency backups are retained. Before you use this parameter, make sure that you specify the BackupInterval parameter. By default, high-frequency backups are retained for one day.
+   * 
+   * @example
+   * 1
    */
   highFrequencyBackupRetention?: number;
+  /**
+   * @remarks
+   * The instance architecture. Valid values:
+   * 
+   * *   replicate
+   * *   sharding
+   * 
+   * > * This parameter is required  for Cross-regional backup.
+   * > * This parameter is required for backup recovery of deleted instances.
+   * 
+   * @example
+   * replicate
+   */
   instanceType?: string;
   /**
    * @remarks
@@ -12753,6 +13205,10 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * *   **Friday**
    * *   **Saturday**
    * *   **Sunday**
+   * 
+   * **
+   * 
+   * **Notice**: To ensure data security, make sure that the system backs up data at least twice a week.
    * 
    * >  Separate multiple values with commas (,).
    * 
@@ -12783,6 +13239,17 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * Standard
    */
   snapshotBackupType?: string;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * > 
+   * > - Required for Cross-regional backup.
+   * > - Required for backup recovery of deleted instances.
+   * 
+   * @example
+   * cn-beijing
+   */
   srcRegion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16757,6 +17224,10 @@ export class RestartDBInstanceResponse extends $tea.Model {
 export class RestartNodeRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
+   * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16764,6 +17235,11 @@ export class RestartNodeRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The ID of the shard, mongos, or ConfigServer node in a child instance of the sharded cluster instance.
+   * 
+   * >  If you set the **DBInstanceId** parameter to the ID of a sharded cluster instance, you must specify this parameter.
+   * 
    * @example
    * d-bp128a003436****
    */
@@ -16774,6 +17250,11 @@ export class RestartNodeRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The role ID of the node.
+   * 
+   * 1.  You can call the [DescribeReplicaSetRole](https://help.aliyun.com/document_detail/468469.html) operation to query the role ID of a node in a replica set instance.
+   * 2.  You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/468472.html) operation to query the role ID of a node in a sharded cluster instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16811,6 +17292,9 @@ export class RestartNodeRequest extends $tea.Model {
 
 export class RestartNodeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ECBCA991-XXXX-XXXX-834C-B3E8007F33AA
    */
@@ -17232,7 +17716,7 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
    * *   **true**
    * *   **false**
    * 
-   * >  Default value: **true**.
+   * > Default value: **true**.
    * 
    * @example
    * true
@@ -17263,8 +17747,8 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   **PrePaid**: subscription
-   * *   **PostPaid**: pay-as-you-go
+   * *   **PrePaid:** subscription.
+   * *   **PostPaid:** pay-as-you-go.
    * 
    * This parameter is required.
    * 
@@ -17274,10 +17758,7 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Specifies whether to use coupons. Default value: null. Valid values:
-   * 
-   * *   **default** or **null**: uses coupons.
-   * *   **youhuiquan_promotion_option_id_for_blank**: does not use coupons.
+   * The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
    * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
@@ -17285,7 +17766,7 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
   couponNo?: string;
   /**
    * @remarks
-   * The ID of the instance
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -17297,10 +17778,7 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The subscription duration. Valid values:
-   * 
-   * *   If the PricingCycle parameter is set to Month, the valid values of this parameter range from **1** to **9**.
-   * *   If the PricingCycle parameter is set to Year, the valid values of this parameter are **1**, **2**, **3**, and **5**.
+   * The subscription duration of the instance. Unit: months. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9******, **12**, **24**, and **36**.
    * 
    * @example
    * 1
@@ -17308,12 +17786,12 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values:
+   * 实例付费时长单位
+   * 取值说明：
+   * - **Month：** 月
+   * -  **Year：** 年
    * 
-   * *   **Month**
-   * *   **Year**
-   * 
-   * Default value: Month.
+   * 默认值：Month
    * 
    * @example
    * Month
@@ -17363,7 +17841,7 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
 export class TransformInstanceChargeTypeResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 21084641369****
@@ -17371,7 +17849,7 @@ export class TransformInstanceChargeTypeResponseBody extends $tea.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D8F1D721-6439-4257-A89C-F1E8E9C9****
@@ -17762,6 +18240,7 @@ export class UpgradeDBInstanceEngineVersionRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  switchMode?: number;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
@@ -17770,6 +18249,7 @@ export class UpgradeDBInstanceEngineVersionRequest extends $tea.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      switchMode: 'SwitchMode',
     };
   }
 
@@ -17781,6 +18261,7 @@ export class UpgradeDBInstanceEngineVersionRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      switchMode: 'number',
     };
   }
 
@@ -17855,6 +18336,7 @@ export class UpgradeDBInstanceKernelVersionRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  switchMode?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
@@ -17862,6 +18344,7 @@ export class UpgradeDBInstanceKernelVersionRequest extends $tea.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      switchMode: 'SwitchMode',
     };
   }
 
@@ -17872,6 +18355,7 @@ export class UpgradeDBInstanceKernelVersionRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      switchMode: 'string',
     };
   }
 
@@ -18114,8 +18598,8 @@ export class CreateShardingDBInstanceRequestReplicaSet extends $tea.Model {
    * @remarks
    * The instance type of the shard node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
    * 
-   * > *   **N** specifies the serial number of the shard node for which the instance type is specified. For example, **ReplicaSet.2.Class** specifies the instance type of the second shard node.
-   * > *   Valid values for **N**: **2** to **32**.
+   * > * **N** specifies the serial number of the shard node for which the instance type is specified. For example, **ReplicaSet.2.Class** specifies the instance type of the second shard node.
+   * > * Valid values of **N**: **2** to **32**.
    * 
    * This parameter is required.
    * 
@@ -18125,11 +18609,11 @@ export class CreateShardingDBInstanceRequestReplicaSet extends $tea.Model {
   class?: string;
   /**
    * @remarks
-   * The number of read-only nodes in shard node N.
+   * The number of read-only nodes in the shard node.
    * 
-   * Valid values: **0**, 1, 2, 3, 4, and **5**. Default value: **0**.
+   * Valid values: **0**, **1, 2, 3, 4, and 5**. Default value: **0**.
    * 
-   * >  **N** specifies the serial number of the shard node for which you want to set the number of read-only nodes. For example, **ReplicaSet.2.ReadonlyReplicas** specifies the number of read-only nodes in the second shard node.
+   * >  **N** specifies the serial number of the shard node for which you want to set the number of read-only nodes. **ReplicaSet.2.ReadonlyReplicas** specifies the number of read-only nodes in the second shard node.
    * 
    * @example
    * 0
@@ -18137,10 +18621,10 @@ export class CreateShardingDBInstanceRequestReplicaSet extends $tea.Model {
   readonlyReplicas?: number;
   /**
    * @remarks
-   * The storage space of the shard node. Unit: GB.
+   * The storage capacity of the shard node. Unit: GB.
    * 
-   * > *   The values that can be specified for this parameter vary based on the instance types. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
-   * > *   **N** specifies the serial number of the shard node for which the storage space is specified. For example, **ReplicaSet.2.Storage** specifies the storage space of the second shard node.
+   * > * The values that can be specified for this parameter vary based on the instance types. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+   * > * **N** specifies the serial number of the shard node for which the storage space is specified. For example, **ReplicaSet.2.Storage** specifies the storage space of the second shard node.
    * 
    * This parameter is required.
    * 
@@ -19377,7 +19861,7 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
    * @remarks
    * The internal download URL of the backup set.
    * 
-   * >  You can use the URL to download the specified backup set on an Elastic Compute Service (ECS) instance that is in the same Virtual Private Cloud (VPC) as the ApsaraDB for MongoDB instance.
+   * >  You can use the URL to download the specified backup set on an Elastic Compute Service (ECS) instance that is in the same virtual private cloud (VPC) as the ApsaraDB for MongoDB instance.
    */
   backupIntranetDownloadURL?: string;
   /**
@@ -19404,14 +19888,28 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
    * @remarks
    * The backup mode of the backup set. Valid values:
    * 
-   * *   **Automated**:
+   * *   **Automated**
    * *   **Manual**
    * 
    * @example
    * Automated
    */
   backupMode?: string;
+  /**
+   * @remarks
+   * The name of the backup set (invalid now).
+   * 
+   * @example
+   * 12345678.tar.gz
+   */
   backupName?: string;
+  /**
+   * @remarks
+   * The scale of the backup set (invalid now).
+   * 
+   * @example
+   * DBInstance
+   */
   backupScale?: string;
   /**
    * @remarks
@@ -19451,6 +19949,16 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
    * FullBackup
    */
   backupType?: string;
+  engineVersion?: string;
+  /**
+   * @remarks
+   * Availability of the backup set.
+   * - 0: unavailable
+   * - 1: available
+   * 
+   * @example
+   * 1
+   */
   isAvail?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -19468,6 +19976,7 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
       backupStartTime: 'BackupStartTime',
       backupStatus: 'BackupStatus',
       backupType: 'BackupType',
+      engineVersion: 'EngineVersion',
       isAvail: 'IsAvail',
     };
   }
@@ -19488,6 +19997,7 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
       backupStartTime: 'string',
       backupStatus: 'string',
       backupType: 'string',
+      engineVersion: 'string',
       isAvail: 'boolean',
     };
   }
@@ -19797,6 +20307,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $tea.Model
    * OK
    */
   clusterBackupStatus?: string;
+  engineVersion?: string;
   /**
    * @remarks
    * The additional information in the JSON format.
@@ -19831,6 +20342,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $tea.Model
       clusterBackupSize: 'ClusterBackupSize',
       clusterBackupStartTime: 'ClusterBackupStartTime',
       clusterBackupStatus: 'ClusterBackupStatus',
+      engineVersion: 'EngineVersion',
       extraInfo: 'ExtraInfo',
       isAvail: 'IsAvail',
       progress: 'Progress',
@@ -19847,6 +20359,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $tea.Model
       clusterBackupSize: 'string',
       clusterBackupStartTime: 'string',
       clusterBackupStatus: 'string',
+      engineVersion: 'string',
       extraInfo: DescribeClusterBackupsResponseBodyClusterBackupsExtraInfo,
       isAvail: 'number',
       progress: 'string',
@@ -19915,6 +20428,27 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceConfigs
    * dds-bp18b0934e7053e4-cs****.mongodb.rds.aliyuncs.com
    */
   connectString?: string;
+  /**
+   * @remarks
+   * The minor version of the current MongoDB kernel.
+   * 
+   * @example
+   * mongodb_20230613_4.0.25
+   */
+  currentKernelVersion?: string;
+  /**
+   * @remarks
+   * The lock status of the Configserver node. Valid values:
+   * 
+   * *   **Unlock**: The instance is not locked.
+   * *   **ManualLock**: The instance is manually locked.
+   * *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
+   * *   **LockByRestoration**: The instance is automatically locked before a rollback.
+   * *   **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted and the instance is inaccessible.
+   * 
+   * @example
+   * Unlock
+   */
   lockMode?: string;
   /**
    * @remarks
@@ -19983,6 +20517,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceConfigs
   static names(): { [key: string]: string } {
     return {
       connectString: 'ConnectString',
+      currentKernelVersion: 'CurrentKernelVersion',
       lockMode: 'LockMode',
       maxConnections: 'MaxConnections',
       maxIOPS: 'MaxIOPS',
@@ -19998,6 +20533,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceConfigs
   static types(): { [key: string]: any } {
     return {
       connectString: 'string',
+      currentKernelVersion: 'string',
       lockMode: 'string',
       maxConnections: 'number',
       maxIOPS: 'number',
@@ -20043,6 +20579,27 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceMongosL
    * s-bp1d8c262a15****.mongodb.rds.aliyuncs.com
    */
   connectSting?: string;
+  /**
+   * @remarks
+   * The minor version of the current MongoDB kernel.
+   * 
+   * @example
+   * mongodb_20220518_4.0.21
+   */
+  currentKernelVersion?: string;
+  /**
+   * @remarks
+   * The lock status of the instance. Valid values:
+   * 
+   * *   **Unlock**: The instance is not locked.
+   * *   **ManualLock**: The instance is manually locked.
+   * *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
+   * *   **LockByRestoration**: The instance is automatically locked before a rollback.
+   * *   **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted and the instance is inaccessible.
+   * 
+   * @example
+   * Unlock
+   */
   lockMode?: string;
   /**
    * @remarks
@@ -20131,6 +20688,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceMongosL
   static names(): { [key: string]: string } {
     return {
       connectSting: 'ConnectSting',
+      currentKernelVersion: 'CurrentKernelVersion',
       lockMode: 'LockMode',
       maxConnections: 'MaxConnections',
       maxIOPS: 'MaxIOPS',
@@ -20148,6 +20706,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceMongosL
   static types(): { [key: string]: any } {
     return {
       connectSting: 'string',
+      currentKernelVersion: 'string',
       lockMode: 'string',
       maxConnections: 'number',
       maxIOPS: 'number',
@@ -20312,6 +20871,27 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardLi
    * d-bp1af0680a9c6d3****.mongodb.rds.aliyuncs.com:****
    */
   connectString?: string;
+  /**
+   * @remarks
+   * The minor version of the current MongoDB kernel.
+   * 
+   * @example
+   * mongodb_20230613_4.0.25
+   */
+  currentKernelVersion?: string;
+  /**
+   * @remarks
+   * The lock status of the shard node. Valid values:
+   * 
+   * *   **Unlock**: The instance is not locked.
+   * *   **ManualLock**: The instance is manually locked.
+   * *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
+   * *   **LockByRestoration**: The instance is automatically locked before a rollback.
+   * *   **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted and the instance is inaccessible.
+   * 
+   * @example
+   * Unlock
+   */
   lockMode?: string;
   /**
    * @remarks
@@ -20323,7 +20903,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardLi
   maxConnections?: number;
   /**
    * @remarks
-   * shard节点的最大云盘吞吐量。
+   * The maximum MBPS of the shard node.
    * 
    * @example
    * 350
@@ -20396,6 +20976,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardLi
   static names(): { [key: string]: string } {
     return {
       connectString: 'ConnectString',
+      currentKernelVersion: 'CurrentKernelVersion',
       lockMode: 'LockMode',
       maxConnections: 'MaxConnections',
       maxDiskMbps: 'MaxDiskMbps',
@@ -20413,6 +20994,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardLi
   static types(): { [key: string]: any } {
     return {
       connectString: 'string',
+      currentKernelVersion: 'string',
       lockMode: 'string',
       maxConnections: 'number',
       maxDiskMbps: 'string',
@@ -20536,7 +21118,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
   chargeType?: string;
   /**
    * @remarks
-   * The information of the Configserver nodes.
+   * The details of the ConfigServer node.
    * 
    * >  This parameter is returned if the instance is a sharded cluster instance.
    */
@@ -20795,7 +21377,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
   maxIOPS?: number;
   /**
    * @remarks
-   * 实例的最大云盘吞吐量，单位MB/s。
+   * The maximum MBPS of the instance.
    * 
    * @example
    * 350
@@ -20803,7 +21385,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
   maxMBPS?: number;
   /**
    * @remarks
-   * The information of the mongos nodes.
+   * The details of the mongos node.
    * 
    * >  This parameter is returned if the instance is a sharded cluster instance.
    */
@@ -20938,7 +21520,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
   secondaryZoneId?: string;
   /**
    * @remarks
-   * The information of the shard nodes.
+   * The details of the shard node.
    * 
    * >  This parameter is returned if the instance is a sharded cluster instance.
    */
@@ -25922,6 +26504,14 @@ export class DescribeReplicaSetRoleResponseBodyReplicaSetsReplicaSet extends $te
   connectionPort?: string;
   /**
    * @remarks
+   * The connection type of the node.
+   * 
+   * @example
+   * SRV
+   */
+  connectionType?: string;
+  /**
+   * @remarks
    * The remaining duration of the classic network endpoint. Unit: seconds.
    * 
    * @example
@@ -25963,6 +26553,7 @@ export class DescribeReplicaSetRoleResponseBodyReplicaSetsReplicaSet extends $te
     return {
       connectionDomain: 'ConnectionDomain',
       connectionPort: 'ConnectionPort',
+      connectionType: 'ConnectionType',
       expiredTime: 'ExpiredTime',
       networkType: 'NetworkType',
       replicaSetRole: 'ReplicaSetRole',
@@ -25974,6 +26565,7 @@ export class DescribeReplicaSetRoleResponseBodyReplicaSetsReplicaSet extends $te
     return {
       connectionDomain: 'string',
       connectionPort: 'string',
+      connectionType: 'string',
       expiredTime: 'string',
       networkType: 'string',
       replicaSetRole: 'string',
@@ -25997,6 +26589,121 @@ export class DescribeReplicaSetRoleResponseBodyReplicaSets extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       replicaSet: { 'type': 'array', 'itemType': DescribeReplicaSetRoleResponseBodyReplicaSetsReplicaSet },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRestoreDBInstanceListResponseBodyDBInstancesDBInstance extends $tea.Model {
+  /**
+   * @example
+   * 2022-01-02T07:43:59Z
+   */
+  creationTime?: string;
+  DBInstanceDescription?: string;
+  /**
+   * @example
+   * dds-bp12c5b040dc****
+   */
+  DBInstanceId?: string;
+  /**
+   * @example
+   * Running
+   */
+  DBInstanceStatus?: string;
+  /**
+   * @example
+   * replicate
+   */
+  DBInstanceType?: string;
+  /**
+   * @example
+   * 4.2
+   */
+  engineVersion?: string;
+  /**
+   * @example
+   * cn-hangzhou-h
+   */
+  hiddenZoneId?: string;
+  /**
+   * @example
+   * 0
+   */
+  isDeleted?: number;
+  /**
+   * @example
+   * Unlock
+   */
+  lockMode?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
+  secondaryZoneId?: string;
+  /**
+   * @example
+   * cn-hangzhou-g
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      DBInstanceDescription: 'DBInstanceDescription',
+      DBInstanceId: 'DBInstanceId',
+      DBInstanceStatus: 'DBInstanceStatus',
+      DBInstanceType: 'DBInstanceType',
+      engineVersion: 'EngineVersion',
+      hiddenZoneId: 'HiddenZoneId',
+      isDeleted: 'IsDeleted',
+      lockMode: 'LockMode',
+      regionId: 'RegionId',
+      secondaryZoneId: 'SecondaryZoneId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      DBInstanceDescription: 'string',
+      DBInstanceId: 'string',
+      DBInstanceStatus: 'string',
+      DBInstanceType: 'string',
+      engineVersion: 'string',
+      hiddenZoneId: 'string',
+      isDeleted: 'number',
+      lockMode: 'string',
+      regionId: 'string',
+      secondaryZoneId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRestoreDBInstanceListResponseBodyDBInstances extends $tea.Model {
+  DBInstance?: DescribeRestoreDBInstanceListResponseBodyDBInstancesDBInstance[];
+  static names(): { [key: string]: string } {
+    return {
+      DBInstance: 'DBInstance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstance: { 'type': 'array', 'itemType': DescribeRestoreDBInstanceListResponseBodyDBInstancesDBInstance },
     };
   }
 
@@ -26423,6 +27130,7 @@ export class DescribeShardingNetworkAddressResponseBodyCompatibleConnections ext
 }
 
 export class DescribeShardingNetworkAddressResponseBodyNetworkAddressesNetworkAddress extends $tea.Model {
+  connectionType?: string;
   /**
    * @remarks
    * The remaining duration of the classic network endpoint. Unit: seconds.
@@ -26498,6 +27206,7 @@ export class DescribeShardingNetworkAddressResponseBodyNetworkAddressesNetworkAd
    * Primary
    */
   role?: string;
+  txtRecord?: string;
   /**
    * @remarks
    * The VPC ID of the instance.
@@ -26520,6 +27229,7 @@ export class DescribeShardingNetworkAddressResponseBodyNetworkAddressesNetworkAd
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      connectionType: 'ConnectionType',
       expiredTime: 'ExpiredTime',
       IPAddress: 'IPAddress',
       networkAddress: 'NetworkAddress',
@@ -26528,6 +27238,7 @@ export class DescribeShardingNetworkAddressResponseBodyNetworkAddressesNetworkAd
       nodeType: 'NodeType',
       port: 'Port',
       role: 'Role',
+      txtRecord: 'TxtRecord',
       VPCId: 'VPCId',
       vswitchId: 'VswitchId',
     };
@@ -26535,6 +27246,7 @@ export class DescribeShardingNetworkAddressResponseBodyNetworkAddressesNetworkAd
 
   static types(): { [key: string]: any } {
     return {
+      connectionType: 'string',
       expiredTime: 'string',
       IPAddress: 'string',
       networkAddress: 'string',
@@ -26543,6 +27255,7 @@ export class DescribeShardingNetworkAddressResponseBodyNetworkAddressesNetworkAd
       nodeType: 'string',
       port: 'string',
       role: 'string',
+      txtRecord: 'string',
       VPCId: 'string',
       vswitchId: 'string',
     };
@@ -27300,6 +28013,10 @@ export default class Client extends OpenApi {
       query["DestRegion"] = request.destRegion;
     }
 
+    if (!Util.isUnset(request.engineVersion)) {
+      query["EngineVersion"] = request.engineVersion;
+    }
+
     if (!Util.isUnset(request.instanceType)) {
       query["InstanceType"] = request.instanceType;
     }
@@ -27522,7 +28239,7 @@ export default class Client extends OpenApi {
    * Creates or clones an ApsaraDB for MongoDB replica set instance.
    * 
    * @remarks
-   * Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail/mongodb_computeudr_dp_cn) of ApsaraDB for MongoDB before you call this operation.
+   * Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
    * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
    * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
    * 
@@ -27718,7 +28435,7 @@ export default class Client extends OpenApi {
    * Creates or clones an ApsaraDB for MongoDB replica set instance.
    * 
    * @remarks
-   * Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail/mongodb_computeudr_dp_cn) of ApsaraDB for MongoDB before you call this operation.
+   * Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
    * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
    * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
    * 
@@ -28016,7 +28733,7 @@ export default class Client extends OpenApi {
    * Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
    * 
    * @remarks
-   *   Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB before you call this operation.
+   *   Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
    * *   For more information about the instance types of ApsaraDB for MongoDB, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
    * *   To create standalone instances and replica set instances, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation.
    * 
@@ -28200,7 +28917,7 @@ export default class Client extends OpenApi {
    * Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
    * 
    * @remarks
-   *   Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB before you call this operation.
+   *   Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
    * *   For more information about the instance types of ApsaraDB for MongoDB, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
    * *   To create standalone instances and replica set instances, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation.
    * 
@@ -31655,6 +32372,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeRestoreDBInstanceListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRestoreDBInstanceListResponse
+   */
+  async describeRestoreDBInstanceListWithOptions(request: DescribeRestoreDBInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreDBInstanceListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.creationTimeAfter)) {
+      query["CreationTimeAfter"] = request.creationTimeAfter;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRestoreDBInstanceList",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRestoreDBInstanceListResponse>(await this.callApi(params, req, runtime), new DescribeRestoreDBInstanceListResponse({}));
+  }
+
+  /**
+   * @param request - DescribeRestoreDBInstanceListRequest
+   * @returns DescribeRestoreDBInstanceListResponse
+   */
+  async describeRestoreDBInstanceList(request: DescribeRestoreDBInstanceListRequest): Promise<DescribeRestoreDBInstanceListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRestoreDBInstanceListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the role and zone of each node in an ApsaraDB for MongoDB instance.
    * 
    * @remarks
@@ -32991,6 +33774,9 @@ export default class Client extends OpenApi {
   /**
    * Modifies a backup policy for an ApsaraDB for MongoDB instance.
    * 
+   * @remarks
+   * Cross-regional backup only supports  MongoDB sharded cluster instance and MongoDB replica set.
+   * 
    * @param request - ModifyBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyBackupPolicyResponse
@@ -33113,6 +33899,9 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies a backup policy for an ApsaraDB for MongoDB instance.
+   * 
+   * @remarks
+   * Cross-regional backup only supports  MongoDB sharded cluster instance and MongoDB replica set.
    * 
    * @param request - ModifyBackupPolicyRequest
    * @returns ModifyBackupPolicyResponse
@@ -35255,7 +36044,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启副本集单个节点
+   * Restarts a node in an ApsaraDB for MongoDB instance.
+   * 
+   * @remarks
+   * You can call this operation to restart a node in a replica set instance or a child instance in a sharded cluster instance.
+   * >  When you call this operation, the instance must meet the following requirements:
+   * *   The instance is in the Running state.
+   * *   The instance is a replica set or sharded cluster instance of the standard edition.
    * 
    * @param request - RestartNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35310,7 +36105,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启副本集单个节点
+   * Restarts a node in an ApsaraDB for MongoDB instance.
+   * 
+   * @remarks
+   * You can call this operation to restart a node in a replica set instance or a child instance in a sharded cluster instance.
+   * >  When you call this operation, the instance must meet the following requirements:
+   * *   The instance is in the Running state.
+   * *   The instance is a replica set or sharded cluster instance of the standard edition.
    * 
    * @param request - RestartNodeRequest
    * @returns RestartNodeResponse
@@ -35562,12 +36363,12 @@ export default class Client extends OpenApi {
    * Changes the billing method of an instance from pay-as-you-go to subscription or from subscription to pay-as-you-go.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB.
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB
    * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
    * *   The instance is in the Running state.
    * *   Your instance has no unpaid billing method change orders.
    * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
-   * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to first change the instance type.
+   * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to change the instance type first.
    * 
    * @param request - TransformInstanceChargeTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35645,12 +36446,12 @@ export default class Client extends OpenApi {
    * Changes the billing method of an instance from pay-as-you-go to subscription or from subscription to pay-as-you-go.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB.
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB
    * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
    * *   The instance is in the Running state.
    * *   Your instance has no unpaid billing method change orders.
    * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
-   * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to first change the instance type.
+   * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to change the instance type first.
    * 
    * @param request - TransformInstanceChargeTypeRequest
    * @returns TransformInstanceChargeTypeResponse
@@ -35886,6 +36687,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.switchMode)) {
+      query["SwitchMode"] = request.switchMode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -35953,6 +36758,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.switchMode)) {
+      query["SwitchMode"] = request.switchMode;
     }
 
     let req = new $OpenApi.OpenApiRequest({
