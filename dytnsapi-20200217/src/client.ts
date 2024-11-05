@@ -13,7 +13,7 @@ export class CertNoThreeElementVerificationRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * QASDW@#**
    */
   authCode?: string;
   /**
@@ -29,7 +29,7 @@ export class CertNoThreeElementVerificationRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * 3***************0
    */
   certNo?: string;
   /**
@@ -37,7 +37,7 @@ export class CertNoThreeElementVerificationRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * iVBOFMKODOFNDFP123DFSMOO...
    */
   certPicture?: string;
   /**
@@ -80,10 +80,26 @@ export class CertNoThreeElementVerificationRequest extends $tea.Model {
 }
 
 export class CertNoThreeElementVerificationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
   accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: CertNoThreeElementVerificationResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * 68A40250-50CD-034C-B728-0BD******177
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1095,6 +1111,7 @@ export class DescribePhoneNumberAnalysisRequest extends $tea.Model {
 }
 
 export class DescribePhoneNumberAnalysisResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   /**
    * @example
    * OK
@@ -1113,6 +1130,7 @@ export class DescribePhoneNumberAnalysisResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -1122,6 +1140,7 @@ export class DescribePhoneNumberAnalysisResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: DescribePhoneNumberAnalysisResponseBodyData,
       message: 'string',
@@ -1307,6 +1326,136 @@ export class DescribePhoneNumberAnalysisAIResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribePhoneNumberAnalysisAIResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAnalysisPaiRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  authCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值
+   */
+  inputNumber?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值
+   */
+  modelConfig?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 16
+   */
+  rate?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      inputNumber: 'InputNumber',
+      modelConfig: 'ModelConfig',
+      ownerId: 'OwnerId',
+      rate: 'Rate',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      inputNumber: 'string',
+      modelConfig: 'string',
+      ownerId: 'number',
+      rate: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAnalysisPaiResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  code?: string;
+  data?: string[];
+  /**
+   * @example
+   * 示例值示例值
+   */
+  message?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAnalysisPaiResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePhoneNumberAnalysisPaiResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePhoneNumberAnalysisPaiResponseBody,
     };
   }
 
@@ -5571,7 +5720,7 @@ export class UAIDVerificationResponse extends $tea.Model {
 export class CertNoThreeElementVerificationResponseBodyData extends $tea.Model {
   /**
    * @example
-   * 示例值示例值
+   * 1
    */
   isConsistent?: string;
   static names(): { [key: string]: string } {
@@ -8468,6 +8617,72 @@ export default class Client extends OpenApi {
   async describePhoneNumberAnalysisAI(request: DescribePhoneNumberAnalysisAIRequest): Promise<DescribePhoneNumberAnalysisAIResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePhoneNumberAnalysisAIWithOptions(request, runtime);
+  }
+
+  /**
+   * 号码分析服务pai供应商批量查询接口
+   * 
+   * @param request - DescribePhoneNumberAnalysisPaiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePhoneNumberAnalysisPaiResponse
+   */
+  async describePhoneNumberAnalysisPaiWithOptions(request: DescribePhoneNumberAnalysisPaiRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhoneNumberAnalysisPaiResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.inputNumber)) {
+      query["InputNumber"] = request.inputNumber;
+    }
+
+    if (!Util.isUnset(request.modelConfig)) {
+      query["ModelConfig"] = request.modelConfig;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.rate)) {
+      query["Rate"] = request.rate;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePhoneNumberAnalysisPai",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePhoneNumberAnalysisPaiResponse>(await this.callApi(params, req, runtime), new DescribePhoneNumberAnalysisPaiResponse({}));
+  }
+
+  /**
+   * 号码分析服务pai供应商批量查询接口
+   * 
+   * @param request - DescribePhoneNumberAnalysisPaiRequest
+   * @returns DescribePhoneNumberAnalysisPaiResponse
+   */
+  async describePhoneNumberAnalysisPai(request: DescribePhoneNumberAnalysisPaiRequest): Promise<DescribePhoneNumberAnalysisPaiResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePhoneNumberAnalysisPaiWithOptions(request, runtime);
   }
 
   /**
