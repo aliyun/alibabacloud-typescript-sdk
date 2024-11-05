@@ -639,6 +639,9 @@ export class CreateInstanceShutdownTimerResponse extends $tea.Model {
 export class CreateInstanceSnapshotRequest extends $tea.Model {
   excludePaths?: string[];
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
    */
@@ -655,6 +658,9 @@ export class CreateInstanceSnapshotRequest extends $tea.Model {
    */
   snapshotDescription?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * training_data_env
    */
