@@ -4210,6 +4210,7 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
    * 61479572
    */
   cid?: number;
+  customerAccountType?: number;
   /**
    * @remarks
    * customer manager
@@ -4218,6 +4219,7 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
    * abc
    */
   customerBd?: string;
+  customerEnterpriseCertified?: number;
   /**
    * @remarks
    * The account have Shutdown-delay Privilege, After Shutdown-delay Credit is ran out, Alibaba Cloud will take over resources and keep the instance for 15 days. In addition, the instance will be released if Sub Account failed to pay the bill within these 15 days.
@@ -4262,6 +4264,7 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
    * Normal
    */
   newBuyStatus?: string;
+  registerCountryCode?: string;
   /**
    * @remarks
    * Valid mobile number of Distribution Customer.
@@ -4294,12 +4297,15 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
       aliyunId: 'AliyunId',
       associationSuccessTime: 'AssociationSuccessTime',
       cid: 'Cid',
+      customerAccountType: 'CustomerAccountType',
       customerBd: 'CustomerBd',
+      customerEnterpriseCertified: 'CustomerEnterpriseCertified',
       delayAmount: 'DelayAmount',
       delayStatus: 'DelayStatus',
       email: 'Email',
       mobile: 'Mobile',
       newBuyStatus: 'NewBuyStatus',
+      registerCountryCode: 'RegisterCountryCode',
       remark: 'Remark',
       subAccountType: 'SubAccountType',
       uid: 'Uid',
@@ -4312,12 +4318,15 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
       aliyunId: 'string',
       associationSuccessTime: 'string',
       cid: 'number',
+      customerAccountType: 'number',
       customerBd: 'string',
+      customerEnterpriseCertified: 'number',
       delayAmount: 'string',
       delayStatus: 'string',
       email: 'string',
       mobile: 'string',
       newBuyStatus: 'string',
+      registerCountryCode: 'string',
       remark: 'string',
       subAccountType: 'number',
       uid: 'number',
