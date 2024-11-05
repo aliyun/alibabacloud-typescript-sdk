@@ -10299,6 +10299,12 @@ export class DescribeReplicaSetRoleResponse extends $tea.Model {
 export class DescribeRestoreDBInstanceListRequest extends $tea.Model {
   /**
    * @remarks
+   * Find instances created after the specified time, formatted as <i>yyyy-MM-dd</i>T<i>HH:00:00</i>Z (UTC time).
+   * 
+   * > 
+   * > - The time must be on the hour.
+   * > - The time cannot be earlier than 7 days before the current time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10307,6 +10313,8 @@ export class DescribeRestoreDBInstanceListRequest extends $tea.Model {
   creationTimeAfter?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10316,11 +10324,17 @@ export class DescribeRestoreDBInstanceListRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 30
    */
@@ -10359,23 +10373,39 @@ export class DescribeRestoreDBInstanceListRequest extends $tea.Model {
 }
 
 export class DescribeRestoreDBInstanceListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * DB instances list.
+   */
   DBInstances?: DescribeRestoreDBInstanceListResponseBodyDBInstances;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1AF0AD89-ED4F-44AD-B65F-BFC1D5Cxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of instances in the query results.
+   * 
    * @example
    * 5
    */
@@ -11083,7 +11113,7 @@ export class DescribeShardingNetworkAddressResponseBody extends $tea.Model {
   compatibleConnections?: DescribeShardingNetworkAddressResponseBodyCompatibleConnections;
   /**
    * @remarks
-   * The endpoints of ApsaraDB for MongoDB instances.
+   * The endpoints of the ApsaraDB for MongoDB sharded cluster instance.
    */
   networkAddresses?: DescribeShardingNetworkAddressResponseBodyNetworkAddresses;
   /**
@@ -26599,57 +26629,116 @@ export class DescribeReplicaSetRoleResponseBodyReplicaSets extends $tea.Model {
 
 export class DescribeRestoreDBInstanceListResponseBodyDBInstancesDBInstance extends $tea.Model {
   /**
+   * @remarks
+   * The time of instance creation, formatted as <i>yyyy-MM-dd</i>T<i>HH:00:00</i>Z (UTC time).
+   * 
    * @example
    * 2022-01-02T07:43:59Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * test-database
+   */
   DBInstanceDescription?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dds-bp12c5b040dc****
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
+   * 
    * @example
    * Running
    */
   DBInstanceStatus?: string;
   /**
+   * @remarks
+   * The architecture of the instance. Valid values:
+   * 
+   * *   **sharding**: sharded cluster instance
+   * *   **replicate**: replica set or standalone instance
+   * 
    * @example
    * replicate
    */
   DBInstanceType?: string;
   /**
+   * @remarks
+   * The database engine version of the instance. Valid values:
+   * 
+   * *   **7.0**
+   * *   **6.0**
+   * *   **5.0**
+   * *   **4.4**
+   * *   **4.2**
+   * *   **4.0**
+   * *   **3.4**
+   * 
    * @example
    * 4.2
    */
   engineVersion?: string;
   /**
+   * @remarks
+   * The secondary availability zone 2 for the instance when implementing multi-AZ deployment.
+   * 
    * @example
    * cn-hangzhou-h
    */
   hiddenZoneId?: string;
   /**
+   * @remarks
+   * Specifies whether the instance is deleted. Valid values:
+   * 
+   * *   **0**: not deleted
+   * *   **1**: deleted
+   * 
    * @example
    * 0
    */
   isDeleted?: number;
   /**
+   * @remarks
+   * The locked state of the instance, value description:
+   * - Unlock: Normal.
+   * - ManualLock: Manually triggered lock.
+   * - LockByExpiration: Automatically locked due to expiration.
+   * - LockByRestoration: Automatically locked before restoration.
+   * - LockByDiskQuota: Automatically locked due to disk quota exceeded.
+   * 
    * @example
    * Unlock
    */
   lockMode?: string;
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The secondary availability zone 1 for the instance when implementing multi-AZ deployment.
+   * 
    * @example
    * cn-hangzhou-i
    */
   secondaryZoneId?: string;
   /**
+   * @remarks
+   * The zone ID of the instance.
+   * 
    * @example
    * cn-hangzhou-g
    */
@@ -27130,6 +27219,16 @@ export class DescribeShardingNetworkAddressResponseBodyCompatibleConnections ext
 }
 
 export class DescribeShardingNetworkAddressResponseBodyNetworkAddressesNetworkAddress extends $tea.Model {
+  /**
+   * @remarks
+   * The public endpoint type. Valid values:
+   * 
+   * *   **SRV**
+   * *   **Normal**
+   * 
+   * @example
+   * SRV
+   */
   connectionType?: string;
   /**
    * @remarks
@@ -27206,6 +27305,13 @@ export class DescribeShardingNetworkAddressResponseBodyNetworkAddressesNetworkAd
    * Primary
    */
   role?: string;
+  /**
+   * @remarks
+   * Txt record which can be used to store MongoDB-related meta data, such as version, configuration parameters and etc. With the combination of txt record and other technology, for example SRV record, the MongoDB client can complete the complex service discovery and configuration passing.
+   * 
+   * @example
+   * mongo.example.com. IN TXT "config=replicaSet=myReplicaSet"
+   */
   txtRecord?: string;
   /**
    * @remarks
@@ -32372,6 +32478,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries ApsaraDB for MongoDB instances whose backups are restored within seven days.
+   * 
    * @param request - DescribeRestoreDBInstanceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRestoreDBInstanceListResponse
@@ -32429,6 +32537,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries ApsaraDB for MongoDB instances whose backups are restored within seven days.
+   * 
    * @param request - DescribeRestoreDBInstanceListRequest
    * @returns DescribeRestoreDBInstanceListResponse
    */
