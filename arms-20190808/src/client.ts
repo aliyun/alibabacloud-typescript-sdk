@@ -14951,6 +14951,162 @@ export class DeleteWebhookContactResponse extends $tea.Model {
   }
 }
 
+export class DescribeAddonMetricsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Version of Addon.
+   * 
+   * @example
+   * 0.0.1
+   */
+  addonVersion?: string;
+  /**
+   * @remarks
+   * The language. Valid values: zh and en. Default value: zh.
+   * 
+   * @example
+   * zh
+   */
+  aliyunLang?: string;
+  /**
+   * @remarks
+   * The environment type. Valid values: CS, ECS, and Cloud.
+   * 
+   * @example
+   * CS
+   */
+  environmentType?: string;
+  /**
+   * @remarks
+   * Name fo Addon.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mysql
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonVersion: 'AddonVersion',
+      aliyunLang: 'AliyunLang',
+      environmentType: 'EnvironmentType',
+      name: 'Name',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonVersion: 'string',
+      aliyunLang: 'string',
+      environmentType: 'string',
+      name: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonMetricsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Metric information list.
+   */
+  data?: DescribeAddonMetricsResponseBodyData[];
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * B6A00968-82A8-4F14-9D1B-B53827DB****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': DescribeAddonMetricsResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonMetricsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAddonMetricsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAddonMetricsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAddonReleaseRequest extends $tea.Model {
   /**
    * @remarks
@@ -45478,6 +45634,201 @@ export class DeleteTraceAppRequestDeleteReason extends $tea.Model {
   }
 }
 
+export class DescribeAddonMetricsResponseBodyDataLabels extends $tea.Model {
+  /**
+   * @remarks
+   * Metric label description.
+   * 
+   * @example
+   * The number of times a B-tree page of size PAGE_SIZE was successfully compressed.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Metric label key.
+   * 
+   * @example
+   * page_size
+   */
+  key?: string;
+  /**
+   * @remarks
+   * Metric label value.
+   * 
+   * @example
+   * db
+   */
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      key: 'Key',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      key: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonMetricsResponseBodyDataMetricsLabels extends $tea.Model {
+  /**
+   * @remarks
+   * Label description.
+   * 
+   * @example
+   * PAGE_SIZE
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Label key.
+   * 
+   * @example
+   * page_size
+   */
+  key?: string;
+  /**
+   * @remarks
+   * Metric source.
+   * 
+   * @example
+   * db
+   */
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      key: 'Key',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      key: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonMetricsResponseBodyDataMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * Metric description.
+   * 
+   * @example
+   * The number of times a B-tree page of size PAGE_SIZE was successfully compressed.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Metric label collection.
+   */
+  labels?: DescribeAddonMetricsResponseBodyDataMetricsLabels[];
+  /**
+   * @remarks
+   * Metric name.
+   * 
+   * @example
+   * mysql_exporter_collector_duration_seconds
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * Metric type.
+   * 
+   * @example
+   * GAUGE
+   */
+  type?: string;
+  /**
+   * @remarks
+   * Metric unit.
+   * 
+   * @example
+   * bytes
+   */
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      labels: 'Labels',
+      metric: 'Metric',
+      type: 'Type',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      labels: { 'type': 'array', 'itemType': DescribeAddonMetricsResponseBodyDataMetricsLabels },
+      metric: 'string',
+      type: 'string',
+      unit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonMetricsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Metric Group.
+   * 
+   * @example
+   * Common
+   */
+  group?: string;
+  /**
+   * @remarks
+   * Metric Labels.
+   */
+  labels?: DescribeAddonMetricsResponseBodyDataLabels[];
+  /**
+   * @remarks
+   * Metric list.
+   */
+  metrics?: DescribeAddonMetricsResponseBodyDataMetrics[];
+  static names(): { [key: string]: string } {
+    return {
+      group: 'Group',
+      labels: 'Labels',
+      metrics: 'Metrics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      group: 'string',
+      labels: { 'type': 'array', 'itemType': DescribeAddonMetricsResponseBodyDataLabels },
+      metrics: { 'type': 'array', 'itemType': DescribeAddonMetricsResponseBodyDataMetrics },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAddonReleaseResponseBodyDataReleaseConditions extends $tea.Model {
   /**
    * @remarks
@@ -74212,6 +74563,64 @@ export default class Client extends OpenApi {
   async deleteWebhookContact(request: DeleteWebhookContactRequest): Promise<DeleteWebhookContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWebhookContactWithOptions(request, runtime);
+  }
+
+  /**
+   * Example Query metric details about an Addon.
+   * 
+   * @param request - DescribeAddonMetricsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAddonMetricsResponse
+   */
+  async describeAddonMetricsWithOptions(request: DescribeAddonMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddonMetricsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addonVersion)) {
+      query["AddonVersion"] = request.addonVersion;
+    }
+
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.environmentType)) {
+      query["EnvironmentType"] = request.environmentType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAddonMetrics",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAddonMetricsResponse>(await this.callApi(params, req, runtime), new DescribeAddonMetricsResponse({}));
+  }
+
+  /**
+   * Example Query metric details about an Addon.
+   * 
+   * @param request - DescribeAddonMetricsRequest
+   * @returns DescribeAddonMetricsResponse
+   */
+  async describeAddonMetrics(request: DescribeAddonMetricsRequest): Promise<DescribeAddonMetricsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAddonMetricsWithOptions(request, runtime);
   }
 
   /**
