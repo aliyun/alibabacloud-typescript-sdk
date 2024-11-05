@@ -20268,6 +20268,7 @@ export class SubmitIProductionJobRequest extends $tea.Model {
    * {"Model":"gif"}
    */
   jobParams?: string;
+  modelId?: string;
   name?: string;
   /**
    * @remarks
@@ -20290,6 +20291,7 @@ export class SubmitIProductionJobRequest extends $tea.Model {
       functionName: 'FunctionName',
       input: 'Input',
       jobParams: 'JobParams',
+      modelId: 'ModelId',
       name: 'Name',
       output: 'Output',
       scheduleConfig: 'ScheduleConfig',
@@ -20303,6 +20305,7 @@ export class SubmitIProductionJobRequest extends $tea.Model {
       functionName: 'string',
       input: SubmitIProductionJobRequestInput,
       jobParams: 'string',
+      modelId: 'string',
       name: 'string',
       output: SubmitIProductionJobRequestOutput,
       scheduleConfig: SubmitIProductionJobRequestScheduleConfig,
@@ -20335,6 +20338,7 @@ export class SubmitIProductionJobShrinkRequest extends $tea.Model {
    * {"Model":"gif"}
    */
   jobParams?: string;
+  modelId?: string;
   name?: string;
   /**
    * @remarks
@@ -20357,6 +20361,7 @@ export class SubmitIProductionJobShrinkRequest extends $tea.Model {
       functionName: 'FunctionName',
       inputShrink: 'Input',
       jobParams: 'JobParams',
+      modelId: 'ModelId',
       name: 'Name',
       outputShrink: 'Output',
       scheduleConfigShrink: 'ScheduleConfig',
@@ -20370,6 +20375,7 @@ export class SubmitIProductionJobShrinkRequest extends $tea.Model {
       functionName: 'string',
       inputShrink: 'string',
       jobParams: 'string',
+      modelId: 'string',
       name: 'string',
       outputShrink: 'string',
       scheduleConfigShrink: 'string',
@@ -25375,19 +25381,31 @@ export class AIAgentRuntimeConfigVoiceChat extends $tea.Model {
 export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
   asrMaxSilence?: number;
   avatarId?: string;
+  bailianAppParams?: string;
+  enablePushToTalk?: boolean;
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
   greeting?: string;
+  useVoiceprint?: boolean;
+  userOfflineTimeout?: number;
+  userOnlineTimeout?: number;
   voiceId?: string;
+  voiceprintId?: string;
   volume?: number;
   static names(): { [key: string]: string } {
     return {
       asrMaxSilence: 'AsrMaxSilence',
       avatarId: 'AvatarId',
+      bailianAppParams: 'BailianAppParams',
+      enablePushToTalk: 'EnablePushToTalk',
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
       greeting: 'Greeting',
+      useVoiceprint: 'UseVoiceprint',
+      userOfflineTimeout: 'UserOfflineTimeout',
+      userOnlineTimeout: 'UserOnlineTimeout',
       voiceId: 'VoiceId',
+      voiceprintId: 'VoiceprintId',
       volume: 'Volume',
     };
   }
@@ -25396,10 +25414,16 @@ export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
     return {
       asrMaxSilence: 'number',
       avatarId: 'string',
+      bailianAppParams: 'string',
+      enablePushToTalk: 'boolean',
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
       greeting: 'string',
+      useVoiceprint: 'boolean',
+      userOfflineTimeout: 'number',
+      userOnlineTimeout: 'number',
       voiceId: 'string',
+      voiceprintId: 'string',
       volume: 'number',
     };
   }
@@ -25411,20 +25435,32 @@ export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
 
 export class AIAgentTemplateConfigVisionChat extends $tea.Model {
   asrMaxSilence?: number;
+  bailianAppParams?: string;
   enableIntelligentSegment?: boolean;
+  enablePushToTalk?: boolean;
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
   greeting?: string;
+  useVoiceprint?: boolean;
+  userOfflineTimeout?: number;
+  userOnlineTimeout?: number;
   voiceId?: string;
+  voiceprintId?: string;
   volume?: number;
   static names(): { [key: string]: string } {
     return {
       asrMaxSilence: 'AsrMaxSilence',
+      bailianAppParams: 'BailianAppParams',
       enableIntelligentSegment: 'EnableIntelligentSegment',
+      enablePushToTalk: 'EnablePushToTalk',
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
       greeting: 'Greeting',
+      useVoiceprint: 'UseVoiceprint',
+      userOfflineTimeout: 'UserOfflineTimeout',
+      userOnlineTimeout: 'UserOnlineTimeout',
       voiceId: 'VoiceId',
+      voiceprintId: 'VoiceprintId',
       volume: 'Volume',
     };
   }
@@ -25432,11 +25468,17 @@ export class AIAgentTemplateConfigVisionChat extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       asrMaxSilence: 'number',
+      bailianAppParams: 'string',
       enableIntelligentSegment: 'boolean',
+      enablePushToTalk: 'boolean',
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
       greeting: 'string',
+      useVoiceprint: 'boolean',
+      userOfflineTimeout: 'number',
+      userOnlineTimeout: 'number',
       voiceId: 'string',
+      voiceprintId: 'string',
       volume: 'number',
     };
   }
@@ -25448,18 +25490,30 @@ export class AIAgentTemplateConfigVisionChat extends $tea.Model {
 
 export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
   asrMaxSilence?: number;
+  bailianAppParams?: string;
+  enablePushToTalk?: boolean;
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
   greeting?: string;
+  useVoiceprint?: boolean;
+  userOfflineTimeout?: number;
+  userOnlineTimeout?: number;
   voiceId?: string;
+  voiceprintId?: string;
   volume?: number;
   static names(): { [key: string]: string } {
     return {
       asrMaxSilence: 'AsrMaxSilence',
+      bailianAppParams: 'BailianAppParams',
+      enablePushToTalk: 'EnablePushToTalk',
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
       greeting: 'Greeting',
+      useVoiceprint: 'UseVoiceprint',
+      userOfflineTimeout: 'UserOfflineTimeout',
+      userOnlineTimeout: 'UserOnlineTimeout',
       voiceId: 'VoiceId',
+      voiceprintId: 'VoiceprintId',
       volume: 'Volume',
     };
   }
@@ -25467,10 +25521,16 @@ export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       asrMaxSilence: 'number',
+      bailianAppParams: 'string',
+      enablePushToTalk: 'boolean',
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
       greeting: 'string',
+      useVoiceprint: 'boolean',
+      userOfflineTimeout: 'number',
+      userOnlineTimeout: 'number',
       voiceId: 'string',
+      voiceprintId: 'string',
       volume: 'number',
     };
   }
@@ -26902,7 +26962,7 @@ export class CreateEditingProjectResponseBodyProject extends $tea.Model {
   templateType?: string;
   /**
    * @remarks
-   * The timeline of the online editing project, in the JSON format. For more information about objects in a timeline, see [Timeline configurations](https://help.aliyun.com/document_detail/198823.htm?spm=a2c4g.11186623.2.9.90dc653dF67srN#topic-2024662). If you leave this parameter empty, an empty timeline is created and the duration of the online editing project is zero.
+   * The timeline of the online editing project, in the JSON format.<props="china">For more information about objects in a timeline, see [Timeline configurations](https://help.aliyun.com/document_detail/198823.htm?spm=a2c4g.11186623.2.9.90dc653dF67srN#topic-2024662).  If you leave this parameter empty, an empty timeline is created and the duration of the online editing project is zero.
    * 
    * @example
    * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
@@ -47281,30 +47341,45 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfos extends $tea.Mode
 }
 
 export class StartRtcRobotInstanceRequestConfig extends $tea.Model {
+  asrMaxSilence?: number;
   /**
    * @example
    * true
    */
   enableVoiceInterrupt?: boolean;
   greeting?: string;
+  useVoiceprint?: boolean;
+  userOfflineTimeout?: number;
+  userOnlineTimeout?: number;
   /**
    * @example
    * zhixiaoxia
    */
   voiceId?: string;
+  voiceprintId?: string;
   static names(): { [key: string]: string } {
     return {
+      asrMaxSilence: 'AsrMaxSilence',
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       greeting: 'Greeting',
+      useVoiceprint: 'UseVoiceprint',
+      userOfflineTimeout: 'UserOfflineTimeout',
+      userOnlineTimeout: 'UserOnlineTimeout',
       voiceId: 'VoiceId',
+      voiceprintId: 'VoiceprintId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      asrMaxSilence: 'number',
       enableVoiceInterrupt: 'boolean',
       greeting: 'string',
+      useVoiceprint: 'boolean',
+      userOfflineTimeout: 'number',
+      userOnlineTimeout: 'number',
       voiceId: 'string',
+      voiceprintId: 'string',
     };
   }
 
@@ -63392,6 +63467,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.jobParams)) {
       query["JobParams"] = request.jobParams;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      query["ModelId"] = request.modelId;
     }
 
     if (!Util.isUnset(request.name)) {
