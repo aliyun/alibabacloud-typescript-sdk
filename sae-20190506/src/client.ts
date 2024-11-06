@@ -10559,6 +10559,10 @@ export class DeployApplicationRequest extends $tea.Model {
    * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
    */
   configMapMountDesc?: string;
+  /**
+   * @example
+   * 1000
+   */
   cpu?: number;
   /**
    * @remarks
@@ -10722,6 +10726,10 @@ export class DeployApplicationRequest extends $tea.Model {
    * {"exec":{"command":["sleep","5s"]},"initialDelaySeconds":10,"timeoutSeconds":11}
    */
   liveness?: string;
+  /**
+   * @example
+   * 1024
+   */
   memory?: number;
   /**
    * @remarks
@@ -10735,6 +10743,10 @@ export class DeployApplicationRequest extends $tea.Model {
    * "0"
    */
   microRegistration?: string;
+  /**
+   * @example
+   * {\\"instanceId\\":\\"mse-cn-zvp2bh6h70r\\",\\"namespace\\":\\"4c0aa74f-57cb-423c-b6af-5d9f2d0e3dbd\\"}
+   */
   microRegistrationConfig?: string;
   /**
    * @remarks
@@ -10794,7 +10806,7 @@ export class DeployApplicationRequest extends $tea.Model {
   nasConfigs?: string;
   /**
    * @remarks
-   * The ID of the Apsara File Storage NAS file system. After the application is created, you may want to call other operations to manage the application. If you do not want to change the NAS configurations in these subsequent operations, you can omit the **NasId** parameter in the requests. If you want to unmount the NAS file system, you must set the **NasId** values in the subsequent requests to an empty string ("").
+   * The ID of the File Storage NAS file system. After the application is created, you may want to call other operations to manage the application. If you do not want to change the NAS configurations in these subsequent operations, you can omit the **NasId** parameter in the requests. If you want to unmount the NAS file system, you must set the **NasId** values in the subsequent requests to an empty string ("").
    * 
    * @example
    * 10d3b4****
@@ -10940,8 +10952,20 @@ export class DeployApplicationRequest extends $tea.Model {
    * {"exec":{"command":["sleep","6s"]},"initialDelaySeconds":15,"timeoutSeconds":12}
    */
   readiness?: string;
+  /**
+   * @example
+   * 1
+   */
   replicas?: number;
+  /**
+   * @example
+   * sg-wz969ngg2e49q5i4****
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * {\\"alicloud.service.tag\\":\\"g1\\"}
+   */
   serviceTags?: string;
   /**
    * @remarks
@@ -11020,6 +11044,10 @@ export class DeployApplicationRequest extends $tea.Model {
    * {"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}
    */
   updateStrategy?: string;
+  /**
+   * @example
+   * vsw-bp12mw1f8k3jgygk9****
+   */
   vSwitchId?: string;
   /**
    * @remarks
@@ -32554,6 +32582,28 @@ export class DescribeIngressResponseBodyDataDefaultRule extends $tea.Model {
   }
 }
 
+export class DescribeIngressResponseBodyDataRulesRuleActions extends $tea.Model {
+  actionConfig?: string;
+  actionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionConfig: 'ActionConfig',
+      actionType: 'ActionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionConfig: 'string',
+      actionType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeIngressResponseBodyDataRules extends $tea.Model {
   /**
    * @remarks
@@ -32610,6 +32660,7 @@ export class DescribeIngressResponseBodyDataRules extends $tea.Model {
    */
   path?: string;
   rewritePath?: string;
+  ruleActions?: DescribeIngressResponseBodyDataRulesRuleActions[];
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -32619,6 +32670,7 @@ export class DescribeIngressResponseBodyDataRules extends $tea.Model {
       domain: 'Domain',
       path: 'Path',
       rewritePath: 'RewritePath',
+      ruleActions: 'RuleActions',
     };
   }
 
@@ -32631,6 +32683,7 @@ export class DescribeIngressResponseBodyDataRules extends $tea.Model {
       domain: 'string',
       path: 'string',
       rewritePath: 'string',
+      ruleActions: { 'type': 'array', 'itemType': DescribeIngressResponseBodyDataRulesRuleActions },
     };
   }
 
