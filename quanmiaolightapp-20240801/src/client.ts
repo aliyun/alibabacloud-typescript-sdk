@@ -810,19 +810,25 @@ export class RunMarketingInformationExtractResponse extends $tea.Model {
 }
 
 export class RunMarketingInformationWritingRequest extends $tea.Model {
+  customLimitation?: string;
   customPrompt?: string;
+  inputExample?: string;
   /**
    * @example
    * qwen-max
    * qwen-plus
    */
   modelId?: string;
+  outputExample?: string;
   sourceMaterial?: string;
   writingType?: string;
   static names(): { [key: string]: string } {
     return {
+      customLimitation: 'customLimitation',
       customPrompt: 'customPrompt',
+      inputExample: 'inputExample',
       modelId: 'modelId',
+      outputExample: 'outputExample',
       sourceMaterial: 'sourceMaterial',
       writingType: 'writingType',
     };
@@ -830,8 +836,11 @@ export class RunMarketingInformationWritingRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      customLimitation: 'string',
       customPrompt: 'string',
+      inputExample: 'string',
       modelId: 'string',
+      outputExample: 'string',
       sourceMaterial: 'string',
       writingType: 'string',
     };
@@ -4167,12 +4176,24 @@ export default class Client extends OpenApi {
   async runMarketingInformationWritingWithOptions(workspaceId: string, request: RunMarketingInformationWritingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunMarketingInformationWritingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customLimitation)) {
+      body["customLimitation"] = request.customLimitation;
+    }
+
     if (!Util.isUnset(request.customPrompt)) {
       body["customPrompt"] = request.customPrompt;
     }
 
+    if (!Util.isUnset(request.inputExample)) {
+      body["inputExample"] = request.inputExample;
+    }
+
     if (!Util.isUnset(request.modelId)) {
       body["modelId"] = request.modelId;
+    }
+
+    if (!Util.isUnset(request.outputExample)) {
+      body["outputExample"] = request.outputExample;
     }
 
     if (!Util.isUnset(request.sourceMaterial)) {
