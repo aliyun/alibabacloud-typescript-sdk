@@ -141,6 +141,84 @@ export class BatchSetDesktopManagerResponse extends $tea.Model {
   }
 }
 
+export class ChangeUserPasswordRequest extends $tea.Model {
+  /**
+   * @example
+   * alice***
+   */
+  endUserId?: string;
+  /**
+   * @example
+   * Admin@12***
+   */
+  newPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endUserId: 'EndUserId',
+      newPassword: 'NewPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endUserId: 'string',
+      newPassword: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeUserPasswordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AA8D67CB-345D-5CDA-986E-FFAC7D0****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeUserPasswordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeUserPasswordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeUserPasswordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckUsedPropertyRequest extends $tea.Model {
   /**
    * @remarks
@@ -1904,6 +1982,7 @@ export class LockMfaDeviceResponse extends $tea.Model {
 }
 
 export class LockUsersRequest extends $tea.Model {
+  logoutSession?: boolean;
   /**
    * @remarks
    * The usernames of the convenience users that you want to lock.
@@ -1916,12 +1995,14 @@ export class LockUsersRequest extends $tea.Model {
   users?: string[];
   static names(): { [key: string]: string } {
     return {
+      logoutSession: 'LogoutSession',
       users: 'Users',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      logoutSession: 'boolean',
       users: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -5265,6 +5346,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 管理员修改用户密码
+   * 
+   * @param request - ChangeUserPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeUserPasswordResponse
+   */
+  async changeUserPasswordWithOptions(request: ChangeUserPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ChangeUserPasswordResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endUserId)) {
+      body["EndUserId"] = request.endUserId;
+    }
+
+    if (!Util.isUnset(request.newPassword)) {
+      body["NewPassword"] = request.newPassword;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeUserPassword",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeUserPasswordResponse>(await this.callApi(params, req, runtime), new ChangeUserPasswordResponse({}));
+  }
+
+  /**
+   * 管理员修改用户密码
+   * 
+   * @param request - ChangeUserPasswordRequest
+   * @returns ChangeUserPasswordResponse
+   */
+  async changeUserPassword(request: ChangeUserPasswordRequest): Promise<ChangeUserPasswordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeUserPasswordWithOptions(request, runtime);
+  }
+
+  /**
    * Queries whether a property is associated with one or more convenience users.
    * 
    * @param request - CheckUsedPropertyRequest
@@ -6007,12 +6134,18 @@ export default class Client extends OpenApi {
    */
   async lockUsersWithOptions(request: LockUsersRequest, runtime: $Util.RuntimeOptions): Promise<LockUsersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.logoutSession)) {
+      query["LogoutSession"] = request.logoutSession;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.users)) {
       body["Users"] = request.users;
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
