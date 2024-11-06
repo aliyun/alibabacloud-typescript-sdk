@@ -1760,6 +1760,100 @@ export class ListJobRunsResponse extends $tea.Model {
   }
 }
 
+export class ListLogContentsRequest extends $tea.Model {
+  fileName?: string;
+  /**
+   * @example
+   * 9999
+   */
+  length?: number;
+  /**
+   * @example
+   * 0
+   */
+  offset?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'fileName',
+      length: 'length',
+      offset: 'offset',
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      length: 'number',
+      offset: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLogContentsResponseBody extends $tea.Model {
+  listLogContent?: ListLogContentsResponseBodyListLogContent;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      listLogContent: 'listLogContent',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listLogContent: ListLogContentsResponseBodyListLogContent,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLogContentsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLogContentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLogContentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListReleaseVersionsRequest extends $tea.Model {
   /**
    * @remarks
@@ -1925,6 +2019,19 @@ export class ListReleaseVersionsResponse extends $tea.Model {
 }
 
 export class ListSessionClustersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The session type.
+   * 
+   * Valid values:
+   * 
+   * *   NOTEBOOK
+   * *   THRIFT
+   * *   SQL
+   * 
+   * @example
+   * SQL
+   */
   kind?: string;
   /**
    * @remarks
@@ -2020,7 +2127,7 @@ export class ListSessionClustersResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The SQL computes.
+   * The list of sessions.
    */
   sessionClusters?: ListSessionClustersResponseBodySessionClusters[];
   /**
@@ -2554,16 +2661,25 @@ export class StartJobRunResponse extends $tea.Model {
 
 export class StartSessionClusterRequest extends $tea.Model {
   /**
+   * @remarks
+   * The queue name.
+   * 
    * @example
    * root_queue
    */
   queueName?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * sc-xxxxxxxxxxx
    */
   sessionClusterId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -2592,7 +2708,7 @@ export class StartSessionClusterRequest extends $tea.Model {
 export class StartSessionClusterResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -2600,7 +2716,7 @@ export class StartSessionClusterResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Workspace Id。
+   * The workspace ID.
    * 
    * @example
    * w-******
@@ -2652,16 +2768,25 @@ export class StartSessionClusterResponse extends $tea.Model {
 
 export class StopSessionClusterRequest extends $tea.Model {
   /**
+   * @remarks
+   * The queue name.
+   * 
    * @example
    * root_queue
    */
   queueName?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * sc-xxxxxxxxxxxx
    */
   sessionClusterId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -2690,7 +2815,7 @@ export class StopSessionClusterRequest extends $tea.Model {
 export class StopSessionClusterResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -2698,7 +2823,7 @@ export class StopSessionClusterResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Workspace Id。
+   * The workspace ID.
    * 
    * @example
    * w-******
@@ -3662,6 +3787,55 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
   }
 }
 
+export class ListLogContentsResponseBodyListLogContentContents extends $tea.Model {
+  /**
+   * @example
+   * spark pi is 3.14\\n
+   */
+  lineContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lineContent: 'LineContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lineContent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLogContentsResponseBodyListLogContent extends $tea.Model {
+  contents?: ListLogContentsResponseBodyListLogContentContents[];
+  /**
+   * @example
+   * 10
+   */
+  totalLength?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contents: 'contents',
+      totalLength: 'totalLength',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contents: { 'type': 'array', 'itemType': ListLogContentsResponseBodyListLogContentContents },
+      totalLength: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListReleaseVersionsResponseBodyReleaseVersions extends $tea.Model {
   /**
    * @remarks
@@ -3858,7 +4032,7 @@ export class ListSessionClustersResponseBodySessionClustersAutoStopConfiguration
   enable?: boolean;
   /**
    * @remarks
-   * The idle timeout period. The SQL Compute is automatically terminated if the idle timeout period is exceeded.
+   * The idle timeout period. The session is automatically terminated when the idle timeout period is exceeded.
    * 
    * @example
    * 45
@@ -3922,7 +4096,7 @@ export class ListSessionClustersResponseBodySessionClustersStateChangeReason ext
 export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
   /**
    * @remarks
-   * The SQL Compute configurations, which are equivalent to the configurations of the Spark job.
+   * The session configurations, which are equivalent to the configurations of the Spark job.
    */
   applicationConfigs?: ListSessionClustersResponseBodySessionClustersApplicationConfigs[];
   /**
@@ -3932,17 +4106,48 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
   autoStartConfiguration?: ListSessionClustersResponseBodySessionClustersAutoStartConfiguration;
   /**
    * @remarks
-   * The automatic termination configurations.
+   * The configurations of automatic termination.
    */
   autoStopConfiguration?: ListSessionClustersResponseBodySessionClustersAutoStopConfiguration;
+  /**
+   * @remarks
+   * The version of the Spark engine.
+   */
   displayReleaseVersion?: string;
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the job that is associated with the session.
+   * 
+   * @example
+   * TSK-xxxxxxxxx
+   */
   draftId?: string;
+  /**
+   * @remarks
+   * Indicates whether the Fusion engine is used for acceleration.
+   * 
+   * @example
+   * false
+   */
   fusion?: boolean;
+  /**
+   * @remarks
+   * The session type.
+   * 
+   * Valid values:
+   * 
+   * *   NOTEBOOK
+   * *   THRIFT
+   * *   SQL
+   * 
+   * @example
+   * SQL
+   */
   kind?: string;
   /**
    * @remarks
-   * The name of the SQL Compute.
+   * The name of the session.
    * 
    * @example
    * adhoc_query
@@ -3950,16 +4155,23 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the queue on which the SQL Compute runs.
+   * The name of the queue that is used to run the session.
    * 
    * @example
    * dev_queue
    */
   queueName?: string;
+  /**
+   * @remarks
+   * The version of EMR Serverless Spark.
+   * 
+   * @example
+   * esr-2.1
+   */
   releaseVersion?: string;
   /**
    * @remarks
-   * The SQL Compute ID.
+   * The session ID.
    * 
    * @example
    * sc-123131
@@ -3967,7 +4179,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
   sessionClusterId?: string;
   /**
    * @remarks
-   * The status of the SQL Compute.
+   * The status of the session.
    * 
    * @example
    * Running
@@ -3975,7 +4187,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
   state?: string;
   /**
    * @remarks
-   * The details of the last status change of the SQL Compute.
+   * The details of the most recent status change of the session.
    */
   stateChangeReason?: ListSessionClustersResponseBodySessionClustersStateChangeReason;
   /**
@@ -3994,6 +4206,13 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
    * test_user
    */
   userName?: string;
+  /**
+   * @remarks
+   * The Spark UI of the session.
+   * 
+   * @example
+   * http://spark-ui-xxxx
+   */
   webUI?: string;
   /**
    * @remarks
@@ -5014,6 +5233,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取日志内容
+   * 
+   * @param request - ListLogContentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLogContentsResponse
+   */
+  async listLogContentsWithOptions(workspaceId: string, request: ListLogContentsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogContentsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["fileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.length)) {
+      query["length"] = request.length;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLogContents",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${OpenApiUtil.getEncodeParam(workspaceId)}/action/listLogContents`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLogContentsResponse>(await this.callApi(params, req, runtime), new ListLogContentsResponse({}));
+  }
+
+  /**
+   * 获取日志内容
+   * 
+   * @param request - ListLogContentsRequest
+   * @returns ListLogContentsResponse
+   */
+  async listLogContents(workspaceId: string, request: ListLogContentsRequest): Promise<ListLogContentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listLogContentsWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
    * 
    * @param request - ListReleaseVersionsRequest
@@ -5075,7 +5351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询run列表
+   * Queries a list of sessions.
    * 
    * @param request - ListSessionClustersRequest
    * @param headers - map
@@ -5128,7 +5404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询run列表
+   * Queries a list of sessions.
    * 
    * @param request - ListSessionClustersRequest
    * @returns ListSessionClustersResponse
@@ -5345,7 +5621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动session集群
+   * Starts a session.
    * 
    * @param request - StartSessionClusterRequest
    * @param headers - map
@@ -5388,7 +5664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动session集群
+   * Starts a session.
    * 
    * @param request - StartSessionClusterRequest
    * @returns StartSessionClusterResponse
@@ -5400,7 +5676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动session集群
+   * Stops a session.
    * 
    * @param request - StopSessionClusterRequest
    * @param headers - map
@@ -5443,7 +5719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动session集群
+   * Stops a session.
    * 
    * @param request - StopSessionClusterRequest
    * @returns StopSessionClusterResponse
