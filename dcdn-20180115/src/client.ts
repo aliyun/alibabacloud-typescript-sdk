@@ -2610,7 +2610,6 @@ export class CreateDcdnSLSRealTimeLogDeliveryRequest extends $tea.Model {
    * 
    * *   cn: China
    * *   sg: Singapore
-   * *   in: India
    * *   eu: Europe
    * *   us: United States
    * 
@@ -23326,6 +23325,104 @@ export class GetDcdnKvResponse extends $tea.Model {
   }
 }
 
+export class GetDcdnKvDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_namespace
+   */
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDcdnKvDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3600
+   */
+  expirationTtl?: string;
+  /**
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+   */
+  requestId?: string;
+  /**
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expirationTtl: 'ExpirationTtl',
+      requestId: 'RequestId',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expirationTtl: 'string',
+      requestId: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDcdnKvDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDcdnKvDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDcdnKvDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDcdnKvStatusRequest extends $tea.Model {
   /**
    * @remarks
@@ -24389,6 +24486,7 @@ export class PreloadDcdnObjectCachesRequest extends $tea.Model {
    */
   objectPath?: string;
   ownerId?: number;
+  queryHashkey?: boolean;
   securityToken?: string;
   /**
    * @remarks
@@ -24408,6 +24506,7 @@ export class PreloadDcdnObjectCachesRequest extends $tea.Model {
       l2Preload: 'L2Preload',
       objectPath: 'ObjectPath',
       ownerId: 'OwnerId',
+      queryHashkey: 'QueryHashkey',
       securityToken: 'SecurityToken',
       withHeader: 'WithHeader',
     };
@@ -24419,6 +24518,7 @@ export class PreloadDcdnObjectCachesRequest extends $tea.Model {
       l2Preload: 'boolean',
       objectPath: 'string',
       ownerId: 'number',
+      queryHashkey: 'boolean',
       securityToken: 'string',
       withHeader: 'string',
     };
@@ -50643,6 +50743,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询KV对的值以及TTL信息
+   * 
+   * @param request - GetDcdnKvDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDcdnKvDetailResponse
+   */
+  async getDcdnKvDetailWithOptions(request: GetDcdnKvDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetDcdnKvDetailResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDcdnKvDetail",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDcdnKvDetailResponse>(await this.callApi(params, req, runtime), new GetDcdnKvDetailResponse({}));
+  }
+
+  /**
+   * 查询KV对的值以及TTL信息
+   * 
+   * @param request - GetDcdnKvDetailRequest
+   * @returns GetDcdnKvDetailResponse
+   */
+  async getDcdnKvDetail(request: GetDcdnKvDetailRequest): Promise<GetDcdnKvDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDcdnKvDetailWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the KV status by key value.
    * 
    * @param request - GetDcdnKvStatusRequest
@@ -51174,6 +51312,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.queryHashkey)) {
+      query["QueryHashkey"] = request.queryHashkey;
     }
 
     if (!Util.isUnset(request.securityToken)) {
