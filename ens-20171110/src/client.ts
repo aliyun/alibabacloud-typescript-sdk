@@ -15032,6 +15032,160 @@ export class DescribeEnsRouteEntryListResponse extends $tea.Model {
   }
 }
 
+export class DescribeEnsRouteTablesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ENS node.
+   * 
+   * @example
+   * cn-xian-unicom
+   */
+  ensRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the network.
+   * 
+   * @example
+   * n-257gqcdfvx6n****
+   */
+  networkId?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the route table.
+   * 
+   * @example
+   * vtb-5p1cifr72di****
+   */
+  routeTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      networkId: 'NetworkId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      routeTableId: 'RouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      networkId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      routeTableId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsRouteTablesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DC51ACB0-460D-5CA0-BA2D-E1F3B5547AE9
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the route tables.
+   */
+  routeTables?: DescribeEnsRouteTablesResponseBodyRouteTables[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      routeTables: 'RouteTables',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      routeTables: { 'type': 'array', 'itemType': DescribeEnsRouteTablesResponseBodyRouteTables },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsRouteTablesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEnsRouteTablesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEnsRouteTablesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEnsSaleControlRequest extends $tea.Model {
   aliUidAccount?: string;
   /**
@@ -43913,6 +44067,97 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrys extends $tea.Model
   }
 }
 
+export class DescribeEnsRouteTablesResponseBodyRouteTables extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the route table was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-03-08T08:35:18Z
+   */
+  creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the edge node.
+   * 
+   * @example
+   * cn-beijing-15
+   */
+  ensRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the network.
+   * 
+   * @example
+   * n-5v9lufsezl4g****
+   */
+  networkId?: string;
+  /**
+   * @remarks
+   * The ID of the route table.
+   * 
+   * @example
+   * rt-5xde2bit9****
+   */
+  routeTableId?: string;
+  routeTableName?: string;
+  /**
+   * @remarks
+   * The status. Valid values:
+   * 
+   * *   Available: The route table is available.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The type of the route table. Valid values:
+   * 
+   * *   Custom: custom route table.
+   * *   System: system route table.
+   * 
+   * @example
+   * System
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The vSwitches that are associated with the route table.
+   */
+  vSwitchIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      ensRegionId: 'EnsRegionId',
+      networkId: 'NetworkId',
+      routeTableId: 'RouteTableId',
+      routeTableName: 'RouteTableName',
+      status: 'Status',
+      type: 'Type',
+      vSwitchIds: 'VSwitchIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      ensRegionId: 'string',
+      networkId: 'string',
+      routeTableId: 'string',
+      routeTableName: 'string',
+      status: 'string',
+      type: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemBasicSaleControlModuleValue extends $tea.Model {
   moduleMaxValue?: string;
   moduleMinValue?: string;
@@ -62256,6 +62501,64 @@ export default class Client extends OpenApi {
   async describeEnsRouteEntryList(request: DescribeEnsRouteEntryListRequest): Promise<DescribeEnsRouteEntryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsRouteEntryListWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries route tables.
+   * 
+   * @param request - DescribeEnsRouteTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEnsRouteTablesResponse
+   */
+  async describeEnsRouteTablesWithOptions(request: DescribeEnsRouteTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsRouteTablesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    if (!Util.isUnset(request.networkId)) {
+      query["NetworkId"] = request.networkId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.routeTableId)) {
+      query["RouteTableId"] = request.routeTableId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEnsRouteTables",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEnsRouteTablesResponse>(await this.callApi(params, req, runtime), new DescribeEnsRouteTablesResponse({}));
+  }
+
+  /**
+   * Queries route tables.
+   * 
+   * @param request - DescribeEnsRouteTablesRequest
+   * @returns DescribeEnsRouteTablesResponse
+   */
+  async describeEnsRouteTables(request: DescribeEnsRouteTablesRequest): Promise<DescribeEnsRouteTablesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEnsRouteTablesWithOptions(request, runtime);
   }
 
   /**
