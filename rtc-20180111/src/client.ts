@@ -215,6 +215,144 @@ export class AddRecordTemplateResponse extends $tea.Model {
   }
 }
 
+export class CreateAppLayoutRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 53200b81-b761-4c10-842a-a0726d97xxxx
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  layout?: CreateAppLayoutRequestLayout;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      layout: 'Layout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      layout: CreateAppLayoutRequestLayout,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppLayoutShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 53200b81-b761-4c10-842a-a0726d97xxxx
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  layoutShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      layoutShrink: 'Layout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      layoutShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppLayoutResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 167466539798442****
+   */
+  layoutId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 20A6D1E3-1F5F-5440-A4F1-EC7831646FE4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      layoutId: 'LayoutId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      layoutId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppLayoutResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppLayoutResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAppLayoutResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppRecordTemplateRequest extends $tea.Model {
   /**
    * @remarks
@@ -840,6 +978,129 @@ export class CreateMPULayoutResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateMPULayoutResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppLayoutRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  layout?: DeleteAppLayoutRequestLayout;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      layout: 'Layout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      layout: DeleteAppLayoutRequestLayout,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppLayoutShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  layoutShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      layoutShrink: 'Layout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      layoutShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppLayoutResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2DCE8D7E-BE3B-54AB-8DAC-32F34BED0763
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppLayoutResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppLayoutResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAppLayoutResponseBody,
     };
   }
 
@@ -8064,6 +8325,144 @@ export class ModifyAppCallbackStatusResponse extends $tea.Model {
   }
 }
 
+export class ModifyAppLayoutRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 53200b81-b761-4c10-842a-a0726d97xxxx
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  layout?: ModifyAppLayoutRequestLayout;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      layout: 'Layout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      layout: ModifyAppLayoutRequestLayout,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppLayoutShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 53200b81-b761-4c10-842a-a0726d97xxxx
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  layoutShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      layoutShrink: 'Layout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      layoutShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppLayoutResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 167466539798442****
+   */
+  layoutId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      layoutId: 'LayoutId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      layoutId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppLayoutResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAppLayoutResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAppLayoutResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAppLiveStreamStatusRequest extends $tea.Model {
   /**
    * @remarks
@@ -9076,6 +9475,7 @@ export class StartCloudRecordRequest extends $tea.Model {
    * eo85****
    */
   appId?: string;
+  backgrounds?: StartCloudRecordRequestBackgrounds[];
   /**
    * @remarks
    * channelName
@@ -9098,6 +9498,7 @@ export class StartCloudRecordRequest extends $tea.Model {
    * panes
    */
   panes?: StartCloudRecordRequestPanes[];
+  regionColor?: StartCloudRecordRequestRegionColor;
   /**
    * @remarks
    * storageConfig
@@ -9127,11 +9528,13 @@ export class StartCloudRecordRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      backgrounds: 'Backgrounds',
       channelId: 'ChannelId',
       clockWidgets: 'ClockWidgets',
       cropMode: 'CropMode',
       images: 'Images',
       panes: 'Panes',
+      regionColor: 'RegionColor',
       storageConfig: 'StorageConfig',
       taskId: 'TaskId',
       templateId: 'TemplateId',
@@ -9142,11 +9545,13 @@ export class StartCloudRecordRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      backgrounds: { 'type': 'array', 'itemType': StartCloudRecordRequestBackgrounds },
       channelId: 'string',
       clockWidgets: { 'type': 'array', 'itemType': StartCloudRecordRequestClockWidgets },
       cropMode: 'number',
       images: { 'type': 'array', 'itemType': StartCloudRecordRequestImages },
       panes: { 'type': 'array', 'itemType': StartCloudRecordRequestPanes },
+      regionColor: StartCloudRecordRequestRegionColor,
       storageConfig: StartCloudRecordRequestStorageConfig,
       taskId: 'string',
       templateId: 'string',
@@ -9676,6 +10081,7 @@ export class StartStreamingOutRequest extends $tea.Model {
    * eo85****
    */
   appId?: string;
+  backgrounds?: StartStreamingOutRequestBackgrounds[];
   /**
    * @remarks
    * This parameter is required.
@@ -9692,6 +10098,7 @@ export class StartStreamingOutRequest extends $tea.Model {
   cropMode?: number;
   images?: StartStreamingOutRequestImages[];
   panes?: StartStreamingOutRequestPanes[];
+  regionColor?: StartStreamingOutRequestRegionColor;
   /**
    * @example
    * 123
@@ -9717,11 +10124,13 @@ export class StartStreamingOutRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      backgrounds: 'Backgrounds',
       channelId: 'ChannelId',
       clockWidgets: 'ClockWidgets',
       cropMode: 'CropMode',
       images: 'Images',
       panes: 'Panes',
+      regionColor: 'RegionColor',
       taskId: 'TaskId',
       templateId: 'TemplateId',
       texts: 'Texts',
@@ -9732,11 +10141,13 @@ export class StartStreamingOutRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      backgrounds: { 'type': 'array', 'itemType': StartStreamingOutRequestBackgrounds },
       channelId: 'string',
       clockWidgets: { 'type': 'array', 'itemType': StartStreamingOutRequestClockWidgets },
       cropMode: 'number',
       images: { 'type': 'array', 'itemType': StartStreamingOutRequestImages },
       panes: { 'type': 'array', 'itemType': StartStreamingOutRequestPanes },
+      regionColor: StartStreamingOutRequestRegionColor,
       taskId: 'string',
       templateId: 'string',
       texts: { 'type': 'array', 'itemType': StartStreamingOutRequestTexts },
@@ -10514,6 +10925,7 @@ export class UpdateCloudRecordRequest extends $tea.Model {
    * eo85****
    */
   appId?: string;
+  backgrounds?: UpdateCloudRecordRequestBackgrounds[];
   /**
    * @remarks
    * This parameter is required.
@@ -10545,6 +10957,7 @@ export class UpdateCloudRecordRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      backgrounds: 'Backgrounds',
       channelId: 'ChannelId',
       clockWidgets: 'ClockWidgets',
       images: 'Images',
@@ -10558,6 +10971,7 @@ export class UpdateCloudRecordRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      backgrounds: { 'type': 'array', 'itemType': UpdateCloudRecordRequestBackgrounds },
       channelId: 'string',
       clockWidgets: { 'type': 'array', 'itemType': UpdateCloudRecordRequestClockWidgets },
       images: { 'type': 'array', 'itemType': UpdateCloudRecordRequestImages },
@@ -11167,6 +11581,7 @@ export class UpdateStreamingOutRequest extends $tea.Model {
    * eo85****
    */
   appId?: string;
+  backgrounds?: UpdateStreamingOutRequestBackgrounds[];
   /**
    * @remarks
    * This parameter is required.
@@ -11198,6 +11613,7 @@ export class UpdateStreamingOutRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      backgrounds: 'Backgrounds',
       channelId: 'ChannelId',
       clockWidgets: 'ClockWidgets',
       images: 'Images',
@@ -11211,6 +11627,7 @@ export class UpdateStreamingOutRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      backgrounds: { 'type': 'array', 'itemType': UpdateStreamingOutRequestBackgrounds },
       channelId: 'string',
       clockWidgets: { 'type': 'array', 'itemType': UpdateStreamingOutRequestClockWidgets },
       images: { 'type': 'array', 'itemType': UpdateStreamingOutRequestImages },
@@ -11476,6 +11893,97 @@ export class AddRecordTemplateRequestWatermarks extends $tea.Model {
   }
 }
 
+export class CreateAppLayoutRequestLayoutPanes extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  paneId?: number;
+  /**
+   * @example
+   * 0.25
+   */
+  width?: number;
+  /**
+   * @example
+   * 0.25
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.25
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      paneId: 'PaneId',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      paneId: 'number',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppLayoutRequestLayout extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 布局
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  panes?: CreateAppLayoutRequestLayoutPanes[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      panes: 'Panes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      panes: { 'type': 'array', 'itemType': CreateAppLayoutRequestLayoutPanes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppRecordTemplateRequestRecordTemplate extends $tea.Model {
   /**
    * @example
@@ -11649,6 +12157,32 @@ export class CreateMPULayoutRequestPanes extends $tea.Model {
       x: 'number',
       y: 'number',
       ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppLayoutRequestLayout extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 167466539798442****
+   */
+  layoutId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      layoutId: 'LayoutId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      layoutId: 'string',
     };
   }
 
@@ -16325,6 +16859,103 @@ export class DescribeUserInfoInChannelResponseBodyProperty extends $tea.Model {
   }
 }
 
+export class ModifyAppLayoutRequestLayoutPanes extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  paneId?: number;
+  /**
+   * @example
+   * 0.25
+   */
+  width?: number;
+  /**
+   * @example
+   * 0.25
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.25
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      paneId: 'PaneId',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      paneId: 'number',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppLayoutRequestLayout extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123121231313
+   */
+  layoutId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 测试
+   */
+  name?: string;
+  panes?: ModifyAppLayoutRequestLayoutPanes[];
+  static names(): { [key: string]: string } {
+    return {
+      layoutId: 'LayoutId',
+      name: 'Name',
+      panes: 'Panes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      layoutId: 'string',
+      name: 'string',
+      panes: { 'type': 'array', 'itemType': ModifyAppLayoutRequestLayoutPanes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAppRecordTemplateRequestRecordTemplate extends $tea.Model {
   /**
    * @example
@@ -16706,6 +17337,93 @@ export class StartCategoryCallbackRequestCallback extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestBackgrounds extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 2
+   */
+  backgroundCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      backgroundCropMode: 'BackgroundCropMode',
+      height: 'Height',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      backgroundCropMode: 'number',
+      height: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
     };
   }
 
@@ -17277,6 +17995,43 @@ export class StartCloudRecordRequestPanes extends $tea.Model {
       source: 'string',
       sourceType: 'string',
       texts: { 'type': 'array', 'itemType': StartCloudRecordRequestPanesTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestRegionColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
     };
   }
 
@@ -18187,6 +18942,93 @@ export class StartRecordTaskRequestUserPanes extends $tea.Model {
   }
 }
 
+export class StartStreamingOutRequestBackgrounds extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 2
+   */
+  backgroundCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      backgroundCropMode: 'BackgroundCropMode',
+      height: 'Height',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      backgroundCropMode: 'number',
+      height: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartStreamingOutRequestClockWidgetsBoxColor extends $tea.Model {
   /**
    * @example
@@ -18753,6 +19595,43 @@ export class StartStreamingOutRequestPanes extends $tea.Model {
   }
 }
 
+export class StartStreamingOutRequestRegionColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartStreamingOutRequestTextsBoxColor extends $tea.Model {
   /**
    * @example
@@ -18942,6 +19821,93 @@ export class StopCategoryCallbackRequestCallback extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestBackgrounds extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 2
+   */
+  backgroundCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      backgroundCropMode: 'BackgroundCropMode',
+      height: 'Height',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      backgroundCropMode: 'number',
+      height: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
     };
   }
 
@@ -20514,6 +21480,93 @@ export class UpdateRecordTemplateRequestWatermarks extends $tea.Model {
   }
 }
 
+export class UpdateStreamingOutRequestBackgrounds extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 2
+   */
+  backgroundCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      backgroundCropMode: 'BackgroundCropMode',
+      height: 'Height',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      backgroundCropMode: 'number',
+      height: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateStreamingOutRequestClockWidgetsBoxColor extends $tea.Model {
   /**
    * @example
@@ -21382,6 +22435,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增app自定义布局
+   * 
+   * @param tmpReq - CreateAppLayoutRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppLayoutResponse
+   */
+  async createAppLayoutWithOptions(tmpReq: CreateAppLayoutRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppLayoutResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateAppLayoutShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.layout)) {
+      request.layoutShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.layout, "Layout", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.layoutShrink)) {
+      query["Layout"] = request.layoutShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAppLayout",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAppLayoutResponse>(await this.callApi(params, req, runtime), new CreateAppLayoutResponse({}));
+  }
+
+  /**
+   * 新增app自定义布局
+   * 
+   * @param request - CreateAppLayoutRequest
+   * @returns CreateAppLayoutResponse
+   */
+  async createAppLayout(request: CreateAppLayoutRequest): Promise<CreateAppLayoutResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAppLayoutWithOptions(request, runtime);
+  }
+
+  /**
    * 增加应用录制模版
    * 
    * @param tmpReq - CreateAppRecordTemplateRequest
@@ -21677,6 +22786,62 @@ export default class Client extends OpenApi {
   async createMPULayout(request: CreateMPULayoutRequest): Promise<CreateMPULayoutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMPULayoutWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除app自定义布局
+   * 
+   * @param tmpReq - DeleteAppLayoutRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppLayoutResponse
+   */
+  async deleteAppLayoutWithOptions(tmpReq: DeleteAppLayoutRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppLayoutResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteAppLayoutShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.layout)) {
+      request.layoutShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.layout, "Layout", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.layoutShrink)) {
+      query["Layout"] = request.layoutShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAppLayout",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAppLayoutResponse>(await this.callApi(params, req, runtime), new DeleteAppLayoutResponse({}));
+  }
+
+  /**
+   * 删除app自定义布局
+   * 
+   * @param request - DeleteAppLayoutRequest
+   * @returns DeleteAppLayoutResponse
+   */
+  async deleteAppLayout(request: DeleteAppLayoutRequest): Promise<DeleteAppLayoutResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAppLayoutWithOptions(request, runtime);
   }
 
   /**
@@ -25056,6 +26221,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改app自定义布局
+   * 
+   * @param tmpReq - ModifyAppLayoutRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppLayoutResponse
+   */
+  async modifyAppLayoutWithOptions(tmpReq: ModifyAppLayoutRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppLayoutResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyAppLayoutShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.layout)) {
+      request.layoutShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.layout, "Layout", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.layoutShrink)) {
+      query["Layout"] = request.layoutShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAppLayout",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAppLayoutResponse>(await this.callApi(params, req, runtime), new ModifyAppLayoutResponse({}));
+  }
+
+  /**
+   * 修改app自定义布局
+   * 
+   * @param request - ModifyAppLayoutRequest
+   * @returns ModifyAppLayoutResponse
+   */
+  async modifyAppLayout(request: ModifyAppLayoutRequest): Promise<ModifyAppLayoutResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAppLayoutWithOptions(request, runtime);
+  }
+
+  /**
    * 修改应用旁路开关
    * 
    * @param request - ModifyAppLiveStreamStatusRequest
@@ -25535,6 +26756,10 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!Util.isUnset(request.backgrounds)) {
+      query["Backgrounds"] = request.backgrounds;
+    }
+
     if (!Util.isUnset(request.channelId)) {
       query["ChannelId"] = request.channelId;
     }
@@ -25553,6 +26778,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.panes)) {
       query["Panes"] = request.panes;
+    }
+
+    if (!Util.isUnset(request.regionColor)) {
+      query["RegionColor"] = request.regionColor;
     }
 
     if (!Util.isUnset(request.storageConfig)) {
@@ -25888,6 +27117,10 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!Util.isUnset(request.backgrounds)) {
+      query["Backgrounds"] = request.backgrounds;
+    }
+
     if (!Util.isUnset(request.channelId)) {
       query["ChannelId"] = request.channelId;
     }
@@ -25906,6 +27139,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.panes)) {
       query["Panes"] = request.panes;
+    }
+
+    if (!Util.isUnset(request.regionColor)) {
+      query["RegionColor"] = request.regionColor;
     }
 
     if (!Util.isUnset(request.taskId)) {
@@ -26326,6 +27563,10 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!Util.isUnset(request.backgrounds)) {
+      query["Backgrounds"] = request.backgrounds;
+    }
+
     if (!Util.isUnset(request.channelId)) {
       query["ChannelId"] = request.channelId;
     }
@@ -26728,6 +27969,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.backgrounds)) {
+      query["Backgrounds"] = request.backgrounds;
     }
 
     if (!Util.isUnset(request.channelId)) {
