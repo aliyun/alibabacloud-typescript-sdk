@@ -10325,6 +10325,7 @@ export class SetPasswordComplexityConfigurationResponse extends $tea.Model {
 }
 
 export class SetPasswordExpirationConfigurationRequest extends $tea.Model {
+  effectiveAuthenticationSourceIds?: string[];
   /**
    * @remarks
    * The instance ID.
@@ -10405,6 +10406,7 @@ export class SetPasswordExpirationConfigurationRequest extends $tea.Model {
   passwordValidMaxDay?: number;
   static names(): { [key: string]: string } {
     return {
+      effectiveAuthenticationSourceIds: 'EffectiveAuthenticationSourceIds',
       instanceId: 'InstanceId',
       passwordExpirationAction: 'PasswordExpirationAction',
       passwordExpirationNotificationChannels: 'PasswordExpirationNotificationChannels',
@@ -10418,6 +10420,7 @@ export class SetPasswordExpirationConfigurationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      effectiveAuthenticationSourceIds: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
       passwordExpirationAction: 'string',
       passwordExpirationNotificationChannels: { 'type': 'array', 'itemType': 'string' },
@@ -10824,7 +10827,7 @@ export class SetUserPrimaryOrganizationalUnitResponse extends $tea.Model {
 export class UnlockUserRequest extends $tea.Model {
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -10834,12 +10837,12 @@ export class UnlockUserRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 账户ID
+   * The account ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * u_001
+   * user_d6sbsuumeta4h66ec3il7yxxxx
    */
   userId?: string;
   static names(): { [key: string]: string } {
@@ -10863,6 +10866,9 @@ export class UnlockUserRequest extends $tea.Model {
 
 export class UnlockUserResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
@@ -14398,6 +14404,7 @@ export class GetPasswordComplexityConfigurationResponseBodyPasswordComplexityCon
 }
 
 export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationConfiguration extends $tea.Model {
+  effectiveAuthenticationSourceIds?: string[];
   /**
    * @remarks
    * The action to take when a password expires. Valid values:
@@ -14466,6 +14473,7 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
   passwordValidMaxDay?: number;
   static names(): { [key: string]: string } {
     return {
+      effectiveAuthenticationSourceIds: 'EffectiveAuthenticationSourceIds',
       passwordExpirationAction: 'PasswordExpirationAction',
       passwordExpirationNotificationChannels: 'PasswordExpirationNotificationChannels',
       passwordExpirationNotificationDuration: 'PasswordExpirationNotificationDuration',
@@ -14478,6 +14486,7 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
 
   static types(): { [key: string]: any } {
     return {
+      effectiveAuthenticationSourceIds: { 'type': 'array', 'itemType': 'string' },
       passwordExpirationAction: 'string',
       passwordExpirationNotificationChannels: { 'type': 'array', 'itemType': 'string' },
       passwordExpirationNotificationDuration: 'number',
@@ -26252,6 +26261,10 @@ export default class Client extends OpenApi {
   async setPasswordExpirationConfigurationWithOptions(request: SetPasswordExpirationConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<SetPasswordExpirationConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.effectiveAuthenticationSourceIds)) {
+      query["EffectiveAuthenticationSourceIds"] = request.effectiveAuthenticationSourceIds;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -26471,7 +26484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解锁账户
+   * Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
    * 
    * @param request - UnlockUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26506,7 +26519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解锁账户
+   * Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
    * 
    * @param request - UnlockUserRequest
    * @returns UnlockUserResponse
