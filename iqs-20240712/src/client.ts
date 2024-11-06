@@ -221,6 +221,7 @@ export class CommonQueryBySceneResponse extends $tea.Model {
 }
 
 export class DrivingDirectionNovaRequest extends $tea.Model {
+  carType?: string;
   /**
    * @example
    * 43.345456
@@ -241,21 +242,26 @@ export class DrivingDirectionNovaRequest extends $tea.Model {
    * 116.466485
    */
   originLongitude?: string;
+  plate?: string;
   static names(): { [key: string]: string } {
     return {
+      carType: 'carType',
       destinationLatitude: 'destinationLatitude',
       destinationLongitude: 'destinationLongitude',
       originLatitude: 'originLatitude',
       originLongitude: 'originLongitude',
+      plate: 'plate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      carType: 'string',
       destinationLatitude: 'string',
       destinationLongitude: 'string',
       originLatitude: 'string',
       originLongitude: 'string',
+      plate: 'string',
     };
   }
 
@@ -1316,6 +1322,121 @@ export class RgeoCodeResponse extends $tea.Model {
   }
 }
 
+export class TransitIntegratedDirectionRequest extends $tea.Model {
+  destinationCity?: string;
+  /**
+   * @example
+   * 40.345456
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  originCity?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 116.466485
+   */
+  originLongitude?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCity: 'destinationCity',
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originCity: 'originCity',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCity: 'string',
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originCity: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBody extends $tea.Model {
+  data?: TransitIntegratedDirectionResponseBodyData;
+  /**
+   * @example
+   * 400
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * <title>502 Bad Gateway</title>
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: TransitIntegratedDirectionResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransitIntegratedDirectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TransitIntegratedDirectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WalkingDirectionNovaRequest extends $tea.Model {
   /**
    * @example
@@ -1640,6 +1761,7 @@ export class BicyclingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model
   cost?: BicyclingDirectionNovaResponseBodyDataPathsStepsCost;
   instruction?: string;
   orientation?: string;
+  polyline?: string;
   roadName?: string;
   /**
    * @example
@@ -1651,6 +1773,7 @@ export class BicyclingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model
       cost: 'cost',
       instruction: 'instruction',
       orientation: 'orientation',
+      polyline: 'polyline',
       roadName: 'roadName',
       stepDistanceMeter: 'stepDistanceMeter',
     };
@@ -1661,6 +1784,7 @@ export class BicyclingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model
       cost: BicyclingDirectionNovaResponseBodyDataPathsStepsCost,
       instruction: 'string',
       orientation: 'string',
+      polyline: 'string',
       roadName: 'string',
       stepDistanceMeter: 'string',
     };
@@ -1711,6 +1835,7 @@ export class BicyclingDirectionNovaResponseBodyDataPaths extends $tea.Model {
 }
 
 export class BicyclingDirectionNovaResponseBodyData extends $tea.Model {
+  count?: string;
   /**
    * @example
    * 39.995197
@@ -1739,6 +1864,7 @@ export class BicyclingDirectionNovaResponseBodyData extends $tea.Model {
   taxiCost?: string;
   static names(): { [key: string]: string } {
     return {
+      count: 'count',
       destinationLatitude: 'destinationLatitude',
       destinationLongitude: 'destinationLongitude',
       originLatitude: 'originLatitude',
@@ -1750,6 +1876,7 @@ export class BicyclingDirectionNovaResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'string',
       destinationLatitude: 'string',
       destinationLongitude: 'string',
       originLatitude: 'string',
@@ -1866,6 +1993,7 @@ export class DrivingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
   cost?: DrivingDirectionNovaResponseBodyDataPathsStepsCost;
   instruction?: string;
   orientation?: string;
+  polyline?: string;
   roadName?: string;
   /**
    * @example
@@ -1877,6 +2005,7 @@ export class DrivingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
       cost: 'cost',
       instruction: 'instruction',
       orientation: 'orientation',
+      polyline: 'polyline',
       roadName: 'roadName',
       stepDistanceMeter: 'stepDistanceMeter',
     };
@@ -1887,6 +2016,7 @@ export class DrivingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
       cost: DrivingDirectionNovaResponseBodyDataPathsStepsCost,
       instruction: 'string',
       orientation: 'string',
+      polyline: 'string',
       roadName: 'string',
       stepDistanceMeter: 'string',
     };
@@ -1937,6 +2067,7 @@ export class DrivingDirectionNovaResponseBodyDataPaths extends $tea.Model {
 }
 
 export class DrivingDirectionNovaResponseBodyData extends $tea.Model {
+  count?: string;
   /**
    * @example
    * 40.345456
@@ -1965,6 +2096,7 @@ export class DrivingDirectionNovaResponseBodyData extends $tea.Model {
   taxiCost?: string;
   static names(): { [key: string]: string } {
     return {
+      count: 'count',
       destinationLatitude: 'destinationLatitude',
       destinationLongitude: 'destinationLongitude',
       originLatitude: 'originLatitude',
@@ -1976,6 +2108,7 @@ export class DrivingDirectionNovaResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'string',
       destinationLatitude: 'string',
       destinationLongitude: 'string',
       originLatitude: 'string',
@@ -2096,6 +2229,7 @@ export class ElectrobikeDirectionNovaResponseBodyDataPathsSteps extends $tea.Mod
   cost?: ElectrobikeDirectionNovaResponseBodyDataPathsStepsCost;
   instruction?: string;
   orientation?: string;
+  polyline?: string;
   roadName?: string;
   /**
    * @example
@@ -2107,6 +2241,7 @@ export class ElectrobikeDirectionNovaResponseBodyDataPathsSteps extends $tea.Mod
       cost: 'cost',
       instruction: 'instruction',
       orientation: 'orientation',
+      polyline: 'polyline',
       roadName: 'roadName',
       stepDistanceMeter: 'stepDistanceMeter',
     };
@@ -2117,6 +2252,7 @@ export class ElectrobikeDirectionNovaResponseBodyDataPathsSteps extends $tea.Mod
       cost: ElectrobikeDirectionNovaResponseBodyDataPathsStepsCost,
       instruction: 'string',
       orientation: 'string',
+      polyline: 'string',
       roadName: 'string',
       stepDistanceMeter: 'string',
     };
@@ -2167,6 +2303,7 @@ export class ElectrobikeDirectionNovaResponseBodyDataPaths extends $tea.Model {
 }
 
 export class ElectrobikeDirectionNovaResponseBodyData extends $tea.Model {
+  count?: string;
   /**
    * @example
    * 40.345456
@@ -2195,6 +2332,7 @@ export class ElectrobikeDirectionNovaResponseBodyData extends $tea.Model {
   taxiCost?: string;
   static names(): { [key: string]: string } {
     return {
+      count: 'count',
       destinationLatitude: 'destinationLatitude',
       destinationLongitude: 'destinationLongitude',
       originLatitude: 'originLatitude',
@@ -2206,6 +2344,7 @@ export class ElectrobikeDirectionNovaResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'string',
       destinationLatitude: 'string',
       destinationLongitude: 'string',
       originLatitude: 'string',
@@ -3122,6 +3261,1006 @@ export class RgeoCodeResponseBodyData extends $tea.Model {
   }
 }
 
+export class TransitIntegratedDirectionResponseBodyDataCost extends $tea.Model {
+  /**
+   * @example
+   * 1231
+   */
+  durationSecond?: string;
+  /**
+   * @example
+   * 6
+   */
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  /**
+   * @example
+   * 23
+   */
+  tolls?: string;
+  trafficLights?: string;
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsCost extends $tea.Model {
+  /**
+   * @example
+   * 39233
+   */
+  durationSecond?: string;
+  /**
+   * @example
+   * 20
+   */
+  taxiFee?: string;
+  /**
+   * @example
+   * 2000
+   */
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  tolls?: string;
+  trafficLights?: string;
+  /**
+   * @example
+   * 4
+   */
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStopExit extends $tea.Model {
+  /**
+   * @example
+   * 900000028907015
+   */
+  id?: string;
+  /**
+   * @example
+   * 116.468213,39.998876
+   */
+  location?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      location: 'location',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      location: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStop extends $tea.Model {
+  exit?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStopExit;
+  /**
+   * @example
+   * 100935
+   */
+  id?: string;
+  /**
+   * @example
+   * 119.82416178385417,30.27139702690972
+   */
+  location?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exit: 'exit',
+      id: 'id',
+      location: 'location',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exit: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStopExit,
+      id: 'string',
+      location: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesCost extends $tea.Model {
+  /**
+   * @example
+   * 1521
+   */
+  durationSecond?: string;
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  tolls?: string;
+  trafficLights?: string;
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStopEntrance extends $tea.Model {
+  /**
+   * @example
+   * 99088345834
+   */
+  id?: string;
+  /**
+   * @example
+   * 116.468213,39.998876
+   */
+  location?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      location: 'location',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      location: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStop extends $tea.Model {
+  entrance?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStopEntrance;
+  /**
+   * @example
+   * 60852
+   */
+  id?: string;
+  /**
+   * @example
+   * 116.468213,39.998876
+   */
+  location?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entrance: 'entrance',
+      id: 'id',
+      location: 'location',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entrance: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStopEntrance,
+      id: 'string',
+      location: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesPolyline extends $tea.Model {
+  /**
+   * @example
+   * 116.471544,39.991835
+   */
+  polyline?: string;
+  static names(): { [key: string]: string } {
+    return {
+      polyline: 'polyline',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      polyline: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesViaStops extends $tea.Model {
+  id?: string;
+  location?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      location: 'location',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      location: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines extends $tea.Model {
+  arrivalStop?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStop;
+  busTimeTips?: string;
+  /**
+   * @example
+   * 0
+   */
+  bustimetag?: string;
+  cost?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesCost;
+  departureStop?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStop;
+  /**
+   * @example
+   * 13322
+   */
+  distanceMeter?: string;
+  /**
+   * @example
+   * 2259
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 900000028907
+   */
+  id?: string;
+  name?: string;
+  polyline?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesPolyline;
+  /**
+   * @example
+   * 0509
+   */
+  startTime?: string;
+  type?: string;
+  /**
+   * @example
+   * 8
+   */
+  viaNum?: string;
+  viaStops?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesViaStops[];
+  static names(): { [key: string]: string } {
+    return {
+      arrivalStop: 'arrivalStop',
+      busTimeTips: 'busTimeTips',
+      bustimetag: 'bustimetag',
+      cost: 'cost',
+      departureStop: 'departureStop',
+      distanceMeter: 'distanceMeter',
+      endTime: 'endTime',
+      id: 'id',
+      name: 'name',
+      polyline: 'polyline',
+      startTime: 'startTime',
+      type: 'type',
+      viaNum: 'viaNum',
+      viaStops: 'viaStops',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrivalStop: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStop,
+      busTimeTips: 'string',
+      bustimetag: 'string',
+      cost: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesCost,
+      departureStop: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStop,
+      distanceMeter: 'string',
+      endTime: 'string',
+      id: 'string',
+      name: 'string',
+      polyline: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesPolyline,
+      startTime: 'string',
+      type: 'string',
+      viaNum: 'string',
+      viaStops: { 'type': 'array', 'itemType': TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesViaStops },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus extends $tea.Model {
+  buslines?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines[];
+  static names(): { [key: string]: string } {
+    return {
+      buslines: 'buslines',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buslines: { 'type': 'array', 'itemType': TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArrivalStop extends $tea.Model {
+  /**
+   * @example
+   * 023
+   */
+  adcode?: string;
+  /**
+   * @remarks
+   * end
+   * 
+   * @example
+   * 1699410466578
+   */
+  end?: string;
+  /**
+   * @example
+   * 8234837534
+   */
+  id?: string;
+  /**
+   * @example
+   * 101.45625135633681,25.08939480251736
+   */
+  location?: string;
+  name?: string;
+  /**
+   * @example
+   * 2024-10-28 10:10:32
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adcode: 'adcode',
+      end: 'end',
+      id: 'id',
+      location: 'location',
+      name: 'name',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adcode: 'string',
+      end: 'string',
+      id: 'string',
+      location: 'string',
+      name: 'string',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop extends $tea.Model {
+  /**
+   * @example
+   * 029
+   */
+  adcode?: string;
+  /**
+   * @example
+   * 100937
+   */
+  id?: string;
+  /**
+   * @example
+   * 101.45625135633681,25.08939480251736
+   */
+  location?: string;
+  name?: string;
+  /**
+   * @example
+   * 1729440000000
+   */
+  start?: string;
+  /**
+   * @example
+   * 2024-09-30 10:04:13
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adcode: 'adcode',
+      id: 'id',
+      location: 'location',
+      name: 'name',
+      start: 'start',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adcode: 'string',
+      id: 'string',
+      location: 'string',
+      name: 'string',
+      start: 'string',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces extends $tea.Model {
+  code?: string;
+  /**
+   * @example
+   * 150
+   */
+  cost?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      cost: 'cost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      cost: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway extends $tea.Model {
+  arrivalStop?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArrivalStop;
+  departureStop?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop;
+  /**
+   * @example
+   * 398734
+   */
+  distanceMeter?: string;
+  /**
+   * @example
+   * 434508
+   */
+  id?: string;
+  name?: string;
+  spaces?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces[];
+  /**
+   * @example
+   * 2024-09-28 10:07:22
+   */
+  time?: string;
+  trip?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrivalStop: 'arrivalStop',
+      departureStop: 'departureStop',
+      distanceMeter: 'distanceMeter',
+      id: 'id',
+      name: 'name',
+      spaces: 'spaces',
+      time: 'time',
+      trip: 'trip',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrivalStop: TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArrivalStop,
+      departureStop: TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop,
+      distanceMeter: 'string',
+      id: 'string',
+      name: 'string',
+      spaces: { 'type': 'array', 'itemType': TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces },
+      time: 'string',
+      trip: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  destinationName?: string;
+  /**
+   * @example
+   * 116.464297,39.896458
+   */
+  destinationPoint?: string;
+  /**
+   * @example
+   * 1772
+   */
+  distanceMeter?: string;
+  /**
+   * @example
+   * 720
+   */
+  driveTimeSecond?: string;
+  originName?: string;
+  /**
+   * @example
+   * 116.476597,39.893420
+   */
+  originPoint?: string;
+  /**
+   * @example
+   * 13.5
+   */
+  price?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationName: 'destinationName',
+      destinationPoint: 'destinationPoint',
+      distanceMeter: 'distanceMeter',
+      driveTimeSecond: 'driveTimeSecond',
+      originName: 'originName',
+      originPoint: 'originPoint',
+      price: 'price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationName: 'string',
+      destinationPoint: 'string',
+      distanceMeter: 'string',
+      driveTimeSecond: 'string',
+      originName: 'string',
+      originPoint: 'string',
+      price: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost extends $tea.Model {
+  /**
+   * @example
+   * 468
+   */
+  durationSecond?: string;
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  tolls?: string;
+  trafficLights?: string;
+  /**
+   * @example
+   * 3
+   */
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsCost extends $tea.Model {
+  /**
+   * @example
+   * 435
+   */
+  durationSecond?: string;
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  tolls?: string;
+  trafficLights?: string;
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsPolyline extends $tea.Model {
+  /**
+   * @example
+   * 116.467751,39.997631;116.467430,39.997631
+   */
+  polyline?: string;
+  static names(): { [key: string]: string } {
+    return {
+      polyline: 'polyline',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      polyline: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps extends $tea.Model {
+  cost?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsCost;
+  instruction?: string;
+  orientation?: string;
+  polyline?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsPolyline;
+  roadName?: string;
+  stepDistanceMeter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      instruction: 'instruction',
+      orientation: 'orientation',
+      polyline: 'polyline',
+      roadName: 'roadName',
+      stepDistanceMeter: 'stepDistanceMeter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsCost,
+      instruction: 'string',
+      orientation: 'string',
+      polyline: TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsPolyline,
+      roadName: 'string',
+      stepDistanceMeter: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking extends $tea.Model {
+  cost?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost;
+  /**
+   * @example
+   * 116.468208,39.998875
+   */
+  destination?: string;
+  /**
+   * @example
+   * 546
+   */
+  distanceMeter?: string;
+  /**
+   * @example
+   * 116.466568,39.995552
+   */
+  origin?: string;
+  steps?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps[];
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      destination: 'destination',
+      distanceMeter: 'distanceMeter',
+      origin: 'origin',
+      steps: 'steps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost,
+      destination: 'string',
+      distanceMeter: 'string',
+      origin: 'string',
+      steps: { 'type': 'array', 'itemType': TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPathsSegments extends $tea.Model {
+  bus?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus;
+  railway?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway;
+  taxi?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi;
+  walking?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking;
+  static names(): { [key: string]: string } {
+    return {
+      bus: 'bus',
+      railway: 'railway',
+      taxi: 'taxi',
+      walking: 'walking',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bus: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus,
+      railway: TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway,
+      taxi: TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi,
+      walking: TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyDataPaths extends $tea.Model {
+  cost?: TransitIntegratedDirectionResponseBodyDataPathsCost;
+  /**
+   * @example
+   * 12000
+   */
+  distanceMeter?: string;
+  nightflag?: string;
+  segments?: TransitIntegratedDirectionResponseBodyDataPathsSegments[];
+  /**
+   * @example
+   * 23435
+   */
+  walkingDistanceMeter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      distanceMeter: 'distanceMeter',
+      nightflag: 'nightflag',
+      segments: 'segments',
+      walkingDistanceMeter: 'walkingDistanceMeter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: TransitIntegratedDirectionResponseBodyDataPathsCost,
+      distanceMeter: 'string',
+      nightflag: 'string',
+      segments: { 'type': 'array', 'itemType': TransitIntegratedDirectionResponseBodyDataPathsSegments },
+      walkingDistanceMeter: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransitIntegratedDirectionResponseBodyData extends $tea.Model {
+  cost?: TransitIntegratedDirectionResponseBodyDataCost;
+  /**
+   * @example
+   * 5
+   */
+  count?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 445
+   */
+  distanceMeter?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 116.466485
+   */
+  originLongitude?: string;
+  paths?: TransitIntegratedDirectionResponseBodyDataPaths[];
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      count: 'count',
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      distanceMeter: 'distanceMeter',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+      paths: 'paths',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: TransitIntegratedDirectionResponseBodyDataCost,
+      count: 'string',
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      distanceMeter: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+      paths: { 'type': 'array', 'itemType': TransitIntegratedDirectionResponseBodyDataPaths },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WalkingDirectionNovaResponseBodyDataPathsCost extends $tea.Model {
   /**
    * @example
@@ -3224,6 +4363,7 @@ export class WalkingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
   cost?: WalkingDirectionNovaResponseBodyDataPathsStepsCost;
   instruction?: string;
   orientation?: string;
+  polyline?: string;
   roadName?: string;
   /**
    * @example
@@ -3235,6 +4375,7 @@ export class WalkingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
       cost: 'cost',
       instruction: 'instruction',
       orientation: 'orientation',
+      polyline: 'polyline',
       roadName: 'roadName',
       stepDistanceMeter: 'stepDistanceMeter',
     };
@@ -3245,6 +4386,7 @@ export class WalkingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
       cost: WalkingDirectionNovaResponseBodyDataPathsStepsCost,
       instruction: 'string',
       orientation: 'string',
+      polyline: 'string',
       roadName: 'string',
       stepDistanceMeter: 'string',
     };
@@ -3295,6 +4437,7 @@ export class WalkingDirectionNovaResponseBodyDataPaths extends $tea.Model {
 }
 
 export class WalkingDirectionNovaResponseBodyData extends $tea.Model {
+  count?: string;
   /**
    * @example
    * 40.020642
@@ -3323,6 +4466,7 @@ export class WalkingDirectionNovaResponseBodyData extends $tea.Model {
   taxiCost?: string;
   static names(): { [key: string]: string } {
     return {
+      count: 'count',
       destinationLatitude: 'destinationLatitude',
       destinationLongitude: 'destinationLongitude',
       originLatitude: 'originLatitude',
@@ -3334,6 +4478,7 @@ export class WalkingDirectionNovaResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'string',
       destinationLatitude: 'string',
       destinationLongitude: 'string',
       originLatitude: 'string',
@@ -3479,6 +4624,10 @@ export default class Client extends OpenApi {
   async drivingDirectionNovaWithOptions(request: DrivingDirectionNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DrivingDirectionNovaResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.carType)) {
+      query["carType"] = request.carType;
+    }
+
     if (!Util.isUnset(request.destinationLatitude)) {
       query["destinationLatitude"] = request.destinationLatitude;
     }
@@ -3493,6 +4642,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.originLongitude)) {
       query["originLongitude"] = request.originLongitude;
+    }
+
+    if (!Util.isUnset(request.plate)) {
+      query["plate"] = request.plate;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4058,6 +5211,71 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.rgeoCodeWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 公共交通路线规划方案
+   * 
+   * @param request - TransitIntegratedDirectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransitIntegratedDirectionResponse
+   */
+  async transitIntegratedDirectionWithOptions(request: TransitIntegratedDirectionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TransitIntegratedDirectionResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationCity)) {
+      query["destinationCity"] = request.destinationCity;
+    }
+
+    if (!Util.isUnset(request.destinationLatitude)) {
+      query["destinationLatitude"] = request.destinationLatitude;
+    }
+
+    if (!Util.isUnset(request.destinationLongitude)) {
+      query["destinationLongitude"] = request.destinationLongitude;
+    }
+
+    if (!Util.isUnset(request.originCity)) {
+      query["originCity"] = request.originCity;
+    }
+
+    if (!Util.isUnset(request.originLatitude)) {
+      query["originLatitude"] = request.originLatitude;
+    }
+
+    if (!Util.isUnset(request.originLongitude)) {
+      query["originLongitude"] = request.originLongitude;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TransitIntegratedDirection",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/ipaas/v2/direction/transit/integrated`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TransitIntegratedDirectionResponse>(await this.callApi(params, req, runtime), new TransitIntegratedDirectionResponse({}));
+  }
+
+  /**
+   * 公共交通路线规划方案
+   * 
+   * @param request - TransitIntegratedDirectionRequest
+   * @returns TransitIntegratedDirectionResponse
+   */
+  async transitIntegratedDirection(request: TransitIntegratedDirectionRequest): Promise<TransitIntegratedDirectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.transitIntegratedDirectionWithOptions(request, headers, runtime);
   }
 
   /**
