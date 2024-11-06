@@ -67,6 +67,115 @@ export class QueryResult extends $tea.Model {
   }
 }
 
+export class BicyclingDirectionNovaRequest extends $tea.Model {
+  /**
+   * @example
+   * 39.995197
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 117.466485
+   */
+  originLongitude?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BicyclingDirectionNovaResponseBody extends $tea.Model {
+  data?: BicyclingDirectionNovaResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * <title>502 Bad Gateway</title>
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: BicyclingDirectionNovaResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BicyclingDirectionNovaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BicyclingDirectionNovaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BicyclingDirectionNovaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CommonQueryBySceneRequest extends $tea.Model {
   body?: CommonAgentQuery;
   static names(): { [key: string]: string } {
@@ -103,6 +212,792 @@ export class CommonQueryBySceneResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionNovaRequest extends $tea.Model {
+  /**
+   * @example
+   * 43.345456
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 116.466485
+   */
+  originLongitude?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionNovaResponseBody extends $tea.Model {
+  data?: DrivingDirectionNovaResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * Access was denied, message: No such namespace namespaces/general-perf-cn-shenzhen-e-default.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DrivingDirectionNovaResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionNovaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DrivingDirectionNovaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DrivingDirectionNovaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElectrobikeDirectionNovaRequest extends $tea.Model {
+  /**
+   * @example
+   * 40.234564
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 116.345456
+   */
+  originLongitude?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElectrobikeDirectionNovaResponseBody extends $tea.Model {
+  data?: ElectrobikeDirectionNovaResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * <title>502 Bad Gateway</title>
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ElectrobikeDirectionNovaResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElectrobikeDirectionNovaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ElectrobikeDirectionNovaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ElectrobikeDirectionNovaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GeoCodeRequest extends $tea.Model {
+  address?: string;
+  city?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      city: 'city',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      city: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GeoCodeResponseBody extends $tea.Model {
+  data?: GeoCodeResponseBodyData[];
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * Pop sign mismatch, please check log.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GeoCodeResponseBodyData },
+      errorCode: 'number',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GeoCodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GeoCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GeoCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 搜索的关键词
+   */
+  keywords?: string;
+  /**
+   * @remarks
+   * 搜索范围中心的纬度坐标。小数精度均不得超过六位
+   */
+  latitude?: string;
+  /**
+   * @remarks
+   * 搜索范围中心的经度坐标。小数精度均不得超过六位
+   */
+  longitude?: string;
+  /**
+   * @remarks
+   * 搜索的页数
+   * 
+   * @example
+   * {\\"total_count\\": 6851, \\"page_number\\": 54, \\"page_size\\": 100}
+   */
+  page?: number;
+  /**
+   * @remarks
+   * 搜索的范围，以米为单位。
+   */
+  radius?: number;
+  /**
+   * @remarks
+   * 搜索结果每页所包含的结果数量
+   * 
+   * @example
+   * 812788
+   */
+  size?: number;
+  /**
+   * @remarks
+   * 目标类型的枚举值，以 `|` 标记分隔
+   * 
+   * @example
+   * [\\"synonym\\",\\"stopword\\",\\"correction\\",\\"ner\\",\\"term_weighting\\",\\"category_prediction\\"]
+   */
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keywords: 'keywords',
+      latitude: 'latitude',
+      longitude: 'longitude',
+      page: 'page',
+      radius: 'radius',
+      size: 'size',
+      types: 'types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keywords: 'string',
+      latitude: 'string',
+      longitude: 'string',
+      page: 'number',
+      radius: 'number',
+      size: 'number',
+      types: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchResponseBody extends $tea.Model {
+  data?: NearbySearchResponseBodyData[];
+  /**
+   * @example
+   * success
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Access was denied, message: No such namespace namespaces/general-perf-cn-shenzhen-e-default.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': NearbySearchResponseBodyData },
+      errorCode: 'string',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: NearbySearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: NearbySearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchNovaRequest extends $tea.Model {
+  keywords?: string;
+  /**
+   * @example
+   * 39.992873
+   */
+  latitude?: string;
+  /**
+   * @example
+   * 116.310918
+   */
+  longitude?: string;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 3000
+   */
+  radius?: number;
+  /**
+   * @example
+   * 5
+   */
+  size?: number;
+  /**
+   * @example
+   * GAS_STATION|RESTAURANT|HOTEL|ATTRACTION
+   */
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keywords: 'keywords',
+      latitude: 'latitude',
+      longitude: 'longitude',
+      page: 'page',
+      radius: 'radius',
+      size: 'size',
+      types: 'types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keywords: 'string',
+      latitude: 'string',
+      longitude: 'string',
+      page: 'number',
+      radius: 'number',
+      size: 'number',
+      types: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchNovaResponseBody extends $tea.Model {
+  data?: NearbySearchNovaResponseBodyData[];
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * <title>502 Bad Gateway</title>
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': NearbySearchNovaResponseBodyData },
+      errorCode: 'number',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchNovaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: NearbySearchNovaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: NearbySearchNovaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchRequest extends $tea.Model {
+  keywords?: string;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  region?: string;
+  /**
+   * @example
+   * 5
+   */
+  size?: number;
+  /**
+   * @example
+   * GAS_STATION|RESTAURANT|HOTEL|ATTRACTION
+   */
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keywords: 'keywords',
+      page: 'page',
+      region: 'region',
+      size: 'size',
+      types: 'types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keywords: 'string',
+      page: 'number',
+      region: 'string',
+      size: 'number',
+      types: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchResponseBody extends $tea.Model {
+  data?: PlaceSearchResponseBodyData[];
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * Access was denied, message: No such namespace namespaces/general-perf-cn-shenzhen-e-default.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': PlaceSearchResponseBodyData },
+      errorCode: 'number',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PlaceSearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PlaceSearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchNovaRequest extends $tea.Model {
+  keywords?: string;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  region?: string;
+  /**
+   * @example
+   * 5
+   */
+  size?: number;
+  /**
+   * @example
+   * GAS_STATION|RESTAURANT|HOTEL|ATTRACTION
+   */
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keywords: 'keywords',
+      page: 'page',
+      region: 'region',
+      size: 'size',
+      types: 'types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keywords: 'string',
+      page: 'number',
+      region: 'string',
+      size: 'number',
+      types: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchNovaResponseBody extends $tea.Model {
+  data?: PlaceSearchNovaResponseBodyData[];
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * Access was denied, message: Unauthorized.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': PlaceSearchNovaResponseBodyData },
+      errorCode: 'number',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchNovaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PlaceSearchNovaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PlaceSearchNovaResponseBody,
     };
   }
 
@@ -330,6 +1225,206 @@ export class QueryRestaurantsResponse extends $tea.Model {
   }
 }
 
+export class RgeoCodeRequest extends $tea.Model {
+  /**
+   * @example
+   * 39.989027
+   */
+  latitude?: string;
+  /**
+   * @example
+   * 116.310918
+   */
+  longitude?: string;
+  static names(): { [key: string]: string } {
+    return {
+      latitude: 'latitude',
+      longitude: 'longitude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      latitude: 'string',
+      longitude: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RgeoCodeResponseBody extends $tea.Model {
+  data?: RgeoCodeResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  errorMessage?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RgeoCodeResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RgeoCodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RgeoCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RgeoCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WalkingDirectionNovaRequest extends $tea.Model {
+  /**
+   * @example
+   * 40.345456
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 116.466485
+   */
+  originLongitude?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WalkingDirectionNovaResponseBody extends $tea.Model {
+  data?: WalkingDirectionNovaResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * Access was denied
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: WalkingDirectionNovaResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WalkingDirectionNovaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WalkingDirectionNovaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WalkingDirectionNovaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryResultDataImages extends $tea.Model {
   title?: string;
   url?: string;
@@ -447,6 +1542,1812 @@ export class QueryResultData extends $tea.Model {
   }
 }
 
+export class BicyclingDirectionNovaResponseBodyDataPathsCost extends $tea.Model {
+  /**
+   * @example
+   * 39233
+   */
+  durationSecond?: string;
+  /**
+   * @example
+   * 20
+   */
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  tolls?: string;
+  trafficLights?: string;
+  /**
+   * @example
+   * 4
+   */
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BicyclingDirectionNovaResponseBodyDataPathsStepsCost extends $tea.Model {
+  /**
+   * @example
+   * 2000
+   */
+  durationSecond?: string;
+  /**
+   * @example
+   * 20
+   */
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  tolls?: string;
+  trafficLights?: string;
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BicyclingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
+  cost?: BicyclingDirectionNovaResponseBodyDataPathsStepsCost;
+  instruction?: string;
+  orientation?: string;
+  roadName?: string;
+  /**
+   * @example
+   * 3000
+   */
+  stepDistanceMeter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      instruction: 'instruction',
+      orientation: 'orientation',
+      roadName: 'roadName',
+      stepDistanceMeter: 'stepDistanceMeter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: BicyclingDirectionNovaResponseBodyDataPathsStepsCost,
+      instruction: 'string',
+      orientation: 'string',
+      roadName: 'string',
+      stepDistanceMeter: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BicyclingDirectionNovaResponseBodyDataPaths extends $tea.Model {
+  cost?: BicyclingDirectionNovaResponseBodyDataPathsCost;
+  /**
+   * @example
+   * 96375
+   */
+  distanceMeter?: string;
+  /**
+   * @example
+   * 300
+   */
+  durationSecond?: string;
+  restriction?: string;
+  steps?: BicyclingDirectionNovaResponseBodyDataPathsSteps[];
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      distanceMeter: 'distanceMeter',
+      durationSecond: 'durationSecond',
+      restriction: 'restriction',
+      steps: 'steps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: BicyclingDirectionNovaResponseBodyDataPathsCost,
+      distanceMeter: 'string',
+      durationSecond: 'string',
+      restriction: 'string',
+      steps: { 'type': 'array', 'itemType': BicyclingDirectionNovaResponseBodyDataPathsSteps },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BicyclingDirectionNovaResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 39.995197
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 116.466485
+   */
+  originLongitude?: string;
+  paths?: BicyclingDirectionNovaResponseBodyDataPaths[];
+  /**
+   * @example
+   * 23
+   */
+  taxiCost?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+      paths: 'paths',
+      taxiCost: 'taxiCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+      paths: { 'type': 'array', 'itemType': BicyclingDirectionNovaResponseBodyDataPaths },
+      taxiCost: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionNovaResponseBodyDataPathsCost extends $tea.Model {
+  /**
+   * @example
+   * 39233
+   */
+  durationSecond?: string;
+  /**
+   * @example
+   * 20
+   */
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  tolls?: string;
+  /**
+   * @example
+   * 3
+   */
+  trafficLights?: string;
+  /**
+   * @example
+   * 10
+   */
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionNovaResponseBodyDataPathsStepsCost extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
+  durationSecond?: string;
+  /**
+   * @example
+   * 20
+   */
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  tolls?: string;
+  trafficLights?: string;
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
+  cost?: DrivingDirectionNovaResponseBodyDataPathsStepsCost;
+  instruction?: string;
+  orientation?: string;
+  roadName?: string;
+  /**
+   * @example
+   * 3000
+   */
+  stepDistanceMeter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      instruction: 'instruction',
+      orientation: 'orientation',
+      roadName: 'roadName',
+      stepDistanceMeter: 'stepDistanceMeter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: DrivingDirectionNovaResponseBodyDataPathsStepsCost,
+      instruction: 'string',
+      orientation: 'string',
+      roadName: 'string',
+      stepDistanceMeter: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionNovaResponseBodyDataPaths extends $tea.Model {
+  cost?: DrivingDirectionNovaResponseBodyDataPathsCost;
+  /**
+   * @example
+   * 96375
+   */
+  distanceMeter?: string;
+  /**
+   * @example
+   * 39223
+   */
+  durationSecond?: string;
+  restriction?: string;
+  steps?: DrivingDirectionNovaResponseBodyDataPathsSteps[];
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      distanceMeter: 'distanceMeter',
+      durationSecond: 'durationSecond',
+      restriction: 'restriction',
+      steps: 'steps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: DrivingDirectionNovaResponseBodyDataPathsCost,
+      distanceMeter: 'string',
+      durationSecond: 'string',
+      restriction: 'string',
+      steps: { 'type': 'array', 'itemType': DrivingDirectionNovaResponseBodyDataPathsSteps },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionNovaResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 40.345456
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 117.466485
+   */
+  originLongitude?: string;
+  paths?: DrivingDirectionNovaResponseBodyDataPaths[];
+  /**
+   * @example
+   * 20
+   */
+  taxiCost?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+      paths: 'paths',
+      taxiCost: 'taxiCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+      paths: { 'type': 'array', 'itemType': DrivingDirectionNovaResponseBodyDataPaths },
+      taxiCost: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElectrobikeDirectionNovaResponseBodyDataPathsCost extends $tea.Model {
+  /**
+   * @example
+   * 500
+   */
+  durationSecond?: string;
+  /**
+   * @example
+   * 20
+   */
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  tolls?: string;
+  /**
+   * @example
+   * 4
+   */
+  trafficLights?: string;
+  /**
+   * @example
+   * 4
+   */
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElectrobikeDirectionNovaResponseBodyDataPathsStepsCost extends $tea.Model {
+  /**
+   * @example
+   * 2000
+   */
+  durationSecond?: string;
+  /**
+   * @example
+   * 20
+   */
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  tolls?: string;
+  /**
+   * @example
+   * 5
+   */
+  trafficLights?: string;
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElectrobikeDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
+  cost?: ElectrobikeDirectionNovaResponseBodyDataPathsStepsCost;
+  instruction?: string;
+  orientation?: string;
+  roadName?: string;
+  /**
+   * @example
+   * 3000
+   */
+  stepDistanceMeter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      instruction: 'instruction',
+      orientation: 'orientation',
+      roadName: 'roadName',
+      stepDistanceMeter: 'stepDistanceMeter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: ElectrobikeDirectionNovaResponseBodyDataPathsStepsCost,
+      instruction: 'string',
+      orientation: 'string',
+      roadName: 'string',
+      stepDistanceMeter: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElectrobikeDirectionNovaResponseBodyDataPaths extends $tea.Model {
+  cost?: ElectrobikeDirectionNovaResponseBodyDataPathsCost;
+  /**
+   * @example
+   * 12000
+   */
+  distanceMeter?: string;
+  /**
+   * @example
+   * 300
+   */
+  durationSecond?: string;
+  restriction?: string;
+  steps?: ElectrobikeDirectionNovaResponseBodyDataPathsSteps[];
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      distanceMeter: 'distanceMeter',
+      durationSecond: 'durationSecond',
+      restriction: 'restriction',
+      steps: 'steps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: ElectrobikeDirectionNovaResponseBodyDataPathsCost,
+      distanceMeter: 'string',
+      durationSecond: 'string',
+      restriction: 'string',
+      steps: { 'type': 'array', 'itemType': ElectrobikeDirectionNovaResponseBodyDataPathsSteps },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElectrobikeDirectionNovaResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 40.345456
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 116.345456
+   */
+  originLongitude?: string;
+  paths?: ElectrobikeDirectionNovaResponseBodyDataPaths[];
+  /**
+   * @example
+   * 20
+   */
+  taxiCost?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+      paths: 'paths',
+      taxiCost: 'taxiCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+      paths: { 'type': 'array', 'itemType': ElectrobikeDirectionNovaResponseBodyDataPaths },
+      taxiCost: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GeoCodeResponseBodyDataBuilding extends $tea.Model {
+  /**
+   * @example
+   * timeliness_ms
+   */
+  name?: string;
+  /**
+   * @example
+   * internal
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GeoCodeResponseBodyData extends $tea.Model {
+  building?: GeoCodeResponseBodyDataBuilding;
+  city?: string;
+  cityCode?: string;
+  district?: string;
+  districtCode?: string;
+  latitude?: string;
+  level?: string;
+  longitude?: string;
+  /**
+   * @example
+   * 12201281024024
+   */
+  number?: string;
+  province?: string;
+  street?: string;
+  static names(): { [key: string]: string } {
+    return {
+      building: 'building',
+      city: 'city',
+      cityCode: 'cityCode',
+      district: 'district',
+      districtCode: 'districtCode',
+      latitude: 'latitude',
+      level: 'level',
+      longitude: 'longitude',
+      number: 'number',
+      province: 'province',
+      street: 'street',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      building: GeoCodeResponseBodyDataBuilding,
+      city: 'string',
+      cityCode: 'string',
+      district: 'string',
+      districtCode: 'string',
+      latitude: 'string',
+      level: 'string',
+      longitude: 'string',
+      number: 'string',
+      province: 'string',
+      street: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchResponseBodyDataImages extends $tea.Model {
+  /**
+   * @example
+   * https://meeting.dingtalk.com/j/mblzc4zTBWp
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchResponseBodyDataMetadata extends $tea.Model {
+  averageSpend?: string;
+  businessArea?: string;
+  dailyOpeningHours?: string;
+  mainTag?: string;
+  phone?: string;
+  score?: string;
+  tag?: string;
+  weeklyOpeningDays?: string;
+  static names(): { [key: string]: string } {
+    return {
+      averageSpend: 'averageSpend',
+      businessArea: 'businessArea',
+      dailyOpeningHours: 'dailyOpeningHours',
+      mainTag: 'mainTag',
+      phone: 'phone',
+      score: 'score',
+      tag: 'tag',
+      weeklyOpeningDays: 'weeklyOpeningDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageSpend: 'string',
+      businessArea: 'string',
+      dailyOpeningHours: 'string',
+      mainTag: 'string',
+      phone: 'string',
+      score: 'string',
+      tag: 'string',
+      weeklyOpeningDays: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchResponseBodyData extends $tea.Model {
+  address?: string;
+  cityCode?: string;
+  cityName?: string;
+  distanceMeter?: string;
+  districtCode?: string;
+  districtName?: string;
+  /**
+   * @example
+   * 38865
+   */
+  id?: string;
+  images?: NearbySearchResponseBodyDataImages[];
+  latitude?: string;
+  longitude?: string;
+  metadata?: NearbySearchResponseBodyDataMetadata;
+  /**
+   * @example
+   * hydro-project/hydro-res-auth
+   */
+  name?: string;
+  provinceCode?: string;
+  provinceName?: string;
+  typeCode?: string;
+  /**
+   * @example
+   * [\\"synonym\\",\\"stopword\\",\\"correction\\",\\"category_prediction\\",\\"ner\\",\\"term_weighting\\"]
+   */
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      cityCode: 'cityCode',
+      cityName: 'cityName',
+      distanceMeter: 'distanceMeter',
+      districtCode: 'districtCode',
+      districtName: 'districtName',
+      id: 'id',
+      images: 'images',
+      latitude: 'latitude',
+      longitude: 'longitude',
+      metadata: 'metadata',
+      name: 'name',
+      provinceCode: 'provinceCode',
+      provinceName: 'provinceName',
+      typeCode: 'typeCode',
+      types: 'types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      cityCode: 'string',
+      cityName: 'string',
+      distanceMeter: 'string',
+      districtCode: 'string',
+      districtName: 'string',
+      id: 'string',
+      images: { 'type': 'array', 'itemType': NearbySearchResponseBodyDataImages },
+      latitude: 'string',
+      longitude: 'string',
+      metadata: NearbySearchResponseBodyDataMetadata,
+      name: 'string',
+      provinceCode: 'string',
+      provinceName: 'string',
+      typeCode: 'string',
+      types: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchNovaResponseBodyDataImages extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  title?: string;
+  /**
+   * @example
+   * https://alidocs.dingtalk.com/i/team/nb9XJVAdyvMrOXyA/docs/b9XJlRRKq1BQaGyA
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      title: 'title',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchNovaResponseBodyDataMetadata extends $tea.Model {
+  /**
+   * @example
+   * 22.00
+   */
+  averageSpend?: string;
+  businessArea?: string;
+  /**
+   * @example
+   * 11:00-14:00 17:00-21:00
+   */
+  dailyOpeningHours?: string;
+  mainTag?: string;
+  /**
+   * @example
+   * 029-87983745
+   */
+  phone?: string;
+  /**
+   * @example
+   * 4.5
+   */
+  score?: string;
+  tag?: string;
+  weeklyOpeningDays?: string;
+  static names(): { [key: string]: string } {
+    return {
+      averageSpend: 'averageSpend',
+      businessArea: 'businessArea',
+      dailyOpeningHours: 'dailyOpeningHours',
+      mainTag: 'mainTag',
+      phone: 'phone',
+      score: 'score',
+      tag: 'tag',
+      weeklyOpeningDays: 'weeklyOpeningDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageSpend: 'string',
+      businessArea: 'string',
+      dailyOpeningHours: 'string',
+      mainTag: 'string',
+      phone: 'string',
+      score: 'string',
+      tag: 'string',
+      weeklyOpeningDays: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NearbySearchNovaResponseBodyData extends $tea.Model {
+  address?: string;
+  /**
+   * @example
+   * 010
+   */
+  cityCode?: string;
+  cityName?: string;
+  /**
+   * @example
+   * 445
+   */
+  distanceMeter?: string;
+  districtCode?: string;
+  districtName?: string;
+  /**
+   * @example
+   * 34360
+   */
+  id?: string;
+  images?: NearbySearchNovaResponseBodyDataImages[];
+  /**
+   * @example
+   * 39.994135
+   */
+  latitude?: string;
+  /**
+   * @example
+   * 108.970162
+   */
+  longitude?: string;
+  metadata?: NearbySearchNovaResponseBodyDataMetadata;
+  name?: string;
+  /**
+   * @example
+   * 110000
+   */
+  provinceCode?: string;
+  provinceName?: string;
+  /**
+   * @example
+   * 110200
+   */
+  typeCode?: string;
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      cityCode: 'cityCode',
+      cityName: 'cityName',
+      distanceMeter: 'distanceMeter',
+      districtCode: 'districtCode',
+      districtName: 'districtName',
+      id: 'id',
+      images: 'images',
+      latitude: 'latitude',
+      longitude: 'longitude',
+      metadata: 'metadata',
+      name: 'name',
+      provinceCode: 'provinceCode',
+      provinceName: 'provinceName',
+      typeCode: 'typeCode',
+      types: 'types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      cityCode: 'string',
+      cityName: 'string',
+      distanceMeter: 'string',
+      districtCode: 'string',
+      districtName: 'string',
+      id: 'string',
+      images: { 'type': 'array', 'itemType': NearbySearchNovaResponseBodyDataImages },
+      latitude: 'string',
+      longitude: 'string',
+      metadata: NearbySearchNovaResponseBodyDataMetadata,
+      name: 'string',
+      provinceCode: 'string',
+      provinceName: 'string',
+      typeCode: 'string',
+      types: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchResponseBodyDataImages extends $tea.Model {
+  title?: string;
+  /**
+   * @example
+   * http://store.is.autonavi.com/showpic/d3dd18fa5fb617d02cf7f1aabae80b78
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      title: 'title',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchResponseBodyDataMetadata extends $tea.Model {
+  businessArea?: string;
+  dailyOpeningHours?: string;
+  mainTag?: string;
+  tag?: string;
+  weeklyOpeningDays?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessArea: 'businessArea',
+      dailyOpeningHours: 'dailyOpeningHours',
+      mainTag: 'mainTag',
+      tag: 'tag',
+      weeklyOpeningDays: 'weeklyOpeningDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessArea: 'string',
+      dailyOpeningHours: 'string',
+      mainTag: 'string',
+      tag: 'string',
+      weeklyOpeningDays: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchResponseBodyData extends $tea.Model {
+  address?: string;
+  cityCode?: string;
+  cityName?: string;
+  districtCode?: string;
+  districtName?: string;
+  /**
+   * @example
+   * 100936
+   */
+  id?: string;
+  images?: PlaceSearchResponseBodyDataImages[];
+  latitude?: string;
+  longitude?: string;
+  metadata?: PlaceSearchResponseBodyDataMetadata;
+  /**
+   * @example
+   * hydro-project/hydro-res-auth
+   */
+  name?: string;
+  provinceCode?: string;
+  provinceName?: string;
+  typeCode?: string;
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      cityCode: 'cityCode',
+      cityName: 'cityName',
+      districtCode: 'districtCode',
+      districtName: 'districtName',
+      id: 'id',
+      images: 'images',
+      latitude: 'latitude',
+      longitude: 'longitude',
+      metadata: 'metadata',
+      name: 'name',
+      provinceCode: 'provinceCode',
+      provinceName: 'provinceName',
+      typeCode: 'typeCode',
+      types: 'types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      cityCode: 'string',
+      cityName: 'string',
+      districtCode: 'string',
+      districtName: 'string',
+      id: 'string',
+      images: { 'type': 'array', 'itemType': PlaceSearchResponseBodyDataImages },
+      latitude: 'string',
+      longitude: 'string',
+      metadata: PlaceSearchResponseBodyDataMetadata,
+      name: 'string',
+      provinceCode: 'string',
+      provinceName: 'string',
+      typeCode: 'string',
+      types: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchNovaResponseBodyDataImages extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  title?: string;
+  /**
+   * @example
+   * https://aos-comment.amap.com/B000A8UNZV/comment/f0a5ca9b58a31f63f8af51f459f75e4b_2048_2048_80.jpg
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      title: 'title',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchNovaResponseBodyDataMetadata extends $tea.Model {
+  /**
+   * @example
+   * 78
+   */
+  averageSpend?: string;
+  businessArea?: string;
+  dailyOpeningHours?: string;
+  mainTag?: string;
+  /**
+   * @example
+   * 010-83847583
+   */
+  phone?: string;
+  /**
+   * @example
+   * [{\\"value\\":\\"nttd\\",\\"key\\":\\"owner\\"}]
+   */
+  tag?: string;
+  weeklyOpeningDays?: string;
+  static names(): { [key: string]: string } {
+    return {
+      averageSpend: 'averageSpend',
+      businessArea: 'businessArea',
+      dailyOpeningHours: 'dailyOpeningHours',
+      mainTag: 'mainTag',
+      phone: 'phone',
+      tag: 'tag',
+      weeklyOpeningDays: 'weeklyOpeningDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageSpend: 'string',
+      businessArea: 'string',
+      dailyOpeningHours: 'string',
+      mainTag: 'string',
+      phone: 'string',
+      tag: 'string',
+      weeklyOpeningDays: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlaceSearchNovaResponseBodyData extends $tea.Model {
+  address?: string;
+  /**
+   * @example
+   * 010
+   */
+  cityCode?: string;
+  cityName?: string;
+  /**
+   * @example
+   * 445
+   */
+  distanceMeter?: string;
+  /**
+   * @example
+   * 110105
+   */
+  districtCode?: string;
+  districtName?: string;
+  /**
+   * @example
+   * 34360
+   */
+  id?: string;
+  images?: PlaceSearchNovaResponseBodyDataImages[];
+  /**
+   * @example
+   * 39.990039
+   */
+  latitude?: string;
+  /**
+   * @example
+   * 116.482145
+   */
+  longitude?: string;
+  metadata?: PlaceSearchNovaResponseBodyDataMetadata;
+  /**
+   * @example
+   * hydro-project/hydro-res-auth
+   */
+  name?: string;
+  /**
+   * @example
+   * 110000
+   */
+  provinceCode?: string;
+  provinceName?: string;
+  /**
+   * @example
+   * 110200
+   */
+  typeCode?: string;
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      cityCode: 'cityCode',
+      cityName: 'cityName',
+      distanceMeter: 'distanceMeter',
+      districtCode: 'districtCode',
+      districtName: 'districtName',
+      id: 'id',
+      images: 'images',
+      latitude: 'latitude',
+      longitude: 'longitude',
+      metadata: 'metadata',
+      name: 'name',
+      provinceCode: 'provinceCode',
+      provinceName: 'provinceName',
+      typeCode: 'typeCode',
+      types: 'types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      cityCode: 'string',
+      cityName: 'string',
+      distanceMeter: 'string',
+      districtCode: 'string',
+      districtName: 'string',
+      id: 'string',
+      images: { 'type': 'array', 'itemType': PlaceSearchNovaResponseBodyDataImages },
+      latitude: 'string',
+      longitude: 'string',
+      metadata: PlaceSearchNovaResponseBodyDataMetadata,
+      name: 'string',
+      provinceCode: 'string',
+      provinceName: 'string',
+      typeCode: 'string',
+      types: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RgeoCodeResponseBodyDataBuilding extends $tea.Model {
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RgeoCodeResponseBodyDataBusinessAreas extends $tea.Model {
+  /**
+   * @example
+   * 110108
+   */
+  id?: string;
+  /**
+   * @example
+   * 39.996850
+   */
+  latitude?: string;
+  /**
+   * @example
+   * 116.294214
+   */
+  longitude?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      latitude: 'latitude',
+      longitude: 'longitude',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      latitude: 'string',
+      longitude: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RgeoCodeResponseBodyDataNeighborhood extends $tea.Model {
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RgeoCodeResponseBodyDataStreetNumber extends $tea.Model {
+  direction?: string;
+  /**
+   * @example
+   * 289.832
+   */
+  distanceMeter?: string;
+  /**
+   * @example
+   * 39.986542
+   */
+  latitude?: string;
+  /**
+   * @example
+   * 116.311943
+   */
+  longitude?: string;
+  number?: string;
+  street?: string;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'direction',
+      distanceMeter: 'distanceMeter',
+      latitude: 'latitude',
+      longitude: 'longitude',
+      number: 'number',
+      street: 'street',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'string',
+      distanceMeter: 'string',
+      latitude: 'string',
+      longitude: 'string',
+      number: 'string',
+      street: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RgeoCodeResponseBodyData extends $tea.Model {
+  building?: RgeoCodeResponseBodyDataBuilding;
+  businessAreas?: RgeoCodeResponseBodyDataBusinessAreas[];
+  city?: string;
+  /**
+   * @example
+   * 010
+   */
+  cityCode?: string;
+  country?: string;
+  district?: string;
+  /**
+   * @example
+   * 110108
+   */
+  districtCode?: string;
+  formattedAddress?: string;
+  neighborhood?: RgeoCodeResponseBodyDataNeighborhood;
+  province?: string;
+  streetNumber?: RgeoCodeResponseBodyDataStreetNumber;
+  /**
+   * @example
+   * 110108015000
+   */
+  townCode?: string;
+  townShip?: string;
+  static names(): { [key: string]: string } {
+    return {
+      building: 'building',
+      businessAreas: 'businessAreas',
+      city: 'city',
+      cityCode: 'cityCode',
+      country: 'country',
+      district: 'district',
+      districtCode: 'districtCode',
+      formattedAddress: 'formattedAddress',
+      neighborhood: 'neighborhood',
+      province: 'province',
+      streetNumber: 'streetNumber',
+      townCode: 'townCode',
+      townShip: 'townShip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      building: RgeoCodeResponseBodyDataBuilding,
+      businessAreas: { 'type': 'array', 'itemType': RgeoCodeResponseBodyDataBusinessAreas },
+      city: 'string',
+      cityCode: 'string',
+      country: 'string',
+      district: 'string',
+      districtCode: 'string',
+      formattedAddress: 'string',
+      neighborhood: RgeoCodeResponseBodyDataNeighborhood,
+      province: 'string',
+      streetNumber: RgeoCodeResponseBodyDataStreetNumber,
+      townCode: 'string',
+      townShip: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WalkingDirectionNovaResponseBodyDataPathsCost extends $tea.Model {
+  /**
+   * @example
+   * 1232
+   */
+  durationSecond?: string;
+  /**
+   * @example
+   * 20
+   */
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  tolls?: string;
+  /**
+   * @example
+   * 3
+   */
+  trafficLights?: string;
+  /**
+   * @example
+   * 10
+   */
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WalkingDirectionNovaResponseBodyDataPathsStepsCost extends $tea.Model {
+  /**
+   * @example
+   * 13
+   */
+  durationSecond?: string;
+  /**
+   * @example
+   * 20
+   */
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  tolls?: string;
+  trafficLights?: string;
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WalkingDirectionNovaResponseBodyDataPathsSteps extends $tea.Model {
+  cost?: WalkingDirectionNovaResponseBodyDataPathsStepsCost;
+  instruction?: string;
+  orientation?: string;
+  roadName?: string;
+  /**
+   * @example
+   * 1665
+   */
+  stepDistanceMeter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      instruction: 'instruction',
+      orientation: 'orientation',
+      roadName: 'roadName',
+      stepDistanceMeter: 'stepDistanceMeter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: WalkingDirectionNovaResponseBodyDataPathsStepsCost,
+      instruction: 'string',
+      orientation: 'string',
+      roadName: 'string',
+      stepDistanceMeter: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WalkingDirectionNovaResponseBodyDataPaths extends $tea.Model {
+  cost?: WalkingDirectionNovaResponseBodyDataPathsCost;
+  /**
+   * @example
+   * 12000
+   */
+  distanceMeter?: string;
+  /**
+   * @example
+   * 39223
+   */
+  durationSecond?: string;
+  restriction?: string;
+  steps?: WalkingDirectionNovaResponseBodyDataPathsSteps[];
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      distanceMeter: 'distanceMeter',
+      durationSecond: 'durationSecond',
+      restriction: 'restriction',
+      steps: 'steps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: WalkingDirectionNovaResponseBodyDataPathsCost,
+      distanceMeter: 'string',
+      durationSecond: 'string',
+      restriction: 'string',
+      steps: { 'type': 'array', 'itemType': WalkingDirectionNovaResponseBodyDataPathsSteps },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WalkingDirectionNovaResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 40.020642
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 116.466485
+   */
+  originLongitude?: string;
+  paths?: WalkingDirectionNovaResponseBodyDataPaths[];
+  /**
+   * @example
+   * 8
+   */
+  taxiCost?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+      paths: 'paths',
+      taxiCost: 'taxiCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+      paths: { 'type': 'array', 'itemType': WalkingDirectionNovaResponseBodyDataPaths },
+      taxiCost: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -468,6 +3369,63 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * 根据起终点坐标检索符合条件的骑行路线规划方案
+   * 
+   * @param request - BicyclingDirectionNovaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BicyclingDirectionNovaResponse
+   */
+  async bicyclingDirectionNovaWithOptions(request: BicyclingDirectionNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BicyclingDirectionNovaResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationLatitude)) {
+      query["destinationLatitude"] = request.destinationLatitude;
+    }
+
+    if (!Util.isUnset(request.destinationLongitude)) {
+      query["destinationLongitude"] = request.destinationLongitude;
+    }
+
+    if (!Util.isUnset(request.originLatitude)) {
+      query["originLatitude"] = request.originLatitude;
+    }
+
+    if (!Util.isUnset(request.originLongitude)) {
+      query["originLongitude"] = request.originLongitude;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BicyclingDirectionNova",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/ipaas/v2/direction/bicycling`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<BicyclingDirectionNovaResponse>(await this.callApi(params, req, runtime), new BicyclingDirectionNovaResponse({}));
+  }
+
+  /**
+   * 根据起终点坐标检索符合条件的骑行路线规划方案
+   * 
+   * @param request - BicyclingDirectionNovaRequest
+   * @returns BicyclingDirectionNovaResponse
+   */
+  async bicyclingDirectionNova(request: BicyclingDirectionNovaRequest): Promise<BicyclingDirectionNovaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.bicyclingDirectionNovaWithOptions(request, headers, runtime);
   }
 
   /**
@@ -508,6 +3466,429 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.commonQueryBySceneWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 根据起终点坐标检索符合条件的驾车路线规划方案
+   * 
+   * @param request - DrivingDirectionNovaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DrivingDirectionNovaResponse
+   */
+  async drivingDirectionNovaWithOptions(request: DrivingDirectionNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DrivingDirectionNovaResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationLatitude)) {
+      query["destinationLatitude"] = request.destinationLatitude;
+    }
+
+    if (!Util.isUnset(request.destinationLongitude)) {
+      query["destinationLongitude"] = request.destinationLongitude;
+    }
+
+    if (!Util.isUnset(request.originLatitude)) {
+      query["originLatitude"] = request.originLatitude;
+    }
+
+    if (!Util.isUnset(request.originLongitude)) {
+      query["originLongitude"] = request.originLongitude;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DrivingDirectionNova",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/ipaas/v2/direction/driving`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DrivingDirectionNovaResponse>(await this.callApi(params, req, runtime), new DrivingDirectionNovaResponse({}));
+  }
+
+  /**
+   * 根据起终点坐标检索符合条件的驾车路线规划方案
+   * 
+   * @param request - DrivingDirectionNovaRequest
+   * @returns DrivingDirectionNovaResponse
+   */
+  async drivingDirectionNova(request: DrivingDirectionNovaRequest): Promise<DrivingDirectionNovaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.drivingDirectionNovaWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 电动车路线规划方案V2
+   * 
+   * @param request - ElectrobikeDirectionNovaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ElectrobikeDirectionNovaResponse
+   */
+  async electrobikeDirectionNovaWithOptions(request: ElectrobikeDirectionNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ElectrobikeDirectionNovaResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationLatitude)) {
+      query["destinationLatitude"] = request.destinationLatitude;
+    }
+
+    if (!Util.isUnset(request.destinationLongitude)) {
+      query["destinationLongitude"] = request.destinationLongitude;
+    }
+
+    if (!Util.isUnset(request.originLatitude)) {
+      query["originLatitude"] = request.originLatitude;
+    }
+
+    if (!Util.isUnset(request.originLongitude)) {
+      query["originLongitude"] = request.originLongitude;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ElectrobikeDirectionNova",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/ipaas/v2/direction/electrobike`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ElectrobikeDirectionNovaResponse>(await this.callApi(params, req, runtime), new ElectrobikeDirectionNovaResponse({}));
+  }
+
+  /**
+   * 电动车路线规划方案V2
+   * 
+   * @param request - ElectrobikeDirectionNovaRequest
+   * @returns ElectrobikeDirectionNovaResponse
+   */
+  async electrobikeDirectionNova(request: ElectrobikeDirectionNovaRequest): Promise<ElectrobikeDirectionNovaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.electrobikeDirectionNovaWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 地理编码，将详细的结构化地址转换为高德经纬度坐标
+   * 
+   * @param request - GeoCodeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GeoCodeResponse
+   */
+  async geoCodeWithOptions(request: GeoCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GeoCodeResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.address)) {
+      query["address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.city)) {
+      query["city"] = request.city;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GeoCode",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/ipaas/v1/geocode/geo`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GeoCodeResponse>(await this.callApi(params, req, runtime), new GeoCodeResponse({}));
+  }
+
+  /**
+   * 地理编码，将详细的结构化地址转换为高德经纬度坐标
+   * 
+   * @param request - GeoCodeRequest
+   * @returns GeoCodeResponse
+   */
+  async geoCode(request: GeoCodeRequest): Promise<GeoCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.geoCodeWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 通过经纬度查询附近的地点
+   * 
+   * @param request - NearbySearchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns NearbySearchResponse
+   */
+  async nearbySearchWithOptions(request: NearbySearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<NearbySearchResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keywords)) {
+      query["keywords"] = request.keywords;
+    }
+
+    if (!Util.isUnset(request.latitude)) {
+      query["latitude"] = request.latitude;
+    }
+
+    if (!Util.isUnset(request.longitude)) {
+      query["longitude"] = request.longitude;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.radius)) {
+      query["radius"] = request.radius;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.types)) {
+      query["types"] = request.types;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "NearbySearch",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/ipaas/v1/pois/nearby`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<NearbySearchResponse>(await this.callApi(params, req, runtime), new NearbySearchResponse({}));
+  }
+
+  /**
+   * 通过经纬度查询附近的地点
+   * 
+   * @param request - NearbySearchRequest
+   * @returns NearbySearchResponse
+   */
+  async nearbySearch(request: NearbySearchRequest): Promise<NearbySearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.nearbySearchWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 通过经纬度查询附近的地点
+   * 
+   * @param request - NearbySearchNovaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns NearbySearchNovaResponse
+   */
+  async nearbySearchNovaWithOptions(request: NearbySearchNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<NearbySearchNovaResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keywords)) {
+      query["keywords"] = request.keywords;
+    }
+
+    if (!Util.isUnset(request.latitude)) {
+      query["latitude"] = request.latitude;
+    }
+
+    if (!Util.isUnset(request.longitude)) {
+      query["longitude"] = request.longitude;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.radius)) {
+      query["radius"] = request.radius;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.types)) {
+      query["types"] = request.types;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "NearbySearchNova",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/ipaas/v2/pois/nearby`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<NearbySearchNovaResponse>(await this.callApi(params, req, runtime), new NearbySearchNovaResponse({}));
+  }
+
+  /**
+   * 通过经纬度查询附近的地点
+   * 
+   * @param request - NearbySearchNovaRequest
+   * @returns NearbySearchNovaResponse
+   */
+  async nearbySearchNova(request: NearbySearchNovaRequest): Promise<NearbySearchNovaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.nearbySearchNovaWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 通过关键词搜索地点
+   * 
+   * @param request - PlaceSearchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PlaceSearchResponse
+   */
+  async placeSearchWithOptions(request: PlaceSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PlaceSearchResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keywords)) {
+      query["keywords"] = request.keywords;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.types)) {
+      query["types"] = request.types;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PlaceSearch",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/ipaas/v1/pois/place`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PlaceSearchResponse>(await this.callApi(params, req, runtime), new PlaceSearchResponse({}));
+  }
+
+  /**
+   * 通过关键词搜索地点
+   * 
+   * @param request - PlaceSearchRequest
+   * @returns PlaceSearchResponse
+   */
+  async placeSearch(request: PlaceSearchRequest): Promise<PlaceSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.placeSearchWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 通过关键词搜索地点
+   * 
+   * @param request - PlaceSearchNovaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PlaceSearchNovaResponse
+   */
+  async placeSearchNovaWithOptions(request: PlaceSearchNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PlaceSearchNovaResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keywords)) {
+      query["keywords"] = request.keywords;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.types)) {
+      query["types"] = request.types;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PlaceSearchNova",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/ipaas/v2/pois/place`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PlaceSearchNovaResponse>(await this.callApi(params, req, runtime), new PlaceSearchNovaResponse({}));
+  }
+
+  /**
+   * 通过关键词搜索地点
+   * 
+   * @param request - PlaceSearchNovaRequest
+   * @returns PlaceSearchNovaResponse
+   */
+  async placeSearchNova(request: PlaceSearchNovaRequest): Promise<PlaceSearchNovaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.placeSearchNovaWithOptions(request, headers, runtime);
   }
 
   /**
@@ -628,6 +4009,112 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryRestaurantsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 逆地理编码，将经纬度转换为详细结构化的地址信息
+   * 
+   * @param request - RgeoCodeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RgeoCodeResponse
+   */
+  async rgeoCodeWithOptions(request: RgeoCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RgeoCodeResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.latitude)) {
+      query["latitude"] = request.latitude;
+    }
+
+    if (!Util.isUnset(request.longitude)) {
+      query["longitude"] = request.longitude;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RgeoCode",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/ipaas/v1/geocode/regeo`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RgeoCodeResponse>(await this.callApi(params, req, runtime), new RgeoCodeResponse({}));
+  }
+
+  /**
+   * 逆地理编码，将经纬度转换为详细结构化的地址信息
+   * 
+   * @param request - RgeoCodeRequest
+   * @returns RgeoCodeResponse
+   */
+  async rgeoCode(request: RgeoCodeRequest): Promise<RgeoCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.rgeoCodeWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 根据起终点坐标检索符合条件的步行路线规划方案
+   * 
+   * @param request - WalkingDirectionNovaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WalkingDirectionNovaResponse
+   */
+  async walkingDirectionNovaWithOptions(request: WalkingDirectionNovaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<WalkingDirectionNovaResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationLatitude)) {
+      query["destinationLatitude"] = request.destinationLatitude;
+    }
+
+    if (!Util.isUnset(request.destinationLongitude)) {
+      query["destinationLongitude"] = request.destinationLongitude;
+    }
+
+    if (!Util.isUnset(request.originLatitude)) {
+      query["originLatitude"] = request.originLatitude;
+    }
+
+    if (!Util.isUnset(request.originLongitude)) {
+      query["originLongitude"] = request.originLongitude;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "WalkingDirectionNova",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/ipaas/v2/direction/walking`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<WalkingDirectionNovaResponse>(await this.callApi(params, req, runtime), new WalkingDirectionNovaResponse({}));
+  }
+
+  /**
+   * 根据起终点坐标检索符合条件的步行路线规划方案
+   * 
+   * @param request - WalkingDirectionNovaRequest
+   * @returns WalkingDirectionNovaResponse
+   */
+  async walkingDirectionNova(request: WalkingDirectionNovaRequest): Promise<WalkingDirectionNovaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.walkingDirectionNovaWithOptions(request, headers, runtime);
   }
 
 }
