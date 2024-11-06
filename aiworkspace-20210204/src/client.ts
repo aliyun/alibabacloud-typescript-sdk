@@ -5188,12 +5188,14 @@ export class GetPermissionRequest extends $tea.Model {
    * 17915******4216
    */
   creator?: string;
+  labels?: { [key: string]: any };
   option?: string;
   resource?: string;
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
       creator: 'Creator',
+      labels: 'Labels',
       option: 'Option',
       resource: 'Resource',
     };
@@ -5203,6 +5205,46 @@ export class GetPermissionRequest extends $tea.Model {
     return {
       accessibility: 'string',
       creator: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      option: 'string',
+      resource: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * PUBLIC
+   */
+  accessibility?: string;
+  /**
+   * @example
+   * 17915******4216
+   */
+  creator?: string;
+  labelsShrink?: string;
+  option?: string;
+  resource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessibility: 'Accessibility',
+      creator: 'Creator',
+      labelsShrink: 'Labels',
+      option: 'Option',
+      resource: 'Resource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessibility: 'string',
+      creator: 'string',
+      labelsShrink: 'string',
       option: 'string',
       resource: 'string',
     };
@@ -12582,13 +12624,19 @@ export default class Client extends OpenApi {
   /**
    * 获取权限，若无权限则返回错误
    * 
-   * @param request - GetPermissionRequest
+   * @param tmpReq - GetPermissionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPermissionResponse
    */
-  async getPermissionWithOptions(WorkspaceId: string, PermissionCode: string, request: GetPermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPermissionResponse> {
-    Util.validateModel(request);
+  async getPermissionWithOptions(WorkspaceId: string, PermissionCode: string, tmpReq: GetPermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPermissionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetPermissionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.labels)) {
+      request.labelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labels, "Labels", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessibility)) {
       query["Accessibility"] = request.accessibility;
@@ -12596,6 +12644,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.creator)) {
       query["Creator"] = request.creator;
+    }
+
+    if (!Util.isUnset(request.labelsShrink)) {
+      query["Labels"] = request.labelsShrink;
     }
 
     if (!Util.isUnset(request.option)) {
