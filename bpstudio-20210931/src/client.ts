@@ -5297,6 +5297,7 @@ export class GetTemplateResponseBodyDataVariables extends $tea.Model {
    * cadt-app-01
    */
   defaultValue?: string;
+  options?: string;
   /**
    * @remarks
    * The value of the variable.
@@ -5310,6 +5311,7 @@ export class GetTemplateResponseBodyDataVariables extends $tea.Model {
       attribute: 'Attribute',
       dataType: 'DataType',
       defaultValue: 'DefaultValue',
+      options: 'Options',
       variable: 'Variable',
     };
   }
@@ -5319,6 +5321,7 @@ export class GetTemplateResponseBodyDataVariables extends $tea.Model {
       attribute: 'string',
       dataType: 'string',
       defaultValue: 'string',
+      options: 'string',
       variable: 'string',
     };
   }
