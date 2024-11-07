@@ -6947,6 +6947,118 @@ export class DescribeClustersResponse extends $tea.Model {
   }
 }
 
+export class DescribeClustersForRegionRequest extends $tea.Model {
+  /**
+   * @example
+   * c8155823d057948c69a****
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * ack.standard
+   */
+  clusterSpec?: string;
+  /**
+   * @example
+   * Kubernetes
+   */
+  clusterType?: string;
+  /**
+   * @example
+   * test-cluster
+   */
+  name?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 3
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Serverless
+   */
+  profile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      clusterSpec: 'cluster_spec',
+      clusterType: 'cluster_type',
+      name: 'name',
+      pageNumber: 'page_number',
+      pageSize: 'page_size',
+      profile: 'profile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterSpec: 'string',
+      clusterType: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      profile: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClustersForRegionResponseBody extends $tea.Model {
+  clusters?: DescribeClustersForRegionResponseBodyClusters[];
+  pageInfo?: DescribeClustersForRegionResponseBodyPageInfo;
+  static names(): { [key: string]: string } {
+    return {
+      clusters: 'clusters',
+      pageInfo: 'page_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusters: { 'type': 'array', 'itemType': DescribeClustersForRegionResponseBodyClusters },
+      pageInfo: DescribeClustersForRegionResponseBodyPageInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClustersForRegionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeClustersForRegionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeClustersForRegionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClustersV1Request extends $tea.Model {
   /**
    * @remarks
@@ -7614,6 +7726,90 @@ export class DescribeEventsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeEventsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsForRegionRequest extends $tea.Model {
+  /**
+   * @example
+   * cf62854ac2130470897be7a27ed1f****
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 50
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      pageNumber: 'page_number',
+      pageSize: 'page_size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsForRegionResponseBody extends $tea.Model {
+  events?: DescribeEventsForRegionResponseBodyEvents[];
+  pageInfo?: DescribeEventsForRegionResponseBodyPageInfo;
+  static names(): { [key: string]: string } {
+    return {
+      events: 'events',
+      pageInfo: 'page_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      events: { 'type': 'array', 'itemType': DescribeEventsForRegionResponseBodyEvents },
+      pageInfo: DescribeEventsForRegionResponseBodyPageInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsForRegionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEventsForRegionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEventsForRegionResponseBody,
     };
   }
 
@@ -21487,6 +21683,229 @@ export class DescribeClustersResponseBody extends $tea.Model {
   }
 }
 
+export class DescribeClustersForRegionResponseBodyClusters extends $tea.Model {
+  /**
+   * @example
+   * cluster.local
+   */
+  clusterDomain?: string;
+  /**
+   * @example
+   * c905d1364c2dd4b6284a3f41790c4****
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * ack.standard
+   */
+  clusterSpec?: string;
+  /**
+   * @example
+   * ManagedKubernetes
+   */
+  clusterType?: string;
+  /**
+   * @example
+   * 172.20.0.0/16
+   */
+  containerCidr?: string;
+  /**
+   * @example
+   * 2020-12-01T20:40:40+08:00
+   */
+  created?: string;
+  /**
+   * @example
+   * 1.16.6-aliyun.1
+   */
+  currentVersion?: string;
+  /**
+   * @example
+   * false
+   */
+  deletionProtection?: boolean;
+  /**
+   * @example
+   * 1.16.6-aliyun.1
+   */
+  initVersion?: string;
+  /**
+   * @example
+   * ipv4
+   */
+  ipStack?: string;
+  /**
+   * @example
+   * test-cluster
+   */
+  name?: string;
+  /**
+   * @example
+   * 1.18.8-aliyun.1
+   */
+  nextVersion?: string;
+  /**
+   * @example
+   * Default
+   */
+  profile?: string;
+  /**
+   * @example
+   * ipvs
+   */
+  proxyMode?: string;
+  /**
+   * @example
+   * cn-beijing-a
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-acfmyvw3wjm****
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * sg-2zeihch86ooz9io4****
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 172.21.0.0/20
+   */
+  serviceCidr?: string;
+  /**
+   * @example
+   * 2
+   */
+  size?: number;
+  /**
+   * @example
+   * running
+   */
+  state?: string;
+  tags?: Tag[];
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timezone?: string;
+  /**
+   * @example
+   * 2020-12-08T15:37:00+08:00
+   */
+  updated?: string;
+  /**
+   * @example
+   * vpc-2zeg8nf1ukc0fcmvq****
+   */
+  vpcId?: string;
+  vswitchIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterDomain: 'cluster_domain',
+      clusterId: 'cluster_id',
+      clusterSpec: 'cluster_spec',
+      clusterType: 'cluster_type',
+      containerCidr: 'container_cidr',
+      created: 'created',
+      currentVersion: 'current_version',
+      deletionProtection: 'deletion_protection',
+      initVersion: 'init_version',
+      ipStack: 'ip_stack',
+      name: 'name',
+      nextVersion: 'next_version',
+      profile: 'profile',
+      proxyMode: 'proxy_mode',
+      regionId: 'region_id',
+      resourceGroupId: 'resource_group_id',
+      securityGroupId: 'security_group_id',
+      serviceCidr: 'service_cidr',
+      size: 'size',
+      state: 'state',
+      tags: 'tags',
+      timezone: 'timezone',
+      updated: 'updated',
+      vpcId: 'vpc_id',
+      vswitchIds: 'vswitch_ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterDomain: 'string',
+      clusterId: 'string',
+      clusterSpec: 'string',
+      clusterType: 'string',
+      containerCidr: 'string',
+      created: 'string',
+      currentVersion: 'string',
+      deletionProtection: 'boolean',
+      initVersion: 'string',
+      ipStack: 'string',
+      name: 'string',
+      nextVersion: 'string',
+      profile: 'string',
+      proxyMode: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      serviceCidr: 'string',
+      size: 'number',
+      state: 'string',
+      tags: { 'type': 'array', 'itemType': Tag },
+      timezone: 'string',
+      updated: 'string',
+      vpcId: 'string',
+      vswitchIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClustersForRegionResponseBodyPageInfo extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'page_number',
+      pageSize: 'page_size',
+      totalCount: 'total_count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpgrade extends $tea.Model {
   /**
    * @remarks
@@ -22457,6 +22876,137 @@ export class DescribeEventsResponseBodyPageInfo extends $tea.Model {
    * @remarks
    * The total number of entries returned.
    * 
+   * @example
+   * 3
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'page_number',
+      pageSize: 'page_size',
+      totalCount: 'total_count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsForRegionResponseBodyEventsData extends $tea.Model {
+  /**
+   * @example
+   * info
+   */
+  level?: string;
+  /**
+   * @example
+   * Start to upgrade NodePool nodePool/nodePool-A
+   */
+  message?: string;
+  /**
+   * @example
+   * Started
+   */
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      level: 'level',
+      message: 'message',
+      reason: 'reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      level: 'string',
+      message: 'string',
+      reason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsForRegionResponseBodyEvents extends $tea.Model {
+  /**
+   * @example
+   * cluster-id
+   */
+  clusterId?: string;
+  data?: DescribeEventsForRegionResponseBodyEventsData;
+  /**
+   * @example
+   * A234-1234-1234
+   */
+  eventId?: string;
+  source?: string;
+  /**
+   * @example
+   * nodePool-id
+   */
+  subject?: string;
+  /**
+   * @example
+   * 2020-12-01T17:31:00Z
+   */
+  time?: string;
+  /**
+   * @example
+   * nodePool_upgrade
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      data: 'data',
+      eventId: 'event_id',
+      source: 'source',
+      subject: 'subject',
+      time: 'time',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      data: DescribeEventsForRegionResponseBodyEventsData,
+      eventId: 'string',
+      source: 'string',
+      subject: 'string',
+      time: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsForRegionResponseBodyPageInfo extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 50
+   */
+  pageSize?: number;
+  /**
    * @example
    * 3
    */
@@ -30245,6 +30795,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指定地域内全部集群列表
+   * 
+   * @param request - DescribeClustersForRegionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClustersForRegionResponse
+   */
+  async describeClustersForRegionWithOptions(regionId: string, request: DescribeClustersForRegionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClustersForRegionResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["cluster_id"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.clusterSpec)) {
+      query["cluster_spec"] = request.clusterSpec;
+    }
+
+    if (!Util.isUnset(request.clusterType)) {
+      query["cluster_type"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["page_number"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["page_size"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.profile)) {
+      query["profile"] = request.profile;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeClustersForRegion",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/regions/${OpenApiUtil.getEncodeParam(regionId)}/clusters`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClustersForRegionResponse>(await this.callApi(params, req, runtime), new DescribeClustersForRegionResponse({}));
+  }
+
+  /**
+   * 查询指定地域内全部集群列表
+   * 
+   * @param request - DescribeClustersForRegionRequest
+   * @returns DescribeClustersForRegionResponse
+   */
+  async describeClustersForRegion(regionId: string, request: DescribeClustersForRegionRequest): Promise<DescribeClustersForRegionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeClustersForRegionWithOptions(regionId, request, headers, runtime);
+  }
+
+  /**
    * Queries the details about Container Service for Kubernetes (ACK) clusters of specified types or specifications within an account.
    * 
    * @param request - DescribeClustersV1Request
@@ -30542,6 +31161,59 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeEventsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询指定地域内全部事件列表
+   * 
+   * @param request - DescribeEventsForRegionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEventsForRegionResponse
+   */
+  async describeEventsForRegionWithOptions(regionId: string, request: DescribeEventsForRegionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEventsForRegionResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["cluster_id"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["page_number"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["page_size"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEventsForRegion",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/regions/${OpenApiUtil.getEncodeParam(regionId)}/events`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEventsForRegionResponse>(await this.callApi(params, req, runtime), new DescribeEventsForRegionResponse({}));
+  }
+
+  /**
+   * 查询指定地域内全部事件列表
+   * 
+   * @param request - DescribeEventsForRegionRequest
+   * @returns DescribeEventsForRegionResponse
+   */
+  async describeEventsForRegion(regionId: string, request: DescribeEventsForRegionRequest): Promise<DescribeEventsForRegionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeEventsForRegionWithOptions(regionId, request, headers, runtime);
   }
 
   /**
