@@ -625,7 +625,7 @@ export class CreateIndexRequest extends $tea.Model {
   categoryIds?: string[];
   /**
    * @remarks
-   * The estimated length of chunks. The maximum number of characters for a chunk. Texts exceeding this limit are splited. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [1-2048].
+   * The estimated length of chunks. The maximum number of characters for a chunk. Texts exceeding this limit are splited. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: [1-2048].
    * 
    * The default value is empty, which means using the intelligent splitting method.
    * 
@@ -653,7 +653,7 @@ export class CreateIndexRequest extends $tea.Model {
   documentIds?: string[];
   /**
    * @remarks
-   * The name of the embedding model. The embedding model converts the original input prompt and knowledge text into numerical vectors for similarity comparison. The default and only model available is DashScope text-embedding-v2. It supports multiple languages including Chinese and English and normalizes the vector results. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid value:
+   * The name of the embedding model. The embedding model converts the original input prompt and knowledge text into numerical vectors for similarity comparison. The default and only model available is DashScope text-embedding-v2. It supports multiple languages including Chinese and English and normalizes the vector results. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid value:
    * 
    * *   text-embedding-v2
    * 
@@ -672,7 +672,7 @@ export class CreateIndexRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * The overlap length. The number of overlapping characters between two consecutive chunks. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: 0 to 1024.
+   * The overlap length. The number of overlapping characters between two consecutive chunks. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: 0 to 1024.
    * 
    * The default value is empty, which means using the intelligent splitting method.
    * 
@@ -682,7 +682,7 @@ export class CreateIndexRequest extends $tea.Model {
   overlapSize?: number;
   /**
    * @remarks
-   * Similarity Threshold. The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00].
+   * Similarity Threshold. The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00].
    * 
    * Default value: 0.20.
    * 
@@ -692,7 +692,7 @@ export class CreateIndexRequest extends $tea.Model {
   rerankMinScore?: number;
   /**
    * @remarks
-   * The name of the rank model. The rank model is a scoring system outside the knowledge base. It calculates the similarity score of each text chunk in the input question and knowledge base and ranks them in descending order. Then, the model returns the top K chunks with the highest scores. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * The name of the rank model. The rank model is a scoring system outside the knowledge base. It calculates the similarity score of each text chunk in the input question and knowledge base and ranks them in descending order. Then, the model returns the top K chunks with the highest scores. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
    * 
    * *   gte-rerank-hybrid
    * *   gte-rerank
@@ -707,7 +707,7 @@ export class CreateIndexRequest extends $tea.Model {
   rerankModelName?: string;
   /**
    * @remarks
-   * The clause identifier. The document is split into chunks based on this identifier. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). You can specify multiple identifiers and do not need to add any other characters to separate them. For example: !,\\\\\\n. Valid values:
+   * The clause identifier. The document is split into chunks based on this identifier. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). You can specify multiple identifiers and do not need to add any other characters to separate them. For example: !,\\\\\\n. Valid values:
    * 
    * *   \\n: line break
    * *   ，: Chinese comma
@@ -718,7 +718,7 @@ export class CreateIndexRequest extends $tea.Model {
    * *   ! : English exclamation point
    * *   ；: Chinese semicolon
    * *   ;: English semicolon
-   * *   ？ : Chinese question mark
+   * *   ？: Chinese question mark
    * *   ?: English question mark
    * 
    * The default value is empty, which means using the intelligent splitting method.
@@ -737,7 +737,7 @@ export class CreateIndexRequest extends $tea.Model {
   sinkInstanceId?: string;
   /**
    * @remarks
-   * The region of the vector storage instance. This parameter is available only when SinkType is set to ADB. You can call the [DescribeRegions](https://help.aliyun.com/zh/analyticdb-for-postgresql/developer-reference/api-gpdb-2016-05-03-describeregions) operation to query the most recent region list.
+   * The region of the vector storage instance. This parameter is available only when SinkType is set to ADB. You can call the [DescribeRegions](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/developer-reference/api-gpdb-2016-05-03-describeregions) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -745,7 +745,7 @@ export class CreateIndexRequest extends $tea.Model {
   sinkRegion?: string;
   /**
    * @remarks
-   * The vector storage type of the knowledge base. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * The vector storage type of the knowledge base. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
    * 
    * *   DEFAULT: The built-in vector database.
    * *   ADB: AnalyticDB for PostgreSQL database. If you need advanced features, such as managing, auditing, and monitoring, we recommend that you specify ADB.
@@ -760,7 +760,7 @@ export class CreateIndexRequest extends $tea.Model {
   sinkType?: string;
   /**
    * @remarks
-   * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
    * 
    * *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
    * *   DATA_CENTER_FILE: The document type. Import one or more documents from Data Center.
@@ -780,7 +780,7 @@ export class CreateIndexRequest extends $tea.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The data type of the knowledge base. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid value:
+   * The data type of the knowledge base. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid value:
    * 
    * *   unstructured
    * 
@@ -792,6 +792,7 @@ export class CreateIndexRequest extends $tea.Model {
    * structured
    */
   structureType?: string;
+  metaExtractColumns?: CreateIndexRequestMetaExtractColumns[];
   static names(): { [key: string]: string } {
     return {
       categoryIds: 'CategoryIds',
@@ -811,6 +812,7 @@ export class CreateIndexRequest extends $tea.Model {
       sinkType: 'SinkType',
       sourceType: 'SourceType',
       structureType: 'StructureType',
+      metaExtractColumns: 'metaExtractColumns',
     };
   }
 
@@ -833,6 +835,7 @@ export class CreateIndexRequest extends $tea.Model {
       sinkType: 'string',
       sourceType: 'string',
       structureType: 'string',
+      metaExtractColumns: { 'type': 'array', 'itemType': CreateIndexRequestMetaExtractColumns },
     };
   }
 
@@ -849,7 +852,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
   categoryIdsShrink?: string;
   /**
    * @remarks
-   * The estimated length of chunks. The maximum number of characters for a chunk. Texts exceeding this limit are splited. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [1-2048].
+   * The estimated length of chunks. The maximum number of characters for a chunk. Texts exceeding this limit are splited. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: [1-2048].
    * 
    * The default value is empty, which means using the intelligent splitting method.
    * 
@@ -877,7 +880,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
   documentIdsShrink?: string;
   /**
    * @remarks
-   * The name of the embedding model. The embedding model converts the original input prompt and knowledge text into numerical vectors for similarity comparison. The default and only model available is DashScope text-embedding-v2. It supports multiple languages including Chinese and English and normalizes the vector results. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid value:
+   * The name of the embedding model. The embedding model converts the original input prompt and knowledge text into numerical vectors for similarity comparison. The default and only model available is DashScope text-embedding-v2. It supports multiple languages including Chinese and English and normalizes the vector results. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid value:
    * 
    * *   text-embedding-v2
    * 
@@ -896,7 +899,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * The overlap length. The number of overlapping characters between two consecutive chunks. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: 0 to 1024.
+   * The overlap length. The number of overlapping characters between two consecutive chunks. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: 0 to 1024.
    * 
    * The default value is empty, which means using the intelligent splitting method.
    * 
@@ -906,7 +909,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
   overlapSize?: number;
   /**
    * @remarks
-   * Similarity Threshold. The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00].
+   * Similarity Threshold. The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00].
    * 
    * Default value: 0.20.
    * 
@@ -916,7 +919,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
   rerankMinScore?: number;
   /**
    * @remarks
-   * The name of the rank model. The rank model is a scoring system outside the knowledge base. It calculates the similarity score of each text chunk in the input question and knowledge base and ranks them in descending order. Then, the model returns the top K chunks with the highest scores. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * The name of the rank model. The rank model is a scoring system outside the knowledge base. It calculates the similarity score of each text chunk in the input question and knowledge base and ranks them in descending order. Then, the model returns the top K chunks with the highest scores. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
    * 
    * *   gte-rerank-hybrid
    * *   gte-rerank
@@ -931,7 +934,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
   rerankModelName?: string;
   /**
    * @remarks
-   * The clause identifier. The document is split into chunks based on this identifier. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). You can specify multiple identifiers and do not need to add any other characters to separate them. For example: !,\\\\\\n. Valid values:
+   * The clause identifier. The document is split into chunks based on this identifier. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). You can specify multiple identifiers and do not need to add any other characters to separate them. For example: !,\\\\\\n. Valid values:
    * 
    * *   \\n: line break
    * *   ，: Chinese comma
@@ -942,7 +945,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
    * *   ! : English exclamation point
    * *   ；: Chinese semicolon
    * *   ;: English semicolon
-   * *   ？ : Chinese question mark
+   * *   ？: Chinese question mark
    * *   ?: English question mark
    * 
    * The default value is empty, which means using the intelligent splitting method.
@@ -961,7 +964,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
   sinkInstanceId?: string;
   /**
    * @remarks
-   * The region of the vector storage instance. This parameter is available only when SinkType is set to ADB. You can call the [DescribeRegions](https://help.aliyun.com/zh/analyticdb-for-postgresql/developer-reference/api-gpdb-2016-05-03-describeregions) operation to query the most recent region list.
+   * The region of the vector storage instance. This parameter is available only when SinkType is set to ADB. You can call the [DescribeRegions](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/developer-reference/api-gpdb-2016-05-03-describeregions) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -969,7 +972,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
   sinkRegion?: string;
   /**
    * @remarks
-   * The vector storage type of the knowledge base. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * The vector storage type of the knowledge base. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
    * 
    * *   DEFAULT: The built-in vector database.
    * *   ADB: AnalyticDB for PostgreSQL database. If you need advanced features, such as managing, auditing, and monitoring, we recommend that you specify ADB.
@@ -984,7 +987,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
   sinkType?: string;
   /**
    * @remarks
-   * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
    * 
    * *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
    * *   DATA_CENTER_FILE: The document type. Import one or more documents from Data Center.
@@ -1004,7 +1007,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The data type of the knowledge base. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid value:
+   * The data type of the knowledge base. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid value:
    * 
    * *   unstructured
    * 
@@ -1016,6 +1019,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
    * structured
    */
   structureType?: string;
+  metaExtractColumnsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       categoryIdsShrink: 'CategoryIds',
@@ -1035,6 +1039,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
       sinkType: 'SinkType',
       sourceType: 'SourceType',
       structureType: 'StructureType',
+      metaExtractColumnsShrink: 'metaExtractColumns',
     };
   }
 
@@ -1057,6 +1062,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
       sinkType: 'string',
       sourceType: 'string',
       structureType: 'string',
+      metaExtractColumnsShrink: 'string',
     };
   }
 
@@ -1633,7 +1639,7 @@ export class DeleteFileResponse extends $tea.Model {
 export class DeleteIndexRequest extends $tea.Model {
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
    * 
    * This parameter is required.
    * 
@@ -1762,7 +1768,7 @@ export class DeleteIndexDocumentRequest extends $tea.Model {
   documentIds?: string[];
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
    * 
    * This parameter is required.
    * 
@@ -1799,7 +1805,7 @@ export class DeleteIndexDocumentShrinkRequest extends $tea.Model {
   documentIdsShrink?: string;
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
    * 
    * This parameter is required.
    * 
@@ -2175,7 +2181,7 @@ export class DescribeFileResponse extends $tea.Model {
 export class GetIndexJobStatusRequest extends $tea.Model {
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
    * 
    * This parameter is required.
    * 
@@ -2185,7 +2191,7 @@ export class GetIndexJobStatusRequest extends $tea.Model {
   indexId?: string;
   /**
    * @remarks
-   * The knowledge base job ID, which is the `Data.Id` parameter returned by the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) or [SubmitIndexAddDocumentsJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operations.
+   * The knowledge base job ID, which is the `Data.Id` parameter returned by the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) or [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operations.
    * 
    * This parameter is required.
    * 
@@ -2195,7 +2201,7 @@ export class GetIndexJobStatusRequest extends $tea.Model {
   jobId?: string;
   /**
    * @remarks
-   * Both the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) and [SubmitIndexAddDocumentsJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operations support batch import of documents. This operation returns both the overall `Status` of the job and the `Document.Status` of each document. If there are a large number of documents, you can use the `PageNumber` parameter to perform a paged query. Pages start from page 1. Default value: 1.
+   * Both the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) and [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operations support batch import of documents. This operation returns both the overall `Status` of the job and the `Document.Status` of each document. If there are a large number of documents, you can use the `PageNumber` parameter to perform a paged query. Pages start from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -2741,7 +2747,7 @@ export class ListChunksRequest extends $tea.Model {
   fields?: string[];
   /**
    * @remarks
-   * The primary key ID of the document, which is the `FieldID` parameter returned by the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation. This parameter is not required for structured knowledge base, but is required for unstructured knowledge base. To view the ID, you can click the ID icon next to the file name on the [Data Management](https://bailian.console.aliyun.com/#/data-center) page. You can filter returned chunks by the document ID. This parameter is left empty by default.
+   * The primary key ID of the document. This parameter is not required for structured knowledge base, but is required for unstructured knowledge base. To view the ID, you can click the ID icon next to the file name on the [Data Management](https://bailian.console.aliyun.com/#/data-center) page. You can filter returned chunks by the document ID. This parameter is left empty by default.
    * 
    * @example
    * file_5f03dfea56da4050ab68d61871fc4cb3_10151493
@@ -2749,7 +2755,7 @@ export class ListChunksRequest extends $tea.Model {
   filed?: string;
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
    * 
    * This parameter is required.
    * 
@@ -3047,7 +3053,7 @@ export class ListIndexDocumentsRequest extends $tea.Model {
   documentStatus?: string;
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
    * 
    * This parameter is required.
    * 
@@ -3770,7 +3776,7 @@ export class RetrieveRequest extends $tea.Model {
   denseSimilarityTopK?: number;
   /**
    * @remarks
-   * Specifies whether to enable reranking. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * Specifies whether to enable reranking. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
    * 
    * *   true
    * *   false
@@ -3783,7 +3789,7 @@ export class RetrieveRequest extends $tea.Model {
   enableReranking?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable multi-round conversation rewriting. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * Specifies whether to enable multi-round conversation rewriting. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
    * 
    * *   true
    * *   false
@@ -3797,7 +3803,7 @@ export class RetrieveRequest extends $tea.Model {
   images?: string[];
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
    * 
    * This parameter is required.
    * 
@@ -3817,7 +3823,7 @@ export class RetrieveRequest extends $tea.Model {
   rerank?: RetrieveRequestRerank[];
   /**
    * @remarks
-   * Similarity Threshold The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00]. The priority of this parameter is greater than the similarity threshold configured for the knowledge base.
+   * Similarity Threshold The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00]. The priority of this parameter is greater than the similarity threshold configured for the knowledge base.
    * 
    * By default, this parameter is left empty. In this case, the similarity threshold of the knowledge base is used.
    * 
@@ -3920,7 +3926,7 @@ export class RetrieveShrinkRequest extends $tea.Model {
   denseSimilarityTopK?: number;
   /**
    * @remarks
-   * Specifies whether to enable reranking. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * Specifies whether to enable reranking. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
    * 
    * *   true
    * *   false
@@ -3933,7 +3939,7 @@ export class RetrieveShrinkRequest extends $tea.Model {
   enableReranking?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable multi-round conversation rewriting. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * Specifies whether to enable multi-round conversation rewriting. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
    * 
    * *   true
    * *   false
@@ -3947,7 +3953,7 @@ export class RetrieveShrinkRequest extends $tea.Model {
   imagesShrink?: string;
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
    * 
    * This parameter is required.
    * 
@@ -3967,7 +3973,7 @@ export class RetrieveShrinkRequest extends $tea.Model {
   rerankShrink?: string;
   /**
    * @remarks
-   * Similarity Threshold The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00]. The priority of this parameter is greater than the similarity threshold configured for the knowledge base.
+   * Similarity Threshold The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00]. The priority of this parameter is greater than the similarity threshold configured for the knowledge base.
    * 
    * By default, this parameter is left empty. In this case, the similarity threshold of the knowledge base is used.
    * 
@@ -4171,7 +4177,7 @@ export class SubmitIndexAddDocumentsJobRequest extends $tea.Model {
   documentIds?: string[];
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
    * 
    * This parameter is required.
    * 
@@ -4181,7 +4187,7 @@ export class SubmitIndexAddDocumentsJobRequest extends $tea.Model {
   indexId?: string;
   /**
    * @remarks
-   * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
    * 
    * *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
    * *   DATA_CENTER_FILE: The document type. Import one or more documents from Data Center.
@@ -4230,7 +4236,7 @@ export class SubmitIndexAddDocumentsJobShrinkRequest extends $tea.Model {
   documentIdsShrink?: string;
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
    * 
    * This parameter is required.
    * 
@@ -4240,7 +4246,7 @@ export class SubmitIndexAddDocumentsJobShrinkRequest extends $tea.Model {
   indexId?: string;
   /**
    * @remarks
-   * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
    * 
    * *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
    * *   DATA_CENTER_FILE: The document type. Import one or more documents from Data Center.
@@ -4380,7 +4386,7 @@ export class SubmitIndexAddDocumentsJobResponse extends $tea.Model {
 export class SubmitIndexJobRequest extends $tea.Model {
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
    * 
    * This parameter is required.
    * 
@@ -5074,7 +5080,7 @@ export class ApplyFileUploadLeaseResponseBodyDataParam extends $tea.Model {
 export class ApplyFileUploadLeaseResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * The unique ID of the lease. You need to specify this parameter when you call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation.
+   * The unique ID of the lease.
    * 
    * @example
    * 1e6a159107384782be5e45ac4759b247.1719325231035
@@ -5423,6 +5429,40 @@ export class CreateIndexRequestDataSource extends $tea.Model {
       subType: 'string',
       table: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndexRequestMetaExtractColumns extends $tea.Model {
+  desc?: string;
+  enableLlm?: boolean;
+  enableSearch?: boolean;
+  key?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      enableLlm: 'EnableLlm',
+      enableSearch: 'EnableSearch',
+      key: 'Key',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      enableLlm: 'boolean',
+      enableSearch: 'boolean',
+      key: 'string',
+      type: 'string',
+      value: 'string',
     };
   }
 
@@ -6319,7 +6359,7 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $tea.Model {
   size?: number;
   /**
    * @remarks
-   * For unstructured knowledge base, this parameter is the category ID, which is the `CategoryId` returned by the [AddCategory](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addcategory) interface. To view the category ID, you can click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+   * For unstructured knowledge base, this parameter is the category ID. To view the category ID, you can click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
    * 
    * For structured knowledge base, this parameter is the data table ID. To view the table ID, you can click the ID icon next to the table name on the Structured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
    * 
@@ -6468,7 +6508,7 @@ export class ListIndicesResponseBodyDataIndices extends $tea.Model {
   embeddingModelName?: string;
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
    * 
    * @example
    * 259899
@@ -7030,7 +7070,7 @@ export class ListPublishedAgentResponseBodyData extends $tea.Model {
 export class RetrieveRequestRerank extends $tea.Model {
   /**
    * @remarks
-   * The name of the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * The name of the rank model. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
    * 
    * *   gte-rerank-hybrid: Recommended official model.
    * *   gte-rerank
@@ -7178,7 +7218,7 @@ export class SubmitIndexAddDocumentsJobResponseBodyData extends $tea.Model {
 export class SubmitIndexJobResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * The primary key ID of the job, which is the `JobId` parameter of the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+   * The primary key ID of the job, which is the `JobId` parameter of the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
    * 
    * @example
    * eFDr2fGRzP9gdDZWAdo3YQ==
@@ -7586,7 +7626,7 @@ export default class Client extends OpenApi {
    * @remarks
    *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
    * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
-   * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours. Call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) interface in time to import the document to the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+   * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours. 
    * *   This interface is not idempotent.
    * 
    * @param request - ApplyFileUploadLeaseRequest
@@ -7633,7 +7673,7 @@ export default class Client extends OpenApi {
    * @remarks
    *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
    * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
-   * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours. Call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) interface in time to import the document to the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+   * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours. 
    * *   This interface is not idempotent.
    * 
    * @param request - ApplyFileUploadLeaseRequest
@@ -7712,8 +7752,8 @@ export default class Client extends OpenApi {
    * Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
    * 
    * @remarks
-   * 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. To upload documents, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation.
-   * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
+   * 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+   * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
    * 3.  This interface is not idempotent.
    * 
    * @param tmpReq - CreateIndexRequest
@@ -7739,6 +7779,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(tmpReq.documentIds)) {
       request.documentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentIds, "DocumentIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.metaExtractColumns)) {
+      request.metaExtractColumnsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metaExtractColumns, "metaExtractColumns", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -7810,6 +7854,10 @@ export default class Client extends OpenApi {
       query["StructureType"] = request.structureType;
     }
 
+    if (!Util.isUnset(request.metaExtractColumnsShrink)) {
+      query["metaExtractColumns"] = request.metaExtractColumnsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -7832,8 +7880,8 @@ export default class Client extends OpenApi {
    * Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
    * 
    * @remarks
-   * 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. To upload documents, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation.
-   * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
+   * 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+   * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
    * 3.  This interface is not idempotent.
    * 
    * @param request - CreateIndexRequest
@@ -8091,7 +8139,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-   * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base).
+   * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base).
    * *   After you delete a knowledge base, it cannot be recovered. We recommend that you proceed with caution.
    * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
    * *   This interface is idempotent.
@@ -8131,7 +8179,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-   * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base).
+   * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base).
    * *   After you delete a knowledge base, it cannot be recovered. We recommend that you proceed with caution.
    * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
    * *   This interface is idempotent.
@@ -8150,8 +8198,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-   * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
-   * *   After you delete a document, it cannot be recovered and the [Retrieve](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
+   * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
+   * *   After you delete a document, it cannot be recovered and the [Retrieve](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
    * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
    * *   This interface is idempotent.
    * 
@@ -8200,8 +8248,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-   * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
-   * *   After you delete a document, it cannot be recovered and the [Retrieve](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
+   * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
+   * *   After you delete a document, it cannot be recovered and the [Retrieve](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
    * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
    * *   This interface is idempotent.
    * 
@@ -8324,7 +8372,6 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
-   * *   If you upload the document by calling an API, make sure that you have called the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to obtain `FileId`.
    * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
    * *   This operation is idempotent.
    * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
@@ -8356,7 +8403,6 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
-   * *   If you upload the document by calling an API, make sure that you have called the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to obtain `FileId`.
    * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
    * *   This operation is idempotent.
    * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
@@ -8372,7 +8418,7 @@ export default class Client extends OpenApi {
    * Queries the current status of a specified knowledge base creation or add document job.
    * 
    * @remarks
-   * 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
+   * 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
    * 2.  We recommend that you call this operation at intervals of more than 5 seconds.
    * 3.  This interface is idempotent.
    * 
@@ -8422,7 +8468,7 @@ export default class Client extends OpenApi {
    * Queries the current status of a specified knowledge base creation or add document job.
    * 
    * @remarks
-   * 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
+   * 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
    * 2.  We recommend that you call this operation at intervals of more than 5 seconds.
    * 3.  This interface is idempotent.
    * 
@@ -9215,9 +9261,9 @@ export default class Client extends OpenApi {
    * Adds parsed documents to an unstructured knowledge base.
    * 
    * @remarks
-   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-   * *   Before you call this operation, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to upload the documents to Model Studio.
-   * *   After you call this operation, you can call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
+   *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+   * *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   After you call this operation, you can call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
    * *   Execution takes a period of time after this operation is called. Do not make new request before the request is returned. This interface is not idempotent.
    * 
    * @param tmpReq - SubmitIndexAddDocumentsJobRequest
@@ -9276,9 +9322,9 @@ export default class Client extends OpenApi {
    * Adds parsed documents to an unstructured knowledge base.
    * 
    * @remarks
-   *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-   * *   Before you call this operation, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to upload the documents to Model Studio.
-   * *   After you call this operation, you can call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
+   *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+   * *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+   * *   After you call this operation, you can call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
    * *   Execution takes a period of time after this operation is called. Do not make new request before the request is returned. This interface is not idempotent.
    * 
    * @param request - SubmitIndexAddDocumentsJobRequest
@@ -9294,9 +9340,9 @@ export default class Client extends OpenApi {
    * Submits a specified CreateIndex job to complete knowledge base creation.
    * 
    * @remarks
-   * 1.  Before you call this operation, you must call the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
+   * 1.  Before you call this operation, you must call the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
    * 2.  Execution takes a period of time after this operation is called. Do not make new request before the request is returned.
-   * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+   * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
    * 4.  This interface is not idempotent.
    * 
    * @param request - SubmitIndexJobRequest
@@ -9333,9 +9379,9 @@ export default class Client extends OpenApi {
    * Submits a specified CreateIndex job to complete knowledge base creation.
    * 
    * @remarks
-   * 1.  Before you call this operation, you must call the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
+   * 1.  Before you call this operation, you must call the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
    * 2.  Execution takes a period of time after this operation is called. Do not make new request before the request is returned.
-   * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+   * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
    * 4.  This interface is not idempotent.
    * 
    * @param request - SubmitIndexJobRequest
