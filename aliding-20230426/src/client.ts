@@ -29959,6 +29959,7 @@ export class QueryGroupLiveInfoResponseBody extends $tea.Model {
    * 13414
    */
   playbackDuration?: number;
+  replayUrl?: string;
   /**
    * @remarks
    * requestId
@@ -30004,6 +30005,7 @@ export class QueryGroupLiveInfoResponseBody extends $tea.Model {
       livePlayUrl: 'livePlayUrl',
       liveStatus: 'liveStatus',
       playbackDuration: 'playbackDuration',
+      replayUrl: 'replayUrl',
       requestId: 'requestId',
       staffId: 'staffId',
       startTime: 'startTime',
@@ -30025,6 +30027,7 @@ export class QueryGroupLiveInfoResponseBody extends $tea.Model {
       livePlayUrl: 'string',
       liveStatus: 'number',
       playbackDuration: 'number',
+      replayUrl: 'string',
       requestId: 'string',
       staffId: 'string',
       startTime: 'number',
