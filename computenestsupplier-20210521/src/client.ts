@@ -405,6 +405,11 @@ export class ContinueDeployServiceInstanceResponse extends $tea.Model {
 export class CreateArtifactRequest extends $tea.Model {
   /**
    * @remarks
+   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   */
+  artifactBuildProperty?: CreateArtifactRequestArtifactBuildProperty;
+  /**
+   * @remarks
    * The ID of the deployment package.
    * 
    * @example
@@ -479,6 +484,7 @@ export class CreateArtifactRequest extends $tea.Model {
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactBuildProperty: 'ArtifactBuildProperty',
       artifactId: 'ArtifactId',
       artifactProperty: 'ArtifactProperty',
       artifactType: 'ArtifactType',
@@ -493,6 +499,7 @@ export class CreateArtifactRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      artifactBuildProperty: CreateArtifactRequestArtifactBuildProperty,
       artifactId: 'string',
       artifactProperty: CreateArtifactRequestArtifactProperty,
       artifactType: 'string',
@@ -511,6 +518,11 @@ export class CreateArtifactRequest extends $tea.Model {
 }
 
 export class CreateArtifactShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   */
+  artifactBuildPropertyShrink?: string;
   /**
    * @remarks
    * The ID of the deployment package.
@@ -587,6 +599,7 @@ export class CreateArtifactShrinkRequest extends $tea.Model {
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactBuildPropertyShrink: 'ArtifactBuildProperty',
       artifactId: 'ArtifactId',
       artifactPropertyShrink: 'ArtifactProperty',
       artifactType: 'ArtifactType',
@@ -601,6 +614,7 @@ export class CreateArtifactShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      artifactBuildPropertyShrink: 'string',
       artifactId: 'string',
       artifactPropertyShrink: 'string',
       artifactType: 'string',
@@ -619,6 +633,14 @@ export class CreateArtifactShrinkRequest extends $tea.Model {
 }
 
 export class CreateArtifactResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   * 
+   * @example
+   * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
+   */
+  artifactBuildProperty?: string;
   /**
    * @remarks
    * The ID of the deployment package.
@@ -701,6 +723,14 @@ export class CreateArtifactResponseBody extends $tea.Model {
   status?: string;
   /**
    * @remarks
+   * The status of the deployment package.
+   * 
+   * @example
+   * "/usr/local/share/aliyun-assist/work/script/t-hz04zm90y6og0sg.sh: line 1: pip: command not found"
+   */
+  statusDetail?: string;
+  /**
+   * @remarks
    * The ID of the region that supports the deployment package.
    * 
    * @example
@@ -721,6 +751,7 @@ export class CreateArtifactResponseBody extends $tea.Model {
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactBuildProperty: 'ArtifactBuildProperty',
       artifactId: 'ArtifactId',
       artifactProperty: 'ArtifactProperty',
       artifactType: 'ArtifactType',
@@ -731,6 +762,7 @@ export class CreateArtifactResponseBody extends $tea.Model {
       name: 'Name',
       requestId: 'RequestId',
       status: 'Status',
+      statusDetail: 'StatusDetail',
       supportRegionIds: 'SupportRegionIds',
       versionName: 'VersionName',
     };
@@ -738,6 +770,7 @@ export class CreateArtifactResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      artifactBuildProperty: 'string',
       artifactId: 'string',
       artifactProperty: 'string',
       artifactType: 'string',
@@ -748,6 +781,7 @@ export class CreateArtifactResponseBody extends $tea.Model {
       name: 'string',
       requestId: 'string',
       status: 'string',
+      statusDetail: 'string',
       supportRegionIds: 'string',
       versionName: 'string',
     };
@@ -834,6 +868,7 @@ export class CreateServiceRequest extends $tea.Model {
    * 10CM943JP0EN9D51H
    */
   clientToken?: string;
+  complianceMetadata?: CreateServiceRequestComplianceMetadata;
   /**
    * @remarks
    * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
@@ -1043,6 +1078,7 @@ export class CreateServiceRequest extends $tea.Model {
       approvalType: 'ApprovalType',
       buildParameters: 'BuildParameters',
       clientToken: 'ClientToken',
+      complianceMetadata: 'ComplianceMetadata',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
       dryRun: 'DryRun',
@@ -1075,6 +1111,7 @@ export class CreateServiceRequest extends $tea.Model {
       approvalType: 'string',
       buildParameters: 'string',
       clientToken: 'string',
+      complianceMetadata: CreateServiceRequestComplianceMetadata,
       deployMetadata: 'string',
       deployType: 'string',
       dryRun: 'boolean',
@@ -1094,6 +1131,332 @@ export class CreateServiceRequest extends $tea.Model {
       sourceServiceId: 'string',
       sourceServiceVersion: 'string',
       tag: { 'type': 'array', 'itemType': CreateServiceRequestTag },
+      tenantType: 'string',
+      trialDuration: 'number',
+      upgradeMetadata: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The alert configurations of the service.
+   * 
+   * >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+   * 
+   * @example
+   * {
+   *   "TemplateUrl": "http://template.file.url",
+   *   // 应用分组级别告警元数据
+   *   "ApplicationGroups": [
+   *     {
+   *       "Name": "applicationGroup1",
+   *       "TemplateUrl": "url1"
+   *     },
+   *     {
+   *       "Name": "applicationGroup2",
+   *       "TemplateUrl": "url2"
+   *     }
+   *   ]
+   * }
+   */
+  alarmMetadata?: string;
+  /**
+   * @remarks
+   * The approval type of the service usage application. Valid values:
+   * 
+   * *   Manual: The application is manually approved.
+   * *   AutoPass: The application is automatically approved.
+   * 
+   * @example
+   * Manual
+   */
+  approvalType?: string;
+  /**
+   * @remarks
+   * The parameters for building the service
+   * 
+   * @example
+   * { "ServiceTemplateId": "st-xxxxx"}
+   */
+  buildParameters?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * @example
+   * 10CM943JP0EN9D51H
+   */
+  clientToken?: string;
+  complianceMetadataShrink?: string;
+  /**
+   * @remarks
+   * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+   * 
+   * @example
+   * {\\"TemplateConfigs\\":[{\\"Name\\":\\"模板1\\",\\"Url\\":\\"oss://computenest-test/template" 
+   *             + ".json?RegionId=cn-beijing\\",\\"PredefinedParameters\\":[{\\"Name\\":\\"低配版\\"," 
+   *             + "\\"Parameters\\":{\\"InstanceType\\":\\"ecs.g5.large\\",\\"DataDiskSize\\":40}},{\\"Name\\":\\"高配版\\"," 
+   *             + "\\"Parameters\\":{\\"InstanceType\\":\\"ecs.g5.large\\",\\"DataDiskSize\\":200}}]}]}
+   */
+  deployMetadata?: string;
+  /**
+   * @remarks
+   * The deployment type of the service. Valid values:
+   * 
+   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
+   * *   terraform: The service is deployed by using Terraform.
+   * *   ack: The service is deployed by using Container Service for Kubernetes (ACK).
+   * *   spi: The service is deployed by calling a service provider interface (SPI).
+   * *   operation: The service is deployed by using a hosted O\\&M service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ros
+   */
+  deployType?: string;
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * The duration for which hosted O\\&M is implemented. Unit: seconds.
+   * 
+   * @example
+   * 0
+   */
+  duration?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the hosted O\\&M feature for the service. Default value: false. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * >  This parameter is required if you set **ServiceType** to **private**.
+   * 
+   * @example
+   * false
+   */
+  isSupportOperated?: boolean;
+  /**
+   * @remarks
+   * The license metadata.
+   * 
+   * @example
+   * {\\"RetentionDays\\":3}
+   */
+  licenseMetadata?: string;
+  /**
+   * @remarks
+   * The logging configurations.
+   * 
+   * @example
+   * { "Logstores": [ { "LogstoreName": "access-log", "LogPath": "/home/admin/app/logs", # This parameter is not required for containers. Configure the parameter in the YAML file. "FilePattern": "access.log\\*" # This parameter is not required for containers. Configure the parameter in the YAML file. } ] }
+   */
+  logMetadata?: string;
+  /**
+   * @remarks
+   * The hosted O\\&M configurations.
+   * 
+   * @example
+   * {\\"PrometheusConfigMap\\":{\\"New_Vpc_Ack_And_Jumpserver\\":{}}}
+   */
+  operationMetadata?: string;
+  /**
+   * @remarks
+   * The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
+   * 
+   * @example
+   * policyName1, policyName2
+   */
+  policyNames?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Whether resell is supported.
+   * 
+   * @example
+   * false
+   */
+  resellable?: boolean;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aek25refu7r3opq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * service-0e6fca6a51a544xxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The service details.
+   */
+  serviceInfo?: CreateServiceShrinkRequestServiceInfo[];
+  /**
+   * @remarks
+   * The service type. Valid values:
+   * 
+   * *   private: The service is a private service and is deployed within the account of a customer.
+   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+   * *   operation: The service is a hosted O\\&M service.
+   * *   poc: The service is a trial service.
+   * 
+   * @example
+   * private
+   */
+  serviceType?: string;
+  /**
+   * @remarks
+   * The permission type of the deployment URL. Valid values:
+   * 
+   * *   Public: All users can go to the URL to create a service instance or a trial service instance.
+   * *   Restricted: Only users in the whitelist can go to the URL to create a service instance or a trial service instance.
+   * *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
+   * *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
+   * *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+   * 
+   * @example
+   * Public
+   */
+  shareType?: string;
+  /**
+   * @remarks
+   * The source service ID for resell。
+   * 
+   * @example
+   * service-70a3b15bb62643xxxxxx
+   */
+  sourceServiceId?: string;
+  /**
+   * @remarks
+   * The source service version for resell。
+   * 
+   * @example
+   * 1
+   */
+  sourceServiceVersion?: string;
+  /**
+   * @remarks
+   * The custom tags.
+   */
+  tag?: CreateServiceShrinkRequestTag[];
+  /**
+   * @remarks
+   * The type of the tenant. Valid values:
+   * 
+   * *   SingleTenant
+   * *   MultiTenant
+   * 
+   * @example
+   * SingleTenant
+   */
+  tenantType?: string;
+  /**
+   * @remarks
+   * The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+   * 
+   * @example
+   * 7
+   */
+  trialDuration?: number;
+  /**
+   * @remarks
+   * The metadata about the upgrade.
+   * 
+   * @example
+   * {\\"Description\\":\\"xxx\\",\\"SupportRollback\\":true,\\"SupportUpgradeFromVersions\\":[],\\"UpgradeComponents\\":[\\"Configuration\\"]}
+   */
+  upgradeMetadata?: string;
+  /**
+   * @remarks
+   * The version name.
+   * 
+   * @example
+   * Draft
+   */
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmMetadata: 'AlarmMetadata',
+      approvalType: 'ApprovalType',
+      buildParameters: 'BuildParameters',
+      clientToken: 'ClientToken',
+      complianceMetadataShrink: 'ComplianceMetadata',
+      deployMetadata: 'DeployMetadata',
+      deployType: 'DeployType',
+      dryRun: 'DryRun',
+      duration: 'Duration',
+      isSupportOperated: 'IsSupportOperated',
+      licenseMetadata: 'LicenseMetadata',
+      logMetadata: 'LogMetadata',
+      operationMetadata: 'OperationMetadata',
+      policyNames: 'PolicyNames',
+      regionId: 'RegionId',
+      resellable: 'Resellable',
+      resourceGroupId: 'ResourceGroupId',
+      serviceId: 'ServiceId',
+      serviceInfo: 'ServiceInfo',
+      serviceType: 'ServiceType',
+      shareType: 'ShareType',
+      sourceServiceId: 'SourceServiceId',
+      sourceServiceVersion: 'SourceServiceVersion',
+      tag: 'Tag',
+      tenantType: 'TenantType',
+      trialDuration: 'TrialDuration',
+      upgradeMetadata: 'UpgradeMetadata',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmMetadata: 'string',
+      approvalType: 'string',
+      buildParameters: 'string',
+      clientToken: 'string',
+      complianceMetadataShrink: 'string',
+      deployMetadata: 'string',
+      deployType: 'string',
+      dryRun: 'boolean',
+      duration: 'number',
+      isSupportOperated: 'boolean',
+      licenseMetadata: 'string',
+      logMetadata: 'string',
+      operationMetadata: 'string',
+      policyNames: 'string',
+      regionId: 'string',
+      resellable: 'boolean',
+      resourceGroupId: 'string',
+      serviceId: 'string',
+      serviceInfo: { 'type': 'array', 'itemType': CreateServiceShrinkRequestServiceInfo },
+      serviceType: 'string',
+      shareType: 'string',
+      sourceServiceId: 'string',
+      sourceServiceVersion: 'string',
+      tag: { 'type': 'array', 'itemType': CreateServiceShrinkRequestTag },
       tenantType: 'string',
       trialDuration: 'number',
       upgradeMetadata: 'string',
@@ -2143,6 +2506,14 @@ export class GetArtifactRequest extends $tea.Model {
 export class GetArtifactResponseBody extends $tea.Model {
   /**
    * @remarks
+   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   * 
+   * @example
+   * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
+   */
+  artifactBuildProperty?: string;
+  /**
+   * @remarks
    * The ID of the deployment package.
    * 
    * @example
@@ -2239,6 +2610,14 @@ export class GetArtifactResponseBody extends $tea.Model {
   status?: string;
   /**
    * @remarks
+   * The description of the deployment package.
+   * 
+   * @example
+   * "/usr/local/share/aliyun-assist/work/script/t-hz04zm90y6og0sg.sh: line 1: pip: command not found"
+   */
+  statusDetail?: string;
+  /**
+   * @remarks
    * The ID of the region that supports the deployment package.
    * 
    * @example
@@ -2260,6 +2639,7 @@ export class GetArtifactResponseBody extends $tea.Model {
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactBuildProperty: 'ArtifactBuildProperty',
       artifactId: 'ArtifactId',
       artifactProperty: 'ArtifactProperty',
       artifactType: 'ArtifactType',
@@ -2272,6 +2652,7 @@ export class GetArtifactResponseBody extends $tea.Model {
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      statusDetail: 'StatusDetail',
       supportRegionIds: 'SupportRegionIds',
       tags: 'Tags',
       versionName: 'VersionName',
@@ -2280,6 +2661,7 @@ export class GetArtifactResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      artifactBuildProperty: 'string',
       artifactId: 'string',
       artifactProperty: 'string',
       artifactType: 'string',
@@ -2292,6 +2674,7 @@ export class GetArtifactResponseBody extends $tea.Model {
       requestId: 'string',
       resourceGroupId: 'string',
       status: 'string',
+      statusDetail: 'string',
       supportRegionIds: 'string',
       tags: { 'type': 'array', 'itemType': GetArtifactResponseBodyTags },
       versionName: 'string',
@@ -2465,12 +2848,12 @@ export class GetServiceRequest extends $tea.Model {
    * @remarks
    * The service ID.
    * 
-   * This parameter is required.
-   * 
    * @example
    * service-4ee86df83fd948******
    */
   serviceId?: string;
+  serviceInstanceId?: string;
+  serviceName?: string;
   /**
    * @remarks
    * The service version.
@@ -2500,6 +2883,8 @@ export class GetServiceRequest extends $tea.Model {
       filterAliUid: 'FilterAliUid',
       regionId: 'RegionId',
       serviceId: 'ServiceId',
+      serviceInstanceId: 'ServiceInstanceId',
+      serviceName: 'ServiceName',
       serviceVersion: 'ServiceVersion',
       sharedAccountType: 'SharedAccountType',
       showDetail: 'ShowDetail',
@@ -2511,6 +2896,8 @@ export class GetServiceRequest extends $tea.Model {
       filterAliUid: 'boolean',
       regionId: 'string',
       serviceId: 'string',
+      serviceInstanceId: 'string',
+      serviceName: 'string',
       serviceVersion: 'string',
       sharedAccountType: 'string',
       showDetail: { 'type': 'array', 'itemType': 'string' },
@@ -2586,6 +2973,7 @@ export class GetServiceResponseBody extends $tea.Model {
    * cmjj00xxxx
    */
   commodityCode?: string;
+  complianceMetadata?: GetServiceResponseBodyComplianceMetadata;
   /**
    * @remarks
    * The time when the service was created.
@@ -3039,6 +3427,7 @@ export class GetServiceResponseBody extends $tea.Model {
       categories: 'Categories',
       commodity: 'Commodity',
       commodityCode: 'CommodityCode',
+      complianceMetadata: 'ComplianceMetadata',
       createTime: 'CreateTime',
       crossRegionConnectionStatus: 'CrossRegionConnectionStatus',
       defaultLicenseDays: 'DefaultLicenseDays',
@@ -3099,6 +3488,7 @@ export class GetServiceResponseBody extends $tea.Model {
       categories: 'string',
       commodity: GetServiceResponseBodyCommodity,
       commodityCode: 'string',
+      complianceMetadata: GetServiceResponseBodyComplianceMetadata,
       createTime: 'string',
       crossRegionConnectionStatus: 'string',
       defaultLicenseDays: 'number',
@@ -4707,6 +5097,11 @@ export class ListArtifactVersionsRequest extends $tea.Model {
   artifactId?: string;
   /**
    * @remarks
+   * The filter.
+   */
+  filters?: ListArtifactVersionsRequestFilters[];
+  /**
+   * @remarks
    * The number of entries per page. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
@@ -4724,6 +5119,7 @@ export class ListArtifactVersionsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       artifactId: 'ArtifactId',
+      filters: 'Filters',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
     };
@@ -4732,6 +5128,62 @@ export class ListArtifactVersionsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       artifactId: 'string',
+      filters: { 'type': 'array', 'itemType': ListArtifactVersionsRequestFilters },
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactVersionsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the deployment package.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * artifact-eea08d1e2d3a43aexxxx
+   */
+  artifactId?: string;
+  /**
+   * @remarks
+   * The filter.
+   */
+  filtersShrink?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * AAAAAc3HCuYhJi/wvpk4xOr0VLbfVwapgMwCN1wYzPVzLbItEdB0uWSY7AGnM3qCgm/YnjuEfwSnMwiMkcUoI0hRQzE=
+   */
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifactId: 'ArtifactId',
+      filtersShrink: 'Filters',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactId: 'string',
+      filtersShrink: 'string',
       maxResults: 'number',
       nextToken: 'string',
     };
@@ -4970,64 +5422,6 @@ export class ListArtifactsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListArtifactsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceCategoriesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The category list of the service.
-   */
-  categories?: string[];
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 9AC8E73E-88DE-52C2-A29B-531FC130000
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      categories: 'Categories',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categories: { 'type': 'array', 'itemType': 'string' },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceCategoriesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListServiceCategoriesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListServiceCategoriesResponseBody,
     };
   }
 
@@ -6116,13 +6510,25 @@ export class RegisterServiceResponse extends $tea.Model {
 
 export class RejectServiceUsageRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 10CM943JP0EN9D51H
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Reject comments.
+   * 
+   * @example
+   * Thanks for your application, please add your industry information.
+   */
   comments?: string;
   /**
    * @remarks
+   * The service ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6130,12 +6536,20 @@ export class RejectServiceUsageRequest extends $tea.Model {
    */
   serviceId?: string;
   /**
+   * @remarks
+   * The share type of the service. Default value: SharedAccount. Valid values:
+   * 
+   * *   SharedAccount: The service is shared by multiple accounts.
+   * *   Reseller: The service is distributed.
+   * 
    * @example
    * SharedAccount
    */
   type?: number;
   /**
    * @remarks
+   * User ali uid.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6169,6 +6583,9 @@ export class RejectServiceUsageRequest extends $tea.Model {
 
 export class RejectServiceUsageResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
    */
@@ -6814,6 +7231,7 @@ export class StopServiceInstanceResponse extends $tea.Model {
 }
 
 export class UpdateArtifactRequest extends $tea.Model {
+  artifactBuildProperty?: UpdateArtifactRequestArtifactBuildProperty;
   /**
    * @remarks
    * The ID of the deployment package.
@@ -6856,6 +7274,7 @@ export class UpdateArtifactRequest extends $tea.Model {
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactBuildProperty: 'ArtifactBuildProperty',
       artifactId: 'ArtifactId',
       artifactProperty: 'ArtifactProperty',
       description: 'Description',
@@ -6866,6 +7285,7 @@ export class UpdateArtifactRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      artifactBuildProperty: UpdateArtifactRequestArtifactBuildProperty,
       artifactId: 'string',
       artifactProperty: UpdateArtifactRequestArtifactProperty,
       description: 'string',
@@ -6880,6 +7300,7 @@ export class UpdateArtifactRequest extends $tea.Model {
 }
 
 export class UpdateArtifactShrinkRequest extends $tea.Model {
+  artifactBuildPropertyShrink?: string;
   /**
    * @remarks
    * The ID of the deployment package.
@@ -6922,6 +7343,7 @@ export class UpdateArtifactShrinkRequest extends $tea.Model {
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactBuildPropertyShrink: 'ArtifactBuildProperty',
       artifactId: 'ArtifactId',
       artifactPropertyShrink: 'ArtifactProperty',
       description: 'Description',
@@ -6932,6 +7354,7 @@ export class UpdateArtifactShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      artifactBuildPropertyShrink: 'string',
       artifactId: 'string',
       artifactPropertyShrink: 'string',
       description: 'string',
@@ -6946,6 +7369,7 @@ export class UpdateArtifactShrinkRequest extends $tea.Model {
 }
 
 export class UpdateArtifactResponseBody extends $tea.Model {
+  artifactBuildProperty?: string;
   /**
    * @remarks
    * The ID of the deployment package.
@@ -7039,6 +7463,7 @@ export class UpdateArtifactResponseBody extends $tea.Model {
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactBuildProperty: 'ArtifactBuildProperty',
       artifactId: 'ArtifactId',
       artifactProperty: 'ArtifactProperty',
       artifactType: 'ArtifactType',
@@ -7054,6 +7479,7 @@ export class UpdateArtifactResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      artifactBuildProperty: 'string',
       artifactId: 'string',
       artifactProperty: 'string',
       artifactType: 'string',
@@ -7132,6 +7558,7 @@ export class UpdateServiceRequest extends $tea.Model {
    * Bind Commodity Information
    */
   commodity?: UpdateServiceRequestCommodity;
+  complianceMetadata?: UpdateServiceRequestComplianceMetadata;
   /**
    * @remarks
    * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
@@ -7326,6 +7753,7 @@ export class UpdateServiceRequest extends $tea.Model {
       approvalType: 'ApprovalType',
       clientToken: 'ClientToken',
       commodity: 'Commodity',
+      complianceMetadata: 'ComplianceMetadata',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
       dryRun: 'DryRun',
@@ -7356,6 +7784,7 @@ export class UpdateServiceRequest extends $tea.Model {
       approvalType: 'string',
       clientToken: 'string',
       commodity: UpdateServiceRequestCommodity,
+      complianceMetadata: UpdateServiceRequestComplianceMetadata,
       deployMetadata: 'string',
       deployType: 'string',
       dryRun: 'boolean',
@@ -7420,6 +7849,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
    * Bind Commodity Information
    */
   commodityShrink?: string;
+  complianceMetadataShrink?: string;
   /**
    * @remarks
    * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
@@ -7614,6 +8044,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
       approvalType: 'ApprovalType',
       clientToken: 'ClientToken',
       commodityShrink: 'Commodity',
+      complianceMetadataShrink: 'ComplianceMetadata',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
       dryRun: 'DryRun',
@@ -7644,6 +8075,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
       approvalType: 'string',
       clientToken: 'string',
       commodityShrink: 'string',
+      complianceMetadataShrink: 'string',
       deployMetadata: 'string',
       deployType: 'string',
       dryRun: 'boolean',
@@ -8456,6 +8888,80 @@ export class ContinueDeployServiceInstanceResponseBodyDryRunResult extends $tea.
   }
 }
 
+export class CreateArtifactRequestArtifactBuildProperty extends $tea.Model {
+  /**
+   * @remarks
+   * The command content.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * echo "start run command"
+   */
+  commandContent?: string;
+  /**
+   * @remarks
+   * The command type. Valid values:
+   * 
+   * *   RunBatScript: batch command, applicable to Windows instances.
+   * *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
+   * *   RunShellScript: shell command, applicable to Linux instances.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * RunShellScript
+   */
+  commandType?: string;
+  /**
+   * @remarks
+   * The region ID where the source mirror image is located.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The source image id. Supported Types:
+   * 
+   * - Image ID: Pass the Image ID of the Ecs image directly.
+   * 
+   * - OOS Common Parameter Name: Obtain the corresponding Image ID automatically by using the OOS common parameter name.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * Image ID：m-t4nhenrdc38pe4*****
+   * ubuntu_22_04_x64_20G_alibase_20240926.vhd
+   * OOS Common Parameter Name：aliyun/services/computenest/images/aliyun_3_2104_python_3_11
+   */
+  sourceImageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commandContent: 'CommandContent',
+      commandType: 'CommandType',
+      regionId: 'RegionId',
+      sourceImageId: 'SourceImageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandContent: 'string',
+      commandType: 'string',
+      regionId: 'string',
+      sourceImageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateArtifactRequestArtifactProperty extends $tea.Model {
   /**
    * @remarks
@@ -8525,6 +9031,7 @@ export class CreateArtifactRequestArtifactProperty extends $tea.Model {
    * wordpress
    */
   repoName?: string;
+  repoType?: string;
   /**
    * @remarks
    * The script content.
@@ -8562,6 +9069,7 @@ export class CreateArtifactRequestArtifactProperty extends $tea.Model {
       regionId: 'RegionId',
       repoId: 'RepoId',
       repoName: 'RepoName',
+      repoType: 'RepoType',
       scriptMetadata: 'ScriptMetadata',
       tag: 'Tag',
       url: 'Url',
@@ -8577,6 +9085,7 @@ export class CreateArtifactRequestArtifactProperty extends $tea.Model {
       regionId: 'string',
       repoId: 'string',
       repoName: 'string',
+      repoType: 'string',
       scriptMetadata: 'string',
       tag: 'string',
       url: 'string',
@@ -8652,6 +9161,25 @@ export class CreateArtifactShrinkRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceRequestComplianceMetadata extends $tea.Model {
+  compliancePacks?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      compliancePacks: 'CompliancePacks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePacks: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -8802,6 +9330,183 @@ export class CreateServiceRequestServiceInfo extends $tea.Model {
 }
 
 export class CreateServiceRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * Usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * Web
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceShrinkRequestServiceInfoAgreements extends $tea.Model {
+  /**
+   * @remarks
+   * Protocol name.
+   * 
+   * @example
+   * Name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Protocol url.
+   * 
+   * @example
+   * https://aliyun.com/xxxxxxxx.html
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceShrinkRequestServiceInfoSoftwares extends $tea.Model {
+  name?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceShrinkRequestServiceInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Protocol document information about the service.
+   */
+  agreements?: CreateServiceShrinkRequestServiceInfoAgreements[];
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * http://img.tidb.oss.url
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The URL of the detailed description of the service.
+   * 
+   * @example
+   * http://description.tidb.oss.url
+   */
+  longDescriptionUrl?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TiDB Database
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * TiDB是A公司自主设计、研发的开源分布式关系型数据库。
+   */
+  shortDescription?: string;
+  softwares?: CreateServiceShrinkRequestServiceInfoSoftwares[];
+  static names(): { [key: string]: string } {
+    return {
+      agreements: 'Agreements',
+      image: 'Image',
+      locale: 'Locale',
+      longDescriptionUrl: 'LongDescriptionUrl',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreements: { 'type': 'array', 'itemType': CreateServiceShrinkRequestServiceInfoAgreements },
+      image: 'string',
+      locale: 'string',
+      longDescriptionUrl: 'string',
+      name: 'string',
+      shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': CreateServiceShrinkRequestServiceInfoSoftwares },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceShrinkRequestTag extends $tea.Model {
   /**
    * @remarks
    * The tag key.
@@ -9661,6 +10366,25 @@ export class GetServiceResponseBodyCommodity extends $tea.Model {
       saasBoostMetadata: 'string',
       specifications: { 'type': 'array', 'itemType': GetServiceResponseBodyCommoditySpecifications },
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyComplianceMetadata extends $tea.Model {
+  compliancePacks?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      compliancePacks: 'CompliancePacks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePacks: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -10784,12 +11508,14 @@ export class ListAcrImageRepositoriesResponseBodyRepositories extends $tea.Model
    * wordpress
    */
   repoName?: string;
+  repoType?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
       modifiedTime: 'ModifiedTime',
       repoId: 'RepoId',
       repoName: 'RepoName',
+      repoType: 'RepoType',
     };
   }
 
@@ -10799,6 +11525,7 @@ export class ListAcrImageRepositoriesResponseBodyRepositories extends $tea.Model
       modifiedTime: 'string',
       repoId: 'string',
       repoName: 'string',
+      repoType: 'string',
     };
   }
 
@@ -10863,7 +11590,50 @@ export class ListAcrImageTagsResponseBodyImages extends $tea.Model {
   }
 }
 
+export class ListArtifactVersionsRequestFilters extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * 
+   * **Status**：The artifact status
+   * 
+   * @example
+   * Status
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The parameter values of the filter.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListArtifactVersionsResponseBodyArtifacts extends $tea.Model {
+  /**
+   * @remarks
+   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   * 
+   * @example
+   * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
+   */
+  artifactBuildProperty?: string;
   /**
    * @remarks
    * The ID of the deployment package.
@@ -10962,6 +11732,14 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $tea.Model {
   status?: string;
   /**
    * @remarks
+   * The description of the deployment package.
+   * 
+   * @example
+   * "/usr/local/share/aliyun-assist/work/script/t-hz04zm90y6og0sg.sh: line 1: pip: command not found"
+   */
+  statusDetail?: string;
+  /**
+   * @remarks
    * The ID of the region that supports the deployment package.
    * 
    * @example
@@ -10982,6 +11760,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $tea.Model {
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactBuildProperty: 'ArtifactBuildProperty',
       artifactId: 'ArtifactId',
       artifactProperty: 'ArtifactProperty',
       artifactType: 'ArtifactType',
@@ -10993,6 +11772,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $tea.Model {
       resultFile: 'ResultFile',
       securityAuditResult: 'SecurityAuditResult',
       status: 'Status',
+      statusDetail: 'StatusDetail',
       supportRegionIds: 'SupportRegionIds',
       versionName: 'VersionName',
     };
@@ -11000,6 +11780,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      artifactBuildProperty: 'string',
       artifactId: 'string',
       artifactProperty: 'string',
       artifactType: 'string',
@@ -11011,6 +11792,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $tea.Model {
       resultFile: 'string',
       securityAuditResult: 'string',
       status: 'string',
+      statusDetail: 'string',
       supportRegionIds: 'string',
       versionName: 'string',
     };
@@ -12761,6 +13543,34 @@ export class ListServicesResponseBodyServices extends $tea.Model {
   }
 }
 
+export class UpdateArtifactRequestArtifactBuildProperty extends $tea.Model {
+  commandContent?: string;
+  commandType?: string;
+  regionId?: string;
+  sourceImageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commandContent: 'CommandContent',
+      commandType: 'CommandType',
+      regionId: 'RegionId',
+      sourceImageId: 'SourceImageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandContent: 'string',
+      commandType: 'string',
+      regionId: 'string',
+      sourceImageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
   /**
    * @remarks
@@ -12812,6 +13622,9 @@ export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  repoId?: string;
+  repoName?: string;
+  repoType?: string;
   /**
    * @remarks
    * The script content of the deployment package.
@@ -12822,6 +13635,7 @@ export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
    * {"ScriptMetadata":"{\\"CommandType\\":\\"RunShellScript\\",\\"Platform\\":\\"Linux\\",\\"Script\\":\\"ls\\"}"}
    */
   scriptMetadata?: string;
+  tag?: string;
   /**
    * @remarks
    * The URL of the deployment package object.
@@ -12840,7 +13654,11 @@ export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
       fileScriptMetadata: 'FileScriptMetadata',
       imageId: 'ImageId',
       regionId: 'RegionId',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+      repoType: 'RepoType',
       scriptMetadata: 'ScriptMetadata',
+      tag: 'Tag',
       url: 'Url',
     };
   }
@@ -12852,7 +13670,11 @@ export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
       fileScriptMetadata: 'string',
       imageId: 'string',
       regionId: 'string',
+      repoId: 'string',
+      repoName: 'string',
+      repoType: 'string',
       scriptMetadata: 'string',
+      tag: 'string',
       url: 'string',
     };
   }
@@ -13094,6 +13916,25 @@ export class UpdateServiceRequestCommodity extends $tea.Model {
       meteringEntityMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommodityMeteringEntityMappings },
       saasBoostConfig: 'string',
       specificationMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommoditySpecificationMappings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestComplianceMetadata extends $tea.Model {
+  compliancePacks?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      compliancePacks: 'CompliancePacks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePacks: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -13718,11 +14559,19 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateArtifactShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.artifactBuildProperty)) {
+      request.artifactBuildPropertyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.artifactBuildProperty, "ArtifactBuildProperty", "json");
+    }
+
     if (!Util.isUnset(tmpReq.artifactProperty)) {
       request.artifactPropertyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.artifactProperty, "ArtifactProperty", "json");
     }
 
     let query = { };
+    if (!Util.isUnset(request.artifactBuildPropertyShrink)) {
+      query["ArtifactBuildProperty"] = request.artifactBuildPropertyShrink;
+    }
+
     if (!Util.isUnset(request.artifactId)) {
       query["ArtifactId"] = request.artifactId;
     }
@@ -13790,12 +14639,18 @@ export default class Client extends OpenApi {
   /**
    * Creates a service.
    * 
-   * @param request - CreateServiceRequest
+   * @param tmpReq - CreateServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceResponse
    */
-  async createServiceWithOptions(request: CreateServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
-    Util.validateModel(request);
+  async createServiceWithOptions(tmpReq: CreateServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateServiceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.complianceMetadata)) {
+      request.complianceMetadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.complianceMetadata, "ComplianceMetadata", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.alarmMetadata)) {
       query["AlarmMetadata"] = request.alarmMetadata;
@@ -13811,6 +14666,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.complianceMetadataShrink)) {
+      query["ComplianceMetadata"] = request.complianceMetadataShrink;
     }
 
     if (!Util.isUnset(request.deployMetadata)) {
@@ -14397,6 +15256,14 @@ export default class Client extends OpenApi {
       query["ServiceId"] = request.serviceId;
     }
 
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
     if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
@@ -14856,15 +15723,25 @@ export default class Client extends OpenApi {
   /**
    * Queries the version information about a deployment package.
    * 
-   * @param request - ListArtifactVersionsRequest
+   * @param tmpReq - ListArtifactVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListArtifactVersionsResponse
    */
-  async listArtifactVersionsWithOptions(request: ListArtifactVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListArtifactVersionsResponse> {
-    Util.validateModel(request);
+  async listArtifactVersionsWithOptions(tmpReq: ListArtifactVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListArtifactVersionsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListArtifactVersionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.filters)) {
+      request.filtersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filters, "Filters", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.artifactId)) {
       query["ArtifactId"] = request.artifactId;
+    }
+
+    if (!Util.isUnset(request.filtersShrink)) {
+      query["Filters"] = request.filtersShrink;
     }
 
     if (!Util.isUnset(request.maxResults)) {
@@ -14959,38 +15836,6 @@ export default class Client extends OpenApi {
   async listArtifacts(request: ListArtifactsRequest): Promise<ListArtifactsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listArtifactsWithOptions(request, runtime);
-  }
-
-  /**
-   * 查询服务分类
-   * 
-   * @param request - ListServiceCategoriesRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListServiceCategoriesResponse
-   */
-  async listServiceCategoriesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListServiceCategoriesResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
-      action: "ListServiceCategories",
-      version: "2021-05-21",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListServiceCategoriesResponse>(await this.callApi(params, req, runtime), new ListServiceCategoriesResponse({}));
-  }
-
-  /**
-   * 查询服务分类
-   * @returns ListServiceCategoriesResponse
-   */
-  async listServiceCategories(): Promise<ListServiceCategoriesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listServiceCategoriesWithOptions(runtime);
   }
 
   /**
@@ -15434,7 +16279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 商家拒绝服务使用请求
+   * Reject service usage.
    * 
    * @param request - RejectServiceUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15481,7 +16326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 商家拒绝服务使用请求
+   * Reject service usage.
    * 
    * @param request - RejectServiceUsageRequest
    * @returns RejectServiceUsageResponse
@@ -15752,11 +16597,19 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateArtifactShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.artifactBuildProperty)) {
+      request.artifactBuildPropertyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.artifactBuildProperty, "ArtifactBuildProperty", "json");
+    }
+
     if (!Util.isUnset(tmpReq.artifactProperty)) {
       request.artifactPropertyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.artifactProperty, "ArtifactProperty", "json");
     }
 
     let query = { };
+    if (!Util.isUnset(request.artifactBuildPropertyShrink)) {
+      query["ArtifactBuildProperty"] = request.artifactBuildPropertyShrink;
+    }
+
     if (!Util.isUnset(request.artifactId)) {
       query["ArtifactId"] = request.artifactId;
     }
@@ -15820,6 +16673,10 @@ export default class Client extends OpenApi {
       request.commodityShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commodity, "Commodity", "json");
     }
 
+    if (!Util.isUnset(tmpReq.complianceMetadata)) {
+      request.complianceMetadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.complianceMetadata, "ComplianceMetadata", "json");
+    }
+
     if (!Util.isUnset(tmpReq.updateOption)) {
       request.updateOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateOption, "UpdateOption", "json");
     }
@@ -15839,6 +16696,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.commodityShrink)) {
       query["Commodity"] = request.commodityShrink;
+    }
+
+    if (!Util.isUnset(request.complianceMetadataShrink)) {
+      query["ComplianceMetadata"] = request.complianceMetadataShrink;
     }
 
     if (!Util.isUnset(request.deployMetadata)) {
