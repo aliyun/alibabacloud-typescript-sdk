@@ -1807,7 +1807,7 @@ export class VoiceModerationCancelResponse extends $tea.Model {
 export class VoiceModerationResultRequest extends $tea.Model {
   /**
    * @remarks
-   * The type of the moderation service.
+   * The type of the moderation service. Valid values: nickname_detection: user nickname
    * 
    * @example
    * nickname_detection
@@ -1815,7 +1815,9 @@ export class VoiceModerationResultRequest extends $tea.Model {
   service?: string;
   /**
    * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
+   * The parameters of API requests that are sent from API Gateway to the backend service.
+   * 
+   * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
    * 
    * @example
    * {"taskId":"xxxxx-xxxx"}
@@ -1864,7 +1866,7 @@ export class VoiceModerationResultResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 2881AD4F-638B-52A3-BA20-F74C5B1CEAE3
@@ -4141,6 +4143,25 @@ export class ImageModerationResponseBodyDataExtTextInImage extends $tea.Model {
   }
 }
 
+export class ImageModerationResponseBodyDataExtVlContent extends $tea.Model {
+  outputText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outputText: 'OutputText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputText: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageModerationResponseBodyDataExt extends $tea.Model {
   /**
    * @remarks
@@ -4177,6 +4198,7 @@ export class ImageModerationResponseBodyDataExt extends $tea.Model {
    * Returns the text information in the hit image.
    */
   textInImage?: ImageModerationResponseBodyDataExtTextInImage;
+  vlContent?: ImageModerationResponseBodyDataExtVlContent;
   static names(): { [key: string]: string } {
     return {
       customImage: 'CustomImage',
@@ -4186,6 +4208,7 @@ export class ImageModerationResponseBodyDataExt extends $tea.Model {
       publicFigure: 'PublicFigure',
       recognition: 'Recognition',
       textInImage: 'TextInImage',
+      vlContent: 'VlContent',
     };
   }
 
@@ -4198,6 +4221,7 @@ export class ImageModerationResponseBodyDataExt extends $tea.Model {
       publicFigure: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtPublicFigure },
       recognition: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtRecognition },
       textInImage: ImageModerationResponseBodyDataExtTextInImage,
+      vlContent: ImageModerationResponseBodyDataExtVlContent,
     };
   }
 
@@ -5269,7 +5293,7 @@ export class VoiceModerationResponseBodyData extends $tea.Model {
 export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Model {
   /**
    * @remarks
-   * The end time of the text after audio-to-text conversion. Unit: seconds.
+   * The end time of the audio segment in seconds.
    * 
    * @example
    * 10
@@ -5285,7 +5309,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
   endTimestamp?: number;
   /**
    * @remarks
-   * A reserved parameter.
+   * Extended fields.
    * 
    * @example
    * {\\"riskTips\\":\\"sexuality_Suggestive\\",\\"riskWords\\":\\"pxxxxy\\"}
@@ -5301,16 +5325,23 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
   labels?: string;
   /**
    * @remarks
-   * Reserved field.
+   * Reserved parameter.
    * 
    * @example
    * {}
    */
   originAlgoResult?: { [key: string]: any };
+  /**
+   * @remarks
+   * Risk Level.
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
   /**
    * @remarks
-   * The risk details that are hit.
+   * The details of the risky content.
    * 
    * @example
    * sexuality_Suggestive
@@ -5318,7 +5349,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
   riskTips?: string;
   /**
    * @remarks
-   * The risk words that are hit.
+   * The term hit by the risky content.
    * 
    * @example
    * AAA,BBB,CCC
@@ -5326,7 +5357,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
   riskWords?: string;
   /**
    * @remarks
-   * Risk score, default range 0-99.
+   * The risk score. Default range: 0 to 99.
    * 
    * @example
    * 87.01
@@ -5334,7 +5365,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
   score?: number;
   /**
    * @remarks
-   * The start time of the text after audio-to-text conversion. Unit: seconds.
+   * The start time of the audio segment in seconds.
    * 
    * @example
    * 0
@@ -5350,7 +5381,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
   startTimestamp?: number;
   /**
    * @remarks
-   * The text converted from voice.
+   * The text converted from the audio segment.
    * 
    * @example
    * Disgusting
@@ -5358,7 +5389,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
   text?: string;
   /**
    * @remarks
-   * The temporary access address of the audio segment. The validity period of the URL is 30 minutes. You must prepare another URL to store the audio segment at the earliest opportunity.
+   * The temporary URL of the audio segment.
    * 
    * @example
    * https://aliyundoc.com
@@ -5422,10 +5453,17 @@ export class VoiceModerationResultResponseBodyData extends $tea.Model {
    * liveId
    */
   liveId?: string;
+  /**
+   * @remarks
+   * Risk Level.
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
   /**
    * @remarks
-   * The details about the audio segments.
+   * The moderation results of audio segments.
    */
   sliceDetails?: VoiceModerationResultResponseBodyDataSliceDetails[];
   /**
@@ -5438,7 +5476,7 @@ export class VoiceModerationResultResponseBodyData extends $tea.Model {
   taskId?: string;
   /**
    * @remarks
-   * The URL of the moderation object.
+   * The URL of the moderated content.
    * 
    * @example
    * https://aliyundoc.com
@@ -6265,7 +6303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 语音检测结果获取接口
+   * Obtains the moderation results of a Voice Moderation 2.0 task.
    * 
    * @param request - VoiceModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6300,7 +6338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 语音检测结果获取接口
+   * Obtains the moderation results of a Voice Moderation 2.0 task.
    * 
    * @param request - VoiceModerationResultRequest
    * @returns VoiceModerationResultResponse
