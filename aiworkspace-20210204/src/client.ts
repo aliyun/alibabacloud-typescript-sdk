@@ -8220,6 +8220,109 @@ export class SetExperimentLabelsResponse extends $tea.Model {
   }
 }
 
+export class UpdateCodeSourceRequest extends $tea.Model {
+  /**
+   * @example
+   * dev
+   */
+  codeBranch?: string;
+  codeCommit?: string;
+  codeRepo?: string;
+  codeRepoAccessToken?: string;
+  codeRepoUserName?: string;
+  description?: string;
+  displayName?: string;
+  /**
+   * @example
+   * /root/code/code-source-1
+   */
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeBranch: 'CodeBranch',
+      codeCommit: 'CodeCommit',
+      codeRepo: 'CodeRepo',
+      codeRepoAccessToken: 'CodeRepoAccessToken',
+      codeRepoUserName: 'CodeRepoUserName',
+      description: 'Description',
+      displayName: 'DisplayName',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeBranch: 'string',
+      codeCommit: 'string',
+      codeRepo: 'string',
+      codeRepoAccessToken: 'string',
+      codeRepoUserName: 'string',
+      description: 'string',
+      displayName: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCodeSourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * code-20********
+   */
+  codeSourceId?: string;
+  /**
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeSourceId: 'CodeSourceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeSourceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCodeSourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCodeSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCodeSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDatasetRequest extends $tea.Model {
   description?: string;
   /**
@@ -14309,6 +14412,79 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.setExperimentLabelsWithOptions(ExperimentId, request, headers, runtime);
+  }
+
+  /**
+   * 更新代码配置
+   * 
+   * @param request - UpdateCodeSourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCodeSourceResponse
+   */
+  async updateCodeSourceWithOptions(CodeSourceId: string, request: UpdateCodeSourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCodeSourceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.codeBranch)) {
+      body["CodeBranch"] = request.codeBranch;
+    }
+
+    if (!Util.isUnset(request.codeCommit)) {
+      body["CodeCommit"] = request.codeCommit;
+    }
+
+    if (!Util.isUnset(request.codeRepo)) {
+      body["CodeRepo"] = request.codeRepo;
+    }
+
+    if (!Util.isUnset(request.codeRepoAccessToken)) {
+      body["CodeRepoAccessToken"] = request.codeRepoAccessToken;
+    }
+
+    if (!Util.isUnset(request.codeRepoUserName)) {
+      body["CodeRepoUserName"] = request.codeRepoUserName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.mountPath)) {
+      body["MountPath"] = request.mountPath;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCodeSource",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/codesources/${OpenApiUtil.getEncodeParam(CodeSourceId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCodeSourceResponse>(await this.callApi(params, req, runtime), new UpdateCodeSourceResponse({}));
+  }
+
+  /**
+   * 更新代码配置
+   * 
+   * @param request - UpdateCodeSourceRequest
+   * @returns UpdateCodeSourceResponse
+   */
+  async updateCodeSource(CodeSourceId: string, request: UpdateCodeSourceRequest): Promise<UpdateCodeSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateCodeSourceWithOptions(CodeSourceId, request, headers, runtime);
   }
 
   /**
