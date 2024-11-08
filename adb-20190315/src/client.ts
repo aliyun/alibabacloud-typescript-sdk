@@ -5685,6 +5685,7 @@ export class DescribeDBClusterPerformanceRequest extends $tea.Model {
 }
 
 export class DescribeDBClusterPerformanceResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -5724,6 +5725,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $tea.Model {
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       DBClusterId: 'DBClusterId',
       endTime: 'EndTime',
       performances: 'Performances',
@@ -5734,6 +5736,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       DBClusterId: 'string',
       endTime: 'string',
       performances: { 'type': 'array', 'itemType': DescribeDBClusterPerformanceResponseBodyPerformances },
