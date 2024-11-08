@@ -2937,6 +2937,8 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
    * hpc-clusterid
    */
   hpcClusterId?: string;
+  httpEndpoint?: string;
+  httpTokens?: string;
   /**
    * @remarks
    * The name of the image family. If you specify this parameter, the most recent custom images that are available in the specified image family are returned. You can use the images to create instances. If you specify ImageId, you cannot specify ImageFamily.
@@ -3310,6 +3312,8 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
       deploymentSetId: 'DeploymentSetId',
       hostName: 'HostName',
       hpcClusterId: 'HpcClusterId',
+      httpEndpoint: 'HttpEndpoint',
+      httpTokens: 'HttpTokens',
       imageFamily: 'ImageFamily',
       imageId: 'ImageId',
       imageName: 'ImageName',
@@ -3373,6 +3377,8 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
       deploymentSetId: 'string',
       hostName: 'string',
       hpcClusterId: 'string',
+      httpEndpoint: 'string',
+      httpTokens: 'string',
       imageFamily: 'string',
       imageId: 'string',
       imageName: 'string',
@@ -3542,6 +3548,8 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
    * hpc-clusterid
    */
   hpcClusterId?: string;
+  httpEndpoint?: string;
+  httpTokens?: string;
   /**
    * @remarks
    * The name of the image family. If you specify this parameter, the most recent custom images that are available in the specified image family are returned. You can use the images to create instances. If you specify ImageId, you cannot specify ImageFamily.
@@ -3915,6 +3923,8 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
       deploymentSetId: 'DeploymentSetId',
       hostName: 'HostName',
       hpcClusterId: 'HpcClusterId',
+      httpEndpoint: 'HttpEndpoint',
+      httpTokens: 'HttpTokens',
       imageFamily: 'ImageFamily',
       imageId: 'ImageId',
       imageName: 'ImageName',
@@ -3978,6 +3988,8 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
       deploymentSetId: 'string',
       hostName: 'string',
       hpcClusterId: 'string',
+      httpEndpoint: 'string',
+      httpTokens: 'string',
       imageFamily: 'string',
       imageId: 'string',
       imageName: 'string',
@@ -4492,6 +4504,17 @@ export class CreateScalingGroupRequest extends $tea.Model {
    */
   spotInstanceRemedy?: boolean;
   /**
+   * @remarks
+   * The period of time required by the ECS instance to enter the Stopped state. Unit: seconds. Valid values: 30 to 240.
+   * 
+   * > 
+   * 
+   * *   This parameter takes effect only if you set ScalingPolicy to release.
+   * 
+   * *   If you specify this parameter, the system will wait for the ECS instance to enter the Stopped state for the specified period of time before continuing with the scale-in operation, regardless of the status of the ECS instance.
+   * 
+   * *   If you do not specify this parameter, the system will wait for the ECS instance to stop before continuing with the scale-in operation. If the ECS instance is not successfully stopped, the scale-in process will be rolled back and considered failed.
+   * 
    * @example
    * 60
    */
@@ -6929,14 +6952,29 @@ export class DescribeEciScalingConfigurationsResponse extends $tea.Model {
 }
 
 export class DescribeElasticStrengthRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance types. The instance types specified by this parameter overwrite the instance types specified in the scaling configuration.
+   */
   instanceTypes?: string[];
   /**
+   * @remarks
+   * The preemption policy that you want to apply to pay-as-you-go instances. The preemption policy specified by this parameter overwrites the preemption policy specified in the scaling configuration. Valid values:
+   * 
+   * *   NoSpot: The instances are created as regular pay-as-you-go instances.
+   * *   SpotWithPriceLimit: The instances are created as preemptible instances that have a user-defined maximum hourly price.
+   * *   SpotAsPriceGo: The instances are created as preemptible instances for which the market price at the time of purchase is automatically used as the bidding price.
+   * 
+   * Default value: NoSpot.
+   * 
    * @example
    * NoSpot
    */
   priorityStrategy?: string;
   /**
    * @remarks
+   * The region ID of the scaling group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6944,11 +6982,27 @@ export class DescribeElasticStrengthRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the scaling group.
+   * 
    * @example
    * asg-bp18p2yfxow2dloq****
    */
   scalingGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the scaling groups that you want to query.
+   */
   scalingGroupIds?: string[];
+  /**
+   * @remarks
+   * The categories of the system disks. The categories of the system disks specified by this parameter overwrite the categories of the system disks specified in the scaling configuration. Valid values:
+   * 
+   * *   cloud: basic disk.
+   * *   cloud_efficiency: ultra disk.
+   * *   cloud_ssd: standard SSD.
+   * *   cloud_essd: Enterprise SSD (ESSD).
+   */
   systemDiskCategories?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6978,14 +7032,28 @@ export class DescribeElasticStrengthRequest extends $tea.Model {
 }
 
 export class DescribeElasticStrengthResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The scaling strength models.
+   */
   elasticStrengthModels?: DescribeElasticStrengthResponseBodyElasticStrengthModels[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 73469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resource pools.
+   */
   resourcePools?: DescribeElasticStrengthResponseBodyResourcePools[];
   /**
+   * @remarks
+   * The scaling strength of the scaling group. Each combination of instance type + zone is scored from 0 to 1 based on its availability, with 0 being the weakest scaling strength and 1 being the strongest. The scaling strength of the scaling group is measured by the combined scores of all the combinations of instance type + zone.
+   * 
    * @example
    * 1.5
    */
@@ -13768,6 +13836,8 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
    * hpc-clusterid
    */
   hpcClusterId?: string;
+  httpEndpoint?: string;
+  httpTokens?: string;
   /**
    * @remarks
    * The name of the image family. If you specify this parameter, the latest custom images that are available in the specified image family are returned. Then, you can use the images to create instances. If you specify ImageId, you cannot specify ImageFamily.
@@ -13840,6 +13910,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
    * PayByBandwidth
    */
   internetChargeType?: string;
+  internetMaxBandwidthIn?: number;
   /**
    * @remarks
    * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values:
@@ -14116,6 +14187,8 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
       deploymentSetId: 'DeploymentSetId',
       hostName: 'HostName',
       hpcClusterId: 'HpcClusterId',
+      httpEndpoint: 'HttpEndpoint',
+      httpTokens: 'HttpTokens',
       imageFamily: 'ImageFamily',
       imageId: 'ImageId',
       imageName: 'ImageName',
@@ -14125,6 +14198,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
       instanceTypeOverrides: 'InstanceTypeOverrides',
       instanceTypes: 'InstanceTypes',
       internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthIn: 'InternetMaxBandwidthIn',
       internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
       ioOptimized: 'IoOptimized',
       ipv6AddressCount: 'Ipv6AddressCount',
@@ -14176,6 +14250,8 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
       deploymentSetId: 'string',
       hostName: 'string',
       hpcClusterId: 'string',
+      httpEndpoint: 'string',
+      httpTokens: 'string',
       imageFamily: 'string',
       imageId: 'string',
       imageName: 'string',
@@ -14185,6 +14261,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
       instanceTypeOverrides: { 'type': 'array', 'itemType': ModifyScalingConfigurationRequestInstanceTypeOverrides },
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       internetChargeType: 'string',
+      internetMaxBandwidthIn: 'number',
       internetMaxBandwidthOut: 'number',
       ioOptimized: 'string',
       ipv6AddressCount: 'number',
@@ -14339,6 +14416,8 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
    * hpc-clusterid
    */
   hpcClusterId?: string;
+  httpEndpoint?: string;
+  httpTokens?: string;
   /**
    * @remarks
    * The name of the image family. If you specify this parameter, the latest custom images that are available in the specified image family are returned. Then, you can use the images to create instances. If you specify ImageId, you cannot specify ImageFamily.
@@ -14411,6 +14490,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
    * PayByBandwidth
    */
   internetChargeType?: string;
+  internetMaxBandwidthIn?: number;
   /**
    * @remarks
    * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values:
@@ -14687,6 +14767,8 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
       deploymentSetId: 'DeploymentSetId',
       hostName: 'HostName',
       hpcClusterId: 'HpcClusterId',
+      httpEndpoint: 'HttpEndpoint',
+      httpTokens: 'HttpTokens',
       imageFamily: 'ImageFamily',
       imageId: 'ImageId',
       imageName: 'ImageName',
@@ -14696,6 +14778,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
       instanceTypeOverrides: 'InstanceTypeOverrides',
       instanceTypes: 'InstanceTypes',
       internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthIn: 'InternetMaxBandwidthIn',
       internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
       ioOptimized: 'IoOptimized',
       ipv6AddressCount: 'Ipv6AddressCount',
@@ -14747,6 +14830,8 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
       deploymentSetId: 'string',
       hostName: 'string',
       hpcClusterId: 'string',
+      httpEndpoint: 'string',
+      httpTokens: 'string',
       imageFamily: 'string',
       imageId: 'string',
       imageName: 'string',
@@ -14756,6 +14841,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
       instanceTypeOverrides: { 'type': 'array', 'itemType': ModifyScalingConfigurationShrinkRequestInstanceTypeOverrides },
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       internetChargeType: 'string',
+      internetMaxBandwidthIn: 'number',
       internetMaxBandwidthOut: 'number',
       ioOptimized: 'string',
       ipv6AddressCount: 'number',
@@ -15144,6 +15230,17 @@ export class ModifyScalingGroupRequest extends $tea.Model {
    */
   spotInstanceRemedy?: boolean;
   /**
+   * @remarks
+   * The period of time that is required by the Elastic Compute Service (ECS) instance to enter the Stopped state during the scale-in process. Unit: seconds. Valid values: 30 to 240.
+   * 
+   * > 
+   * 
+   * *   This parameter takes effect only if you set ScalingPolicy to release.\\
+   *     If you specify this parameter, the system proceeds with the scale-in process only after the period of time specified by StopInstanceTimeout ends. In this case, the scale-in operation continues regardless of whether the ECS instance enters the Stopped state or not.\\
+   *     If you do not specify this parameter, the system proceeds with the scale-in process only after the ECS instance enters the Stopped state. If the ECS instance fails to enter the Stopped state, the scale-in process rolls back, and the scale-in operation is considered as failed.
+   * 
+   * *   When you call the ModifyScalingGroup operation, you can set the value to 0. In this case, the system ignores this parameter.
+   * 
    * @example
    * 60
    */
@@ -16183,6 +16280,17 @@ export class RemoveInstancesRequest extends $tea.Model {
    */
   scalingGroupId?: string;
   /**
+   * @remarks
+   * The period of time that is required by the Elastic Compute Service (ECS) instance to enter the Stopped state during the scale-in process. Unit: seconds. Valid values: 30 to 240.
+   * 
+   * > 
+   * 
+   * *   By default, this parameter inherits the value of StopInstanceTimeout specified in the CreateScalingGroup or ModifyScalingGroup operation. You can also specify a different value for this parameter in the RemoveInstances operation.
+   * 
+   * *   This parameter takes effect only if you set RemovePolicy to release.\\
+   *     If you specify this parameter, the system proceeds with the scale-in process only after the period of time specified by StopInstanceTimeout ends. In this case, the scale-in operation continues regardless of whether the ECS instance enters the Stopped state or not.\\
+   *     If you do not specify this parameter, the system proceeds with the scale-in process only after the ECS instance enters the Stopped state. If the ECS instance fails to enter the Stopped state, the scale-in process rolls back, and the scale-in operation is considered as failed.
+   * 
    * @example
    * 60
    */
@@ -22091,7 +22199,7 @@ export class CreateScalingGroupRequestLifecycleHooks extends $tea.Model {
    * @remarks
    * The action that Auto Scaling performs when the lifecycle hook times out. Valid values:
    * 
-   * *   CONTINUE: Auto Scaling continues to respond to a scale-in or scale-out request.
+   * *   CONTINUE: Auto Scaling continues to respond to the scaling request.
    * *   ABANDON: Auto Scaling releases ECS instances that are created during scale-out events, or removes ECS instances from the scaling group during scale-in events.
    * 
    * If multiple lifecycle hooks in the scaling group are triggered during scale-in events, and you set DefaultResult to ABANDON for one of the lifecycle hooks, Auto Scaling immediately performs the action after the lifecycle hook whose DefaultResult is set to ABANDON times out. In this case, other lifecycle hooks time out ahead of schedule. In other cases, Auto Scaling performs the action only after all lifecycle hooks time out. The action that Auto Scaling performs is determined by the value of DefaultResult that you specify for the lifecycle hook that most recently times out.
@@ -22106,7 +22214,7 @@ export class CreateScalingGroupRequestLifecycleHooks extends $tea.Model {
    * @remarks
    * The period of time before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action that is specified by DefaultResult. Valid values: 30 to 21600. Unit: seconds.
    * 
-   * After you create a lifecycle hook, you can call the RecordLifecycleActionHeartbeat operation to extend the timeout period of the lifecycle hook. You can also call the CompleteLifecycleAction operation to end the timeout period of the lifecycle hook ahead of scheduled.
+   * After you create a lifecycle hook, you can call the RecordLifecycleActionHeartbeat operation to extend the timeout period of the lifecycle hook. You can also call the CompleteLifecycleAction operation to end the timeout period of the lifecycle hook ahead of schedule.
    * 
    * Default value: 600.
    * 
@@ -22137,15 +22245,15 @@ export class CreateScalingGroupRequestLifecycleHooks extends $tea.Model {
   lifecycleTransition?: string;
   /**
    * @remarks
-   * The identifier of the notification recipient party when the lifecycle hook takes effect. You can specify a Message Service (MNS) topic or queue as the notification recipient party. Specify the value in the acs:ess:{region}:{account-id}:{resource-relative-id} format.
+   * The Alibaba Cloud Resource Name (ARN) of the notification recipient party. You can specify a Simple Message Queue (SMQ, formerly MNS) topic or queue as the recipient party. The value is in the acs:ess:{region}:{account-id}:{resource-relative-id} format.
    * 
    * *   region: the region ID of the scaling group
    * *   account-id: the ID of your Alibaba Cloud account.
    * 
    * Examples:
    * 
-   * *   MNS queue: acs:ess:{region}:{account-id}:queue/{queuename}
-   * *   MNS topic: acs:ess:{region}:{account-id}:topic/{topicname}
+   * *   SMQ queue: acs:ess:{region}:{account-id}:queue/{queuename}
+   * *   SMQ topic: acs:ess:{region}:{account-id}:topic/{topicname}
    * 
    * @example
    * acs:ess:cn-hangzhou:1111111111:queue/queue2
@@ -22153,7 +22261,7 @@ export class CreateScalingGroupRequestLifecycleHooks extends $tea.Model {
   notificationArn?: string;
   /**
    * @remarks
-   * The fixed string that you want to include in a notification. When a lifecycle hook takes effect, Auto Scaling sends a notification. The fixed string can contain up to 4,096 characters in length. When Auto Scaling sends a notification to the recipient party, it includes predefined notification metadata into the notification. This helps in managing and labeling notifications of different categories. notificationmetadata takes effect only if you specify notificationarn.
+   * The fixed string that you want to include in notifications. When a lifecycle hook takes effect, Auto Scaling sends a notification. The fixed string can contain up to 4,096 characters in length. When Auto Scaling sends a notification to the recipient party, it includes predefined notification metadata into the notification. This helps in managing and labeling notifications of different categories. NotificationMetadata takes effect only if you specify NotificationArn.
    * 
    * @example
    * Test
@@ -27066,27 +27174,46 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurations e
 
 export class DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools extends $tea.Model {
   /**
+   * @remarks
+   * The error code returned when the scaling strength is the weakest.
+   * 
    * @example
    * InstanceTypesOrDiskTypesNotSupported
    */
   code?: string;
   /**
+   * @remarks
+   * The instance type of the resource pool.
+   * 
    * @example
    * ecs.r7.large
    */
   instanceType?: string;
   /**
+   * @remarks
+   * The error message returned when the scaling strength is the weakest.
+   * 
    * @example
    * The instanceTypes or diskTypes are not supported.
    */
   msg?: string;
   /**
+   * @remarks
+   * The scaling strength of the resource pool.
+   * 
    * @example
    * 0.6
    */
   strength?: number;
+  /**
+   * @remarks
+   * The IDs of the vSwitches in the zones of the resource pool.
+   */
   vSwitchIds?: string[];
   /**
+   * @remarks
+   * The zone ID of the resource pool.
+   * 
    * @example
    * cn-hangzhou-g
    */
@@ -27119,9 +27246,23 @@ export class DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoo
 }
 
 export class DescribeElasticStrengthResponseBodyElasticStrengthModels extends $tea.Model {
+  /**
+   * @remarks
+   * The resource pools.
+   */
   resourcePools?: DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools[];
+  /**
+   * @remarks
+   * The ID of the scaling group.
+   * 
+   * @example
+   * asg-wz98mnj7nblv9gc****
+   */
   scalingGroupId?: string;
   /**
+   * @remarks
+   * The scaling strength of the scaling group. Each combination of instance type + zone is scored from 0 to 1 based on its availability, with 0 being the weakest scaling strength and 1 being the strongest. The scaling strength of the scaling group is measured by the combined scores of all the combinations of instance type + zone.
+   * 
    * @example
    * 1.5
    */
@@ -27149,27 +27290,46 @@ export class DescribeElasticStrengthResponseBodyElasticStrengthModels extends $t
 
 export class DescribeElasticStrengthResponseBodyResourcePools extends $tea.Model {
   /**
+   * @remarks
+   * The error code returned when the scaling strength is the weakest.
+   * 
    * @example
    * IMG_NOT_SUPPORTED
    */
   code?: string;
   /**
+   * @remarks
+   * The instance type of the resource pool.
+   * 
    * @example
    * ecs.c7t.xlarge
    */
   instanceType?: string;
   /**
+   * @remarks
+   * The error message returned when the scaling strength is the weakest.
+   * 
    * @example
    * The instanceType does not support the image in the configuration.
    */
   msg?: string;
   /**
+   * @remarks
+   * The scaling strength of the resource pool.
+   * 
    * @example
    * 0.6
    */
   strength?: number;
+  /**
+   * @remarks
+   * The IDs of the vSwitches in the zones of the resource pool.
+   */
   vSwitchIds?: string[];
   /**
+   * @remarks
+   * The zone ID of the resource pool.
+   * 
    * @example
    * cn-hangzhou-g
    */
@@ -28693,10 +28853,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSched
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions extends $tea.Model {
   /**
    * @remarks
-   * The confidential computing mode. Valid values:
-   * 
-   * *   Enclave: An enclave-based confidential computing environment is built on the instance. For more information, see [Build a confidential computing environment by using Enclave](https://help.aliyun.com/document_detail/203433.html).
-   * *   TDX: A Trust Domain Extensions (TDX) confidential computing environment is built on the instance. For more information, see [Build a TDX confidential computing environment](https://help.aliyun.com/document_detail/479090.html).
+   * 机密计算模式。可能值：
+   * -  Enclave：表示ECS实例使用Enclave构建机密计算环境。更多信息，请参见[使用Enclave构建机密计算环境](https://help.aliyun.com/document_detail/203433.html)。
+   * - TDX：表示构建TDX机密计算环境。更多信息，请参见[构建TDX机密计算环境](https://help.aliyun.com/document_detail/479090.html)。
    * 
    * @example
    * TDX
@@ -28911,6 +29070,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
    * hpc-clus****
    */
   hpcClusterId?: string;
+  httpEndpoint?: string;
+  httpTokens?: string;
   /**
    * @remarks
    * The name of the image family. You can specify this parameter to obtain the latest available images in the current image family for instance creation. If you specify ImageId, you cannot specify `ImageFamily`.
@@ -28985,7 +29146,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   instanceName?: string;
   /**
    * @remarks
-   * The information about the intelligent configuration settings, which determine the available instance types.
+   * The intelligent configuration settings, which determine the available instance types.
    */
   instancePatternInfos?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstancePatternInfos[];
   /**
@@ -29183,7 +29344,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   securityGroupIds?: string[];
   /**
    * @remarks
-   * The security options.
+   * 安全选项。
    */
   securityOptions?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions;
   /**
@@ -29406,6 +29567,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       deploymentSetId: 'DeploymentSetId',
       hostName: 'HostName',
       hpcClusterId: 'HpcClusterId',
+      httpEndpoint: 'HttpEndpoint',
+      httpTokens: 'HttpTokens',
       imageFamily: 'ImageFamily',
       imageId: 'ImageId',
       imageName: 'ImageName',
@@ -29481,6 +29644,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       deploymentSetId: 'string',
       hostName: 'string',
       hpcClusterId: 'string',
+      httpEndpoint: 'string',
+      httpTokens: 'string',
       imageFamily: 'string',
       imageId: 'string',
       imageName: 'string',
@@ -31352,6 +31517,9 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
    */
   standbyCapacity?: number;
   /**
+   * @remarks
+   * The period of time that is required by the Elastic Compute Service (ECS) instance to enter the Stopped state during the scale-in process. Unit: seconds.
+   * 
    * @example
    * 60
    */
@@ -38601,6 +38769,14 @@ export default class Client extends OpenApi {
       query["HpcClusterId"] = request.hpcClusterId;
     }
 
+    if (!Util.isUnset(request.httpEndpoint)) {
+      query["HttpEndpoint"] = request.httpEndpoint;
+    }
+
+    if (!Util.isUnset(request.httpTokens)) {
+      query["HttpTokens"] = request.httpTokens;
+    }
+
     if (!Util.isUnset(request.imageFamily)) {
       query["ImageFamily"] = request.imageFamily;
     }
@@ -43352,6 +43528,14 @@ export default class Client extends OpenApi {
       query["HpcClusterId"] = request.hpcClusterId;
     }
 
+    if (!Util.isUnset(request.httpEndpoint)) {
+      query["HttpEndpoint"] = request.httpEndpoint;
+    }
+
+    if (!Util.isUnset(request.httpTokens)) {
+      query["HttpTokens"] = request.httpTokens;
+    }
+
     if (!Util.isUnset(request.imageFamily)) {
       query["ImageFamily"] = request.imageFamily;
     }
@@ -43386,6 +43570,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.internetChargeType)) {
       query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.internetMaxBandwidthIn)) {
+      query["InternetMaxBandwidthIn"] = request.internetMaxBandwidthIn;
     }
 
     if (!Util.isUnset(request.internetMaxBandwidthOut)) {
