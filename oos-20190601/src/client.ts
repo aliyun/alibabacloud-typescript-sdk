@@ -3080,6 +3080,13 @@ export class DeleteExecutionsRequest extends $tea.Model {
    * ["exec-xxx"]
    */
   executionIds?: string;
+  /**
+   * @remarks
+   * Whether to force delete the running task, the default value is false.
+   * 
+   * @example
+   * false
+   */
   force?: boolean;
   /**
    * @remarks
@@ -7388,6 +7395,7 @@ export class ListExecutionsResponse extends $tea.Model {
 
 export class ListGitRepositoriesRequest extends $tea.Model {
   clientToken?: string;
+  orgId?: string;
   orgName?: string;
   /**
    * @remarks
@@ -7405,6 +7413,7 @@ export class ListGitRepositoriesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      orgId: 'OrgId',
       orgName: 'OrgName',
       owner: 'Owner',
       pageNumber: 'PageNumber',
@@ -7417,6 +7426,7 @@ export class ListGitRepositoriesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      orgId: 'string',
       orgName: 'string',
       owner: 'string',
       pageNumber: 'number',
@@ -19953,12 +19963,14 @@ export class ListGitRepositoriesResponseBodyGitRepos extends $tea.Model {
   fullName?: string;
   htmlUrl?: string;
   isPrivate?: boolean;
+  repoId?: number;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       fullName: 'FullName',
       htmlUrl: 'HtmlUrl',
       isPrivate: 'IsPrivate',
+      repoId: 'RepoId',
     };
   }
 
@@ -19968,6 +19980,7 @@ export class ListGitRepositoriesResponseBodyGitRepos extends $tea.Model {
       fullName: 'string',
       htmlUrl: 'string',
       isPrivate: 'boolean',
+      repoId: 'number',
     };
   }
 
@@ -21921,6 +21934,7 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
    * 2019-05-16T10:26:14Z
    */
   updatedDate?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -21944,6 +21958,7 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
       totalExecutionCount: 'TotalExecutionCount',
       updatedBy: 'UpdatedBy',
       updatedDate: 'UpdatedDate',
+      versionName: 'VersionName',
     };
   }
 
@@ -21970,6 +21985,7 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
       totalExecutionCount: 'number',
       updatedBy: 'string',
       updatedDate: 'string',
+      versionName: 'string',
     };
   }
 
@@ -26561,6 +26577,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
     if (!Util.isUnset(request.orgName)) {
       query["OrgName"] = request.orgName;
     }
@@ -28592,7 +28612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an execution.
+   * Update executions that are in Running or Waiting status.
    * 
    * @param request - UpdateExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28647,7 +28667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an execution.
+   * Update executions that are in Running or Waiting status.
    * 
    * @param request - UpdateExecutionRequest
    * @returns UpdateExecutionResponse
