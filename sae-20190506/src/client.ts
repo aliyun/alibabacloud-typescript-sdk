@@ -6416,6 +6416,7 @@ export class CreateApplicationRequest extends $tea.Model {
    * KSAK****
    */
   nasId?: string;
+  oidcRoleName?: string;
   /**
    * @remarks
    * xxxxxx
@@ -6660,6 +6661,7 @@ export class CreateApplicationRequest extends $tea.Model {
       namespaceId: 'NamespaceId',
       nasConfigs: 'NasConfigs',
       nasId: 'NasId',
+      oidcRoleName: 'OidcRoleName',
       ossAkId: 'OssAkId',
       ossAkSecret: 'OssAkSecret',
       ossMountDescs: 'OssMountDescs',
@@ -6729,6 +6731,7 @@ export class CreateApplicationRequest extends $tea.Model {
       namespaceId: 'string',
       nasConfigs: 'string',
       nasId: 'string',
+      oidcRoleName: 'string',
       ossAkId: 'string',
       ossAkSecret: 'string',
       ossMountDescs: 'string',
@@ -10812,6 +10815,7 @@ export class DeployApplicationRequest extends $tea.Model {
    * 10d3b4****
    */
   nasId?: string;
+  oidcRoleName?: string;
   /**
    * @remarks
    * The AccessKey ID that is used to read data from and write data to Object Storage Service (OSS) buckets.
@@ -11108,6 +11112,7 @@ export class DeployApplicationRequest extends $tea.Model {
       mountHost: 'MountHost',
       nasConfigs: 'NasConfigs',
       nasId: 'NasId',
+      oidcRoleName: 'OidcRoleName',
       ossAkId: 'OssAkId',
       ossAkSecret: 'OssAkSecret',
       ossMountDescs: 'OssMountDescs',
@@ -11176,6 +11181,7 @@ export class DeployApplicationRequest extends $tea.Model {
       mountHost: 'string',
       nasConfigs: 'string',
       nasId: 'string',
+      oidcRoleName: 'string',
       ossAkId: 'string',
       ossAkSecret: 'string',
       ossMountDescs: 'string',
@@ -28367,6 +28373,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
    * AKSN89**
    */
   nasId?: string;
+  oidcRoleName?: string;
   /**
    * @remarks
    * The AccessKey ID that is used to read data from and write data to Object Storage Service (OSS) buckets.
@@ -28697,6 +28704,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       namespaceId: 'NamespaceId',
       nasConfigs: 'NasConfigs',
       nasId: 'NasId',
+      oidcRoleName: 'OidcRoleName',
       ossAkId: 'OssAkId',
       ossAkSecret: 'OssAkSecret',
       ossMountDescs: 'OssMountDescs',
@@ -28773,6 +28781,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       namespaceId: 'string',
       nasConfigs: 'string',
       nasId: 'string',
+      oidcRoleName: 'string',
       ossAkId: 'string',
       ossAkSecret: 'string',
       ossMountDescs: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataOssMountDescs },
@@ -39989,6 +39998,10 @@ export default class Client extends OpenApi {
       query["NasId"] = request.nasId;
     }
 
+    if (!Util.isUnset(request.oidcRoleName)) {
+      query["OidcRoleName"] = request.oidcRoleName;
+    }
+
     if (!Util.isUnset(request.packageType)) {
       query["PackageType"] = request.packageType;
     }
@@ -41643,6 +41656,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nasId)) {
       query["NasId"] = request.nasId;
+    }
+
+    if (!Util.isUnset(request.oidcRoleName)) {
+      query["OidcRoleName"] = request.oidcRoleName;
     }
 
     if (!Util.isUnset(request.packageType)) {
