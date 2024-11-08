@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,7 +8,15 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class ApproveOperationRequest extends $tea.Model {
+  /**
+   * @example
+   * e01-cn-zvp2tgykr08
+   */
   nodeId?: string;
+  /**
+   * @example
+   * RepairMachine
+   */
   operationType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +38,15 @@ export class ApproveOperationRequest extends $tea.Model {
 }
 
 export class ApproveOperationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Resource not found
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * 8F065DDD-6996-5973-9691-9EC57BD0072E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,8 +93,29 @@ export class ApproveOperationResponse extends $tea.Model {
 }
 
 export class ChangeResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rg-aekzyqdwnfabx6q
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i118099391667548921125
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu
+   */
   resourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,6 +139,13 @@ export class ChangeResourceGroupRequest extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8F065DDD-6996-5973-9691-9EC57BD0072E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -148,14 +191,31 @@ export class ChangeResourceGroupResponse extends $tea.Model {
 
 export class CreateClusterRequest extends $tea.Model {
   clusterDescription?: string;
+  /**
+   * @example
+   * Standard_Cluster
+   */
   clusterName?: string;
+  /**
+   * @example
+   * Lite
+   */
   clusterType?: string;
   components?: CreateClusterRequestComponents[];
   hpnZone?: string;
+  /**
+   * @example
+   * False
+   */
   ignoreFailedNodeTasks?: boolean;
   networks?: CreateClusterRequestNetworks;
   nimizVSwitches?: string[];
   nodeGroups?: CreateClusterRequestNodeGroups[];
+  openEniJumboFrame?: boolean;
+  /**
+   * @example
+   * rg-aek2xdkc6icwfha
+   */
   resourceGroupId?: string;
   tag?: CreateClusterRequestTag[];
   static names(): { [key: string]: string } {
@@ -169,6 +229,7 @@ export class CreateClusterRequest extends $tea.Model {
       networks: 'Networks',
       nimizVSwitches: 'NimizVSwitches',
       nodeGroups: 'NodeGroups',
+      openEniJumboFrame: 'OpenEniJumboFrame',
       resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
     };
@@ -185,6 +246,7 @@ export class CreateClusterRequest extends $tea.Model {
       networks: CreateClusterRequestNetworks,
       nimizVSwitches: { 'type': 'array', 'itemType': 'string' },
       nodeGroups: { 'type': 'array', 'itemType': CreateClusterRequestNodeGroups },
+      openEniJumboFrame: 'boolean',
       resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': CreateClusterRequestTag },
     };
@@ -197,14 +259,31 @@ export class CreateClusterRequest extends $tea.Model {
 
 export class CreateClusterShrinkRequest extends $tea.Model {
   clusterDescription?: string;
+  /**
+   * @example
+   * Standard_Cluster
+   */
   clusterName?: string;
+  /**
+   * @example
+   * Lite
+   */
   clusterType?: string;
   componentsShrink?: string;
   hpnZone?: string;
+  /**
+   * @example
+   * False
+   */
   ignoreFailedNodeTasks?: boolean;
   networksShrink?: string;
   nimizVSwitchesShrink?: string;
   nodeGroupsShrink?: string;
+  openEniJumboFrame?: boolean;
+  /**
+   * @example
+   * rg-aek2xdkc6icwfha
+   */
   resourceGroupId?: string;
   tag?: CreateClusterShrinkRequestTag[];
   static names(): { [key: string]: string } {
@@ -218,6 +297,7 @@ export class CreateClusterShrinkRequest extends $tea.Model {
       networksShrink: 'Networks',
       nimizVSwitchesShrink: 'NimizVSwitches',
       nodeGroupsShrink: 'NodeGroups',
+      openEniJumboFrame: 'OpenEniJumboFrame',
       resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
     };
@@ -234,6 +314,7 @@ export class CreateClusterShrinkRequest extends $tea.Model {
       networksShrink: 'string',
       nimizVSwitchesShrink: 'string',
       nodeGroupsShrink: 'string',
+      openEniJumboFrame: 'boolean',
       resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': CreateClusterShrinkRequestTag },
     };
@@ -245,8 +326,20 @@ export class CreateClusterShrinkRequest extends $tea.Model {
 }
 
 export class CreateClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * i116913051663373010974
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 3C683243-7915-57FB-9570-A2932C1C0F78
+   */
   requestId?: string;
+  /**
+   * @example
+   * i159809891662373011015
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -295,6 +388,13 @@ export class CreateClusterResponse extends $tea.Model {
 }
 
 export class DeleteClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i116913051662373010974
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -314,6 +414,10 @@ export class DeleteClusterRequest extends $tea.Model {
 }
 
 export class DeleteClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FC4A1C7-421C-5EAB-9361-4C0338EFA287
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -358,6 +462,13 @@ export class DeleteClusterResponse extends $tea.Model {
 }
 
 export class DescribeClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i119982311660892626523
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -378,20 +489,65 @@ export class DescribeClusterRequest extends $tea.Model {
 
 export class DescribeClusterResponseBody extends $tea.Model {
   clusterDescription?: string;
+  /**
+   * @example
+   * i116913051662373010974
+   */
   clusterId?: string;
+  /**
+   * @example
+   * Eflo-YJ-Test-Cluster
+   */
   clusterName?: string;
+  /**
+   * @example
+   * AckEdgPro
+   */
   clusterType?: string;
   components?: DescribeClusterResponseBodyComponents[];
   computingIpVersion?: string;
+  /**
+   * @example
+   * 2022-06-08T07:05:11Z
+   */
   createTime?: string;
   hpnZone?: string;
   networks?: DescribeClusterResponseBodyNetworks[];
+  /**
+   * @example
+   * 2
+   */
   nodeCount?: number;
+  /**
+   * @example
+   * 2
+   */
   nodeGroupCount?: number;
+  openEniJumboFrame?: string;
+  /**
+   * @example
+   * running
+   */
   operatingState?: string;
+  /**
+   * @example
+   * 887FA855-89F4-5DB3-B305-C5879EC480E6
+   */
   requestId?: string;
+  /**
+   * @example
+   * rg-aek2k3rqlvv6ytq
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * i152609221670466904596
+   */
   taskId?: string;
+  /**
+   * @example
+   * 2022-08-23T06:36:17.000Z
+   */
   updateTime?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -407,6 +563,7 @@ export class DescribeClusterResponseBody extends $tea.Model {
       networks: 'Networks',
       nodeCount: 'NodeCount',
       nodeGroupCount: 'NodeGroupCount',
+      openEniJumboFrame: 'OpenEniJumboFrame',
       operatingState: 'OperatingState',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
@@ -429,6 +586,7 @@ export class DescribeClusterResponseBody extends $tea.Model {
       networks: { 'type': 'array', 'itemType': DescribeClusterResponseBodyNetworks },
       nodeCount: 'number',
       nodeGroupCount: 'number',
+      openEniJumboFrame: 'string',
       operatingState: 'string',
       requestId: 'string',
       resourceGroupId: 'string',
@@ -469,9 +627,28 @@ export class DescribeClusterResponse extends $tea.Model {
 }
 
 export class DescribeInvocationsRequest extends $tea.Model {
+  /**
+   * @example
+   * PlainText
+   */
   contentEncoding?: string;
+  /**
+   * @example
+   * true
+   */
   includeOutput?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * t-cd03crwys0lrls0
+   */
   invokeId?: string;
+  /**
+   * @example
+   * e01-cn-zvp2tgykr08
+   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -498,6 +675,10 @@ export class DescribeInvocationsRequest extends $tea.Model {
 
 export class DescribeInvocationsResponseBody extends $tea.Model {
   invocations?: DescribeInvocationsResponseBodyInvocations;
+  /**
+   * @example
+   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -544,6 +725,13 @@ export class DescribeInvocationsResponse extends $tea.Model {
 }
 
 export class DescribeNodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mock-sn-2060
+   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -563,23 +751,82 @@ export class DescribeNodeRequest extends $tea.Model {
 }
 
 export class DescribeNodeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * i116913051662373010974
+   */
   clusterId?: string;
+  /**
+   * @example
+   * Standard_Cluster
+   */
   clusterName?: string;
+  /**
+   * @example
+   * 2022-09-30T03:35:53Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-06-23T16:00:00Z
+   */
   expiredTime?: string;
+  /**
+   * @example
+   * 31d38530-241e-11ed-bc63-acde48001122
+   */
   hostname?: string;
   hpnZone?: string;
+  /**
+   * @example
+   * i190297201634099844192
+   */
   imageId?: string;
+  /**
+   * @remarks
+   * 镜像名称
+   * 
+   * @example
+   * Centos7.9_all_0811
+   */
   imageName?: string;
+  /**
+   * @example
+   * efg1.nvga1
+   */
   machineType?: string;
   networks?: DescribeNodeResponseBodyNetworks[];
+  /**
+   * @example
+   * ng-ec3c96ff0aa4c60d
+   */
   nodeGroupId?: string;
+  /**
+   * @example
+   * emr-default
+   */
   nodeGroupName?: string;
+  /**
+   * @example
+   * e01-cn-zvp2tgykr08
+   */
   nodeId?: string;
   operatingState?: string;
+  /**
+   * @example
+   * AC4F0004-7BCE-52E0-891B-CAC7D64E3368
+   */
   requestId?: string;
   resourceGroupId?: string;
+  /**
+   * @example
+   * sag42ckf4jx
+   */
   sn?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -658,6 +905,10 @@ export class DescribeNodeResponse extends $tea.Model {
 }
 
 export class DescribeRegionsRequest extends $tea.Model {
+  /**
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -678,6 +929,10 @@ export class DescribeRegionsRequest extends $tea.Model {
 
 export class DescribeRegionsResponseBody extends $tea.Model {
   regions?: DescribeRegionsResponseBodyRegions[];
+  /**
+   * @example
+   * 1D2FBB36-C39B-5EBB-9928-FCC1A236D65D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -724,7 +979,18 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DescribeSendFileResultsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * t-bj038i0d6r8zoqo
+   */
   invokeId?: string;
+  /**
+   * @example
+   * e01-cn-zvp2tgykr08
+   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -747,7 +1013,18 @@ export class DescribeSendFileResultsRequest extends $tea.Model {
 
 export class DescribeSendFileResultsResponseBody extends $tea.Model {
   invocations?: DescribeSendFileResultsResponseBodyInvocations;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -796,6 +1073,13 @@ export class DescribeSendFileResultsResponse extends $tea.Model {
 }
 
 export class DescribeTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i156331731670384438138
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -815,15 +1099,47 @@ export class DescribeTaskRequest extends $tea.Model {
 }
 
 export class DescribeTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * i119982311660892626523
+   */
   clusterId?: string;
+  /**
+   * @example
+   * Standard_Cluster
+   */
   clusterName?: string;
+  /**
+   * @example
+   * 2022-11-30T02:00:00.852Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * Releasing [prod_main_mid_26e234cf] in region [cn-beijing] with weight [0]
+   */
   message?: string;
   nodeIds?: string[];
+  /**
+   * @example
+   * A7FD7411-9395-52E8-AF42-EB3A4A55446D
+   */
   requestId?: string;
   steps?: DescribeTaskResponseBodySteps[];
+  /**
+   * @example
+   * running
+   */
   taskState?: string;
+  /**
+   * @example
+   * cut_cluster
+   */
   taskType?: string;
+  /**
+   * @example
+   * 2022-11-30T03:40:14.852Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -886,6 +1202,10 @@ export class DescribeTaskResponse extends $tea.Model {
 }
 
 export class DescribeZonesRequest extends $tea.Model {
+  /**
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -905,6 +1225,10 @@ export class DescribeZonesRequest extends $tea.Model {
 }
 
 export class DescribeZonesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E9116F2D-82F8-501E-9ADB-2BE0C02B6A84
+   */
   requestId?: string;
   zones?: DescribeZonesResponseBodyZones[];
   static names(): { [key: string]: string } {
@@ -952,7 +1276,15 @@ export class DescribeZonesResponse extends $tea.Model {
 }
 
 export class ExtendClusterRequest extends $tea.Model {
+  /**
+   * @example
+   * i15b480fbd2fcdbc2869cd80
+   */
   clusterId?: string;
+  /**
+   * @example
+   * False
+   */
   ignoreFailedNodeTasks?: boolean;
   ipAllocationPolicy?: ExtendClusterRequestIpAllocationPolicy[];
   nodeGroups?: ExtendClusterRequestNodeGroups[];
@@ -986,7 +1318,15 @@ export class ExtendClusterRequest extends $tea.Model {
 }
 
 export class ExtendClusterShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * i15b480fbd2fcdbc2869cd80
+   */
   clusterId?: string;
+  /**
+   * @example
+   * False
+   */
   ignoreFailedNodeTasks?: boolean;
   ipAllocationPolicyShrink?: string;
   nodeGroupsShrink?: string;
@@ -1020,7 +1360,15 @@ export class ExtendClusterShrinkRequest extends $tea.Model {
 }
 
 export class ExtendClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 03668372-18FF-5959-98D9-6B36A4643C7A
+   */
   requestId?: string;
+  /**
+   * @example
+   * i158475611663639202234
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1067,9 +1415,28 @@ export class ExtendClusterResponse extends $tea.Model {
 }
 
 export class ListClusterNodesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i15b480fbd2fcdbc2869cd80
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
+   */
   nextToken?: string;
+  /**
+   * @example
+   * ng-ec3c96ff0aa4c60d
+   */
   nodeGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1095,8 +1462,16 @@ export class ListClusterNodesRequest extends $tea.Model {
 }
 
 export class ListClusterNodesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AAAAAXW/ZB9TBvH+0ZK0phtCibQgQmu1RbqplAI6Velo2OKR
+   */
   nextToken?: string;
   nodes?: ListClusterNodesResponseBodyNodes[];
+  /**
+   * @example
+   * 2BA76272-6608-5AEC-BBA8-B6F0D3D14CDB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1145,8 +1520,20 @@ export class ListClusterNodesResponse extends $tea.Model {
 }
 
 export class ListClustersRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * a3f2224a5ec7224116c4f5246120abe4
+   */
   nextToken?: string;
+  /**
+   * @example
+   * rg-aek2bg6wyoox6jq
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1171,7 +1558,15 @@ export class ListClustersRequest extends $tea.Model {
 
 export class ListClustersResponseBody extends $tea.Model {
   clusters?: ListClustersResponseBodyClusters[];
+  /**
+   * @example
+   * f4f9a292c17072a2
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 2FE2B22C-CF9D-59DE-BF63-DC9B9B33A9D1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1221,8 +1616,20 @@ export class ListClustersResponse extends $tea.Model {
 
 export class ListFreeNodesRequest extends $tea.Model {
   hpnZone?: string;
+  /**
+   * @example
+   * mock-machine-type2
+   */
   machineType?: string;
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * a3f2224a5ec7224116c4f5246120abe4
+   */
   nextToken?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
@@ -1251,8 +1658,16 @@ export class ListFreeNodesRequest extends $tea.Model {
 }
 
 export class ListFreeNodesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * a3f2224a5ec7224116c4f5246120abe4
+   */
   nextToken?: string;
   nodes?: ListFreeNodesResponseBodyNodes[];
+  /**
+   * @example
+   * AA14CB86-70C4-5CB7-9E7B-6CCA77F3512B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1301,9 +1716,31 @@ export class ListFreeNodesResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Node
+   */
   resourceType?: string;
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
@@ -1332,7 +1769,15 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 8F208B6D-4C42-5FD3-B6BE-E826E92A44DD
+   */
   requestId?: string;
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
@@ -1382,7 +1827,15 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class RebootNodesRequest extends $tea.Model {
+  /**
+   * @example
+   * i15b480fbd2fcdbc2869cd80
+   */
   clusterId?: string;
+  /**
+   * @example
+   * False
+   */
   ignoreFailedNodeTasks?: boolean;
   nodes?: string[];
   static names(): { [key: string]: string } {
@@ -1407,7 +1860,15 @@ export class RebootNodesRequest extends $tea.Model {
 }
 
 export class RebootNodesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * i15b480fbd2fcdbc2869cd80
+   */
   clusterId?: string;
+  /**
+   * @example
+   * False
+   */
   ignoreFailedNodeTasks?: boolean;
   nodesShrink?: string;
   static names(): { [key: string]: string } {
@@ -1432,7 +1893,15 @@ export class RebootNodesShrinkRequest extends $tea.Model {
 }
 
 export class RebootNodesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
+   */
   requestId?: string;
+  /**
+   * @example
+   * i158475611663639202234
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1479,7 +1948,15 @@ export class RebootNodesResponse extends $tea.Model {
 }
 
 export class ReimageNodesRequest extends $tea.Model {
+  /**
+   * @example
+   * i15dfa12e8f27c44f4a006c2c8bb
+   */
   clusterId?: string;
+  /**
+   * @example
+   * False
+   */
   ignoreFailedNodeTasks?: boolean;
   nodes?: ReimageNodesRequestNodes[];
   userData?: string;
@@ -1507,7 +1984,15 @@ export class ReimageNodesRequest extends $tea.Model {
 }
 
 export class ReimageNodesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * i15dfa12e8f27c44f4a006c2c8bb
+   */
   clusterId?: string;
+  /**
+   * @example
+   * False
+   */
   ignoreFailedNodeTasks?: boolean;
   nodesShrink?: string;
   userData?: string;
@@ -1535,7 +2020,15 @@ export class ReimageNodesShrinkRequest extends $tea.Model {
 }
 
 export class ReimageNodesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 15FBCD9B-C93F-54E8-A168-AADE7E66DAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * i158782151663841517926
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1582,18 +2075,65 @@ export class ReimageNodesResponse extends $tea.Model {
 }
 
 export class RunCommandRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ZWNobyAxMjM=
+   */
   commandContent?: string;
+  /**
+   * @example
+   * Base64
+   */
   contentEncoding?: string;
+  /**
+   * @example
+   * testDescription
+   */
   description?: string;
+  /**
+   * @example
+   * false
+   */
   enableParameter?: boolean;
   frequency?: string;
+  /**
+   * @example
+   * testName
+   */
   name?: string;
   nodeIdList?: string[];
+  /**
+   * @example
+   * {"name":"Jack", "accessKey":"LTAIdyvdIqaRY****"}
+   */
   parameters?: { [key: string]: any };
+  /**
+   * @example
+   * Once
+   */
   repeatMode?: string;
+  /**
+   * @example
+   * 3600
+   */
   timeout?: number;
+  /**
+   * @example
+   * root
+   */
   username?: string;
+  /**
+   * @example
+   * /home/user
+   */
   workingDir?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1637,18 +2177,65 @@ export class RunCommandRequest extends $tea.Model {
 }
 
 export class RunCommandShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ZWNobyAxMjM=
+   */
   commandContent?: string;
+  /**
+   * @example
+   * Base64
+   */
   contentEncoding?: string;
+  /**
+   * @example
+   * testDescription
+   */
   description?: string;
+  /**
+   * @example
+   * false
+   */
   enableParameter?: boolean;
   frequency?: string;
+  /**
+   * @example
+   * testName
+   */
   name?: string;
   nodeIdListShrink?: string;
+  /**
+   * @example
+   * {"name":"Jack", "accessKey":"LTAIdyvdIqaRY****"}
+   */
   parametersShrink?: string;
+  /**
+   * @example
+   * Once
+   */
   repeatMode?: string;
+  /**
+   * @example
+   * 3600
+   */
   timeout?: number;
+  /**
+   * @example
+   * root
+   */
   username?: string;
+  /**
+   * @example
+   * /home/user
+   */
   workingDir?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1692,7 +2279,18 @@ export class RunCommandShrinkRequest extends $tea.Model {
 }
 
 export class RunCommandResponseBody extends $tea.Model {
+  /**
+   * @example
+   * t-7d2a745b412b4601b2d47f6a768d*
+   */
   invokeId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2FE2B22C-CF9D-59DE-BF63-DC9B9B33A9D1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1739,16 +2337,69 @@ export class RunCommandResponse extends $tea.Model {
 }
 
 export class SendFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * #!/bin/bash echo "Current User is :" echo $(ps | grep "$$" | awk \\"{print $2}\\") -------- oss://bucketName/objectName
+   */
   content?: string;
+  /**
+   * @example
+   * PlainText
+   */
   contentType?: string;
+  /**
+   * @example
+   * This is a test file.
+   */
   description?: string;
+  /**
+   * @example
+   * test
+   */
   fileGroup?: string;
+  /**
+   * @example
+   * 0644
+   */
   fileMode?: string;
+  /**
+   * @example
+   * root
+   */
   fileOwner?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * file.txt
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   nodeIdList?: string[];
+  /**
+   * @example
+   * True
+   */
   overwrite?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /home
+   */
   targetDir?: string;
+  /**
+   * @example
+   * 600
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1788,16 +2439,69 @@ export class SendFileRequest extends $tea.Model {
 }
 
 export class SendFileShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * #!/bin/bash echo "Current User is :" echo $(ps | grep "$$" | awk \\"{print $2}\\") -------- oss://bucketName/objectName
+   */
   content?: string;
+  /**
+   * @example
+   * PlainText
+   */
   contentType?: string;
+  /**
+   * @example
+   * This is a test file.
+   */
   description?: string;
+  /**
+   * @example
+   * test
+   */
   fileGroup?: string;
+  /**
+   * @example
+   * 0644
+   */
   fileMode?: string;
+  /**
+   * @example
+   * root
+   */
   fileOwner?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * file.txt
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   nodeIdListShrink?: string;
+  /**
+   * @example
+   * True
+   */
   overwrite?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /home
+   */
   targetDir?: string;
+  /**
+   * @example
+   * 600
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1837,7 +2541,18 @@ export class SendFileShrinkRequest extends $tea.Model {
 }
 
 export class SendFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * t-hz03la52z1zkvls
+   */
   invokeId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 3C683243-7915-57FB-9570-A2932C1C0F78
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1884,7 +2599,15 @@ export class SendFileResponse extends $tea.Model {
 }
 
 export class ShrinkClusterRequest extends $tea.Model {
+  /**
+   * @example
+   * i15dfa12e8f27c44f4a006c2c8bb
+   */
   clusterId?: string;
+  /**
+   * @example
+   * False
+   */
   ignoreFailedNodeTasks?: boolean;
   nodeGroups?: ShrinkClusterRequestNodeGroups[];
   static names(): { [key: string]: string } {
@@ -1909,7 +2632,15 @@ export class ShrinkClusterRequest extends $tea.Model {
 }
 
 export class ShrinkClusterShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * i15dfa12e8f27c44f4a006c2c8bb
+   */
   clusterId?: string;
+  /**
+   * @example
+   * False
+   */
   ignoreFailedNodeTasks?: boolean;
   nodeGroupsShrink?: string;
   static names(): { [key: string]: string } {
@@ -1934,7 +2665,15 @@ export class ShrinkClusterShrinkRequest extends $tea.Model {
 }
 
 export class ShrinkClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CC9FEF89-9BE5-5E03-845E-238B48D7599B
+   */
   requestId?: string;
+  /**
+   * @example
+   * i159136551662516768776
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1981,6 +2720,13 @@ export class ShrinkClusterResponse extends $tea.Model {
 }
 
 export class StopInvocationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-hz044748dzepds0
+   */
   invokeId?: string;
   nodeIdList?: string[];
   static names(): { [key: string]: string } {
@@ -2003,6 +2749,13 @@ export class StopInvocationRequest extends $tea.Model {
 }
 
 export class StopInvocationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-hz044748dzepds0
+   */
   invokeId?: string;
   nodeIdListShrink?: string;
   static names(): { [key: string]: string } {
@@ -2025,6 +2778,13 @@ export class StopInvocationShrinkRequest extends $tea.Model {
 }
 
 export class StopInvocationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A7FD7411-9395-52E8-AF42-EB3A4A55446D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2069,9 +2829,31 @@ export class StopInvocationResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Cluster
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -2097,6 +2879,13 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * E7BB53E1-0B08-5C4E-BA66-9225548C3151
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2141,9 +2930,31 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * False
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Cluster
+   */
   resourceType?: string;
   tagKey?: string[];
   static names(): { [key: string]: string } {
@@ -2172,6 +2983,10 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 81F648D0-5570-5351-AE98-6F501C7E957F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2216,6 +3031,38 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class CreateClusterRequestComponentsComponentConfig extends $tea.Model {
+  /**
+   * @example
+   * {
+   *       "EndpointPublicAccess": false,
+   *       "ContainerCidr": "10.4.0.0/24",
+   *       "KeyPair": "test",
+   *       "NodeCidrMask": "25",
+   *       "ResourceGroupId": "rg-axsadm3sdzsdvdsndstdisd",
+   *       "WorkerSystemDiskCategory": "da",
+   *       "WorkerSystemDiskSize": 40,
+   *       "DeletionProtection": false,
+   *       "KubeProxy": "iptables",
+   *       "Name": "da",
+   *       "LoadBalancerSpec": "slb.s1.small",
+   *       "Runtime": {
+   *             "Version": "19.03.15",
+   *             "Name": "docker"
+   *       },
+   *       "IsEnterpriseSecurityGroup": true,
+   *       "Vpcid": "192.168.23.0/24",
+   *       "NumOfNodes": 1,
+   *       "VswitchIds": [
+   *             "dad"
+   *       ],
+   *       "ServiceCidr": "10.0.0.0/16",
+   *       "SnatEntry": false,
+   *       "kubernetesVersion": "1.20.11-aliyunedge.1",
+   *       "WorkerInstanceTypes": [
+   *             "da"
+   *       ]
+   * }
+   */
   basicArgs?: any;
   nodeUnits?: any[];
   static names(): { [key: string]: string } {
@@ -2239,6 +3086,10 @@ export class CreateClusterRequestComponentsComponentConfig extends $tea.Model {
 
 export class CreateClusterRequestComponents extends $tea.Model {
   componentConfig?: CreateClusterRequestComponentsComponentConfig;
+  /**
+   * @example
+   * ACKEdge
+   */
   componentType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2442,11 +3293,35 @@ export class CreateClusterRequestNetworksNewVpdInfoVpdSubnets extends $tea.Model
 }
 
 export class CreateClusterRequestNetworksNewVpdInfo extends $tea.Model {
+  /**
+   * @example
+   * cen-1gb1eftc5qp2ao75fo
+   */
   cenId?: string;
+  /**
+   * @example
+   * 172.16.0.0/24
+   */
   cloudLinkCidr?: string;
+  /**
+   * @example
+   * vcc-cn-c4dtycm5i08
+   */
   cloudLinkId?: string;
+  /**
+   * @example
+   * vpc-0jl2x45apm6odc2c10h25
+   */
   monitorVpcId?: string;
+  /**
+   * @example
+   * vsw-0jl2w3ffbghkss0x2foff
+   */
   monitorVswitchId?: string;
+  /**
+   * @example
+   * 192.168.0.0/16
+   */
   vpdCidr?: string;
   vpdSubnets?: CreateClusterRequestNetworksNewVpdInfoVpdSubnets[];
   static names(): { [key: string]: string } {
@@ -2479,7 +3354,18 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $tea.Model {
 }
 
 export class CreateClusterRequestNetworksVpdInfo extends $tea.Model {
+  /**
+   * @remarks
+   * 专有网络 id
+   * 
+   * @example
+   * vpd-vfuz6ejv
+   */
   vpdId?: string;
+  /**
+   * @remarks
+   * 集群子网id列表
+   */
   vpdSubnets?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2508,6 +3394,10 @@ export class CreateClusterRequestNetworks extends $tea.Model {
   vSwitchId?: string;
   vSwitchZoneId?: string;
   vpcId?: string;
+  /**
+   * @remarks
+   * 复用VPD信息
+   */
   vpdInfo?: CreateClusterRequestNetworksVpdInfo;
   static names(): { [key: string]: string } {
     return {
@@ -2541,8 +3431,20 @@ export class CreateClusterRequestNetworks extends $tea.Model {
 }
 
 export class CreateClusterRequestNodeGroupsNodes extends $tea.Model {
+  /**
+   * @example
+   * 8d13b784-17a9-11ed-bc7b-acde48001122
+   */
   hostname?: string;
+  /**
+   * @example
+   * ***
+   */
   loginPassword?: string;
+  /**
+   * @example
+   * e01poc-cn-i7m2wnivf0d
+   */
   nodeId?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -2572,12 +3474,28 @@ export class CreateClusterRequestNodeGroupsNodes extends $tea.Model {
 }
 
 export class CreateClusterRequestNodeGroups extends $tea.Model {
+  /**
+   * @example
+   * i190297201634099844192
+   */
   imageId?: string;
+  /**
+   * @example
+   * efg1.nvga1
+   */
   machineType?: string;
   nodeGroupDescription?: string;
+  /**
+   * @example
+   * emr-default
+   */
   nodeGroupName?: string;
   nodes?: CreateClusterRequestNodeGroupsNodes[];
   userData?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2609,7 +3527,15 @@ export class CreateClusterRequestNodeGroups extends $tea.Model {
 }
 
 export class CreateClusterRequestTag extends $tea.Model {
+  /**
+   * @example
+   * env-name
+   */
   key?: string;
+  /**
+   * @example
+   * dev
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2631,7 +3557,15 @@ export class CreateClusterRequestTag extends $tea.Model {
 }
 
 export class CreateClusterShrinkRequestTag extends $tea.Model {
+  /**
+   * @example
+   * env-name
+   */
   key?: string;
+  /**
+   * @example
+   * dev
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2653,7 +3587,15 @@ export class CreateClusterShrinkRequestTag extends $tea.Model {
 }
 
 export class DescribeClusterResponseBodyComponents extends $tea.Model {
+  /**
+   * @example
+   * i149549021660892626529
+   */
   componentId?: string;
+  /**
+   * @example
+   * ACKEdge
+   */
   componentType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2675,6 +3617,10 @@ export class DescribeClusterResponseBodyComponents extends $tea.Model {
 }
 
 export class DescribeClusterResponseBodyNetworks extends $tea.Model {
+  /**
+   * @example
+   * vpd-iqd7xunc
+   */
   vpdId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2694,20 +3640,80 @@ export class DescribeClusterResponseBodyNetworks extends $tea.Model {
 }
 
 export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvokeNode extends $tea.Model {
+  /**
+   * @example
+   * 2023-02-06T07:12:50Z
+   */
   creationTime?: string;
+  /**
+   * @example
+   * 0
+   */
   dropped?: number;
+  /**
+   * @example
+   * NodeNotExists：
+   */
   errorCode?: boolean;
+  /**
+   * @example
+   * the specified node does not exists
+   */
   errorInfo?: string;
+  /**
+   * @example
+   * 0
+   */
   exitCode?: number;
+  /**
+   * @example
+   * 2023-02-06T07:12:50Z
+   */
   finishTime?: string;
+  /**
+   * @example
+   * Pending
+   */
   invocationStatus?: string;
+  /**
+   * @example
+   * e01-cn-lbj36wkp70b
+   */
   nodeId?: string;
+  /**
+   * @example
+   * Finished
+   */
   nodeInvokeStatus?: string;
+  /**
+   * @example
+   * OutPutTestmsg
+   */
   output?: string;
+  /**
+   * @example
+   * 0
+   */
   repeats?: number;
+  /**
+   * @example
+   * 2019-12-20T06:15:55Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * 2019-12-20T06:15:55Z
+   */
   stopTime?: string;
+  /**
+   * @example
+   * false
+   */
   timed?: string;
+  /**
+   * @example
+   * 2023-02-06T07:12:50Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2774,19 +3780,67 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodes ext
 }
 
 export class DescribeInvocationsResponseBodyInvocationsInvocation extends $tea.Model {
+  /**
+   * @example
+   * cnBtIC1xYSB8IGdyZXAgdnNm****
+   */
   commandContent?: string;
+  /**
+   * @example
+   * testDescription
+   */
   commandDescription?: string;
+  /**
+   * @example
+   * CommandTestName
+   */
   commandName?: string;
+  /**
+   * @example
+   * 2020-01-19T09:15:46Z
+   */
   creationTime?: string;
   frequency?: string;
+  /**
+   * @example
+   * Success
+   */
   invocationStatus?: string;
+  /**
+   * @example
+   * t-ind3k9ytvvduoe8
+   */
   invokeId?: string;
   invokeNodes?: DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodes;
+  /**
+   * @example
+   * Running
+   */
   invokeStatus?: string;
+  /**
+   * @example
+   * {}
+   */
   parameters?: string;
+  /**
+   * @example
+   * Once
+   */
   repeatMode?: string;
+  /**
+   * @example
+   * 60
+   */
   timeout?: number;
+  /**
+   * @example
+   * root
+   */
   username?: string;
+  /**
+   * @example
+   * /home
+   */
   workingDir?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2851,9 +3905,25 @@ export class DescribeInvocationsResponseBodyInvocations extends $tea.Model {
 }
 
 export class DescribeNodeResponseBodyNetworks extends $tea.Model {
+  /**
+   * @example
+   * Bond0
+   */
   bondName?: string;
+  /**
+   * @example
+   * 47.254.235.44
+   */
   ip?: string;
+  /**
+   * @example
+   * vsw-uf68v51fldm5egmui5a6k
+   */
   subnetId?: string;
+  /**
+   * @example
+   * vpd-xcuhjyrj
+   */
   vpdId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2880,6 +3950,10 @@ export class DescribeNodeResponseBodyNetworks extends $tea.Model {
 
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   localName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2901,13 +3975,45 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodesInvokeNode extends $tea.Model {
+  /**
+   * @example
+   * 2023-02-06T07:12:50Z
+   */
   creationTime?: string;
+  /**
+   * @example
+   * AccountNotExists
+   */
   errorCode?: string;
+  /**
+   * @example
+   * the specified instance does not exists
+   */
   errorInfo?: string;
+  /**
+   * @example
+   * 2023-04-10T10:53:46.156+08:00
+   */
   finishTime?: string;
+  /**
+   * @example
+   * Success
+   */
   invocationStatus?: string;
+  /**
+   * @example
+   * e01-cn-9lb3c15m81j
+   */
   nodeId?: string;
+  /**
+   * @example
+   * 2023-03-30T16:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * 2023-03-30T16:00:00Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2960,18 +4066,62 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes
 }
 
 export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $tea.Model {
+  /**
+   * @example
+   * Base64
+   */
   content?: string;
+  /**
+   * @example
+   * PlainText
+   */
   contentType?: string;
+  /**
+   * @example
+   * 2023-04-10T10:53:46.156+08:00
+   */
   creationTime?: string;
   description?: string;
+  /**
+   * @example
+   * root
+   */
   fileGroup?: string;
+  /**
+   * @example
+   * 0644
+   */
   fileMode?: string;
+  /**
+   * @example
+   * root
+   */
   fileOwner?: string;
+  /**
+   * @example
+   * Pending
+   */
   invocationStatus?: string;
   invokeNodes?: DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes;
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * 3
+   */
   nodeCount?: number;
+  /**
+   * @example
+   * true
+   */
   overwrite?: boolean;
+  /**
+   * @example
+   * /home/user
+   */
   targetDir?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3034,11 +4184,35 @@ export class DescribeSendFileResultsResponseBodyInvocations extends $tea.Model {
 }
 
 export class DescribeTaskResponseBodyStepsSubTasks extends $tea.Model {
+  /**
+   * @example
+   * 2022-11-30T2:00:00.852Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * Releasing [prod_main_mid_26e234cf] in region [cn-beijing] with weight [0]
+   */
   message?: string;
+  /**
+   * @example
+   * i158805051661047928377
+   */
   taskId?: string;
+  /**
+   * @example
+   * running
+   */
   taskState?: string;
+  /**
+   * @example
+   * cut_node_sub_task
+   */
   taskType?: string;
+  /**
+   * @example
+   * 2022-11-30T02:20:14.852Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3068,13 +4242,37 @@ export class DescribeTaskResponseBodyStepsSubTasks extends $tea.Model {
 }
 
 export class DescribeTaskResponseBodySteps extends $tea.Model {
+  /**
+   * @example
+   * get taskinfo failed
+   */
   message?: string;
   stageTag?: string;
+  /**
+   * @example
+   * 2022-11-30T2:00:00.852Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * create_vpd
+   */
   stepName?: string;
+  /**
+   * @example
+   * execution_success
+   */
   stepState?: string;
+  /**
+   * @example
+   * normal
+   */
   stepType?: string;
   subTasks?: DescribeTaskResponseBodyStepsSubTasks[];
+  /**
+   * @example
+   * 2022-11-30T02:20:14.852Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3109,6 +4307,10 @@ export class DescribeTaskResponseBodySteps extends $tea.Model {
 
 export class DescribeZonesResponseBodyZones extends $tea.Model {
   localName?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3130,7 +4332,15 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
 }
 
 export class ExtendClusterRequestIpAllocationPolicyBondPolicyBonds extends $tea.Model {
+  /**
+   * @example
+   * Bond0
+   */
   name?: string;
+  /**
+   * @example
+   * subnet-3od2fe
+   */
   subnet?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3152,6 +4362,10 @@ export class ExtendClusterRequestIpAllocationPolicyBondPolicyBonds extends $tea.
 }
 
 export class ExtendClusterRequestIpAllocationPolicyBondPolicy extends $tea.Model {
+  /**
+   * @example
+   * subnet-3od2fe
+   */
   bondDefaultSubnet?: string;
   bonds?: ExtendClusterRequestIpAllocationPolicyBondPolicyBonds[];
   static names(): { [key: string]: string } {
@@ -3174,7 +4388,15 @@ export class ExtendClusterRequestIpAllocationPolicyBondPolicy extends $tea.Model
 }
 
 export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds extends $tea.Model {
+  /**
+   * @example
+   * Bond0
+   */
   name?: string;
+  /**
+   * @example
+   * subnet-fdo3dv
+   */
   subnet?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3197,6 +4419,10 @@ export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds extend
 
 export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicy extends $tea.Model {
   bonds?: ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds[];
+  /**
+   * @example
+   * efg1.nvga1
+   */
   machineType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3218,7 +4444,15 @@ export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicy extends $te
 }
 
 export class ExtendClusterRequestIpAllocationPolicyNodePolicyBonds extends $tea.Model {
+  /**
+   * @example
+   * Bond0
+   */
   name?: string;
+  /**
+   * @example
+   * subnet-fdo3dv
+   */
   subnet?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3241,6 +4475,10 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicyBonds extends $tea.
 
 export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $tea.Model {
   bonds?: ExtendClusterRequestIpAllocationPolicyNodePolicyBonds[];
+  /**
+   * @example
+   * i-3fdodw2
+   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3287,8 +4525,20 @@ export class ExtendClusterRequestIpAllocationPolicy extends $tea.Model {
 }
 
 export class ExtendClusterRequestNodeGroupsNodes extends $tea.Model {
+  /**
+   * @example
+   * d044d220-33fd-11ed-86a6
+   */
   hostname?: string;
+  /**
+   * @example
+   * ***
+   */
   loginPassword?: string;
+  /**
+   * @example
+   * e01-cn-zvp2zdpy601
+   */
   nodeId?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -3318,6 +4568,10 @@ export class ExtendClusterRequestNodeGroupsNodes extends $tea.Model {
 }
 
 export class ExtendClusterRequestNodeGroups extends $tea.Model {
+  /**
+   * @example
+   * i16d4883a46cbadeb4bc9
+   */
   nodeGroupId?: string;
   nodes?: ExtendClusterRequestNodeGroupsNodes[];
   userData?: string;
@@ -3374,18 +4628,62 @@ export class ListClusterNodesResponseBodyNodesNetworks extends $tea.Model {
 }
 
 export class ListClusterNodesResponseBodyNodes extends $tea.Model {
+  /**
+   * @example
+   * 1642472468000
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1762185600000
+   */
   expiredTime?: string;
+  /**
+   * @example
+   * 72432f80-273e-11ed-b57a-acde48001122
+   */
   hostname?: string;
   hpnZone?: string;
+  /**
+   * @example
+   * i190297201669099844192
+   */
   imageId?: string;
+  /**
+   * @example
+   * cn-wulanchabu-b11
+   */
   machineType?: string;
   networks?: ListClusterNodesResponseBodyNodesNetworks[];
+  /**
+   * @example
+   * ng-e9b74f4d450cf18d
+   */
   nodeGroupId?: string;
+  /**
+   * @example
+   * emr_master
+   */
   nodeGroupName?: string;
+  /**
+   * @example
+   * e01-cn-2r42tmj4z02
+   */
   nodeId?: string;
+  /**
+   * @example
+   * Extending
+   */
   operatingState?: string;
+  /**
+   * @example
+   * sn_tOuUk
+   */
   sn?: string;
+  /**
+   * @example
+   * cn-hangzhou-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3430,18 +4728,62 @@ export class ListClusterNodesResponseBodyNodes extends $tea.Model {
 
 export class ListClustersResponseBodyClusters extends $tea.Model {
   clusterDescription?: string;
+  /**
+   * @example
+   * i137590131672134915401
+   */
   clusterId?: string;
+  /**
+   * @example
+   * cnp_test_cluster
+   */
   clusterName?: string;
+  /**
+   * @example
+   * AckEdgPro
+   */
   clusterType?: string;
+  /**
+   * @example
+   * {}
+   */
   components?: any;
   computingIpVersion?: string;
+  /**
+   * @example
+   * 1672134938
+   */
   createTime?: string;
   hpnZone?: string;
+  /**
+   * @example
+   * 12
+   */
   nodeCount?: number;
+  /**
+   * @example
+   * 2
+   */
   nodeGroupCount?: number;
+  /**
+   * @example
+   * initializing
+   */
   operatingState?: string;
+  /**
+   * @example
+   * rg-aek2ajbjoloa23q
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * i156365121663149566024
+   */
   taskId?: string;
+  /**
+   * @example
+   * 1672134968
+   */
   updateTime?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -3490,13 +4832,37 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
 }
 
 export class ListFreeNodesResponseBodyNodes extends $tea.Model {
+  /**
+   * @example
+   * 1652321554
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1673107200
+   */
   expiredTime?: string;
   hpnZone?: string;
+  /**
+   * @example
+   * efg1.nvga1
+   */
   machineType?: string;
+  /**
+   * @example
+   * e01-cn-7pp2x193801
+   */
   nodeId?: string;
   resourceGroupId?: string;
+  /**
+   * @example
+   * sn_pozkHBgicd
+   */
   sn?: string;
+  /**
+   * @example
+   * cn-hangzhou-j
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3530,7 +4896,15 @@ export class ListFreeNodesResponseBodyNodes extends $tea.Model {
 }
 
 export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * PodName
+   */
   key?: string;
+  /**
+   * @example
+   * WFT-OTC
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3552,9 +4926,25 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  /**
+   * @example
+   * i15azeddnvf7uhw2oij57o0
+   */
   resourceId?: string;
+  /**
+   * @example
+   * Cluster
+   */
   resourceType?: string;
+  /**
+   * @example
+   * env
+   */
   tagKey?: string;
+  /**
+   * @example
+   * dev
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3599,9 +4989,25 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class ReimageNodesRequestNodes extends $tea.Model {
+  /**
+   * @example
+   * 457db5ca-241d-11ed-9fd7-acde48001122
+   */
   hostname?: string;
+  /**
+   * @example
+   * m-8vbf8rpv2nn14y7oybjy
+   */
   imageId?: string;
+  /**
+   * @example
+   * ***
+   */
   loginPassword?: string;
+  /**
+   * @example
+   * e01-cn-zvp2tgykr0b
+   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3627,6 +5033,10 @@ export class ReimageNodesRequestNodes extends $tea.Model {
 }
 
 export class ShrinkClusterRequestNodeGroupsNodes extends $tea.Model {
+  /**
+   * @example
+   * e01poc-cn-zmb2ypjdc01
+   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3646,6 +5056,10 @@ export class ShrinkClusterRequestNodeGroupsNodes extends $tea.Model {
 }
 
 export class ShrinkClusterRequestNodeGroups extends $tea.Model {
+  /**
+   * @example
+   * ng-3b6fbd24b1b845a0
+   */
   nodeGroupId?: string;
   nodes?: ShrinkClusterRequestNodeGroupsNodes[];
   static names(): { [key: string]: string } {
@@ -3668,7 +5082,15 @@ export class ShrinkClusterRequestNodeGroups extends $tea.Model {
 }
 
 export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * app
+   */
   key?: string;
+  /**
+   * @example
+   * v3
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3712,6 +5134,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * 审批运维操作
+   * 
+   * @param request - ApproveOperationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApproveOperationResponse
+   */
   async approveOperationWithOptions(request: ApproveOperationRequest, runtime: $Util.RuntimeOptions): Promise<ApproveOperationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3740,11 +5169,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ApproveOperationResponse>(await this.callApi(params, req, runtime), new ApproveOperationResponse({}));
   }
 
+  /**
+   * 审批运维操作
+   * 
+   * @param request - ApproveOperationRequest
+   * @returns ApproveOperationResponse
+   */
   async approveOperation(request: ApproveOperationRequest): Promise<ApproveOperationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.approveOperationWithOptions(request, runtime);
   }
 
+  /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
+   */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3777,11 +5219,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
+  /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
+   */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * 创建大计算集群
+   * 
+   * @param tmpReq - CreateClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateClusterResponse
+   */
   async createClusterWithOptions(tmpReq: CreateClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateClusterShrinkRequest({ });
@@ -3844,6 +5299,10 @@ export default class Client extends OpenApi {
       body["NodeGroups"] = request.nodeGroupsShrink;
     }
 
+    if (!Util.isUnset(request.openEniJumboFrame)) {
+      body["OpenEniJumboFrame"] = request.openEniJumboFrame;
+    }
+
     if (!Util.isUnset(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -3866,11 +5325,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
   }
 
+  /**
+   * 创建大计算集群
+   * 
+   * @param request - CreateClusterRequest
+   * @returns CreateClusterResponse
+   */
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createClusterWithOptions(request, runtime);
   }
 
+  /**
+   * 删除集群实例
+   * 
+   * @param request - DeleteClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteClusterResponse
+   */
   async deleteClusterWithOptions(request: DeleteClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3895,11 +5367,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
   }
 
+  /**
+   * 删除集群实例
+   * 
+   * @param request - DeleteClusterRequest
+   * @returns DeleteClusterResponse
+   */
   async deleteCluster(request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteClusterWithOptions(request, runtime);
   }
 
+  /**
+   * 集群详情
+   * 
+   * @param request - DescribeClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClusterResponse
+   */
   async describeClusterWithOptions(request: DescribeClusterRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3924,11 +5409,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterResponse>(await this.callApi(params, req, runtime), new DescribeClusterResponse({}));
   }
 
+  /**
+   * 集群详情
+   * 
+   * @param request - DescribeClusterRequest
+   * @returns DescribeClusterResponse
+   */
   async describeCluster(request: DescribeClusterRequest): Promise<DescribeClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClusterWithOptions(request, runtime);
   }
 
+  /**
+   * 查询运维助手命令的执行列表和状态
+   * 
+   * @param request - DescribeInvocationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInvocationsResponse
+   */
   async describeInvocationsWithOptions(request: DescribeInvocationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInvocationsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3965,11 +5463,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInvocationsResponse>(await this.callApi(params, req, runtime), new DescribeInvocationsResponse({}));
   }
 
+  /**
+   * 查询运维助手命令的执行列表和状态
+   * 
+   * @param request - DescribeInvocationsRequest
+   * @returns DescribeInvocationsResponse
+   */
   async describeInvocations(request: DescribeInvocationsRequest): Promise<DescribeInvocationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInvocationsWithOptions(request, runtime);
   }
 
+  /**
+   * 查询节点列表
+   * 
+   * @param request - DescribeNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNodeResponse
+   */
   async describeNodeWithOptions(request: DescribeNodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3994,11 +5505,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNodeResponse>(await this.callApi(params, req, runtime), new DescribeNodeResponse({}));
   }
 
+  /**
+   * 查询节点列表
+   * 
+   * @param request - DescribeNodeRequest
+   * @returns DescribeNodeResponse
+   */
   async describeNode(request: DescribeNodeRequest): Promise<DescribeNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNodeWithOptions(request, runtime);
   }
 
+  /**
+   * 区域列表
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4023,11 +5547,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * 区域列表
+   * 
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * 查询运维助手下发文件列表及状态
+   * 
+   * @param request - DescribeSendFileResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSendFileResultsResponse
+   */
   async describeSendFileResultsWithOptions(request: DescribeSendFileResultsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSendFileResultsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4056,11 +5593,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSendFileResultsResponse>(await this.callApi(params, req, runtime), new DescribeSendFileResultsResponse({}));
   }
 
+  /**
+   * 查询运维助手下发文件列表及状态
+   * 
+   * @param request - DescribeSendFileResultsRequest
+   * @returns DescribeSendFileResultsResponse
+   */
   async describeSendFileResults(request: DescribeSendFileResultsRequest): Promise<DescribeSendFileResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSendFileResultsWithOptions(request, runtime);
   }
 
+  /**
+   * 查询任务详情
+   * 
+   * @param request - DescribeTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTaskResponse
+   */
   async describeTaskWithOptions(request: DescribeTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4085,11 +5635,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTaskResponse>(await this.callApi(params, req, runtime), new DescribeTaskResponse({}));
   }
 
+  /**
+   * 查询任务详情
+   * 
+   * @param request - DescribeTaskRequest
+   * @returns DescribeTaskResponse
+   */
   async describeTask(request: DescribeTaskRequest): Promise<DescribeTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTaskWithOptions(request, runtime);
   }
 
+  /**
+   * 可用区列表
+   * 
+   * @param request - DescribeZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeZonesResponse
+   */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4114,11 +5677,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
+  /**
+   * 可用区列表
+   * 
+   * @param request - DescribeZonesRequest
+   * @returns DescribeZonesResponse
+   */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  /**
+   * 集群扩容
+   * 
+   * @param tmpReq - ExtendClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExtendClusterResponse
+   */
   async extendClusterWithOptions(tmpReq: ExtendClusterRequest, runtime: $Util.RuntimeOptions): Promise<ExtendClusterResponse> {
     Util.validateModel(tmpReq);
     let request = new ExtendClusterShrinkRequest({ });
@@ -4177,11 +5753,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExtendClusterResponse>(await this.callApi(params, req, runtime), new ExtendClusterResponse({}));
   }
 
+  /**
+   * 集群扩容
+   * 
+   * @param request - ExtendClusterRequest
+   * @returns ExtendClusterResponse
+   */
   async extendCluster(request: ExtendClusterRequest): Promise<ExtendClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.extendClusterWithOptions(request, runtime);
   }
 
+  /**
+   * 集群下的主机分组列表，分组下的主机列表
+   * 
+   * @param request - ListClusterNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClusterNodesResponse
+   */
   async listClusterNodesWithOptions(request: ListClusterNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterNodesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4218,11 +5807,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterNodesResponse>(await this.callApi(params, req, runtime), new ListClusterNodesResponse({}));
   }
 
+  /**
+   * 集群下的主机分组列表，分组下的主机列表
+   * 
+   * @param request - ListClusterNodesRequest
+   * @returns ListClusterNodesResponse
+   */
   async listClusterNodes(request: ListClusterNodesRequest): Promise<ListClusterNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClusterNodesWithOptions(request, runtime);
   }
 
+  /**
+   * 获取集群实例列表
+   * 
+   * @param request - ListClustersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClustersResponse
+   */
   async listClustersWithOptions(request: ListClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListClustersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4255,11 +5857,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
   }
 
+  /**
+   * 获取集群实例列表
+   * 
+   * @param request - ListClustersRequest
+   * @returns ListClustersResponse
+   */
   async listClusters(request: ListClustersRequest): Promise<ListClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClustersWithOptions(request, runtime);
   }
 
+  /**
+   * 可用物理机列表
+   * 
+   * @param request - ListFreeNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFreeNodesResponse
+   */
   async listFreeNodesWithOptions(request: ListFreeNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListFreeNodesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4300,11 +5915,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFreeNodesResponse>(await this.callApi(params, req, runtime), new ListFreeNodesResponse({}));
   }
 
+  /**
+   * 可用物理机列表
+   * 
+   * @param request - ListFreeNodesRequest
+   * @returns ListFreeNodesResponse
+   */
   async listFreeNodes(request: ListFreeNodesRequest): Promise<ListFreeNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFreeNodesWithOptions(request, runtime);
   }
 
+  /**
+   * 查询资源标签
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4345,11 +5973,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * 查询资源标签
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * 重启机器
+   * 
+   * @param tmpReq - RebootNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RebootNodesResponse
+   */
   async rebootNodesWithOptions(tmpReq: RebootNodesRequest, runtime: $Util.RuntimeOptions): Promise<RebootNodesResponse> {
     Util.validateModel(tmpReq);
     let request = new RebootNodesShrinkRequest({ });
@@ -4388,11 +6029,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RebootNodesResponse>(await this.callApi(params, req, runtime), new RebootNodesResponse({}));
   }
 
+  /**
+   * 重启机器
+   * 
+   * @param request - RebootNodesRequest
+   * @returns RebootNodesResponse
+   */
   async rebootNodes(request: RebootNodesRequest): Promise<RebootNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebootNodesWithOptions(request, runtime);
   }
 
+  /**
+   * 机器重装
+   * 
+   * @param tmpReq - ReimageNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReimageNodesResponse
+   */
   async reimageNodesWithOptions(tmpReq: ReimageNodesRequest, runtime: $Util.RuntimeOptions): Promise<ReimageNodesResponse> {
     Util.validateModel(tmpReq);
     let request = new ReimageNodesShrinkRequest({ });
@@ -4435,11 +6089,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReimageNodesResponse>(await this.callApi(params, req, runtime), new ReimageNodesResponse({}));
   }
 
+  /**
+   * 机器重装
+   * 
+   * @param request - ReimageNodesRequest
+   * @returns ReimageNodesResponse
+   */
   async reimageNodes(request: ReimageNodesRequest): Promise<ReimageNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reimageNodesWithOptions(request, runtime);
   }
 
+  /**
+   * 一台或多台灵骏机器中执行一段Shell的脚本
+   * 
+   * @param tmpReq - RunCommandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunCommandResponse
+   */
   async runCommandWithOptions(tmpReq: RunCommandRequest, runtime: $Util.RuntimeOptions): Promise<RunCommandResponse> {
     Util.validateModel(tmpReq);
     let request = new RunCommandShrinkRequest({ });
@@ -4522,11 +6189,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RunCommandResponse>(await this.callApi(params, req, runtime), new RunCommandResponse({}));
   }
 
+  /**
+   * 一台或多台灵骏机器中执行一段Shell的脚本
+   * 
+   * @param request - RunCommandRequest
+   * @returns RunCommandResponse
+   */
   async runCommand(request: RunCommandRequest): Promise<RunCommandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runCommandWithOptions(request, runtime);
   }
 
+  /**
+   * 一台或多台灵骏机器下发远程文件
+   * 
+   * @param tmpReq - SendFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendFileResponse
+   */
   async sendFileWithOptions(tmpReq: SendFileRequest, runtime: $Util.RuntimeOptions): Promise<SendFileResponse> {
     Util.validateModel(tmpReq);
     let request = new SendFileShrinkRequest({ });
@@ -4597,11 +6277,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SendFileResponse>(await this.callApi(params, req, runtime), new SendFileResponse({}));
   }
 
+  /**
+   * 一台或多台灵骏机器下发远程文件
+   * 
+   * @param request - SendFileRequest
+   * @returns SendFileResponse
+   */
   async sendFile(request: SendFileRequest): Promise<SendFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendFileWithOptions(request, runtime);
   }
 
+  /**
+   * 缩容
+   * 
+   * @param tmpReq - ShrinkClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ShrinkClusterResponse
+   */
   async shrinkClusterWithOptions(tmpReq: ShrinkClusterRequest, runtime: $Util.RuntimeOptions): Promise<ShrinkClusterResponse> {
     Util.validateModel(tmpReq);
     let request = new ShrinkClusterShrinkRequest({ });
@@ -4640,11 +6333,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ShrinkClusterResponse>(await this.callApi(params, req, runtime), new ShrinkClusterResponse({}));
   }
 
+  /**
+   * 缩容
+   * 
+   * @param request - ShrinkClusterRequest
+   * @returns ShrinkClusterResponse
+   */
   async shrinkCluster(request: ShrinkClusterRequest): Promise<ShrinkClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.shrinkClusterWithOptions(request, runtime);
   }
 
+  /**
+   * 停止运维助手命令进程
+   * 
+   * @param tmpReq - StopInvocationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopInvocationResponse
+   */
   async stopInvocationWithOptions(tmpReq: StopInvocationRequest, runtime: $Util.RuntimeOptions): Promise<StopInvocationResponse> {
     Util.validateModel(tmpReq);
     let request = new StopInvocationShrinkRequest({ });
@@ -4679,11 +6385,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopInvocationResponse>(await this.callApi(params, req, runtime), new StopInvocationResponse({}));
   }
 
+  /**
+   * 停止运维助手命令进程
+   * 
+   * @param request - StopInvocationRequest
+   * @returns StopInvocationResponse
+   */
   async stopInvocation(request: StopInvocationRequest): Promise<StopInvocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopInvocationWithOptions(request, runtime);
   }
 
+  /**
+   * 资源打用户标签
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4720,11 +6439,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * 资源打用户标签
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * 资源去除用户标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4765,6 +6497,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * 资源去除用户标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
