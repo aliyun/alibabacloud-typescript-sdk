@@ -3385,6 +3385,122 @@ export class ReIndexResponse extends $tea.Model {
   }
 }
 
+export class RebuildTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  taskIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      taskIds: 'taskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebuildTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: { [key: string]: any }[];
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * EF4B5C9B-3BC8-5171-A47B-4C5CF3DC3258
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebuildTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RebuildTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RebuildTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecallDocumentRequest extends $tea.Model {
   filters?: RecallDocumentRequestFilters[];
   /**
@@ -10377,6 +10493,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.reIndexWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 重建任务
+   * 
+   * @param request - RebuildTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RebuildTaskResponse
+   */
+  async rebuildTaskWithOptions(workspaceId: string, request: RebuildTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RebuildTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskIds)) {
+      body["taskIds"] = request.taskIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RebuildTask",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/task/rebuild`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RebuildTaskResponse>(await this.callApi(params, req, runtime), new RebuildTaskResponse({}));
+  }
+
+  /**
+   * 重建任务
+   * 
+   * @param request - RebuildTaskRequest
+   * @returns RebuildTaskResponse
+   */
+  async rebuildTask(workspaceId: string, request: RebuildTaskRequest): Promise<RebuildTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.rebuildTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
