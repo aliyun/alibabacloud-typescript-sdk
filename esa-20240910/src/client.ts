@@ -4823,28 +4823,14 @@ export class CreateWaitingRoomRequest extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * __aliwaitingroom_example
    */
   cookieName?: string;
-  /**
-   * @example
-   * Hello%20world!
-   */
   customPageHtml?: string;
   description?: string;
-  /**
-   * @example
-   * on
-   */
   disableSessionRenewalEnable?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * on
    */
   enable?: string;
   /**
@@ -4852,83 +4838,47 @@ export class CreateWaitingRoomRequest extends $tea.Model {
    * This parameter is required.
    */
   hostNameAndPath?: CreateWaitingRoomRequestHostNameAndPath[];
-  /**
-   * @example
-   * on
-   */
   jsonResponseEnable?: string;
-  /**
-   * @example
-   * enus
-   */
   language?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * waitingroom_example
    */
   name?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 200
    */
   newUsersPerMinute?: string;
-  /**
-   * @example
-   * on
-   */
   queueAllEnable?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * fifo
    */
   queuingMethod?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 200
    */
   queuingStatusCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 5
    */
   sessionDuration?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1234567890123
    */
   siteId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 300
    */
   totalActiveUsers?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * default
    */
   waitingRoomType?: string;
   static names(): { [key: string]: string } {
@@ -4984,28 +4934,14 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * __aliwaitingroom_example
    */
   cookieName?: string;
-  /**
-   * @example
-   * Hello%20world!
-   */
   customPageHtml?: string;
   description?: string;
-  /**
-   * @example
-   * on
-   */
   disableSessionRenewalEnable?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * on
    */
   enable?: string;
   /**
@@ -5013,83 +4949,47 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
    * This parameter is required.
    */
   hostNameAndPathShrink?: string;
-  /**
-   * @example
-   * on
-   */
   jsonResponseEnable?: string;
-  /**
-   * @example
-   * enus
-   */
   language?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * waitingroom_example
    */
   name?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 200
    */
   newUsersPerMinute?: string;
-  /**
-   * @example
-   * on
-   */
   queueAllEnable?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * fifo
    */
   queuingMethod?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 200
    */
   queuingStatusCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 5
    */
   sessionDuration?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1234567890123
    */
   siteId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 300
    */
   totalActiveUsers?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * default
    */
   waitingRoomType?: string;
   static names(): { [key: string]: string } {
@@ -5142,10 +5042,6 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
 }
 
 export class CreateWaitingRoomResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 85H66C7B-671A-4297-9187-2C4477247A74
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23530,25 +23426,16 @@ export class CreateWaitingRoomRequestHostNameAndPath extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * example.com
    */
   domain?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * /test
    */
   path?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * test.
    */
   subdomain?: string;
   static names(): { [key: string]: string } {
