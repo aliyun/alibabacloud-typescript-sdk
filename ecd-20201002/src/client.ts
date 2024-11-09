@@ -666,6 +666,7 @@ export class DescribeGlobalDesktopsRequest extends $tea.Model {
    * ecd
    */
   keyword?: string;
+  language?: string;
   /**
    * @example
    * cn-hangzhou
@@ -738,6 +739,7 @@ export class DescribeGlobalDesktopsRequest extends $tea.Model {
       desktopStatus: 'DesktopStatus',
       directoryId: 'DirectoryId',
       keyword: 'Keyword',
+      language: 'Language',
       loginRegionId: 'LoginRegionId',
       loginToken: 'LoginToken',
       maxResults: 'MaxResults',
@@ -762,6 +764,7 @@ export class DescribeGlobalDesktopsRequest extends $tea.Model {
       desktopStatus: 'string',
       directoryId: 'string',
       keyword: 'string',
+      language: 'string',
       loginRegionId: 'string',
       loginToken: 'string',
       maxResults: 'number',
@@ -2830,6 +2833,7 @@ export class ResetSnapshotRequest extends $tea.Model {
    * b9d8ddfd-65d4-4857-9e97-56477d1f****
    */
   clientId?: string;
+  desktopId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -2862,6 +2866,7 @@ export class ResetSnapshotRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientId: 'ClientId',
+      desktopId: 'DesktopId',
       loginToken: 'LoginToken',
       regionId: 'RegionId',
       sessionId: 'SessionId',
@@ -2872,6 +2877,7 @@ export class ResetSnapshotRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientId: 'string',
+      desktopId: 'string',
       loginToken: 'string',
       regionId: 'string',
       sessionId: 'string',
@@ -4425,6 +4431,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $tea.M
    * 0.0.0-R-20220307.xxxx
    */
   newAppVersion?: string;
+  newDcdVersion?: string;
   /**
    * @example
    * testProject
@@ -4444,6 +4451,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $tea.M
       currentAppVersion: 'CurrentAppVersion',
       force: 'Force',
       newAppVersion: 'NewAppVersion',
+      newDcdVersion: 'NewDcdVersion',
       project: 'Project',
       releaseNote: 'ReleaseNote',
       releaseNoteEn: 'ReleaseNoteEn',
@@ -4458,6 +4466,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $tea.M
       currentAppVersion: 'string',
       force: 'boolean',
       newAppVersion: 'string',
+      newDcdVersion: 'string',
       project: 'string',
       releaseNote: 'string',
       releaseNoteEn: 'string',
@@ -4610,6 +4619,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $tea.Model {
    */
   officeSiteId?: string;
   os?: string;
+  osDescription?: string;
   /**
    * @example
    * Windows
@@ -4679,6 +4689,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $tea.Model {
       networkInterfaceIp: 'NetworkInterfaceIp',
       officeSiteId: 'OfficeSiteId',
       os: 'Os',
+      osDescription: 'OsDescription',
       osType: 'OsType',
       platform: 'Platform',
       policyGroupId: 'PolicyGroupId',
@@ -4723,6 +4734,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $tea.Model {
       networkInterfaceIp: 'string',
       officeSiteId: 'string',
       os: 'string',
+      osDescription: 'string',
       osType: 'string',
       platform: 'string',
       policyGroupId: 'string',
@@ -5433,6 +5445,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.keyword)) {
       query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
     }
 
     if (!Util.isUnset(request.loginRegionId)) {
@@ -6413,6 +6429,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.clientId)) {
       query["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
     }
 
     if (!Util.isUnset(request.loginToken)) {
