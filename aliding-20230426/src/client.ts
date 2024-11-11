@@ -8327,6 +8327,277 @@ export class CreateSubscribedCalendarResponse extends $tea.Model {
   }
 }
 
+export class CreateTicketHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: CreateTicketHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: CreateTicketHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketRequest extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
+  customFields?: string;
+  notify?: CreateTicketRequestNotify;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * G3IOe205RLciE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  openTemplateBizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  processorUserIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SG
+   */
+  scene?: string;
+  sceneContext?: CreateTicketRequestSceneContext;
+  tenantContext?: CreateTicketRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Killer Ball Wo Mouichido
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customFields: 'CustomFields',
+      notify: 'Notify',
+      openTeamId: 'OpenTeamId',
+      openTemplateBizId: 'OpenTemplateBizId',
+      processorUserIds: 'ProcessorUserIds',
+      scene: 'Scene',
+      sceneContext: 'SceneContext',
+      tenantContext: 'TenantContext',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customFields: 'string',
+      notify: CreateTicketRequestNotify,
+      openTeamId: 'string',
+      openTemplateBizId: 'string',
+      processorUserIds: { 'type': 'array', 'itemType': 'string' },
+      scene: 'string',
+      sceneContext: CreateTicketRequestSceneContext,
+      tenantContext: CreateTicketRequestTenantContext,
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
+  customFields?: string;
+  notifyShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * G3IOe205RLciE
+   */
+  openTeamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  openTemplateBizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  processorUserIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SG
+   */
+  scene?: string;
+  sceneContextShrink?: string;
+  tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Killer Ball Wo Mouichido
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customFields: 'CustomFields',
+      notifyShrink: 'Notify',
+      openTeamId: 'OpenTeamId',
+      openTemplateBizId: 'OpenTemplateBizId',
+      processorUserIdsShrink: 'ProcessorUserIds',
+      scene: 'Scene',
+      sceneContextShrink: 'SceneContext',
+      tenantContextShrink: 'TenantContext',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customFields: 'string',
+      notifyShrink: 'string',
+      openTeamId: 'string',
+      openTemplateBizId: 'string',
+      processorUserIdsShrink: 'string',
+      scene: 'string',
+      sceneContextShrink: 'string',
+      tenantContextShrink: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * a8iSxxxxtgiE
+   */
+  openTicketId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      openTicketId: 'openTicketId',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openTicketId: 'string',
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTodoTaskHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: CreateTodoTaskHeadersAccountContext;
@@ -47021,6 +47292,150 @@ export class CreateSubscribedCalendarRequestSubscribeScope extends $tea.Model {
   }
 }
 
+export class CreateTicketHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketRequestNotify extends $tea.Model {
+  groupNoticeReceiverUserIds?: string[];
+  /**
+   * @example
+   * false
+   */
+  noticeAllGroupMember?: boolean;
+  workNoticeReceiverUserIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      groupNoticeReceiverUserIds: 'GroupNoticeReceiverUserIds',
+      noticeAllGroupMember: 'NoticeAllGroupMember',
+      workNoticeReceiverUserIds: 'WorkNoticeReceiverUserIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupNoticeReceiverUserIds: { 'type': 'array', 'itemType': 'string' },
+      noticeAllGroupMember: 'boolean',
+      workNoticeReceiverUserIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketRequestSceneContextGroupMsgs extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  anchor?: boolean;
+  /**
+   * @example
+   * 1234567
+   */
+  openMsgId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      anchor: 'Anchor',
+      openMsgId: 'OpenMsgId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      anchor: 'boolean',
+      openMsgId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketRequestSceneContext extends $tea.Model {
+  groupMsgs?: CreateTicketRequestSceneContextGroupMsgs[];
+  /**
+   * @example
+   * cidDKVAOW8yVWPEN+WZfwSSAQ==
+   */
+  openConversationId?: string;
+  relevantorUserIds?: string[];
+  /**
+   * @example
+   * 42674892
+   */
+  topicId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupMsgs: 'GroupMsgs',
+      openConversationId: 'OpenConversationId',
+      relevantorUserIds: 'RelevantorUserIds',
+      topicId: 'TopicId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupMsgs: { 'type': 'array', 'itemType': CreateTicketRequestSceneContextGroupMsgs },
+      openConversationId: 'string',
+      relevantorUserIds: { 'type': 'array', 'itemType': 'string' },
+      topicId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTodoTaskHeadersAccountContext extends $tea.Model {
   /**
    * @example
@@ -71343,6 +71758,116 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CreateSubscribedCalendarHeaders({ });
     return await this.createSubscribedCalendarWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建工单
+   * 
+   * @param tmpReq - CreateTicketRequest
+   * @param tmpHeader - CreateTicketHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTicketResponse
+   */
+  async createTicketWithOptions(tmpReq: CreateTicketRequest, tmpHeader: CreateTicketHeaders, runtime: $Util.RuntimeOptions): Promise<CreateTicketResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateTicketShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new CreateTicketShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notify)) {
+      request.notifyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notify, "Notify", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.processorUserIds)) {
+      request.processorUserIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.processorUserIds, "ProcessorUserIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sceneContext)) {
+      request.sceneContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sceneContext, "SceneContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customFields)) {
+      body["CustomFields"] = request.customFields;
+    }
+
+    if (!Util.isUnset(request.notifyShrink)) {
+      body["Notify"] = request.notifyShrink;
+    }
+
+    if (!Util.isUnset(request.openTeamId)) {
+      body["OpenTeamId"] = request.openTeamId;
+    }
+
+    if (!Util.isUnset(request.openTemplateBizId)) {
+      body["OpenTemplateBizId"] = request.openTemplateBizId;
+    }
+
+    if (!Util.isUnset(request.processorUserIdsShrink)) {
+      body["ProcessorUserIds"] = request.processorUserIdsShrink;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      body["Scene"] = request.scene;
+    }
+
+    if (!Util.isUnset(request.sceneContextShrink)) {
+      body["SceneContext"] = request.sceneContextShrink;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTicket",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ticket/createTicket`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTicketResponse>(await this.callApi(params, req, runtime), new CreateTicketResponse({}));
+  }
+
+  /**
+   * 创建工单
+   * 
+   * @param request - CreateTicketRequest
+   * @returns CreateTicketResponse
+   */
+  async createTicket(request: CreateTicketRequest): Promise<CreateTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateTicketHeaders({ });
+    return await this.createTicketWithOptions(request, headers, runtime);
   }
 
   /**
