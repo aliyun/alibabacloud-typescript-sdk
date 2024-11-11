@@ -3196,6 +3196,7 @@ export class GetServiceResponseBody extends $tea.Model {
    * http://example1.com
    */
   serviceDocUrl?: string;
+  serviceDocumentInfos?: GetServiceResponseBodyServiceDocumentInfos[];
   /**
    * @remarks
    * The service ID.
@@ -3452,6 +3453,7 @@ export class GetServiceResponseBody extends $tea.Model {
       serviceAuditDocumentUrl: 'ServiceAuditDocumentUrl',
       serviceDiscoverable: 'ServiceDiscoverable',
       serviceDocUrl: 'ServiceDocUrl',
+      serviceDocumentInfos: 'ServiceDocumentInfos',
       serviceId: 'ServiceId',
       serviceInfos: 'ServiceInfos',
       serviceProductUrl: 'ServiceProductUrl',
@@ -3513,6 +3515,7 @@ export class GetServiceResponseBody extends $tea.Model {
       serviceAuditDocumentUrl: 'string',
       serviceDiscoverable: 'string',
       serviceDocUrl: 'string',
+      serviceDocumentInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceDocumentInfos },
       serviceId: 'string',
       serviceInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfos },
       serviceProductUrl: 'string',
@@ -7231,6 +7234,10 @@ export class StopServiceInstanceResponse extends $tea.Model {
 }
 
 export class UpdateArtifactRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   */
   artifactBuildProperty?: UpdateArtifactRequestArtifactBuildProperty;
   /**
    * @remarks
@@ -7300,6 +7307,10 @@ export class UpdateArtifactRequest extends $tea.Model {
 }
 
 export class UpdateArtifactShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   */
   artifactBuildPropertyShrink?: string;
   /**
    * @remarks
@@ -7369,6 +7380,13 @@ export class UpdateArtifactShrinkRequest extends $tea.Model {
 }
 
 export class UpdateArtifactResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   * 
+   * @example
+   * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
+   */
   artifactBuildProperty?: string;
   /**
    * @remarks
@@ -7526,9 +7544,7 @@ export class UpdateArtifactResponse extends $tea.Model {
 export class UpdateServiceRequest extends $tea.Model {
   /**
    * @remarks
-   * The alert configurations of the service.
-   * 
-   * >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+   * Is need to update the artifacts
    * 
    * @example
    * {\\"CmsTemplateId\\":1162921,\\"TemplateUrl\\":\\"https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1760465342xxxxxx/template/c072ef50-6c03-4d9c-8f0e-d1c440xxxxxx.json\\"}
@@ -7536,10 +7552,12 @@ export class UpdateServiceRequest extends $tea.Model {
   alarmMetadata?: string;
   /**
    * @remarks
-   * The approval type of the service usage application. Valid values:
+   * The service type. Valid values:
    * 
-   * - Manual: The application is manually approved.
-   * - AutoPass: The application is automatically approved.
+   * *   private: The service is a private service and is deployed within the account of a customer.
+   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+   * *   operation: The service is a hosted O\\&M service.
+   * *   poc: The service is a trial service.
    * 
    * @example
    * Manual
@@ -7547,7 +7565,7 @@ export class UpdateServiceRequest extends $tea.Model {
   approvalType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The options for update the service.
    * 
    * @example
    * 788E7CP0EN9D51P
@@ -7555,18 +7573,27 @@ export class UpdateServiceRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Bind Commodity Information
+   * This parameter is not publicly accessible.
    */
   commodity?: UpdateServiceRequestCommodity;
   complianceMetadata?: UpdateServiceRequestComplianceMetadata;
   /**
    * @remarks
-   * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+   * The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
    * 
    * @example
    * {\\"EstimateTime\\":null,\\"SupplierDeployMetadata\\":{\\"DeployTimeout\\":7200},\\"EnableVnc\\":false}
    */
   deployMetadata?: string;
+  /**
+   * @remarks
+   * WB01286039
+   * 
+   * @example
+   * ros
+   */
+  deployType?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * The deployment type of the service. Valid values:
@@ -7579,26 +7606,12 @@ export class UpdateServiceRequest extends $tea.Model {
    * *   pkg: The service is deployed by using a package.
    * 
    * @example
-   * ros
-   */
-  deployType?: string;
-  dryRun?: boolean;
-  /**
-   * @remarks
-   * The duration for which hosted O\\&M is implemented. Unit: seconds.
-   * 
-   * @example
    * 259200
    */
   duration?: number;
   /**
    * @remarks
-   * Specifies whether to enable the hosted O\\&M feature for the service. Default value: false. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * >  This parameter is required if you set **ServiceType** to **private**.
+   * The version name.
    * 
    * @example
    * false
@@ -7606,23 +7619,26 @@ export class UpdateServiceRequest extends $tea.Model {
   isSupportOperated?: boolean;
   /**
    * @remarks
-   * The license metadata.
+   * The duration for which hosted O\\&M is implemented. Unit: seconds.
    * 
    * @example
-   * {\\"RetentionDays\\":3}
+   * Metering Item Configuration Information (Cloud Marketplace - Pay-As-You-Go Use)
    */
   licenseMetadata?: string;
   /**
    * @remarks
-   * The logging configurations.
+   * This parameter is not publicly accessible.
    * 
    * @example
-   * { "Logstores": [ { "LogstoreName": "access-log", "LogPath": "/home/admin/app/logs", # This parameter is not required for containers. Configure the parameter in the YAML file. "FilePattern": "access.log\\*" # This parameter is not required for containers. Configure the parameter in the YAML file. } ] }
+   * Specifies whether to support distribution. Valid values:
+   * 
+   * *   false
+   * *   true
    */
   logMetadata?: string;
   /**
    * @remarks
-   * The hosted O\\&M configurations.
+   * {\\"RetentionDays\\":3}
    * 
    * @example
    * {\\"PrometheusConfigMap\\":{\\"Custom_Image_Ecs\\":{\\"EnablePrometheus\\":false}}}
@@ -7630,7 +7646,7 @@ export class UpdateServiceRequest extends $tea.Model {
   operationMetadata?: string;
   /**
    * @remarks
-   * The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
+   * The package name.
    * 
    * @example
    * policyName1, policyName2
@@ -7638,114 +7654,23 @@ export class UpdateServiceRequest extends $tea.Model {
   policyNames?: string;
   /**
    * @remarks
-   * The region ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * Specifies whether to support distribution. Valid values:
-   * 
-   * *   false
-   * *   true
-   * 
-   * @example
-   * false
-   */
   resellable?: boolean;
   /**
    * @remarks
-   * The service ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * service-1dda29c3eca648xxxxxx
    */
   serviceId?: string;
-  /**
-   * @remarks
-   * The service details.
-   */
   serviceInfo?: UpdateServiceRequestServiceInfo[];
-  /**
-   * @remarks
-   * The service type. Valid values:
-   * 
-   * *   private: The service is a private service and is deployed within the account of a customer.
-   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * *   operation: The service is a hosted O\\&M service.
-   * *   poc: The service is a trial service.
-   * 
-   * @example
-   * private
-   */
   serviceType?: string;
-  /**
-   * @remarks
-   * The service version.
-   * 
-   * @example
-   * 1
-   */
   serviceVersion?: string;
-  /**
-   * @remarks
-   * The permission type of the deployment URL. Valid values:
-   * 
-   * - Public: All users can go to the URL to create a service instance or a trial service instance.
-   * - Restricted: Only users in the whitelist can go to the URL to create a service instance or a trial service instance.
-   * - OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
-   * - OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
-   * - Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
-   * 
-   * @example
-   * Public
-   */
   shareType?: string;
-  /**
-   * @remarks
-   * The type of the tenant. Valid values:
-   * 
-   * *   SingleTenant
-   * *   MultiTenant
-   * 
-   * @example
-   * SingleTenant
-   */
   tenantType?: string;
-  /**
-   * @remarks
-   * The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
-   * 
-   * @example
-   * 7
-   */
   trialDuration?: number;
-  /**
-   * @remarks
-   * The options for update the service.
-   */
   updateOption?: UpdateServiceRequestUpdateOption;
-  /**
-   * @remarks
-   * The metadata about the upgrade.
-   * 
-   * @example
-   * {\\"Description\\":\\"xxx\\",\\"SupportRollback\\":true,\\"SupportUpgradeFromVersions\\":[],\\"UpgradeComponents\\":[\\"Configuration\\"]}
-   */
   upgradeMetadata?: string;
-  /**
-   * @remarks
-   * The version name.
-   * 
-   * @example
-   * Draft
-   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7817,9 +7742,7 @@ export class UpdateServiceRequest extends $tea.Model {
 export class UpdateServiceShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The alert configurations of the service.
-   * 
-   * >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+   * Is need to update the artifacts
    * 
    * @example
    * {\\"CmsTemplateId\\":1162921,\\"TemplateUrl\\":\\"https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1760465342xxxxxx/template/c072ef50-6c03-4d9c-8f0e-d1c440xxxxxx.json\\"}
@@ -7827,10 +7750,12 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
   alarmMetadata?: string;
   /**
    * @remarks
-   * The approval type of the service usage application. Valid values:
+   * The service type. Valid values:
    * 
-   * - Manual: The application is manually approved.
-   * - AutoPass: The application is automatically approved.
+   * *   private: The service is a private service and is deployed within the account of a customer.
+   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+   * *   operation: The service is a hosted O\\&M service.
+   * *   poc: The service is a trial service.
    * 
    * @example
    * Manual
@@ -7838,7 +7763,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
   approvalType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The options for update the service.
    * 
    * @example
    * 788E7CP0EN9D51P
@@ -7846,18 +7771,27 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Bind Commodity Information
+   * This parameter is not publicly accessible.
    */
   commodityShrink?: string;
   complianceMetadataShrink?: string;
   /**
    * @remarks
-   * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+   * The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
    * 
    * @example
    * {\\"EstimateTime\\":null,\\"SupplierDeployMetadata\\":{\\"DeployTimeout\\":7200},\\"EnableVnc\\":false}
    */
   deployMetadata?: string;
+  /**
+   * @remarks
+   * WB01286039
+   * 
+   * @example
+   * ros
+   */
+  deployType?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * The deployment type of the service. Valid values:
@@ -7870,26 +7804,12 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
    * *   pkg: The service is deployed by using a package.
    * 
    * @example
-   * ros
-   */
-  deployType?: string;
-  dryRun?: boolean;
-  /**
-   * @remarks
-   * The duration for which hosted O\\&M is implemented. Unit: seconds.
-   * 
-   * @example
    * 259200
    */
   duration?: number;
   /**
    * @remarks
-   * Specifies whether to enable the hosted O\\&M feature for the service. Default value: false. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * >  This parameter is required if you set **ServiceType** to **private**.
+   * The version name.
    * 
    * @example
    * false
@@ -7897,23 +7817,26 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
   isSupportOperated?: boolean;
   /**
    * @remarks
-   * The license metadata.
+   * The duration for which hosted O\\&M is implemented. Unit: seconds.
    * 
    * @example
-   * {\\"RetentionDays\\":3}
+   * Metering Item Configuration Information (Cloud Marketplace - Pay-As-You-Go Use)
    */
   licenseMetadata?: string;
   /**
    * @remarks
-   * The logging configurations.
+   * This parameter is not publicly accessible.
    * 
    * @example
-   * { "Logstores": [ { "LogstoreName": "access-log", "LogPath": "/home/admin/app/logs", # This parameter is not required for containers. Configure the parameter in the YAML file. "FilePattern": "access.log\\*" # This parameter is not required for containers. Configure the parameter in the YAML file. } ] }
+   * Specifies whether to support distribution. Valid values:
+   * 
+   * *   false
+   * *   true
    */
   logMetadata?: string;
   /**
    * @remarks
-   * The hosted O\\&M configurations.
+   * {\\"RetentionDays\\":3}
    * 
    * @example
    * {\\"PrometheusConfigMap\\":{\\"Custom_Image_Ecs\\":{\\"EnablePrometheus\\":false}}}
@@ -7921,7 +7844,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
   operationMetadata?: string;
   /**
    * @remarks
-   * The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
+   * The package name.
    * 
    * @example
    * policyName1, policyName2
@@ -7929,114 +7852,23 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
   policyNames?: string;
   /**
    * @remarks
-   * The region ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * Specifies whether to support distribution. Valid values:
-   * 
-   * *   false
-   * *   true
-   * 
-   * @example
-   * false
-   */
   resellable?: boolean;
   /**
    * @remarks
-   * The service ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * service-1dda29c3eca648xxxxxx
    */
   serviceId?: string;
-  /**
-   * @remarks
-   * The service details.
-   */
   serviceInfo?: UpdateServiceShrinkRequestServiceInfo[];
-  /**
-   * @remarks
-   * The service type. Valid values:
-   * 
-   * *   private: The service is a private service and is deployed within the account of a customer.
-   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * *   operation: The service is a hosted O\\&M service.
-   * *   poc: The service is a trial service.
-   * 
-   * @example
-   * private
-   */
   serviceType?: string;
-  /**
-   * @remarks
-   * The service version.
-   * 
-   * @example
-   * 1
-   */
   serviceVersion?: string;
-  /**
-   * @remarks
-   * The permission type of the deployment URL. Valid values:
-   * 
-   * - Public: All users can go to the URL to create a service instance or a trial service instance.
-   * - Restricted: Only users in the whitelist can go to the URL to create a service instance or a trial service instance.
-   * - OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
-   * - OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
-   * - Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
-   * 
-   * @example
-   * Public
-   */
   shareType?: string;
-  /**
-   * @remarks
-   * The type of the tenant. Valid values:
-   * 
-   * *   SingleTenant
-   * *   MultiTenant
-   * 
-   * @example
-   * SingleTenant
-   */
   tenantType?: string;
-  /**
-   * @remarks
-   * The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
-   * 
-   * @example
-   * 7
-   */
   trialDuration?: number;
-  /**
-   * @remarks
-   * The options for update the service.
-   */
   updateOptionShrink?: string;
-  /**
-   * @remarks
-   * The metadata about the upgrade.
-   * 
-   * @example
-   * {\\"Description\\":\\"xxx\\",\\"SupportRollback\\":true,\\"SupportUpgradeFromVersions\\":[],\\"UpgradeComponents\\":[\\"Configuration\\"]}
-   */
   upgradeMetadata?: string;
-  /**
-   * @remarks
-   * The version name.
-   * 
-   * @example
-   * Draft
-   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8107,13 +7939,6 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
 
 export class UpdateServiceResponseBody extends $tea.Model {
   dryRunResult?: UpdateServiceResponseBodyDryRunResult;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * DF0F666F-FBBC-55C3-A368-C955DE7B4839
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10385,6 +10210,31 @@ export class GetServiceResponseBodyComplianceMetadata extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       compliancePacks: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceDocumentInfos extends $tea.Model {
+  documentUrl?: string;
+  locale?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentUrl: 'DocumentUrl',
+      locale: 'Locale',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentUrl: 'string',
+      locale: 'string',
+      templateName: 'string',
     };
   }
 
@@ -13544,9 +13394,55 @@ export class ListServicesResponseBodyServices extends $tea.Model {
 }
 
 export class UpdateArtifactRequestArtifactBuildProperty extends $tea.Model {
+  /**
+   * @remarks
+   * The command content.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * echo "start run command"
+   */
   commandContent?: string;
+  /**
+   * @remarks
+   * The command type. Valid values:
+   * 
+   * *   RunBatScript: batch command, applicable to Windows instances.
+   * *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
+   * *   RunShellScript: shell command, applicable to Linux instances.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * RunShellScript
+   */
   commandType?: string;
+  /**
+   * @remarks
+   * The region ID where the source mirror image is located.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The source image id. Supported Types:
+   * 
+   * - Image ID: Pass the Image ID of the Ecs image directly.
+   * 
+   * - OOS Common Parameter Name: Obtain the corresponding Image ID automatically by using the OOS common parameter name.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * Image ID：m-t4nhenrdc38pe4*****
+   * ubuntu_22_04_x64_20G_alibase_20240926.vhd
+   * OOS Common Parameter Name：aliyun/services/computenest/images/aliyun_3_2104_python_3_11
+   */
   sourceImageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13687,18 +13583,18 @@ export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
 export class UpdateServiceRequestCommodityComponentsMappings extends $tea.Model {
   /**
    * @remarks
-   * This parameter is not publicly accessible.
+   * The language of the service. Valid values:
    * 
-   * @example
-   * This parameter is not publicly accessible.
+   * *   zh-CN: Chinese
+   * *   en-US: English
    */
   mappings?: { [key: string]: string };
   /**
    * @remarks
-   * This parameter is not publicly accessible.
+   * { "Logstores": [ { "LogstoreName": "access-log", "LogPath": "/home/admin/app/logs", # This parameter is not required for containers. Configure the parameter in the YAML file. "FilePattern": "access.log\\*" # This parameter is not required for containers. Configure the parameter in the YAML file. } ] }
    * 
    * @example
-   * This parameter is not publicly accessible.
+   * 此参数不对外开放
    */
   templateName?: string;
   static names(): { [key: string]: string } {
@@ -13723,7 +13619,7 @@ export class UpdateServiceRequestCommodityComponentsMappings extends $tea.Model 
 export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $tea.Model {
   /**
    * @remarks
-   * The ID of the entity.
+   * The description of the service.
    * 
    * @example
    * cmgj0006xxxx-Memory-1
@@ -13731,7 +13627,7 @@ export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $tea.
   entityId?: string;
   /**
    * @remarks
-   * Metric Name, filled in when Type is ComputeNestBill or ComputeNestPrometheus
+   * Metering Item Configuration Information (Cloud Marketplace - Pay-As-You-Go Use)
    * 
    * @example
    * VirtualCpu/ecs.InstanceType
@@ -13739,7 +13635,7 @@ export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $tea.
   metricName?: string;
   /**
    * @remarks
-   * Custom prometheus query
+   * The service details.
    * 
    * @example
    * avg_over_time(sum(rate(container_cpu_usage_seconds_total{namespace=~"ALIYUN::StackName"}[2m]))[1h:10s])
@@ -13747,12 +13643,7 @@ export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $tea.
   promql?: string;
   /**
    * @remarks
-   * Type, value：
-   * 
-   * * **Custom**
-   * * **ComputeNestBill**
-   * * **ComputeNestPrometheus**
-   * * **ComputeNestTime**
+   * Product Specifications and Template/specification mapping Relationships (Cloud Marketplace - Pay-As-You-Go Use)
    * 
    * @example
    * Custom
@@ -13784,23 +13675,23 @@ export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $tea.
 export class UpdateServiceRequestCommodityMeteringEntityMappings extends $tea.Model {
   /**
    * @remarks
-   * The ID of the entity.
+   * 计量项ID
    */
   entityIds?: string[];
   /**
    * @remarks
-   * The package name.
+   * 套餐名称
    * 
    * @example
-   * packageOne
+   * This parameter is not publicly accessible.
    */
   specificationName?: string;
   /**
    * @remarks
-   * The template name.
+   * 模板名称
    * 
    * @example
-   * TemplaceName
+   * The service ID.
    */
   templateName?: string;
   static names(): { [key: string]: string } {
@@ -13827,7 +13718,7 @@ export class UpdateServiceRequestCommodityMeteringEntityMappings extends $tea.Mo
 export class UpdateServiceRequestCommoditySpecificationMappings extends $tea.Model {
   /**
    * @remarks
-   * Specification code.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * yuncode5767800001
@@ -13835,18 +13726,23 @@ export class UpdateServiceRequestCommoditySpecificationMappings extends $tea.Mod
   specificationCode?: string;
   /**
    * @remarks
-   * The package name.
+   * 套餐名称
    * 
    * @example
-   * packageOne
+   * Type, value：
+   * 
+   * * **Custom**
+   * * **ComputeNestBill**
+   * * **ComputeNestPrometheus**
+   * * **ComputeNestTime**
    */
   specificationName?: string;
   /**
    * @remarks
-   * The template name.
+   * 模板名称
    * 
    * @example
-   * TemplaceName
+   * Product Specifications and Template/specification mapping Relationships (Cloud Marketplace - Subscription/Permanent Use)
    */
   templateName?: string;
   static names(): { [key: string]: string } {
@@ -13873,22 +13769,22 @@ export class UpdateServiceRequestCommoditySpecificationMappings extends $tea.Mod
 export class UpdateServiceRequestCommodity extends $tea.Model {
   /**
    * @remarks
-   * This parameter is not publicly accessible.
+   * The ID of the entity.
    */
   componentsMappings?: UpdateServiceRequestCommodityComponentsMappings[];
   /**
    * @remarks
-   * Metering Item Configuration Information (Cloud Marketplace - Pay-As-You-Go Use)
+   * This parameter is not publicly accessible.
    */
   meteringEntityExtraInfos?: UpdateServiceRequestCommodityMeteringEntityExtraInfos[];
   /**
    * @remarks
-   * Product Specifications and Template/specification mapping Relationships (Cloud Marketplace - Pay-As-You-Go Use)
+   * The template name.
    */
   meteringEntityMappings?: UpdateServiceRequestCommodityMeteringEntityMappings[];
   /**
    * @remarks
-   * Saas boost config information
+   * SaaS Boost配置信息
    * 
    * @example
    * {}
@@ -13896,7 +13792,7 @@ export class UpdateServiceRequestCommodity extends $tea.Model {
   saasBoostConfig?: string;
   /**
    * @remarks
-   * Product Specifications and Template/specification mapping Relationships (Cloud Marketplace - Subscription/Permanent Use)
+   * avg_over_time(sum(rate(container_cpu_usage_seconds_total{namespace=~"ALIYUN::StackName"}[2m]))[1h:10s])
    */
   specificationMappings?: UpdateServiceRequestCommoditySpecificationMappings[];
   static names(): { [key: string]: string } {
@@ -13944,21 +13840,7 @@ export class UpdateServiceRequestComplianceMetadata extends $tea.Model {
 }
 
 export class UpdateServiceRequestServiceInfoAgreements extends $tea.Model {
-  /**
-   * @remarks
-   * Protocol name.
-   * 
-   * @example
-   * Name
-   */
   name?: string;
-  /**
-   * @remarks
-   * Protocol url.
-   * 
-   * @example
-   * https://aliyun.com/xxxxxxxx.html
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14002,53 +13884,11 @@ export class UpdateServiceRequestServiceInfoSoftwares extends $tea.Model {
 }
 
 export class UpdateServiceRequestServiceInfo extends $tea.Model {
-  /**
-   * @remarks
-   * Protocol document information about the service.
-   */
   agreements?: UpdateServiceRequestServiceInfoAgreements[];
-  /**
-   * @remarks
-   * The URL of the service icon.
-   * 
-   * @example
-   * http://img.tidb.oss.url
-   */
   image?: string;
-  /**
-   * @remarks
-   * The language of the service. Valid values:
-   * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
-   * 
-   * @example
-   * zh-CN
-   */
   locale?: string;
-  /**
-   * @remarks
-   * The URL of the detailed description of the service.
-   * 
-   * @example
-   * http://description.tidb.oss.url
-   */
   longDescriptionUrl?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * @example
-   * kodbox-fc
-   */
   name?: string;
-  /**
-   * @remarks
-   * The description of the service.
-   * 
-   * @example
-   * B是A公司自主设计并研发的开源分布式的关系型数据库
-   */
   shortDescription?: string;
   softwares?: UpdateServiceRequestServiceInfoSoftwares[];
   static names(): { [key: string]: string } {
@@ -14081,23 +13921,7 @@ export class UpdateServiceRequestServiceInfo extends $tea.Model {
 }
 
 export class UpdateServiceRequestUpdateOption extends $tea.Model {
-  /**
-   * @remarks
-   * Is need to update the artifacts
-   * 
-   * @example
-   * true
-   */
   updateArtifact?: boolean;
-  /**
-   * @remarks
-   * The options for update the service. Valid values:
-   * - CODE
-   * - PARAMETERS
-   * 
-   * @example
-   * PARAMETERS
-   */
   updateFrom?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14119,21 +13943,7 @@ export class UpdateServiceRequestUpdateOption extends $tea.Model {
 }
 
 export class UpdateServiceShrinkRequestServiceInfoAgreements extends $tea.Model {
-  /**
-   * @remarks
-   * Protocol name.
-   * 
-   * @example
-   * Name
-   */
   name?: string;
-  /**
-   * @remarks
-   * Protocol url.
-   * 
-   * @example
-   * https://aliyun.com/xxxxxxxx.html
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14177,53 +13987,11 @@ export class UpdateServiceShrinkRequestServiceInfoSoftwares extends $tea.Model {
 }
 
 export class UpdateServiceShrinkRequestServiceInfo extends $tea.Model {
-  /**
-   * @remarks
-   * Protocol document information about the service.
-   */
   agreements?: UpdateServiceShrinkRequestServiceInfoAgreements[];
-  /**
-   * @remarks
-   * The URL of the service icon.
-   * 
-   * @example
-   * http://img.tidb.oss.url
-   */
   image?: string;
-  /**
-   * @remarks
-   * The language of the service. Valid values:
-   * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
-   * 
-   * @example
-   * zh-CN
-   */
   locale?: string;
-  /**
-   * @remarks
-   * The URL of the detailed description of the service.
-   * 
-   * @example
-   * http://description.tidb.oss.url
-   */
   longDescriptionUrl?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * @example
-   * kodbox-fc
-   */
   name?: string;
-  /**
-   * @remarks
-   * The description of the service.
-   * 
-   * @example
-   * B是A公司自主设计并研发的开源分布式的关系型数据库
-   */
   shortDescription?: string;
   softwares?: UpdateServiceShrinkRequestServiceInfoSoftwares[];
   static names(): { [key: string]: string } {
