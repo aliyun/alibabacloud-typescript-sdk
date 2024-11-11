@@ -60,6 +60,28 @@ export class AndroidPayload extends $tea.Model {
   }
 }
 
+export class AndroidShortPayload extends $tea.Model {
+  body?: AndroidShortPayloadBody;
+  extra?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      extra: 'extra',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: AndroidShortPayloadBody,
+      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Aps extends $tea.Model {
   alert?: Alert;
   /**
@@ -191,6 +213,7 @@ export class ChannelProperties extends $tea.Model {
    */
   vivoAddBadge?: string;
   vivoCategory?: string;
+  vivoPushMode?: string;
   xiaomiChannelId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -204,6 +227,7 @@ export class ChannelProperties extends $tea.Model {
       useHuaweiMessage: 'useHuaweiMessage',
       vivoAddBadge: 'vivoAddBadge',
       vivoCategory: 'vivoCategory',
+      vivoPushMode: 'vivoPushMode',
       xiaomiChannelId: 'xiaomiChannelId',
     };
   }
@@ -220,6 +244,7 @@ export class ChannelProperties extends $tea.Model {
       useHuaweiMessage: 'string',
       vivoAddBadge: 'string',
       vivoCategory: 'string',
+      vivoPushMode: 'string',
       xiaomiChannelId: 'string',
     };
   }
@@ -549,6 +574,7 @@ export class SendByAliasRequest extends $tea.Model {
   alias?: string;
   aliasType?: string;
   androidPayload?: AndroidPayload;
+  androidShortPayload?: AndroidShortPayload;
   channelProperties?: ChannelProperties;
   description?: string;
   iosPayload?: IosPayload;
@@ -571,6 +597,7 @@ export class SendByAliasRequest extends $tea.Model {
       alias: 'Alias',
       aliasType: 'AliasType',
       androidPayload: 'AndroidPayload',
+      androidShortPayload: 'AndroidShortPayload',
       channelProperties: 'ChannelProperties',
       description: 'Description',
       iosPayload: 'IosPayload',
@@ -588,6 +615,7 @@ export class SendByAliasRequest extends $tea.Model {
       alias: 'string',
       aliasType: 'string',
       androidPayload: AndroidPayload,
+      androidShortPayload: AndroidShortPayload,
       channelProperties: ChannelProperties,
       description: 'string',
       iosPayload: IosPayload,
@@ -616,6 +644,7 @@ export class SendByAliasShrinkRequest extends $tea.Model {
   alias?: string;
   aliasType?: string;
   androidPayloadShrink?: string;
+  androidShortPayloadShrink?: string;
   channelPropertiesShrink?: string;
   description?: string;
   iosPayloadShrink?: string;
@@ -638,6 +667,7 @@ export class SendByAliasShrinkRequest extends $tea.Model {
       alias: 'Alias',
       aliasType: 'AliasType',
       androidPayloadShrink: 'AndroidPayload',
+      androidShortPayloadShrink: 'AndroidShortPayload',
       channelPropertiesShrink: 'ChannelProperties',
       description: 'Description',
       iosPayloadShrink: 'IosPayload',
@@ -655,6 +685,7 @@ export class SendByAliasShrinkRequest extends $tea.Model {
       alias: 'string',
       aliasType: 'string',
       androidPayloadShrink: 'string',
+      androidShortPayloadShrink: 'string',
       channelPropertiesShrink: 'string',
       description: 'string',
       iosPayloadShrink: 'string',
@@ -754,6 +785,7 @@ export class SendByAliasResponse extends $tea.Model {
 export class SendByAliasFileIdRequest extends $tea.Model {
   aliasType?: string;
   androidPayload?: AndroidPayload;
+  androidShortPayload?: AndroidShortPayload;
   channelProperties?: ChannelProperties;
   description?: string;
   /**
@@ -783,6 +815,7 @@ export class SendByAliasFileIdRequest extends $tea.Model {
     return {
       aliasType: 'AliasType',
       androidPayload: 'AndroidPayload',
+      androidShortPayload: 'AndroidShortPayload',
       channelProperties: 'ChannelProperties',
       description: 'Description',
       fileId: 'FileId',
@@ -800,6 +833,7 @@ export class SendByAliasFileIdRequest extends $tea.Model {
     return {
       aliasType: 'string',
       androidPayload: AndroidPayload,
+      androidShortPayload: AndroidShortPayload,
       channelProperties: ChannelProperties,
       description: 'string',
       fileId: 'string',
@@ -821,6 +855,7 @@ export class SendByAliasFileIdRequest extends $tea.Model {
 export class SendByAliasFileIdShrinkRequest extends $tea.Model {
   aliasType?: string;
   androidPayloadShrink?: string;
+  androidShortPayloadShrink?: string;
   channelPropertiesShrink?: string;
   description?: string;
   /**
@@ -850,6 +885,7 @@ export class SendByAliasFileIdShrinkRequest extends $tea.Model {
     return {
       aliasType: 'AliasType',
       androidPayloadShrink: 'AndroidPayload',
+      androidShortPayloadShrink: 'AndroidShortPayload',
       channelPropertiesShrink: 'ChannelProperties',
       description: 'Description',
       fileId: 'FileId',
@@ -867,6 +903,7 @@ export class SendByAliasFileIdShrinkRequest extends $tea.Model {
     return {
       aliasType: 'string',
       androidPayloadShrink: 'string',
+      androidShortPayloadShrink: 'string',
       channelPropertiesShrink: 'string',
       description: 'string',
       fileId: 'string',
@@ -966,6 +1003,7 @@ export class SendByAliasFileIdResponse extends $tea.Model {
 
 export class SendByAppRequest extends $tea.Model {
   androidPayload?: AndroidPayload;
+  androidShortPayload?: AndroidShortPayload;
   channelProperties?: ChannelProperties;
   description?: string;
   iosPayload?: IosPayload;
@@ -986,6 +1024,7 @@ export class SendByAppRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       androidPayload: 'AndroidPayload',
+      androidShortPayload: 'AndroidShortPayload',
       channelProperties: 'ChannelProperties',
       description: 'Description',
       iosPayload: 'IosPayload',
@@ -1001,6 +1040,7 @@ export class SendByAppRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidPayload: AndroidPayload,
+      androidShortPayload: AndroidShortPayload,
       channelProperties: ChannelProperties,
       description: 'string',
       iosPayload: IosPayload,
@@ -1020,6 +1060,7 @@ export class SendByAppRequest extends $tea.Model {
 
 export class SendByAppShrinkRequest extends $tea.Model {
   androidPayloadShrink?: string;
+  androidShortPayloadShrink?: string;
   channelPropertiesShrink?: string;
   description?: string;
   iosPayloadShrink?: string;
@@ -1040,6 +1081,7 @@ export class SendByAppShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       androidPayloadShrink: 'AndroidPayload',
+      androidShortPayloadShrink: 'AndroidShortPayload',
       channelPropertiesShrink: 'ChannelProperties',
       description: 'Description',
       iosPayloadShrink: 'IosPayload',
@@ -1055,6 +1097,7 @@ export class SendByAppShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidPayloadShrink: 'string',
+      androidShortPayloadShrink: 'string',
       channelPropertiesShrink: 'string',
       description: 'string',
       iosPayloadShrink: 'string',
@@ -1153,6 +1196,7 @@ export class SendByAppResponse extends $tea.Model {
 
 export class SendByDeviceRequest extends $tea.Model {
   androidPayload?: AndroidPayload;
+  androidShortPayload?: AndroidShortPayload;
   channelProperties?: ChannelProperties;
   description?: string;
   /**
@@ -1181,6 +1225,7 @@ export class SendByDeviceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       androidPayload: 'AndroidPayload',
+      androidShortPayload: 'AndroidShortPayload',
       channelProperties: 'ChannelProperties',
       description: 'Description',
       deviceTokens: 'DeviceTokens',
@@ -1197,6 +1242,7 @@ export class SendByDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidPayload: AndroidPayload,
+      androidShortPayload: AndroidShortPayload,
       channelProperties: ChannelProperties,
       description: 'string',
       deviceTokens: 'string',
@@ -1217,6 +1263,7 @@ export class SendByDeviceRequest extends $tea.Model {
 
 export class SendByDeviceShrinkRequest extends $tea.Model {
   androidPayloadShrink?: string;
+  androidShortPayloadShrink?: string;
   channelPropertiesShrink?: string;
   description?: string;
   /**
@@ -1245,6 +1292,7 @@ export class SendByDeviceShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       androidPayloadShrink: 'AndroidPayload',
+      androidShortPayloadShrink: 'AndroidShortPayload',
       channelPropertiesShrink: 'ChannelProperties',
       description: 'Description',
       deviceTokens: 'DeviceTokens',
@@ -1261,6 +1309,7 @@ export class SendByDeviceShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidPayloadShrink: 'string',
+      androidShortPayloadShrink: 'string',
       channelPropertiesShrink: 'string',
       description: 'string',
       deviceTokens: 'string',
@@ -1360,6 +1409,7 @@ export class SendByDeviceResponse extends $tea.Model {
 
 export class SendByDeviceFileIdRequest extends $tea.Model {
   androidPayload?: AndroidPayload;
+  androidShortPayload?: AndroidShortPayload;
   channelProperties?: ChannelProperties;
   description?: string;
   /**
@@ -1388,6 +1438,7 @@ export class SendByDeviceFileIdRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       androidPayload: 'AndroidPayload',
+      androidShortPayload: 'AndroidShortPayload',
       channelProperties: 'ChannelProperties',
       description: 'Description',
       fileId: 'FileId',
@@ -1404,6 +1455,7 @@ export class SendByDeviceFileIdRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidPayload: AndroidPayload,
+      androidShortPayload: AndroidShortPayload,
       channelProperties: ChannelProperties,
       description: 'string',
       fileId: 'string',
@@ -1424,6 +1476,7 @@ export class SendByDeviceFileIdRequest extends $tea.Model {
 
 export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
   androidPayloadShrink?: string;
+  androidShortPayloadShrink?: string;
   channelPropertiesShrink?: string;
   description?: string;
   /**
@@ -1452,6 +1505,7 @@ export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       androidPayloadShrink: 'AndroidPayload',
+      androidShortPayloadShrink: 'AndroidShortPayload',
       channelPropertiesShrink: 'ChannelProperties',
       description: 'Description',
       fileId: 'FileId',
@@ -1468,6 +1522,7 @@ export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidPayloadShrink: 'string',
+      androidShortPayloadShrink: 'string',
       channelPropertiesShrink: 'string',
       description: 'string',
       fileId: 'string',
@@ -1567,6 +1622,7 @@ export class SendByDeviceFileIdResponse extends $tea.Model {
 
 export class SendByFilterRequest extends $tea.Model {
   androidPayload?: AndroidPayload;
+  androidShortPayload?: AndroidShortPayload;
   channelProperties?: ChannelProperties;
   description?: string;
   /**
@@ -1592,6 +1648,7 @@ export class SendByFilterRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       androidPayload: 'AndroidPayload',
+      androidShortPayload: 'AndroidShortPayload',
       channelProperties: 'ChannelProperties',
       description: 'Description',
       filter: 'Filter',
@@ -1608,6 +1665,7 @@ export class SendByFilterRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidPayload: AndroidPayload,
+      androidShortPayload: AndroidShortPayload,
       channelProperties: ChannelProperties,
       description: 'string',
       filter: 'string',
@@ -1628,6 +1686,7 @@ export class SendByFilterRequest extends $tea.Model {
 
 export class SendByFilterShrinkRequest extends $tea.Model {
   androidPayloadShrink?: string;
+  androidShortPayload?: AndroidShortPayload;
   channelPropertiesShrink?: string;
   description?: string;
   /**
@@ -1653,6 +1712,7 @@ export class SendByFilterShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       androidPayloadShrink: 'AndroidPayload',
+      androidShortPayload: 'AndroidShortPayload',
       channelPropertiesShrink: 'ChannelProperties',
       description: 'Description',
       filter: 'Filter',
@@ -1669,6 +1729,7 @@ export class SendByFilterShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidPayloadShrink: 'string',
+      androidShortPayload: AndroidShortPayload,
       channelPropertiesShrink: 'string',
       description: 'string',
       filter: 'string',
@@ -1861,6 +1922,25 @@ export class UploadDeviceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UploadDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AndroidShortPayloadBody extends $tea.Model {
+  custom?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custom: 'custom',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custom: 'string',
     };
   }
 
@@ -2254,6 +2334,10 @@ export default class Client extends OpenApi {
       request.androidPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.androidPayload, "AndroidPayload", "json");
     }
 
+    if (!Util.isUnset(tmpReq.androidShortPayload)) {
+      request.androidShortPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.androidShortPayload, "AndroidShortPayload", "json");
+    }
+
     if (!Util.isUnset(tmpReq.channelProperties)) {
       request.channelPropertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelProperties, "ChannelProperties", "json");
     }
@@ -2277,6 +2361,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.androidPayloadShrink)) {
       body["AndroidPayload"] = request.androidPayloadShrink;
+    }
+
+    if (!Util.isUnset(request.androidShortPayloadShrink)) {
+      body["AndroidShortPayload"] = request.androidShortPayloadShrink;
     }
 
     if (!Util.isUnset(request.channelPropertiesShrink)) {
@@ -2361,6 +2449,10 @@ export default class Client extends OpenApi {
       request.androidPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.androidPayload, "AndroidPayload", "json");
     }
 
+    if (!Util.isUnset(tmpReq.androidShortPayload)) {
+      request.androidShortPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.androidShortPayload, "AndroidShortPayload", "json");
+    }
+
     if (!Util.isUnset(tmpReq.channelProperties)) {
       request.channelPropertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelProperties, "ChannelProperties", "json");
     }
@@ -2380,6 +2472,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.androidPayloadShrink)) {
       body["AndroidPayload"] = request.androidPayloadShrink;
+    }
+
+    if (!Util.isUnset(request.androidShortPayloadShrink)) {
+      body["AndroidShortPayload"] = request.androidShortPayloadShrink;
     }
 
     if (!Util.isUnset(request.channelPropertiesShrink)) {
@@ -2468,6 +2564,10 @@ export default class Client extends OpenApi {
       request.androidPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.androidPayload, "AndroidPayload", "json");
     }
 
+    if (!Util.isUnset(tmpReq.androidShortPayload)) {
+      request.androidShortPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.androidShortPayload, "AndroidShortPayload", "json");
+    }
+
     if (!Util.isUnset(tmpReq.channelProperties)) {
       request.channelPropertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelProperties, "ChannelProperties", "json");
     }
@@ -2483,6 +2583,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.androidPayloadShrink)) {
       body["AndroidPayload"] = request.androidPayloadShrink;
+    }
+
+    if (!Util.isUnset(request.androidShortPayloadShrink)) {
+      body["AndroidShortPayload"] = request.androidShortPayloadShrink;
     }
 
     if (!Util.isUnset(request.channelPropertiesShrink)) {
@@ -2567,6 +2671,10 @@ export default class Client extends OpenApi {
       request.androidPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.androidPayload, "AndroidPayload", "json");
     }
 
+    if (!Util.isUnset(tmpReq.androidShortPayload)) {
+      request.androidShortPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.androidShortPayload, "AndroidShortPayload", "json");
+    }
+
     if (!Util.isUnset(tmpReq.channelProperties)) {
       request.channelPropertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelProperties, "ChannelProperties", "json");
     }
@@ -2582,6 +2690,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.androidPayloadShrink)) {
       body["AndroidPayload"] = request.androidPayloadShrink;
+    }
+
+    if (!Util.isUnset(request.androidShortPayloadShrink)) {
+      body["AndroidShortPayload"] = request.androidShortPayloadShrink;
     }
 
     if (!Util.isUnset(request.channelPropertiesShrink)) {
@@ -2670,6 +2782,10 @@ export default class Client extends OpenApi {
       request.androidPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.androidPayload, "AndroidPayload", "json");
     }
 
+    if (!Util.isUnset(tmpReq.androidShortPayload)) {
+      request.androidShortPayloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.androidShortPayload, "AndroidShortPayload", "json");
+    }
+
     if (!Util.isUnset(tmpReq.channelProperties)) {
       request.channelPropertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelProperties, "ChannelProperties", "json");
     }
@@ -2685,6 +2801,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.androidPayloadShrink)) {
       body["AndroidPayload"] = request.androidPayloadShrink;
+    }
+
+    if (!Util.isUnset(request.androidShortPayloadShrink)) {
+      body["AndroidShortPayload"] = request.androidShortPayloadShrink;
     }
 
     if (!Util.isUnset(request.channelPropertiesShrink)) {
@@ -2788,6 +2908,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.androidPayloadShrink)) {
       body["AndroidPayload"] = request.androidPayloadShrink;
+    }
+
+    if (!Util.isUnset(request.androidShortPayload)) {
+      body["AndroidShortPayload"] = request.androidShortPayload;
     }
 
     if (!Util.isUnset(request.channelPropertiesShrink)) {
