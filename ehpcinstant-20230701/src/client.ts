@@ -10,6 +10,7 @@ import * as $tea from '@alicloud/tea-typescript';
 export class AddImageRequest extends $tea.Model {
   containerImageSpec?: AddImageRequestContainerImageSpec;
   description?: string;
+  imageType?: string;
   /**
    * @example
    * V1.0
@@ -28,6 +29,7 @@ export class AddImageRequest extends $tea.Model {
     return {
       containerImageSpec: 'ContainerImageSpec',
       description: 'Description',
+      imageType: 'ImageType',
       imageVersion: 'ImageVersion',
       name: 'Name',
       VMImageSpec: 'VMImageSpec',
@@ -38,6 +40,7 @@ export class AddImageRequest extends $tea.Model {
     return {
       containerImageSpec: AddImageRequestContainerImageSpec,
       description: 'string',
+      imageType: 'string',
       imageVersion: 'string',
       name: 'string',
       VMImageSpec: AddImageRequestVMImageSpec,
@@ -52,6 +55,7 @@ export class AddImageRequest extends $tea.Model {
 export class AddImageShrinkRequest extends $tea.Model {
   containerImageSpecShrink?: string;
   description?: string;
+  imageType?: string;
   /**
    * @example
    * V1.0
@@ -70,6 +74,7 @@ export class AddImageShrinkRequest extends $tea.Model {
     return {
       containerImageSpecShrink: 'ContainerImageSpec',
       description: 'Description',
+      imageType: 'ImageType',
       imageVersion: 'ImageVersion',
       name: 'Name',
       VMImageSpecShrink: 'VMImageSpec',
@@ -80,6 +85,7 @@ export class AddImageShrinkRequest extends $tea.Model {
     return {
       containerImageSpecShrink: 'string',
       description: 'string',
+      imageType: 'string',
       imageVersion: 'string',
       name: 'string',
       VMImageSpecShrink: 'string',
@@ -1403,6 +1409,110 @@ export class ListJobsResponse extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
+  maxResult?: number;
+  /**
+   * @example
+   * 1d2db86scXXXXXXXXXX
+   */
+  nextToken?: string;
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Job
+   */
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResult: 'MaxResult',
+      nextToken: 'NextToken',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResult: 'number',
+      nextToken: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1d2db86scXXXXXXXXXX
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE7****
+   */
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: ListTagResourcesResponseBodyTagResources,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveImageRequest extends $tea.Model {
   /**
    * @remarks
@@ -1412,15 +1522,18 @@ export class RemoveImageRequest extends $tea.Model {
    * m-bp14wakr1rkxtb******
    */
   imageId?: string;
+  imageType?: string;
   static names(): { [key: string]: string } {
     return {
       imageId: 'ImageId',
+      imageType: 'ImageType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageId: 'string',
+      imageType: 'string',
     };
   }
 
@@ -1476,6 +1589,185 @@ export class RemoveImageResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RemoveImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Job
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 896D338C-E4F4-41EC-A154-D605E5DE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnTagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * False
+   */
+  all?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Job
+   */
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 896D338C-E4F4-41EC-A154-D605E5DE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnTagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnTagResourcesResponseBody,
     };
   }
 
@@ -1592,16 +1884,45 @@ export class AddImageRequestVMImageSpec extends $tea.Model {
 }
 
 export class CreateJobRequestDeploymentPolicyNetwork extends $tea.Model {
+  enableExternalIpAddress?: boolean;
   vswitch?: string[];
   static names(): { [key: string]: string } {
     return {
+      enableExternalIpAddress: 'EnableExternalIpAddress',
       vswitch: 'Vswitch',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      enableExternalIpAddress: 'boolean',
       vswitch: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobRequestDeploymentPolicyTag extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -1617,10 +1938,12 @@ export class CreateJobRequestDeploymentPolicy extends $tea.Model {
    */
   allocationSpec?: string;
   network?: CreateJobRequestDeploymentPolicyNetwork;
+  tag?: CreateJobRequestDeploymentPolicyTag[];
   static names(): { [key: string]: string } {
     return {
       allocationSpec: 'AllocationSpec',
       network: 'Network',
+      tag: 'Tag',
     };
   }
 
@@ -1628,6 +1951,7 @@ export class CreateJobRequestDeploymentPolicy extends $tea.Model {
     return {
       allocationSpec: 'string',
       network: CreateJobRequestDeploymentPolicyNetwork,
+      tag: { 'type': 'array', 'itemType': CreateJobRequestDeploymentPolicyTag },
     };
   }
 
@@ -2303,15 +2627,18 @@ export class GetImageResponseBodyImage extends $tea.Model {
 }
 
 export class GetJobResponseBodyJobInfoDeploymentPolicyNetwork extends $tea.Model {
+  enableExternalIpAddress?: boolean;
   vswitch?: string[];
   static names(): { [key: string]: string } {
     return {
+      enableExternalIpAddress: 'EnableExternalIpAddress',
       vswitch: 'Vswitch',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      enableExternalIpAddress: 'boolean',
       vswitch: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -2730,6 +3057,7 @@ export class ListExecutorsRequestFilter extends $tea.Model {
    * testJob
    */
   jobName?: string;
+  status?: string[];
   /**
    * @example
    * 1703819914
@@ -2745,6 +3073,7 @@ export class ListExecutorsRequestFilter extends $tea.Model {
       executorIds: 'ExecutorIds',
       ipAddresses: 'IpAddresses',
       jobName: 'JobName',
+      status: 'Status',
       timeCreatedAfter: 'TimeCreatedAfter',
       timeCreatedBefore: 'TimeCreatedBefore',
     };
@@ -2755,8 +3084,78 @@ export class ListExecutorsRequestFilter extends $tea.Model {
       executorIds: { 'type': 'array', 'itemType': 'string' },
       ipAddresses: { 'type': 'array', 'itemType': 'string' },
       jobName: 'string',
+      status: { 'type': 'array', 'itemType': 'string' },
       timeCreatedAfter: 'number',
       timeCreatedBefore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExecutorsResponseBodyExecutorsResourceDisks extends $tea.Model {
+  size?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      size: 'Size',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      size: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExecutorsResponseBodyExecutorsResource extends $tea.Model {
+  cores?: number;
+  disks?: ListExecutorsResponseBodyExecutorsResourceDisks[];
+  memory?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cores: 'Cores',
+      disks: 'Disks',
+      memory: 'Memory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cores: 'number',
+      disks: { 'type': 'array', 'itemType': ListExecutorsResponseBodyExecutorsResourceDisks },
+      memory: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExecutorsResponseBodyExecutorsTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -2786,6 +3185,7 @@ export class ListExecutorsResponseBodyExecutors extends $tea.Model {
    * job-xxxx-task0-1
    */
   executorId?: string;
+  externalIpAddress?: string[];
   hostName?: string[];
   image?: string;
   ipAddress?: string[];
@@ -2799,6 +3199,9 @@ export class ListExecutorsResponseBodyExecutors extends $tea.Model {
    * testJob
    */
   jobName?: string;
+  resource?: ListExecutorsResponseBodyExecutorsResource;
+  resourceType?: string;
+  startTime?: string;
   /**
    * @example
    * Running
@@ -2809,25 +3212,35 @@ export class ListExecutorsResponseBodyExecutors extends $tea.Model {
    * Succeeded to release executor resource
    */
   statusReason?: string;
+  tags?: ListExecutorsResponseBodyExecutorsTags[];
   /**
    * @example
    * task0
    */
   taskName?: string;
+  taskSustainable?: boolean;
+  vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
       arrayIndex: 'ArrayIndex',
       createTime: 'CreateTime',
       endTime: 'EndTime',
       executorId: 'ExecutorId',
+      externalIpAddress: 'ExternalIpAddress',
       hostName: 'HostName',
       image: 'Image',
       ipAddress: 'IpAddress',
       jobId: 'JobId',
       jobName: 'JobName',
+      resource: 'Resource',
+      resourceType: 'ResourceType',
+      startTime: 'StartTime',
       status: 'Status',
       statusReason: 'StatusReason',
+      tags: 'Tags',
       taskName: 'TaskName',
+      taskSustainable: 'TaskSustainable',
+      vswitchId: 'VswitchId',
     };
   }
 
@@ -2837,14 +3250,21 @@ export class ListExecutorsResponseBodyExecutors extends $tea.Model {
       createTime: 'string',
       endTime: 'string',
       executorId: 'string',
+      externalIpAddress: { 'type': 'array', 'itemType': 'string' },
       hostName: { 'type': 'array', 'itemType': 'string' },
       image: 'string',
       ipAddress: { 'type': 'array', 'itemType': 'string' },
       jobId: 'string',
       jobName: 'string',
+      resource: ListExecutorsResponseBodyExecutorsResource,
+      resourceType: 'string',
+      startTime: 'string',
       status: 'string',
       statusReason: 'string',
+      tags: { 'type': 'array', 'itemType': ListExecutorsResponseBodyExecutorsTags },
       taskName: 'string',
+      taskSustainable: 'boolean',
+      vswitchId: 'string',
     };
   }
 
@@ -2957,6 +3377,28 @@ export class ListJobExecutorsResponseBodyExecutorStatus extends $tea.Model {
   }
 }
 
+export class ListJobExecutorsResponseBodyExecutorsTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListJobExecutorsResponseBodyExecutors extends $tea.Model {
   /**
    * @example
@@ -2974,8 +3416,10 @@ export class ListJobExecutorsResponseBodyExecutors extends $tea.Model {
    */
   endTime?: string;
   executorId?: string;
+  externalIpAddress?: string[];
   hostName?: string[];
   ipAddress?: string[];
+  startTime?: string;
   /**
    * @example
    * Running
@@ -2986,16 +3430,20 @@ export class ListJobExecutorsResponseBodyExecutors extends $tea.Model {
    * Creating executor
    */
   statusReason?: string;
+  tags?: ListJobExecutorsResponseBodyExecutorsTags[];
   static names(): { [key: string]: string } {
     return {
       arrayIndex: 'ArrayIndex',
       createTime: 'CreateTime',
       endTime: 'EndTime',
       executorId: 'ExecutorId',
+      externalIpAddress: 'ExternalIpAddress',
       hostName: 'HostName',
       ipAddress: 'IpAddress',
+      startTime: 'StartTime',
       status: 'Status',
       statusReason: 'StatusReason',
+      tags: 'Tags',
     };
   }
 
@@ -3005,10 +3453,13 @@ export class ListJobExecutorsResponseBodyExecutors extends $tea.Model {
       createTime: 'string',
       endTime: 'string',
       executorId: 'string',
+      externalIpAddress: { 'type': 'array', 'itemType': 'string' },
       hostName: { 'type': 'array', 'itemType': 'string' },
       ipAddress: { 'type': 'array', 'itemType': 'string' },
+      startTime: 'string',
       status: 'string',
       statusReason: 'string',
+      tags: { 'type': 'array', 'itemType': ListJobExecutorsResponseBodyExecutorsTags },
     };
   }
 
@@ -3098,6 +3549,28 @@ export class ListJobsRequestSortBy extends $tea.Model {
   }
 }
 
+export class ListJobsResponseBodyJobListTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListJobsResponseBodyJobList extends $tea.Model {
   /**
    * @example
@@ -3144,6 +3617,7 @@ export class ListJobsResponseBodyJobList extends $tea.Model {
    * Running
    */
   status?: string;
+  tags?: ListJobsResponseBodyJobListTags[];
   /**
    * @example
    * 1
@@ -3165,6 +3639,7 @@ export class ListJobsResponseBodyJobList extends $tea.Model {
       ownerUid: 'OwnerUid',
       startTime: 'StartTime',
       status: 'Status',
+      tags: 'Tags',
       taskCount: 'TaskCount',
       taskSustainable: 'TaskSustainable',
     };
@@ -3181,8 +3656,135 @@ export class ListJobsResponseBodyJobList extends $tea.Model {
       ownerUid: 'string',
       startTime: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListJobsResponseBodyJobListTags },
       taskCount: 'number',
       taskSustainable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  /**
+   * @example
+   * job-xxxxxxxx
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * Job
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * TestKey
+   */
+  tagKey?: string;
+  /**
+   * @example
+   * TestValue
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -3240,6 +3842,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.imageType)) {
+      query["ImageType"] = request.imageType;
     }
 
     if (!Util.isUnset(request.imageVersion)) {
@@ -3861,6 +4467,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询一个或多个资源已经绑定的标签列表
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResult)) {
+      query["MaxResult"] = request.maxResult;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  /**
+   * 查询一个或多个资源已经绑定的标签列表
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
    * 移除托管侧镜像信息。
    * 
    * @param request - RemoveImageRequest
@@ -3872,6 +4536,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.imageId)) {
       query["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.imageType)) {
+      query["ImageType"] = request.imageType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -3900,6 +4568,110 @@ export default class Client extends OpenApi {
   async removeImage(request: RemoveImageRequest): Promise<RemoveImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeImageWithOptions(request, runtime);
+  }
+
+  /**
+   * 为指定的资源列表统一创建并绑定标签
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  /**
+   * 为指定的资源列表统一创建并绑定标签
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 为指定的ECS资源列表统一解绑标签
+   * 
+   * @param request - UnTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnTagResourcesResponse
+   */
+  async unTagResourcesWithOptions(request: UnTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UnTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnTagResources",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnTagResourcesResponse>(await this.callApi(params, req, runtime), new UnTagResourcesResponse({}));
+  }
+
+  /**
+   * 为指定的ECS资源列表统一解绑标签
+   * 
+   * @param request - UnTagResourcesRequest
+   * @returns UnTagResourcesResponse
+   */
+  async unTagResources(request: UnTagResourcesRequest): Promise<UnTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unTagResourcesWithOptions(request, runtime);
   }
 
 }
