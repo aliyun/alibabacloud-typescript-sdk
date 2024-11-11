@@ -7051,6 +7051,124 @@ export class EndConferenceResponse extends $tea.Model {
   }
 }
 
+export class ExportContactFlowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * lc-uf61xdtm0mf73k
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb3xxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * AF9834D8-6D09-4A1B-BADB-B019D9D444C8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportContactFlowResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * {}
+   */
+  flowPackageData?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * DE803553-8AA9-4B9D-9E4E-A82BC69EDCEE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      flowPackageData: 'FlowPackageData',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      flowPackageData: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportContactFlowResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportContactFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExportContactFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExportCustomCallTaggingRequest extends $tea.Model {
   /**
    * @remarks
@@ -11755,6 +11873,117 @@ export class ImportAdminsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ImportAdminsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportContactFlowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {}
+   */
+  flowPackageData?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * DE803553-8AA9-4B9D-9E4E-A82BC69EDCEE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowPackageData: 'FlowPackageData',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowPackageData: 'string',
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportContactFlowResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * 27DD30C4-CAE2-481A-97CC-D3C54625341D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportContactFlowResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportContactFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportContactFlowResponseBody,
     };
   }
 
@@ -58810,6 +59039,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ExportContactFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportContactFlowResponse
+   */
+  async exportContactFlowWithOptions(request: ExportContactFlowRequest, runtime: $Util.RuntimeOptions): Promise<ExportContactFlowResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportContactFlow",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportContactFlowResponse>(await this.callApi(params, req, runtime), new ExportContactFlowResponse({}));
+  }
+
+  /**
+   * @param request - ExportContactFlowRequest
+   * @returns ExportContactFlowResponse
+   */
+  async exportContactFlow(request: ExportContactFlowRequest): Promise<ExportContactFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportContactFlowWithOptions(request, runtime);
+  }
+
+  /**
    * 导出全部呼入号码标签
    * 
    * @deprecated OpenAPI ExportCustomCallTagging is deprecated, please use CCC::2020-07-01::ExportCustomCallTaggings instead.
@@ -60785,6 +61060,52 @@ export default class Client extends OpenApi {
   async importAdmins(request: ImportAdminsRequest): Promise<ImportAdminsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importAdminsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ImportContactFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportContactFlowResponse
+   */
+  async importContactFlowWithOptions(request: ImportContactFlowRequest, runtime: $Util.RuntimeOptions): Promise<ImportContactFlowResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.flowPackageData)) {
+      body["FlowPackageData"] = request.flowPackageData;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportContactFlow",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportContactFlowResponse>(await this.callApi(params, req, runtime), new ImportContactFlowResponse({}));
+  }
+
+  /**
+   * @param request - ImportContactFlowRequest
+   * @returns ImportContactFlowResponse
+   */
+  async importContactFlow(request: ImportContactFlowRequest): Promise<ImportContactFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importContactFlowWithOptions(request, runtime);
   }
 
   /**
