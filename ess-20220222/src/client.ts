@@ -1908,6 +1908,100 @@ export class CreateAlarmResponse extends $tea.Model {
   }
 }
 
+export class CreateDiagnoseReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * asg-bp1f2f6oxc2*******
+   */
+  scalingGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      scalingGroupId: 'ScalingGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      scalingGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnoseReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * dr-uf6enpbnri1xhcy9qc7s
+   */
+  reportId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 0189C6CB-07BA-5AFE-B533-D93892324774
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reportId: 'ReportId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reportId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnoseReportResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDiagnoseReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDiagnoseReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEciScalingConfigurationRequest extends $tea.Model {
   /**
    * @remarks
@@ -6620,6 +6714,134 @@ export class DescribeAlertConfigurationResponse extends $tea.Model {
   }
 }
 
+export class DescribeDiagnoseReportsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  regionId?: string;
+  reportIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * asg-2vcis7yglxtm*****
+   */
+  scalingGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      reportIds: 'ReportIds',
+      scalingGroupId: 'ScalingGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      reportIds: { 'type': 'array', 'itemType': 'string' },
+      scalingGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnoseReportsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  reports?: DescribeDiagnoseReportsResponseBodyReports[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ECA123C6-107B-5F70-A177-740A7224C996
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      reports: 'Reports',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      reports: { 'type': 'array', 'itemType': DescribeDiagnoseReportsResponseBodyReports },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnoseReportsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiagnoseReportsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiagnoseReportsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEciScalingConfigurationDetailRequest extends $tea.Model {
   /**
    * @remarks
@@ -9138,6 +9360,96 @@ export class DescribeScalingGroupDetailResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeScalingGroupDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDiagnoseDetailsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-qingdao
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * asg-bp18p2yfxow2dloq****
+   */
+  scalingGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      scalingGroupId: 'ScalingGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      scalingGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDiagnoseDetailsResponseBody extends $tea.Model {
+  details?: DescribeScalingGroupDiagnoseDetailsResponseBodyDetails[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 688B18B8-FB1E-42EB-A1ED-7F55B090****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      details: 'Details',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      details: { 'type': 'array', 'itemType': DescribeScalingGroupDiagnoseDetailsResponseBodyDetails },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDiagnoseDetailsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeScalingGroupDiagnoseDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeScalingGroupDiagnoseDetailsResponseBody,
     };
   }
 
@@ -23131,6 +23443,118 @@ export class DescribeAlarmsResponseBodyAlarmList extends $tea.Model {
   }
 }
 
+export class DescribeDiagnoseReportsResponseBodyReportsDetails extends $tea.Model {
+  /**
+   * @example
+   * AccountArrearage
+   */
+  diagnoseType?: string;
+  /**
+   * @example
+   * VSwitchIdNotFound
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * sg-280ih****
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * Normal
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnoseType: 'DiagnoseType',
+      errorCode: 'ErrorCode',
+      resourceId: 'ResourceId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnoseType: 'string',
+      errorCode: 'string',
+      resourceId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnoseReportsResponseBodyReports extends $tea.Model {
+  /**
+   * @example
+   * 2024-08-23T02:22:30Z
+   */
+  creationTime?: string;
+  details?: DescribeDiagnoseReportsResponseBodyReportsDetails[];
+  /**
+   * @example
+   * Normal
+   */
+  diagnoseStatus?: string;
+  /**
+   * @example
+   * Finished
+   */
+  processStatus?: string;
+  /**
+   * @example
+   * cn-qingdao
+   */
+  regionId?: string;
+  /**
+   * @example
+   * dr-bp14p0cjp7wvjob5l6hk
+   */
+  reportId?: string;
+  /**
+   * @example
+   * asg-bp124uve5iph3*****
+   */
+  scalingGroupId?: string;
+  /**
+   * @example
+   * 161456884*******
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      details: 'Details',
+      diagnoseStatus: 'DiagnoseStatus',
+      processStatus: 'ProcessStatus',
+      regionId: 'RegionId',
+      reportId: 'ReportId',
+      scalingGroupId: 'ScalingGroupId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      details: { 'type': 'array', 'itemType': DescribeDiagnoseReportsResponseBodyReportsDetails },
+      diagnoseStatus: 'string',
+      processStatus: 'string',
+      regionId: 'string',
+      reportId: 'string',
+      scalingGroupId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationAcrRegistryInfos extends $tea.Model {
   /**
    * @remarks
@@ -30664,6 +31088,50 @@ export class DescribeScalingGroupDetailResponseBodyScalingGroup extends $tea.Mod
       vSwitchId: 'string',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDiagnoseDetailsResponseBodyDetails extends $tea.Model {
+  /**
+   * @example
+   * SecurityGroup
+   */
+  diagnoseType?: string;
+  /**
+   * @example
+   * AccountArrearage
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * sg-280ih****
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * Normal
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnoseType: 'DiagnoseType',
+      errorCode: 'ErrorCode',
+      resourceId: 'ResourceId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnoseType: 'string',
+      errorCode: 'string',
+      resourceId: 'string',
+      status: 'string',
     };
   }
 
@@ -38289,6 +38757,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateDiagnoseReport
+   * 
+   * @param request - CreateDiagnoseReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDiagnoseReportResponse
+   */
+  async createDiagnoseReportWithOptions(request: CreateDiagnoseReportRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiagnoseReportResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDiagnoseReport",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDiagnoseReportResponse>(await this.callApi(params, req, runtime), new CreateDiagnoseReportResponse({}));
+  }
+
+  /**
+   * CreateDiagnoseReport
+   * 
+   * @param request - CreateDiagnoseReportRequest
+   * @returns CreateDiagnoseReportResponse
+   */
+  async createDiagnoseReport(request: CreateDiagnoseReportRequest): Promise<CreateDiagnoseReportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDiagnoseReportWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a scaling configuration of the Elastic Container Instance type. Auto Scaling uses the scaling configuration as a template to create elastic container instances to meet your business requirements during scale-out events.
    * 
    * @remarks
@@ -40289,6 +40795,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DescribeDiagnoseReports
+   * 
+   * @param request - DescribeDiagnoseReportsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDiagnoseReportsResponse
+   */
+  async describeDiagnoseReportsWithOptions(request: DescribeDiagnoseReportsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnoseReportsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDiagnoseReports",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDiagnoseReportsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnoseReportsResponse({}));
+  }
+
+  /**
+   * DescribeDiagnoseReports
+   * 
+   * @param request - DescribeDiagnoseReportsRequest
+   * @returns DescribeDiagnoseReportsResponse
+   */
+  async describeDiagnoseReports(request: DescribeDiagnoseReportsRequest): Promise<DescribeDiagnoseReportsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDiagnoseReportsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a scaling configuration. You can query a scaling configuration by its ID to learn about its details such as the temporary storage size, number of IPv6 addresses, and bandwidth of the elastic IP address (EIP). The scaling configuration details can be obtained as a YAML file.
    * 
    * @param request - DescribeEciScalingConfigurationDetailRequest
@@ -41212,6 +41756,44 @@ export default class Client extends OpenApi {
   async describeScalingGroupDetail(request: DescribeScalingGroupDetailRequest): Promise<DescribeScalingGroupDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeScalingGroupDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeScalingGroupDiagnoseDetails
+   * 
+   * @param request - DescribeScalingGroupDiagnoseDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeScalingGroupDiagnoseDetailsResponse
+   */
+  async describeScalingGroupDiagnoseDetailsWithOptions(request: DescribeScalingGroupDiagnoseDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeScalingGroupDiagnoseDetailsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeScalingGroupDiagnoseDetails",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeScalingGroupDiagnoseDetailsResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupDiagnoseDetailsResponse({}));
+  }
+
+  /**
+   * DescribeScalingGroupDiagnoseDetails
+   * 
+   * @param request - DescribeScalingGroupDiagnoseDetailsRequest
+   * @returns DescribeScalingGroupDiagnoseDetailsResponse
+   */
+  async describeScalingGroupDiagnoseDetails(request: DescribeScalingGroupDiagnoseDetailsRequest): Promise<DescribeScalingGroupDiagnoseDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeScalingGroupDiagnoseDetailsWithOptions(request, runtime);
   }
 
   /**
