@@ -5209,6 +5209,83 @@ export class DescribeAssetRiskListResponse extends $tea.Model {
   }
 }
 
+export class DescribeAssetStatisticRequest extends $tea.Model {
+  /**
+   * @example
+   * zh
+   */
+  lang?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetStatisticResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 850A84******25g4d2
+   */
+  requestId?: string;
+  resourceSpecStatistic?: DescribeAssetStatisticResponseBodyResourceSpecStatistic;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceSpecStatistic: 'ResourceSpecStatistic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceSpecStatistic: DescribeAssetStatisticResponseBodyResourceSpecStatistic,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetStatisticResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAssetStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAssetStatisticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCfwRiskLevelSummaryRequest extends $tea.Model {
   /**
    * @remarks
@@ -7591,9 +7668,7 @@ export class DescribeNatFirewallListRequest extends $tea.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * Default value: 10. 
-   * 
-   *  Maximum value: 50.
+   * Default value: **10**.**** Maximum value: **50**.
    * 
    * @example
    * 10
@@ -9665,6 +9740,9 @@ export class DescribeRiskEventPayloadResponseBody extends $tea.Model {
    * vpc-bp10w5nb30r4jzfyc****
    */
   dstVpcId?: string;
+  hitContentType?: number;
+  hitTo?: number;
+  parsedContent?: string;
   /**
    * @remarks
    * The attack payload of the intrusion event.
@@ -9745,6 +9823,9 @@ export class DescribeRiskEventPayloadResponseBody extends $tea.Model {
       dstIP: 'DstIP',
       dstPort: 'DstPort',
       dstVpcId: 'DstVpcId',
+      hitContentType: 'HitContentType',
+      hitTo: 'HitTo',
+      parsedContent: 'ParsedContent',
       payload: 'Payload',
       payloadLen: 'PayloadLen',
       proto: 'Proto',
@@ -9762,6 +9843,9 @@ export class DescribeRiskEventPayloadResponseBody extends $tea.Model {
       dstIP: 'string',
       dstPort: 'number',
       dstVpcId: 'string',
+      hitContentType: 'number',
+      hitTo: 'number',
+      parsedContent: 'string',
       payload: 'string',
       payloadLen: 'number',
       proto: 'string',
@@ -18583,6 +18667,36 @@ export class DescribeAssetRiskListResponseBodyAssetList extends $tea.Model {
   }
 }
 
+export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
+  ipNumSpec?: number;
+  /**
+   * @example
+   * 10
+   */
+  ipNumUsed?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ipNumSpec: 'IpNumSpec',
+      ipNumUsed: 'IpNumUsed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipNumSpec: 'number',
+      ipNumUsed: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCfwRiskLevelSummaryResponseBodyRiskList extends $tea.Model {
   /**
    * @remarks
@@ -20968,6 +21082,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Mod
    * The application ports.
    */
   applicationPortList?: DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList[];
+  assetCount?: number;
   /**
    * @remarks
    * The type of the tag. Valid values:
@@ -21059,6 +21174,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Mod
    * true
    */
   isMarkNormal?: boolean;
+  locationName?: string;
   /**
    * @remarks
    * The outbound traffic. Unit: bytes.
@@ -21067,6 +21183,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Mod
    * 965
    */
   outBytes?: number;
+  privateAssetCount?: number;
   /**
    * @remarks
    * The UUID of the access control policy.
@@ -21131,6 +21248,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Mod
       aclStatus: 'AclStatus',
       addressGroupList: 'AddressGroupList',
       applicationPortList: 'ApplicationPortList',
+      assetCount: 'AssetCount',
       categoryClassId: 'CategoryClassId',
       categoryId: 'CategoryId',
       categoryName: 'CategoryName',
@@ -21140,7 +21258,9 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Mod
       hasAclRecommend: 'HasAclRecommend',
       inBytes: 'InBytes',
       isMarkNormal: 'IsMarkNormal',
+      locationName: 'LocationName',
       outBytes: 'OutBytes',
+      privateAssetCount: 'PrivateAssetCount',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
       securityReason: 'SecurityReason',
@@ -21158,6 +21278,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Mod
       aclStatus: 'string',
       addressGroupList: { 'type': 'array', 'itemType': DescribeOutgoingDestinationIPResponseBodyDstIPListAddressGroupList },
       applicationPortList: { 'type': 'array', 'itemType': DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList },
+      assetCount: 'number',
       categoryClassId: 'string',
       categoryId: 'string',
       categoryName: 'string',
@@ -21167,7 +21288,9 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Mod
       hasAclRecommend: 'boolean',
       inBytes: 'number',
       isMarkNormal: 'boolean',
+      locationName: 'string',
       outBytes: 'number',
+      privateAssetCount: 'number',
       ruleId: 'string',
       ruleName: 'string',
       securityReason: 'string',
@@ -21304,6 +21427,8 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $tea.Model {
    * fdad-fdafa-dafa-dfa****
    */
   addressGroupUUID?: string;
+  applicationNameList?: string[];
+  assetCount?: number;
   /**
    * @remarks
    * The website service.
@@ -21419,6 +21544,7 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $tea.Model {
    * 4582
    */
   outBytes?: number;
+  privateAssetCount?: number;
   /**
    * @remarks
    * The ID of the access control policy.
@@ -21483,6 +21609,8 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $tea.Model {
       aclStatus: 'AclStatus',
       addressGroupName: 'AddressGroupName',
       addressGroupUUID: 'AddressGroupUUID',
+      applicationNameList: 'ApplicationNameList',
+      assetCount: 'AssetCount',
       business: 'Business',
       categoryClassId: 'CategoryClassId',
       categoryId: 'CategoryId',
@@ -21495,6 +21623,7 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $tea.Model {
       isMarkNormal: 'IsMarkNormal',
       organization: 'Organization',
       outBytes: 'OutBytes',
+      privateAssetCount: 'PrivateAssetCount',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
       securityReason: 'SecurityReason',
@@ -21512,6 +21641,8 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $tea.Model {
       aclStatus: 'string',
       addressGroupName: 'string',
       addressGroupUUID: 'string',
+      applicationNameList: { 'type': 'array', 'itemType': 'string' },
+      assetCount: 'number',
       business: 'string',
       categoryClassId: 'string',
       categoryId: 'string',
@@ -21524,6 +21655,7 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $tea.Model {
       isMarkNormal: 'boolean',
       organization: 'string',
       outBytes: 'number',
+      privateAssetCount: 'number',
       ruleId: 'string',
       ruleName: 'string',
       securityReason: 'string',
@@ -22643,6 +22775,7 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsProtectedResourc
    * 1
    */
   count?: number;
+  ecrList?: string[];
   /**
    * @remarks
    * The protected peer transit routers.
@@ -22666,6 +22799,7 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsProtectedResourc
   static names(): { [key: string]: string } {
     return {
       count: 'Count',
+      ecrList: 'EcrList',
       peerTrList: 'PeerTrList',
       vbrList: 'VbrList',
       vpcList: 'VpcList',
@@ -22676,6 +22810,7 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsProtectedResourc
   static types(): { [key: string]: any } {
     return {
       count: 'number',
+      ecrList: { 'type': 'array', 'itemType': 'string' },
       peerTrList: { 'type': 'array', 'itemType': 'string' },
       vbrList: { 'type': 'array', 'itemType': 'string' },
       vpcList: { 'type': 'array', 'itemType': 'string' },
@@ -22697,6 +22832,7 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsUnprotectedResou
    * 1
    */
   count?: number;
+  ecrList?: string[];
   /**
    * @remarks
    * The unprotected peer transit routers.
@@ -22720,6 +22856,7 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsUnprotectedResou
   static names(): { [key: string]: string } {
     return {
       count: 'Count',
+      ecrList: 'EcrList',
       peerTrList: 'PeerTrList',
       vbrList: 'VbrList',
       vpcList: 'VpcList',
@@ -22730,6 +22867,7 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsUnprotectedResou
   static types(): { [key: string]: any } {
     return {
       count: 'number',
+      ecrList: { 'type': 'array', 'itemType': 'string' },
       peerTrList: { 'type': 'array', 'itemType': 'string' },
       vbrList: { 'type': 'array', 'itemType': 'string' },
       vpcList: { 'type': 'array', 'itemType': 'string' },
@@ -22759,6 +22897,7 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $tea.Mo
    * cen_swas
    */
   cenName?: string;
+  cloudFirewallVpcOrderType?: string;
   /**
    * @remarks
    * The instance ID of the VPC firewall.
@@ -22881,6 +23020,7 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $tea.Mo
     return {
       cenId: 'CenId',
       cenName: 'CenName',
+      cloudFirewallVpcOrderType: 'CloudFirewallVpcOrderType',
       firewallId: 'FirewallId',
       firewallSwitchStatus: 'FirewallSwitchStatus',
       ipsConfig: 'IpsConfig',
@@ -22901,6 +23041,7 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $tea.Mo
     return {
       cenId: 'string',
       cenName: 'string',
+      cloudFirewallVpcOrderType: 'string',
       firewallId: 'string',
       firewallSwitchStatus: 'string',
       ipsConfig: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig,
@@ -28147,6 +28288,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取资产统计信息
+   * 
+   * @param request - DescribeAssetStatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAssetStatisticResponse
+   */
+  async describeAssetStatisticWithOptions(request: DescribeAssetStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetStatisticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAssetStatistic",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAssetStatisticResponse>(await this.callApi(params, req, runtime), new DescribeAssetStatisticResponse({}));
+  }
+
+  /**
+   * 获取资产统计信息
+   * 
+   * @param request - DescribeAssetStatisticRequest
+   * @returns DescribeAssetStatisticResponse
+   */
+  async describeAssetStatistic(request: DescribeAssetStatisticRequest): Promise<DescribeAssetStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAssetStatisticWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the firewall risk level.
    * 
    * @param request - DescribeCfwRiskLevelSummaryRequest
@@ -33006,9 +33197,9 @@ export default class Client extends OpenApi {
    * Enables firewalls for specific assets.
    * 
    * @remarks
-   * You can call the PutEnableFwSwitch operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
-   * ## Limits
-   * You can call this operation up to 5 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+   * You can call this operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
+   * ## [](#qps-)Limits
+   * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - PutEnableFwSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33058,9 +33249,9 @@ export default class Client extends OpenApi {
    * Enables firewalls for specific assets.
    * 
    * @remarks
-   * You can call the PutEnableFwSwitch operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
-   * ## Limits
-   * You can call this operation up to 5 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+   * You can call this operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
+   * ## [](#qps-)Limits
+   * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - PutEnableFwSwitchRequest
    * @returns PutEnableFwSwitchResponse
