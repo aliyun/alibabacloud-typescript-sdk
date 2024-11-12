@@ -308,8 +308,6 @@ export class CreateBindingRequest extends $tea.Model {
    *     *   The binding key cannot start or end with a period (.). If a binding key starts with a number sign (#) or an asterisk (\\*), the number sign (#) or asterisk (\\*) must be followed by a period (.). If the binding key ends with a number sign (#) or an asterisk (\\*), the number sign (#) or asterisk (\\*) must be preceded by a period (.). If a number sign (#) or an asterisk (\\*) is used in the middle of a binding key, the number sign (#) or asterisk (\\*) must be preceded and followed by a period (.).
    *     *   The binding key must be 1 to 255 characters in length.
    * 
-   * This parameter is required.
-   * 
    * @example
    * .test
    */
@@ -616,43 +614,86 @@ export class CreateExchangeResponse extends $tea.Model {
 
 export class CreateInstanceRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to enable auto-renewal. Valid values:
+   * 
+   * *   true: enables auto-renewal.
+   * *   false: disables auto-renewal. If you select this value, you must manually renew the instance.
+   * 
    * @example
    * AutoRenewal
    */
   autoRenew?: boolean;
   /**
+   * @remarks
+   * The auto-renewal duration. Unit: months.
+   * 
+   * >  This parameter takes effect only if you set AutoRenew to true. Default value: 1.
+   * 
    * @example
    * 1
    */
   autoRenewPeriod?: number;
   /**
+   * @remarks
+   * The client token.
+   * 
    * @example
    * c2c5d1274axxxxxxxx
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The instance name. We recommend that you specify a name that does not exceed 64 characters in length.
+   * 
+   * @example
+   * amqp-xxxxx
+   */
   instanceName?: string;
   /**
+   * @remarks
+   * The instance edition. Valid values:
+   * 
+   * *   professional: Professional Edition
+   * *   enterprise: Enterprise Edition
+   * *   vip: Enterprise Platinum Edition
+   * 
    * @example
    * professional
    */
   instanceType?: string;
   /**
+   * @remarks
+   * The maximum number of connections that can be established to the instance. Configure this parameter based on the values provided on the [ApsaraMQ for RocketMQ buy page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
+   * 
    * @example
    * 50000
    */
   maxConnections?: number;
   /**
+   * @remarks
+   * The maximum number of EIP-based TPS on the instance. Configure this parameter based on the values provided on the [ApsaraMQ for RocketMQ buy page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
+   * 
    * @example
    * 128
    */
   maxEipTps?: number;
   /**
+   * @remarks
+   * The maximum number of virtual private cloud (VPC)-based transactions per second (TPS) on the instance. Configure this parameter based on the values provided on the [ApsaraMQ for RocketMQ buy page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
+   * 
    * @example
    * 1000
    */
   maxPrivateTps?: number;
   /**
    * @remarks
+   * The billing method. Valid value:
+   * 
+   * *   Subscription
+   * 
+   * >  API operations provided by ApsaraMQ for RabbitMQ are supported only by subscription instances. You can set this parameter only to Subscription.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -660,47 +701,123 @@ export class CreateInstanceRequest extends $tea.Model {
    */
   paymentType?: string;
   /**
+   * @remarks
+   * The subscription period. The unit of the subscription period is specified by periodCycle.
+   * 
+   * >  This parameter takes effect only if you set PaymentType to Subscription. Default value: 1.
+   * 
    * @example
    * 1
    */
   period?: number;
   /**
+   * @remarks
+   * The unit of the subscription period. Valid values:
+   * 
+   * *   Month
+   * *   Year
+   * 
+   * >  This parameter takes effect only if you set PaymentType to Subscription. Default value: Month.
+   * 
    * @example
    * Month
    */
   periodCycle?: string;
   /**
+   * @remarks
+   * The number of queues. Valid values:
+   * 
+   * *   Professional Edition: 50 to 1000. The number of queues must increase in increments of 5.
+   * *   Enterprise Edition: 200 to 6000. The number of queues must increase in increments of 100.
+   * *   Enterprise Platinum Edition: 10000 to 80000. The number of queues must increase in increments of 100.
+   * 
    * @example
    * 1000
    */
   queueCapacity?: number;
   /**
    * @remarks
-   * autoRenew和renewStatus都是续费方式，当两个同时填写时，以renewStatus为准
+   * The renewal status. This parameter is the same as AutoRenew. You can configure one of these parameters. Valid value:
+   * - AutoRenewal
+   * 
+   * > If you configure both this parameter and AutoRenew, the value of this parameter is used.
+   * 
+   * @example
+   * false
    */
   renewStatus?: string;
-  renewalDurationUnit?: string;
   /**
+   * @remarks
+   * The unit of the auto-renewal period. Valid values:
+   * - Month
+   * - Year
+   * 
+   * @example
+   * Month
+   */
+  renewalDurationUnit?: string;
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The billing method of the pay-as-you-go instance. Valid values:
+   * - onDemand: You are charged based on your actual usage
+   * 
    * @example
    * onDemand
    */
   serverlessChargeType?: string;
   /**
+   * @remarks
+   * The storage capacity. Unit: GB. Valid values:
+   * 
+   * *   Professional Edition and Enterprise Edition instances: Set this parameter to 0.
+   * 
+   * >  The value 0 specifies that storage space is available for Professional Edition and Enterprise Edition instances, but no storage fees are generated.
+   * 
+   * *   Platinum Edition instances: Set the value to m × 100, where m ranges from 7 to 28.
+   * 
    * @example
    * 7
    */
   storageSize?: number;
   /**
+   * @remarks
+   * Specifies whether elastic IP addresses (EIPs) are supported. Valid values:
+   * 
+   * *   True
+   * *   False
+   * 
    * @example
    * true
    */
   supportEip?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable the message trace feature. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * > 
+   * 
+   * *   Enterprise Platinum Edition instances allow you to retain message traces for 15 days free of charge. If you use an Enterprise Platinum Edition instance, you can set this parameter only to true and TracingStorageTime only to 15.
+   * 
+   * *   For instances of other editions, you can set this parameter to true or false.
+   * 
    * @example
    * true
    */
   supportTracing?: boolean;
   /**
+   * @remarks
+   * The retention period of messages. Unit: days. Valid values:
+   * 
+   * *   3
+   * *   7
+   * *   15
+   * 
+   * >  This parameter takes effect only if you set SupportTracing to true.
+   * 
    * @example
    * 3
    */
@@ -721,6 +838,7 @@ export class CreateInstanceRequest extends $tea.Model {
       queueCapacity: 'QueueCapacity',
       renewStatus: 'RenewStatus',
       renewalDurationUnit: 'RenewalDurationUnit',
+      resourceGroupId: 'ResourceGroupId',
       serverlessChargeType: 'ServerlessChargeType',
       storageSize: 'StorageSize',
       supportEip: 'SupportEip',
@@ -745,6 +863,7 @@ export class CreateInstanceRequest extends $tea.Model {
       queueCapacity: 'number',
       renewStatus: 'string',
       renewalDurationUnit: 'string',
+      resourceGroupId: 'string',
       serverlessChargeType: 'string',
       storageSize: 'number',
       supportEip: 'boolean',
@@ -760,26 +879,41 @@ export class CreateInstanceRequest extends $tea.Model {
 
 export class CreateInstanceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The HTTP status code. The status code 200 indicates that the request is successful.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The ID of the created instance.
+   * 
    * @example
    * amqp-cn-xxxxx
    */
   data?: any;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * xxx failed,xxxx
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID. You can use the ID to troubleshoot issues. This parameter is a common parameter.
+   * 
    * @example
    * CCBB1225-C392-480E-8C7F-D09AB2CD2***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
@@ -1269,8 +1403,6 @@ export class DeleteBindingRequest extends $tea.Model {
   /**
    * @remarks
    * The binding key.
-   * 
-   * This parameter is required.
    * 
    * @example
    * .test.
@@ -2484,10 +2616,12 @@ export class ListInstancesRequest extends $tea.Model {
    * caeba0bbb2be03f84eb48b699f0a****
    */
   nextToken?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -2495,6 +2629,7 @@ export class ListInstancesRequest extends $tea.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -4192,6 +4327,7 @@ export class ListInstancesResponseBodyDataInstances extends $tea.Model {
    * amqp-cn-st21x7kv****.mq-amqp.cn-hangzhou-a.aliyuncs.com
    */
   publicEndpoint?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The instance status. Valid values:
@@ -4244,6 +4380,7 @@ export class ListInstancesResponseBodyDataInstances extends $tea.Model {
       orderType: 'OrderType',
       privateEndpoint: 'PrivateEndpoint',
       publicEndpoint: 'PublicEndpoint',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
       storageSize: 'StorageSize',
       supportEIP: 'SupportEIP',
@@ -4267,6 +4404,7 @@ export class ListInstancesResponseBodyDataInstances extends $tea.Model {
       orderType: 'string',
       privateEndpoint: 'string',
       publicEndpoint: 'string',
+      resourceGroupId: 'string',
       status: 'string',
       storageSize: 'number',
       supportEIP: 'boolean',
@@ -4949,7 +5087,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实例-基于 openAPI 构建南天门购买工单信息数据
+   * Creates an ApsaraMQ for RabbitMQ instance.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
    * 
    * @param request - CreateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5014,6 +5155,10 @@ export default class Client extends OpenApi {
       query["RenewalDurationUnit"] = request.renewalDurationUnit;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.serverlessChargeType)) {
       query["ServerlessChargeType"] = request.serverlessChargeType;
     }
@@ -5052,7 +5197,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实例-基于 openAPI 构建南天门购买工单信息数据
+   * Creates an ApsaraMQ for RabbitMQ instance.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
    * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
