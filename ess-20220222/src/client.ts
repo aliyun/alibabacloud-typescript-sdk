@@ -8510,6 +8510,7 @@ export class DescribePatternTypesRequest extends $tea.Model {
    * The IDs of the vSwitches.
    */
   vSwitchId?: string[];
+  zoneId?: string[];
   static names(): { [key: string]: string } {
     return {
       architecture: 'Architecture',
@@ -8541,6 +8542,7 @@ export class DescribePatternTypesRequest extends $tea.Model {
       regionId: 'RegionId',
       spotStrategy: 'SpotStrategy',
       vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -8575,6 +8577,7 @@ export class DescribePatternTypesRequest extends $tea.Model {
       regionId: 'string',
       spotStrategy: 'string',
       vSwitchId: { 'type': 'array', 'itemType': 'string' },
+      zoneId: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
