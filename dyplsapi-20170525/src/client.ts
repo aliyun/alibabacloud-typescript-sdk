@@ -436,20 +436,13 @@ export class BindAXBCallResponseBody extends $tea.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 绑定关系ID
-   * 
-   * @example
-   * 476567566
-   */
-  bindId?: string;
-  /**
-   * @remarks
    * 返回状态码 0000表示成功 其他表示失败
    * 
    * @example
    * 0000
    */
   code?: string;
+  data?: BindAXBCallResponseBodyData;
   /**
    * @remarks
    * 返回信息
@@ -469,8 +462,8 @@ export class BindAXBCallResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
-      bindId: 'BindId',
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       success: 'Success',
     };
@@ -479,8 +472,8 @@ export class BindAXBCallResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessDeniedDetail: 'string',
-      bindId: 'string',
       code: 'string',
+      data: BindAXBCallResponseBodyData,
       message: 'string',
       success: 'boolean',
     };
@@ -1966,20 +1959,13 @@ export class BindXBResponseBody extends $tea.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 工作号关系绑定的唯一标识
-   * 
-   * @example
-   * 435****456
-   */
-  authId?: string;
-  /**
-   * @remarks
    * 返回状态码 0000表示成功 其他表示失败
    * 
    * @example
    * 0000
    */
   code?: string;
+  data?: BindXBResponseBodyData;
   /**
    * @remarks
    * 返回信息
@@ -1996,33 +1982,23 @@ export class BindXBResponseBody extends $tea.Model {
    * false
    */
   success?: boolean;
-  /**
-   * @remarks
-   * 工作号号码
-   * 
-   * @example
-   * 18*******22
-   */
-  telX?: string;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
-      authId: 'AuthId',
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       success: 'Success',
-      telX: 'TelX',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accessDeniedDetail: 'string',
-      authId: 'string',
       code: 'string',
+      data: BindXBResponseBodyData,
       message: 'string',
       success: 'boolean',
-      telX: 'string',
     };
   }
 
@@ -2625,25 +2601,14 @@ export class ConfigXResponseBody extends $tea.Model {
    */
   accessDeniedDetail?: string;
   /**
-   * @remarks
-   * 返回状态码 0000表示成功 其他表示失败
-   * 
    * @example
    * 0000
    */
   code?: string;
-  /**
-   * @remarks
-   * 返回信息
-   * 
-   * @example
-   * 成功
-   */
+  data?: ConfigXResponseBodyData;
   message?: string;
+  requestId?: string;
   /**
-   * @remarks
-   * 返回是否成功 true  表示成功 false表示失败
-   * 
    * @example
    * true
    */
@@ -2652,7 +2617,9 @@ export class ConfigXResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
+      data: 'Data',
       message: 'Message',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
@@ -2661,7 +2628,9 @@ export class ConfigXResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: 'string',
       code: 'string',
+      data: ConfigXResponseBodyData,
       message: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -3640,20 +3609,13 @@ export class CreateSmsSignResponseBody extends $tea.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 短信接收者号码签名串(加到短信内容中供解析真实被叫号码)
-   * 
-   * @example
-   * sign*****466
-   */
-  calledNoSign?: string;
-  /**
-   * @remarks
    * 返回状态码 0000表示成功 其他表示失败
    * 
    * @example
    * 0000
    */
   code?: string;
+  data?: CreateSmsSignResponseBodyData;
   /**
    * @remarks
    * 返回信息
@@ -3673,8 +3635,8 @@ export class CreateSmsSignResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
-      calledNoSign: 'CalledNoSign',
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       success: 'Success',
     };
@@ -3683,8 +3645,8 @@ export class CreateSmsSignResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessDeniedDetail: 'string',
-      calledNoSign: 'string',
       code: 'string',
+      data: CreateSmsSignResponseBodyData,
       message: 'string',
       success: 'boolean',
     };
@@ -4359,28 +4321,13 @@ export class GetXConfigResponseBody extends $tea.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 开/关呼叫能力状态： ‘0’：禁用； ‘1’：开启；
-   * 
-   * @example
-   * 0
-   */
-  callAbility?: string;
-  /**
-   * @remarks
    * 返回状态码 0000表示成功 其他表示失败
    * 
    * @example
    * 0000
    */
   code?: string;
-  /**
-   * @remarks
-   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
-   * 
-   * @example
-   * 10
-   */
-  GNFlag?: string;
+  data?: GetXConfigResponseBodyData;
   /**
    * @remarks
    * 返回信息
@@ -4391,78 +4338,29 @@ export class GetXConfigResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * 顺振控制参数
-   */
-  sequenceCalls?: GetXConfigResponseBodySequenceCalls[];
-  /**
-   * @remarks
-   * 顺振模式： 0-不顺振（默认） 1-有条件顺振，先接续calledNo指定被叫，如果该被叫未能接通，再顺振sequenceCalls号码列表 2-无条件顺振，不接续calledNo指定被叫，直接顺振sequenceCalls号码列表
-   * 
-   * @example
-   * 0
-   */
-  sequenceMode?: string;
-  /**
-   * @remarks
-   * 开/关短信功能状态： ‘0’：禁用；‘1’：开启；
-   * 
-   * @example
-   * 0
-   */
-  smsAbility?: string;
-  /**
-   * @remarks
-   * 是否透传来显为真实用户 0：不透传; 1：透传 默认：0不透传
-   * 
-   * @example
-   * 0
-   */
-  smsSignMode?: string;
-  /**
-   * @remarks
    * 返回是否成功 true  表示成功 false表示失败
    * 
    * @example
    * true
    */
   success?: boolean;
-  /**
-   * @remarks
-   * X号码
-   * 
-   * @example
-   * 17*******22
-   */
-  telX?: string;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
-      callAbility: 'CallAbility',
       code: 'Code',
-      GNFlag: 'GNFlag',
+      data: 'Data',
       message: 'Message',
-      sequenceCalls: 'SequenceCalls',
-      sequenceMode: 'SequenceMode',
-      smsAbility: 'SmsAbility',
-      smsSignMode: 'SmsSignMode',
       success: 'Success',
-      telX: 'TelX',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accessDeniedDetail: 'string',
-      callAbility: 'string',
       code: 'string',
-      GNFlag: 'string',
+      data: GetXConfigResponseBodyData,
       message: 'string',
-      sequenceCalls: { 'type': 'array', 'itemType': GetXConfigResponseBodySequenceCalls },
-      sequenceMode: 'string',
-      smsAbility: 'string',
-      smsSignMode: 'string',
       success: 'boolean',
-      telX: 'string',
     };
   }
 
@@ -4575,28 +4473,13 @@ export class GetXDefaultConfigResponseBody extends $tea.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 开/关呼叫能力状态： ‘0’：禁用； ‘1’：开启；
-   * 
-   * @example
-   * 0
-   */
-  callAbility?: string;
-  /**
-   * @remarks
    * 返回状态码 0000表示成功 其他表示失败
    * 
    * @example
    * 0000
    */
   code?: string;
-  /**
-   * @remarks
-   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
-   * 
-   * @example
-   * 00
-   */
-  GNFlag?: string;
+  data?: GetXDefaultConfigResponseBodyData;
   /**
    * @remarks
    * 返回信息
@@ -4605,48 +4488,6 @@ export class GetXDefaultConfigResponseBody extends $tea.Model {
    * 成功
    */
   message?: string;
-  /**
-   * @remarks
-   * 企业名片规则控制参数
-   */
-  reachJson?: GetXDefaultConfigResponseBodyReachJson[];
-  /**
-   * @remarks
-   * 顺振控制参数
-   */
-  sequenceCalls?: GetXDefaultConfigResponseBodySequenceCalls[];
-  /**
-   * @remarks
-   * 顺振结束时间 格式：HH:mm:ss 18:00:00
-   * 
-   * @example
-   * 09:01:00
-   */
-  sequenceEndTime?: string;
-  /**
-   * @remarks
-   * 顺振开启时间 格式：HH:mm:ss 09:00:00
-   * 
-   * @example
-   * 09:00:00
-   */
-  sequenceStartTime?: string;
-  /**
-   * @remarks
-   * 开/关短信功能状态： ‘0’：禁用； ‘1’：开启；
-   * 
-   * @example
-   * 0
-   */
-  smsAbility?: string;
-  /**
-   * @remarks
-   * 是否透传来显为真实用户 0：不透传; 1：透传 默认：0不透传
-   * 
-   * @example
-   * 0
-   */
-  smsSignMode?: string;
   /**
    * @remarks
    * 返回是否成功 true  表示成功 false表示失败
@@ -4658,16 +4499,9 @@ export class GetXDefaultConfigResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
-      callAbility: 'CallAbility',
       code: 'Code',
-      GNFlag: 'GNFlag',
+      data: 'Data',
       message: 'Message',
-      reachJson: 'ReachJson',
-      sequenceCalls: 'SequenceCalls',
-      sequenceEndTime: 'SequenceEndTime',
-      sequenceStartTime: 'SequenceStartTime',
-      smsAbility: 'SmsAbility',
-      smsSignMode: 'SmsSignMode',
       success: 'Success',
     };
   }
@@ -4675,16 +4509,9 @@ export class GetXDefaultConfigResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessDeniedDetail: 'string',
-      callAbility: 'string',
       code: 'string',
-      GNFlag: 'string',
+      data: GetXDefaultConfigResponseBodyData,
       message: 'string',
-      reachJson: { 'type': 'array', 'itemType': GetXDefaultConfigResponseBodyReachJson },
-      sequenceCalls: { 'type': 'array', 'itemType': GetXDefaultConfigResponseBodySequenceCalls },
-      sequenceEndTime: 'string',
-      sequenceStartTime: 'string',
-      smsAbility: 'string',
-      smsSignMode: 'string',
       success: 'boolean',
     };
   }
@@ -4810,11 +4637,7 @@ export class ListXTelephonesResponseBody extends $tea.Model {
    * 0000
    */
   code?: string;
-  /**
-   * @remarks
-   * 数据集合
-   */
-  data?: ListXTelephonesResponseBodyData[];
+  data?: ListXTelephonesResponseBodyData;
   /**
    * @remarks
    * 返回信息
@@ -4825,46 +4648,19 @@ export class ListXTelephonesResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * 页码
-   * 
-   * @example
-   * 6
-   */
-  pageNo?: number;
-  /**
-   * @remarks
-   * 每页条数
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
    * 返回是否成功 true  表示成功 false表示失败
    * 
    * @example
    * true
    */
   success?: boolean;
-  /**
-   * @remarks
-   * 符合查询条件的总数量
-   * 
-   * @example
-   * 60
-   */
-  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
       success: 'Success',
-      totalCount: 'TotalCount',
     };
   }
 
@@ -4872,12 +4668,9 @@ export class ListXTelephonesResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: 'string',
       code: 'string',
-      data: { 'type': 'array', 'itemType': ListXTelephonesResponseBodyData },
+      data: ListXTelephonesResponseBodyData,
       message: 'string',
-      pageNo: 'number',
-      pageSize: 'number',
       success: 'boolean',
-      totalCount: 'number',
     };
   }
 
@@ -6023,14 +5816,7 @@ export class QuerySoundRecordResponseBody extends $tea.Model {
    * 0000
    */
   code?: string;
-  /**
-   * @remarks
-   * 通话录音url路径，最大长度1000，有效期1小时
-   * 
-   * @example
-   * http://www.***.com/temepl/a.mp3
-   */
-  fileUrl?: string;
+  data?: QuerySoundRecordResponseBodyData;
   /**
    * @remarks
    * 返回信息
@@ -6051,7 +5837,7 @@ export class QuerySoundRecordResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
-      fileUrl: 'FileUrl',
+      data: 'Data',
       message: 'Message',
       success: 'Success',
     };
@@ -6061,7 +5847,7 @@ export class QuerySoundRecordResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: 'string',
       code: 'string',
-      fileUrl: 'string',
+      data: QuerySoundRecordResponseBodyData,
       message: 'string',
       success: 'boolean',
     };
@@ -6595,25 +6381,14 @@ export class UnBindAXBResponseBody extends $tea.Model {
    */
   accessDeniedDetail?: string;
   /**
-   * @remarks
-   * 返回状态码 0000表示成功 其他表示失败
-   * 
    * @example
    * 0000
    */
   code?: string;
-  /**
-   * @remarks
-   * 返回信息
-   * 
-   * @example
-   * 成功
-   */
+  data?: UnBindAXBResponseBodyData;
   message?: string;
+  requestId?: string;
   /**
-   * @remarks
-   * 返回是否成功 true  表示成功 false表示失败
-   * 
    * @example
    * true
    */
@@ -6622,7 +6397,9 @@ export class UnBindAXBResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
+      data: 'Data',
       message: 'Message',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
@@ -6631,7 +6408,9 @@ export class UnBindAXBResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: 'string',
       code: 'string',
+      data: UnBindAXBResponseBodyData,
       message: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -6756,25 +6535,14 @@ export class UnBindXBResponseBody extends $tea.Model {
    */
   accessDeniedDetail?: string;
   /**
-   * @remarks
-   * 返回状态码 0000表示成功 其他表示失败
-   * 
    * @example
    * 0000
    */
   code?: string;
-  /**
-   * @remarks
-   * 返回信息
-   * 
-   * @example
-   * 成功
-   */
+  data?: UnBindXBResponseBodyData;
   message?: string;
+  requestId?: string;
   /**
-   * @remarks
-   * 返回是否成功 true  表示成功 false表示失败
-   * 
    * @example
    * false
    */
@@ -6783,7 +6551,9 @@ export class UnBindXBResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
+      data: 'Data',
       message: 'Message',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
@@ -6792,7 +6562,9 @@ export class UnBindXBResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: 'string',
       code: 'string',
+      data: UnBindXBResponseBodyData,
       message: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -7452,6 +7224,32 @@ export class UpdateSubscriptionResponse extends $tea.Model {
   }
 }
 
+export class BindAXBCallResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * 绑定关系ID
+   * 
+   * @example
+   * 476567566
+   */
+  bindId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindId: 'BindId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BindAxbResponseBodySecretBindDTO extends $tea.Model {
   /**
    * @remarks
@@ -7842,6 +7640,42 @@ export class BindBatchAxgResponseBodySecretBindList extends $tea.Model {
   }
 }
 
+export class BindXBResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * 工作号关系绑定的唯一标识
+   * 
+   * @example
+   * 4353453456
+   */
+  authId?: string;
+  /**
+   * @remarks
+   * X号码
+   * 
+   * @example
+   * 18640577897
+   */
+  telX?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authId: 'AuthId',
+      telX: 'TelX',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authId: 'string',
+      telX: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BuySecretNoResponseBodySecretBuyInfoDTO extends $tea.Model {
   /**
    * @remarks
@@ -7962,6 +7796,52 @@ export class ConfigXRequestSequenceCalls extends $tea.Model {
       sequenceCallNoPlayCode: 'string',
       sequenceCalledNo: 'string',
       sequenceCalledPlayCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigXResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * 返回状态码 0000表示成功 其他表示失败
+   * 
+   * @example
+   * 0000
+   */
+  code?: string;
+  /**
+   * @remarks
+   * 返回信息
+   * 
+   * @example
+   * 成功
+   */
+  message?: string;
+  /**
+   * @remarks
+   * 返回是否成功 true  表示成功 false表示失败
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      success: 'boolean',
     };
   }
 
@@ -8724,6 +8604,32 @@ export class CreatePickUpWaybillPreQueryResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateSmsSignResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * 短信接收者号码签名串(加到短信内容中供解析真实被叫号码)
+   * 
+   * @example
+   * sign23343466
+   */
+  calledNoSign?: string;
+  static names(): { [key: string]: string } {
+    return {
+      calledNoSign: 'CalledNoSign',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      calledNoSign: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSecretAsrDetailResponseBodyDataSentences extends $tea.Model {
   /**
    * @remarks
@@ -8943,53 +8849,7 @@ export class GetTotalPublicUrlResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetXConfigResponseBodySequenceCalls extends $tea.Model {
-  /**
-   * @remarks
-   * 顺振提示音放音编号，格式如callNoPlayCode
-   * 
-   * @example
-   * 01
-   */
-  sequenceCallNoPlayCode?: string;
-  /**
-   * @remarks
-   * 顺振被叫号码
-   * 
-   * @example
-   * 18*******33
-   */
-  sequenceCalledNo?: string;
-  /**
-   * @remarks
-   * 接通后主被叫放音编号，格式如calledPlayCode
-   * 
-   * @example
-   * 02
-   */
-  sequenceCalledPlayCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sequenceCallNoPlayCode: 'SequenceCallNoPlayCode',
-      sequenceCalledNo: 'SequenceCalledNo',
-      sequenceCalledPlayCode: 'SequenceCalledPlayCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sequenceCallNoPlayCode: 'string',
-      sequenceCalledNo: 'string',
-      sequenceCalledPlayCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetXDefaultConfigResponseBodyReachJson extends $tea.Model {
+export class GetXConfigResponseBodyDataReachJsons extends $tea.Model {
   /**
    * @remarks
    * 呼叫方向 1:员工B呼叫客户A 2:客户A呼叫员工B
@@ -9003,7 +8863,7 @@ export class GetXDefaultConfigResponseBodyReachJson extends $tea.Model {
    * 通话状态 1:通话振铃 2:接通前 3:接通后 4:通话结束 5:已接通6:未接通
    * 
    * @example
-   * 3
+   * 1
    */
   callStatus?: string;
   /**
@@ -9075,13 +8935,13 @@ export class GetXDefaultConfigResponseBodyReachJson extends $tea.Model {
   }
 }
 
-export class GetXDefaultConfigResponseBodySequenceCalls extends $tea.Model {
+export class GetXConfigResponseBodyDataSequenceCalls extends $tea.Model {
   /**
    * @remarks
    * 顺振提示音放音编号，格式如callNoPlayCode
    * 
    * @example
-   * 01
+   * 示例值示例值示例值
    */
   sequenceCallNoPlayCode?: string;
   /**
@@ -9089,7 +8949,7 @@ export class GetXDefaultConfigResponseBodySequenceCalls extends $tea.Model {
    * 顺振被叫号码
    * 
    * @example
-   * 18*******33
+   * 示例值示例值示例值
    */
   sequenceCalledNo?: string;
   /**
@@ -9097,7 +8957,7 @@ export class GetXDefaultConfigResponseBodySequenceCalls extends $tea.Model {
    * 接通后主被叫放音编号，格式如calledPlayCode
    * 
    * @example
-   * 02
+   * 示例值示例值示例值
    */
   sequenceCalledPlayCode?: string;
   static names(): { [key: string]: string } {
@@ -9121,7 +8981,319 @@ export class GetXDefaultConfigResponseBodySequenceCalls extends $tea.Model {
   }
 }
 
-export class ListXTelephonesResponseBodyData extends $tea.Model {
+export class GetXConfigResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * 开/关呼叫能力状态： ‘0’：禁用； ‘1’：开启；
+   * 
+   * @example
+   * 0
+   */
+  callAbility?: string;
+  /**
+   * @remarks
+   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
+   * 
+   * @example
+   * 00
+   */
+  GNFlag?: string;
+  /**
+   * @remarks
+   * 企业名片规则控制参数
+   */
+  reachJsons?: GetXConfigResponseBodyDataReachJsons[];
+  /**
+   * @remarks
+   * 顺振控制参数
+   */
+  sequenceCalls?: GetXConfigResponseBodyDataSequenceCalls[];
+  /**
+   * @remarks
+   * 顺振结束时间 格式：HH:mm:ss 18:00:00
+   * 
+   * @example
+   * 09:00:00
+   */
+  sequenceEndTime?: string;
+  /**
+   * @remarks
+   * 顺振开启时间 格式：HH:mm:ss 09:00:00
+   * 
+   * @example
+   * 09:00:00
+   */
+  sequenceStartTime?: string;
+  /**
+   * @remarks
+   * 开/关短信功能状态： ‘0’：禁用； ‘1’：开启；
+   * 
+   * @example
+   * 0
+   */
+  smsAbility?: string;
+  /**
+   * @remarks
+   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
+   * 
+   * @example
+   * 0
+   */
+  smsSignMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callAbility: 'CallAbility',
+      GNFlag: 'GNFlag',
+      reachJsons: 'ReachJsons',
+      sequenceCalls: 'SequenceCalls',
+      sequenceEndTime: 'SequenceEndTime',
+      sequenceStartTime: 'SequenceStartTime',
+      smsAbility: 'SmsAbility',
+      smsSignMode: 'SmsSignMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callAbility: 'string',
+      GNFlag: 'string',
+      reachJsons: { 'type': 'array', 'itemType': GetXConfigResponseBodyDataReachJsons },
+      sequenceCalls: { 'type': 'array', 'itemType': GetXConfigResponseBodyDataSequenceCalls },
+      sequenceEndTime: 'string',
+      sequenceStartTime: 'string',
+      smsAbility: 'string',
+      smsSignMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetXDefaultConfigResponseBodyDataReachJson extends $tea.Model {
+  /**
+   * @remarks
+   * 呼叫方向 1:员工B呼叫客户A 2:客户A呼叫员工B
+   * 
+   * @example
+   * 1
+   */
+  callDir?: string;
+  /**
+   * @remarks
+   * 通话状态 1:通话振铃 2:接通前 3:接通后 4:通话结束 5:已接通6:未接通
+   * 
+   * @example
+   * 1
+   */
+  callStatus?: string;
+  /**
+   * @remarks
+   * 接收方向 1:主叫 2:被叫
+   * 
+   * @example
+   * 1
+   */
+  receiveDir?: string;
+  /**
+   * @remarks
+   * 规则ID
+   * 
+   * @example
+   * 345
+   */
+  ruleId?: string;
+  /**
+   * @remarks
+   * 规则名称
+   * 
+   * @example
+   * 企业名片-短信规则
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * 规则类型： 1：企业名片-短信 2：企业名片-闪信 3：企业名片-视频 4：企业名片-音频
+   * 
+   * @example
+   * 1
+   */
+  ruleType?: string;
+  /**
+   * @remarks
+   * 模板ID
+   * 
+   * @example
+   * 12345
+   */
+  tempId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callDir: 'CallDir',
+      callStatus: 'CallStatus',
+      receiveDir: 'ReceiveDir',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      ruleType: 'RuleType',
+      tempId: 'TempId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callDir: 'string',
+      callStatus: 'string',
+      receiveDir: 'string',
+      ruleId: 'string',
+      ruleName: 'string',
+      ruleType: 'string',
+      tempId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetXDefaultConfigResponseBodyDataSequenceCall extends $tea.Model {
+  /**
+   * @remarks
+   * 顺振提示音放音编号，格式如callNoPlayCode
+   * 
+   * @example
+   * 示例值
+   */
+  sequenceCallNoPlayCode?: string;
+  /**
+   * @remarks
+   * 顺振被叫号码
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  sequenceCalledNo?: string;
+  /**
+   * @remarks
+   * 接通后主被叫放音编号，格式如calledPlayCode
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  sequenceCalledPlayCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sequenceCallNoPlayCode: 'SequenceCallNoPlayCode',
+      sequenceCalledNo: 'SequenceCalledNo',
+      sequenceCalledPlayCode: 'SequenceCalledPlayCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sequenceCallNoPlayCode: 'string',
+      sequenceCalledNo: 'string',
+      sequenceCalledPlayCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetXDefaultConfigResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * 开/关呼叫能力状态： ‘0’：禁用； ‘1’：开启；
+   * 
+   * @example
+   * 0
+   */
+  callAbility?: string;
+  /**
+   * @remarks
+   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
+   * 
+   * @example
+   * 00
+   */
+  GNFlag?: string;
+  /**
+   * @remarks
+   * 企业名片规则控制参数
+   */
+  reachJson?: GetXDefaultConfigResponseBodyDataReachJson[];
+  /**
+   * @remarks
+   * 顺振控制参数
+   */
+  sequenceCall?: GetXDefaultConfigResponseBodyDataSequenceCall[];
+  /**
+   * @remarks
+   * 顺振结束时间 格式：HH:mm:ss 18:00:00
+   * 
+   * @example
+   * 09:00:00
+   */
+  sequenceEndTime?: string;
+  /**
+   * @remarks
+   * 顺振开启时间 格式：HH:mm:ss 09:00:00
+   * 
+   * @example
+   * 09:00:00
+   */
+  sequenceStartTime?: string;
+  /**
+   * @remarks
+   * 开/关短信功能状态： ‘0’：禁用； ‘1’：开启；
+   * 
+   * @example
+   * 0
+   */
+  smsAbility?: string;
+  /**
+   * @remarks
+   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
+   * 
+   * @example
+   * 0
+   */
+  smsSignMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callAbility: 'CallAbility',
+      GNFlag: 'GNFlag',
+      reachJson: 'ReachJson',
+      sequenceCall: 'SequenceCall',
+      sequenceEndTime: 'SequenceEndTime',
+      sequenceStartTime: 'SequenceStartTime',
+      smsAbility: 'SmsAbility',
+      smsSignMode: 'SmsSignMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callAbility: 'string',
+      GNFlag: 'string',
+      reachJson: { 'type': 'array', 'itemType': GetXDefaultConfigResponseBodyDataReachJson },
+      sequenceCall: { 'type': 'array', 'itemType': GetXDefaultConfigResponseBodyDataSequenceCall },
+      sequenceEndTime: 'string',
+      sequenceStartTime: 'string',
+      smsAbility: 'string',
+      smsSignMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListXTelephonesResponseBodyDataList extends $tea.Model {
   /**
    * @remarks
    * 绑定失败原因
@@ -9151,7 +9323,7 @@ export class ListXTelephonesResponseBodyData extends $tea.Model {
    * 客户号码池key
    * 
    * @example
-   * FC5***********************a1a
+   * FC533e6eeb81f4400c87ef3745a21a1a
    */
   customerPoolKey?: string;
   /**
@@ -9183,7 +9355,7 @@ export class ListXTelephonesResponseBodyData extends $tea.Model {
    * X号码
    * 
    * @example
-   * 17*******46
+   * 17816876546
    */
   telephone?: string;
   /**
@@ -9229,6 +9401,59 @@ export class ListXTelephonesResponseBodyData extends $tea.Model {
       telephone: 'string',
       telephoneStatus: 'string',
       unbindTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListXTelephonesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * 数据集合
+   */
+  list?: ListXTelephonesResponseBodyDataList[];
+  /**
+   * @remarks
+   * 页码
+   * 
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @remarks
+   * 每页条数
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * 符合查询条件的总数量
+   * 
+   * @example
+   * 50
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListXTelephonesResponseBodyDataList },
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
     };
   }
 
@@ -9469,6 +9694,32 @@ export class QuerySecretNoRemainResponseBodySecretRemainDTO extends $tea.Model {
   }
 }
 
+export class QuerySoundRecordResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * 通话录音url路径，最大长度1000，有效期1小时
+   * 
+   * @example
+   * http://www.oss.com/temepl/a.mp3
+   */
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySubscriptionDetailResponseBodySecretBindDetailDTO extends $tea.Model {
   /**
    * @remarks
@@ -9619,6 +9870,98 @@ export class QuerySubscriptionDetailResponseBodySecretBindDetailDTO extends $tea
       phoneNoX: 'string',
       status: 'number',
       subsId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnBindAXBResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * 返回状态码 0000表示成功 其他表示失败
+   * 
+   * @example
+   * 0000
+   */
+  code?: string;
+  /**
+   * @remarks
+   * 返回信息
+   * 
+   * @example
+   * 成功
+   */
+  message?: string;
+  /**
+   * @remarks
+   * 返回是否成功 true  表示成功 false表示失败
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnBindXBResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * 返回状态码 0000表示成功 其他表示失败
+   * 
+   * @example
+   * 0000
+   */
+  code?: string;
+  /**
+   * @remarks
+   * 返回信息
+   * 
+   * @example
+   * 成功
+   */
+  message?: string;
+  /**
+   * @remarks
+   * 返回是否成功 true  表示成功 false表示失败
+   * 
+   * @example
+   * false
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      success: 'boolean',
     };
   }
 
