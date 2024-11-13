@@ -4823,14 +4823,28 @@ export class CreateWaitingRoomRequest extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * __aliwaitingroom_example
    */
   cookieName?: string;
+  /**
+   * @example
+   * Hello%20world!
+   */
   customPageHtml?: string;
   description?: string;
+  /**
+   * @example
+   * on
+   */
   disableSessionRenewalEnable?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * on
    */
   enable?: string;
   /**
@@ -4838,47 +4852,83 @@ export class CreateWaitingRoomRequest extends $tea.Model {
    * This parameter is required.
    */
   hostNameAndPath?: CreateWaitingRoomRequestHostNameAndPath[];
+  /**
+   * @example
+   * on
+   */
   jsonResponseEnable?: string;
+  /**
+   * @example
+   * enus
+   */
   language?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * waitingroom_example
    */
   name?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 200
    */
   newUsersPerMinute?: string;
+  /**
+   * @example
+   * on
+   */
   queueAllEnable?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * fifo
    */
   queuingMethod?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 200
    */
   queuingStatusCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 5
    */
   sessionDuration?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
    */
   siteId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 300
    */
   totalActiveUsers?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * default
    */
   waitingRoomType?: string;
   static names(): { [key: string]: string } {
@@ -4934,14 +4984,28 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * __aliwaitingroom_example
    */
   cookieName?: string;
+  /**
+   * @example
+   * Hello%20world!
+   */
   customPageHtml?: string;
   description?: string;
+  /**
+   * @example
+   * on
+   */
   disableSessionRenewalEnable?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * on
    */
   enable?: string;
   /**
@@ -4949,47 +5013,83 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
    * This parameter is required.
    */
   hostNameAndPathShrink?: string;
+  /**
+   * @example
+   * on
+   */
   jsonResponseEnable?: string;
+  /**
+   * @example
+   * enus
+   */
   language?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * waitingroom_example
    */
   name?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 200
    */
   newUsersPerMinute?: string;
+  /**
+   * @example
+   * on
+   */
   queueAllEnable?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * fifo
    */
   queuingMethod?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 200
    */
   queuingStatusCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 5
    */
   sessionDuration?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
    */
   siteId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 300
    */
   totalActiveUsers?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * default
    */
   waitingRoomType?: string;
   static names(): { [key: string]: string } {
@@ -5042,6 +5142,10 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
 }
 
 export class CreateWaitingRoomResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 85H66C7B-671A-4297-9187-2C4477247A74
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15098,6 +15202,7 @@ export class ListWafManagedRulesRequest extends $tea.Model {
    * 20
    */
   pageSize?: number;
+  protectionLevel?: number;
   queryArgs?: ListWafManagedRulesRequestQueryArgs;
   /**
    * @remarks
@@ -15114,6 +15219,7 @@ export class ListWafManagedRulesRequest extends $tea.Model {
       language: 'Language',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      protectionLevel: 'ProtectionLevel',
       queryArgs: 'QueryArgs',
       siteId: 'SiteId',
     };
@@ -15126,6 +15232,7 @@ export class ListWafManagedRulesRequest extends $tea.Model {
       language: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      protectionLevel: 'number',
       queryArgs: ListWafManagedRulesRequestQueryArgs,
       siteId: 'number',
     };
@@ -15168,6 +15275,7 @@ export class ListWafManagedRulesShrinkRequest extends $tea.Model {
    * 20
    */
   pageSize?: number;
+  protectionLevel?: number;
   queryArgsShrink?: string;
   /**
    * @remarks
@@ -15184,6 +15292,7 @@ export class ListWafManagedRulesShrinkRequest extends $tea.Model {
       language: 'Language',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      protectionLevel: 'ProtectionLevel',
       queryArgsShrink: 'QueryArgs',
       siteId: 'SiteId',
     };
@@ -15196,6 +15305,7 @@ export class ListWafManagedRulesShrinkRequest extends $tea.Model {
       language: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      protectionLevel: 'number',
       queryArgsShrink: 'string',
       siteId: 'number',
     };
@@ -15781,10 +15891,12 @@ export class ListWafTemplateRulesRequest extends $tea.Model {
    */
   phase?: string;
   queryArgs?: ListWafTemplateRulesRequestQueryArgs;
+  siteId?: number;
   static names(): { [key: string]: string } {
     return {
       phase: 'Phase',
       queryArgs: 'QueryArgs',
+      siteId: 'SiteId',
     };
   }
 
@@ -15792,6 +15904,7 @@ export class ListWafTemplateRulesRequest extends $tea.Model {
     return {
       phase: 'string',
       queryArgs: ListWafTemplateRulesRequestQueryArgs,
+      siteId: 'number',
     };
   }
 
@@ -15807,10 +15920,12 @@ export class ListWafTemplateRulesShrinkRequest extends $tea.Model {
    */
   phase?: string;
   queryArgsShrink?: string;
+  siteId?: number;
   static names(): { [key: string]: string } {
     return {
       phase: 'Phase',
       queryArgsShrink: 'QueryArgs',
+      siteId: 'SiteId',
     };
   }
 
@@ -15818,6 +15933,7 @@ export class ListWafTemplateRulesShrinkRequest extends $tea.Model {
     return {
       phase: 'string',
       queryArgsShrink: 'string',
+      siteId: 'number',
     };
   }
 
@@ -17967,225 +18083,6 @@ export class StopScheduledPreloadExecutionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopScheduledPreloadExecutionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransformExpressionToMatchRequest extends $tea.Model {
-  /**
-   * @example
-   * http_bot
-   */
-  expression?: string;
-  /**
-   * @example
-   * http_bot
-   */
-  phase?: string;
-  /**
-   * @example
-   * 1
-   */
-  siteId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      expression: 'Expression',
-      phase: 'Phase',
-      siteId: 'SiteId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      expression: 'string',
-      phase: 'string',
-      siteId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransformExpressionToMatchResponseBody extends $tea.Model {
-  match?: WafRuleMatch;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      match: 'Match',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      match: WafRuleMatch,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransformExpressionToMatchResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TransformExpressionToMatchResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TransformExpressionToMatchResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransformMatchToExpressionRequest extends $tea.Model {
-  /**
-   * @example
-   * http_bot
-   */
-  match?: WafRuleMatch;
-  /**
-   * @example
-   * http_bot
-   */
-  phase?: string;
-  /**
-   * @example
-   * 1
-   */
-  siteId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      match: 'Match',
-      phase: 'Phase',
-      siteId: 'SiteId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      match: WafRuleMatch,
-      phase: 'string',
-      siteId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransformMatchToExpressionShrinkRequest extends $tea.Model {
-  /**
-   * @example
-   * http_bot
-   */
-  matchShrink?: string;
-  /**
-   * @example
-   * http_bot
-   */
-  phase?: string;
-  /**
-   * @example
-   * 1
-   */
-  siteId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      matchShrink: 'Match',
-      phase: 'Phase',
-      siteId: 'SiteId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      matchShrink: 'string',
-      phase: 'string',
-      siteId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransformMatchToExpressionResponseBody extends $tea.Model {
-  expression?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      expression: 'Expression',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      expression: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransformMatchToExpressionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TransformMatchToExpressionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TransformMatchToExpressionResponseBody,
     };
   }
 
@@ -21081,12 +20978,14 @@ export class WafBatchRuleSharedActions extends $tea.Model {
 }
 
 export class WafRuleConfigActionsBypass extends $tea.Model {
+  customRules?: number[];
   regularRules?: number[];
   regularTypes?: string[];
   skip?: string;
   tags?: string[];
   static names(): { [key: string]: string } {
     return {
+      customRules: 'CustomRules',
       regularRules: 'RegularRules',
       regularTypes: 'RegularTypes',
       skip: 'Skip',
@@ -21096,6 +20995,7 @@ export class WafRuleConfigActionsBypass extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      customRules: { 'type': 'array', 'itemType': 'number' },
       regularRules: { 'type': 'array', 'itemType': 'number' },
       regularTypes: { 'type': 'array', 'itemType': 'string' },
       skip: 'string',
@@ -21697,6 +21597,37 @@ export class FieldContentValueFieldList extends $tea.Model {
   }
 }
 
+export class BatchCreateRecordsRequestRecordListAuthConf extends $tea.Model {
+  accessKey?: string;
+  authType?: string;
+  region?: string;
+  secretKey?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      authType: 'AuthType',
+      region: 'Region',
+      secretKey: 'SecretKey',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      authType: 'string',
+      region: 'string',
+      secretKey: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchCreateRecordsRequestRecordListData extends $tea.Model {
   /**
    * @example
@@ -21812,6 +21743,7 @@ export class BatchCreateRecordsRequestRecordListData extends $tea.Model {
 }
 
 export class BatchCreateRecordsRequestRecordList extends $tea.Model {
+  authConf?: BatchCreateRecordsRequestRecordListAuthConf;
   /**
    * @example
    * web
@@ -21866,6 +21798,7 @@ export class BatchCreateRecordsRequestRecordList extends $tea.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      authConf: 'AuthConf',
       bizName: 'BizName',
       data: 'Data',
       proxied: 'Proxied',
@@ -21878,6 +21811,7 @@ export class BatchCreateRecordsRequestRecordList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authConf: BatchCreateRecordsRequestRecordListAuthConf,
       bizName: 'string',
       data: BatchCreateRecordsRequestRecordListData,
       proxied: 'boolean',
@@ -23426,16 +23360,25 @@ export class CreateWaitingRoomRequestHostNameAndPath extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * example.com
    */
   domain?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * /test
    */
   path?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * test.
    */
   subdomain?: string;
   static names(): { [key: string]: string } {
@@ -24287,11 +24230,6 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $te
   postStart?: string;
   /**
    * @example
-   * sh prestart.sh "echo hello world"
-   */
-  preStart?: string;
-  /**
-   * @example
    * sh prestop.sh "echo hello world"
    */
   preStop?: string;
@@ -24317,7 +24255,6 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $te
       isACRImage: 'IsACRImage',
       name: 'Name',
       postStart: 'PostStart',
-      preStart: 'PreStart',
       preStop: 'PreStop',
       probeContent: 'ProbeContent',
       probeType: 'ProbeType',
@@ -24336,7 +24273,6 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $te
       isACRImage: 'boolean',
       name: 'string',
       postStart: 'string',
-      preStart: 'string',
       preStop: 'string',
       probeContent: GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent,
       probeType: 'string',
@@ -25826,11 +25762,6 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
   postStart?: string;
   /**
    * @example
-   * sh start.sh
-   */
-  preStart?: string;
-  /**
-   * @example
    * sh stop.sh
    */
   preStop?: string;
@@ -25853,7 +25784,6 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
       image: 'Image',
       name: 'Name',
       postStart: 'PostStart',
-      preStart: 'PreStart',
       preStop: 'PreStop',
       probeContent: 'ProbeContent',
       probeType: 'ProbeType',
@@ -25869,7 +25799,6 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
       image: 'string',
       name: 'string',
       postStart: 'string',
-      preStart: 'string',
       preStop: 'string',
       probeContent: ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeContent,
       probeType: 'string',
@@ -27626,6 +27555,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Mode
    * PREPAY
    */
   billingMode?: string;
+  botInstanceLevel?: string;
   /**
    * @example
    * domestic,overseas
@@ -27636,11 +27566,17 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Mode
    * YYYY-MM-DDThh:mm:ssZ
    */
   createTime?: string;
+  crossborderTraffic?: string;
+  ddosBurstableDomesticProtection?: string;
+  ddosBurstableOverseasProtection?: string;
+  ddosInstanceLevel?: string;
   /**
    * @example
    * 3
    */
   duration?: number;
+  edgeRoutineRquest?: string;
+  edgeWafRequest?: string;
   /**
    * @example
    * YYYY-MM-DDThh:mm:ssZ
@@ -27651,11 +27587,14 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Mode
    * sp-xcdn-96wblslz****
    */
   instanceId?: string;
+  layer4Traffic?: string;
+  layer4TrafficIntl?: string;
   /**
    * @example
    * basic
    */
   planName?: string;
+  planTraffic?: string;
   /**
    * @example
    * normal
@@ -27667,6 +27606,8 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Mode
    */
   siteQuota?: string;
   sites?: ListUserRatePlanInstancesResponseBodyInstanceInfoSites[];
+  smartRoutingRequest?: string;
+  staticRequest?: string;
   /**
    * @example
    * online
@@ -27675,15 +27616,27 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Mode
   static names(): { [key: string]: string } {
     return {
       billingMode: 'BillingMode',
+      botInstanceLevel: 'BotInstanceLevel',
       coverages: 'Coverages',
       createTime: 'CreateTime',
+      crossborderTraffic: 'CrossborderTraffic',
+      ddosBurstableDomesticProtection: 'DdosBurstableDomesticProtection',
+      ddosBurstableOverseasProtection: 'DdosBurstableOverseasProtection',
+      ddosInstanceLevel: 'DdosInstanceLevel',
       duration: 'Duration',
+      edgeRoutineRquest: 'EdgeRoutineRquest',
+      edgeWafRequest: 'EdgeWafRequest',
       expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
+      layer4Traffic: 'Layer4Traffic',
+      layer4TrafficIntl: 'Layer4TrafficIntl',
       planName: 'PlanName',
+      planTraffic: 'PlanTraffic',
       planType: 'PlanType',
       siteQuota: 'SiteQuota',
       sites: 'Sites',
+      smartRoutingRequest: 'SmartRoutingRequest',
+      staticRequest: 'StaticRequest',
       status: 'Status',
     };
   }
@@ -27691,15 +27644,27 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       billingMode: 'string',
+      botInstanceLevel: 'string',
       coverages: 'string',
       createTime: 'string',
+      crossborderTraffic: 'string',
+      ddosBurstableDomesticProtection: 'string',
+      ddosBurstableOverseasProtection: 'string',
+      ddosInstanceLevel: 'string',
       duration: 'number',
+      edgeRoutineRquest: 'string',
+      edgeWafRequest: 'string',
       expireTime: 'string',
       instanceId: 'string',
+      layer4Traffic: 'string',
+      layer4TrafficIntl: 'string',
       planName: 'string',
+      planTraffic: 'string',
       planType: 'string',
       siteQuota: 'string',
       sites: { 'type': 'array', 'itemType': ListUserRatePlanInstancesResponseBodyInstanceInfoSites },
+      smartRoutingRequest: 'string',
+      staticRequest: 'string',
       status: 'string',
     };
   }
@@ -27720,11 +27685,6 @@ export class ListWafManagedRulesRequestQueryArgs extends $tea.Model {
    * example
    */
   idNameLike?: string;
-  /**
-   * @example
-   * 1
-   */
-  protectionLevel?: number;
   protectionLevels?: number[];
   /**
    * @example
@@ -27735,7 +27695,6 @@ export class ListWafManagedRulesRequestQueryArgs extends $tea.Model {
     return {
       action: 'Action',
       idNameLike: 'IdNameLike',
-      protectionLevel: 'ProtectionLevel',
       protectionLevels: 'ProtectionLevels',
       status: 'Status',
     };
@@ -27745,7 +27704,6 @@ export class ListWafManagedRulesRequestQueryArgs extends $tea.Model {
     return {
       action: 'string',
       idNameLike: 'string',
-      protectionLevel: 'number',
       protectionLevels: { 'type': 'array', 'itemType': 'number' },
       status: 'string',
     };
@@ -35238,6 +35196,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.protectionLevel)) {
+      query["ProtectionLevel"] = request.protectionLevel;
+    }
+
     if (!Util.isUnset(request.queryArgsShrink)) {
       query["QueryArgs"] = request.queryArgsShrink;
     }
@@ -35478,6 +35440,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.queryArgsShrink)) {
       query["QueryArgs"] = request.queryArgsShrink;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -36525,116 +36491,6 @@ export default class Client extends OpenApi {
   async stopScheduledPreloadExecution(request: StopScheduledPreloadExecutionRequest): Promise<StopScheduledPreloadExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopScheduledPreloadExecutionWithOptions(request, runtime);
-  }
-
-  /**
-   * 将表达式转换为匹配项
-   * 
-   * @param request - TransformExpressionToMatchRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns TransformExpressionToMatchResponse
-   */
-  async transformExpressionToMatchWithOptions(request: TransformExpressionToMatchRequest, runtime: $Util.RuntimeOptions): Promise<TransformExpressionToMatchResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.expression)) {
-      body["Expression"] = request.expression;
-    }
-
-    if (!Util.isUnset(request.phase)) {
-      body["Phase"] = request.phase;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "TransformExpressionToMatch",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<TransformExpressionToMatchResponse>(await this.callApi(params, req, runtime), new TransformExpressionToMatchResponse({}));
-  }
-
-  /**
-   * 将表达式转换为匹配项
-   * 
-   * @param request - TransformExpressionToMatchRequest
-   * @returns TransformExpressionToMatchResponse
-   */
-  async transformExpressionToMatch(request: TransformExpressionToMatchRequest): Promise<TransformExpressionToMatchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.transformExpressionToMatchWithOptions(request, runtime);
-  }
-
-  /**
-   * 将匹配项转换为表达式
-   * 
-   * @param tmpReq - TransformMatchToExpressionRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns TransformMatchToExpressionResponse
-   */
-  async transformMatchToExpressionWithOptions(tmpReq: TransformMatchToExpressionRequest, runtime: $Util.RuntimeOptions): Promise<TransformMatchToExpressionResponse> {
-    Util.validateModel(tmpReq);
-    let request = new TransformMatchToExpressionShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.match)) {
-      request.matchShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.match, "Match", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.matchShrink)) {
-      body["Match"] = request.matchShrink;
-    }
-
-    if (!Util.isUnset(request.phase)) {
-      body["Phase"] = request.phase;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "TransformMatchToExpression",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<TransformMatchToExpressionResponse>(await this.callApi(params, req, runtime), new TransformMatchToExpressionResponse({}));
-  }
-
-  /**
-   * 将匹配项转换为表达式
-   * 
-   * @param request - TransformMatchToExpressionRequest
-   * @returns TransformMatchToExpressionResponse
-   */
-  async transformMatchToExpression(request: TransformMatchToExpressionRequest): Promise<TransformMatchToExpressionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.transformMatchToExpressionWithOptions(request, runtime);
   }
 
   /**
