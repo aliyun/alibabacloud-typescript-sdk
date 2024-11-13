@@ -201,7 +201,9 @@ export class ChannelProperties extends $tea.Model {
    */
   huaweiMessageUrgency?: string;
   mainActivity?: string;
+  oppoCategory?: string;
   oppoChannelId?: string;
+  oppoNotifyLevel?: string;
   /**
    * @example
    * "true" ,默认为"false"，可不填
@@ -223,7 +225,9 @@ export class ChannelProperties extends $tea.Model {
       huaweiChannelImportance: 'huaweiChannelImportance',
       huaweiMessageUrgency: 'huaweiMessageUrgency',
       mainActivity: 'mainActivity',
+      oppoCategory: 'oppoCategory',
       oppoChannelId: 'oppoChannelId',
+      oppoNotifyLevel: 'oppoNotifyLevel',
       useHuaweiMessage: 'useHuaweiMessage',
       vivoAddBadge: 'vivoAddBadge',
       vivoCategory: 'vivoCategory',
@@ -240,7 +244,9 @@ export class ChannelProperties extends $tea.Model {
       huaweiChannelImportance: 'string',
       huaweiMessageUrgency: 'string',
       mainActivity: 'string',
+      oppoCategory: 'string',
       oppoChannelId: 'string',
+      oppoNotifyLevel: 'string',
       useHuaweiMessage: 'string',
       vivoAddBadge: 'string',
       vivoCategory: 'string',
