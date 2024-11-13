@@ -1330,6 +1330,7 @@ export class CreateCodeSourceRequest extends $tea.Model {
    * master
    */
   codeBranch?: string;
+  codeCommit?: string;
   /**
    * @example
    * https://code.aliyun.com/******
@@ -1375,6 +1376,7 @@ export class CreateCodeSourceRequest extends $tea.Model {
     return {
       accessibility: 'Accessibility',
       codeBranch: 'CodeBranch',
+      codeCommit: 'CodeCommit',
       codeRepo: 'CodeRepo',
       codeRepoAccessToken: 'CodeRepoAccessToken',
       codeRepoUserName: 'CodeRepoUserName',
@@ -1389,6 +1391,7 @@ export class CreateCodeSourceRequest extends $tea.Model {
     return {
       accessibility: 'string',
       codeBranch: 'string',
+      codeCommit: 'string',
       codeRepo: 'string',
       codeRepoAccessToken: 'string',
       codeRepoUserName: 'string',
@@ -10759,6 +10762,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.codeBranch)) {
       body["CodeBranch"] = request.codeBranch;
+    }
+
+    if (!Util.isUnset(request.codeCommit)) {
+      body["CodeCommit"] = request.codeCommit;
     }
 
     if (!Util.isUnset(request.codeRepo)) {
