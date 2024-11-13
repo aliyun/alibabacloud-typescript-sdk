@@ -4867,6 +4867,7 @@ export class DescribeAssetListRequest extends $tea.Model {
    * discovered in 1 hour
    */
   newResourceTag?: string;
+  outStatistic?: string;
   /**
    * @remarks
    * The number of entries per page. Valid values: 1 to 50.
@@ -4915,6 +4916,7 @@ export class DescribeAssetListRequest extends $tea.Model {
    * 192.0.XX.XX
    */
   searchItem?: string;
+  sensitiveStatus?: string;
   /**
    * @remarks
    * The status of the security group policy. Valid values:
@@ -4970,10 +4972,12 @@ export class DescribeAssetListRequest extends $tea.Model {
       lang: 'Lang',
       memberUid: 'MemberUid',
       newResourceTag: 'NewResourceTag',
+      outStatistic: 'OutStatistic',
       pageSize: 'PageSize',
       regionNo: 'RegionNo',
       resourceType: 'ResourceType',
       searchItem: 'SearchItem',
+      sensitiveStatus: 'SensitiveStatus',
       sgStatus: 'SgStatus',
       status: 'Status',
       type: 'Type',
@@ -4988,10 +4992,12 @@ export class DescribeAssetListRequest extends $tea.Model {
       lang: 'string',
       memberUid: 'number',
       newResourceTag: 'string',
+      outStatistic: 'string',
       pageSize: 'string',
       regionNo: 'string',
       resourceType: 'string',
       searchItem: 'string',
+      sensitiveStatus: 'string',
       sgStatus: 'string',
       status: 'string',
       type: 'string',
@@ -18393,6 +18399,7 @@ export class DescribeAssetListResponseBodyAssets extends $tea.Model {
    * 4
    */
   ipVersion?: number;
+  last7DayOutTrafficBytes?: number;
   /**
    * @remarks
    * The UID of the member.
@@ -18506,6 +18513,7 @@ export class DescribeAssetListResponseBodyAssets extends $tea.Model {
    * low
    */
   riskLevel?: string;
+  sensitiveDataStatus?: string;
   /**
    * @remarks
    * The status of the security group policy. Valid values:
@@ -18554,6 +18562,7 @@ export class DescribeAssetListResponseBodyAssets extends $tea.Model {
       internetAddress: 'InternetAddress',
       intranetAddress: 'IntranetAddress',
       ipVersion: 'IpVersion',
+      last7DayOutTrafficBytes: 'Last7DayOutTrafficBytes',
       memberUid: 'MemberUid',
       name: 'Name',
       newResourceTag: 'NewResourceTag',
@@ -18564,6 +18573,7 @@ export class DescribeAssetListResponseBodyAssets extends $tea.Model {
       resourceInstanceId: 'ResourceInstanceId',
       resourceType: 'ResourceType',
       riskLevel: 'RiskLevel',
+      sensitiveDataStatus: 'SensitiveDataStatus',
       sgStatus: 'SgStatus',
       sgStatusTime: 'SgStatusTime',
       syncStatus: 'SyncStatus',
@@ -18580,6 +18590,7 @@ export class DescribeAssetListResponseBodyAssets extends $tea.Model {
       internetAddress: 'string',
       intranetAddress: 'string',
       ipVersion: 'number',
+      last7DayOutTrafficBytes: 'number',
       memberUid: 'number',
       name: 'string',
       newResourceTag: 'string',
@@ -18590,6 +18601,7 @@ export class DescribeAssetListResponseBodyAssets extends $tea.Model {
       resourceInstanceId: 'string',
       resourceType: 'string',
       riskLevel: 'string',
+      sensitiveDataStatus: 'string',
       sgStatus: 'string',
       sgStatusTime: 'number',
       syncStatus: 'string',
@@ -18678,10 +18690,24 @@ export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $te
    * 10
    */
   ipNumUsed?: number;
+  isIpNumEnough?: number;
+  isRegionNumEnough?: number;
+  isSuggestUpdate?: number;
+  regionNumSpec?: number;
+  regionNumUsed?: number;
+  sensitiveDataIpNumSpec?: number;
+  sensitiveDataIpNumUsed?: number;
   static names(): { [key: string]: string } {
     return {
       ipNumSpec: 'IpNumSpec',
       ipNumUsed: 'IpNumUsed',
+      isIpNumEnough: 'IsIpNumEnough',
+      isRegionNumEnough: 'IsRegionNumEnough',
+      isSuggestUpdate: 'IsSuggestUpdate',
+      regionNumSpec: 'RegionNumSpec',
+      regionNumUsed: 'RegionNumUsed',
+      sensitiveDataIpNumSpec: 'SensitiveDataIpNumSpec',
+      sensitiveDataIpNumUsed: 'SensitiveDataIpNumUsed',
     };
   }
 
@@ -18689,6 +18715,13 @@ export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $te
     return {
       ipNumSpec: 'number',
       ipNumUsed: 'number',
+      isIpNumEnough: 'number',
+      isRegionNumEnough: 'number',
+      isSuggestUpdate: 'number',
+      regionNumSpec: 'number',
+      regionNumUsed: 'number',
+      sensitiveDataIpNumSpec: 'number',
+      sensitiveDataIpNumUsed: 'number',
     };
   }
 
@@ -28168,6 +28201,10 @@ export default class Client extends OpenApi {
       query["NewResourceTag"] = request.newResourceTag;
     }
 
+    if (!Util.isUnset(request.outStatistic)) {
+      query["OutStatistic"] = request.outStatistic;
+    }
+
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -28182,6 +28219,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.searchItem)) {
       query["SearchItem"] = request.searchItem;
+    }
+
+    if (!Util.isUnset(request.sensitiveStatus)) {
+      query["SensitiveStatus"] = request.sensitiveStatus;
     }
 
     if (!Util.isUnset(request.sgStatus)) {
