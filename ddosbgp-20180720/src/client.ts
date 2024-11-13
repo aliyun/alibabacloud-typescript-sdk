@@ -10,9 +10,9 @@ import * as $tea from '@alicloud/tea-typescript';
 export class AddIpRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the Anti-DDoS Origin Enterprise instance.
+   * The ID of the Anti-DDoS Origin instance.
    * 
-   * >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin Enterprise instances.
+   * >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances.
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,7 @@ export class AddIpRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of IP addresses that you want to add to the Anti-DDoS Origin Enterprise instance. This parameter is a string consisting of JSON arrays. Each element in a JSON array is a JSON struct that includes the following field:
+   * The IP addresses that you want to add to the Anti-DDoS Origin instance. This parameter is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that includes the following field:
    * 
    * *   **ip**: required. The IP address that you want to add. Data type: string.
    * 
@@ -38,7 +38,7 @@ export class AddIpRequest extends $tea.Model {
   ipList?: string;
   /**
    * @remarks
-   * The region ID of the Anti-DDoS Origin Enterprise instance.
+   * The ID of the region where the Anti-DDoS Origin instance resides.
    * 
    * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
    * 
@@ -48,9 +48,9 @@ export class AddIpRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the Anti-DDoS Origin Enterprise instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. This parameter is empty by default, which indicates that the Anti-DDoS Origin instance belongs to the default resource group.
    * 
-   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * For information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
    * 
    * @example
    * rg-acfm2pz25js****
@@ -1414,9 +1414,9 @@ export class DeleteBlackholeResponse extends $tea.Model {
 export class DeleteIpRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the Anti-DDoS Origin Enterprise instance.
+   * The ID of the Anti-DDoS Origin instance.
    * 
-   * >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin Enterprise instances.
+   * >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances.
    * 
    * This parameter is required.
    * 
@@ -1426,13 +1426,13 @@ export class DeleteIpRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of IP addresses that you want to remove from the Anti-DDoS Origin Enterprise instance. This parameter is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
+   * The IP addresses that you want to remove from the Anti-DDoS Origin instance. This parameter is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
    * 
    * *   **ip**: required. The IP address that you want to remove. Data type: string.
    * 
    *     **
    * 
-   *     **Note** The IP addresses that you want to remove must be protected by the Anti-DDoS Origin Enterprise instance.
+   *     **Note** The IP addresses that you want to remove must be protected by the Anti-DDoS Origin instance.
    * 
    * This parameter is required.
    * 
@@ -1442,7 +1442,7 @@ export class DeleteIpRequest extends $tea.Model {
   ipList?: string;
   /**
    * @remarks
-   * The region ID of the Anti-DDoS Origin Enterprise instance.
+   * The ID of the region where the Anti-DDoS Origin instance resides.
    * 
    * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
    * 
@@ -1452,9 +1452,9 @@ export class DeleteIpRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the Anti-DDoS Origin Enterprise instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. This parameter is empty by default, which indicates that the Anti-DDoS Origin instance belongs to the default resource group.
    * 
-   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * For information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
    * 
    * @example
    * rg-acfm2pz25js****
@@ -2350,6 +2350,16 @@ export class DescribeDdosOriginInstanceBillRequest extends $tea.Model {
 }
 
 export class DescribeDdosOriginInstanceBillResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asset status.
+   * 
+   * *   **0**: No asset is added to the instance for protection.
+   * *   **1**: Assets are added to the instance for protection.
+   * 
+   * @example
+   * 0
+   */
   assetStatus?: number;
   /**
    * @remarks
@@ -2400,15 +2410,16 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $tea.Model {
    * @remarks
    * The IP address distribution. The JSON struct contains the following fields:
    * 
-   * *   **eipCnIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland
-   * *   **eipOvIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland
-   * *   **standardAssetsCnIpCount**: the number of IP addresses of regular Alibaba Cloud services in the Chinese mainland
-   * *   **standardAssetsOvIpCount**: the number of IP addresses of regular Alibaba Cloud services outside the Chinese mainland
+   * *   **eipCnIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland.
+   * *   **eipOvIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland.
+   * *   **standardAssetsCnIpCount**: the number of IP addresses of regular Alibaba Cloud services in the Chinese mainland.
+   * *   **standardAssetsOvIpCount**: the number of IP addresses of regular Alibaba Cloud services outside the Chinese mainland.
    * 
    * @example
    * {\\"eipCnIpCount\\":6,\\"eipOvIpCount\\":17,\\"standardAssetsCnIpCount\\":2,\\"standardAssetsOvIpCount\\":0}
    */
   ipInfo?: string;
+  monthlySummaryList?: DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList[];
   /**
    * @remarks
    * The request ID.
@@ -2484,6 +2495,7 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $tea.Model {
       ipCount: 'IpCount',
       ipCountOrFunctionList: 'IpCountOrFunctionList',
       ipInfo: 'IpInfo',
+      monthlySummaryList: 'MonthlySummaryList',
       requestId: 'RequestId',
       standardAssetsFlowList: 'StandardAssetsFlowList',
       standardAssetsFlowRegion: 'StandardAssetsFlowRegion',
@@ -2505,6 +2517,7 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $tea.Model {
       ipCount: 'number',
       ipCountOrFunctionList: { 'type': 'array', 'itemType': DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList },
       ipInfo: 'string',
+      monthlySummaryList: { 'type': 'array', 'itemType': DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList },
       requestId: 'string',
       standardAssetsFlowList: { 'type': 'array', 'itemType': DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList },
       standardAssetsFlowRegion: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -2677,6 +2690,10 @@ export class DescribeInstanceListRequest extends $tea.Model {
    * 0
    */
   instanceType?: string;
+  /**
+   * @remarks
+   * The mitigation plan of the Anti-DDoS Origin instance.
+   */
   instanceTypeList?: string[];
   /**
    * @remarks
@@ -2766,6 +2783,10 @@ export class DescribeInstanceListRequest extends $tea.Model {
    * rg-acfm2pz25js****
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags that are added to the Anti-DDoS Origin instance.
+   */
   tag?: DescribeInstanceListRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -2879,9 +2900,9 @@ export class DescribeInstanceListResponse extends $tea.Model {
 export class DescribeInstanceSpecsRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the Anti-DDoS Origin Enterprise instance. This parameter value is a string consisting of JSON arrays. Each element in a JSON array indicates an instance ID. If you want to query more than one instance, separate instance IDs with commas (,).
+   * The ID of the Anti-DDoS Origin instance. This parameter is a string that consists of JSON arrays. Each element in a JSON array indicates an instance ID. If you want to query more than one instance, separate instance IDs with commas (,).
    * 
-   * >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin Enterprise instances in a specific region.
+   * >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances in a specific region.
    * 
    * This parameter is required.
    * 
@@ -2891,9 +2912,9 @@ export class DescribeInstanceSpecsRequest extends $tea.Model {
   instanceIdList?: string;
   /**
    * @remarks
-   * The region ID of the Anti-DDoS Origin Enterprise instance. Default value: **cn-hangzhou**, which indicates the China (Hangzhou) region.
+   * The region ID of the Anti-DDoS Origin instance. Default value: **cn-hangzhou**, which indicates the China (Hangzhou) region.
    * 
-   * >  If your instance does not reside in the China (Hangzhou) region, you must specify this parameter to the region ID of your instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the regions of cloud assets that are supported by an Anti-DDoS Origin instance.
+   * >  If your instance does not reside in the China (Hangzhou) region, you must set this parameter to the region ID of your instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the regions of assets that can be protected by Anti-DDoS Origin in a specific region.
    * 
    * @example
    * cn-hangzhou
@@ -2901,9 +2922,9 @@ export class DescribeInstanceSpecsRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the Anti-DDoS Origin Enterprise instance belongs in Resource Management. This parameter is empty by default, which indicates that the Anti-DDoS Origin Enterprise instance belongs to the default resource group.
+   * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. This parameter is empty by default, which indicates that the Anti-DDoS Origin instance belongs to the default resource group.
    * 
-   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * For information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
    * 
    * @example
    * rg-acfm2pz25js****
@@ -2933,7 +2954,7 @@ export class DescribeInstanceSpecsRequest extends $tea.Model {
 export class DescribeInstanceSpecsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The specifications of the Anti-DDoS Origin Enterprise instance, including whether best-effort protection is enabled, the number of available best-effort protection sessions, and the number of used best-effort protection sessions.
+   * The specifications of the Anti-DDoS Origin instance, including whether best-effort protection is enabled, the number of available best-effort protection sessions, and the number of used best-effort protection sessions.
    */
   instanceSpecs?: DescribeInstanceSpecsResponseBodyInstanceSpecs[];
   /**
@@ -3919,9 +3940,9 @@ export class DescribeRdStatusResponse extends $tea.Model {
 export class DescribeRegionsRequest extends $tea.Model {
   /**
    * @remarks
-   * The region ID to query. The default value is **cn-hangzhou**, which indicates that the regions of cloud assets that are supported by an Anti-DDoS Origin instance in the China (Hangzhou) region are queried.
+   * The ID of the region. The default value is **cn-hangzhou**. If the default value is used, the regions of cloud assets that can be protected by Anti-DDoS Origin in the China (Hangzhou) region are queried.
    * 
-   * For more information about the IDs of other regions, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * If you want to specify another value for **RegionId**, see [Regions and Zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -3929,9 +3950,9 @@ export class DescribeRegionsRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. This parameter is empty by default, which indicates that the Anti-DDoS Origin instance belongs to the default resource group.
    * 
-   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * For information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
    * 
    * @example
    * rg-acfm2pz25js****
@@ -3967,12 +3988,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The information about regions of the cloud assets that are supported by the Anti-DDoS Origin instance. The information includes region IDs and names.
+   * The information about the regions of cloud assets that can be protected by Anti-DDoS Origin. The information includes region IDs and names.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F7CA8B4E-FB15-4336-A351-8DC29D66EA82
@@ -3980,10 +4001,10 @@ export class DescribeRegionsResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request is successful.
-   * *   **false**: The request failed.
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -4749,11 +4770,26 @@ export class ListPolicyRequest extends $tea.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The service type. Valid values:
+   * 
+   * *   **ecs**: Elastic Compute Service (ECS).
+   * *   **slb**: Server Load Balancer (SLB).
+   * *   **eip**: Elastic IP Address (EIP).
+   * *   **gf-eip**: EIP with Anti-DDoS (Enhanced) enabled.
+   * 
+   * >  This parameter is available only if Type is set to `default`.
+   * 
+   * @example
+   * ecs
+   */
   productType?: string;
   /**
    * @remarks
    * The type of the policy. Valid values:
    * 
+   * *   **default**: the default mitigation policy.
    * *   **l3**: IP-specific mitigation policies.
    * *   **l4**: port-specific mitigation policies.
    * 
@@ -5401,7 +5437,7 @@ export class ModifyPolicyRequest extends $tea.Model {
   actionType?: number;
   /**
    * @remarks
-   * The content of the policy.
+   * The policy content.
    */
   content?: ModifyPolicyRequestContent;
   /**
@@ -5481,7 +5517,7 @@ export class ModifyPolicyShrinkRequest extends $tea.Model {
   actionType?: number;
   /**
    * @remarks
-   * The content of the policy.
+   * The policy content.
    */
   contentShrink?: string;
   /**
@@ -5579,7 +5615,7 @@ export class ModifyPolicyResponse extends $tea.Model {
 export class ModifyPolicyContentRequest extends $tea.Model {
   /**
    * @remarks
-   * The content of the policy.
+   * The policy content.
    */
   content?: ModifyPolicyContentRequestContent;
   /**
@@ -5624,7 +5660,7 @@ export class ModifyPolicyContentRequest extends $tea.Model {
 export class ModifyPolicyContentShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The content of the policy.
+   * The policy content.
    */
   contentShrink?: string;
   /**
@@ -6843,9 +6879,9 @@ export class DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList ext
    * @remarks
    * The application scope of the instance. Valid values:
    * 
-   * *   **only_mainland_china**: regions in the Chinese mainland
-   * *   **global**: all regions
-   * *   **international_and_hmt**: regions outside the Chinese mainland
+   * *   **only_mainland_china**: regions in the Chinese mainland.
+   * *   **global**: all regions.
+   * *   **international_and_hmt**: regions outside the Chinese mainland.
    * 
    * @example
    * global
@@ -6871,11 +6907,11 @@ export class DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList ext
    * @remarks
    * The bill distribution by account. The JSON struct contains the following fields:
    * 
-   * *   **eipCnIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland
-   * *   **eipOvIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland
-   * *   **memberUid**: the owner account
-   * *   **standardAssetsCnIpCount**: the number of IP addresses of regular Alibaba Cloud services in the Chinese mainland
-   * *   **standardAssetsOvIpCount**: the number of IP addresses of regular Alibaba Cloud services outside the Chinese mainland
+   * *   **eipCnIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland.
+   * *   **eipOvIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland.
+   * *   **memberUid**: the owner account.
+   * *   **standardAssetsCnIpCount**: the number of IP addresses of regular Alibaba Cloud services in the Chinese mainland.
+   * *   **standardAssetsOvIpCount**: the number of IP addresses of regular Alibaba Cloud services outside the Chinese mainland.
    * 
    * >  If the memberUid field in the JSON struct is empty, the information about the current account is returned.
    * 
@@ -6908,6 +6944,49 @@ export class DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList ext
       ipCntOv: 'number',
       memberIpCnt: 'string',
       time: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList extends $tea.Model {
+  enableDays?: number;
+  flowCn?: number;
+  flowIntl?: number;
+  ipCountCn?: number;
+  ipCountIntl?: number;
+  memberUid?: string;
+  standardAssetsFlowCn?: number;
+  standardAssetsFlowIntl?: number;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableDays: 'EnableDays',
+      flowCn: 'FlowCn',
+      flowIntl: 'FlowIntl',
+      ipCountCn: 'IpCountCn',
+      ipCountIntl: 'IpCountIntl',
+      memberUid: 'MemberUid',
+      standardAssetsFlowCn: 'StandardAssetsFlowCn',
+      standardAssetsFlowIntl: 'StandardAssetsFlowIntl',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableDays: 'number',
+      flowCn: 'number',
+      flowIntl: 'number',
+      ipCountCn: 'number',
+      ipCountIntl: 'number',
+      memberUid: 'string',
+      standardAssetsFlowCn: 'number',
+      standardAssetsFlowIntl: 'number',
+      uid: 'string',
     };
   }
 
@@ -6988,7 +7067,7 @@ export class DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList ex
 export class DescribeInstanceListRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The key of the tag that is added to the Anti-DDoS Origin instance to query.
+   * The key of the tag that is added to the Anti-DDoS Origin instance.
    * 
    * @example
    * test-key
@@ -6996,7 +7075,7 @@ export class DescribeInstanceListRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag that is added to the Anti-DDoS Origin instance to query.
+   * The value of the tag that is added to the Anti-DDoS Origin instance.
    * 
    * @example
    * test-value
@@ -7022,6 +7101,10 @@ export class DescribeInstanceListRequestTag extends $tea.Model {
 }
 
 export class DescribeInstanceListResponseBodyInstanceListAutoProtectCondition extends $tea.Model {
+  /**
+   * @remarks
+   * The events that trigger automatic association.
+   */
   events?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7071,8 +7154,11 @@ export class DescribeInstanceListResponseBodyInstanceList extends $tea.Model {
    * @remarks
    * The type of the instance.
    * 
-   * *   **ddos_ddosorigin_public_cn**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the China site (aliyun.com)
-   * *   **ddos_ddosorigin_public_intl**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the International site (alibabacloud.com)
+   * *   **ddos_ddosorigin_public_cn**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the China site (aliyun.com).
+   * *   **ddos_ddosorigin_public_intl**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the International site (alibabacloud.com).
+   * 
+   * @example
+   * ddos_ddosorigin_public_cn
    */
   commodityType?: string;
   /**
@@ -7083,6 +7169,9 @@ export class DescribeInstanceListResponseBodyInstanceList extends $tea.Model {
    * *   **2**: The instance supports public IP addresses in regions in the Chinese mainland.
    * *   **3**: The instance supports public IP addresses in regions outside the Chinese mainland.
    * *   **4**: The instance supports public IP addresses in a region in or outside the Chinese mainland.
+   * 
+   * @example
+   * 1
    */
   coverageType?: number;
   /**
@@ -7224,6 +7313,25 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $t
   bindIpCount?: number;
   /**
    * @remarks
+   * The burstable clean bandwidth. Unit: Mbit/s.
+   * 
+   * @example
+   * 100
+   */
+  elasticBwMbps?: number;
+  /**
+   * @remarks
+   * The metering method of burstable clean bandwidth. Valid values:
+   * 
+   * *   **month**: the monthly 95th percentile metering method.
+   * *   **day**: the daily 95th percentile metering method.
+   * 
+   * @example
+   * day
+   */
+  elasticBwMode?: string;
+  /**
+   * @remarks
    * The burstable protection bandwidth of each protected IP address. Unit: Gbit/s.
    * 
    * @example
@@ -7256,7 +7364,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $t
   normalBandwidth?: number;
   /**
    * @remarks
-   * The burstable protection bandwidth of the Anti-DDoS Origin Enterprise instance. Unit: Gbit/s.
+   * The burstable protection bandwidth of the Anti-DDoS Origin instance. Unit: Gbit/s.
    * 
    * @example
    * 300
@@ -7264,7 +7372,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $t
   packAdvThre?: number;
   /**
    * @remarks
-   * The basic protection bandwidth of the Anti-DDoS Origin Enterprise instance. Unit: Gbit/s.
+   * The basic protection bandwidth of the Anti-DDoS Origin instance. Unit: Gbit/s.
    * 
    * @example
    * 20
@@ -7274,6 +7382,8 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $t
     return {
       bandwidth: 'Bandwidth',
       bindIpCount: 'BindIpCount',
+      elasticBwMbps: 'ElasticBwMbps',
+      elasticBwMode: 'ElasticBwMode',
       ipAdvanceThre: 'IpAdvanceThre',
       ipBasicThre: 'IpBasicThre',
       ipSpec: 'IpSpec',
@@ -7287,6 +7397,8 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $t
     return {
       bandwidth: 'number',
       bindIpCount: 'number',
+      elasticBwMbps: 'number',
+      elasticBwMode: 'string',
       ipAdvanceThre: 'number',
       ipBasicThre: 'number',
       ipSpec: 'number',
@@ -7328,7 +7440,17 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $tea.Model {
   defenseTimesPercent?: number;
   /**
    * @remarks
-   * The region ID of the Anti-DDoS Origin Enterprise instance.
+   * Indicates whether the instance is downgraded. Valid value:
+   * 
+   * *   **8**: The instance is downgraded due to excessive bandwidth usage.
+   * 
+   * @example
+   * 8
+   */
+  downgradeStatus?: number;
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Origin instance.
    * 
    * @example
    * ddosbgp-cn-n6w1r7nz****
@@ -7347,14 +7469,14 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $tea.Model {
   isFullDefenseMode?: number;
   /**
    * @remarks
-   * The configurations of the Anti-DDoS Origin Enterprise instance, including the number of protected IP addresses and protection bandwidth.
+   * The configurations of the Anti-DDoS Origin instance, including the number of protected IP addresses and protection bandwidth.
    */
   packConfig?: DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig;
   /**
    * @remarks
-   * The region ID of the Anti-DDoS Origin Enterprise instance.
+   * The region ID of the Anti-DDoS Origin instance.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the name of the region.
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the name of the region.
    * 
    * @example
    * cn-hangzhou
@@ -7373,6 +7495,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $tea.Model {
       availableDefenseTimes: 'AvailableDefenseTimes',
       availableDeleteBlackholeCount: 'AvailableDeleteBlackholeCount',
       defenseTimesPercent: 'DefenseTimesPercent',
+      downgradeStatus: 'DowngradeStatus',
       instanceId: 'InstanceId',
       isFullDefenseMode: 'IsFullDefenseMode',
       packConfig: 'PackConfig',
@@ -7386,6 +7509,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $tea.Model {
       availableDefenseTimes: 'number',
       availableDeleteBlackholeCount: 'string',
       defenseTimesPercent: 'number',
+      downgradeStatus: 'number',
       instanceId: 'string',
       isFullDefenseMode: 'number',
       packConfig: DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig,
@@ -7858,7 +7982,7 @@ export class DescribeRdMemberListResponseBodyMemberList extends $tea.Model {
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   /**
    * @remarks
-   * The English name of the region where the cloud assets reside.
+   * The English name of the region.
    * 
    * @example
    * China (Hangzhou)
@@ -7874,7 +7998,10 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the region where the cloud assets reside.
+   * The Chinese name of the region.
+   * 
+   * @example
+   * 华东1（杭州）
    */
   regionName?: string;
   static names(): { [key: string]: string } {
@@ -8815,11 +8942,19 @@ export class ListPolicyResponseBodyPolicyList extends $tea.Model {
    * test**
    */
   name?: string;
+  /**
+   * @remarks
+   * The remarks of the policy.
+   * 
+   * @example
+   * test
+   */
   remark?: string;
   /**
    * @remarks
    * The type of the policy. Valid values:
    * 
+   * *   **default**: the default mitigation policy.
    * *   **l3**: IP-specific mitigation policies.
    * *   **l4**: port-specific mitigation policies.
    * 
@@ -8938,6 +9073,13 @@ export class ListPolicyAttachmentResponseBodyAttachmentList extends $tea.Model {
    * test**
    */
   policyName?: string;
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * @example
+   * test
+   */
   policyRemark?: string;
   /**
    * @remarks
@@ -9243,7 +9385,7 @@ export class ModifyPolicyRequestContentFingerPrintRuleList extends $tea.Model {
   payloadBytes?: string;
   /**
    * @remarks
-   * The type of the protocol. Valid value:
+   * The type of the protocol. Valid values:
    * 
    * *   **tcp**
    * *   **udp**
@@ -9529,7 +9671,7 @@ export class ModifyPolicyRequestContentPortRuleList extends $tea.Model {
   id?: string;
   /**
    * @remarks
-   * The action triggered if the rule is matched. Valid value:
+   * The action triggered if the rule is matched. Valid values:
    * 
    * *   **drop**: The traffic is discarded.
    * 
@@ -9650,9 +9792,9 @@ export class ModifyPolicyRequestContentSourceBlockList extends $tea.Model {
    * @remarks
    * The type of the source rate limit. Valid values:
    * 
-   * *   **3**: the PPS limit on source IP addresses.
+   * *   **3**: the pps limit on source IP addresses.
    * *   **4**: the bandwidth limit on source IP addresses.
-   * *   **5**: the PPS limit on source SYN packets.
+   * *   **5**: the pps limit on source SYN packets.
    * *   **6**: the bandwidth limit on source SYN packets.
    * 
    * This parameter is required.
@@ -9695,7 +9837,7 @@ export class ModifyPolicyRequestContentSourceLimit extends $tea.Model {
   bps?: number;
   /**
    * @remarks
-   * The packets per second (PPS) limit on source IP addresses.
+   * The packets per second (pps) limit on source IP addresses.
    * 
    * @example
    * 64
@@ -9711,7 +9853,7 @@ export class ModifyPolicyRequestContentSourceLimit extends $tea.Model {
   synBps?: number;
   /**
    * @remarks
-   * The PPS limit on source SYN packets.
+   * The pps limit on source SYN packets.
    * 
    * @example
    * 64
@@ -10255,7 +10397,7 @@ export class ModifyPolicyContentRequestContentPortRuleList extends $tea.Model {
   id?: string;
   /**
    * @remarks
-   * The action triggered if the rule is matched. Valid value:
+   * The action triggered if the rule is matched. Valid values:
    * 
    * *   **drop**: The traffic is discarded.
    * 
@@ -10376,9 +10518,9 @@ export class ModifyPolicyContentRequestContentSourceBlockList extends $tea.Model
    * @remarks
    * The type of the source rate limit. Valid values:
    * 
-   * *   **3**: the PPS limit on source IP addresses.
+   * *   **3**: the pps limit on source IP addresses.
    * *   **4**: the bandwidth limit on source IP addresses.
-   * *   **5**: the PPS limit on source SYN packets.
+   * *   **5**: the pps limit on source SYN packets.
    * *   **6**: the bandwidth limit on source SYN packets.
    * 
    * This parameter is required.
@@ -10421,7 +10563,7 @@ export class ModifyPolicyContentRequestContentSourceLimit extends $tea.Model {
   bps?: number;
   /**
    * @remarks
-   * The packets per second (PPS) limit on source IP addresses.
+   * The packets per second (pps) limit on source IP addresses.
    * 
    * @example
    * 64
@@ -10437,7 +10579,7 @@ export class ModifyPolicyContentRequestContentSourceLimit extends $tea.Model {
   synBps?: number;
   /**
    * @remarks
-   * The PPS limit on source SYN packets.
+   * The pps limit on source SYN packets.
    * 
    * @example
    * 64
@@ -10856,7 +10998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds IP addresses to an Anti-DDoS Origin Enterprise instance.
+   * Adds IP addresses to an Anti-DDoS Origin instance.
    * 
    * @param request - AddIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10899,7 +11041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds IP addresses to an Anti-DDoS Origin Enterprise instance.
+   * Adds IP addresses to an Anti-DDoS Origin instance.
    * 
    * @param request - AddIpRequest
    * @returns AddIpResponse
@@ -11450,7 +11592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes specific IP addresses from an Anti-DDoS Origin Enterprise instance.
+   * Removes specific IP addresses from an Anti-DDoS Origin instance.
    * 
    * @remarks
    * The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
@@ -11496,7 +11638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes specific IP addresses from an Anti-DDoS Origin Enterprise instance.
+   * Removes specific IP addresses from an Anti-DDoS Origin instance.
    * 
    * @remarks
    * The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
@@ -12066,6 +12208,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the specifications of a specific Anti-DDoS Origin instance.
+   * 
    * @param request - DescribeInstanceSpecsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceSpecsResponse
@@ -12103,6 +12247,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the specifications of a specific Anti-DDoS Origin instance.
+   * 
    * @param request - DescribeInstanceSpecsRequest
    * @returns DescribeInstanceSpecsResponse
    */
@@ -12484,7 +12630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions of cloud assets that are supported by an Anti-DDoS Origin instance.
+   * Queries the regions of assets that can be protected by Anti-DDoS Origin Enterprise in a specific region.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12519,7 +12665,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions of cloud assets that are supported by an Anti-DDoS Origin instance.
+   * Queries the regions of assets that can be protected by Anti-DDoS Origin Enterprise in a specific region.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
