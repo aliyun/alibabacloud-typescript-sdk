@@ -2648,6 +2648,28 @@ export class GetJobResponseBodyJobInfoDeploymentPolicyNetwork extends $tea.Model
   }
 }
 
+export class GetJobResponseBodyJobInfoDeploymentPolicyTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJobResponseBodyJobInfoDeploymentPolicy extends $tea.Model {
   /**
    * @example
@@ -2655,10 +2677,12 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $tea.Model {
    */
   allocationSpec?: string;
   network?: GetJobResponseBodyJobInfoDeploymentPolicyNetwork;
+  tags?: GetJobResponseBodyJobInfoDeploymentPolicyTags[];
   static names(): { [key: string]: string } {
     return {
       allocationSpec: 'AllocationSpec',
       network: 'Network',
+      tags: 'Tags',
     };
   }
 
@@ -2666,6 +2690,7 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $tea.Model {
     return {
       allocationSpec: 'string',
       network: GetJobResponseBodyJobInfoDeploymentPolicyNetwork,
+      tags: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoDeploymentPolicyTags },
     };
   }
 
