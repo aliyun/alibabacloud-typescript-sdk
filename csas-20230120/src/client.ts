@@ -6061,6 +6061,120 @@ export class ListTagsForPrivateAccessPolicyResponse extends $tea.Model {
   }
 }
 
+export class ListUserApplicationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * private_access_application_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      name: 'Name',
+      pageSize: 'PageSize',
+      saseUserId: 'SaseUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      name: 'string',
+      pageSize: 'number',
+      saseUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserApplicationsResponseBody extends $tea.Model {
+  applications?: ListUserApplicationsResponseBodyApplications[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 20
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: { 'type': 'array', 'itemType': ListUserApplicationsResponseBodyApplications },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserApplicationsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserApplicationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserApplicationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUserDevicesRequest extends $tea.Model {
   appStatuses?: string[];
   /**
@@ -6487,6 +6601,120 @@ export class ListUserGroupsForRegistrationPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListUserGroupsForRegistrationPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserPrivateAccessPoliciesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * private_access_policy_name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
+  saseUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      name: 'Name',
+      pageSize: 'PageSize',
+      saseUserId: 'SaseUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      name: 'string',
+      pageSize: 'number',
+      saseUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserPrivateAccessPoliciesResponseBody extends $tea.Model {
+  polices?: ListUserPrivateAccessPoliciesResponseBodyPolices[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9D852F87-AFB5-51B8-AACD-F7D0EFB8277D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 20
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      polices: 'Polices',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      polices: { 'type': 'array', 'itemType': ListUserPrivateAccessPoliciesResponseBodyPolices },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserPrivateAccessPoliciesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserPrivateAccessPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserPrivateAccessPoliciesResponseBody,
     };
   }
 
@@ -12432,6 +12660,86 @@ export class ListTagsForPrivateAccessPolicyResponseBodyPolices extends $tea.Mode
   }
 }
 
+export class ListUserApplicationsResponseBodyApplicationsPortRanges extends $tea.Model {
+  /**
+   * @example
+   * 80
+   */
+  begin?: string;
+  /**
+   * @example
+   * 81
+   */
+  end?: string;
+  static names(): { [key: string]: string } {
+    return {
+      begin: 'Begin',
+      end: 'End',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      begin: 'string',
+      end: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserApplicationsResponseBodyApplications extends $tea.Model {
+  /**
+   * @example
+   * Block
+   */
+  action?: string;
+  addresses?: string[];
+  /**
+   * @example
+   * pa-application-b927baf3e592****
+   */
+  applicationId?: string;
+  /**
+   * @example
+   * private_access_application_name
+   */
+  name?: string;
+  portRanges?: ListUserApplicationsResponseBodyApplicationsPortRanges[];
+  /**
+   * @example
+   * TCP
+   */
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      addresses: 'Addresses',
+      applicationId: 'ApplicationId',
+      name: 'Name',
+      portRanges: 'PortRanges',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      addresses: { 'type': 'array', 'itemType': 'string' },
+      applicationId: 'string',
+      name: 'string',
+      portRanges: { 'type': 'array', 'itemType': ListUserApplicationsResponseBodyApplicationsPortRanges },
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUserDevicesResponseBodyDevices extends $tea.Model {
   /**
    * @example
@@ -12911,6 +13219,114 @@ export class ListUserGroupsForRegistrationPolicyResponseBodyPolicies extends $te
     return {
       policyId: 'string',
       userGroups: { 'type': 'array', 'itemType': ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroups },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserPrivateAccessPoliciesResponseBodyPolicesCustomUserAttributes extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
+  idpId?: number;
+  /**
+   * @example
+   * Equal
+   */
+  relation?: string;
+  /**
+   * @example
+   * department
+   */
+  userGroupType?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      idpId: 'IdpId',
+      relation: 'Relation',
+      userGroupType: 'UserGroupType',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idpId: 'number',
+      relation: 'string',
+      userGroupType: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $tea.Model {
+  customUserAttributes?: ListUserPrivateAccessPoliciesResponseBodyPolicesCustomUserAttributes[];
+  /**
+   * @example
+   * device_attribute_name
+   */
+  deviceAttributeName?: string;
+  /**
+   * @example
+   * user_group_name
+   */
+  matchedUserGroup?: string;
+  /**
+   * @example
+   * private_access_policy_name
+   */
+  name?: string;
+  /**
+   * @example
+   * Allow
+   */
+  policyAction?: string;
+  /**
+   * @example
+   * pa-policy-1b0d0e8b4bcf****
+   */
+  policyId?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Custom
+   */
+  userGroupMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customUserAttributes: 'CustomUserAttributes',
+      deviceAttributeName: 'DeviceAttributeName',
+      matchedUserGroup: 'MatchedUserGroup',
+      name: 'Name',
+      policyAction: 'PolicyAction',
+      policyId: 'PolicyId',
+      priority: 'Priority',
+      userGroupMode: 'UserGroupMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customUserAttributes: { 'type': 'array', 'itemType': ListUserPrivateAccessPoliciesResponseBodyPolicesCustomUserAttributes },
+      deviceAttributeName: 'string',
+      matchedUserGroup: 'string',
+      name: 'string',
+      policyAction: 'string',
+      policyId: 'string',
+      priority: 'number',
+      userGroupMode: 'string',
     };
   }
 
@@ -16659,6 +17075,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询用户应用权限
+   * 
+   * @param request - ListUserApplicationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserApplicationsResponse
+   */
+  async listUserApplicationsWithOptions(request: ListUserApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserApplicationsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUserApplications",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserApplicationsResponse>(await this.callApi(params, req, runtime), new ListUserApplicationsResponse({}));
+  }
+
+  /**
+   * 列表查询用户应用权限
+   * 
+   * @param request - ListUserApplicationsRequest
+   * @returns ListUserApplicationsResponse
+   */
+  async listUserApplications(request: ListUserApplicationsRequest): Promise<ListUserApplicationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUserApplicationsWithOptions(request, runtime);
+  }
+
+  /**
    * 批量查询用户设备列表
    * 
    * @param request - ListUserDevicesRequest
@@ -16808,6 +17262,44 @@ export default class Client extends OpenApi {
   async listUserGroupsForRegistrationPolicy(request: ListUserGroupsForRegistrationPolicyRequest): Promise<ListUserGroupsForRegistrationPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserGroupsForRegistrationPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 列表查询用户零信任策略
+   * 
+   * @param request - ListUserPrivateAccessPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserPrivateAccessPoliciesResponse
+   */
+  async listUserPrivateAccessPoliciesWithOptions(request: ListUserPrivateAccessPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserPrivateAccessPoliciesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUserPrivateAccessPolicies",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserPrivateAccessPoliciesResponse>(await this.callApi(params, req, runtime), new ListUserPrivateAccessPoliciesResponse({}));
+  }
+
+  /**
+   * 列表查询用户零信任策略
+   * 
+   * @param request - ListUserPrivateAccessPoliciesRequest
+   * @returns ListUserPrivateAccessPoliciesResponse
+   */
+  async listUserPrivateAccessPolicies(request: ListUserPrivateAccessPoliciesRequest): Promise<ListUserPrivateAccessPoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUserPrivateAccessPoliciesWithOptions(request, runtime);
   }
 
   /**
