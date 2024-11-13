@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -102,8 +101,20 @@ export class AuditPublicTemplateRegistrationResponse extends $tea.Model {
 }
 
 export class CreateActionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   actionName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   actionType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
   popularity?: number;
   regionId?: string;
@@ -201,9 +212,21 @@ export class CreatePublicParameterRequest extends $tea.Model {
   clientToken?: string;
   constraints?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   parameterType?: string;
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -282,10 +305,22 @@ export class CreatePublicParameterResponse extends $tea.Model {
 }
 
 export class CreatePublicPatchBaselineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   approvalRules?: string;
   clientToken?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   operationSystem?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -364,12 +399,21 @@ export class CreatePublicPatchBaselineResponse extends $tea.Model {
 
 export class CreatePublicTemplateRequest extends $tea.Model {
   category?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
   isExample?: boolean;
   popularity?: number;
   publisher?: string;
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateName?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -379,6 +423,7 @@ export class CreatePublicTemplateRequest extends $tea.Model {
       publisher: 'Publisher',
       regionId: 'RegionId',
       templateName: 'TemplateName',
+      versionName: 'VersionName',
     };
   }
 
@@ -391,6 +436,7 @@ export class CreatePublicTemplateRequest extends $tea.Model {
       publisher: 'string',
       regionId: 'string',
       templateName: 'string',
+      versionName: 'string',
     };
   }
 
@@ -447,7 +493,15 @@ export class CreatePublicTemplateResponse extends $tea.Model {
 }
 
 export class DeleteFailureMsgRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   operation?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   requestFingerprint?: string;
   static names(): { [key: string]: string } {
     return {
@@ -513,6 +567,10 @@ export class DeleteFailureMsgResponse extends $tea.Model {
 }
 
 export class DeletePublicParameterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -579,6 +637,10 @@ export class DeletePublicParameterResponse extends $tea.Model {
 }
 
 export class DeletePublicPatchBaselineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -643,6 +705,10 @@ export class DeletePublicPatchBaselineResponse extends $tea.Model {
 
 export class DeletePublicTemplateRequest extends $tea.Model {
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -938,6 +1004,10 @@ export class GetActionResponse extends $tea.Model {
 export class GetFlowControlRequest extends $tea.Model {
   api?: string;
   service?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   type?: number;
   uid?: string;
   static names(): { [key: string]: string } {
@@ -1011,6 +1081,10 @@ export class GetFlowControlResponse extends $tea.Model {
 }
 
 export class GetPublicParameterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   parameterVersion?: number;
   regionId?: string;
@@ -1083,6 +1157,10 @@ export class GetPublicParameterResponse extends $tea.Model {
 }
 
 export class GetPublicPatchBaselineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -1153,6 +1231,10 @@ export class GetPublicPatchBaselineResponse extends $tea.Model {
 
 export class GetPublicTemplateRequest extends $tea.Model {
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateName?: string;
   templateVersion?: string;
   static names(): { [key: string]: string } {
@@ -1227,8 +1309,16 @@ export class GetPublicTemplateResponse extends $tea.Model {
 }
 
 export class GetQuotaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   quotaName?: string;
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1302,7 +1392,15 @@ export class GetQuotaResponse extends $tea.Model {
 }
 
 export class GetUserExecutionTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   executionId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -1377,8 +1475,16 @@ export class GetUserExecutionTemplateResponse extends $tea.Model {
 }
 
 export class GetUserTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   aliUid?: string;
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateName?: string;
   templateVersion?: string;
   static names(): { [key: string]: string } {
@@ -1661,12 +1767,20 @@ export class ListFailureMsgsResponse extends $tea.Model {
 }
 
 export class ListOOSLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   endTime?: string;
   executionId?: string;
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
   requestFingerprint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2132,7 +2246,15 @@ export class ListPublicTemplatesResponse extends $tea.Model {
 }
 
 export class ListUserExecutionLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   executionId?: string;
   logType?: string;
   maxResults?: number;
@@ -2222,6 +2344,10 @@ export class ListUserExecutionLogsResponse extends $tea.Model {
 }
 
 export class ListUserExecutionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   aliUid?: string;
   endDateAfter?: string;
   endDateBefore?: string;
@@ -2345,7 +2471,15 @@ export class ListUserExecutionsResponse extends $tea.Model {
 }
 
 export class ListUserInstancePatchStatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceIds?: string;
   maxResults?: number;
   nextToken?: string;
@@ -2429,7 +2563,15 @@ export class ListUserInstancePatchStatesResponse extends $tea.Model {
 }
 
 export class ListUserInstancePatchesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   maxResults?: number;
   nextToken?: string;
@@ -2513,12 +2655,24 @@ export class ListUserInstancePatchesResponse extends $tea.Model {
 }
 
 export class ListUserInventoryEntriesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   aliUid?: string;
   filter?: ListUserInventoryEntriesRequestFilter[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2615,6 +2769,10 @@ export class ListUserInventoryEntriesResponse extends $tea.Model {
 }
 
 export class ListUserTaskExecutionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   aliUid?: string;
   endDateAfter?: string;
   endDateBefore?: string;
@@ -2735,6 +2893,10 @@ export class ListUserTaskExecutionsResponse extends $tea.Model {
 }
 
 export class ListUserTemplatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   aliUid?: string;
   category?: string;
   createdBy?: string;
@@ -2849,7 +3011,15 @@ export class ListUserTemplatesResponse extends $tea.Model {
 }
 
 export class ResetTimerTriggerExecutionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   executionId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -2918,7 +3088,15 @@ export class ResetTimerTriggerExecutionResponse extends $tea.Model {
 }
 
 export class ResetUserExecutionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   executionId?: string;
   regionId?: string;
   status?: string;
@@ -2992,8 +3170,16 @@ export class ResetUserExecutionResponse extends $tea.Model {
 export class SetFlowControlRequest extends $tea.Model {
   api?: string;
   service?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   type?: number;
   uid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3065,9 +3251,21 @@ export class SetFlowControlResponse extends $tea.Model {
 }
 
 export class SetQuotaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   quotaName?: string;
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   uid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3143,7 +3341,15 @@ export class SetQuotaResponse extends $tea.Model {
 }
 
 export class TerminateUserExecutionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   executionId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -3212,8 +3418,20 @@ export class TerminateUserExecutionResponse extends $tea.Model {
 }
 
 export class UpdateActionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   actionName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   actionType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
   popularity?: number;
   regionId?: string;
@@ -3309,8 +3527,16 @@ export class UpdateActionResponse extends $tea.Model {
 
 export class UpdatePublicParameterRequest extends $tea.Model {
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3386,6 +3612,10 @@ export class UpdatePublicPatchBaselineRequest extends $tea.Model {
   approvalRules?: string;
   clientToken?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -3462,11 +3692,20 @@ export class UpdatePublicPatchBaselineResponse extends $tea.Model {
 
 export class UpdatePublicTemplateRequest extends $tea.Model {
   category?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
   popularity?: number;
   publisher?: string;
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateName?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -3475,6 +3714,7 @@ export class UpdatePublicTemplateRequest extends $tea.Model {
       publisher: 'Publisher',
       regionId: 'RegionId',
       templateName: 'TemplateName',
+      versionName: 'VersionName',
     };
   }
 
@@ -3486,6 +3726,7 @@ export class UpdatePublicTemplateRequest extends $tea.Model {
       publisher: 'string',
       regionId: 'string',
       templateName: 'string',
+      versionName: 'string',
     };
   }
 
@@ -3542,9 +3783,17 @@ export class UpdatePublicTemplateResponse extends $tea.Model {
 }
 
 export class ValidatePublicTemplateContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
   regionId?: string;
   templateName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4931,9 +5180,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AuditPublicTemplateRegistrationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AuditPublicTemplateRegistrationResponse
+   * @param request - AuditPublicTemplateRegistrationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuditPublicTemplateRegistrationResponse
    */
   async auditPublicTemplateRegistrationWithOptions(request: AuditPublicTemplateRegistrationRequest, runtime: $Util.RuntimeOptions): Promise<AuditPublicTemplateRegistrationResponse> {
     Util.validateModel(request);
@@ -4972,8 +5221,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AuditPublicTemplateRegistrationRequest
-   * @return AuditPublicTemplateRegistrationResponse
+   * @param request - AuditPublicTemplateRegistrationRequest
+   * @returns AuditPublicTemplateRegistrationResponse
    */
   async auditPublicTemplateRegistration(request: AuditPublicTemplateRegistrationRequest): Promise<AuditPublicTemplateRegistrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4981,9 +5230,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateActionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateActionResponse
+   * @param request - CreateActionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateActionResponse
    */
   async createActionWithOptions(request: CreateActionRequest, runtime: $Util.RuntimeOptions): Promise<CreateActionResponse> {
     Util.validateModel(request);
@@ -5026,8 +5275,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateActionRequest
-   * @return CreateActionResponse
+   * @param request - CreateActionRequest
+   * @returns CreateActionResponse
    */
   async createAction(request: CreateActionRequest): Promise<CreateActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5035,11 +5284,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建一个公共参数。
-   *
-   * @param request CreatePublicParameterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePublicParameterResponse
+   * 创建一个公共参数。
+   * 
+   * @param request - CreatePublicParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePublicParameterResponse
    */
   async createPublicParameterWithOptions(request: CreatePublicParameterRequest, runtime: $Util.RuntimeOptions): Promise<CreatePublicParameterResponse> {
     Util.validateModel(request);
@@ -5090,10 +5339,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建一个公共参数。
-   *
-   * @param request CreatePublicParameterRequest
-   * @return CreatePublicParameterResponse
+   * 创建一个公共参数。
+   * 
+   * @param request - CreatePublicParameterRequest
+   * @returns CreatePublicParameterResponse
    */
   async createPublicParameter(request: CreatePublicParameterRequest): Promise<CreatePublicParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5101,9 +5350,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreatePublicPatchBaselineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePublicPatchBaselineResponse
+   * @param request - CreatePublicPatchBaselineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePublicPatchBaselineResponse
    */
   async createPublicPatchBaselineWithOptions(request: CreatePublicPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<CreatePublicPatchBaselineResponse> {
     Util.validateModel(request);
@@ -5150,8 +5399,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreatePublicPatchBaselineRequest
-   * @return CreatePublicPatchBaselineResponse
+   * @param request - CreatePublicPatchBaselineRequest
+   * @returns CreatePublicPatchBaselineResponse
    */
   async createPublicPatchBaseline(request: CreatePublicPatchBaselineRequest): Promise<CreatePublicPatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5159,9 +5408,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreatePublicTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePublicTemplateResponse
+   * @param request - CreatePublicTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePublicTemplateResponse
    */
   async createPublicTemplateWithOptions(request: CreatePublicTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreatePublicTemplateResponse> {
     Util.validateModel(request);
@@ -5194,6 +5443,10 @@ export default class Client extends OpenApi {
       query["TemplateName"] = request.templateName;
     }
 
+    if (!Util.isUnset(request.versionName)) {
+      query["VersionName"] = request.versionName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5212,8 +5465,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreatePublicTemplateRequest
-   * @return CreatePublicTemplateResponse
+   * @param request - CreatePublicTemplateRequest
+   * @returns CreatePublicTemplateResponse
    */
   async createPublicTemplate(request: CreatePublicTemplateRequest): Promise<CreatePublicTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5221,9 +5474,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteFailureMsgRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteFailureMsgResponse
+   * @param request - DeleteFailureMsgRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFailureMsgResponse
    */
   async deleteFailureMsgWithOptions(request: DeleteFailureMsgRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFailureMsgResponse> {
     Util.validateModel(request);
@@ -5254,8 +5507,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteFailureMsgRequest
-   * @return DeleteFailureMsgResponse
+   * @param request - DeleteFailureMsgRequest
+   * @returns DeleteFailureMsgResponse
    */
   async deleteFailureMsg(request: DeleteFailureMsgRequest): Promise<DeleteFailureMsgResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5263,11 +5516,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除公共参数。
-   *
-   * @param request DeletePublicParameterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePublicParameterResponse
+   * 删除公共参数。
+   * 
+   * @param request - DeletePublicParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePublicParameterResponse
    */
   async deletePublicParameterWithOptions(request: DeletePublicParameterRequest, runtime: $Util.RuntimeOptions): Promise<DeletePublicParameterResponse> {
     Util.validateModel(request);
@@ -5298,10 +5551,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除公共参数。
-   *
-   * @param request DeletePublicParameterRequest
-   * @return DeletePublicParameterResponse
+   * 删除公共参数。
+   * 
+   * @param request - DeletePublicParameterRequest
+   * @returns DeletePublicParameterResponse
    */
   async deletePublicParameter(request: DeletePublicParameterRequest): Promise<DeletePublicParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5309,9 +5562,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeletePublicPatchBaselineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePublicPatchBaselineResponse
+   * @param request - DeletePublicPatchBaselineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePublicPatchBaselineResponse
    */
   async deletePublicPatchBaselineWithOptions(request: DeletePublicPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<DeletePublicPatchBaselineResponse> {
     Util.validateModel(request);
@@ -5338,8 +5591,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeletePublicPatchBaselineRequest
-   * @return DeletePublicPatchBaselineResponse
+   * @param request - DeletePublicPatchBaselineRequest
+   * @returns DeletePublicPatchBaselineResponse
    */
   async deletePublicPatchBaseline(request: DeletePublicPatchBaselineRequest): Promise<DeletePublicPatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5347,9 +5600,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeletePublicTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePublicTemplateResponse
+   * @param request - DeletePublicTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePublicTemplateResponse
    */
   async deletePublicTemplateWithOptions(request: DeletePublicTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeletePublicTemplateResponse> {
     Util.validateModel(request);
@@ -5380,8 +5633,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeletePublicTemplateRequest
-   * @return DeletePublicTemplateResponse
+   * @param request - DeletePublicTemplateRequest
+   * @returns DeletePublicTemplateResponse
    */
   async deletePublicTemplate(request: DeletePublicTemplateRequest): Promise<DeletePublicTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5389,9 +5642,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DoCheckResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DoCheckResourceResponse
+   * @param request - DoCheckResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DoCheckResourceResponse
    */
   async doCheckResourceWithOptions(request: DoCheckResourceRequest, runtime: $Util.RuntimeOptions): Promise<DoCheckResourceResponse> {
     Util.validateModel(request);
@@ -5470,8 +5723,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DoCheckResourceRequest
-   * @return DoCheckResourceResponse
+   * @param request - DoCheckResourceRequest
+   * @returns DoCheckResourceResponse
    */
   async doCheckResource(request: DoCheckResourceRequest): Promise<DoCheckResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5479,11 +5732,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取action的详细信息
-   *
-   * @param request GetActionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetActionResponse
+   * 获取action的详细信息
+   * 
+   * @param request - GetActionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetActionResponse
    */
   async getActionWithOptions(request: GetActionRequest, runtime: $Util.RuntimeOptions): Promise<GetActionResponse> {
     Util.validateModel(request);
@@ -5514,10 +5767,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取action的详细信息
-   *
-   * @param request GetActionRequest
-   * @return GetActionResponse
+   * 获取action的详细信息
+   * 
+   * @param request - GetActionRequest
+   * @returns GetActionResponse
    */
   async getAction(request: GetActionRequest): Promise<GetActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5525,9 +5778,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetFlowControlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFlowControlResponse
+   * @param request - GetFlowControlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFlowControlResponse
    */
   async getFlowControlWithOptions(request: GetFlowControlRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowControlResponse> {
     Util.validateModel(request);
@@ -5566,8 +5819,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetFlowControlRequest
-   * @return GetFlowControlResponse
+   * @param request - GetFlowControlRequest
+   * @returns GetFlowControlResponse
    */
   async getFlowControl(request: GetFlowControlRequest): Promise<GetFlowControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5575,11 +5828,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取一个公共参数，包括参数值。
-   *
-   * @param request GetPublicParameterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPublicParameterResponse
+   * 获取一个公共参数，包括参数值。
+   * 
+   * @param request - GetPublicParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPublicParameterResponse
    */
   async getPublicParameterWithOptions(request: GetPublicParameterRequest, runtime: $Util.RuntimeOptions): Promise<GetPublicParameterResponse> {
     Util.validateModel(request);
@@ -5614,10 +5867,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取一个公共参数，包括参数值。
-   *
-   * @param request GetPublicParameterRequest
-   * @return GetPublicParameterResponse
+   * 获取一个公共参数，包括参数值。
+   * 
+   * @param request - GetPublicParameterRequest
+   * @returns GetPublicParameterResponse
    */
   async getPublicParameter(request: GetPublicParameterRequest): Promise<GetPublicParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5625,9 +5878,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetPublicPatchBaselineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPublicPatchBaselineResponse
+   * @param request - GetPublicPatchBaselineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPublicPatchBaselineResponse
    */
   async getPublicPatchBaselineWithOptions(request: GetPublicPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetPublicPatchBaselineResponse> {
     Util.validateModel(request);
@@ -5658,8 +5911,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetPublicPatchBaselineRequest
-   * @return GetPublicPatchBaselineResponse
+   * @param request - GetPublicPatchBaselineRequest
+   * @returns GetPublicPatchBaselineResponse
    */
   async getPublicPatchBaseline(request: GetPublicPatchBaselineRequest): Promise<GetPublicPatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5667,9 +5920,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetPublicTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPublicTemplateResponse
+   * @param request - GetPublicTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPublicTemplateResponse
    */
   async getPublicTemplateWithOptions(request: GetPublicTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetPublicTemplateResponse> {
     Util.validateModel(request);
@@ -5704,8 +5957,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetPublicTemplateRequest
-   * @return GetPublicTemplateResponse
+   * @param request - GetPublicTemplateRequest
+   * @returns GetPublicTemplateResponse
    */
   async getPublicTemplate(request: GetPublicTemplateRequest): Promise<GetPublicTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5713,9 +5966,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetQuotaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetQuotaResponse
+   * @param request - GetQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQuotaResponse
    */
   async getQuotaWithOptions(request: GetQuotaRequest, runtime: $Util.RuntimeOptions): Promise<GetQuotaResponse> {
     Util.validateModel(request);
@@ -5750,8 +6003,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetQuotaRequest
-   * @return GetQuotaResponse
+   * @param request - GetQuotaRequest
+   * @returns GetQuotaResponse
    */
   async getQuota(request: GetQuotaRequest): Promise<GetQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5759,9 +6012,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetUserExecutionTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserExecutionTemplateResponse
+   * @param request - GetUserExecutionTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserExecutionTemplateResponse
    */
   async getUserExecutionTemplateWithOptions(request: GetUserExecutionTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetUserExecutionTemplateResponse> {
     Util.validateModel(request);
@@ -5796,8 +6049,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetUserExecutionTemplateRequest
-   * @return GetUserExecutionTemplateResponse
+   * @param request - GetUserExecutionTemplateRequest
+   * @returns GetUserExecutionTemplateResponse
    */
   async getUserExecutionTemplate(request: GetUserExecutionTemplateRequest): Promise<GetUserExecutionTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5805,9 +6058,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetUserTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserTemplateResponse
+   * @param request - GetUserTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserTemplateResponse
    */
   async getUserTemplateWithOptions(request: GetUserTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetUserTemplateResponse> {
     Util.validateModel(request);
@@ -5846,8 +6099,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetUserTemplateRequest
-   * @return GetUserTemplateResponse
+   * @param request - GetUserTemplateRequest
+   * @returns GetUserTemplateResponse
    */
   async getUserTemplate(request: GetUserTemplateRequest): Promise<GetUserTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5855,9 +6108,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListActionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListActionsResponse
+   * @param request - ListActionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListActionsResponse
    */
   async listActionsWithOptions(request: ListActionsRequest, runtime: $Util.RuntimeOptions): Promise<ListActionsResponse> {
     Util.validateModel(request);
@@ -5896,8 +6149,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListActionsRequest
-   * @return ListActionsResponse
+   * @param request - ListActionsRequest
+   * @returns ListActionsResponse
    */
   async listActions(request: ListActionsRequest): Promise<ListActionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5905,9 +6158,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListDefaultQuotaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDefaultQuotaResponse
+   * @param request - ListDefaultQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDefaultQuotaResponse
    */
   async listDefaultQuotaWithOptions(runtime: $Util.RuntimeOptions): Promise<ListDefaultQuotaResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -5926,7 +6179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return ListDefaultQuotaResponse
+   * @returns ListDefaultQuotaResponse
    */
   async listDefaultQuota(): Promise<ListDefaultQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5934,9 +6187,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListFailureMsgsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFailureMsgsResponse
+   * @param request - ListFailureMsgsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFailureMsgsResponse
    */
   async listFailureMsgsWithOptions(request: ListFailureMsgsRequest, runtime: $Util.RuntimeOptions): Promise<ListFailureMsgsResponse> {
     Util.validateModel(request);
@@ -5971,8 +6224,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListFailureMsgsRequest
-   * @return ListFailureMsgsResponse
+   * @param request - ListFailureMsgsRequest
+   * @returns ListFailureMsgsResponse
    */
   async listFailureMsgs(request: ListFailureMsgsRequest): Promise<ListFailureMsgsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5980,9 +6233,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListOOSLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListOOSLogsResponse
+   * @param request - ListOOSLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOOSLogsResponse
    */
   async listOOSLogsWithOptions(request: ListOOSLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListOOSLogsResponse> {
     Util.validateModel(request);
@@ -6033,8 +6286,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListOOSLogsRequest
-   * @return ListOOSLogsResponse
+   * @param request - ListOOSLogsRequest
+   * @returns ListOOSLogsResponse
    */
   async listOOSLogs(request: ListOOSLogsRequest): Promise<ListOOSLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6042,11 +6295,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询公共参数。支持多种查询
-   *
-   * @param request ListPublicParametersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPublicParametersResponse
+   * 查询公共参数。支持多种查询
+   * 
+   * @param request - ListPublicParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPublicParametersResponse
    */
   async listPublicParametersWithOptions(request: ListPublicParametersRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicParametersResponse> {
     Util.validateModel(request);
@@ -6105,10 +6358,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询公共参数。支持多种查询
-   *
-   * @param request ListPublicParametersRequest
-   * @return ListPublicParametersResponse
+   * 查询公共参数。支持多种查询
+   * 
+   * @param request - ListPublicParametersRequest
+   * @returns ListPublicParametersResponse
    */
   async listPublicParameters(request: ListPublicParametersRequest): Promise<ListPublicParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6116,9 +6369,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPublicPatchBaselinesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPublicPatchBaselinesResponse
+   * @param request - ListPublicPatchBaselinesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPublicPatchBaselinesResponse
    */
   async listPublicPatchBaselinesWithOptions(request: ListPublicPatchBaselinesRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicPatchBaselinesResponse> {
     Util.validateModel(request);
@@ -6165,8 +6418,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPublicPatchBaselinesRequest
-   * @return ListPublicPatchBaselinesResponse
+   * @param request - ListPublicPatchBaselinesRequest
+   * @returns ListPublicPatchBaselinesResponse
    */
   async listPublicPatchBaselines(request: ListPublicPatchBaselinesRequest): Promise<ListPublicPatchBaselinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6174,9 +6427,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPublicTemplateRegistrationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPublicTemplateRegistrationsResponse
+   * @param request - ListPublicTemplateRegistrationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPublicTemplateRegistrationsResponse
    */
   async listPublicTemplateRegistrationsWithOptions(request: ListPublicTemplateRegistrationsRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicTemplateRegistrationsResponse> {
     Util.validateModel(request);
@@ -6223,8 +6476,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPublicTemplateRegistrationsRequest
-   * @return ListPublicTemplateRegistrationsResponse
+   * @param request - ListPublicTemplateRegistrationsRequest
+   * @returns ListPublicTemplateRegistrationsResponse
    */
   async listPublicTemplateRegistrations(request: ListPublicTemplateRegistrationsRequest): Promise<ListPublicTemplateRegistrationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6232,9 +6485,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPublicTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPublicTemplatesResponse
+   * @param request - ListPublicTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPublicTemplatesResponse
    */
   async listPublicTemplatesWithOptions(request: ListPublicTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicTemplatesResponse> {
     Util.validateModel(request);
@@ -6309,8 +6562,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPublicTemplatesRequest
-   * @return ListPublicTemplatesResponse
+   * @param request - ListPublicTemplatesRequest
+   * @returns ListPublicTemplatesResponse
    */
   async listPublicTemplates(request: ListPublicTemplatesRequest): Promise<ListPublicTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6318,9 +6571,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserExecutionLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserExecutionLogsResponse
+   * @param request - ListUserExecutionLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserExecutionLogsResponse
    */
   async listUserExecutionLogsWithOptions(request: ListUserExecutionLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserExecutionLogsResponse> {
     Util.validateModel(request);
@@ -6371,8 +6624,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserExecutionLogsRequest
-   * @return ListUserExecutionLogsResponse
+   * @param request - ListUserExecutionLogsRequest
+   * @returns ListUserExecutionLogsResponse
    */
   async listUserExecutionLogs(request: ListUserExecutionLogsRequest): Promise<ListUserExecutionLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6380,9 +6633,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserExecutionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserExecutionsResponse
+   * @param request - ListUserExecutionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserExecutionsResponse
    */
   async listUserExecutionsWithOptions(request: ListUserExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserExecutionsResponse> {
     Util.validateModel(request);
@@ -6477,8 +6730,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserExecutionsRequest
-   * @return ListUserExecutionsResponse
+   * @param request - ListUserExecutionsRequest
+   * @returns ListUserExecutionsResponse
    */
   async listUserExecutions(request: ListUserExecutionsRequest): Promise<ListUserExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6486,9 +6739,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserInstancePatchStatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserInstancePatchStatesResponse
+   * @param request - ListUserInstancePatchStatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserInstancePatchStatesResponse
    */
   async listUserInstancePatchStatesWithOptions(request: ListUserInstancePatchStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserInstancePatchStatesResponse> {
     Util.validateModel(request);
@@ -6531,8 +6784,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserInstancePatchStatesRequest
-   * @return ListUserInstancePatchStatesResponse
+   * @param request - ListUserInstancePatchStatesRequest
+   * @returns ListUserInstancePatchStatesResponse
    */
   async listUserInstancePatchStates(request: ListUserInstancePatchStatesRequest): Promise<ListUserInstancePatchStatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6540,9 +6793,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserInstancePatchesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserInstancePatchesResponse
+   * @param request - ListUserInstancePatchesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserInstancePatchesResponse
    */
   async listUserInstancePatchesWithOptions(request: ListUserInstancePatchesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserInstancePatchesResponse> {
     Util.validateModel(request);
@@ -6585,8 +6838,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserInstancePatchesRequest
-   * @return ListUserInstancePatchesResponse
+   * @param request - ListUserInstancePatchesRequest
+   * @returns ListUserInstancePatchesResponse
    */
   async listUserInstancePatches(request: ListUserInstancePatchesRequest): Promise<ListUserInstancePatchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6594,9 +6847,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserInventoryEntriesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserInventoryEntriesResponse
+   * @param request - ListUserInventoryEntriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserInventoryEntriesResponse
    */
   async listUserInventoryEntriesWithOptions(request: ListUserInventoryEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserInventoryEntriesResponse> {
     Util.validateModel(request);
@@ -6647,8 +6900,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserInventoryEntriesRequest
-   * @return ListUserInventoryEntriesResponse
+   * @param request - ListUserInventoryEntriesRequest
+   * @returns ListUserInventoryEntriesResponse
    */
   async listUserInventoryEntries(request: ListUserInventoryEntriesRequest): Promise<ListUserInventoryEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6656,9 +6909,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserTaskExecutionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserTaskExecutionsResponse
+   * @param request - ListUserTaskExecutionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserTaskExecutionsResponse
    */
   async listUserTaskExecutionsWithOptions(request: ListUserTaskExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserTaskExecutionsResponse> {
     Util.validateModel(request);
@@ -6749,8 +7002,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserTaskExecutionsRequest
-   * @return ListUserTaskExecutionsResponse
+   * @param request - ListUserTaskExecutionsRequest
+   * @returns ListUserTaskExecutionsResponse
    */
   async listUserTaskExecutions(request: ListUserTaskExecutionsRequest): Promise<ListUserTaskExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6758,9 +7011,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserTemplatesResponse
+   * @param request - ListUserTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserTemplatesResponse
    */
   async listUserTemplatesWithOptions(request: ListUserTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserTemplatesResponse> {
     Util.validateModel(request);
@@ -6843,8 +7096,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserTemplatesRequest
-   * @return ListUserTemplatesResponse
+   * @param request - ListUserTemplatesRequest
+   * @returns ListUserTemplatesResponse
    */
   async listUserTemplates(request: ListUserTemplatesRequest): Promise<ListUserTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6852,9 +7105,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResetTimerTriggerExecutionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResetTimerTriggerExecutionResponse
+   * @param request - ResetTimerTriggerExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetTimerTriggerExecutionResponse
    */
   async resetTimerTriggerExecutionWithOptions(request: ResetTimerTriggerExecutionRequest, runtime: $Util.RuntimeOptions): Promise<ResetTimerTriggerExecutionResponse> {
     Util.validateModel(request);
@@ -6889,8 +7142,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResetTimerTriggerExecutionRequest
-   * @return ResetTimerTriggerExecutionResponse
+   * @param request - ResetTimerTriggerExecutionRequest
+   * @returns ResetTimerTriggerExecutionResponse
    */
   async resetTimerTriggerExecution(request: ResetTimerTriggerExecutionRequest): Promise<ResetTimerTriggerExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6898,9 +7151,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResetUserExecutionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResetUserExecutionResponse
+   * @param request - ResetUserExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetUserExecutionResponse
    */
   async resetUserExecutionWithOptions(request: ResetUserExecutionRequest, runtime: $Util.RuntimeOptions): Promise<ResetUserExecutionResponse> {
     Util.validateModel(request);
@@ -6939,8 +7192,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResetUserExecutionRequest
-   * @return ResetUserExecutionResponse
+   * @param request - ResetUserExecutionRequest
+   * @returns ResetUserExecutionResponse
    */
   async resetUserExecution(request: ResetUserExecutionRequest): Promise<ResetUserExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6948,9 +7201,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetFlowControlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetFlowControlResponse
+   * @param request - SetFlowControlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetFlowControlResponse
    */
   async setFlowControlWithOptions(request: SetFlowControlRequest, runtime: $Util.RuntimeOptions): Promise<SetFlowControlResponse> {
     Util.validateModel(request);
@@ -6993,8 +7246,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetFlowControlRequest
-   * @return SetFlowControlResponse
+   * @param request - SetFlowControlRequest
+   * @returns SetFlowControlResponse
    */
   async setFlowControl(request: SetFlowControlRequest): Promise<SetFlowControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7002,9 +7255,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetQuotaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetQuotaResponse
+   * @param request - SetQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetQuotaResponse
    */
   async setQuotaWithOptions(request: SetQuotaRequest, runtime: $Util.RuntimeOptions): Promise<SetQuotaResponse> {
     Util.validateModel(request);
@@ -7043,8 +7296,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetQuotaRequest
-   * @return SetQuotaResponse
+   * @param request - SetQuotaRequest
+   * @returns SetQuotaResponse
    */
   async setQuota(request: SetQuotaRequest): Promise<SetQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7052,9 +7305,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request TerminateUserExecutionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TerminateUserExecutionResponse
+   * @param request - TerminateUserExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TerminateUserExecutionResponse
    */
   async terminateUserExecutionWithOptions(request: TerminateUserExecutionRequest, runtime: $Util.RuntimeOptions): Promise<TerminateUserExecutionResponse> {
     Util.validateModel(request);
@@ -7089,8 +7342,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request TerminateUserExecutionRequest
-   * @return TerminateUserExecutionResponse
+   * @param request - TerminateUserExecutionRequest
+   * @returns TerminateUserExecutionResponse
    */
   async terminateUserExecution(request: TerminateUserExecutionRequest): Promise<TerminateUserExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7098,9 +7351,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateActionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateActionResponse
+   * @param request - UpdateActionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateActionResponse
    */
   async updateActionWithOptions(request: UpdateActionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateActionResponse> {
     Util.validateModel(request);
@@ -7143,8 +7396,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateActionRequest
-   * @return UpdateActionResponse
+   * @param request - UpdateActionRequest
+   * @returns UpdateActionResponse
    */
   async updateAction(request: UpdateActionRequest): Promise<UpdateActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7152,11 +7405,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新一个已存在的公共参数。
-   *
-   * @param request UpdatePublicParameterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdatePublicParameterResponse
+   * 更新一个已存在的公共参数。
+   * 
+   * @param request - UpdatePublicParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePublicParameterResponse
    */
   async updatePublicParameterWithOptions(request: UpdatePublicParameterRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePublicParameterResponse> {
     Util.validateModel(request);
@@ -7195,10 +7448,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新一个已存在的公共参数。
-   *
-   * @param request UpdatePublicParameterRequest
-   * @return UpdatePublicParameterResponse
+   * 更新一个已存在的公共参数。
+   * 
+   * @param request - UpdatePublicParameterRequest
+   * @returns UpdatePublicParameterResponse
    */
   async updatePublicParameter(request: UpdatePublicParameterRequest): Promise<UpdatePublicParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7206,9 +7459,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdatePublicPatchBaselineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdatePublicPatchBaselineResponse
+   * @param request - UpdatePublicPatchBaselineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePublicPatchBaselineResponse
    */
   async updatePublicPatchBaselineWithOptions(request: UpdatePublicPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePublicPatchBaselineResponse> {
     Util.validateModel(request);
@@ -7251,8 +7504,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdatePublicPatchBaselineRequest
-   * @return UpdatePublicPatchBaselineResponse
+   * @param request - UpdatePublicPatchBaselineRequest
+   * @returns UpdatePublicPatchBaselineResponse
    */
   async updatePublicPatchBaseline(request: UpdatePublicPatchBaselineRequest): Promise<UpdatePublicPatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7260,9 +7513,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdatePublicTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdatePublicTemplateResponse
+   * @param request - UpdatePublicTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePublicTemplateResponse
    */
   async updatePublicTemplateWithOptions(request: UpdatePublicTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePublicTemplateResponse> {
     Util.validateModel(request);
@@ -7291,6 +7544,10 @@ export default class Client extends OpenApi {
       query["TemplateName"] = request.templateName;
     }
 
+    if (!Util.isUnset(request.versionName)) {
+      query["VersionName"] = request.versionName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7309,8 +7566,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdatePublicTemplateRequest
-   * @return UpdatePublicTemplateResponse
+   * @param request - UpdatePublicTemplateRequest
+   * @returns UpdatePublicTemplateResponse
    */
   async updatePublicTemplate(request: UpdatePublicTemplateRequest): Promise<UpdatePublicTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7318,9 +7575,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ValidatePublicTemplateContentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ValidatePublicTemplateContentResponse
+   * @param request - ValidatePublicTemplateContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidatePublicTemplateContentResponse
    */
   async validatePublicTemplateContentWithOptions(request: ValidatePublicTemplateContentRequest, runtime: $Util.RuntimeOptions): Promise<ValidatePublicTemplateContentResponse> {
     Util.validateModel(request);
@@ -7359,8 +7616,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ValidatePublicTemplateContentRequest
-   * @return ValidatePublicTemplateContentResponse
+   * @param request - ValidatePublicTemplateContentRequest
+   * @returns ValidatePublicTemplateContentResponse
    */
   async validatePublicTemplateContent(request: ValidatePublicTemplateContentRequest): Promise<ValidatePublicTemplateContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
