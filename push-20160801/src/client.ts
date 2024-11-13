@@ -1117,6 +1117,8 @@ export class PushRequest extends $tea.Model {
    * HIGH
    */
   androidMessageHuaweiUrgency?: string;
+  androidMessageOppoCategory?: string;
+  androidMessageOppoNotifyLevel?: number;
   /**
    * @example
    * TODO
@@ -1452,6 +1454,8 @@ export class PushRequest extends $tea.Model {
       androidInboxBody: 'AndroidInboxBody',
       androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
       androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
+      androidMessageOppoCategory: 'AndroidMessageOppoCategory',
+      androidMessageOppoNotifyLevel: 'AndroidMessageOppoNotifyLevel',
       androidMessageVivoCategory: 'AndroidMessageVivoCategory',
       androidMusic: 'AndroidMusic',
       androidNotificationBarPriority: 'AndroidNotificationBarPriority',
@@ -1553,6 +1557,8 @@ export class PushRequest extends $tea.Model {
       androidInboxBody: 'string',
       androidMessageHuaweiCategory: 'string',
       androidMessageHuaweiUrgency: 'string',
+      androidMessageOppoCategory: 'string',
+      androidMessageOppoNotifyLevel: 'number',
       androidMessageVivoCategory: 'string',
       androidMusic: 'string',
       androidNotificationBarPriority: 'number',
@@ -3895,6 +3901,8 @@ export class MassPushRequestPushTask extends $tea.Model {
    * HIGH
    */
   androidMessageHuaweiUrgency?: string;
+  androidMessageOppoCategory?: string;
+  androidMessageOppoNotifyLevel?: number;
   /**
    * @example
    * TODO
@@ -4205,6 +4213,8 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidInboxBody: 'AndroidInboxBody',
       androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
       androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
+      androidMessageOppoCategory: 'AndroidMessageOppoCategory',
+      androidMessageOppoNotifyLevel: 'AndroidMessageOppoNotifyLevel',
       androidMessageVivoCategory: 'AndroidMessageVivoCategory',
       androidMusic: 'AndroidMusic',
       androidNotificationBarPriority: 'AndroidNotificationBarPriority',
@@ -4300,6 +4310,8 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidInboxBody: 'string',
       androidMessageHuaweiCategory: 'string',
       androidMessageHuaweiUrgency: 'string',
+      androidMessageOppoCategory: 'string',
+      androidMessageOppoNotifyLevel: 'number',
       androidMessageVivoCategory: 'string',
       androidMusic: 'string',
       androidNotificationBarPriority: 'number',
@@ -5761,6 +5773,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.androidMessageHuaweiUrgency)) {
       query["AndroidMessageHuaweiUrgency"] = request.androidMessageHuaweiUrgency;
+    }
+
+    if (!Util.isUnset(request.androidMessageOppoCategory)) {
+      query["AndroidMessageOppoCategory"] = request.androidMessageOppoCategory;
+    }
+
+    if (!Util.isUnset(request.androidMessageOppoNotifyLevel)) {
+      query["AndroidMessageOppoNotifyLevel"] = request.androidMessageOppoNotifyLevel;
     }
 
     if (!Util.isUnset(request.androidMessageVivoCategory)) {
