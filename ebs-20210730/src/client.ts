@@ -1694,97 +1694,6 @@ export class CreateEnterpriseSnapshotPolicyResponse extends $tea.Model {
   }
 }
 
-export class DeleteDiskRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * d-cd4************
-   */
-  diskId?: string;
-  /**
-   * @remarks
-   * The region ID of the primary or secondary disk in the replication pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskId: 'DiskId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDiskResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDiskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDiskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDiskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteDiskReplicaGroupRequest extends $tea.Model {
   /**
    * @remarks
@@ -3525,251 +3434,6 @@ export class DescribeDiskReplicaPairsResponse extends $tea.Model {
   }
 }
 
-export class DescribeDisksRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The category of disks.
-   * 
-   * @example
-   * cloud_ssd
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The IDs of the disks. The value is a JSON array that contains multiple disk IDs. Separate the IDs with commas (,).
-   * 
-   * @example
-   * iscsi-cluster-id
-   */
-  diskIds?: string;
-  /**
-   * @remarks
-   * The name of the disk.
-   * 
-   * @example
-   * d-xxx
-   */
-  diskName?: string;
-  /**
-   * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 100.
-   * 
-   * Default values:
-   * 
-   * *   If this parameter is not specified or is set to a value smaller than 10, the default value is 10.
-   * *   If this parameter is set to a value greater than 100, the default value is 100.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the disk belongs.
-   * 
-   * @example
-   * rg-acfmvs*******
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The states of disk. Valid values:
-   * 
-   * *   In_use
-   * *   Available
-   * *   Attaching
-   * *   Detaching
-   * *   Creating
-   * *   ReIniting
-   * 
-   * @example
-   * In_use
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The resource tags. You can specify up to 20 tags.
-   */
-  tag?: DescribeDisksRequestTag[];
-  /**
-   * @remarks
-   * The ID of the zone.
-   * 
-   * @example
-   * cn-hangzhou-a
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      diskIds: 'DiskIds',
-      diskName: 'DiskName',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      status: 'Status',
-      tag: 'Tag',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      diskIds: 'string',
-      diskName: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      status: 'string',
-      tag: { 'type': 'array', 'itemType': DescribeDisksRequestTag },
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDisksResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: DescribeDisksResponseBodyData[];
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
-   * 
-   * @example
-   * NextToken
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeDisksResponseBodyData },
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDisksResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDisksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDisksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeEnterpriseSnapshotPolicyRequest extends $tea.Model {
   /**
    * @remarks
@@ -4434,6 +4098,20 @@ export class DescribeLensServiceStatusResponse extends $tea.Model {
 export class DescribeMetricDataRequest extends $tea.Model {
   /**
    * @remarks
+   * Aggregation method in time dimension. Valid values:
+   * 
+   * - SUM
+   * - COUNT
+   * - AVG
+   * - MAX
+   * - MIN
+   * 
+   * @example
+   * SUM
+   */
+  aggreOps?: string;
+  /**
+   * @remarks
    * The dimension map in the JSON format. A dimension is a key-value pair. Valid dimension key: diskId.
    * 
    * @example
@@ -4495,6 +4173,7 @@ export class DescribeMetricDataRequest extends $tea.Model {
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      aggreOps: 'AggreOps',
       dimensions: 'Dimensions',
       endTime: 'EndTime',
       metricName: 'MetricName',
@@ -4506,6 +4185,7 @@ export class DescribeMetricDataRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aggreOps: 'string',
       dimensions: 'string',
       endTime: 'string',
       metricName: 'string',
@@ -5407,121 +5087,35 @@ export class FailoverDiskReplicaPairResponse extends $tea.Model {
   }
 }
 
-export class GetDiskRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * d-bp67***********
-   */
-  diskId?: string;
-  /**
-   * @remarks
-   * The region ID of the disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskId: 'DiskId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDiskResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of the disk.
-   */
-  disk?: GetDiskResponseBodyDisk;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * B9C4B3B3-0D72-5FB0-9319-F4D3BB9E22AC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      disk: 'Disk',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      disk: GetDiskResponseBodyDisk,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDiskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDiskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDiskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetReportRequest extends $tea.Model {
   /**
+   * @remarks
+   * Optional, AppName only takes effect when ReportType=present.
+   * 
    * @example
    * App1
    */
   appName?: string;
   /**
+   * @remarks
+   * Region name.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * When ReportType=history, ReportId is required to query historical reports based on ReportId.
+   * 
    * @example
    * report-74fbea80e802xxxx
    */
   reportId?: string;
   /**
+   * @remarks
+   * Optional values: history/present.
+   * 
    * @example
    * history
    */
@@ -5550,8 +5144,15 @@ export class GetReportRequest extends $tea.Model {
 }
 
 export class GetReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Data Details.
+   */
   datas?: GetReportResponseBodyDatas[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * C123F94F-4E38-19AE-942A-A8D6F44F****
    */
@@ -5603,6 +5204,8 @@ export class GetReportResponse extends $tea.Model {
 export class ListReportsRequest extends $tea.Model {
   /**
    * @remarks
+   * App name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5610,26 +5213,41 @@ export class ListReportsRequest extends $tea.Model {
    */
   appName?: string;
   /**
+   * @remarks
+   * Maximum number of items for Token-based pagination.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Query token (Token), the value is the NextToken parameter value returned from the previous API call.
+   * 
    * @example
    * a6792e832ff0XXXXX
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Page number for paginated queries.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of rows per page when performing paginated queries.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) to query the list of regions supported by Block Storage Data Insights.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -5664,30 +5282,45 @@ export class ListReportsRequest extends $tea.Model {
 export class ListReportsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * historyReports
+   * Historical reports.
    */
   historyReports?: ListReportsResponseBodyHistoryReports[];
   /**
+   * @remarks
+   * Query token (Token), the value is the NextToken parameter value returned from the previous API call.
+   * 
    * @example
    * a6792e832ff0XXXX
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Page number for paginated queries.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of records per page for paginated queries.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Request ID, an identifier generated by Alibaba Cloud for this request.
+   * 
    * @example
    * C123F94F-4E38-19AE-942A-A8D6F44F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 1
    */
@@ -10814,527 +10447,6 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
   }
 }
 
-export class DescribeDisksRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * tag-key
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * tag-value
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDisksResponseBodyDataAccessAuthorizationEcs extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * i-assd***********
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDisksResponseBodyDataAccessAuthorizationPod extends $tea.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cid*******
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * The pod ID.
-   * 
-   * @example
-   * pid******
-   */
-  podId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      podId: 'PodId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      podId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDisksResponseBodyDataAccessAuthorization extends $tea.Model {
-  /**
-   * @remarks
-   * The token that is used to access the disk.
-   * 
-   * @example
-   * b34385a***************
-   */
-  accessToken?: string;
-  /**
-   * @remarks
-   * The information of ecs.
-   */
-  ecs?: DescribeDisksResponseBodyDataAccessAuthorizationEcs;
-  /**
-   * @remarks
-   * The information of pod.
-   */
-  pod?: DescribeDisksResponseBodyDataAccessAuthorizationPod;
-  static names(): { [key: string]: string } {
-    return {
-      accessToken: 'AccessToken',
-      ecs: 'Ecs',
-      pod: 'Pod',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessToken: 'string',
-      ecs: DescribeDisksResponseBodyDataAccessAuthorizationEcs,
-      pod: DescribeDisksResponseBodyDataAccessAuthorizationPod,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDisksResponseBodyDataAttachments extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the disk was attached.
-   * 
-   * @example
-   * 2021-06-07T06:08:56Z
-   */
-  attachedTime?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * i-aaaa********
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the namespace.
-   * 
-   * @example
-   * 4c47c411-b9***********
-   */
-  namespaceId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      attachedTime: 'AttachedTime',
-      instanceId: 'InstanceId',
-      namespaceId: 'NamespaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attachedTime: 'string',
-      instanceId: 'string',
-      namespaceId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDisksResponseBodyDataTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * empty-str-0
-   */
-  tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * 000098dab001c600
-   */
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDisksResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The access authorization information of the disk.
-   */
-  accessAuthorization?: DescribeDisksResponseBodyDataAccessAuthorization[];
-  /**
-   * @remarks
-   * The time when the disk was attached.
-   * 
-   * @example
-   * 2021-06-07T06:08:56Z
-   */
-  attachedTime?: string;
-  /**
-   * @remarks
-   * The attachment information of the disk.
-   */
-  attachments?: DescribeDisksResponseBodyDataAttachments[];
-  /**
-   * @remarks
-   * Specifies whether to enable the performance burst feature for the disk. Valid values:
-   * 
-   * *   true: enable the performance burst feature.
-   * *   false: disable the performance burst feature.
-   * 
-   * @example
-   * true
-   */
-  burstingEnabled?: boolean;
-  /**
-   * @remarks
-   * The category of disk.
-   * 
-   * @example
-   * cloud_essd
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The time when the disk was created.
-   * 
-   * @example
-   * 2023-12-30 12:00:00
-   */
-  creationTime?: string;
-  /**
-   * @remarks
-   * The description of the disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-   * 
-   * @example
-   * desc
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The time when the disk was detached.
-   * 
-   * @example
-   * 2021-06-07T21:01:22Z
-   */
-  detachedTime?: string;
-  /**
-   * @remarks
-   * The maximum number of read and write operations per second. Unit: operations/s.
-   * 
-   * @example
-   * 4000
-   */
-  deviceNguid?: string;
-  /**
-   * @remarks
-   * The ID of the disk.
-   * 
-   * @example
-   * d-bp10jtnecw0yc6s96p0o
-   */
-  diskId?: string;
-  /**
-   * @remarks
-   * The name of the disk.
-   * 
-   * @example
-   * disk-name
-   */
-  diskName?: string;
-  /**
-   * @remarks
-   * Specifies whether to encrypt the disk. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * Default value: false.
-   * 
-   * @example
-   * true
-   */
-  encrypted?: boolean;
-  /**
-   * @remarks
-   * IOPS.
-   * 
-   * @example
-   * 26800
-   */
-  iops?: number;
-  /**
-   * @remarks
-   * The maximum number of read operations per second. Unit: operations/s.
-   * 
-   * @example
-   * 2000
-   */
-  iopsRead?: number;
-  /**
-   * @remarks
-   * The maximum number of write operations per second. Unit: operations/s.
-   * 
-   * @example
-   * 2000
-   */
-  iopsWrite?: number;
-  /**
-   * @remarks
-   * The ID of the KMS key.
-   * 
-   * @example
-   * key-hzz65*********
-   */
-  kmsKeyId?: string;
-  /**
-   * @remarks
-   * The time when the disk was modified.
-   * 
-   * @example
-   * 2023-12-30 12:00:00
-   */
-  modifyAt?: string;
-  /**
-   * @remarks
-   * The performance level of the ESSD. Valid values:
-   * 
-   * *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-   * *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
-   * *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-   * *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
-   * 
-   * Default value: PL1.
-   * 
-   * For more information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
-   * 
-   * @example
-   * PL0
-   */
-  performanceLevel?: string;
-  /**
-   * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
-   * 
-   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}
-   * 
-   * >  This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
-   * 
-   * @example
-   * 3200
-   */
-  provisionedIops?: number;
-  /**
-   * @remarks
-   * The region ID of the disk.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the disk belongs.
-   * 
-   * @example
-   * rg-aekz********
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The size of the disk. Unit: GB.
-   * 
-   * @example
-   * 40
-   */
-  size?: number;
-  /**
-   * @remarks
-   * The states of disk. Valid values:
-   * 
-   * *   In_use
-   * *   Available
-   * *   Attaching
-   * *   Detaching
-   * *   Creating
-   * *   ReIniting
-   * 
-   * @example
-   * Available
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The details of the tags.
-   */
-  tags?: DescribeDisksResponseBodyDataTags[];
-  /**
-   * @remarks
-   * The throughput of the disk.
-   * 
-   * Unit: MB/s.
-   * 
-   * @example
-   * 600
-   */
-  throughput?: number;
-  /**
-   * @remarks
-   * The zone ID of the disk.
-   * 
-   * @example
-   * cn-shenzhen-e
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessAuthorization: 'AccessAuthorization',
-      attachedTime: 'AttachedTime',
-      attachments: 'Attachments',
-      burstingEnabled: 'BurstingEnabled',
-      category: 'Category',
-      creationTime: 'CreationTime',
-      description: 'Description',
-      detachedTime: 'DetachedTime',
-      deviceNguid: 'DeviceNguid',
-      diskId: 'DiskId',
-      diskName: 'DiskName',
-      encrypted: 'Encrypted',
-      iops: 'Iops',
-      iopsRead: 'IopsRead',
-      iopsWrite: 'IopsWrite',
-      kmsKeyId: 'KmsKeyId',
-      modifyAt: 'ModifyAt',
-      performanceLevel: 'PerformanceLevel',
-      provisionedIops: 'ProvisionedIops',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      size: 'Size',
-      status: 'Status',
-      tags: 'Tags',
-      throughput: 'Throughput',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessAuthorization: { 'type': 'array', 'itemType': DescribeDisksResponseBodyDataAccessAuthorization },
-      attachedTime: 'string',
-      attachments: { 'type': 'array', 'itemType': DescribeDisksResponseBodyDataAttachments },
-      burstingEnabled: 'boolean',
-      category: 'string',
-      creationTime: 'string',
-      description: 'string',
-      detachedTime: 'string',
-      deviceNguid: 'string',
-      diskId: 'string',
-      diskName: 'string',
-      encrypted: 'boolean',
-      iops: 'number',
-      iopsRead: 'number',
-      iopsWrite: 'number',
-      kmsKeyId: 'string',
-      modifyAt: 'string',
-      performanceLevel: 'string',
-      provisionedIops: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      size: 'number',
-      status: 'string',
-      tags: { 'type': 'array', 'itemType': DescribeDisksResponseBodyDataTags },
-      throughput: 'number',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeEnterpriseSnapshotPolicyRequestTag extends $tea.Model {
   /**
    * @remarks
@@ -12617,485 +11729,11 @@ export class DescribeSolutionInstanceConfigurationRequestParameters extends $tea
   }
 }
 
-export class GetDiskResponseBodyDiskAccessAuthorizationEcs extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * i-uf6*******************
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDiskResponseBodyDiskAccessAuthorizationPod extends $tea.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * ccf9**************
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * The pod ID.
-   * 
-   * @example
-   * pid****************
-   */
-  podId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      podId: 'PodId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      podId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDiskResponseBodyDiskAccessAuthorization extends $tea.Model {
-  /**
-   * @remarks
-   * The token that is used to access the disk.
-   * 
-   * @example
-   * 4cd9******************
-   */
-  accessToken?: string;
-  /**
-   * @remarks
-   * The information of ecs.
-   */
-  ecs?: GetDiskResponseBodyDiskAccessAuthorizationEcs;
-  /**
-   * @remarks
-   * The information of pod.
-   */
-  pod?: GetDiskResponseBodyDiskAccessAuthorizationPod;
-  static names(): { [key: string]: string } {
-    return {
-      accessToken: 'AccessToken',
-      ecs: 'Ecs',
-      pod: 'Pod',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessToken: 'string',
-      ecs: GetDiskResponseBodyDiskAccessAuthorizationEcs,
-      pod: GetDiskResponseBodyDiskAccessAuthorizationPod,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDiskResponseBodyDiskAttachments extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the disk was attached.
-   * 
-   * @example
-   * 2021-11-18T19:30:16+08:00
-   */
-  attachedTime?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * i-cad***********
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the namespace.
-   * 
-   * @example
-   * 308e2*****************
-   */
-  namespaceId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      attachedTime: 'AttachedTime',
-      instanceId: 'InstanceId',
-      namespaceId: 'NamespaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attachedTime: 'string',
-      instanceId: 'string',
-      namespaceId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDiskResponseBodyDiskTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * tag_key
-   */
-  tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * tag_value
-   */
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDiskResponseBodyDisk extends $tea.Model {
-  /**
-   * @remarks
-   * The access authorization information of the disk.
-   */
-  accessAuthorization?: GetDiskResponseBodyDiskAccessAuthorization[];
-  /**
-   * @remarks
-   * The time when the disk was attached.
-   * 
-   * @example
-   * 2021-11-18T19:30:16+08:00
-   */
-  attachedTime?: string;
-  /**
-   * @remarks
-   * The attachment information of the disk.
-   */
-  attachments?: GetDiskResponseBodyDiskAttachments[];
-  /**
-   * @remarks
-   * Specifies whether to enable the performance burst feature for the disk. Valid values:
-   * 
-   * * true: enable the performance burst feature.
-   * * false: disable the performance burst feature.
-   * 
-   * @example
-   * true
-   */
-  burstingEnabled?: boolean;
-  /**
-   * @remarks
-   * The category of the disk.
-   * 
-   * @example
-   * cloud_essd
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The time when the disk was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
-   * 
-   * @example
-   * 2021-11-18T19:30:16+08:00
-   */
-  creationTime?: string;
-  /**
-   * @remarks
-   * The description of the disk.
-   * 
-   * @example
-   * desc
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The time when the disk was detached.
-   * 
-   * @example
-   * 2021-11-18T19:30:16+08:00
-   */
-  detachedTime?: string;
-  /**
-   * @remarks
-   * The maximum number of read and write operations per second. Unit: operations/s.
-   * 
-   * @example
-   * 4cd************
-   */
-  deviceNguid?: string;
-  /**
-   * @remarks
-   * The ID of the disk.
-   * 
-   * @example
-   * d-bp19c*********
-   */
-  diskId?: string;
-  /**
-   * @remarks
-   * The name of the disk.
-   * 
-   * @example
-   * diskName
-   */
-  diskName?: string;
-  /**
-   * @remarks
-   * Specifies whether to encrypt the disk. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * Default value: false.
-   * 
-   * @example
-   * true
-   */
-  encrypted?: boolean;
-  /**
-   * @remarks
-   * IOPS.
-   * 
-   * @example
-   * 46800
-   */
-  iops?: number;
-  /**
-   * @remarks
-   * The maximum number of read operations per second. Unit: operations/s.
-   * 
-   * @example
-   * 500
-   */
-  iopsRead?: number;
-  /**
-   * @remarks
-   * The maximum number of write operations per second. Unit: operations/s.
-   * 
-   * @example
-   * 500
-   */
-  iopsWrite?: number;
-  /**
-   * @remarks
-   * The ID of the KMS key.
-   * 
-   * @example
-   * key-hz**************
-   */
-  kmsKeyId?: string;
-  /**
-   * @remarks
-   * The time when the disk was modfied.
-   * 
-   * @example
-   * 2021-11-18T19:30:16+08:00
-   */
-  modifyAt?: string;
-  /**
-   * @remarks
-   * The performance level of the ESSD. Valid values:
-   * 
-   * * PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-   * * PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
-   * * PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-   * * PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
-   * 
-   * @example
-   * PL1
-   */
-  performanceLevel?: string;
-  /**
-   * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
-   * 
-   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}
-   * 
-   * >  This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
-   * 
-   * @example
-   * 5000
-   */
-  provisionedIops?: number;
-  /**
-   * @remarks
-   * The region ID of the disk. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the disk belongs.
-   * 
-   * @example
-   * rg-aek*************
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The size of the disk. Unit: GB.
-   * 
-   * @example
-   * 20
-   */
-  size?: number;
-  /**
-   * @remarks
-   * The states of disk. Valid values:
-   * 
-   * * In_use
-   * * Available
-   * * Attaching
-   * * Detaching
-   * * Creating
-   * * ReIniting
-   * 
-   * @example
-   * Available
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The details of the tags.
-   */
-  tags?: GetDiskResponseBodyDiskTags[];
-  /**
-   * @remarks
-   * The throughput of the disk.
-   * 
-   * Unit: MB/s.
-   * 
-   * @example
-   * 600
-   */
-  throughput?: number;
-  /**
-   * @remarks
-   * The ID of the zone where the disk resides.
-   * 
-   * @example
-   * cn-hangzhou-k
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessAuthorization: 'AccessAuthorization',
-      attachedTime: 'AttachedTime',
-      attachments: 'Attachments',
-      burstingEnabled: 'BurstingEnabled',
-      category: 'Category',
-      creationTime: 'CreationTime',
-      description: 'Description',
-      detachedTime: 'DetachedTime',
-      deviceNguid: 'DeviceNguid',
-      diskId: 'DiskId',
-      diskName: 'DiskName',
-      encrypted: 'Encrypted',
-      iops: 'Iops',
-      iopsRead: 'IopsRead',
-      iopsWrite: 'IopsWrite',
-      kmsKeyId: 'KmsKeyId',
-      modifyAt: 'ModifyAt',
-      performanceLevel: 'PerformanceLevel',
-      provisionedIops: 'ProvisionedIops',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      size: 'Size',
-      status: 'Status',
-      tags: 'Tags',
-      throughput: 'Throughput',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessAuthorization: { 'type': 'array', 'itemType': GetDiskResponseBodyDiskAccessAuthorization },
-      attachedTime: 'string',
-      attachments: { 'type': 'array', 'itemType': GetDiskResponseBodyDiskAttachments },
-      burstingEnabled: 'boolean',
-      category: 'string',
-      creationTime: 'string',
-      description: 'string',
-      detachedTime: 'string',
-      deviceNguid: 'string',
-      diskId: 'string',
-      diskName: 'string',
-      encrypted: 'boolean',
-      iops: 'number',
-      iopsRead: 'number',
-      iopsWrite: 'number',
-      kmsKeyId: 'string',
-      modifyAt: 'string',
-      performanceLevel: 'string',
-      provisionedIops: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      size: 'number',
-      status: 'string',
-      tags: { 'type': 'array', 'itemType': GetDiskResponseBodyDiskTags },
-      throughput: 'number',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetReportResponseBodyDatasData extends $tea.Model {
   /**
+   * @remarks
+   * Data Points.
+   * 
    * @example
    * {
    *   "1726416000": 0.44,
@@ -13110,6 +11748,9 @@ export class GetReportResponseBodyDatasData extends $tea.Model {
    */
   dataPoints?: { [key: string]: any };
   /**
+   * @remarks
+   * Data Labels.
+   * 
    * @example
    * {
    *   "category": "cloud"
@@ -13136,8 +11777,15 @@ export class GetReportResponseBodyDatasData extends $tea.Model {
 }
 
 export class GetReportResponseBodyDatas extends $tea.Model {
+  /**
+   * @remarks
+   * Data.
+   */
   data?: GetReportResponseBodyDatasData[];
   /**
+   * @remarks
+   * Data Title.
+   * 
    * @example
    * disk_count_percent_by_category
    */
@@ -13163,26 +11811,41 @@ export class GetReportResponseBodyDatas extends $tea.Model {
 
 export class ListReportsResponseBodyHistoryReports extends $tea.Model {
   /**
+   * @remarks
+   * Application name.
+   * 
    * @example
    * default
    */
   appName?: string;
   /**
+   * @remarks
+   * Report ID.
+   * 
    * @example
    * report-e19c7b597f5fXX
    */
   reportId?: string;
   /**
+   * @remarks
+   * Report name.
+   * 
    * @example
    * default-2024-09-30~2024-10-07-Usage Report
    */
   reportName?: string;
   /**
+   * @remarks
+   * Report generation time.
+   * 
    * @example
    * 2024-10-07T02:09:17Z
    */
   reportTime?: string;
   /**
+   * @remarks
+   * Report subscription period.
+   * 
    * @example
    * Weekly
    */
@@ -14509,54 +13172,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @remarks
-   * Currently, this API is only available for use with ACS resource hosting and is not yet open for direct invocation.
-   * 
-   * @param request - DeleteDiskRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteDiskResponse
-   */
-  async deleteDiskWithOptions(request: DeleteDiskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiskResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.diskId)) {
-      query["DiskId"] = request.diskId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteDisk",
-      version: "2021-07-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteDiskResponse>(await this.callApi(params, req, runtime), new DeleteDiskResponse({}));
-  }
-
-  /**
-   * @remarks
-   * Currently, this API is only available for use with ACS resource hosting and is not yet open for direct invocation.
-   * 
-   * @param request - DeleteDiskRequest
-   * @returns DeleteDiskResponse
-   */
-  async deleteDisk(request: DeleteDiskRequest): Promise<DeleteDiskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteDiskWithOptions(request, runtime);
-  }
-
-  /**
    * Deletes a replication pair-consistent group.
    * 
    * @remarks
@@ -15355,88 +13970,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - DescribeDisksRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeDisksResponse
-   */
-  async describeDisksWithOptions(request: DescribeDisksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDisksResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.category)) {
-      query["Category"] = request.category;
-    }
-
-    if (!Util.isUnset(request.diskIds)) {
-      query["DiskIds"] = request.diskIds;
-    }
-
-    if (!Util.isUnset(request.diskName)) {
-      query["DiskName"] = request.diskName;
-    }
-
-    if (!Util.isUnset(request.maxResults)) {
-      query["MaxResults"] = request.maxResults;
-    }
-
-    if (!Util.isUnset(request.nextToken)) {
-      query["NextToken"] = request.nextToken;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
-    if (!Util.isUnset(request.tag)) {
-      query["Tag"] = request.tag;
-    }
-
-    if (!Util.isUnset(request.zoneId)) {
-      query["ZoneId"] = request.zoneId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDisks",
-      version: "2021-07-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDisksResponse>(await this.callApi(params, req, runtime), new DescribeDisksResponse({}));
-  }
-
-  /**
-   * @param request - DescribeDisksRequest
-   * @returns DescribeDisksResponse
-   */
-  async describeDisks(request: DescribeDisksRequest): Promise<DescribeDisksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDisksWithOptions(request, runtime);
-  }
-
-  /**
    * Queries the information about enterprise-level snapshot policies. When you call this operation, you can specify parameters, such as PolicyIds, ResourceGroupId, and Tag, in the request.
    * 
    * @param request - DescribeEnterpriseSnapshotPolicyRequest
@@ -15700,6 +14233,10 @@ export default class Client extends OpenApi {
   async describeMetricDataWithOptions(request: DescribeMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMetricDataResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.aggreOps)) {
+      query["AggreOps"] = request.aggreOps;
+    }
+
     if (!Util.isUnset(request.dimensions)) {
       query["Dimensions"] = request.dimensions;
     }
@@ -16115,49 +14652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - GetDiskRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetDiskResponse
-   */
-  async getDiskWithOptions(request: GetDiskRequest, runtime: $Util.RuntimeOptions): Promise<GetDiskResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.diskId)) {
-      query["DiskId"] = request.diskId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetDisk",
-      version: "2021-07-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetDiskResponse>(await this.callApi(params, req, runtime), new GetDiskResponse({}));
-  }
-
-  /**
-   * @param request - GetDiskRequest
-   * @returns GetDiskResponse
-   */
-  async getDisk(request: GetDiskRequest): Promise<GetDiskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDiskWithOptions(request, runtime);
-  }
-
-  /**
-   * 中心化角色：使用reportId获取用户使用报告
+   * Centralized Role: Obtain User Usage Report with reportId
    * 
    * @param request - GetReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16202,7 +14697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 中心化角色：使用reportId获取用户使用报告
+   * Centralized Role: Obtain User Usage Report with reportId
    * 
    * @param request - GetReportRequest
    * @returns GetReportResponse
@@ -16213,7 +14708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 中心化角色：查询历史报告
+   * Centralized Role: Query Historical Reports
    * 
    * @param request - ListReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16266,7 +14761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 中心化角色：查询历史报告
+   * Centralized Role: Query Historical Reports
    * 
    * @param request - ListReportsRequest
    * @returns ListReportsResponse
