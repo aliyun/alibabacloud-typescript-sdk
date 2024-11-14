@@ -2272,6 +2272,176 @@ export class ChangeDetailListOfOrderNumResponse extends $tea.Model {
   }
 }
 
+export class CollectFlightLowestPriceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * access_token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6InN1ZXpfa2V5aWQifQ.eyJqdGkiOiJCQldMaWIzN0VxbC0xMjhhR2N5elJ3IiwiaWF0IjoxNjc3MDY2NTAxLCJleHAiOjE2NzcwNzM3MDEsIm5iZiI6MTY3NzA2NjQ0MX0.AF0DxsZK4Edyg0C6ObRQFUo36R1VYrb5IYmak25TmL1OfR5RkIUc3PpqFuQKNLKXf5fOtVQaKjaexzwodVeWZQDKEG_RPt_Ybb99EnEm6vPKs6e3pWFbKiBq71WleLHhVrdFb4YPowRKjc7bG0jyGUxiQ2iXy0RWDj9tIjfI-KEdzNp5oVnX7j4p3H12DwQrRPmd1nz3BciAQNINvDpzqusuIUw8JXyLFCz838Y0NhwB1_bYZyctxRLSzrGZuI5rrWtItgupqMsOlJ3RNy1QrIbQ2g6nPmzl-atOqcQ4Nw0HeDLR8dhM1OsIcFLbKXBUtwXofflhzAQrkDxhwYiXii
+   */
+  xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
+  xAcsAirticketLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAirticketAccessToken: 'x-acs-airticket-access-token',
+      xAcsAirticketLanguage: 'x-acs-airticket-language',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAirticketAccessToken: 'string',
+      xAcsAirticketLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CollectFlightLowestPriceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  lowestPriceFlightList?: CollectFlightLowestPriceRequestLowestPriceFlightList[];
+  static names(): { [key: string]: string } {
+    return {
+      lowestPriceFlightList: 'lowestPriceFlightList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lowestPriceFlightList: { 'type': 'array', 'itemType': CollectFlightLowestPriceRequestLowestPriceFlightList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CollectFlightLowestPriceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  lowestPriceFlightListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lowestPriceFlightListShrink: 'lowestPriceFlightList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lowestPriceFlightListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CollectFlightLowestPriceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
+   */
+  requestId?: string;
+  data?: { [key: string]: any };
+  /**
+   * @example
+   * null
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * null
+   */
+  errorData?: any;
+  /**
+   * @example
+   * null
+   */
+  errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
+  status?: number;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'data',
+      errorCode: 'error_code',
+      errorData: 'error_data',
+      errorMsg: 'error_msg',
+      status: 'status',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errorCode: 'string',
+      errorData: 'any',
+      errorMsg: 'string',
+      status: 'number',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CollectFlightLowestPriceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CollectFlightLowestPriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CollectFlightLowestPriceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnrichHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -9525,6 +9695,136 @@ export class ChangeDetailListOfOrderNumResponseBodyData extends $tea.Model {
   }
 }
 
+export class CollectFlightLowestPriceRequestLowestPriceFlightListFlightNumberInfo extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CA123,CA456
+   */
+  departureFlightNumber?: string;
+  /**
+   * @example
+   * CA123,CA456
+   */
+  returnFlightNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departureFlightNumber: 'departure_flight_number',
+      returnFlightNumber: 'return_flight_number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departureFlightNumber: 'string',
+      returnFlightNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CollectFlightLowestPriceRequestLowestPriceFlightList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MFM
+   */
+  arrivalCity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SHA
+   */
+  departureCity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-11-11
+   */
+  departureDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  flightNumberInfo?: CollectFlightLowestPriceRequestLowestPriceFlightListFlightNumberInfo;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100.0
+   */
+  marketTotalPrice?: number;
+  /**
+   * @example
+   * 123456789dacd
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2024-11-11
+   */
+  returnDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100.1
+   */
+  suezTotalPrice?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  tripType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arrivalCity: 'arrival_city',
+      departureCity: 'departure_city',
+      departureDate: 'departure_date',
+      flightNumberInfo: 'flight_number_info',
+      marketTotalPrice: 'market_total_price',
+      requestId: 'request_id',
+      returnDate: 'return_date',
+      suezTotalPrice: 'suez_total_price',
+      tripType: 'trip_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrivalCity: 'string',
+      departureCity: 'string',
+      departureDate: 'string',
+      flightNumberInfo: CollectFlightLowestPriceRequestLowestPriceFlightListFlightNumberInfo,
+      marketTotalPrice: 'number',
+      requestId: 'string',
+      returnDate: 'string',
+      suezTotalPrice: 'number',
+      tripType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnrichRequestJourneyParamListSegmentParamList extends $tea.Model {
   /**
    * @remarks
@@ -15955,6 +16255,70 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ChangeDetailListOfOrderNumHeaders({ });
     return await this.changeDetailListOfOrderNumWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 数据收集-低价航班信息
+   * 
+   * @param tmpReq - CollectFlightLowestPriceRequest
+   * @param headers - CollectFlightLowestPriceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CollectFlightLowestPriceResponse
+   */
+  async collectFlightLowestPriceWithOptions(tmpReq: CollectFlightLowestPriceRequest, headers: CollectFlightLowestPriceHeaders, runtime: $Util.RuntimeOptions): Promise<CollectFlightLowestPriceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CollectFlightLowestPriceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.lowestPriceFlightList)) {
+      request.lowestPriceFlightListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lowestPriceFlightList, "lowestPriceFlightList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.lowestPriceFlightListShrink)) {
+      body["lowestPriceFlightList"] = request.lowestPriceFlightListShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAirticketAccessToken)) {
+      realHeaders["x-acs-airticket-access-token"] = Util.toJSONString(headers.xAcsAirticketAccessToken);
+    }
+
+    if (!Util.isUnset(headers.xAcsAirticketLanguage)) {
+      realHeaders["x-acs-airticket-language"] = Util.toJSONString(headers.xAcsAirticketLanguage);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CollectFlightLowestPrice",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/airticket/v1/data-collect/flight-lowest-price`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CollectFlightLowestPriceResponse>(await this.callApi(params, req, runtime), new CollectFlightLowestPriceResponse({}));
+  }
+
+  /**
+   * 数据收集-低价航班信息
+   * 
+   * @param request - CollectFlightLowestPriceRequest
+   * @returns CollectFlightLowestPriceResponse
+   */
+  async collectFlightLowestPrice(request: CollectFlightLowestPriceRequest): Promise<CollectFlightLowestPriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CollectFlightLowestPriceHeaders({ });
+    return await this.collectFlightLowestPriceWithOptions(request, headers, runtime);
   }
 
   /**
