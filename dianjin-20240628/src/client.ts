@@ -2457,10 +2457,12 @@ export class GetParseResultRequest extends $tea.Model {
    * sjdgdsfg
    */
   libraryId?: string;
+  useUrlResult?: boolean;
   static names(): { [key: string]: string } {
     return {
       docId: 'docId',
       libraryId: 'libraryId',
+      useUrlResult: 'useUrlResult',
     };
   }
 
@@ -2468,6 +2470,7 @@ export class GetParseResultRequest extends $tea.Model {
     return {
       docId: 'string',
       libraryId: 'string',
+      useUrlResult: 'boolean',
     };
   }
 
@@ -3655,6 +3658,7 @@ export class RecognizeIntentionRequest extends $tea.Model {
   conversation?: string;
   globalIntentionList?: RecognizeIntentionRequestGlobalIntentionList[];
   hierarchicalIntentionList?: RecognizeIntentionRequestHierarchicalIntentionList[];
+  intentionDomainCode?: string;
   intentionList?: RecognizeIntentionRequestIntentionList[];
   /**
    * @example
@@ -3673,6 +3677,7 @@ export class RecognizeIntentionRequest extends $tea.Model {
       conversation: 'conversation',
       globalIntentionList: 'globalIntentionList',
       hierarchicalIntentionList: 'hierarchicalIntentionList',
+      intentionDomainCode: 'intentionDomainCode',
       intentionList: 'intentionList',
       opType: 'opType',
       recommend: 'recommend',
@@ -3686,6 +3691,7 @@ export class RecognizeIntentionRequest extends $tea.Model {
       conversation: 'string',
       globalIntentionList: { 'type': 'array', 'itemType': RecognizeIntentionRequestGlobalIntentionList },
       hierarchicalIntentionList: { 'type': 'array', 'itemType': RecognizeIntentionRequestHierarchicalIntentionList },
+      intentionDomainCode: 'string',
       intentionList: { 'type': 'array', 'itemType': RecognizeIntentionRequestIntentionList },
       opType: 'string',
       recommend: 'boolean',
@@ -6865,6 +6871,7 @@ export class GetParseResultResponseBodyData extends $tea.Model {
    *         }
    */
   result?: { [key: string]: any };
+  resultUrl?: string;
   /**
    * @example
    * WaitRefresh
@@ -6876,6 +6883,7 @@ export class GetParseResultResponseBodyData extends $tea.Model {
       providerType: 'providerType',
       requestId: 'requestId',
       result: 'result',
+      resultUrl: 'resultUrl',
       status: 'status',
     };
   }
@@ -6886,6 +6894,7 @@ export class GetParseResultResponseBodyData extends $tea.Model {
       providerType: 'string',
       requestId: 'string',
       result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resultUrl: 'string',
       status: 'string',
     };
   }
@@ -8243,11 +8252,13 @@ export class RecognizeIntentionRequestGlobalIntentionList extends $tea.Model {
    * 1810566978021232640
    */
   intentionCode?: string;
+  intentionScript?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'description',
       intention: 'intention',
       intentionCode: 'intentionCode',
+      intentionScript: 'intentionScript',
     };
   }
 
@@ -8256,6 +8267,7 @@ export class RecognizeIntentionRequestGlobalIntentionList extends $tea.Model {
       description: 'string',
       intention: 'string',
       intentionCode: 'string',
+      intentionScript: 'string',
     };
   }
 
@@ -8272,11 +8284,13 @@ export class RecognizeIntentionRequestHierarchicalIntentionList extends $tea.Mod
    * 1810929291010150400
    */
   intentionCode?: string;
+  intentionScript?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'description',
       intention: 'intention',
       intentionCode: 'intentionCode',
+      intentionScript: 'intentionScript',
     };
   }
 
@@ -8285,6 +8299,7 @@ export class RecognizeIntentionRequestHierarchicalIntentionList extends $tea.Mod
       description: 'string',
       intention: 'string',
       intentionCode: 'string',
+      intentionScript: 'string',
     };
   }
 
@@ -8301,11 +8316,13 @@ export class RecognizeIntentionRequestIntentionList extends $tea.Model {
    * 1808766224000262144
    */
   intentionCode?: string;
+  intentionScript?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'description',
       intention: 'intention',
       intentionCode: 'intentionCode',
+      intentionScript: 'intentionScript',
     };
   }
 
@@ -8314,6 +8331,7 @@ export class RecognizeIntentionRequestIntentionList extends $tea.Model {
       description: 'string',
       intention: 'string',
       intentionCode: 'string',
+      intentionScript: 'string',
     };
   }
 
@@ -8330,6 +8348,7 @@ export class RecognizeIntentionResponseBodyData extends $tea.Model {
    */
   intentionCode?: string;
   intentionName?: string;
+  intentionScript?: string;
   recommendIntention?: string;
   recommendScript?: string;
   static names(): { [key: string]: string } {
@@ -8337,6 +8356,7 @@ export class RecognizeIntentionResponseBodyData extends $tea.Model {
       analysisProcess: 'analysisProcess',
       intentionCode: 'intentionCode',
       intentionName: 'intentionName',
+      intentionScript: 'intentionScript',
       recommendIntention: 'recommendIntention',
       recommendScript: 'recommendScript',
     };
@@ -8347,6 +8367,7 @@ export class RecognizeIntentionResponseBodyData extends $tea.Model {
       analysisProcess: 'string',
       intentionCode: 'string',
       intentionName: 'string',
+      intentionScript: 'string',
       recommendIntention: 'string',
       recommendScript: 'string',
     };
@@ -10146,6 +10167,10 @@ export default class Client extends OpenApi {
       body["libraryId"] = request.libraryId;
     }
 
+    if (!Util.isUnset(request.useUrlResult)) {
+      body["useUrlResult"] = request.useUrlResult;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -10626,6 +10651,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.hierarchicalIntentionList)) {
       body["hierarchicalIntentionList"] = request.hierarchicalIntentionList;
+    }
+
+    if (!Util.isUnset(request.intentionDomainCode)) {
+      body["intentionDomainCode"] = request.intentionDomainCode;
     }
 
     if (!Util.isUnset(request.intentionList)) {
